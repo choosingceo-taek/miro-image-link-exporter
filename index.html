@@ -39,6 +39,7 @@
   </style>
 </head>
 <body>
+  <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
     <h1>🔗 이미지 링크 추출기</h1>
     <p class="desc">이 보드의 사진과, 사진에 걸어둔 링크(URL)를 찾아 <b>사진이 들어간 엑셀(.xlsx)</b>로 내려받습니다.</p>
@@ -59,6 +60,9 @@
   </div>
 
   <script>
+    // 이 파일 하나가 두 가지 역할을 합니다.
+    //  - ?view=panel  → 오른쪽에 뜨는 패널 UI
+    //  - 그 외        → 보드 로딩 시 실행되는 앱 진입점(아이콘 클릭 등록)
     const params = new URLSearchParams(location.search);
 
     if (params.get('view') === 'panel') {
@@ -82,6 +86,7 @@
 
       let rows = [];
 
+      // ── 1) 보드에서 이미지 + 링크 수집 ──────────────────────────────
       runBtn.addEventListener('click', async () => {
         runBtn.disabled = true;
         xlsxBtn.style.display = 'none';
@@ -92,14 +97,15 @@
         statusEl.textContent = '보드에서 이미지를 불러오는 중…';
 
         try {
+          // Web SDK가 페이지네이션을 알아서 처리해 보드의 모든 이미지를 반환합니다.
           const images = await miro.board.get({ type: 'image' });
 
           rows = images.map((img, i) => ({
             index: i + 1,
             id: img.id,
             title: (img.title || '').trim(),
-            link: (img.linkedTo || '').trim(),
-            imageUrl: (img.url || '').trim()
+            link: (img.linkedTo || '').trim(),   // 사진에 걸어둔 하이퍼링크
+            imageUrl: (img.url || '').trim()      // 사진 원본 주소
           }));
 
           const withLink = rows.filter(r => r.link).length;
@@ -109,6 +115,27 @@
           summaryEl.innerHTML =
             `전체 사진 <b>${rows.length}</b>개 중 링크가 걸린 사진 <b>${withLink}</b>개를 찾았습니다.`;
 
+          // 진단: 이미지 원본 주소를 못 가져오면 실제 필드를 노출해 원인 파악
+          const noneHaveUrl = rows.length && rows.every(r => !r.imageUrl);
+          if (noneHaveUrl && images[0]) {
+            const sample = images[0];
+            const cands = ['type', 'id', 'url', 'imageUrl', 'src', 'previewUrl', 'title', 'alt', 'linkedTo'];
+            const info = cands.map(k => {
+              let v;
+              try { v = sample[k]; } catch (e) { v = '(접근불가)'; }
+              if (v && typeof v === 'object') v = JSON.stringify(v);
+              v = (v === undefined) ? '(undefined)' : (v === '' ? '(빈값)' : String(v));
+              if (v.length > 80) v = v.slice(0, 80) + '…';
+              return k + ': ' + v;
+            }).join('\n');
+            summaryEl.innerHTML +=
+              `<div style="margin-top:8px;padding:8px;background:#fff4f4;border-radius:6px">` +
+              `<b>⚠ 이미지 원본 주소를 가져오지 못했습니다.</b><br>` +
+              `아래 진단 정보를 캡처해 전달해 주세요:` +
+              `<pre style="white-space:pre-wrap;font-size:11px;margin:6px 0 0">${escapeHtml(info)}</pre></div>`;
+          }
+
+          // 미리보기 (최대 50줄) — 썸네일 + 제목/링크
           rows.slice(0, 50).forEach(r => {
             const tr = document.createElement('tr');
 
@@ -163,6 +190,7 @@
         }
       });
 
+      // ── 2) 이미지가 들어간 엑셀(.xlsx) 만들기 ────────────────────────
       xlsxBtn.addEventListener('click', async () => {
         if (typeof ExcelJS === 'undefined') {
           statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 잠시 후 새로고침 뒤 다시 시도하세요.';
@@ -187,7 +215,7 @@
           let ok = 0, fail = 0;
           for (let i = 0; i < rows.length; i++) {
             const r = rows[i];
-            const excelRow = i + 2;
+            const excelRow = i + 2; // 1행은 헤더
             const row = ws.addRow({
               index: r.index,
               img: '',
@@ -197,7 +225,7 @@
               id: r.id ? String(r.id) : ''
             });
             row.height = 60;
-            ws.getCell(`F${excelRow}`).numFmt = '@';
+            ws.getCell(`F${excelRow}`).numFmt = '@'; // 아이템ID를 텍스트로(지수표기 방지)
 
             if (r.link) {
               const c = ws.getCell(`D${excelRow}`);
@@ -243,6 +271,7 @@
         }
       });
 
+      // ── 3) (선택) 텍스트만 CSV ──────────────────────────────────────
       csvBtn.addEventListener('click', () => {
         const header = ['번호', '제목', '링크(하이퍼링크)', '이미지원본URL', '아이템ID'];
         const lines = [header].concat(
@@ -251,6 +280,7 @@
         const csv = lines.map(cols =>
           cols.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')
         ).join('\r\n');
+        // BOM('﻿')을 붙여야 엑셀에서 한글이 깨지지 않습니다.
         downloadBlob(
           new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' }),
           `miro_image_links_${stamp()}.csv`
@@ -258,14 +288,14 @@
       });
     }
 
-    // 미로 이미지 주소를 다운스케일해 PNG(base64)로 변환. fetch가 막히면(CORS) 예외.
+    // 미로 이미지 주소 → 다운스케일한 PNG(base64). fetch가 막히면(CORS) 예외 발생.
     async function toPng(url, maxSize) {
       const resp = await fetch(url, { mode: 'cors' });
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       const blob = await resp.blob();
       const objUrl = URL.createObjectURL(blob);
       try {
-        const img = await loadImage(objUrl);
+        const img = await loadImage(objUrl); // blob: URL이라 canvas 오염 없음
         const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
         const w = Math.max(1, Math.round(img.width * scale));
         const h = Math.max(1, Math.round(img.height * scale));
