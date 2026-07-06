@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>이미지 링크 추출기</title>
+  <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      margin: 0; padding: 16px; color: #1a1a2e; background: #fff;
+    }
+    h1 { font-size: 16px; margin: 0 0 4px; }
+    p.desc { font-size: 12px; color: #666; margin: 0 0 16px; line-height: 1.5; }
+    button {
+      width: 100%; padding: 10px 12px; font-size: 14px; font-weight: 600;
+      border: none; border-radius: 8px; cursor: pointer;
+    }
+    #run { background: #4262ff; color: #fff; }
+    #run:disabled { background: #a9b6ff; cursor: default; }
+    #download { background: #16a34a; color: #fff; margin-top: 8px; display: none; }
+    #status { font-size: 12px; margin: 12px 0 4px; min-height: 16px; }
+    .summary {
+      display: none; margin-top: 12px; font-size: 12px;
+      background: #f4f6ff; border-radius: 8px; padding: 12px;
+    }
+    .summary b { color: #4262ff; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 11px; display: none; }
+    th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid #eee; vertical-align: top; }
+    th { color: #888; font-weight: 600; }
+    td a { color: #4262ff; word-break: break-all; }
+    .muted { color: #bbb; }
+  </style>
+</head>
+<body>
+  <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
+  <div id="app" style="display:none">
+    <h1>🔗 이미지 링크 추출기</h1>
+    <p class="desc">이 보드의 모든 사진과, 사진에 걸어둔 링크(URL)를 찾아 엑셀(CSV)로 내려받습니다.</p>
+
+    <button id="run">사진 링크 추출하기</button>
+    <button id="download">⬇︎ CSV 다운로드</button>
+
+    <div id="status"></div>
+    <div class="summary" id="summary"></div>
+
+    <table id="preview">
+      <thead>
+        <tr><th>#</th><th>제목</th><th>링크</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    // 이 파일 하나가 두 가지 역할을 합니다.
+    //  - ?view=panel  → 오른쪽에 뜨는 패널 UI
+    //  - 그 외        → 보드 로딩 시 실행되는 앱 진입점(아이콘 클릭 등록)
+    const params = new URLSearchParams(location.search);
+
+    if (params.get('view') === 'panel') {
+      initPanel();
+    } else {
+      miro.board.ui.on('icon:click', async () => {
+        await miro.board.ui.openPanel({ url: 'index.html?view=panel' });
+      });
+    }
+
+    function initPanel() {
+      document.getElementById('app').style.display = 'block';
+
+      const runBtn = document.getElementById('run');
+      const dlBtn = document.getElementById('download');
+      const statusEl = document.getElementById('status');
+      const summaryEl = document.getElementById('summary');
+      const table = document.getElementById('preview');
+      const tbody = table.querySelector('tbody');
+
+      let rows = [];
+
+      runBtn.addEventListener('click', async () => {
+        runBtn.disabled = true;
+        dlBtn.style.display = 'none';
+        table.style.display = 'none';
+        summaryEl.style.display = 'none';
+        tbody.innerHTML = '';
+        statusEl.textContent = '보드에서 이미지를 불러오는 중…';
+
+        try {
+          // Web SDK가 페이지네이션을 알아서 처리해 보드의 모든 이미지를 반환합니다.
+          const images = await miro.board.get({ type: 'image' });
+
+          rows = images.map((img, i) => ({
+            index: i + 1,
+            id: img.id,
+            title: (img.title || '').trim(),
+            link: (img.linkedTo || '').trim(),   // 사진에 걸어둔 하이퍼링크
+            imageUrl: (img.url || '').trim()      // 사진 원본 주소
+          }));
+
+          const withLink = rows.filter(r => r.link).length;
+
+          statusEl.textContent = '';
+          summaryEl.style.display = 'block';
+          summaryEl.innerHTML =
+            `전체 사진 <b>${rows.length}</b>개 중 링크가 걸린 사진 <b>${withLink}</b>개를 찾았습니다.`;
+
+          // 미리보기 (최대 50줄)
+          rows.slice(0, 50).forEach(r => {
+            const tr = document.createElement('tr');
+            const linkCell = r.link
+              ? `<a href="${escapeHtml(r.link)}" target="_blank" rel="noopener">${escapeHtml(r.link)}</a>`
+              : '<span class="muted">(링크 없음)</span>';
+            tr.innerHTML =
+              `<td>${r.index}</td>` +
+              `<td>${escapeHtml(r.title) || '<span class="muted">-</span>'}</td>` +
+              `<td>${linkCell}</td>`;
+            tbody.appendChild(tr);
+          });
+          if (rows.length > 50) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td colspan="3" class="muted">…나머지 ${rows.length - 50}개는 CSV 파일에서 확인하세요</td>`;
+            tbody.appendChild(tr);
+          }
+          table.style.display = rows.length ? 'table' : 'none';
+
+          if (rows.length) dlBtn.style.display = 'block';
+          else statusEl.textContent = '이 보드에서 이미지를 찾지 못했습니다.';
+        } catch (e) {
+          statusEl.textContent = '오류가 발생했습니다: ' + (e && e.message ? e.message : e);
+        } finally {
+          runBtn.disabled = false;
+        }
+      });
+
+      dlBtn.addEventListener('click', () => {
+        const header = ['번호', '제목', '링크(하이퍼링크)', '이미지원본URL', '아이템ID'];
+        const lines = [header].concat(
+          rows.map(r => [r.index, r.title, r.link, r.imageUrl, r.id])
+        );
+        const csv = lines.map(cols =>
+          cols.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')
+        ).join('\r\n');
+
+        // BOM(﻿)을 붙여야 엑셀에서 한글이 깨지지 않습니다.
+        const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const stamp = new Date().toISOString().slice(0, 10);
+        a.href = url;
+        a.download = `miro_image_links_${stamp}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+  </script>
+</body>
+</html>
