@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>이미지 링크 추출기</title>
   <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -17,10 +18,11 @@
       width: 100%; padding: 10px 12px; font-size: 14px; font-weight: 600;
       border: none; border-radius: 8px; cursor: pointer;
     }
+    button:disabled { opacity: .55; cursor: default; }
     #run { background: #4262ff; color: #fff; }
-    #run:disabled { background: #a9b6ff; cursor: default; }
-    #download { background: #16a34a; color: #fff; margin-top: 8px; display: none; }
-    #status { font-size: 12px; margin: 12px 0 4px; min-height: 16px; }
+    #downloadXlsx { background: #16a34a; color: #fff; margin-top: 8px; display: none; }
+    #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
+    #status { font-size: 12px; margin: 12px 0 4px; min-height: 16px; color: #444; }
     .summary {
       display: none; margin-top: 12px; font-size: 12px;
       background: #f4f6ff; border-radius: 8px; padding: 12px;
@@ -40,10 +42,11 @@
   <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
     <h1>🔗 이미지 링크 추출기</h1>
-    <p class="desc">이 보드의 모든 사진과, 사진에 걸어둔 링크(URL)를 찾아 엑셀(CSV)로 내려받습니다.</p>
+    <p class="desc">이 보드의 사진과, 사진에 걸어둔 링크(URL)를 찾아 <b>사진이 들어간 엑셀(.xlsx)</b>로 내려받습니다.</p>
 
     <button id="run">사진 링크 추출하기</button>
-    <button id="download">⬇︎ CSV 다운로드</button>
+    <button id="downloadXlsx">⬇︎ 이미지 삽입 엑셀 (.xlsx) 다운로드</button>
+    <button id="downloadCsv">텍스트만 CSV로 받기</button>
 
     <div id="status"></div>
     <div class="summary" id="summary"></div>
@@ -74,7 +77,8 @@
       document.getElementById('app').style.display = 'block';
 
       const runBtn = document.getElementById('run');
-      const dlBtn = document.getElementById('download');
+      const xlsxBtn = document.getElementById('downloadXlsx');
+      const csvBtn = document.getElementById('downloadCsv');
       const statusEl = document.getElementById('status');
       const summaryEl = document.getElementById('summary');
       const table = document.getElementById('preview');
@@ -82,24 +86,25 @@
 
       let rows = [];
 
+      // ── 1) 보드에서 이미지 + 링크 수집 ──────────────────
       runBtn.addEventListener('click', async () => {
         runBtn.disabled = true;
-        dlBtn.style.display = 'none';
+        xlsxBtn.style.display = 'none';
+        csvBtn.style.display = 'none';
         table.style.display = 'none';
         summaryEl.style.display = 'none';
         tbody.innerHTML = '';
         statusEl.textContent = '보드에서 이미지를 불러오는 중…';
 
         try {
-          // Web SDK가 페이지네이션을 알아서 처리해 보드의 모든 이미지를 반환합니다.
           const images = await miro.board.get({ type: 'image' });
 
           rows = images.map((img, i) => ({
             index: i + 1,
             id: img.id,
             title: (img.title || '').trim(),
-            link: (img.linkedTo || '').trim(),   // 사진에 걸어둔 하이퍼링크
-            imageUrl: (img.url || '').trim()      // 사진 원본 주소
+            link: (img.linkedTo || '').trim(),
+            imageUrl: (img.url || '').trim()
           }));
 
           const withLink = rows.filter(r => r.link).length;
@@ -109,7 +114,6 @@
           summaryEl.innerHTML =
             `전체 사진 <b>${rows.length}</b>개 중 링크가 걸린 사진 <b>${withLink}</b>개를 찾았습니다.`;
 
-          // 미리보기 (최대 50줄) — 썸네일 + 제목/링크
           rows.slice(0, 50).forEach(r => {
             const tr = document.createElement('tr');
 
@@ -121,7 +125,6 @@
               im.src = r.imageUrl;
               im.alt = '';
               im.loading = 'lazy';
-              // 이미지 주소가 직접 로드되지 않으면 안내 문구로 대체
               im.onerror = () => {
                 const s = document.createElement('span');
                 s.className = 'muted';
@@ -147,13 +150,17 @@
           });
           if (rows.length > 50) {
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td colspan="2" class="muted">…나머지 ${rows.length - 50}개는 CSV 파일에서 확인하세요</td>`;
+            tr.innerHTML = `<td colspan="2" class="muted">…나머지 ${rows.length - 50}개는 파일에서 확인하세요</td>`;
             tbody.appendChild(tr);
           }
           table.style.display = rows.length ? 'table' : 'none';
 
-          if (rows.length) dlBtn.style.display = 'block';
-          else statusEl.textContent = '이 보드에서 이미지를 찾지 못했습니다.';
+          if (rows.length) {
+            xlsxBtn.style.display = 'block';
+            csvBtn.style.display = 'block';
+          } else {
+            statusEl.textContent = '이 보드에서 이미지를 찾지 못했습니다.';
+          }
         } catch (e) {
           statusEl.textContent = '오류가 발생했습니다: ' + (e && e.message ? e.message : e);
         } finally {
@@ -161,7 +168,89 @@
         }
       });
 
-      dlBtn.addEventListener('click', () => {
+      // ── 2) 이미지가 들어간 엑셀(.xlsx) 만들기 ──────────────
+      xlsxBtn.addEventListener('click', async () => {
+        if (typeof ExcelJS === 'undefined') {
+          statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 잠시 후 새로고침 뒤 다시 시도하세요.';
+          return;
+        }
+        xlsxBtn.disabled = true;
+        csvBtn.disabled = true;
+
+        try {
+          const workbook = new ExcelJS.Workbook();
+          const ws = workbook.addWorksheet('사진링크');
+          ws.columns = [
+            { header: '번호', key: 'index', width: 6 },
+            { header: '이미지', key: 'img', width: 16 },
+            { header: '제목', key: 'title', width: 22 },
+            { header: '링크(하이퍼링크)', key: 'link', width: 48 },
+            { header: '이미지원본URL', key: 'imageUrl', width: 48 },
+            { header: '아이템ID', key: 'id', width: 24 }
+          ];
+          ws.getRow(1).font = { bold: true };
+
+          let ok = 0, fail = 0;
+          for (let i = 0; i < rows.length; i++) {
+            const r = rows[i];
+            const excelRow = i + 2; // 1행은 헤더
+            const row = ws.addRow({
+              index: r.index,
+              img: '',
+              title: r.title,
+              link: '',
+              imageUrl: r.imageUrl,
+              id: r.id ? String(r.id) : ''
+            });
+            row.height = 60;
+            ws.getCell(`F${excelRow}`).numFmt = '@'; // 아이템ID를 텍스트로(지수표기 방지)
+
+            if (r.link) {
+              const c = ws.getCell(`D${excelRow}`);
+              c.value = { text: r.link, hyperlink: r.link };
+              c.font = { color: { argb: 'FF4262FF' }, underline: true };
+            }
+
+            if (r.imageUrl) {
+              try {
+                const { base64, w, h } = await toPng(r.imageUrl, 100);
+                const imageId = workbook.addImage({ base64, extension: 'png' });
+                ws.addImage(imageId, {
+                  tl: { col: 1.05, row: (excelRow - 1) + 0.05 },
+                  ext: { width: w, height: h },
+                  editAs: 'oneCell'
+                });
+                row.height = Math.max(row.height, h * 0.75 + 6);
+                ok++;
+              } catch (e) {
+                const c = ws.getCell(`B${excelRow}`);
+                c.value = '(이미지 불러오기 실패)';
+                c.font = { color: { argb: 'FFBBBBBB' }, size: 9 };
+                fail++;
+              }
+            }
+            statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${rows.length}  (이미지 성공 ${ok}, 실패 ${fail})`;
+          }
+
+          const buf = await workbook.xlsx.writeBuffer();
+          downloadBlob(
+            new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
+            `miro_image_links_${stamp()}.xlsx`
+          );
+
+          statusEl.textContent =
+            `완료! 이미지 ${ok}개 삽입` +
+            (fail ? `, ${fail}개 실패(미로 이미지 접근 제한).` : '.');
+        } catch (e) {
+          statusEl.textContent = '엑셀 생성 중 오류: ' + (e && e.message ? e.message : e);
+        } finally {
+          xlsxBtn.disabled = false;
+          csvBtn.disabled = false;
+        }
+      });
+
+      // ── 3) (선택) 텍스트만 CSV ──────────────────────
+      csvBtn.addEventListener('click', () => {
         const header = ['번호', '제목', '링크(하이퍼링크)', '이미지원본URL', '아이템ID'];
         const lines = [header].concat(
           rows.map(r => [r.index, r.title, r.link, r.imageUrl, r.id])
@@ -169,20 +258,54 @@
         const csv = lines.map(cols =>
           cols.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')
         ).join('\r\n');
-
-        // BOM(﻿)을 붙여야 엑셀에서 한글이 깨지지 않습니다.
-        const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        const stamp = new Date().toISOString().slice(0, 10);
-        a.href = url;
-        a.download = `miro_image_links_${stamp}.csv`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        downloadBlob(
+          new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' }),
+          `miro_image_links_${stamp()}.csv`
+        );
       });
     }
+
+    // 미로 이미지 주소 → 다운스케일한 PNG(base64). fetch가 막히면(CORS) 예외 발생.
+    async function toPng(url, maxSize) {
+      const resp = await fetch(url, { mode: 'cors' });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const blob = await resp.blob();
+      const objUrl = URL.createObjectURL(blob);
+      try {
+        const img = await loadImage(objUrl); // blob: URL이a canvas 오염 없음
+        const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
+        const w = Math.max(1, Math.round(img.width * scale));
+        const h = Math.max(1, Math.round(img.height * scale));
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        return { base64: canvas.toDataURL('image/png').split(',')[1], w, h };
+      } finally {
+        URL.revokeObjectURL(objUrl);
+      }
+    }
+
+    function loadImage(src) {
+      return new Promise((res, rej) => {
+        const im = new Image();
+        im.onload = () => res(im);
+        im.onerror = () => rej(new Error('이미지 로드 실패'));
+        im.src = src;
+      });
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function stamp() { return new Date().toISOString().slice(0, 10); }
 
     function escapeHtml(s) {
       return String(s)
