@@ -69,7 +69,8 @@
       initPanel();
     } else {
       miro.board.ui.on('icon:click', async () => {
-        await miro.board.ui.openPanel({ url: 'index.html?view=panel' });
+        // v=타임스탬프로 매번 새 URL을 만들어 브라우저 캐시를 우회합니다.
+        await miro.board.ui.openPanel({ url: 'index.html?view=panel&v=' + Date.now() });
       });
     }
 
