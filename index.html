@@ -30,6 +30,9 @@
     th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid #eee; vertical-align: top; }
     th { color: #888; font-weight: 600; }
     td a { color: #4262ff; word-break: break-all; }
+    td.imgcell { width: 64px; }
+    .thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; background: #f1f1f4; display: block; }
+    .ttl { font-weight: 600; margin-bottom: 3px; word-break: break-all; }
     .muted { color: #bbb; }
   </style>
 </head>
@@ -47,7 +50,7 @@
 
     <table id="preview">
       <thead>
-        <tr><th>#</th><th>제목</th><th>링크</th></tr>
+        <tr><th>이미지</th><th>제목 / 링크</th></tr>
       </thead>
       <tbody></tbody>
     </table>
@@ -106,21 +109,45 @@
           summaryEl.innerHTML =
             `전체 사진 <b>${rows.length}</b>개 중 링크가 걸린 사진 <b>${withLink}</b>개를 찾았습니다.`;
 
-          // 미리보기 (최대 50줄)
+          // 미리보기 (최대 50줄) — 썸네일 + 제목/링크
           rows.slice(0, 50).forEach(r => {
             const tr = document.createElement('tr');
-            const linkCell = r.link
+
+            const imgTd = document.createElement('td');
+            imgTd.className = 'imgcell';
+            if (r.imageUrl) {
+              const im = document.createElement('img');
+              im.className = 'thumb';
+              im.src = r.imageUrl;
+              im.alt = '';
+              im.loading = 'lazy';
+              // 이미지 주소가 직접 로드되지 않으면 안내 문구로 대체
+              im.onerror = () => {
+                const s = document.createElement('span');
+                s.className = 'muted';
+                s.textContent = '미리보기 불가';
+                im.replaceWith(s);
+              };
+              imgTd.appendChild(im);
+            } else {
+              imgTd.innerHTML = '<span class="muted">-</span>';
+            }
+
+            const infoTd = document.createElement('td');
+            const linkHtml = r.link
               ? `<a href="${escapeHtml(r.link)}" target="_blank" rel="noopener">${escapeHtml(r.link)}</a>`
               : '<span class="muted">(링크 없음)</span>';
-            tr.innerHTML =
-              `<td>${r.index}</td>` +
-              `<td>${escapeHtml(r.title) || '<span class="muted">-</span>'}</td>` +
-              `<td>${linkCell}</td>`;
+            infoTd.innerHTML =
+              `<div class="ttl">${escapeHtml(r.title) || '<span class="muted">(제목 없음)</span>'}</div>` +
+              `<div>${linkHtml}</div>`;
+
+            tr.appendChild(imgTd);
+            tr.appendChild(infoTd);
             tbody.appendChild(tr);
           });
           if (rows.length > 50) {
             const tr = document.createElement('tr');
-            tr.innerHTML = `<td colspan="3" class="muted">…나머지 ${rows.length - 50}개는 CSV 파일에서 확인하세요</td>`;
+            tr.innerHTML = `<td colspan="2" class="muted">…나머지 ${rows.length - 50}개는 CSV 파일에서 확인하세요</td>`;
             tbody.appendChild(tr);
           }
           table.style.display = rows.length ? 'table' : 'none';
