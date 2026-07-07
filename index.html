@@ -22,6 +22,17 @@
     #run { background: #4262ff; color: #fff; }
     #downloadXlsx { background: #16a34a; color: #fff; margin-top: 8px; display: none; }
     #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
+    #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
+    #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
+    details.settings { margin-top: 12px; font-size: 12px; color: #555; }
+    details.settings summary { cursor: pointer; user-select: none; }
+    details.settings label { display: block; margin: 8px 0 2px; font-weight: 600; }
+    details.settings input { width: 100%; padding: 6px 8px; font-size: 12px; border: 1px solid #ddd; border-radius: 6px; }
+    .fbadge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 6px; margin-left: 4px; vertical-align: middle; }
+    .fbadge.ok { background: #e7f6ec; color: #16794a; }
+    .fbadge.warn { background: #fff4e5; color: #a15c00; }
+    .fbadge.err { background: #fdeaea; color: #b42318; }
+    .comp { font-weight: 600; }
     #status { font-size: 12px; margin: 12px 0 4px; min-height: 16px; color: #444; }
     .summary {
       display: none; margin-top: 12px; font-size: 12px;
@@ -47,6 +58,16 @@
     <button id="run">사진 링크 추출하기</button>
     <button id="downloadXlsx">⬇︎ 이미지 삽입 엑셀 (.xlsx) 다운로드</button>
     <button id="downloadCsv">텍스트만 CSV로 받기</button>
+    <button id="analyzeFabric">🧵 원단 정보 분석 (Claude)</button>
+    <button id="downloadFabricXlsx">⬇︎ 원단 포함 엑셀 (.xlsx) 다운로드</button>
+
+    <details class="settings" id="fabricSettings">
+      <summary>⚙︎ 원단 분석 서버 설정</summary>
+      <label for="workerUrl">Worker URL (Cloudflare 함수 주소)</label>
+      <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
+      <label for="accessToken">Access token (선택)</label>
+      <input id="accessToken" type="text" placeholder="서버에 ACCESS_TOKEN을 설정한 경우만" />
+    </details>
 
     <div id="status"></div>
     <div class="summary" id="summary"></div>
@@ -80,12 +101,28 @@
       const runBtn = document.getElementById('run');
       const xlsxBtn = document.getElementById('downloadXlsx');
       const csvBtn = document.getElementById('downloadCsv');
+      const fabricBtn = document.getElementById('analyzeFabric');
+      const fabricXlsxBtn = document.getElementById('downloadFabricXlsx');
+      const workerUrlEl = document.getElementById('workerUrl');
+      const accessTokenEl = document.getElementById('accessToken');
       const statusEl = document.getElementById('status');
       const summaryEl = document.getElementById('summary');
       const table = document.getElementById('preview');
       const tbody = table.querySelector('tbody');
 
       let rows = [];
+
+      // 원단 분석 서버 설정을 브라우저에 기억(팀원마다 1회만 입력).
+      try {
+        workerUrlEl.value = localStorage.getItem('fabricWorkerUrl') || '';
+        accessTokenEl.value = localStorage.getItem('fabricAccessToken') || '';
+      } catch (e) {}
+      workerUrlEl.addEventListener('change', () => {
+        try { localStorage.setItem('fabricWorkerUrl', workerUrlEl.value.trim()); } catch (e) {}
+      });
+      accessTokenEl.addEventListener('change', () => {
+        try { localStorage.setItem('fabricAccessToken', accessTokenEl.value.trim()); } catch (e) {}
+      });
 
       // ── 1) 보드에서 이미지 + 링크 수집 ──────────────────────────────
       runBtn.addEventListener('click', async () => {
@@ -136,51 +173,13 @@
               `<pre style="white-space:pre-wrap;font-size:11px;margin:6px 0 0">${escapeHtml(info)}</pre></div>`;
           }
 
-          // 미리보기 (최대 50줄) — 썸네일 + 제목/링크
-          rows.slice(0, 50).forEach(r => {
-            const tr = document.createElement('tr');
-
-            const imgTd = document.createElement('td');
-            imgTd.className = 'imgcell';
-            if (r.imageUrl) {
-              const im = document.createElement('img');
-              im.className = 'thumb';
-              im.src = r.imageUrl;
-              im.alt = '';
-              im.loading = 'lazy';
-              im.onerror = () => {
-                const s = document.createElement('span');
-                s.className = 'muted';
-                s.textContent = '미리보기 불가';
-                im.replaceWith(s);
-              };
-              imgTd.appendChild(im);
-            } else {
-              imgTd.innerHTML = '<span class="muted">-</span>';
-            }
-
-            const infoTd = document.createElement('td');
-            const linkHtml = r.link
-              ? `<a href="${escapeHtml(r.link)}" target="_blank" rel="noopener">${escapeHtml(r.link)}</a>`
-              : '<span class="muted">(링크 없음)</span>';
-            infoTd.innerHTML =
-              `<div class="ttl">${escapeHtml(r.title) || '<span class="muted">(제목 없음)</span>'}</div>` +
-              `<div>${linkHtml}</div>`;
-
-            tr.appendChild(imgTd);
-            tr.appendChild(infoTd);
-            tbody.appendChild(tr);
-          });
-          if (rows.length > 50) {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td colspan="2" class="muted">…나머지 ${rows.length - 50}개는 파일에서 확인하세요</td>`;
-            tbody.appendChild(tr);
-          }
-          table.style.display = rows.length ? 'table' : 'none';
+          // 미리보기 (최대 50줄) — 썸네일 + 제목/링크 (+원단, 분석 후)
+          renderPreview();
 
           if (rows.length) {
             xlsxBtn.style.display = 'block';
             csvBtn.style.display = 'block';
+            if (withLink) fabricBtn.style.display = 'block';
           } else {
             statusEl.textContent = '이 보드에서 이미지를 찾지 못했습니다.';
           }
@@ -287,6 +286,288 @@
           `miro_image_links_${stamp()}.csv`
         );
       });
+
+      // ── 4) 원단 정보 분석 (링크된 상품 페이지 → Claude web_fetch) ──────
+      fabricBtn.addEventListener('click', async () => {
+        const workerUrl = (workerUrlEl.value || '').trim();
+        if (!workerUrl) {
+          document.getElementById('fabricSettings').open = true;
+          statusEl.textContent = '먼저 아래 ⚙︎ 원단 분석 서버 설정에서 Worker URL을 입력하세요.';
+          return;
+        }
+        const token = (accessTokenEl.value || '').trim();
+        const targets = rows.filter(r => r.link);
+        if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
+
+        fabricBtn.disabled = true; xlsxBtn.disabled = true; csvBtn.disabled = true;
+        fabricXlsxBtn.style.display = 'none';
+
+        let done = 0, okc = 0, failc = 0;
+        const update = () => {
+          statusEl.textContent = `원단 분석 중… ${done}/${targets.length} (성공 ${okc}, 실패 ${failc})`;
+        };
+        update();
+
+        await runPool(targets, 4, async (r) => {
+          try {
+            const headers = { 'Content-Type': 'application/json' };
+            if (token) headers['x-access-token'] = token;
+            const resp = await fetch(workerUrl, {
+              method: 'POST', headers, body: JSON.stringify({ url: r.link }),
+            });
+            const data = await resp.json();
+            r.fabric = {
+              product_name: data.product_name || '',
+              composition: Array.isArray(data.composition) ? data.composition : [],
+              materials: Array.isArray(data.materials) ? data.materials : [],
+              status: data.status || (resp.ok ? 'ok' : 'error'),
+              note: data.note || (data.error || ''),
+            };
+            if (r.fabric.status === 'ok' && (r.fabric.composition.length || r.fabric.materials.length)) okc++;
+            else failc++;
+          } catch (e) {
+            r.fabric = { product_name: '', composition: [], materials: [], status: 'error', note: String((e && e.message) || e) };
+            failc++;
+          }
+          done++; update(); renderPreview();
+        });
+
+        fabricBtn.disabled = false; xlsxBtn.disabled = false; csvBtn.disabled = false;
+        fabricXlsxBtn.style.display = 'block';
+        statusEl.textContent = `원단 분석 완료 — 성공 ${okc} / 실패 ${failc}. 아래 버튼으로 엑셀을 받으세요.`;
+      });
+
+      // ── 5) 원단 포함 엑셀(.xlsx): 상품 시트 + 소재 통계/차트 ──────────
+      fabricXlsxBtn.addEventListener('click', async () => {
+        if (typeof ExcelJS === 'undefined') {
+          statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';
+          return;
+        }
+        fabricXlsxBtn.disabled = true;
+        try {
+          const workbook = new ExcelJS.Workbook();
+          const ws = workbook.addWorksheet('원단정보');
+          ws.columns = [
+            { header: '번호', key: 'index', width: 6 },
+            { header: '이미지', key: 'img', width: 16 },
+            { header: '제목', key: 'title', width: 22 },
+            { header: '링크', key: 'link', width: 44 },
+            { header: '혼용률', key: 'comp', width: 30 },
+            { header: '소재', key: 'materials', width: 24 },
+            { header: '상태', key: 'status', width: 10 },
+          ];
+          ws.getRow(1).font = { bold: true };
+
+          let ok = 0, fail = 0;
+          for (let i = 0; i < rows.length; i++) {
+            const r = rows[i];
+            const excelRow = i + 2;
+            const f = r.fabric || {};
+            const compStr = (f.composition || []).map(c => `${c.material} ${c.percent}%`).join(' / ');
+            const row = ws.addRow({
+              index: r.index, img: '', title: r.title, link: '',
+              comp: compStr, materials: (f.materials || []).join(', '),
+              status: statusLabel(f.status),
+            });
+            row.height = 60;
+            if (r.link) {
+              const c = ws.getCell(`D${excelRow}`);
+              c.value = { text: r.link, hyperlink: r.link };
+              c.font = { color: { argb: 'FF4262FF' }, underline: true };
+            }
+            if (r.imageUrl) {
+              try {
+                const { base64, w, h } = await toPng(r.imageUrl, 100);
+                const id = workbook.addImage({ base64, extension: 'png' });
+                ws.addImage(id, { tl: { col: 1.05, row: (excelRow - 1) + 0.05 }, ext: { width: w, height: h }, editAs: 'oneCell' });
+                row.height = Math.max(row.height, h * 0.75 + 6);
+              } catch (e) {
+                ws.getCell(`B${excelRow}`).value = '(이미지 실패)';
+              }
+            }
+            if (f.status === 'ok' && (compStr || (f.materials || []).length)) ok++; else fail++;
+            statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${rows.length}`;
+          }
+
+          // 소재 통계 시트 + 막대 차트
+          const stats = computeMaterialStats();
+          const ss = workbook.addWorksheet('소재통계');
+          ss.columns = [
+            { header: '소재', key: 'm', width: 20 },
+            { header: '등장 상품수', key: 'count', width: 14 },
+            { header: '평균 혼용률(%)', key: 'avg', width: 16 },
+          ];
+          ss.getRow(1).font = { bold: true };
+          stats.forEach(s => ss.addRow({
+            m: s.material, count: s.count,
+            avg: s.avg != null ? Math.round(s.avg * 10) / 10 : '',
+          }));
+          try {
+            const chart = drawBarChart(stats.slice(0, 10));
+            if (chart) {
+              const cid = workbook.addImage({ base64: chart.base64, extension: 'png' });
+              ss.addImage(cid, { tl: { col: 4, row: 1 }, ext: { width: chart.w, height: chart.h } });
+            }
+          } catch (e) {}
+
+          const buf = await workbook.xlsx.writeBuffer();
+          downloadBlob(
+            new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
+            `miro_fabric_${stamp()}.xlsx`
+          );
+          statusEl.textContent = `완료! 원단 추출 성공 ${ok} / 실패 ${fail}.`;
+        } catch (e) {
+          statusEl.textContent = '엑셀 생성 중 오류: ' + ((e && e.message) || e);
+        } finally {
+          fabricXlsxBtn.disabled = false;
+        }
+      });
+
+      // ── 미리보기 렌더 (분석 후 원단 열 추가) ─────────────────────────
+      function renderPreview() {
+        const hasFabric = rows.some(r => r.fabric);
+        const thead = table.querySelector('thead');
+        thead.innerHTML = hasFabric
+          ? '<tr><th>이미지</th><th>제목 / 링크</th><th>원단</th></tr>'
+          : '<tr><th>이미지</th><th>제목 / 링크</th></tr>';
+        tbody.innerHTML = '';
+        rows.slice(0, 50).forEach(r => {
+          const tr = document.createElement('tr');
+
+          const imgTd = document.createElement('td');
+          imgTd.className = 'imgcell';
+          if (r.imageUrl) {
+            const im = document.createElement('img');
+            im.className = 'thumb';
+            im.src = r.imageUrl;
+            im.alt = '';
+            im.loading = 'lazy';
+            im.onerror = () => {
+              const s = document.createElement('span');
+              s.className = 'muted';
+              s.textContent = '미리보기 불가';
+              im.replaceWith(s);
+            };
+            imgTd.appendChild(im);
+          } else {
+            imgTd.innerHTML = '<span class="muted">-</span>';
+          }
+
+          const infoTd = document.createElement('td');
+          const linkHtml = r.link
+            ? `<a href="${escapeHtml(r.link)}" target="_blank" rel="noopener">${escapeHtml(r.link)}</a>`
+            : '<span class="muted">(링크 없음)</span>';
+          infoTd.innerHTML =
+            `<div class="ttl">${escapeHtml(r.title) || '<span class="muted">(제목 없음)</span>'}</div>` +
+            `<div>${linkHtml}</div>`;
+
+          tr.appendChild(imgTd);
+          tr.appendChild(infoTd);
+
+          if (hasFabric) {
+            const fTd = document.createElement('td');
+            fTd.innerHTML = fabricCellHtml(r.fabric);
+            tr.appendChild(fTd);
+          }
+          tbody.appendChild(tr);
+        });
+        if (rows.length > 50) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td colspan="${hasFabric ? 3 : 2}" class="muted">…나머지 ${rows.length - 50}개는 파일에서 확인하세요</td>`;
+          tbody.appendChild(tr);
+        }
+        table.style.display = rows.length ? 'table' : 'none';
+      }
+
+      function fabricCellHtml(f) {
+        if (!f) return '<span class="muted">-</span>';
+        const comp = (f.composition || []).map(c => `${escapeHtml(c.material)} ${c.percent}%`).join(' / ');
+        const mats = (f.materials || []).map(escapeHtml).join(', ');
+        let badge = '';
+        if (f.status === 'no_data') badge = '<span class="fbadge warn">정보없음</span>';
+        else if (f.status === 'blocked') badge = '<span class="fbadge warn">접근차단</span>';
+        else if (f.status && f.status !== 'ok') badge = '<span class="fbadge err">실패</span>';
+        const main = comp
+          ? `<span class="comp">${comp}</span>`
+          : (mats ? escapeHtml(mats) : '<span class="muted">-</span>');
+        const note = f.note ? `<div class="muted" style="font-size:10px">${escapeHtml(f.note)}</div>` : '';
+        return main + badge + note;
+      }
+
+      function statusLabel(s) {
+        if (s === 'ok') return '추출됨';
+        if (s === 'no_data') return '정보없음';
+        if (s === 'blocked') return '접근차단';
+        return s ? '실패' : '';
+      }
+
+      // material -> {count(등장 상품수), avg(평균 혼용률)}
+      function computeMaterialStats() {
+        const map = new Map();
+        rows.forEach(r => {
+          const f = r.fabric;
+          if (!f) return;
+          const comp = f.composition || [];
+          const seen = new Set();
+          comp.forEach(c => {
+            if (!c || !c.material) return;
+            const m = c.material;
+            seen.add(m);
+            const e = map.get(m) || { count: 0, sum: 0, n: 0 };
+            if (typeof c.percent === 'number' && !Number.isNaN(c.percent)) { e.sum += c.percent; e.n++; }
+            map.set(m, e);
+          });
+          const mats = seen.size ? seen : new Set((f.materials || []).filter(Boolean));
+          mats.forEach(m => {
+            const e = map.get(m) || { count: 0, sum: 0, n: 0 };
+            e.count++;
+            map.set(m, e);
+          });
+        });
+        const arr = [...map.entries()].map(([material, e]) => ({
+          material, count: e.count, avg: e.n ? e.sum / e.n : null,
+        }));
+        arr.sort((a, b) => b.count - a.count);
+        return arr;
+      }
+
+      function drawBarChart(items) {
+        if (!items || !items.length) return null;
+        const W = 440, barH = 22, gap = 10, padL = 120, padR = 44, padT = 34, padB = 12;
+        const H = padT + padB + items.length * (barH + gap);
+        const canvas = document.createElement('canvas');
+        canvas.width = W; canvas.height = H;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = '#1a1a2e'; ctx.font = 'bold 13px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('소재별 등장 상품수', padL, 20);
+        const max = Math.max.apply(null, items.map(i => i.count).concat([1]));
+        ctx.font = '12px sans-serif';
+        items.forEach((it, idx) => {
+          const y = padT + idx * (barH + gap);
+          const w = Math.round((W - padL - padR) * (it.count / max));
+          ctx.fillStyle = '#7c3aed'; ctx.fillRect(padL, y, w, barH);
+          ctx.fillStyle = '#333'; ctx.textAlign = 'right';
+          ctx.fillText(it.material, padL - 8, y + barH - 6);
+          ctx.fillStyle = '#111'; ctx.textAlign = 'left';
+          ctx.fillText(String(it.count), padL + w + 6, y + barH - 6);
+        });
+        return { base64: canvas.toDataURL('image/png').split(',')[1], w: W, h: H };
+      }
+
+      // 동시 실행 풀
+      async function runPool(items, size, fn) {
+        let i = 0;
+        const n = Math.min(size, items.length);
+        const workers = new Array(n).fill(0).map(async () => {
+          while (i < items.length) {
+            const idx = i++;
+            await fn(items[idx]);
+          }
+        });
+        await Promise.all(workers);
+      }
     }
 
     // 미로 이미지 주소 → 다운스케일한 PNG(base64). fetch가 막히면(CORS) 예외 발생.

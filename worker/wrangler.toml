@@ -1,0 +1,14 @@
+name = "fabric-extractor"
+main = "fabric-extractor.js"
+compatibility_date = "2024-11-01"
+
+# 배포 후 패널 주소로 좁히기를 권장합니다(오남용/비용 방지).
+# 예: "https://choosingceo-taek.github.io"
+[vars]
+ALLOWED_ORIGIN = "*"
+
+# ── 시크릿(코드/저장소에 넣지 말 것) ──────────────────────────
+# 반드시 CLI로 주입:
+#   wrangler secret put ANTHROPIC_API_KEY
+# (선택) 오남용 방지용 공유 토큰:
+#   wrangler secret put ACCESS_TOKEN
