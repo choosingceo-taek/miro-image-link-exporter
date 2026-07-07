@@ -24,6 +24,8 @@
     #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
     #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
     #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
+    #oneClick { background: #7c3aed; color: #fff; font-size: 15px; padding: 13px; }
+    details.settings button { margin-top: 8px; }
     details.settings { margin-top: 12px; font-size: 12px; color: #555; }
     details.settings summary { cursor: pointer; user-select: none; }
     details.settings label { display: block; margin: 8px 0 2px; font-weight: 600; }
@@ -52,21 +54,27 @@
 <body>
   <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
-    <h1>🔗 이미지 링크 추출기</h1>
-    <p class="desc">이 보드의 사진과, 사진에 걸어둔 링크(URL)를 찾아 <b>사진이 들어간 엑셀(.xlsx)</b>로 내려받습니다.</p>
+    <h1>🧵 HS Fabric Linker</h1>
+    <p class="desc">보드 사진에 걸린 <b>상품 링크</b>를 열어 각 상품의 <b>썸네일 · URL · 원단 혼용률</b>을
+      정리한 <b>엑셀(.xlsx)</b>을 한 번에 만듭니다.</p>
 
-    <button id="run">사진 링크 추출하기</button>
-    <button id="downloadXlsx">⬇︎ 이미지 삽입 엑셀 (.xlsx) 다운로드</button>
-    <button id="downloadCsv">텍스트만 CSV로 받기</button>
-    <button id="analyzeFabric">🧵 원단 정보 분석 (Claude)</button>
-    <button id="downloadFabricXlsx">⬇︎ 원단 포함 엑셀 (.xlsx) 다운로드</button>
+    <button id="oneClick">📋 원단 정보 엑셀 만들기</button>
 
     <details class="settings" id="fabricSettings">
-      <summary>⚙︎ 원단 분석 서버 설정</summary>
+      <summary>⚙︎ 원단 분석 서버 설정 (최초 1회)</summary>
       <label for="workerUrl">Worker URL (Cloudflare 함수 주소)</label>
       <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
       <label for="accessToken">Access token (선택)</label>
       <input id="accessToken" type="text" placeholder="서버에 ACCESS_TOKEN을 설정한 경우만" />
+    </details>
+
+    <details class="settings" id="moreTools">
+      <summary>기타 도구 (단계별 · 예전 기능)</summary>
+      <button id="run">사진 링크만 추출</button>
+      <button id="analyzeFabric">원단 정보 분석</button>
+      <button id="downloadFabricXlsx">원단 엑셀 다운로드</button>
+      <button id="downloadXlsx">미로 이미지 삽입 엑셀</button>
+      <button id="downloadCsv">텍스트만 CSV</button>
     </details>
 
     <div id="status"></div>
@@ -130,8 +138,33 @@
         syncProxy();
       });
 
+      // ── 원클릭: 추출 → 원단 분석 → 엑셀 다운로드 (한 번에) ────────────
+      const heroBtn = document.getElementById('oneClick');
+      heroBtn.addEventListener('click', async () => {
+        if (!(workerUrlEl.value || '').trim()) {
+          document.getElementById('fabricSettings').open = true;
+          statusEl.textContent = '먼저 ⚙︎ 설정에서 Worker URL을 입력하세요 (최초 1회).';
+          return;
+        }
+        heroBtn.disabled = true;
+        try {
+          await collectRows();
+          if (!rows.length) return; // 상태 메시지는 collectRows가 이미 표시
+          const targets = rows.filter(r => r.link);
+          if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
+          const res = await analyzeAll();
+          if (!res) return; // 워커/타깃 문제로 중단
+          await buildFabricXlsx();
+        } catch (e) {
+          statusEl.textContent = '오류: ' + ((e && e.message) || e);
+        } finally {
+          heroBtn.disabled = false;
+        }
+      });
+
       // ── 1) 보드에서 이미지 + 링크 수집 ──────────────────────────────
-      runBtn.addEventListener('click', async () => {
+      runBtn.addEventListener('click', collectRows);
+      async function collectRows() {
         runBtn.disabled = true;
         xlsxBtn.style.display = 'none';
         csvBtn.style.display = 'none';
@@ -194,7 +227,7 @@
         } finally {
           runBtn.disabled = false;
         }
-      });
+      }
 
       // ── 2) 이미지가 들어간 엑셀(.xlsx) 만들기 ────────────────────────
       xlsxBtn.addEventListener('click', async () => {
@@ -294,7 +327,8 @@
       });
 
       // ── 4) 원단 정보 분석 (링크된 상품 페이지 → Claude web_fetch) ──────
-      fabricBtn.addEventListener('click', async () => {
+      fabricBtn.addEventListener('click', analyzeAll);
+      async function analyzeAll() {
         const workerUrl = (workerUrlEl.value || '').trim();
         if (!workerUrl) {
           document.getElementById('fabricSettings').open = true;
@@ -341,11 +375,13 @@
 
         fabricBtn.disabled = false; xlsxBtn.disabled = false; csvBtn.disabled = false;
         fabricXlsxBtn.style.display = 'block';
-        statusEl.textContent = `원단 분석 완료 — 성공 ${okc} / 실패 ${failc}. 아래 버튼으로 엑셀을 받으세요.`;
-      });
+        statusEl.textContent = `원단 분석 완료 — 성공 ${okc} / 실패 ${failc}.`;
+        return { okc, failc };
+      }
 
       // ── 5) 원단 포함 엑셀(.xlsx): 상품 시트 + 소재 통계/차트 ──────────
-      fabricXlsxBtn.addEventListener('click', async () => {
+      fabricXlsxBtn.addEventListener('click', buildFabricXlsx);
+      async function buildFabricXlsx() {
         if (typeof ExcelJS === 'undefined') {
           statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';
           return;
@@ -428,7 +464,7 @@
         } finally {
           fabricXlsxBtn.disabled = false;
         }
-      });
+      }
 
       // ── 미리보기 렌더 (분석 후 원단 열 추가) ─────────────────────────
       function renderPreview() {
