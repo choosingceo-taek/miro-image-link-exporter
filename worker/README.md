@@ -50,8 +50,9 @@ https://fabric-extractor.<your-subdomain>.workers.dev
 - 대형 쇼핑몰(H&M·Gap·Etam 등)은 봇 차단이 강해 **일부 페이지는 접근 실패**할 수 있습니다.
   이 경우 응답 `status`가 `blocked`/`no_data`/`error`로 오고, 패널·엑셀에 그대로 표시됩니다(수동 확인용).
 - Shopify 계열(Eberjey, Negative Underwear 등)은 대체로 잘 읽힙니다.
-- 링크 1개당 Claude(Haiku 4.5, 저비용 모델) 호출 1회 → 링크 수만큼 비용이 듭니다. 큰 보드는 요금을 미리 확인하세요.
-  (더 높은 정확도가 필요하면 `fabric-extractor.js`의 `MODEL`을 `claude-opus-4-8`로 바꾸고, `WEB_FETCH_TYPE`을 `web_fetch_20260209`로 함께 바꾼 뒤 재배포.)
+- 링크 1개당 Claude(Sonnet 5) 호출 1회 → 링크 수만큼 비용이 듭니다. 큰 보드는 요금을 미리 확인하세요.
+  (모델은 `fabric-extractor.js`의 `MODEL`에서 바꿀 수 있음. 최고 정확도=`claude-opus-4-8`, 저비용=`claude-haiku-4-5`.
+   단, Haiku로 바꿀 땐 `WEB_FETCH_TYPE`을 `web_fetch_20250910`으로 함께 변경해야 함.)
 
 ## 로컬 테스트
 ```bash

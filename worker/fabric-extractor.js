@@ -12,10 +12,10 @@
 //  선택 변수:    ALLOWED_ORIGIN(기본 "*"), ACCESS_TOKEN(설정 시 POST 헤더/GET 쿼리로 검증)
 // ------------------------------------------------------------------
 
-const MODEL = 'claude-haiku-4-5';
+const MODEL = 'claude-sonnet-5';
 const ANTHROPIC_VERSION = '2023-06-01';
-// Haiku 4.5는 dynamic-filtering web_fetch(_20260209)를 지원하지 않으므로 기본 버전을 씁니다.
-const WEB_FETCH_TYPE = 'web_fetch_20250910';
+// Sonnet 5는 dynamic-filtering web_fetch(_20260209)를 지원합니다.
+const WEB_FETCH_TYPE = 'web_fetch_20260209';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 const MAX_IMG_BYTES = 8 * 1024 * 1024;
 
