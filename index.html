@@ -445,24 +445,32 @@
             statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${items.length}`;
           }
 
-          // 소재 통계 시트 + 막대 차트
+          // 소재 통계 시트 + 시각화(도넛: 구성 비중, 막대: 등장 빈도)
           const stats = computeMaterialStats();
           const ss = workbook.addWorksheet('소재통계');
           ss.columns = [
-            { header: '소재', key: 'm', width: 20 },
-            { header: '등장 상품수', key: 'count', width: 14 },
-            { header: '평균 혼용률(%)', key: 'avg', width: 16 },
+            { header: '소재', key: 'm', width: 18 },
+            { header: '총 비중(%)', key: 'share', width: 12 },
+            { header: '등장 상품수', key: 'count', width: 12 },
+            { header: '평균 혼용률(%)', key: 'avg', width: 14 },
           ];
           ss.getRow(1).font = { bold: true };
           stats.forEach(s => ss.addRow({
-            m: s.material, count: s.count,
+            m: s.material,
+            share: Math.round(s.share * 10) / 10,
+            count: s.count,
             avg: s.avg != null ? Math.round(s.avg * 10) / 10 : '',
           }));
           try {
-            const chart = drawBarChart(stats.slice(0, 10));
-            if (chart) {
-              const cid = workbook.addImage({ base64: chart.base64, extension: 'png' });
-              ss.addImage(cid, { tl: { col: 4, row: 1 }, ext: { width: chart.w, height: chart.h } });
+            const donut = drawDonut(stats);
+            if (donut) {
+              const did = workbook.addImage({ base64: donut.base64, extension: 'png' });
+              ss.addImage(did, { tl: { col: 5, row: 1 }, ext: { width: donut.w, height: donut.h } });
+            }
+            const bar = drawBarChart(stats.slice(0, 10));
+            if (bar) {
+              const bid = workbook.addImage({ base64: bar.base64, extension: 'png' });
+              ss.addImage(bid, { tl: { col: 5, row: 17 }, ext: { width: bar.w, height: bar.h } });
             }
           } catch (e) {}
 
@@ -574,9 +582,10 @@
         return '실패';
       }
 
-      // material -> {count(등장 상품수), avg(평균 혼용률)}
+      // material -> {count(등장 상품수), avg(평균 혼용률), share(전체 구성 비중)}
       function computeMaterialStats() {
         const map = new Map();
+        let totalPercent = 0;
         rows.forEach(r => {
           const f = r.fabric;
           if (!f) return;
@@ -587,7 +596,9 @@
             const m = c.material;
             seen.add(m);
             const e = map.get(m) || { count: 0, sum: 0, n: 0 };
-            if (typeof c.percent === 'number' && !Number.isNaN(c.percent)) { e.sum += c.percent; e.n++; }
+            if (typeof c.percent === 'number' && !Number.isNaN(c.percent)) {
+              e.sum += c.percent; e.n++; totalPercent += c.percent;
+            }
             map.set(m, e);
           });
           const mats = seen.size ? seen : new Set((f.materials || []).filter(Boolean));
@@ -599,9 +610,53 @@
         });
         const arr = [...map.entries()].map(([material, e]) => ({
           material, count: e.count, avg: e.n ? e.sum / e.n : null,
+          share: totalPercent ? (e.sum / totalPercent) * 100 : 0,
         }));
-        arr.sort((a, b) => b.count - a.count);
+        // 전체 구성 비중(원단 데이터의 핵심) 우선 정렬
+        arr.sort((a, b) => b.share - a.share || b.count - a.count);
         return arr;
+      }
+
+      // 도넛 차트: 전체 상품의 원단 구성 비중(혼용률 가중) — 원단 데이터에 가장 직관적인 시각자료.
+      function drawDonut(items) {
+        const data = (items || []).filter(i => i.share > 0);
+        if (!data.length) return null;
+        const palette = ['#7c3aed', '#2563eb', '#0d9488', '#16a34a', '#d97706',
+                         '#dc2626', '#db2777', '#0891b2', '#65a30d', '#9333ea'];
+        const top = data.slice(0, 8);
+        const rest = data.slice(8).reduce((s, i) => s + i.share, 0);
+        if (rest > 0.05) top.push({ material: '기타', share: rest });
+
+        const W = 470, H = 300, cx = 145, cy = 160, rO = 108, rI = 58;
+        const canvas = document.createElement('canvas');
+        canvas.width = W; canvas.height = H;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = '#1a1a2e'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'left';
+        ctx.fillText('원단 구성 비중 (전체 상품 기준)', 12, 24);
+
+        const total = top.reduce((s, i) => s + i.share, 0) || 1;
+        let a0 = -Math.PI / 2;
+        top.forEach((it, idx) => {
+          const a1 = a0 + (it.share / total) * Math.PI * 2;
+          ctx.beginPath(); ctx.moveTo(cx, cy);
+          ctx.arc(cx, cy, rO, a0, a1); ctx.closePath();
+          ctx.fillStyle = palette[idx % palette.length]; ctx.fill();
+          a0 = a1;
+        });
+        ctx.beginPath(); ctx.arc(cx, cy, rI, 0, Math.PI * 2); ctx.fillStyle = '#fff'; ctx.fill();
+
+        // 범례 (오른쪽)
+        ctx.font = '12px sans-serif'; ctx.textAlign = 'left';
+        let ly = 56;
+        top.forEach((it, idx) => {
+          ctx.fillStyle = palette[idx % palette.length];
+          ctx.fillRect(290, ly - 10, 13, 13);
+          ctx.fillStyle = '#333';
+          ctx.fillText(`${it.material}  ${Math.round(it.share * 10) / 10}%`, 310, ly + 1);
+          ly += 22;
+        });
+        return { base64: canvas.toDataURL('image/png').split(',')[1], w: W, h: H };
       }
 
       function drawBarChart(items) {
