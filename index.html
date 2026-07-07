@@ -392,48 +392,57 @@
         }
         fabricXlsxBtn.disabled = true;
         try {
+          // 링크 걸린 것만(빈 공백 제거) + 브랜드순 정렬
+          const items = rows.filter(r => r.link).slice()
+            .sort((a, b) => brandFromUrl(a.link).localeCompare(brandFromUrl(b.link)) ||
+                            a.link.localeCompare(b.link));
+          if (!items.length) {
+            statusEl.textContent = '링크가 걸린 사진이 없습니다.';
+            fabricXlsxBtn.disabled = false;
+            return;
+          }
+
           const workbook = new ExcelJS.Workbook();
           const ws = workbook.addWorksheet('원단정보');
           ws.columns = [
+            { header: '브랜드', key: 'brand', width: 18 },
             { header: '썸네일', key: 'img', width: 18 },
             { header: 'URL', key: 'link', width: 46 },
             { header: '혼용률', key: 'comp', width: 30 },
             { header: '소재', key: 'materials', width: 24 },
-            { header: '브랜드', key: 'brand', width: 16 },
-            { header: '상태', key: 'status', width: 10 },
+            { header: '상태', key: 'status', width: 12 },
           ];
           ws.getRow(1).font = { bold: true };
 
           let ok = 0, fail = 0;
-          for (let i = 0; i < rows.length; i++) {
-            const r = rows[i];
+          for (let i = 0; i < items.length; i++) {
+            const r = items[i];
             const excelRow = i + 2;
             const f = r.fabric || {};
             const compStr = (f.composition || []).map(c => `${c.material} ${c.percent}%`).join(' / ');
             const row = ws.addRow({
-              img: '', link: '',
+              brand: brandFromUrl(r.link), img: '', link: '',
               comp: compStr, materials: (f.materials || []).join(', '),
-              brand: brandFromUrl(r.link), status: statusLabel(f.status),
+              status: shortReason(f),
             });
             row.height = 60;
-            if (r.link) {
-              const c = ws.getCell(`B${excelRow}`);
-              c.value = { text: r.link, hyperlink: r.link };
-              c.font = { color: { argb: 'FF4262FF' }, underline: true };
-            }
-            // 썸네일 = 링크된 상품 페이지의 대표 이미지(og:image). Worker 프록시로 CORS 우회.
+            // URL(하이퍼링크) = C열
+            const c = ws.getCell(`C${excelRow}`);
+            c.value = { text: r.link, hyperlink: r.link };
+            c.font = { color: { argb: 'FF4262FF' }, underline: true };
+            // 썸네일 = 상품 페이지 대표 이미지(og:image), B열. Worker 프록시로 CORS 우회.
             if (f.image_url) {
               try {
                 const { base64, w, h } = await toPng(f.image_url, 110);
                 const id = workbook.addImage({ base64, extension: 'png' });
-                ws.addImage(id, { tl: { col: 0.1, row: (excelRow - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
+                ws.addImage(id, { tl: { col: 1.1, row: (excelRow - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
                 row.height = Math.max(row.height, h * 0.75 + 6);
               } catch (e) {
-                ws.getCell(`A${excelRow}`).value = '(썸네일 실패)';
+                ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
               }
             }
             if (f.status === 'ok' && (compStr || (f.materials || []).length)) ok++; else fail++;
-            statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${rows.length}`;
+            statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${items.length}`;
           }
 
           // 소재 통계 시트 + 막대 차트
@@ -546,6 +555,23 @@
         if (s === 'no_data') return '정보없음';
         if (s === 'blocked') return '접근차단';
         return s ? '실패' : '';
+      }
+
+      // 상태/실패사유를 3단어 이내 한글로 요약.
+      function shortReason(f) {
+        f = f || {};
+        const s = f.status;
+        const hasData = (f.composition && f.composition.length) || (f.materials && f.materials.length);
+        if (s === 'ok') return hasData ? '추출됨' : '정보없음';
+        if (s === 'no_data') return '정보없음';
+        if (s === 'blocked') return '접근차단';
+        const note = String(f.note || '').toLowerCase();
+        if (note.includes('api_key') || note.includes('secret')) return '서버설정오류';
+        if (note.includes('402') || note.includes('credit') || note.includes('billing')) return '결제필요';
+        if (note.includes('401') || note.includes('unauthorized')) return '인증오류';
+        if (note.includes('timeout') || note.includes('시간')) return '시간초과';
+        if (note.includes('fetch') || note.includes('network') || note.includes('502') || note.includes('503')) return '네트워크오류';
+        return '실패';
       }
 
       // material -> {count(등장 상품수), avg(평균 혼용률)}
