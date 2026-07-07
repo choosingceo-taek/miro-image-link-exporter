@@ -1,6 +1,6 @@
-# 🧵 원단 정보 추출 Worker (Cloudflare)
+# 🧵 원단 정보 추출 Worker (Cloudflare · Google Gemini 무료)
 
-미로 패널이 보낸 **의상 상품 페이지 URL**을 받아, Claude의 `web_fetch` 도구로 그 페이지를
+미로 패널이 보낸 **의상 상품 페이지 URL**을 받아, Gemini의 URL 읽기 기능으로 그 페이지를
 가져와 **혼용률(composition) + 소재(materials)** 를 JSON으로 돌려주는 작은 서버입니다.
 
 > 이 서버가 있어야 패널의 **"🧵 원단 정보 분석"** 버튼이 동작합니다.
@@ -9,8 +9,8 @@
 ---
 
 ## 준비물
-- **Cloudflare 계정** (무료 티어로 시작 가능)
-- **Anthropic API 키** (Claude API 사용 = 유료. https://console.anthropic.com 에서 발급)
+- **Cloudflare 계정** (무료 티어)
+- **Gemini API 키** (무료. https://aistudio.google.com/apikey 에서 발급 — 구글 로그인 후 "Create API key")
 - Node.js + `npm i -g wrangler`
 
 ## 배포 (약 5분)
@@ -22,8 +22,8 @@ cd worker
 wrangler login
 
 # 2) API 키를 시크릿으로 주입 (저장소/코드에는 절대 넣지 않습니다)
-wrangler secret put ANTHROPIC_API_KEY
-#   → 프롬프트에 sk-ant-... 붙여넣기
+wrangler secret put GEMINI_API_KEY
+#   → 프롬프트에 AIza... 로 시작하는 Gemini 키 붙여넣기
 
 # 3) (선택) 오남용 방지용 공유 토큰
 wrangler secret put ACCESS_TOKEN
@@ -42,17 +42,19 @@ https://fabric-extractor.<your-subdomain>.workers.dev
 이 주소를 **미로 패널 → ⚙︎ 원단 분석 서버 설정 → Worker URL** 칸에 붙여넣으면 끝.
 (ACCESS_TOKEN을 설정했다면 같은 값을 Access token 칸에도.)
 
+> 이미 다른 모델로 배포해 둔 상태라면, 코드만 바꾼 뒤 `wrangler deploy` **한 번만** 다시 하면 됩니다.
+> 새 키(`GEMINI_API_KEY`)는 위 2번으로 새로 넣어야 합니다(기존 `ANTHROPIC_API_KEY`는 더 이상 안 씀).
+
 ## 배포 후 보안 권장
 - `wrangler.toml`의 `ALLOWED_ORIGIN`을 패널 주소(예: `https://choosingceo-taek.github.io`)로 좁히고 재배포하세요.
-- `ACCESS_TOKEN`을 설정해 두면 링크만 아는 외부인이 님의 API 키로 비용을 태우는 걸 막습니다.
+- `ACCESS_TOKEN`을 설정해 두면 링크만 아는 외부인이 님의 키/할당량을 쓰는 걸 막습니다.
 
 ## 동작/한계
-- 대형 쇼핑몰(H&M·Gap·Etam 등)은 봇 차단이 강해 **일부 페이지는 접근 실패**할 수 있습니다.
-  이 경우 응답 `status`가 `blocked`/`no_data`/`error`로 오고, 패널·엑셀에 그대로 표시됩니다(수동 확인용).
-- Shopify 계열(Eberjey, Negative Underwear 등)은 대체로 잘 읽힙니다.
-- 링크 1개당 Claude(Sonnet 5) 호출 1회 → 링크 수만큼 비용이 듭니다. 큰 보드는 요금을 미리 확인하세요.
-  (모델은 `fabric-extractor.js`의 `MODEL`에서 바꿀 수 있음. 최고 정확도=`claude-opus-4-8`, 저비용=`claude-haiku-4-5`.
-   단, Haiku로 바꿀 땐 `WEB_FETCH_TYPE`을 `web_fetch_20250910`으로 함께 변경해야 함.)
+- **무료 티어라 하루 사용량·분당 요청 한도**가 있습니다. 큰 보드(수백 개)는 한도에 걸려 나눠 돌려야 할 수 있습니다.
+  (한도 초과 시 `error` 상태로 표시됨 → 잠시 후 재시도)
+- 대형 쇼핑몰(H&M·Gap 등)은 봇 차단이 강해 **일부 페이지는 접근 실패**(`blocked`)할 수 있습니다.
+- 구글은 **무료 티어 요청 데이터를 서비스 개선에 활용**할 수 있습니다(민감 정보 주의).
+- 모델은 `fabric-extractor.js`의 `MODEL`에서 바꿀 수 있음 (예: `gemini-2.0-flash` → `gemini-2.5-flash`).
 
 ## 로컬 테스트
 ```bash

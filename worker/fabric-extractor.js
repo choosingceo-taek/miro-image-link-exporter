@@ -1,4 +1,4 @@
-// Cloudflare Worker — 원단 정보 추출기 + 이미지 프록시
+// Cloudflare Worker — 원단 정보 추출기 + 이미지 프록시 (Google Gemini · 무료 티어)
 // ------------------------------------------------------------------
 //  POST { "url": "https://..." }
 //     → { url, product_name, image_url, composition:[{material,percent}], materials:[], status, note }
@@ -8,19 +8,18 @@
 //     → 그 이미지를 서버에서 대신 가져와 CORS 허용 헤더와 함께 반환(프록시).
 //       브라우저(패널)가 남의 도메인 이미지를 엑셀에 넣을 수 있게 해줍니다.
 //
-//  필수 시크릿:  ANTHROPIC_API_KEY   (`wrangler secret put ANTHROPIC_API_KEY`)
+//  필수 시크릿:  GEMINI_API_KEY   (`wrangler secret put GEMINI_API_KEY`)
+//               → https://aistudio.google.com/apikey 에서 무료 발급
 //  선택 변수:    ALLOWED_ORIGIN(기본 "*"), ACCESS_TOKEN(설정 시 POST 헤더/GET 쿼리로 검증)
 // ------------------------------------------------------------------
 
-const MODEL = 'claude-sonnet-5';
-const ANTHROPIC_VERSION = '2023-06-01';
-// Sonnet 5는 dynamic-filtering web_fetch(_20260209)를 지원합니다.
-const WEB_FETCH_TYPE = 'web_fetch_20260209';
+// 무료 티어 모델. 필요하면 'gemini-2.5-flash' 등으로 변경 가능.
+const MODEL = 'gemini-2.0-flash';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 const MAX_IMG_BYTES = 8 * 1024 * 1024;
 
 const SYSTEM = `You extract fabric / material information from a single clothing product web page.
-You are given one product URL. Use the web_fetch tool to load it, then read the page
+You are given one product URL. Read that page using your URL-reading ability
 (look for "materials", "composition", "fabric", "care", "product details" sections).
 
 Respond with ONLY one JSON object — no markdown fences, no prose. Shape:
@@ -45,7 +44,8 @@ Rules:
   "materials" but omit it from "composition".
 - image_url must be an absolute https URL (starting with http). If only a relative path is on the
   page, resolve it against the product URL. If you cannot find an image, use "".
-- Never invent data. If the page loads but no composition is stated, use status "no_data".`;
+- Never invent data. If the page loads but no composition is stated, use status "no_data".
+- If you cannot access the page at all, use status "blocked".`;
 
 export default {
   async fetch(request, env) {
@@ -74,8 +74,8 @@ export default {
     if (env.ACCESS_TOKEN && request.headers.get('x-access-token') !== env.ACCESS_TOKEN)
       return json({ error: 'unauthorized' }, 401, cors);
 
-    if (!env.ANTHROPIC_API_KEY)
-      return json({ error: 'server is missing ANTHROPIC_API_KEY secret' }, 500, cors);
+    if (!env.GEMINI_API_KEY)
+      return json({ error: 'server is missing GEMINI_API_KEY secret' }, 500, cors);
 
     let body;
     try { body = await request.json(); }
@@ -85,7 +85,7 @@ export default {
     if (!url) return json({ error: 'missing "url"' }, 400, cors);
 
     try {
-      const result = await extractFabric(url, env.ANTHROPIC_API_KEY);
+      const result = await extractFabric(url, env.GEMINI_API_KEY);
       return json({ url, ...result }, 200, cors);
     } catch (e) {
       return json(
@@ -130,36 +130,35 @@ async function proxyImage(img, cors) {
 }
 
 async function extractFabric(url, apiKey) {
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+  const resp = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': ANTHROPIC_VERSION,
+      'x-goog-api-key': apiKey,
     },
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 1024,
-      system: SYSTEM,
-      tools: [{ type: WEB_FETCH_TYPE, name: 'web_fetch', max_uses: 3 }],
-      messages: [{
+      systemInstruction: { parts: [{ text: SYSTEM }] },
+      contents: [{
         role: 'user',
-        content: `Product URL: ${url}\n\nFetch this page and return the product image URL, fabric composition, and materials as the specified JSON.`,
+        parts: [{ text: `Product URL: ${url}\n\nRead this page and return the product image URL, fabric composition, and materials as the specified JSON.` }],
       }],
+      // Gemini의 URL 읽기 도구(웹페이지 내용을 구글이 대신 가져옴).
+      tools: [{ url_context: {} }],
+      generationConfig: { temperature: 0 },
     }),
   });
 
   if (!resp.ok) {
     const t = await resp.text();
-    throw new Error(`Claude API ${resp.status}: ${t.slice(0, 200)}`);
+    throw new Error(`Gemini API ${resp.status}: ${t.slice(0, 200)}`);
   }
 
   const data = await resp.json();
-  const text = (data.content || [])
-    .filter((b) => b.type === 'text')
-    .map((b) => b.text)
-    .join('\n')
-    .trim();
+  const cand = (data.candidates && data.candidates[0]) || {};
+  const text = (((cand.content && cand.content.parts) || [])
+    .map((p) => p.text || '')
+    .join('\n')).trim();
 
   const parsed = parseJson(text);
   if (!parsed) {
