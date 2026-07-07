@@ -94,6 +94,10 @@
     //  - 그 외        → 보드 로딩 시 실행되는 앱 진입점(아이콘 클릭 등록)
     const params = new URLSearchParams(location.search);
 
+    // 원단 분석 서버(Worker)를 이미지 프록시로도 사용 → 남의 도메인 이미지 CORS 우회.
+    // (initPanel()보다 먼저 선언돼야 함 — 안 그러면 TDZ 오류로 패널 스크립트 전체가 멈춥니다.)
+    let __proxy = { url: '', token: '' };
+
     if (params.get('view') === 'panel') {
       initPanel();
     } else {
@@ -612,9 +616,6 @@
         await Promise.all(workers);
       }
     }
-
-    // 원단 분석 서버(Worker)를 이미지 프록시로도 사용 → 남의 도메인 이미지 CORS 우회.
-    let __proxy = { url: '', token: '' };
 
     // 이미지 주소 → 다운스케일 PNG(base64).
     // 직접 fetch가 CORS로 막히면 Worker 프록시(?img=)로 자동 재시도 → 엑셀에 이미지가 실제로 들어감.
