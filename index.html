@@ -348,10 +348,9 @@
           const workbook = new ExcelJS.Workbook();
           const ws = workbook.addWorksheet('원단정보');
           ws.columns = [
-            { header: '번호', key: 'index', width: 6 },
-            { header: '이미지', key: 'img', width: 16 },
-            { header: '제목', key: 'title', width: 22 },
-            { header: '링크', key: 'link', width: 44 },
+            { header: '브랜드', key: 'brand', width: 16 },
+            { header: '썸네일', key: 'img', width: 16 },
+            { header: 'URL', key: 'link', width: 46 },
             { header: '혼용률', key: 'comp', width: 30 },
             { header: '소재', key: 'materials', width: 24 },
             { header: '상태', key: 'status', width: 10 },
@@ -365,13 +364,13 @@
             const f = r.fabric || {};
             const compStr = (f.composition || []).map(c => `${c.material} ${c.percent}%`).join(' / ');
             const row = ws.addRow({
-              index: r.index, img: '', title: r.title, link: '',
+              brand: brandFromUrl(r.link), img: '', link: '',
               comp: compStr, materials: (f.materials || []).join(', '),
               status: statusLabel(f.status),
             });
             row.height = 60;
             if (r.link) {
-              const c = ws.getCell(`D${excelRow}`);
+              const c = ws.getCell(`C${excelRow}`);
               c.value = { text: r.link, hyperlink: r.link };
               c.font = { color: { argb: 'FF4262FF' }, underline: true };
             }
@@ -616,6 +615,31 @@
       return String(s)
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
+    }
+
+    // URL 도메인 → 브랜드명. 알려진 몰은 예쁜 이름으로, 그 외는 도메인 라벨을 대문자로.
+    function brandFromUrl(url) {
+      if (!url) return '';
+      let host = '';
+      try { host = new URL(url).hostname; }
+      catch (e) {
+        const m = String(url).match(/^(?:https?:\/\/)?([^/]+)/i);
+        host = m ? m[1] : '';
+      }
+      host = host.replace(/^www\d*\./i, '').toLowerCase();
+      const parts = host.split('.');
+      const base = parts.length >= 2 ? parts.slice(-2).join('.') : host;
+      const known = {
+        'hm.com': 'H&M',
+        'etam.com': 'Etam',
+        'eberjey.com': 'Eberjey',
+        'gap.com': 'Gap',
+        'intimissimi.com': 'Intimissimi',
+        'negativeunderwear.com': 'Negative Underwear',
+      };
+      if (known[base]) return known[base];
+      const label = parts.length >= 2 ? parts[parts.length - 2] : (parts[0] || '');
+      return label ? label.charAt(0).toUpperCase() + label.slice(1) : host;
     }
   </script>
 </body>
