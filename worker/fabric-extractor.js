@@ -1,19 +1,21 @@
-// Cloudflare Worker — 원단 정보 추출기
+// Cloudflare Worker — 원단 정보 추출기 + 이미지 프록시
 // ------------------------------------------------------------------
-// 미로 패널에서 의상 상품 페이지 URL을 하나 받아, Claude의 web_fetch 도구로
-// 그 페이지를 가져와 "혼용률(composition) + 소재(materials)"를 구조화된
-// JSON으로 뽑아 돌려줍니다.
+//  POST { "url": "https://..." }
+//     → { url, product_name, image_url, composition:[{material,percent}], materials:[], status, note }
+//       image_url = 상품 페이지 대표 이미지(og:image) 주소
 //
-//   요청:  POST { "url": "https://..." }
-//   응답:  { url, product_name, composition:[{material,percent}], materials:[], status, note }
+//  GET  ?img=<이미지URL>[&token=...]
+//     → 그 이미지를 서버에서 대신 가져와 CORS 허용 헤더와 함께 반환(프록시).
+//       브라우저(패널)가 남의 도메인 이미지를 엑셀에 넣을 수 있게 해줍니다.
 //
-// 필수 시크릿:  ANTHROPIC_API_KEY   (`wrangler secret put ANTHROPIC_API_KEY`)
-// 선택 변수:    ALLOWED_ORIGIN      (기본 "*", 배포 후 패널 주소로 좁히기를 권장)
-//               ACCESS_TOKEN        (설정 시 요청에 x-access-token 헤더 필요 — 오남용 방지)
+//  필수 시크릿:  ANTHROPIC_API_KEY   (`wrangler secret put ANTHROPIC_API_KEY`)
+//  선택 변수:    ALLOWED_ORIGIN(기본 "*"), ACCESS_TOKEN(설정 시 POST 헤더/GET 쿼리로 검증)
 // ------------------------------------------------------------------
 
 const MODEL = 'claude-opus-4-8';
 const ANTHROPIC_VERSION = '2023-06-01';
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
+const MAX_IMG_BYTES = 8 * 1024 * 1024;
 
 const SYSTEM = `You extract fabric / material information from a single clothing product web page.
 You are given one product URL. Use the web_fetch tool to load it, then read the page
@@ -22,6 +24,8 @@ You are given one product URL. Use the web_fetch tool to load it, then read the 
 Respond with ONLY one JSON object — no markdown fences, no prose. Shape:
 {
   "product_name": string,        // garment name; "" if unknown
+  "image_url": string,           // absolute URL of the MAIN product image. Prefer the og:image
+                                 // meta tag; otherwise the primary product photo. "" if none found.
   "composition": [               // fiber breakdown; [] if not stated on the page
     { "material": string, "percent": number }   // e.g. {"material":"Cotton","percent":60}
   ],
@@ -35,20 +39,34 @@ Rules:
   Viscose, Wool, Silk, Linen, Cashmere, Acrylic, Lyocell, Spandex→Elastane, Polyamide→Nylon.
 - If the garment has multiple parts (shell / lining / trim), merge into one overall breakdown
   and mention that in "note".
-- percent must be a number (no "%" sign). If a page lists a material with no percent, still add
-  it to "materials" but omit it from "composition".
+- percent must be a number (no "%" sign). If a material has no percent, still add it to
+  "materials" but omit it from "composition".
+- image_url must be an absolute https URL (starting with http). If only a relative path is on the
+  page, resolve it against the product URL. If you cannot find an image, use "".
 - Never invent data. If the page loads but no composition is stated, use status "no_data".`;
 
 export default {
   async fetch(request, env) {
     const cors = {
       'Access-Control-Allow-Origin': env.ALLOWED_ORIGIN || '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, x-access-token',
       'Access-Control-Max-Age': '86400',
     };
 
     if (request.method === 'OPTIONS') return new Response(null, { headers: cors });
+
+    const reqUrl = new URL(request.url);
+
+    // ── 이미지 프록시 (GET ?img=...) ──────────────────────────────
+    if (request.method === 'GET') {
+      const img = reqUrl.searchParams.get('img');
+      if (!img) return json({ error: 'use POST to extract, or GET ?img=<url> to proxy an image' }, 400, cors);
+      if (env.ACCESS_TOKEN && reqUrl.searchParams.get('token') !== env.ACCESS_TOKEN)
+        return new Response('unauthorized', { status: 401, headers: cors });
+      return proxyImage(img, cors);
+    }
+
     if (request.method !== 'POST') return json({ error: 'POST only' }, 405, cors);
 
     if (env.ACCESS_TOKEN && request.headers.get('x-access-token') !== env.ACCESS_TOKEN)
@@ -68,9 +86,8 @@ export default {
       const result = await extractFabric(url, env.ANTHROPIC_API_KEY);
       return json({ url, ...result }, 200, cors);
     } catch (e) {
-      // 실패해도 200 + status:error 로 돌려주면 패널이 행 단위로 표시할 수 있습니다.
       return json(
-        { url, product_name: '', composition: [], materials: [], status: 'error', note: String((e && e.message) || e) },
+        { url, product_name: '', image_url: '', composition: [], materials: [], status: 'error', note: String((e && e.message) || e) },
         200, cors,
       );
     }
@@ -81,6 +98,32 @@ function json(obj, status, cors) {
   return new Response(JSON.stringify(obj), {
     status,
     headers: { 'Content-Type': 'application/json', ...cors },
+  });
+}
+
+// 남의 도메인 이미지를 서버에서 가져와 CORS 허용 헤더와 함께 반환.
+async function proxyImage(img, cors) {
+  let target;
+  try { target = new URL(img); }
+  catch { return new Response('bad img url', { status: 400, headers: cors }); }
+  if (target.protocol !== 'https:' && target.protocol !== 'http:')
+    return new Response('bad scheme', { status: 400, headers: cors });
+
+  const r = await fetch(target.toString(), {
+    headers: { 'user-agent': UA, accept: 'image/avif,image/webp,image/*,*/*;q=0.8', referer: target.origin + '/' },
+  });
+  if (!r.ok) return new Response('upstream ' + r.status, { status: 502, headers: cors });
+
+  const ct = r.headers.get('content-type') || 'image/jpeg';
+  if (!ct.startsWith('image/')) return new Response('not an image', { status: 415, headers: cors });
+
+  const len = Number(r.headers.get('content-length') || 0);
+  if (len && len > MAX_IMG_BYTES) return new Response('image too large', { status: 413, headers: cors });
+
+  const buf = await r.arrayBuffer();
+  return new Response(buf, {
+    status: 200,
+    headers: { ...cors, 'content-type': ct, 'cache-control': 'public, max-age=86400' },
   });
 }
 
@@ -96,11 +139,10 @@ async function extractFabric(url, apiKey) {
       model: MODEL,
       max_tokens: 1024,
       system: SYSTEM,
-      // web_fetch 는 대화에 이미 존재하는 URL만 가져오므로 user 메시지에 URL을 넣습니다.
       tools: [{ type: 'web_fetch_20260209', name: 'web_fetch', max_uses: 3 }],
       messages: [{
         role: 'user',
-        content: `Product URL: ${url}\n\nFetch this page and return the fabric composition and materials as the specified JSON.`,
+        content: `Product URL: ${url}\n\nFetch this page and return the product image URL, fabric composition, and materials as the specified JSON.`,
       }],
     }),
   });
@@ -119,12 +161,12 @@ async function extractFabric(url, apiKey) {
 
   const parsed = parseJson(text);
   if (!parsed) {
-    // 최종 텍스트가 없으면(예: pause_turn) 접근 실패로 간주
-    return { product_name: '', composition: [], materials: [], status: 'blocked', note: 'no parseable model output (page may be blocked)' };
+    return { product_name: '', image_url: '', composition: [], materials: [], status: 'blocked', note: 'no parseable model output (page may be blocked)' };
   }
 
   return {
     product_name: parsed.product_name || '',
+    image_url: (parsed.image_url && /^https?:\/\//i.test(parsed.image_url)) ? parsed.image_url : '',
     composition: Array.isArray(parsed.composition)
       ? parsed.composition
           .filter((c) => c && c.material)
@@ -137,7 +179,6 @@ async function extractFabric(url, apiKey) {
   };
 }
 
-// 모델이 코드펜스나 앞뒤 설명을 붙여도 견고하게 JSON만 뽑아냅니다.
 function parseJson(text) {
   if (!text) return null;
   let t = text.trim();

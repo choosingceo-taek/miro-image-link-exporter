@@ -113,15 +113,21 @@
       let rows = [];
 
       // 원단 분석 서버 설정을 브라우저에 기억(팀원마다 1회만 입력).
+      const syncProxy = () => {
+        __proxy = { url: (workerUrlEl.value || '').trim(), token: (accessTokenEl.value || '').trim() };
+      };
       try {
         workerUrlEl.value = localStorage.getItem('fabricWorkerUrl') || '';
         accessTokenEl.value = localStorage.getItem('fabricAccessToken') || '';
       } catch (e) {}
+      syncProxy();
       workerUrlEl.addEventListener('change', () => {
         try { localStorage.setItem('fabricWorkerUrl', workerUrlEl.value.trim()); } catch (e) {}
+        syncProxy();
       });
       accessTokenEl.addEventListener('change', () => {
         try { localStorage.setItem('fabricAccessToken', accessTokenEl.value.trim()); } catch (e) {}
+        syncProxy();
       });
 
       // ── 1) 보드에서 이미지 + 링크 수집 ──────────────────────────────
@@ -318,6 +324,7 @@
             const data = await resp.json();
             r.fabric = {
               product_name: data.product_name || '',
+              image_url: data.image_url || '',
               composition: Array.isArray(data.composition) ? data.composition : [],
               materials: Array.isArray(data.materials) ? data.materials : [],
               status: data.status || (resp.ok ? 'ok' : 'error'),
@@ -348,11 +355,11 @@
           const workbook = new ExcelJS.Workbook();
           const ws = workbook.addWorksheet('원단정보');
           ws.columns = [
-            { header: '브랜드', key: 'brand', width: 16 },
-            { header: '썸네일', key: 'img', width: 16 },
+            { header: '썸네일', key: 'img', width: 18 },
             { header: 'URL', key: 'link', width: 46 },
             { header: '혼용률', key: 'comp', width: 30 },
             { header: '소재', key: 'materials', width: 24 },
+            { header: '브랜드', key: 'brand', width: 16 },
             { header: '상태', key: 'status', width: 10 },
           ];
           ws.getRow(1).font = { bold: true };
@@ -364,24 +371,25 @@
             const f = r.fabric || {};
             const compStr = (f.composition || []).map(c => `${c.material} ${c.percent}%`).join(' / ');
             const row = ws.addRow({
-              brand: brandFromUrl(r.link), img: '', link: '',
+              img: '', link: '',
               comp: compStr, materials: (f.materials || []).join(', '),
-              status: statusLabel(f.status),
+              brand: brandFromUrl(r.link), status: statusLabel(f.status),
             });
             row.height = 60;
             if (r.link) {
-              const c = ws.getCell(`C${excelRow}`);
+              const c = ws.getCell(`B${excelRow}`);
               c.value = { text: r.link, hyperlink: r.link };
               c.font = { color: { argb: 'FF4262FF' }, underline: true };
             }
-            if (r.imageUrl) {
+            // 썸네일 = 링크된 상품 페이지의 대표 이미지(og:image). Worker 프록시로 CORS 우회.
+            if (f.image_url) {
               try {
-                const { base64, w, h } = await toPng(r.imageUrl, 100);
+                const { base64, w, h } = await toPng(f.image_url, 110);
                 const id = workbook.addImage({ base64, extension: 'png' });
-                ws.addImage(id, { tl: { col: 1.05, row: (excelRow - 1) + 0.05 }, ext: { width: w, height: h }, editAs: 'oneCell' });
+                ws.addImage(id, { tl: { col: 0.1, row: (excelRow - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
                 row.height = Math.max(row.height, h * 0.75 + 6);
               } catch (e) {
-                ws.getCell(`B${excelRow}`).value = '(이미지 실패)';
+                ws.getCell(`A${excelRow}`).value = '(썸네일 실패)';
               }
             }
             if (f.status === 'ok' && (compStr || (f.materials || []).length)) ok++; else fail++;
@@ -569,8 +577,25 @@
       }
     }
 
-    // 미로 이미지 주소 → 다운스케일한 PNG(base64). fetch가 막히면(CORS) 예외 발생.
+    // 원단 분석 서버(Worker)를 이미지 프록시로도 사용 → 남의 도메인 이미지 CORS 우회.
+    let __proxy = { url: '', token: '' };
+
+    // 이미지 주소 → 다운스케일 PNG(base64).
+    // 직접 fetch가 CORS로 막히면 Worker 프록시(?img=)로 자동 재시도 → 엑셀에 이미지가 실제로 들어감.
     async function toPng(url, maxSize) {
+      try {
+        return await fetchToPng(url, maxSize);
+      } catch (e) {
+        if (__proxy.url && !/[?&]img=/.test(url)) {
+          const p = __proxy.url.replace(/\/+$/, '') + '?img=' + encodeURIComponent(url) +
+            (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '');
+          return await fetchToPng(p, maxSize);
+        }
+        throw e;
+      }
+    }
+
+    async function fetchToPng(url, maxSize) {
       const resp = await fetch(url, { mode: 'cors' });
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       const blob = await resp.blob();
@@ -636,6 +661,10 @@
         'gap.com': 'Gap',
         'intimissimi.com': 'Intimissimi',
         'negativeunderwear.com': 'Negative Underwear',
+        'marksandspencer.com': 'M&S',
+        'nextdirect.com': 'Next',
+        'ae.com': 'American Eagle',
+        'mango.com': 'Mango',
       };
       if (known[base]) return known[base];
       const label = parts.length >= 2 ? parts[parts.length - 2] : (parts[0] || '');
