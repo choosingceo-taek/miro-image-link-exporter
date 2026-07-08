@@ -205,16 +205,22 @@ async function extractFabric(url, apiKey) {
 
 // 페이지를 서버에서 가져와 og:image 추출 + HTML을 평문 텍스트로 정리(최대 16k자).
 async function fetchPageText(url) {
-  let r;
-  try {
-    r = await fetch(url, {
-      headers: { 'user-agent': UA, accept: 'text/html,application/xhtml+xml,*/*;q=0.8', 'accept-language': 'en-US,en;q=0.9' },
-      redirect: 'follow',
-    });
-  } catch (e) {
-    return { ok: false, status: 'error:' + ((e && e.message) || e) };
+  const headers = { 'user-agent': UA, accept: 'text/html,application/xhtml+xml,*/*;q=0.8', 'accept-language': 'en-US,en;q=0.9' };
+  // 일시적 차단(껍데기/에러) 대비 1회 재시도.
+  let r = null, lastErr = '';
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      r = await fetch(url, { headers, redirect: 'follow' });
+      if (r.ok) break;
+      lastErr = String(r.status);
+      r = null;
+    } catch (e) {
+      lastErr = 'error:' + ((e && e.message) || e);
+      r = null;
+    }
+    if (attempt === 0) await new Promise(res => setTimeout(res, 1200));
   }
-  if (!r.ok) return { ok: false, status: String(r.status) };
+  if (!r) return { ok: false, status: lastErr || 'fetch failed' };
 
   const html = await r.text();
   const ogImage = findImage(html, url);
