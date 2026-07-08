@@ -204,7 +204,44 @@ async function extractFabric(url, apiKey) {
 }
 
 // 페이지를 서버에서 가져와 og:image 추출 + HTML을 평문 텍스트로 정리(최대 16k자).
+// Shopify 상품은 공개 JSON(/products/<handle>.json)이 봇 차단이 약하고
+// 이미지 + 설명(원단 정보 가능)을 담고 있어 HTML보다 훨씬 잘 됩니다. 먼저 시도.
+async function fetchShopifyJson(url) {
+  let u;
+  try { u = new URL(url); } catch (e) { return null; }
+  const m = u.pathname.match(/\/products\/([^/?#]+)/i);
+  if (!m) return null;
+  const jsonUrl = `${u.origin}/products/${m[1]}.json`;
+
+  let r;
+  try { r = await fetch(jsonUrl, { headers: { 'user-agent': UA, accept: 'application/json' } }); }
+  catch (e) { return null; }
+  if (!r.ok) return null;
+
+  let data;
+  try { data = await r.json(); } catch (e) { return null; }
+  const p = data && data.product;
+  if (!p) return null;
+
+  let img = (p.image && p.image.src) ||
+            (Array.isArray(p.images) && p.images[0] && p.images[0].src) || '';
+  if (img && img.startsWith('//')) img = 'https:' + img;
+
+  const body = String(p.body_html || '')
+    .replace(/<[^>]+>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&')
+    .replace(/\s+/g, ' ').trim();
+  let text = `${p.title || ''}. ${body} tags: ${p.tags || ''}`.trim();
+  if (text.length > 16000) text = text.slice(0, 16000);
+
+  return { ok: true, text, ogImage: /^https?:\/\//i.test(img) ? img : '' };
+}
+
 async function fetchPageText(url) {
+  // 1) Shopify 상품이면 JSON 우선 (차단 회피 + 원단정보 포함)
+  const shop = await fetchShopifyJson(url);
+  if (shop && shop.ok) return shop;
+
+  // 2) 아니면 일반 HTML 가져오기
   const headers = { 'user-agent': UA, accept: 'text/html,application/xhtml+xml,*/*;q=0.8', 'accept-language': 'en-US,en;q=0.9' };
   // 일시적 차단(껍데기/에러) 대비 1회 재시도.
   let r = null, lastErr = '';
