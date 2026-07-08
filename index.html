@@ -70,15 +70,6 @@
       <input id="accessToken" type="text" placeholder="서버에 ACCESS_TOKEN을 설정한 경우만" />
     </details>
 
-    <details class="settings" id="moreTools">
-      <summary>기타 도구 (단계별 · 예전 기능)</summary>
-      <button id="run">사진 링크만 추출</button>
-      <button id="analyzeFabric">원단 정보 분석</button>
-      <button id="downloadFabricXlsx">원단 엑셀 다운로드</button>
-      <button id="downloadXlsx">미로 이미지 삽입 엑셀</button>
-      <button id="downloadCsv">텍스트만 CSV</button>
-    </details>
-
     <div id="status"></div>
     <div class="summary" id="summary"></div>
 
@@ -112,11 +103,14 @@
     function initPanel() {
       document.getElementById('app').style.display = 'block';
 
-      const runBtn = document.getElementById('run');
-      const xlsxBtn = document.getElementById('downloadXlsx');
-      const csvBtn = document.getElementById('downloadCsv');
-      const fabricBtn = document.getElementById('analyzeFabric');
-      const fabricXlsxBtn = document.getElementById('downloadFabricXlsx');
+      // 기타 도구 버튼은 UI에서 제거됨. 공유 함수(collectRows/analyzeAll/buildFabricXlsx)가
+      // 참조하는 disabled/style/addEventListener만 무해하게 받아주는 스텁으로 대체(널 오류 방지).
+      const _stubBtn = () => ({ disabled: false, style: {}, addEventListener() {} });
+      const runBtn = _stubBtn();
+      const xlsxBtn = _stubBtn();
+      const csvBtn = _stubBtn();
+      const fabricBtn = _stubBtn();
+      const fabricXlsxBtn = _stubBtn();
       const workerUrlEl = document.getElementById('workerUrl');
       const accessTokenEl = document.getElementById('accessToken');
       const statusEl = document.getElementById('status');
