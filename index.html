@@ -450,6 +450,7 @@
           ws.getRow(1).font = { bold: true };
 
           let ok = 0, fail = 0;
+          let thumbFailDiag = '';   // 첫 썸네일 실패의 실제 원인(Worker 응답)
           for (let i = 0; i < items.length; i++) {
             const r = items[i];
             const excelRow = i + 2;
@@ -481,6 +482,8 @@
             }
             if (!thumbDone && thumbCandidates.length) {
               ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
+              // 첫 실패는 원인을 직접 조회해 화면에 표시(보통 Worker의 MIRO_TOKEN 문제).
+              if (!thumbFailDiag && r.imageUrl) thumbFailDiag = await diagnoseThumb(r.imageUrl);
             }
             if (f.status === 'ok' && (compStr || (f.materials || []).length)) ok++; else fail++;
             statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${items.length}`;
@@ -521,11 +524,37 @@
             `miro_fabric_${stamp()}.xlsx`
           );
           statusEl.textContent = `완료! 원단 추출 성공 ${ok} / 실패 ${fail}.`;
+          if (thumbFailDiag) {
+            summaryEl.style.display = 'block';
+            summaryEl.innerHTML =
+              `<div style="padding:8px;background:#fff4f4;border-radius:6px">` +
+              `<b>⚠ 썸네일 실패 원인</b><br>${escapeHtml(thumbFailDiag)}</div>`;
+          }
         } catch (e) {
           statusEl.textContent = '엑셀 생성 중 오류: ' + ((e && e.message) || e);
         } finally {
           fabricXlsxBtn.disabled = false;
         }
+      }
+
+      // 썸네일(미로 프록시) 실패 시, 그 URL을 직접 조회해 사람이 읽을 원인으로 변환.
+      async function diagnoseThumb(url) {
+        let status = 0, body = '';
+        try {
+          const resp = await fetch(url);
+          status = resp.status;
+          try { body = (await resp.text()).slice(0, 300); } catch (e) {}
+        } catch (e) {
+          return `Worker에 연결하지 못했습니다 (${(e && e.message) || e}). ⚙︎ 설정의 Worker URL을 확인하세요.`;
+        }
+        const b = (body || '').toLowerCase();
+        if (status === 200) return `이미지 응답은 정상(200)인데 엑셀 삽입에 실패했습니다. 형식 문제일 수 있어요: ${escapeHtml(body).slice(0,120)}`;
+        if (b.includes('miro_token')) return `Worker에 미로 토큰(MIRO_TOKEN)이 없습니다. worker 폴더에서 "wrangler secret put MIRO_TOKEN" 후 "wrangler deploy" 하세요.`;
+        if (status === 401 && b.includes('unauthorized')) return `접근 토큰(ACCESS_TOKEN) 불일치입니다. ⚙︎ 설정의 Access token 값을 Worker와 동일하게 맞추세요.`;
+        if (b.includes('miro item 401') || b.includes('miro item 403')) return `미로 토큰이 만료/무효입니다(${status}). 미로 앱의 "Install app and get OAuth token"에서 토큰을 새로 받아 MIRO_TOKEN을 다시 넣고 재배포하세요.`;
+        if (b.includes('miro item 404')) return `미로가 이 이미지를 찾지 못했습니다(404). 앱 권한(boards:read)과 토큰이 이 보드가 속한 팀의 것인지 확인하세요.`;
+        if (b.includes('miro imageurl missing')) return `미로 응답에 이미지 주소가 없습니다. 앱 권한(boards:read)을 확인하세요.`;
+        return `Worker 응답 ${status}: ${escapeHtml(body).slice(0, 160) || '(본문 없음)'}`;
       }
 
       // ── 미리보기 렌더 (분석 후 원단 열 추가) ─────────────────────────
