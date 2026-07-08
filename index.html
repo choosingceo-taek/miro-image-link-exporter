@@ -352,28 +352,42 @@
         };
         update();
 
-        await runPool(targets, 4, async (r) => {
-          try {
-            const headers = { 'Content-Type': 'application/json' };
-            if (token) headers['x-access-token'] = token;
-            const resp = await fetch(workerUrl, {
-              method: 'POST', headers, body: JSON.stringify({ url: r.link }),
-            });
-            const data = await resp.json();
-            r.fabric = {
-              product_name: data.product_name || '',
-              image_url: data.image_url || '',
-              composition: Array.isArray(data.composition) ? data.composition : [],
-              materials: Array.isArray(data.materials) ? data.materials : [],
-              status: data.status || (resp.ok ? 'ok' : 'error'),
-              note: data.note || (data.error || ''),
-            };
-            if (r.fabric.status === 'ok' && (r.fabric.composition.length || r.fabric.materials.length)) okc++;
-            else failc++;
-          } catch (e) {
-            r.fabric = { product_name: '', composition: [], materials: [], status: 'error', note: String((e && e.message) || e) };
-            failc++;
+        const sleep = ms => new Promise(res => setTimeout(res, ms));
+        const isQuota = note => /429|quota|resource_exhausted|rate.?limit/i.test(String(note || ''));
+
+        // 무료 티어 한도를 지키려 동시 2개만 + 429(한도) 시 대기 후 자동 재시도.
+        await runPool(targets, 2, async (r) => {
+          let data = null;
+          for (let attempt = 0; attempt < 4; attempt++) {
+            try {
+              const headers = { 'Content-Type': 'application/json' };
+              if (token) headers['x-access-token'] = token;
+              const resp = await fetch(workerUrl, {
+                method: 'POST', headers, body: JSON.stringify({ url: r.link }),
+              });
+              data = await resp.json();
+            } catch (e) {
+              data = { status: 'error', note: String((e && e.message) || e) };
+            }
+            if (isQuota(data && (data.note || data.error)) && attempt < 3) {
+              const wait = 15 * (attempt + 1);
+              statusEl.textContent = `무료 한도 대기 중… ${done}/${targets.length} (${wait}초 후 재시도)`;
+              await sleep(wait * 1000);
+              continue;
+            }
+            break;
           }
+          data = data || {};
+          r.fabric = {
+            product_name: data.product_name || '',
+            image_url: data.image_url || '',
+            composition: Array.isArray(data.composition) ? data.composition : [],
+            materials: Array.isArray(data.materials) ? data.materials : [],
+            status: data.status || 'error',
+            note: data.note || (data.error || ''),
+          };
+          if (r.fabric.status === 'ok' && (r.fabric.composition.length || r.fabric.materials.length)) okc++;
+          else failc++;
           done++; update(); renderPreview();
         });
 
@@ -574,6 +588,7 @@
         if (s === 'no_data') return '정보없음';
         if (s === 'blocked') return '접근차단';
         const note = String(f.note || '').toLowerCase();
+        if (note.includes('429') || note.includes('quota') || note.includes('resource_exhausted')) return '한도초과';
         if (note.includes('api_key') || note.includes('secret')) return '서버설정오류';
         if (note.includes('402') || note.includes('credit') || note.includes('billing')) return '결제필요';
         if (note.includes('401') || note.includes('unauthorized')) return '인증오류';
