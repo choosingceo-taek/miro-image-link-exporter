@@ -90,6 +90,7 @@
     // 원단 분석 서버(Worker)를 이미지 프록시로도 사용 → 남의 도메인 이미지 CORS 우회.
     // (initPanel()보다 먼저 선언돼야 함 — 안 그러면 TDZ 오류로 패널 스크립트 전체가 멈춥니다.)
     let __proxy = { url: '', token: '' };
+    let __boardId = ''; // 미로 REST API로 보드 이미지를 받아올 때 필요(썸네일용).
 
     if (params.get('view') === 'panel') {
       initPanel();
@@ -204,12 +205,19 @@
           // Web SDK가 페이지네이션을 알아서 처리해 보드의 모든 이미지를 반환합니다.
           const images = await miro.board.get({ type: 'image' });
 
+          // 미로는 "업로드된 이미지"의 원본 주소를 Web SDK로 노출하지 않습니다.
+          // → 실제 이미지는 REST API로만 받을 수 있어, 보드 ID + 아이템 ID를
+          //   Worker(서버에 저장된 미로 토큰 사용)에 넘겨 프록시로 가져옵니다.
+          if (!__boardId) {
+            try { const info = await miro.board.getInfo(); __boardId = (info && info.id) || ''; } catch (e) {}
+          }
+
           rows = images.map((img, i) => ({
             index: i + 1,
             id: img.id,
             title: (img.title || '').trim(),
             link: (img.linkedTo || '').trim(),   // 사진에 걸어둔 하이퍼링크
-            imageUrl: (img.url || '').trim()      // 사진 원본 주소
+            imageUrl: miroThumbUrl(img.id)       // 미로 보드 이미지(Worker 프록시 경유)
           }));
 
           const withLink = rows.filter(r => r.link).length;
@@ -219,24 +227,14 @@
           summaryEl.innerHTML =
             `전체 사진 <b>${rows.length}</b>개 중 링크가 걸린 사진 <b>${withLink}</b>개를 찾았습니다.`;
 
-          // 진단: 이미지 원본 주소를 못 가져오면 실제 필드를 노출해 원인 파악
-          const noneHaveUrl = rows.length && rows.every(r => !r.imageUrl);
-          if (noneHaveUrl && images[0]) {
-            const sample = images[0];
-            const cands = ['type', 'id', 'url', 'imageUrl', 'src', 'previewUrl', 'title', 'alt', 'linkedTo'];
-            const info = cands.map(k => {
-              let v;
-              try { v = sample[k]; } catch (e) { v = '(접근불가)'; }
-              if (v && typeof v === 'object') v = JSON.stringify(v);
-              v = (v === undefined) ? '(undefined)' : (v === '' ? '(빈값)' : String(v));
-              if (v.length > 80) v = v.slice(0, 80) + '…';
-              return k + ': ' + v;
-            }).join('\n');
+          // 썸네일(미로 보드 이미지)은 Worker + 서버의 미로 토큰이 있어야 들어갑니다.
+          if (rows.length && (!__proxy.url || !__boardId)) {
+            const why = !__proxy.url
+              ? `아래 <b>⚙︎ 원단 분석 서버 설정</b>에 <b>Worker URL</b>을 입력하세요.`
+              : `보드 ID를 가져오지 못했습니다. 패널을 새로고침(F5) 후 다시 시도하세요.`;
             summaryEl.innerHTML +=
-              `<div style="margin-top:8px;padding:8px;background:#fff4f4;border-radius:6px">` +
-              `<b>⚠ 이미지 원본 주소를 가져오지 못했습니다.</b><br>` +
-              `아래 진단 정보를 캡처해 전달해 주세요:` +
-              `<pre style="white-space:pre-wrap;font-size:11px;margin:6px 0 0">${escapeHtml(info)}</pre></div>`;
+              `<div style="margin-top:8px;padding:8px;background:#fff7e6;border-radius:6px">` +
+              `<b>ℹ 썸네일(미로 이미지)을 넣으려면</b> ${why}</div>`;
           }
 
           // 미리보기 (최대 50줄) — 썸네일 + 제목/링크 (+원단, 분석 후)
@@ -741,6 +739,18 @@
         });
         await Promise.all(workers);
       }
+    }
+
+    // 미로 보드 이미지의 실제 파일은 Web SDK로 노출되지 않고 REST API로만 받을 수 있습니다.
+    // 그래서 (보드ID, 아이템ID)를 Worker에 넘겨 프록시로 받아옵니다. Worker가 서버에 저장된
+    // 미로 토큰(MIRO_TOKEN)으로 이미지를 인증해 가져와 CORS 허용 헤더로 돌려줍니다.
+    function miroThumbUrl(itemId) {
+      if (!__proxy.url || !__boardId || !itemId) return '';
+      const base = __proxy.url.replace(/\/+$/, '');
+      return base +
+        '?board=' + encodeURIComponent(__boardId) +
+        '&item=' + encodeURIComponent(itemId) +
+        (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '');
     }
 
     // 이미지 주소 → 다운스케일 PNG(base64).

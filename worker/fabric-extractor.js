@@ -8,8 +8,15 @@
 //     → 그 이미지를 서버에서 대신 가져와 CORS 허용 헤더와 함께 반환(프록시).
 //       브라우저(패널)가 남의 도메인 이미지를 엑셀에 넣을 수 있게 해줍니다.
 //
+//  GET  ?board=<boardId>&item=<itemId>[&token=...]
+//     → 미로 보드의 그 이미지를 REST API로 받아와 CORS 허용 헤더와 함께 반환(썸네일용).
+//       (미로는 업로드 이미지 원본 주소를 Web SDK로 노출하지 않아 REST API가 필요.)
+//
 //  필수 시크릿:  GEMINI_API_KEY   (`wrangler secret put GEMINI_API_KEY`)
 //               → https://aistudio.google.com/apikey 에서 무료 발급
+//               MIRO_TOKEN       (`wrangler secret put MIRO_TOKEN`)
+//               → 미로 앱 설정 "Install app and get OAuth token"에서 나온 access token.
+//                 (썸네일=보드 이미지 기능에만 필요. 없으면 썸네일만 빠지고 나머진 동작.)
 //  선택 변수:    ALLOWED_ORIGIN(기본 "*"), ACCESS_TOKEN(설정 시 POST 헤더/GET 쿼리로 검증)
 // ------------------------------------------------------------------
 
@@ -79,8 +86,18 @@ export default {
         }, 200, cors);
       }
 
+      // 미로 보드 이미지 프록시 (GET ?board=<boardId>&item=<itemId>)
+      // 미로는 업로드 이미지의 원본 주소를 Web SDK로 노출하지 않으므로, REST API로 받아옵니다.
+      // (서버 시크릿 MIRO_TOKEN 사용 — 토큰은 브라우저로 절대 나가지 않음.)
+      const board = reqUrl.searchParams.get('board');
+      const item = reqUrl.searchParams.get('item');
+      if (board && item) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        return proxyMiroImage(board, item, env, cors);
+      }
+
       const img = reqUrl.searchParams.get('img');
-      if (!img) return json({ error: 'use POST to extract, GET ?meta=<url> for og:image, or GET ?img=<url> to proxy an image' }, 400, cors);
+      if (!img) return json({ error: 'use POST to extract, GET ?meta=<url> for og:image, GET ?img=<url> to proxy an image, or GET ?board=&item= for a Miro board image' }, 400, cors);
       if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
       return proxyImage(img, cors);
     }
@@ -143,6 +160,93 @@ async function proxyImage(img, cors) {
     status: 200,
     headers: { ...cors, 'content-type': ct, 'cache-control': 'public, max-age=86400' },
   });
+}
+
+// 미로 보드의 이미지(업로드본)를 REST API로 받아와 CORS 허용 헤더와 함께 반환.
+//   1) GET /v2/boards/{board}/images/{item}  → data.imageUrl (리소스 주소)
+//   2) 그 주소에 format=original&redirect=false → JSON { url }(60초 유효 서명 링크)
+//                                              또는 3xx Location 로 직접 이동
+//   3) 그 링크의 실제 바이트를 받아 반환
+// 호스트는 항상 api.miro.com 로 고정되므로(사용자 입력 host 아님) SSRF 위험이 없습니다.
+async function proxyMiroImage(boardId, itemId, env, cors) {
+  if (!env.MIRO_TOKEN)
+    return new Response('server is missing MIRO_TOKEN secret', { status: 500, headers: cors });
+  // 아이템 ID는 숫자, 보드 ID는 영숫자/기호 일부만 허용(안전 문자만).
+  if (!/^[\w=-]{1,64}$/.test(String(boardId)) || !/^\d{1,32}$/.test(String(itemId)))
+    return new Response('bad board/item id', { status: 400, headers: cors });
+
+  const auth = { authorization: 'Bearer ' + env.MIRO_TOKEN };
+
+  // 1) 아이템 메타데이터에서 리소스 주소(imageUrl) 얻기
+  let metaResp;
+  try {
+    metaResp = await fetch(
+      `https://api.miro.com/v2/boards/${encodeURIComponent(boardId)}/images/${encodeURIComponent(itemId)}`,
+      { headers: { ...auth, accept: 'application/json' } },
+    );
+  } catch (e) {
+    return new Response('miro item fetch error', { status: 502, headers: cors });
+  }
+  if (!metaResp.ok) return new Response('miro item ' + metaResp.status, { status: 502, headers: cors });
+
+  let meta;
+  try { meta = await metaResp.json(); } catch (e) { return new Response('miro item parse', { status: 502, headers: cors }); }
+  const resourceUrl = meta && meta.data && meta.data.imageUrl;
+  if (!resourceUrl) return new Response('miro imageUrl missing', { status: 502, headers: cors });
+
+  // 2) 리소스 주소를 직접 다운로드 가능한 링크로 변환(redirect=false → JSON {url}, 또는 3xx)
+  let downloadUrl = '';
+  try {
+    const u = new URL(resourceUrl);
+    u.searchParams.set('format', 'original');
+    u.searchParams.set('redirect', 'false');
+    const rr = await fetch(u.toString(), { headers: { ...auth, accept: 'application/json' }, redirect: 'manual' });
+    if (rr.status >= 300 && rr.status < 400) {
+      downloadUrl = rr.headers.get('location') || '';
+    } else if (rr.ok) {
+      const ct = rr.headers.get('content-type') || '';
+      if (ct.includes('json')) {
+        const j = await rr.json().catch(() => null);
+        if (j && j.url) downloadUrl = j.url;
+      } else if (ct.startsWith('image/')) {
+        // 드물게 리소스 주소가 곧바로 이미지 바이트를 반환하는 경우
+        return imageResponse(await rr.arrayBuffer(), ct, cors);
+      }
+    }
+  } catch (e) {}
+
+  // 3) 실제 바이트 받기. 서명 링크는 보통 인증 불필요. 실패 시 리소스 주소를 인증+리다이렉트로 재시도.
+  const attempts = [];
+  if (downloadUrl) attempts.push({ url: downloadUrl, useAuth: false });
+  attempts.push({ url: withParam(resourceUrl, 'format', 'original'), useAuth: true });
+
+  for (const a of attempts) {
+    try {
+      const ir = await fetch(a.url, {
+        headers: a.useAuth ? { ...auth, accept: 'image/*' } : { accept: 'image/*' },
+        redirect: 'follow',
+      });
+      if (!ir.ok) continue;
+      const ct = ir.headers.get('content-type') || 'image/jpeg';
+      if (!ct.startsWith('image/')) continue;
+      const buf = await ir.arrayBuffer();
+      if (buf.byteLength > MAX_IMG_BYTES) return new Response('image too large', { status: 413, headers: cors });
+      return imageResponse(buf, ct, cors);
+    } catch (e) {}
+  }
+  return new Response('miro image fetch failed', { status: 502, headers: cors });
+}
+
+function imageResponse(buf, ct, cors) {
+  return new Response(buf, {
+    status: 200,
+    headers: { ...cors, 'content-type': ct, 'cache-control': 'private, max-age=3600' },
+  });
+}
+
+function withParam(url, k, v) {
+  try { const u = new URL(url); u.searchParams.set(k, v); return u.toString(); }
+  catch (e) { return url; }
 }
 
 async function extractFabric(url, apiKey) {
