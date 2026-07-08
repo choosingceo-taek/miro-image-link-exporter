@@ -275,7 +275,9 @@ async function fetchPageText(url) {
   return { ok: true, text, ogImage };
 }
 
-// 대표 이미지 탐색: og:image → twitter:image → JSON-LD image → link rel → itemprop.
+// 대표 이미지 탐색: 페이지마다 고유한 메타 태그만 사용(og:image / twitter:image / link).
+// ⚠️ 느슨한 JSON-LD "image" 매칭은 추천상품·배너 등 "다른 상품 이미지"를 잘못 집으므로 쓰지 않음.
+//    (없으면 빈칸으로 두는 게 잘못된 썸네일보다 낫다.)
 function findImage(html, base) {
   const pats = [
     /<meta[^>]+(?:property|name)=["']og:image(?::secure_url)?["'][^>]+content=["']([^"']+)["']/i,
@@ -283,8 +285,6 @@ function findImage(html, base) {
     /<meta[^>]+name=["']twitter:image(?::src)?["'][^>]+content=["']([^"']+)["']/i,
     /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']twitter:image(?::src)?["']/i,
     /<link[^>]+rel=["']image_src["'][^>]+href=["']([^"']+)["']/i,
-    /"image"\s*:\s*"([^"]+?\.(?:jpe?g|png|webp)[^"]*)"/i,
-    /"image"\s*:\s*\[\s*"([^"]+)"/i,
     /<meta[^>]+itemprop=["']image["'][^>]+content=["']([^"']+)["']/i,
   ];
   for (const re of pats) {
