@@ -217,14 +217,7 @@ async function fetchPageText(url) {
   if (!r.ok) return { ok: false, status: String(r.status) };
 
   const html = await r.text();
-
-  let ogImage = '';
-  const og = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
-          || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
-  if (og) ogImage = og[1];
-  if (ogImage && !/^https?:\/\//i.test(ogImage)) {
-    try { ogImage = new URL(ogImage, url).toString(); } catch (e) {}
-  }
+  const ogImage = findImage(html, url);
 
   let text = html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -237,6 +230,32 @@ async function fetchPageText(url) {
   if (text.length > 16000) text = text.slice(0, 16000);
 
   return { ok: true, text, ogImage };
+}
+
+// 대표 이미지 탐색: og:image → twitter:image → JSON-LD image → link rel → itemprop.
+function findImage(html, base) {
+  const pats = [
+    /<meta[^>]+(?:property|name)=["']og:image(?::secure_url)?["'][^>]+content=["']([^"']+)["']/i,
+    /<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']og:image(?::secure_url)?["']/i,
+    /<meta[^>]+name=["']twitter:image(?::src)?["'][^>]+content=["']([^"']+)["']/i,
+    /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']twitter:image(?::src)?["']/i,
+    /<link[^>]+rel=["']image_src["'][^>]+href=["']([^"']+)["']/i,
+    /"image"\s*:\s*"([^"]+?\.(?:jpe?g|png|webp)[^"]*)"/i,
+    /"image"\s*:\s*\[\s*"([^"]+)"/i,
+    /<meta[^>]+itemprop=["']image["'][^>]+content=["']([^"']+)["']/i,
+  ];
+  for (const re of pats) {
+    const m = html.match(re);
+    if (m && m[1]) {
+      let u = m[1].replace(/&amp;/gi, '&');
+      if (!/^https?:\/\//i.test(u)) {
+        if (u.startsWith('//')) u = 'https:' + u;
+        else { try { u = new URL(u, base).toString(); } catch (e) {} }
+      }
+      if (/^https?:\/\//i.test(u)) return u;
+    }
+  }
+  return '';
 }
 
 function parseJson(text) {
