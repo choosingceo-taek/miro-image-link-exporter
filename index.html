@@ -25,6 +25,7 @@
     #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
     #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
     #oneClick { background: #7c3aed; color: #fff; font-size: 15px; padding: 13px; }
+    #linkOnly { background: #0d9488; color: #fff; margin-top: 8px; }
     details.settings button { margin-top: 8px; }
     details.settings { margin-top: 12px; font-size: 12px; color: #555; }
     details.settings summary { cursor: pointer; user-select: none; }
@@ -59,6 +60,7 @@
       정리한 <b>엑셀(.xlsx)</b>을 한 번에 만듭니다.</p>
 
     <button id="oneClick">📋 원단 정보 엑셀 만들기</button>
+    <button id="linkOnly">🖼 썸네일+URL만 (AI 미사용·무료)</button>
 
     <details class="settings" id="fabricSettings">
       <summary>⚙︎ 원단 분석 서버 설정 (최초 1회)</summary>
@@ -163,6 +165,46 @@
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
         } finally {
           heroBtn.disabled = false;
+        }
+      });
+
+      // ── 썸네일+URL만 (AI 미사용): 무료 한도와 무관하게 항상 동작 ──────
+      const linkOnlyBtn = document.getElementById('linkOnly');
+      linkOnlyBtn.addEventListener('click', async () => {
+        const workerUrl = (workerUrlEl.value || '').trim();
+        if (!workerUrl) {
+          document.getElementById('fabricSettings').open = true;
+          statusEl.textContent = '먼저 ⚙︎ 설정에서 Worker URL을 입력하세요 (최초 1회).';
+          return;
+        }
+        const token = (accessTokenEl.value || '').trim();
+        linkOnlyBtn.disabled = true; heroBtn.disabled = true;
+        try {
+          await collectRows();
+          const targets = rows.filter(r => r.link);
+          if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
+          const base = workerUrl.replace(/\/+$/, '');
+          let done = 0;
+          const update = () => { statusEl.textContent = `썸네일 수집 중… ${done}/${targets.length} (AI 미사용)`; };
+          update();
+          await runPool(targets, 4, async (r) => {
+            let img = '', st = 'skipped';
+            try {
+              const q = '?meta=' + encodeURIComponent(r.link) + (token ? '&token=' + encodeURIComponent(token) : '');
+              const resp = await fetch(base + q);
+              const data = await resp.json();
+              img = data.image_url || '';
+              if (data.status === 'blocked') st = 'blocked';
+            } catch (e) {}
+            r.fabric = { product_name: '', image_url: img, composition: [], materials: [], status: st, note: 'AI 미사용(썸네일만)' };
+            done++; update(); renderPreview();
+          });
+          await buildFabricXlsx();
+          statusEl.textContent = `썸네일+URL 정리 완료 (${targets.length}건, 원단은 미분석).`;
+        } catch (e) {
+          statusEl.textContent = '오류: ' + ((e && e.message) || e);
+        } finally {
+          linkOnlyBtn.disabled = false; heroBtn.disabled = false;
         }
       });
 
@@ -585,6 +627,7 @@
         const s = f.status;
         const hasData = (f.composition && f.composition.length) || (f.materials && f.materials.length);
         if (s === 'ok') return hasData ? '추출됨' : '정보없음';
+        if (s === 'skipped') return '미분석';
         if (s === 'no_data') return '정보없음';
         if (s === 'blocked') return '접근차단';
         const note = String(f.note || '').toLowerCase();

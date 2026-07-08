@@ -64,10 +64,24 @@ export default {
 
     // ── 이미지 프록시 (GET ?img=...) ──────────────────────────────
     if (request.method === 'GET') {
+      const tokOk = !env.ACCESS_TOKEN || reqUrl.searchParams.get('token') === env.ACCESS_TOKEN;
+
+      // og:image만 추출 (AI 미사용 — 무료 한도와 무관). "썸네일+URL만" 버튼이 사용.
+      const meta = reqUrl.searchParams.get('meta');
+      if (meta) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        const page = await fetchPageText(meta);
+        return json({
+          url: meta,
+          image_url: page.ok ? (page.ogImage || '') : '',
+          status: page.ok ? 'ok' : 'blocked',
+          note: page.ok ? '' : ('fetch ' + page.status),
+        }, 200, cors);
+      }
+
       const img = reqUrl.searchParams.get('img');
-      if (!img) return json({ error: 'use POST to extract, or GET ?img=<url> to proxy an image' }, 400, cors);
-      if (env.ACCESS_TOKEN && reqUrl.searchParams.get('token') !== env.ACCESS_TOKEN)
-        return new Response('unauthorized', { status: 401, headers: cors });
+      if (!img) return json({ error: 'use POST to extract, GET ?meta=<url> for og:image, or GET ?img=<url> to proxy an image' }, 400, cors);
+      if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
       return proxyImage(img, cors);
     }
 
