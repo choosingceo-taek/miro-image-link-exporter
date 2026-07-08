@@ -14,12 +14,14 @@
 // ------------------------------------------------------------------
 
 // 무료 티어 모델. 필요하면 'gemini-2.5-flash' 등으로 변경 가능.
+// (URL 읽기 도구 url_context는 무료 한도가 매우 낮아, Worker가 직접 페이지를 가져와
+//  일반 텍스트 생성으로 추출합니다 — 무료 한도가 훨씬 넉넉함.)
 const MODEL = 'gemini-2.0-flash';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 const MAX_IMG_BYTES = 8 * 1024 * 1024;
 
 const SYSTEM = `You extract fabric / material information from a single clothing product web page.
-You are given one product URL. Read that page using your URL-reading ability
+You are given a product URL and the extracted TEXT of that page. Read the provided text
 (look for "materials", "composition", "fabric", "care", "product details" sections).
 
 Respond with ONLY one JSON object — no markdown fences, no prose. Shape:
@@ -130,22 +132,28 @@ async function proxyImage(img, cors) {
 }
 
 async function extractFabric(url, apiKey) {
+  // 1) Worker가 직접 페이지를 가져와 텍스트 + 대표이미지(og:image) 추출.
+  const page = await fetchPageText(url);
+  if (!page.ok) {
+    return { product_name: '', image_url: '', composition: [], materials: [], status: 'blocked', note: 'fetch ' + page.status };
+  }
+
+  // 2) 일반 텍스트 생성(무료 한도 넉넉)으로 원단 정보만 추출. URL 읽기 도구 미사용.
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+  const userText =
+    `Product URL: ${url}\n` +
+    `Detected main image (og:image): ${page.ogImage || '(none)'}\n\n` +
+    `PAGE TEXT (may be truncated):\n${page.text}\n\n` +
+    `Extract the fabric composition and materials as the specified JSON. ` +
+    `If the text has no composition info, use status "no_data".`;
+
   const resp = await fetch(endpoint, {
     method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'x-goog-api-key': apiKey,
-    },
+    headers: { 'content-type': 'application/json', 'x-goog-api-key': apiKey },
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: SYSTEM }] },
-      contents: [{
-        role: 'user',
-        parts: [{ text: `Product URL: ${url}\n\nRead this page and return the product image URL, fabric composition, and materials as the specified JSON.` }],
-      }],
-      // Gemini의 URL 읽기 도구(웹페이지 내용을 구글이 대신 가져옴).
-      tools: [{ url_context: {} }],
-      generationConfig: { temperature: 0 },
+      contents: [{ role: 'user', parts: [{ text: userText }] }],
+      generationConfig: { temperature: 0, responseMimeType: 'application/json' },
     }),
   });
 
@@ -162,12 +170,13 @@ async function extractFabric(url, apiKey) {
 
   const parsed = parseJson(text);
   if (!parsed) {
-    return { product_name: '', image_url: '', composition: [], materials: [], status: 'blocked', note: 'no parseable model output (page may be blocked)' };
+    return { product_name: '', image_url: page.ogImage || '', composition: [], materials: [], status: 'no_data', note: 'no parseable model output' };
   }
 
+  const modelImg = (parsed.image_url && /^https?:\/\//i.test(parsed.image_url)) ? parsed.image_url : '';
   return {
     product_name: parsed.product_name || '',
-    image_url: (parsed.image_url && /^https?:\/\//i.test(parsed.image_url)) ? parsed.image_url : '',
+    image_url: modelImg || (page.ogImage && /^https?:\/\//i.test(page.ogImage) ? page.ogImage : ''),
     composition: Array.isArray(parsed.composition)
       ? parsed.composition
           .filter((c) => c && c.material)
@@ -178,6 +187,42 @@ async function extractFabric(url, apiKey) {
     status: parsed.status || 'ok',
     note: parsed.note || '',
   };
+}
+
+// 페이지를 서버에서 가져와 og:image 추출 + HTML을 평문 텍스트로 정리(최대 16k자).
+async function fetchPageText(url) {
+  let r;
+  try {
+    r = await fetch(url, {
+      headers: { 'user-agent': UA, accept: 'text/html,application/xhtml+xml,*/*;q=0.8', 'accept-language': 'en-US,en;q=0.9' },
+      redirect: 'follow',
+    });
+  } catch (e) {
+    return { ok: false, status: 'error:' + ((e && e.message) || e) };
+  }
+  if (!r.ok) return { ok: false, status: String(r.status) };
+
+  const html = await r.text();
+
+  let ogImage = '';
+  const og = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
+          || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
+  if (og) ogImage = og[1];
+  if (ogImage && !/^https?:\/\//i.test(ogImage)) {
+    try { ogImage = new URL(ogImage, url).toString(); } catch (e) {}
+  }
+
+  let text = html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (text.length > 16000) text = text.slice(0, 16000);
+
+  return { ok: true, text, ogImage };
 }
 
 function parseJson(text) {
