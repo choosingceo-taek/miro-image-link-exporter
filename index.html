@@ -35,7 +35,16 @@
       width: 100%; padding: 6px 8px; font-size: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; resize: vertical;
     }
     hr.sep { border: none; border-top: 1px solid #eee; margin: 20px 0 16px; }
-    #importFetch { background: #eef0f5; color: #333; margin-top: 8px; }
+    .url-row { display: flex; gap: 6px; margin-top: 6px; }
+    .url-row input { flex: 1; padding: 8px; font-size: 12px; border: 1px solid #ddd; border-radius: 6px; }
+    .url-row .go { width: auto; padding: 8px 14px; background: #4262ff; color: #fff; }
+    #importTabs { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+    #importTabs button {
+      width: auto; padding: 4px 9px; font-size: 11px; font-weight: 600;
+      background: #f4f4f7; color: #555; border-radius: 14px;
+    }
+    #importTabs button.active { background: #4262ff; color: #fff; }
+    .imp-card .price { color: #888; font-weight: 500; margin-top: 2px; }
     #importAdd { background: #4262ff; color: #fff; margin-top: 8px; display: none; }
     #importStatus { font-size: 12px; margin: 8px 0 4px; color: #444; }
     #importGrid {
@@ -87,29 +96,26 @@
 <body>
   <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
-    <h1>🧵 HS Fabric Linker</h1>
+    <h1>🧵 RACK</h1>
     <p class="desc">① 쇼핑몰 상품을 <b>보드에 채워넣고</b> → ② 보드를 <b>원단 정보 엑셀(.xlsx)</b>로
-      뽑는 앱입니다. 필요한 단계만 골라 써도 됩니다.</p>
+      뽑는 통합 앱입니다. 필요한 단계만 골라 써도 됩니다.</p>
 
     <h2>① 📥 상품 가져오기 <span class="muted" style="font-weight:400">— 쇼핑몰 → 보드</span></h2>
-    <p class="desc">컬렉션 URL(신상품 목록) 또는 상품 URL을 넣으면 미리보기가 뜨고,
-      선택한 상품만 <b>이미지+링크</b>로 보드에 추가됩니다.</p>
+    <p class="desc">브랜드를 고르거나 URL을 붙여넣으면 신상품을 미리보고,
+      선택한 상품만 <b>이미지+링크</b>로 보드에 추가합니다. (133개 브랜드 지원)</p>
 
-    <details class="settings" open>
-      <summary>가져올 주소</summary>
-      <label for="importCollections">컬렉션 URL 또는 상품 URL (줄마다 하나씩)</label>
-      <textarea id="importCollections" rows="3" placeholder="https://쇼핑몰/collections/tops        ← 컬렉션(신상품 목록)
-https://쇼핑몰/products/상품이름   ← 개별 상품도 가능"></textarea>
-      <label for="importLimit">컬렉션당 최대 개수</label>
-      <input id="importLimit" type="number" min="1" max="100" value="30" />
-    </details>
-
-    <button id="importFetch">🔎 가져오기 미리보기</button>
+    <div class="url-row">
+      <input id="importBrandUrl" type="url" list="importBrandList"
+        placeholder="브랜드 선택 또는 URL 붙여넣기" />
+      <datalist id="importBrandList"></datalist>
+      <button id="importFetch" class="go">🔎</button>
+    </div>
     <div id="importStatus"></div>
+    <div id="importTabs" style="display:none"></div>
     <div id="importToolbar" style="display:none">
       <span id="importCount"></span>
-      <button id="importSelAll">전체 선택</button>
-      <button id="importSelNone">전체 해제</button>
+      <button id="importSelAll">이 탭 전체 선택</button>
+      <button id="importSelNone">이 탭 전체 해제</button>
     </div>
     <div id="importGrid"></div>
     <button id="importAdd">➕ 선택한 상품 보드에 추가</button>
@@ -124,10 +130,12 @@ https://쇼핑몰/products/상품이름   ← 개별 상품도 가능"></textare
 
     <details class="settings" id="fabricSettings">
       <summary>⚙︎ 서버 설정 (최초 1회 — ①·② 공용)</summary>
-      <label for="workerUrl">Worker URL (Cloudflare 함수 주소)</label>
+      <label for="renderUrl">① 가져오기 서버 (Render 주소)</label>
+      <input id="renderUrl" type="url" placeholder="https://…onrender.com" />
+      <label for="workerUrl">② 추출 Worker (Cloudflare 주소)</label>
       <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
-      <label for="accessToken">Access token (선택)</label>
-      <input id="accessToken" type="text" placeholder="서버에 ACCESS_TOKEN을 설정한 경우만" />
+      <label for="accessToken">Access token (선택 — 추출 Worker용)</label>
+      <input id="accessToken" type="text" placeholder="Worker에 ACCESS_TOKEN을 설정한 경우만" />
     </details>
 
     <div id="status"></div>
@@ -151,6 +159,7 @@ https://쇼핑몰/products/상품이름   ← 개별 상품도 가능"></textare
     // (initPanel()보다 먼저 선언돼야 함 — 안 그러면 TDZ 오류로 패널 스크립트 전체가 멈춥니다.)
     let __proxy = { url: '', token: '' };
     let __boardId = ''; // 미로 REST API로 보드 이미지를 받아올 때 필요(썸네일용).
+    let __render = '';  // ① 가져오기용 Render 서버 주소.
 
     if (params.get('view') === 'panel') {
       initPanel();
@@ -181,15 +190,23 @@ https://쇼핑몰/products/상품이름   ← 개별 상품도 가능"></textare
 
       let rows = [];
 
-      // 원단 분석 서버 설정을 브라우저에 기억(팀원마다 1회만 입력).
+      // 서버 설정을 브라우저에 기억(팀원마다 1회만 입력).
+      const renderUrlEl = document.getElementById('renderUrl');
       const syncProxy = () => {
         __proxy = { url: (workerUrlEl.value || '').trim(), token: (accessTokenEl.value || '').trim() };
+        __render = (renderUrlEl.value || '').trim().replace(/\/+$/, '');
       };
       try {
+        renderUrlEl.value = localStorage.getItem('importRenderUrl') || '';
         workerUrlEl.value = localStorage.getItem('fabricWorkerUrl') || '';
         accessTokenEl.value = localStorage.getItem('fabricAccessToken') || '';
       } catch (e) {}
       syncProxy();
+      renderUrlEl.addEventListener('change', () => {
+        try { localStorage.setItem('importRenderUrl', renderUrlEl.value.trim()); } catch (e) {}
+        syncProxy();
+        loadBrandList();
+      });
       workerUrlEl.addEventListener('change', () => {
         try { localStorage.setItem('fabricWorkerUrl', workerUrlEl.value.trim()); } catch (e) {}
         syncProxy();
@@ -250,105 +267,128 @@ https://쇼핑몰/products/상품이름   ← 개별 상품도 가능"></textare
         }
       });
 
-      // ── 📥 상품 가져오기: 쇼핑몰 컬렉션 → 미리보기 → 선택한 것만 보드에 추가 ──
-      const importCollectionsEl = document.getElementById('importCollections');
-      const importLimitEl = document.getElementById('importLimit');
+      // ── 📥 상품 가져오기: 브랜드 → Render 서버(133 브랜드) → 미리보기 → 선택 → 보드에 추가 ──
+      const importBrandUrlEl = document.getElementById('importBrandUrl');
+      const importBrandListEl = document.getElementById('importBrandList');
       const importFetchBtn = document.getElementById('importFetch');
       const importAddBtn = document.getElementById('importAdd');
       const importStatusEl = document.getElementById('importStatus');
       const importGridEl = document.getElementById('importGrid');
+      const importTabsEl = document.getElementById('importTabs');
       const importToolbarEl = document.getElementById('importToolbar');
       const importCountEl = document.getElementById('importCount');
       const importSelAllBtn = document.getElementById('importSelAll');
       const importSelNoneBtn = document.getElementById('importSelNone');
-      try {
-        importCollectionsEl.value = localStorage.getItem('importCollections') || '';
-      } catch (e) {}
-      importCollectionsEl.addEventListener('change', () => {
-        try { localStorage.setItem('importCollections', importCollectionsEl.value); } catch (e) {}
+
+      const IMPORT_CATS = [
+        { key: 'new', label: 'New' }, { key: 'tops', label: 'Tops' },
+        { key: 'sweatshirts', label: 'Sweat' }, { key: 'shirts', label: 'Shirts' },
+        { key: 'dresses', label: 'Dresses' }, { key: 'pants', label: 'Pants' },
+      ];
+      let importItems = [];      // 서버가 준 상품들 { id,name,category,imageUrl,productUrl,price,brand,selected }
+      let importCat = 'tops';    // 현재 보고 있는 카테고리 탭
+      let importBrand = '';
+
+      try { importBrandUrlEl.value = localStorage.getItem('importBrandUrl') || ''; } catch (e) {}
+      importBrandUrlEl.addEventListener('change', () => {
+        try { localStorage.setItem('importBrandUrl', importBrandUrlEl.value.trim()); } catch (e) {}
       });
 
-      let importItems = []; // { title, url, image, selected }
+      // 브랜드 목록을 서버에서 받아 자동완성(datalist)에 채움.
+      async function loadBrandList() {
+        if (!__render) return;
+        try {
+          const resp = await fetch(__render + '/api/brands');
+          const data = await resp.json();
+          importBrandListEl.innerHTML = (data.brands || [])
+            .filter(b => b && b.name && b.url)
+            .map(b => `<option value="${escapeHtml(b.url)}">${escapeHtml(b.name)}</option>`)
+            .join('');
+        } catch (e) {}
+      }
+
+      function needRender() {
+        if (!__render) {
+          document.getElementById('fabricSettings').open = true;
+          importStatusEl.textContent = '먼저 ⚙︎ 설정에서 ① 가져오기 서버(Render) 주소를 입력하세요 (최초 1회).';
+          return true;
+        }
+        return false;
+      }
 
       importFetchBtn.addEventListener('click', async () => {
-        if (!(workerUrlEl.value || '').trim()) {
-          document.getElementById('fabricSettings').open = true;
-          importStatusEl.textContent = '먼저 ⚙︎ 설정에서 Worker URL을 입력하세요 (최초 1회).';
-          return;
-        }
-        const urls = (importCollectionsEl.value || '').split('\n').map(s => s.trim()).filter(Boolean);
-        if (!urls.length) { importStatusEl.textContent = '컬렉션 URL을 한 줄에 하나씩 입력하세요.'; return; }
-        const limit = Math.min(Math.max(parseInt(importLimitEl.value, 10) || 30, 1), 100);
+        if (needRender()) return;
+        const brandUrl = (importBrandUrlEl.value || '').trim();
+        if (!brandUrl) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
 
         importFetchBtn.disabled = true;
         importGridEl.style.display = 'none';
+        importTabsEl.style.display = 'none';
         importToolbarEl.style.display = 'none';
         importAddBtn.style.display = 'none';
         importItems = [];
-        importStatusEl.textContent = `가져오는 중… (0/${urls.length})`;
+        importStatusEl.textContent = '가져오는 중… (첫 검색은 서버가 깨어나며 30~60초 걸릴 수 있어요)';
 
-        const base = __proxy.url.replace(/\/+$/, '');
-        const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
-        const seen = new Set();
-        let done = 0, errors = [];
-        for (const cu of urls) {
-          try {
-            if (/\/products\//i.test(cu)) {
-              // 개별 상품 URL → 대표 이미지(og:image)만 가져와 1건 추가.
-              // (Shopify가 아닌 쇼핑몰도 봇 차단만 없으면 이 방식으로 추가 가능)
-              const resp = await fetch(base + '?meta=' + encodeURIComponent(cu) + tok);
-              const data = await resp.json();
-              if (data.image_url) {
-                if (!seen.has(cu)) { seen.add(cu); importItems.push({ title: titleFromUrl(cu), url: cu, image: data.image_url, selected: true }); }
-              } else {
-                errors.push(`${cu} → ${data.note || '이미지를 찾지 못함(봇 차단 가능)'}`);
-              }
-            } else {
-              // 컬렉션 URL → Shopify 공개 목록에서 최신순으로 여러 건.
-              const resp = await fetch(base + '?collection=' + encodeURIComponent(cu) + '&limit=' + limit + tok);
-              const data = await resp.json();
-              if (!resp.ok || data.ok === false) {
-                errors.push(`${cu} → ${data.status || resp.status}`);
-              } else {
-                (data.items || []).forEach(it => {
-                  if (it.url && !seen.has(it.url)) { seen.add(it.url); importItems.push({ ...it, selected: true }); }
-                });
-              }
-            }
-          } catch (e) {
-            errors.push(`${cu} → ${(e && e.message) || e}`);
+        try {
+          const q = '/api/products?new=50&tops=80&sweatshirts=30&shirts=20&dresses=30&pants=30&url=' +
+            encodeURIComponent(brandUrl);
+          const resp = await fetch(__render + q);
+          const data = await resp.json();
+          importBrand = data.brand || '';
+          importItems = (data.products || []).map(p => ({
+            id: p.id, name: p.name || '', category: p.category || 'tops',
+            imageUrl: p.imageUrl || '', productUrl: p.productUrl || '',
+            price: p.price || '', brand: p.brand || importBrand,
+            selected: (p.category === 'tops'),   // 기본은 Tops만 선택(원본 앱과 동일)
+          })).filter(p => p.imageUrl && p.productUrl);
+
+          if (!importItems.length) {
+            importStatusEl.textContent = '가져온 상품이 없습니다. 다른 브랜드/URL로 시도하거나 잠시 후 다시 해보세요.' +
+              ((data.warnings && data.warnings.length) ? ' (' + escapeHtml(data.warnings.join(' / ')) + ')' : '');
+            return;
           }
-          done++;
-          importStatusEl.textContent = `가져오는 중… (${done}/${urls.length})`;
+          const t = data.totals || {};
+          const totalTxt = IMPORT_CATS.map(c => `${c.label} ${t[c.key] || 0}`).join(' · ');
+          importStatusEl.innerHTML =
+            `<b>${escapeHtml(importBrand || '브랜드')}</b> · ${escapeHtml(totalTxt)}` +
+            (data.complete ? '' : ' <span style="color:#a15c00">(부분 카탈로그)</span>');
+          importCat = catCount('tops') ? 'tops'
+            : (IMPORT_CATS.find(c => catCount(c.key) > 0)?.key || 'tops');
+          renderImportTabs();
+          renderImportGrid();
+        } catch (e) {
+          importStatusEl.textContent = '가져오기 실패: ' + ((e && e.message) || e) +
+            ' — ⚙︎ 설정의 Render 주소가 맞는지 확인하세요.';
+        } finally {
+          importFetchBtn.disabled = false;
         }
-
-        importFetchBtn.disabled = false;
-        if (!importItems.length) {
-          importStatusEl.textContent = '가져온 상품이 없습니다.' + (errors.length ? ' 오류: ' + errors.join(' / ') : '');
-          return;
-        }
-        importStatusEl.innerHTML = `${importItems.length}개 상품을 찾았습니다.` +
-          (errors.length ? `<br><span style="color:#b42318">일부 실패: ${escapeHtml(errors.join(' / '))}</span>` : '');
-        renderImportGrid();
       });
 
-      // 상품 URL 끝부분(handle)을 사람이 읽을 제목으로 변환. 예: /products/silk-slip-dress → "silk slip dress"
-      function titleFromUrl(u) {
-        try {
-          const seg = new URL(u).pathname.split('/').filter(Boolean).pop() || '';
-          return decodeURIComponent(seg).replace(/[-_]+/g, ' ').trim();
-        } catch (e) { return ''; }
+      function catCount(key) { return importItems.filter(p => p.category === key).length; }
+      function visibleItems() { return importItems.filter(p => p.category === importCat); }
+
+      function renderImportTabs() {
+        importTabsEl.innerHTML = '';
+        IMPORT_CATS.filter(c => catCount(c.key) > 0).forEach(c => {
+          const b = document.createElement('button');
+          b.className = (c.key === importCat) ? 'active' : '';
+          b.textContent = `${c.label} ${catCount(c.key)}`;
+          b.addEventListener('click', () => { importCat = c.key; renderImportTabs(); renderImportGrid(); });
+          importTabsEl.appendChild(b);
+        });
+        importTabsEl.style.display = 'flex';
       }
 
       function renderImportGrid() {
         importGridEl.innerHTML = '';
-        importItems.forEach((it, idx) => {
+        visibleItems().forEach(it => {
           const card = document.createElement('div');
           card.className = 'imp-card' + (it.selected ? ' sel' : '');
           card.innerHTML =
             `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
-            `<img src="${escapeHtml(it.image)}" alt="" loading="lazy">` +
-            `<div class="t">${escapeHtml(it.title) || '(제목 없음)'}</div>`;
+            `<img src="${escapeHtml(it.imageUrl)}" alt="" loading="lazy">` +
+            `<div class="t">${escapeHtml(it.name) || '(제목 없음)'}</div>` +
+            (it.price ? `<div class="price">${escapeHtml(it.price)}</div>` : '');
           card.addEventListener('click', () => {
             it.selected = !it.selected;
             card.classList.toggle('sel', it.selected);
@@ -364,18 +404,35 @@ https://쇼핑몰/products/상품이름   ← 개별 상품도 가능"></textare
       }
 
       function updateImportToolbar() {
-        const n = importItems.filter(it => it.selected).length;
-        importCountEl.textContent = `${n} / ${importItems.length}개 선택됨`;
+        const total = importItems.filter(it => it.selected).length;
+        const here = visibleItems().filter(it => it.selected).length;
+        importCountEl.textContent = `이 탭 ${here}/${visibleItems().length} · 전체 선택 ${total}개`;
       }
 
-      importSelAllBtn.addEventListener('click', () => {
-        importItems.forEach(it => it.selected = true);
-        renderImportGrid();
-      });
-      importSelNoneBtn.addEventListener('click', () => {
-        importItems.forEach(it => it.selected = false);
-        renderImportGrid();
-      });
+      importSelAllBtn.addEventListener('click', () => { visibleItems().forEach(it => it.selected = true); renderImportGrid(); });
+      importSelNoneBtn.addEventListener('click', () => { visibleItems().forEach(it => it.selected = false); renderImportGrid(); });
+
+      // 브라우저가 남의 도메인 이미지를 miro.createImage에 못 넣을 때(CORS),
+      // Render의 /api/image 프록시로 받아 data URL로 변환해 넣는다.
+      async function imgToDataUrl(url) {
+        const resp = await fetch(__render + '/api/image?url=' + encodeURIComponent(url));
+        if (!resp.ok) throw new Error('image ' + resp.status);
+        const blob = await resp.blob();
+        return await new Promise((res, rej) => {
+          const r = new FileReader();
+          r.onload = () => res(r.result); r.onerror = () => rej(new Error('read fail'));
+          r.readAsDataURL(blob);
+        });
+      }
+
+      async function createBoardImage(it, props) {
+        try {
+          return await miro.board.createImage({ ...props, url: it.imageUrl });
+        } catch (e) {
+          const dataUrl = await imgToDataUrl(it.imageUrl);   // CORS/차단 시 프록시 폴백
+          return miro.board.createImage({ ...props, url: dataUrl });
+        }
+      }
 
       importAddBtn.addEventListener('click', async () => {
         const targets = importItems.filter(it => it.selected);
@@ -383,35 +440,34 @@ https://쇼핑몰/products/상품이름   ← 개별 상품도 가능"></textare
         importAddBtn.disabled = true;
         try {
           let startX = 0, startY = 0;
-          try {
-            const vp = await miro.board.viewport.get();
-            startX = vp.x + 60; startY = vp.y + 60;
-          } catch (e) {}
+          try { const vp = await miro.board.viewport.get(); startX = vp.x + 60; startY = vp.y + 60; } catch (e) {}
           const cellW = 220, gap = 30, cols = 5;
           const created = [];
+          let fail = 0;
           for (let i = 0; i < targets.length; i++) {
             const it = targets[i];
             importStatusEl.textContent = `보드에 추가하는 중… (${i + 1}/${targets.length})`;
             try {
               const col = i % cols, row = Math.floor(i / cols);
-              const img = await miro.board.createImage({
-                title: it.title,
-                url: it.image,
+              const img = await createBoardImage(it, {
+                title: `${it.brand ? it.brand + ' · ' : ''}${it.name}${it.price ? ' · ' + it.price : ''}`,
                 x: startX + col * (cellW + gap) + cellW / 2,
                 y: startY + row * (cellW + gap) + cellW / 2,
                 width: cellW,
               });
-              img.linkedTo = it.url;
+              img.linkedTo = it.productUrl;
               await img.sync();
               created.push(img);
-            } catch (e) { /* 이 상품만 건너뜀 */ }
+            } catch (e) { fail++; }
           }
           try { if (created.length && miro.board.viewport.zoomTo) await miro.board.viewport.zoomTo(created); } catch (e) {}
-          importStatusEl.textContent = `완료! ${created.length}/${targets.length}개를 보드에 추가했습니다.`;
+          importStatusEl.textContent = `완료! ${created.length}개 추가` + (fail ? `, ${fail}개 실패(이미지 접근 불가)` : '') + '.';
         } finally {
           importAddBtn.disabled = false;
         }
       });
+
+      loadBrandList(); // 설정에 Render 주소가 이미 있으면 브랜드 목록 미리 로드
 
       // ── 1) 보드에서 이미지 + 링크 수집 ──────────────────────────────
       runBtn.addEventListener('click', collectRows);
