@@ -13,6 +13,7 @@
       margin: 0; padding: 16px; color: #1a1a2e; background: #fff;
     }
     h1 { font-size: 16px; margin: 0 0 4px; }
+    h2 { font-size: 14px; margin: 14px 0 4px; }
     p.desc { font-size: 12px; color: #666; margin: 0 0 16px; line-height: 1.5; }
     button {
       width: 100%; padding: 10px 12px; font-size: 14px; font-weight: 600;
@@ -87,33 +88,18 @@
   <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
     <h1>🧵 HS Fabric Linker</h1>
-    <p class="desc">보드 사진에 걸린 <b>상품 링크</b>를 열어 각 상품의 <b>썸네일 · URL · 원단 혼용률</b>을
-      정리한 <b>엑셀(.xlsx)</b>을 한 번에 만듭니다.</p>
+    <p class="desc">① 쇼핑몰 상품을 <b>보드에 채워넣고</b> → ② 보드를 <b>원단 정보 엑셀(.xlsx)</b>로
+      뽑는 앱입니다. 필요한 단계만 골라 써도 됩니다.</p>
 
-    <button id="oneClick">📋 원단 정보 엑셀 만들기</button>
-    <button id="linkOnly">🖼 썸네일+URL만</button>
-
-    <details class="settings" id="fabricSettings">
-      <summary>⚙︎ 원단 분석 서버 설정 (최초 1회)</summary>
-      <label for="workerUrl">Worker URL (Cloudflare 함수 주소)</label>
-      <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
-      <label for="accessToken">Access token (선택)</label>
-      <input id="accessToken" type="text" placeholder="서버에 ACCESS_TOKEN을 설정한 경우만" />
-    </details>
-
-    <div id="status"></div>
-    <div class="summary" id="summary"></div>
-
-    <hr class="sep">
-    <h1>📥 상품 가져오기</h1>
-    <p class="desc">쇼핑몰 <b>컬렉션 URL</b>에서 신상품을 가져와 미리보고,
-      선택한 상품만 <b>이미지+링크</b>로 보드에 추가합니다. (Shopify 기반 쇼핑몰만 지원)</p>
+    <h2>① 📥 상품 가져오기 <span class="muted" style="font-weight:400">— 쇼핑몰 → 보드</span></h2>
+    <p class="desc">컬렉션 URL(신상품 목록) 또는 상품 URL을 넣으면 미리보기가 뜨고,
+      선택한 상품만 <b>이미지+링크</b>로 보드에 추가됩니다.</p>
 
     <details class="settings" open>
-      <summary>가져올 컬렉션</summary>
-      <label for="importCollections">컬렉션 URL (줄마다 하나씩)</label>
-      <textarea id="importCollections" rows="3" placeholder="https://www.thereformation.com/collections/tops
-https://www.thereformation.com/collections/dresses"></textarea>
+      <summary>가져올 주소</summary>
+      <label for="importCollections">컬렉션 URL 또는 상품 URL (줄마다 하나씩)</label>
+      <textarea id="importCollections" rows="3" placeholder="https://쇼핑몰/collections/tops        ← 컬렉션(신상품 목록)
+https://쇼핑몰/products/상품이름   ← 개별 상품도 가능"></textarea>
       <label for="importLimit">컬렉션당 최대 개수</label>
       <input id="importLimit" type="number" min="1" max="100" value="30" />
     </details>
@@ -127,6 +113,25 @@ https://www.thereformation.com/collections/dresses"></textarea>
     </div>
     <div id="importGrid"></div>
     <button id="importAdd">➕ 선택한 상품 보드에 추가</button>
+
+    <hr class="sep">
+    <h2>② 📤 엑셀로 추출 <span class="muted" style="font-weight:400">— 보드 → 엑셀</span></h2>
+    <p class="desc">보드 사진에 걸린 <b>상품 링크</b>를 읽어 <b>브랜드 · 썸네일 · URL · 소재 · 혼용률</b>을
+      정리한 엑셀을 만듭니다.</p>
+
+    <button id="oneClick">📋 원단 정보 엑셀 만들기</button>
+    <button id="linkOnly">🖼 썸네일+URL만</button>
+
+    <details class="settings" id="fabricSettings">
+      <summary>⚙︎ 서버 설정 (최초 1회 — ①·② 공용)</summary>
+      <label for="workerUrl">Worker URL (Cloudflare 함수 주소)</label>
+      <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
+      <label for="accessToken">Access token (선택)</label>
+      <input id="accessToken" type="text" placeholder="서버에 ACCESS_TOKEN을 설정한 경우만" />
+    </details>
+
+    <div id="status"></div>
+    <div class="summary" id="summary"></div>
 
     <table id="preview">
       <thead>
@@ -283,20 +288,32 @@ https://www.thereformation.com/collections/dresses"></textarea>
         importStatusEl.textContent = `가져오는 중… (0/${urls.length})`;
 
         const base = __proxy.url.replace(/\/+$/, '');
+        const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
         const seen = new Set();
         let done = 0, errors = [];
         for (const cu of urls) {
           try {
-            const q = base + '?collection=' + encodeURIComponent(cu) + '&limit=' + limit +
-              (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '');
-            const resp = await fetch(q);
-            const data = await resp.json();
-            if (!resp.ok || data.ok === false) {
-              errors.push(`${cu} → ${data.status || resp.status}`);
+            if (/\/products\//i.test(cu)) {
+              // 개별 상품 URL → 대표 이미지(og:image)만 가져와 1건 추가.
+              // (Shopify가 아닌 쇼핑몰도 봇 차단만 없으면 이 방식으로 추가 가능)
+              const resp = await fetch(base + '?meta=' + encodeURIComponent(cu) + tok);
+              const data = await resp.json();
+              if (data.image_url) {
+                if (!seen.has(cu)) { seen.add(cu); importItems.push({ title: titleFromUrl(cu), url: cu, image: data.image_url, selected: true }); }
+              } else {
+                errors.push(`${cu} → ${data.note || '이미지를 찾지 못함(봇 차단 가능)'}`);
+              }
             } else {
-              (data.items || []).forEach(it => {
-                if (it.url && !seen.has(it.url)) { seen.add(it.url); importItems.push({ ...it, selected: true }); }
-              });
+              // 컬렉션 URL → Shopify 공개 목록에서 최신순으로 여러 건.
+              const resp = await fetch(base + '?collection=' + encodeURIComponent(cu) + '&limit=' + limit + tok);
+              const data = await resp.json();
+              if (!resp.ok || data.ok === false) {
+                errors.push(`${cu} → ${data.status || resp.status}`);
+              } else {
+                (data.items || []).forEach(it => {
+                  if (it.url && !seen.has(it.url)) { seen.add(it.url); importItems.push({ ...it, selected: true }); }
+                });
+              }
             }
           } catch (e) {
             errors.push(`${cu} → ${(e && e.message) || e}`);
@@ -314,6 +331,14 @@ https://www.thereformation.com/collections/dresses"></textarea>
           (errors.length ? `<br><span style="color:#b42318">일부 실패: ${escapeHtml(errors.join(' / '))}</span>` : '');
         renderImportGrid();
       });
+
+      // 상품 URL 끝부분(handle)을 사람이 읽을 제목으로 변환. 예: /products/silk-slip-dress → "silk slip dress"
+      function titleFromUrl(u) {
+        try {
+          const seg = new URL(u).pathname.split('/').filter(Boolean).pop() || '';
+          return decodeURIComponent(seg).replace(/[-_]+/g, ' ').trim();
+        } catch (e) { return ''; }
+      }
 
       function renderImportGrid() {
         importGridEl.innerHTML = '';
