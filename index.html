@@ -30,7 +30,38 @@
     details.settings { margin-top: 12px; font-size: 12px; color: #555; }
     details.settings summary { cursor: pointer; user-select: none; }
     details.settings label { display: block; margin: 8px 0 2px; font-weight: 600; }
-    details.settings input { width: 100%; padding: 6px 8px; font-size: 12px; border: 1px solid #ddd; border-radius: 6px; }
+    details.settings input, details.settings textarea {
+      width: 100%; padding: 6px 8px; font-size: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; resize: vertical;
+    }
+    hr.sep { border: none; border-top: 1px solid #eee; margin: 20px 0 16px; }
+    #importFetch { background: #eef0f5; color: #333; margin-top: 8px; }
+    #importAdd { background: #4262ff; color: #fff; margin-top: 8px; display: none; }
+    #importStatus { font-size: 12px; margin: 8px 0 4px; color: #444; }
+    #importGrid {
+      display: none; grid-template-columns: repeat(3, 1fr); gap: 8px;
+      margin-top: 10px; max-height: 320px; overflow-y: auto; padding-right: 2px;
+    }
+    .imp-card {
+      border: 1px solid #eee; border-radius: 8px; padding: 6px; font-size: 10px;
+      cursor: pointer; position: relative; user-select: none;
+    }
+    .imp-card.sel { border-color: #4262ff; background: #f4f6ff; }
+    .imp-card img {
+      width: 100%; height: 84px; object-fit: cover; border-radius: 6px;
+      background: #f1f1f4; display: block; margin-bottom: 4px; pointer-events: none;
+    }
+    .imp-card .t {
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      overflow: hidden; line-height: 1.3; pointer-events: none;
+    }
+    .imp-card .chk {
+      position: absolute; top: 4px; right: 4px; width: 16px; height: 16px; pointer-events: none;
+    }
+    #importToolbar { display: flex; gap: 8px; align-items: center; margin-top: 8px; font-size: 11px; color: #666; }
+    #importToolbar button {
+      width: auto; padding: 4px 8px; font-size: 11px; font-weight: 500;
+      background: #f4f4f7; color: #444; border-radius: 6px;
+    }
     .fbadge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 6px; margin-left: 4px; vertical-align: middle; }
     .fbadge.ok { background: #e7f6ec; color: #16794a; }
     .fbadge.warn { background: #fff4e5; color: #a15c00; }
@@ -72,6 +103,30 @@
 
     <div id="status"></div>
     <div class="summary" id="summary"></div>
+
+    <hr class="sep">
+    <h1>📥 상품 가져오기</h1>
+    <p class="desc">쇼핑몰 <b>컬렉션 URL</b>에서 신상품을 가져와 미리보고,
+      선택한 상품만 <b>이미지+링크</b>로 보드에 추가합니다. (Shopify 기반 쇼핑몰만 지원)</p>
+
+    <details class="settings" open>
+      <summary>가져올 컬렉션</summary>
+      <label for="importCollections">컬렉션 URL (줄마다 하나씩)</label>
+      <textarea id="importCollections" rows="3" placeholder="https://www.thereformation.com/collections/tops
+https://www.thereformation.com/collections/dresses"></textarea>
+      <label for="importLimit">컬렉션당 최대 개수</label>
+      <input id="importLimit" type="number" min="1" max="100" value="30" />
+    </details>
+
+    <button id="importFetch">🔎 가져오기 미리보기</button>
+    <div id="importStatus"></div>
+    <div id="importToolbar" style="display:none">
+      <span id="importCount"></span>
+      <button id="importSelAll">전체 선택</button>
+      <button id="importSelNone">전체 해제</button>
+    </div>
+    <div id="importGrid"></div>
+    <button id="importAdd">➕ 선택한 상품 보드에 추가</button>
 
     <table id="preview">
       <thead>
@@ -187,6 +242,149 @@
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
         } finally {
           linkOnlyBtn.disabled = false; heroBtn.disabled = false;
+        }
+      });
+
+      // ── 📥 상품 가져오기: 쇼핑몰 컬렉션 → 미리보기 → 선택한 것만 보드에 추가 ──
+      const importCollectionsEl = document.getElementById('importCollections');
+      const importLimitEl = document.getElementById('importLimit');
+      const importFetchBtn = document.getElementById('importFetch');
+      const importAddBtn = document.getElementById('importAdd');
+      const importStatusEl = document.getElementById('importStatus');
+      const importGridEl = document.getElementById('importGrid');
+      const importToolbarEl = document.getElementById('importToolbar');
+      const importCountEl = document.getElementById('importCount');
+      const importSelAllBtn = document.getElementById('importSelAll');
+      const importSelNoneBtn = document.getElementById('importSelNone');
+      try {
+        importCollectionsEl.value = localStorage.getItem('importCollections') || '';
+      } catch (e) {}
+      importCollectionsEl.addEventListener('change', () => {
+        try { localStorage.setItem('importCollections', importCollectionsEl.value); } catch (e) {}
+      });
+
+      let importItems = []; // { title, url, image, selected }
+
+      importFetchBtn.addEventListener('click', async () => {
+        if (!(workerUrlEl.value || '').trim()) {
+          document.getElementById('fabricSettings').open = true;
+          importStatusEl.textContent = '먼저 ⚙︎ 설정에서 Worker URL을 입력하세요 (최초 1회).';
+          return;
+        }
+        const urls = (importCollectionsEl.value || '').split('\n').map(s => s.trim()).filter(Boolean);
+        if (!urls.length) { importStatusEl.textContent = '컬렉션 URL을 한 줄에 하나씩 입력하세요.'; return; }
+        const limit = Math.min(Math.max(parseInt(importLimitEl.value, 10) || 30, 1), 100);
+
+        importFetchBtn.disabled = true;
+        importGridEl.style.display = 'none';
+        importToolbarEl.style.display = 'none';
+        importAddBtn.style.display = 'none';
+        importItems = [];
+        importStatusEl.textContent = `가져오는 중… (0/${urls.length})`;
+
+        const base = __proxy.url.replace(/\/+$/, '');
+        const seen = new Set();
+        let done = 0, errors = [];
+        for (const cu of urls) {
+          try {
+            const q = base + '?collection=' + encodeURIComponent(cu) + '&limit=' + limit +
+              (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '');
+            const resp = await fetch(q);
+            const data = await resp.json();
+            if (!resp.ok || data.ok === false) {
+              errors.push(`${cu} → ${data.status || resp.status}`);
+            } else {
+              (data.items || []).forEach(it => {
+                if (it.url && !seen.has(it.url)) { seen.add(it.url); importItems.push({ ...it, selected: true }); }
+              });
+            }
+          } catch (e) {
+            errors.push(`${cu} → ${(e && e.message) || e}`);
+          }
+          done++;
+          importStatusEl.textContent = `가져오는 중… (${done}/${urls.length})`;
+        }
+
+        importFetchBtn.disabled = false;
+        if (!importItems.length) {
+          importStatusEl.textContent = '가져온 상품이 없습니다.' + (errors.length ? ' 오류: ' + errors.join(' / ') : '');
+          return;
+        }
+        importStatusEl.innerHTML = `${importItems.length}개 상품을 찾았습니다.` +
+          (errors.length ? `<br><span style="color:#b42318">일부 실패: ${escapeHtml(errors.join(' / '))}</span>` : '');
+        renderImportGrid();
+      });
+
+      function renderImportGrid() {
+        importGridEl.innerHTML = '';
+        importItems.forEach((it, idx) => {
+          const card = document.createElement('div');
+          card.className = 'imp-card' + (it.selected ? ' sel' : '');
+          card.innerHTML =
+            `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
+            `<img src="${escapeHtml(it.image)}" alt="" loading="lazy">` +
+            `<div class="t">${escapeHtml(it.title) || '(제목 없음)'}</div>`;
+          card.addEventListener('click', () => {
+            it.selected = !it.selected;
+            card.classList.toggle('sel', it.selected);
+            card.querySelector('.chk').checked = it.selected;
+            updateImportToolbar();
+          });
+          importGridEl.appendChild(card);
+        });
+        importGridEl.style.display = 'grid';
+        importToolbarEl.style.display = 'flex';
+        importAddBtn.style.display = 'block';
+        updateImportToolbar();
+      }
+
+      function updateImportToolbar() {
+        const n = importItems.filter(it => it.selected).length;
+        importCountEl.textContent = `${n} / ${importItems.length}개 선택됨`;
+      }
+
+      importSelAllBtn.addEventListener('click', () => {
+        importItems.forEach(it => it.selected = true);
+        renderImportGrid();
+      });
+      importSelNoneBtn.addEventListener('click', () => {
+        importItems.forEach(it => it.selected = false);
+        renderImportGrid();
+      });
+
+      importAddBtn.addEventListener('click', async () => {
+        const targets = importItems.filter(it => it.selected);
+        if (!targets.length) { importStatusEl.textContent = '선택한 상품이 없습니다.'; return; }
+        importAddBtn.disabled = true;
+        try {
+          let startX = 0, startY = 0;
+          try {
+            const vp = await miro.board.viewport.get();
+            startX = vp.x + 60; startY = vp.y + 60;
+          } catch (e) {}
+          const cellW = 220, gap = 30, cols = 5;
+          const created = [];
+          for (let i = 0; i < targets.length; i++) {
+            const it = targets[i];
+            importStatusEl.textContent = `보드에 추가하는 중… (${i + 1}/${targets.length})`;
+            try {
+              const col = i % cols, row = Math.floor(i / cols);
+              const img = await miro.board.createImage({
+                title: it.title,
+                url: it.image,
+                x: startX + col * (cellW + gap) + cellW / 2,
+                y: startY + row * (cellW + gap) + cellW / 2,
+                width: cellW,
+              });
+              img.linkedTo = it.url;
+              await img.sync();
+              created.push(img);
+            } catch (e) { /* 이 상품만 건너뜀 */ }
+          }
+          try { if (created.length && miro.board.viewport.zoomTo) await miro.board.viewport.zoomTo(created); } catch (e) {}
+          importStatusEl.textContent = `완료! ${created.length}/${targets.length}개를 보드에 추가했습니다.`;
+        } finally {
+          importAddBtn.disabled = false;
         }
       });
 

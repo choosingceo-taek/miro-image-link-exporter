@@ -12,6 +12,9 @@
 //     → 미로 보드의 그 이미지를 REST API로 받아와 CORS 허용 헤더와 함께 반환(썸네일용).
 //       (미로는 업로드 이미지 원본 주소를 Web SDK로 노출하지 않아 REST API가 필요.)
 //
+//  GET  ?collection=<Shopify 컬렉션URL>&limit=30[&token=...]
+//     → 그 컬렉션의 최신 상품 목록(제목/이미지/링크)을 JSON으로 반환(신상품 가져오기 기능이 사용).
+//
 //  필수 시크릿:  GEMINI_API_KEY   (`wrangler secret put GEMINI_API_KEY`)
 //               → https://aistudio.google.com/apikey 에서 무료 발급
 //               MIRO_TOKEN       (`wrangler secret put MIRO_TOKEN`)
@@ -84,6 +87,16 @@ export default {
           status: page.ok ? 'ok' : 'blocked',
           note: page.ok ? '' : ('fetch ' + page.status),
         }, 200, cors);
+      }
+
+      // Shopify 컬렉션 상품 목록 (GET ?collection=<컬렉션URL>&limit=30)
+      // 신상품 가져오기(보드에 채워넣기) 기능이 사용. Shopify 공개 JSON이라 봇 차단이 약함.
+      const collection = reqUrl.searchParams.get('collection');
+      if (collection) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        const limit = Math.min(Math.max(parseInt(reqUrl.searchParams.get('limit') || '30', 10) || 30, 1), 100);
+        const res = await fetchShopifyCollection(collection, limit);
+        return json({ collection, ...res }, res.ok ? 200 : 502, cors);
       }
 
       // 미로 보드 이미지 프록시 (GET ?board=<boardId>&item=<itemId>)
@@ -338,6 +351,41 @@ async function fetchShopifyJson(url) {
   if (text.length > 16000) text = text.slice(0, 16000);
 
   return { ok: true, text, ogImage: /^https?:\/\//i.test(img) ? img : '' };
+}
+
+// Shopify 컬렉션의 공개 상품 목록(JSON)을 가져와 최신순으로 정리.
+// Shopify 상점(대부분의 신생 패션몰이 여기 해당)이면 /collections/<handle>/products.json 이
+// 공개돼 있어 로그인/봇 차단 없이 상품명·이미지·링크·등록일을 받을 수 있습니다.
+async function fetchShopifyCollection(collectionUrl, limit) {
+  let u;
+  try { u = new URL(collectionUrl); } catch (e) { return { ok: false, status: 'bad collection url' }; }
+  const path = u.pathname.replace(/\/+$/, '');
+  const jsonUrl = `${u.origin}${path}/products.json?limit=250`;
+
+  let r;
+  try { r = await fetch(jsonUrl, { headers: { 'user-agent': UA, accept: 'application/json' } }); }
+  catch (e) { return { ok: false, status: 'fetch error' }; }
+  if (!r.ok) return { ok: false, status: String(r.status) };
+
+  let data;
+  try { data = await r.json(); } catch (e) { return { ok: false, status: 'parse error' }; }
+  const list = Array.isArray(data.products) ? data.products : [];
+  if (!list.length) return { ok: false, status: 'no products (Shopify 상점이 아니거나 컬렉션이 비었을 수 있음)' };
+
+  const items = list.map((p) => {
+    let img = (p.image && p.image.src) ||
+              (Array.isArray(p.images) && p.images[0] && p.images[0].src) || '';
+    if (img && img.startsWith('//')) img = 'https:' + img;
+    return {
+      title: p.title || '',
+      url: `${u.origin}/products/${p.handle}`,
+      image: img,
+      created_at: p.created_at || '',
+    };
+  }).filter((it) => it.image && it.url);
+
+  items.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  return { ok: true, items: items.slice(0, limit) };
 }
 
 async function fetchPageText(url) {
