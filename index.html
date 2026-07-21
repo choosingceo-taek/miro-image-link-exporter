@@ -272,12 +272,16 @@
           } else {
             batch = [{ imageUrl: target.dataset.full || target.src, productUrl: target.dataset.link || '', name: target.dataset.title || '', brand: '' }];
           }
-          const cellW = 220, gapX = 26, gapY = 300, cols = Math.min(batch.length, 4);
+          // 이미지 크기 = 현재 보드 화면 폭의 약 10% (줌 상태와 무관하게 보기 좋은 크기)
+          let W = 240;
+          try { const vp = await miro.board.viewport.get(); W = Math.min(Math.max(Math.round(vp.width * 0.10), 120), 2400); } catch (e) {}
+          const gapX = W * 0.14, gapY = W * 1.5, cols = Math.min(batch.length, 4);
           for (let i = 0; i < batch.length; i++) {
             const it = batch[i], col = i % cols, row = Math.floor(i / cols);
             try {
+              // 첫 이미지(끌어놓은 것)의 중심이 커서(x,y)에 오도록. 나머지는 그 옆/아래로.
               const img = await createBoardImage(it, {
-                x: x + col * (cellW + gapX), y: y + row * gapY, width: cellW,
+                x: x + col * (W + gapX), y: y + row * gapY, width: W,
                 title: `${it.brand ? it.brand + ' · ' : ''}${it.name || ''}`,
               });
               if (it.productUrl) { img.linkedTo = it.productUrl; await img.sync(); }
@@ -587,9 +591,14 @@
         if (!targets.length) { importStatusEl.textContent = '선택한 상품이 없습니다.'; return; }
         importAddBtn.disabled = true;
         try {
-          let startX = 0, startY = 0;
-          try { const vp = await miro.board.viewport.get(); startX = vp.x + 60; startY = vp.y + 60; } catch (e) {}
-          const cellW = 220, gap = 30, cols = 5;
+          // 보드 화면 폭의 ~10% 크기로, 현재 화면 좌상단부터 배치.
+          let startX = 0, startY = 0, cellW = 240;
+          try {
+            const vp = await miro.board.viewport.get();
+            cellW = Math.min(Math.max(Math.round(vp.width * 0.10), 120), 2400);
+            startX = vp.x + cellW * 0.3; startY = vp.y + cellW * 0.3;
+          } catch (e) {}
+          const gap = cellW * 0.14, cols = 5;
           const created = [];
           let fail = 0, firstErr = '';
           for (let i = 0; i < targets.length; i++) {
@@ -600,7 +609,7 @@
               const img = await createBoardImage(it, {
                 title: `${it.brand ? it.brand + ' · ' : ''}${it.name}${it.price ? ' · ' + it.price : ''}`,
                 x: startX + col * (cellW + gap) + cellW / 2,
-                y: startY + row * (cellW + gap) + cellW / 2,
+                y: startY + row * (cellW * 1.5 + gap) + cellW / 2,
                 width: cellW,
               });
               img.linkedTo = it.productUrl;
