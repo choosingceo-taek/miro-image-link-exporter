@@ -461,7 +461,7 @@
           try { const vp = await miro.board.viewport.get(); startX = vp.x + 60; startY = vp.y + 60; } catch (e) {}
           const cellW = 220, gap = 30, cols = 5;
           const created = [];
-          let fail = 0;
+          let fail = 0, firstErr = '';
           for (let i = 0; i < targets.length; i++) {
             const it = targets[i];
             importStatusEl.textContent = `보드에 추가하는 중… (${i + 1}/${targets.length})`;
@@ -476,10 +476,16 @@
               img.linkedTo = it.productUrl;
               await img.sync();
               created.push(img);
-            } catch (e) { fail++; }
+            } catch (e) { fail++; if (!firstErr) firstErr = (e && e.message) || String(e); }
           }
           try { if (created.length && miro.board.viewport.zoomTo) await miro.board.viewport.zoomTo(created); } catch (e) {}
-          importStatusEl.textContent = `완료! ${created.length}개 추가` + (fail ? `, ${fail}개 실패(이미지 접근 불가)` : '') + '.';
+          let msg = `완료! ${created.length}개 추가` + (fail ? `, ${fail}개 실패` : '') + '.';
+          if (fail && firstErr) {
+            msg += /permission|scope|write|forbidden|401|403/i.test(firstErr)
+              ? ` ⚠ 권한 문제로 보입니다 — 앱에 boards:write 를 추가하고 재설치하세요. (원인: ${firstErr})`
+              : ` (원인: ${firstErr})`;
+          }
+          importStatusEl.textContent = msg;
         } finally {
           importAddBtn.disabled = false;
         }
