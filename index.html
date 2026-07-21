@@ -56,8 +56,8 @@
     #importAdd { background: #111; color: #fff; margin-top: 12px; display: none; border-radius: 26px; padding: 12px; }
     #importStatus { font-size: 12px; margin: 8px 0 4px; color: #444; }
     #importGrid {
-      display: none; grid-template-columns: repeat(2, 1fr); gap: 14px 12px;
-      margin-top: 14px; max-height: 60vh; overflow-y: auto; padding-right: 2px;
+      display: none; grid-template-columns: repeat(2, 1fr); gap: 16px 12px;
+      margin-top: 14px; max-height: 72vh; overflow-y: auto; padding-right: 2px;
     }
     .imp-card {
       border: none; border-radius: 0; padding: 0; font-size: 10px;
@@ -149,7 +149,6 @@
       </div>
       <div id="cacheRow" style="display:none; flex-wrap:wrap; gap:4px; margin-top:8px"></div>
       <div id="importStatus"></div>
-      <div id="importHeader"><span class="bn"></span><span class="cat"></span></div>
       <div id="importTabs" style="display:none"></div>
       <div id="importToolbar" style="display:none">
         <span id="importCount"></span>
@@ -539,36 +538,20 @@
         const chk = card.querySelector('.chk'); if (chk) chk.checked = val;
       }
 
-      const CAT_LABEL = { new: 'New', tops: 'Tops', sweatshirts: 'Sweat', shirts: 'Shirts', dresses: 'Dresses', pants: 'Pants', manual: '직접' };
-      function updateImportHeader() {
-        const h = document.getElementById('importHeader');
-        if (!importItems.length) { h.style.display = 'none'; return; }
-        h.querySelector('.bn').textContent = importBrand || '브랜드';
-        h.querySelector('.cat').textContent = `${importItems.length} items`;
-        h.style.display = 'flex';
-      }
-
       function renderImportGrid() {
-        updateImportHeader();
         importGridEl.innerHTML = '';
-        // 카드 순서: 썸네일 → 이름 → 원단(버튼/결과) → 가격
+        // 카드: 썸네일 → 이름 → 가격 (원단은 목록에 없어 표시하지 않음)
         visibleItems().forEach(it => {
           const card = document.createElement('div');
           card.className = 'imp-card' + (it.selected ? ' sel' : '');
           card.dataset.id = String(it.id);
-          const fabHtml = it.fab
-            ? `<div class="fab">🧵 ${escapeHtml(it.fab)}</div>`
-            : `<div class="fab"><button class="fabbtn">🧵 원단 확인</button></div>`;
           card.innerHTML =
             `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
             `<img class="miro-draggable" draggable="false" src="${escapeHtml(it.imageUrl)}" alt="" loading="lazy"` +
             ` data-full="${escapeHtml(it.imageUrl)}" data-link="${escapeHtml(it.productUrl)}" data-title="${escapeHtml((it.brand ? it.brand + ' · ' : '') + it.name)}">` +
             `<div class="t">${escapeHtml(it.name) || '(제목 없음)'}</div>` +
-            fabHtml +
             (it.price ? `<div class="price">${escapeHtml(it.price)}</div>` : '');
-          // 클릭 = 선택 토글. 단, "원단 확인" 버튼 클릭은 선택 토글 제외.
-          card.addEventListener('click', (e) => {
-            if (e.target.closest('.fabbtn')) return;
+          card.addEventListener('click', () => {
             if (paintMoved) return;
             setCardSel(card, it, !it.selected);
             updateImportToolbar();
@@ -580,27 +563,6 @@
         importAddBtn.style.display = 'block';
         updateImportToolbar();
       }
-
-      // 🧵 개별 상품 원단 확인 (눌렀을 때만 — 무료 한도 절약). 추출 Worker(Gemini)로 상품 페이지 분석.
-      function fabReason(s) { return s === 'no_data' ? '정보 없음' : s === 'blocked' ? '접근 차단' : (s === 'error' ? '한도/오류' : '정보 없음'); }
-      importGridEl.addEventListener('click', async (e) => {
-        const btn = e.target.closest('.fabbtn'); if (!btn) return;
-        const card = btn.closest('.imp-card'); if (!card) return;
-        const it = importItems.find(x => String(x.id) === card.dataset.id); if (!it) return;
-        if (!__proxy.url) { showTab('settings'); importStatusEl.textContent = '원단 확인은 ⚙ 설정의 ② 추출 Worker 주소가 필요합니다.'; return; }
-        btn.textContent = '분석 중…'; btn.disabled = true;
-        try {
-          const resp = await fetch(__proxy.url.replace(/\/+$/, ''), {
-            method: 'POST',
-            headers: Object.assign({ 'content-type': 'application/json' }, __proxy.token ? { 'x-access-token': __proxy.token } : {}),
-            body: JSON.stringify({ url: it.productUrl }),
-          });
-          const d = await resp.json();
-          const comp = (d.composition || []).map(c => `${c.material} ${c.percent}%`).join(' / ');
-          it.fab = comp || (d.materials || []).join(', ') || fabReason(d.status);
-        } catch (err) { it.fab = '분석 실패'; }
-        const fabEl = card.querySelector('.fab'); if (fabEl) fabEl.textContent = '🧵 ' + it.fab;
-      });
 
       // ── 마우스 드래그로 여러 상품 선택(페인트 선택) ──
       // 카드 위에서 누른 채 끌면 지나가는 카드를 모두 선택/해제. (이미지 위에서 시작하면
