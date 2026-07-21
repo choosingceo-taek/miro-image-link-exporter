@@ -128,6 +128,7 @@
         보고 있는 페이지에서 자동으로 뽑아 채워집니다.</p>
       <textarea id="manualPaste" rows="4" placeholder="https://www.massimodutti.com/us/...상품페이지   https://static.massimodutti.net/....jpg"></textarea>
       <button id="manualAdd" style="margin-top:6px">➕ 붙여넣은 상품 미리보기에 추가</button>
+      <button id="manualSaveShared" style="margin-top:6px;display:none;background:#0d9488;color:#fff">☁ 이 목록을 팀 저장소에 저장 (모두 공유)</button>
     </details>
 
     <hr class="sep">
@@ -511,8 +512,20 @@
         } catch (e) { return ''; }
       }
 
-      // 🔧 차단 사이트 수동 추가: 붙여넣은 각 줄에서 이미지/상품 URL을 분류해 미리보기('직접' 탭)에 추가.
+      // 상품 URL·이름으로 카테고리 추정 (탭 분류용)
+      function guessCat(u, name) {
+        const s = ((u || '') + ' ' + (name || '')).toLowerCase();
+        if (/dress|원피스/.test(s)) return 'dresses';
+        if (/pant|trouser|jean|denim|바지|팬츠|slack/.test(s)) return 'pants';
+        if (/sweat|hoodie|jumper|맨투맨|후드/.test(s)) return 'sweatshirts';
+        if (/t[-\s]?shirt|tee|티셔츠|\btop\b|탑/.test(s)) return 'tops';
+        if (/shirt|blouse|셔츠|블라우스/.test(s)) return 'shirts';
+        return 'tops';
+      }
+
+      // 🔧 차단 사이트 수동 추가: 붙여넣은 각 줄에서 이미지/상품 URL을 분류해 미리보기에 추가.
       const manualPasteEl = document.getElementById('manualPaste');
+      const manualSaveBtn = document.getElementById('manualSaveShared');
       document.getElementById('manualAdd').addEventListener('click', () => {
         const lines = (manualPasteEl.value || '').split('\n').map(s => s.trim()).filter(Boolean);
         let added = 0;
@@ -528,17 +541,55 @@
             else { imageUrl = urls[ii]; productUrl = urls.find((_, i) => i !== ii) || urls[0]; }
           }
           if (!imageUrl) return;
+          const nm = titleFromUrl(productUrl) || '(상품)';
           importItems.push({
-            id: 'm' + Date.now() + '_' + added, name: titleFromUrl(productUrl) || '(상품)',
-            category: 'manual', imageUrl, productUrl, price: '', brand: '', selected: true,
+            id: 'm' + Date.now() + '_' + added, name: nm,
+            category: guessCat(productUrl, nm), imageUrl, productUrl, price: '', brand: '',
+            selected: true, source: 'manual',
           });
           added++;
         });
         if (!added) { importStatusEl.textContent = '유효한 URL을 못 찾았습니다. 각 줄에 상품 URL과 이미지 URL을 넣으세요.'; return; }
-        importCat = 'manual';
-        importStatusEl.textContent = `수동 ${added}개 추가됨. '직접' 탭에서 확인 후 "선택한 상품 보드에 추가"를 누르세요.`;
+        importCat = catCount('tops') ? 'tops' : (IMPORT_CATS.find(c => catCount(c.key) > 0)?.key || 'tops');
+        manualSaveBtn.style.display = 'block';
+        importStatusEl.textContent = `${added}개 추가됨. 탭에서 확인 후 "보드에 추가", 또는 아래 "☁ 팀 저장소에 저장"으로 팀과 공유하세요.`;
         renderImportTabs();
         renderImportGrid();
+      });
+
+      // ☁ 수동으로 넣은 목록을 팀 공유 저장소(Worker KV)에 저장 → 이후 팀 전체가 칩으로 접근.
+      manualSaveBtn.addEventListener('click', async () => {
+        if (!__proxy.url) {
+          document.getElementById('fabricSettings').open = true;
+          importStatusEl.textContent = '팀 저장소에 저장하려면 ⚙︎ 설정의 ② 추출 Worker 주소가 필요합니다.';
+          return;
+        }
+        const items = importItems.filter(it => it.source === 'manual');
+        if (!items.length) { importStatusEl.textContent = '저장할 수동 상품이 없습니다.'; return; }
+        let site = '';
+        try { site = new URL(items[0].productUrl).hostname.replace(/^www\./, ''); } catch (e) {}
+        if (!site) { importStatusEl.textContent = '상품 URL에서 사이트를 인식하지 못했습니다.'; return; }
+        const brand = site.split('.')[0];
+        manualSaveBtn.disabled = true;
+        importStatusEl.textContent = `팀 저장소에 저장 중… (${site}, ${items.length}개)`;
+        try {
+          const base = __proxy.url.replace(/\/+$/, '');
+          const resp = await fetch(base + '/?store=catalog' + (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : ''), {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ site, brand, items: items.map(it => ({ name: it.name, imageUrl: it.imageUrl, productUrl: it.productUrl, price: it.price, category: it.category })) }),
+          });
+          const data = await resp.json();
+          if (data.ok) {
+            importStatusEl.innerHTML = `☁ <b>${escapeHtml(site)}</b> 저장 완료 (${data.count}개). 이제 팀 전체가 상단 칩으로 바로 접근합니다.`;
+            loadCatalogChips();
+          } else {
+            importStatusEl.textContent = '저장 실패: ' + (data.error || resp.status);
+          }
+        } catch (e) {
+          importStatusEl.textContent = '저장 실패: ' + ((e && e.message) || e);
+        } finally {
+          manualSaveBtn.disabled = false;
+        }
       });
 
       // ── 공유 카탈로그(하드차단 사이트, 유저스크립트가 올려둔 것) ─────────
