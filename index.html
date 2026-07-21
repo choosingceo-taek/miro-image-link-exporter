@@ -122,11 +122,17 @@
     <button id="importAdd">➕ 선택한 상품 보드에 추가</button>
 
     <details class="settings" id="manualImport">
-      <summary>🔧 차단 사이트 수동 추가 (Massimo Dutti·Zara·H&M 등)</summary>
-      <p class="desc" style="margin:6px 0 4px">자동으로 막히는 사이트는 여기서 추가합니다. 각 줄에
-        <b>상품 URL</b>과 <b>이미지 URL</b>을 함께 붙여넣으세요(순서 무관). 아래 <b>북마클릿</b>을 쓰면
-        보고 있는 페이지에서 자동으로 뽑아 채워집니다.</p>
-      <textarea id="manualPaste" rows="4" placeholder="https://www.massimodutti.com/us/...상품페이지   https://static.massimodutti.net/....jpg"></textarea>
+      <summary>🔧 차단 사이트 추가·갱신 (Massimo Dutti·Zara·H&M 등)</summary>
+      <p class="desc" style="margin:6px 0 4px">자동으로 막히는 사이트는 이렇게 갱신합니다 (한 사람이 가끔, ~10초):</p>
+      <ol style="font-size:12px;padding-left:18px;margin:0 0 6px;color:#555;line-height:1.7">
+        <li>쇼핑몰 <b>상품목록 페이지</b>를 끝까지 스크롤 → <b>F12</b> → <b>Console</b> (경고 시 <code>allow pasting</code>)</li>
+        <li>아래 <b>📋 콘솔 코드 복사</b> → 콘솔에 붙여넣고 <b>Enter</b> (상품 자동 복사됨)</li>
+        <li>이 칸에 <b>Ctrl+V</b> → <b>미리보기에 추가</b> → 잡음 카드 체크 해제</li>
+        <li><b>보드에 추가</b> 또는 <b>☁ 팀 저장소에 저장</b>(팀 공유)</li>
+      </ol>
+      <textarea id="consoleCode" readonly rows="2" onclick="this.select()" style="font-size:10px;color:#555">(()=>{const s=new Set(),o=[];document.querySelectorAll('a[href]').forEach(a=>{const c=a.closest('article,li,div')||a;const g=a.querySelector('img')||c.querySelector('img');if(!g)return;let r=g.currentSrc||g.src||g.getAttribute('data-src')||'';if(!/^https?:/.test(r)){const m=(g.getAttribute('srcset')||'').match(/https?:\/\/\S+/);r=m?m[0]:'';}if(!/^https?:/.test(r)||!/^https?:/.test(a.href))return;if(g.naturalWidth&&g.naturalWidth<120)return;const k=a.href.split('?')[0];if(s.has(k))return;s.add(k);o.push(a.href+' '+r);});const t=o.join('\n');try{copy(t);}catch(e){}console.log(t);console.log('%c✅ '+o.length+'개 복사됨 → RACK 붙여넣기','color:green;font-size:15px');})()</textarea>
+      <button id="copyConsoleCode" style="margin-top:4px;background:#eef0f5;color:#333">📋 콘솔 코드 복사</button>
+      <textarea id="manualPaste" rows="3" placeholder="여기에 콘솔에서 복사한 목록을 붙여넣기 (Ctrl+V)" style="margin-top:8px"></textarea>
       <button id="manualAdd" style="margin-top:6px">➕ 붙여넣은 상품 미리보기에 추가</button>
       <button id="manualSaveShared" style="margin-top:6px;display:none;background:#0d9488;color:#fff">☁ 이 목록을 팀 저장소에 저장 (모두 공유)</button>
     </details>
@@ -557,6 +563,13 @@
         renderImportGrid();
       });
 
+      // 📋 콘솔 코드 복사 (자체 갱신용)
+      document.getElementById('copyConsoleCode').addEventListener('click', async () => {
+        const el = document.getElementById('consoleCode');
+        try { await navigator.clipboard.writeText(el.value); importStatusEl.textContent = '콘솔 코드 복사됨. 쇼핑몰 페이지 F12→Console에 붙여넣고 Enter 하세요.'; }
+        catch (e) { el.select(); document.execCommand && document.execCommand('copy'); }
+      });
+
       // ☁ 수동으로 넣은 목록을 팀 공유 저장소(Worker KV)에 저장 → 이후 팀 전체가 칩으로 접근.
       manualSaveBtn.addEventListener('click', async () => {
         if (!__proxy.url) {
@@ -610,10 +623,13 @@
           cacheRowEl.appendChild(lbl);
           list.sort((a, b) => (b.updated || 0) - (a.updated || 0)).forEach(c => {
             const b = document.createElement('button');
-            b.style.cssText = 'width:auto;padding:4px 9px;font-size:11px;font-weight:600;background:#eef0f5;color:#333;border-radius:14px';
-            const days = c.updated ? Math.floor((Date.now() - c.updated) / 86400000) : 0;
-            b.textContent = `${c.brand || c.site} (${c.count})`;
-            b.title = `${c.site} · ${days === 0 ? '오늘' : days + '일 전'} 갱신`;
+            const days = c.updated ? Math.floor((Date.now() - c.updated) / 86400000) : 999;
+            const stale = days >= 14;   // 2주 넘으면 갱신 권장 표시
+            b.style.cssText = 'width:auto;padding:4px 9px;font-size:11px;font-weight:600;border-radius:14px;' +
+              (stale ? 'background:#fff4e5;color:#a15c00;border:1px solid #f0c98a' : 'background:#eef0f5;color:#333');
+            const when = days === 0 ? '오늘' : days >= 999 ? '' : days + '일 전';
+            b.textContent = `${c.brand || c.site} (${c.count})` + (stale ? ' ⚠' : '');
+            b.title = `${c.site} · ${when} 갱신` + (stale ? ' — 오래됨, 갱신 권장' : '');
             b.addEventListener('click', () => loadCatalog(c.site, c.brand));
             cacheRowEl.appendChild(b);
           });
