@@ -7,6 +7,14 @@ compatibility_date = "2024-11-01"
 [vars]
 ALLOWED_ORIGIN = "*"
 
+# ── 공유 카탈로그 저장소 (하드차단 사이트용, 무료 KV) ─────────
+# 최초 1회:
+#   wrangler kv namespace create RACK_CACHE
+# 위 명령이 출력하는 id를 아래에 붙여넣고 주석(#) 해제 후 wrangler deploy:
+# [[kv_namespaces]]
+# binding = "RACK_CACHE"
+# id = "여기에_출력된_id"
+
 # ── 시크릿(코드/저장소에 넣지 말 것) ──────────────────────────
 # 반드시 CLI로 주입:
 #   wrangler secret put GEMINI_API_KEY   (https://aistudio.google.com/apikey 에서 무료 발급)

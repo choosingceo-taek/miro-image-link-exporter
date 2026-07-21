@@ -56,6 +56,27 @@ https://fabric-extractor.<your-subdomain>.workers.dev
 > 이미 다른 모델로 배포해 둔 상태라면, 코드만 바꾼 뒤 `wrangler deploy` **한 번만** 다시 하면 됩니다.
 > 새 키(`GEMINI_API_KEY`)는 위 2번으로 새로 넣어야 합니다(기존 `ANTHROPIC_API_KEY`는 더 이상 안 씀).
 
+## 공유 카탈로그 저장소 (하드차단 사이트용) — 선택, 강력 추천
+Massimo Dutti·Zara·H&M·Gap처럼 봇 차단이 강한 사이트는 서버가 못 읽습니다. 대신 팀원이
+브라우저에서 그 사이트를 볼 때 **유저스크립트(RACK 수집기)** 로 상품을 한 번 전송해두면,
+**이후 모두가 미로 앱에서 즉시 접근**합니다. 저장은 Cloudflare **무료 KV**를 씁니다.
+
+```bash
+cd worker
+# 1) KV 네임스페이스 생성 (무료)
+wrangler kv namespace create RACK_CACHE
+#   → 출력된 id 를 wrangler.toml 의 [[kv_namespaces]] 블록에 붙여넣고 주석(#) 해제
+# 2) 재배포
+wrangler deploy
+```
+
+유저스크립트 설치(팀원 각자, 최초 1회):
+- 브라우저에 **Tampermonkey**(무료 확장) 설치 → `rack-harvester.user.js` 를 열면 설치 창이 뜸
+- 설치 후 쇼핑몰 페이지 우하단의 **📥 RACK 전송** 버튼 클릭(최초 1회 Worker 주소·토큰 입력, 우클릭=설정변경)
+- 미로 RACK 패널 상단에 **저장된 카탈로그** 칩이 생기고, 누르면 즉시 상품이 뜹니다.
+
+새 KV 관련 엔드포인트: `POST ?store=catalog`(저장), `GET ?catalogs=1`(목록), `GET ?catalog=<site>`(불러오기).
+
 ## 배포 후 보안 권장
 - `wrangler.toml`의 `ALLOWED_ORIGIN`을 패널 주소(예: `https://choosingceo-taek.github.io`)로 좁히고 재배포하세요.
 - `ACCESS_TOKEN`을 설정해 두면 링크만 아는 외부인이 님의 키/할당량을 쓰는 걸 막습니다.

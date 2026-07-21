@@ -99,6 +99,30 @@ export default {
         return json({ collection, ...res }, res.ok ? 200 : 502, cors);
       }
 
+      // ── 공유 카탈로그 저장소 (하드차단 사이트용) ─────────────────────
+      // 팀원이 쇼핑몰을 볼 때 유저스크립트가 상품 목록을 올려두면(KV 저장),
+      // 이후 모두가 미로 앱 실행만으로 즉시 접근합니다. (사이트 재방문 불필요)
+      if (reqUrl.searchParams.get('catalogs')) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        if (!env.RACK_CACHE) return json({ error: 'RACK_CACHE KV not configured', list: [] }, 200, cors);
+        const ls = await env.RACK_CACHE.list({ prefix: 'catalog:' });
+        const list = ls.keys.map(k => ({
+          site: k.name.slice('catalog:'.length),
+          brand: (k.metadata && k.metadata.brand) || '',
+          count: (k.metadata && k.metadata.count) || 0,
+          updated: (k.metadata && k.metadata.updated) || 0,
+        }));
+        return json({ ok: true, list }, 200, cors);
+      }
+      const catalogSite = reqUrl.searchParams.get('catalog');
+      if (catalogSite) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        if (!env.RACK_CACHE) return json({ error: 'RACK_CACHE KV not configured' }, 500, cors);
+        const raw = await env.RACK_CACHE.get('catalog:' + catalogSite.toLowerCase());
+        if (!raw) return json({ error: 'no catalog for ' + catalogSite }, 404, cors);
+        return new Response(raw, { status: 200, headers: { 'Content-Type': 'application/json', ...cors } });
+      }
+
       // 미로 보드 이미지 프록시 (GET ?board=<boardId>&item=<itemId>)
       // 미로는 업로드 이미지의 원본 주소를 Web SDK로 노출하지 않으므로, REST API로 받아옵니다.
       // (서버 시크릿 MIRO_TOKEN 사용 — 토큰은 브라우저로 절대 나가지 않음.)
@@ -116,6 +140,38 @@ export default {
     }
 
     if (request.method !== 'POST') return json({ error: 'POST only' }, 405, cors);
+
+    // 카탈로그 저장 (POST ?store=catalog) — 유저스크립트가 쇼핑몰 페이지에서 전송.
+    // 토큰은 헤더 또는 쿼리 둘 다 허용(유저스크립트 편의).
+    if (reqUrl.searchParams.get('store') === 'catalog') {
+      const tokOk = !env.ACCESS_TOKEN ||
+        request.headers.get('x-access-token') === env.ACCESS_TOKEN ||
+        reqUrl.searchParams.get('token') === env.ACCESS_TOKEN;
+      if (!tokOk) return json({ error: 'unauthorized' }, 401, cors);
+      if (!env.RACK_CACHE)
+        return json({ error: 'RACK_CACHE KV not configured — worker/README.md의 KV 설정을 하세요' }, 500, cors);
+      let body;
+      try { body = await request.json(); }
+      catch { return json({ error: 'invalid JSON body' }, 400, cors); }
+      const site = String(body.site || '').toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 80);
+      if (!site) return json({ error: 'missing site' }, 400, cors);
+      const items = (Array.isArray(body.items) ? body.items : [])
+        .filter(p => p && /^https?:\/\//i.test(p.imageUrl || '') && /^https?:\/\//i.test(p.productUrl || ''))
+        .slice(0, 500)
+        .map(p => ({
+          name: String(p.name || '').slice(0, 200),
+          imageUrl: String(p.imageUrl).slice(0, 1000),
+          productUrl: String(p.productUrl).slice(0, 1000),
+          price: String(p.price || '').slice(0, 40),
+          category: String(p.category || 'tops').slice(0, 20),
+        }));
+      if (!items.length) return json({ error: 'no valid items' }, 400, cors);
+      const record = { site, brand: String(body.brand || '').slice(0, 80), updated: Date.now(), items };
+      await env.RACK_CACHE.put('catalog:' + site, JSON.stringify(record), {
+        metadata: { brand: record.brand, count: items.length, updated: record.updated },
+      });
+      return json({ ok: true, site, count: items.length }, 200, cors);
+    }
 
     if (env.ACCESS_TOKEN && request.headers.get('x-access-token') !== env.ACCESS_TOKEN)
       return json({ error: 'unauthorized' }, 401, cors);

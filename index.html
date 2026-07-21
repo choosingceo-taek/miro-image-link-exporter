@@ -110,6 +110,7 @@
       <datalist id="importBrandList"></datalist>
       <button id="importFetch" class="go">🔎</button>
     </div>
+    <div id="cacheRow" style="display:none; flex-wrap:wrap; gap:4px; margin-top:8px"></div>
     <div id="importStatus"></div>
     <div id="importTabs" style="display:none"></div>
     <div id="importToolbar" style="display:none">
@@ -219,6 +220,7 @@
       workerUrlEl.addEventListener('change', () => {
         try { localStorage.setItem('fabricWorkerUrl', workerUrlEl.value.trim()); } catch (e) {}
         syncProxy();
+        loadCatalogChips();
       });
       accessTokenEl.addEventListener('change', () => {
         try { localStorage.setItem('fabricAccessToken', accessTokenEl.value.trim()); } catch (e) {}
@@ -539,7 +541,62 @@
         renderImportGrid();
       });
 
+      // ── 공유 카탈로그(하드차단 사이트, 유저스크립트가 올려둔 것) ─────────
+      const cacheRowEl = document.getElementById('cacheRow');
+      async function loadCatalogChips() {
+        if (!__proxy.url) return;
+        try {
+          const base = __proxy.url.replace(/\/+$/, '');
+          const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
+          const resp = await fetch(base + '/?catalogs=1' + tok);
+          const data = await resp.json();
+          const list = (data && data.list) || [];
+          cacheRowEl.innerHTML = '';
+          if (!list.length) { cacheRowEl.style.display = 'none'; return; }
+          const lbl = document.createElement('span');
+          lbl.style.cssText = 'font-size:11px;color:#888;align-self:center';
+          lbl.textContent = '저장된 카탈로그:';
+          cacheRowEl.appendChild(lbl);
+          list.sort((a, b) => (b.updated || 0) - (a.updated || 0)).forEach(c => {
+            const b = document.createElement('button');
+            b.style.cssText = 'width:auto;padding:4px 9px;font-size:11px;font-weight:600;background:#eef0f5;color:#333;border-radius:14px';
+            const days = c.updated ? Math.floor((Date.now() - c.updated) / 86400000) : 0;
+            b.textContent = `${c.brand || c.site} (${c.count})`;
+            b.title = `${c.site} · ${days === 0 ? '오늘' : days + '일 전'} 갱신`;
+            b.addEventListener('click', () => loadCatalog(c.site, c.brand));
+            cacheRowEl.appendChild(b);
+          });
+          cacheRowEl.style.display = 'flex';
+        } catch (e) { cacheRowEl.style.display = 'none'; }
+      }
+
+      async function loadCatalog(site, brand) {
+        importStatusEl.textContent = `저장된 카탈로그 불러오는 중… (${brand || site})`;
+        try {
+          const base = __proxy.url.replace(/\/+$/, '');
+          const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
+          const resp = await fetch(base + '/?catalog=' + encodeURIComponent(site) + tok);
+          if (!resp.ok) { importStatusEl.textContent = '저장된 카탈로그가 없습니다.'; return; }
+          const data = await resp.json();
+          importItems = (data.items || []).map((p, i) => ({
+            id: 'c' + i, name: p.name || '', category: p.category || 'tops',
+            imageUrl: p.imageUrl, productUrl: p.productUrl, price: p.price || '',
+            brand: data.brand || brand || '', selected: (p.category === 'tops'),
+          })).filter(p => p.imageUrl && p.productUrl);
+          if (!importItems.length) { importStatusEl.textContent = '카탈로그가 비어 있습니다.'; return; }
+          importBrand = data.brand || brand || site;
+          const upd = data.updated ? new Date(data.updated).toLocaleDateString() : '';
+          importStatusEl.innerHTML = `<b>${escapeHtml(importBrand)}</b> · 저장본 ${importItems.length}개` +
+            (upd ? ` <span class="muted">(${upd} 수집)</span>` : '');
+          importCat = catCount('tops') ? 'tops' : (importItems[0] ? importItems[0].category : 'tops');
+          renderImportTabs(); renderImportGrid();
+        } catch (e) {
+          importStatusEl.textContent = '카탈로그 로드 실패: ' + ((e && e.message) || e);
+        }
+      }
+
       loadBrandList(); // 설정에 Render 주소가 이미 있으면 브랜드 목록 미리 로드
+      loadCatalogChips(); // 저장된(공유) 카탈로그 칩 표시
 
       // ── 1) 보드에서 이미지 + 링크 수집 ──────────────────────────────
       runBtn.addEventListener('click', collectRows);
