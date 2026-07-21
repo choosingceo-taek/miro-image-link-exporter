@@ -105,8 +105,8 @@
       선택한 상품만 <b>이미지+링크</b>로 보드에 추가합니다. (133개 브랜드 지원)</p>
 
     <div class="url-row">
-      <input id="importBrandUrl" type="url" list="importBrandList"
-        placeholder="브랜드 선택 또는 URL 붙여넣기" />
+      <input id="importBrandUrl" type="text" list="importBrandList"
+        placeholder="브랜드 이름 선택 또는 전체 URL 붙여넣기 (예: Reformation)" />
       <datalist id="importBrandList"></datalist>
       <button id="importFetch" class="go">🔎</button>
     </div>
@@ -288,6 +288,7 @@
       let importItems = [];      // 서버가 준 상품들 { id,name,category,imageUrl,productUrl,price,brand,selected }
       let importCat = 'tops';    // 현재 보고 있는 카테고리 탭
       let importBrand = '';
+      let importBrands = [];     // 서버가 준 브랜드 목록 [{name,url}] — 이름→URL 변환용
 
       try { importBrandUrlEl.value = localStorage.getItem('importBrandUrl') || ''; } catch (e) {}
       importBrandUrlEl.addEventListener('change', () => {
@@ -300,9 +301,10 @@
         try {
           const resp = await fetch(__render + '/api/brands');
           const data = await resp.json();
-          importBrandListEl.innerHTML = (data.brands || [])
-            .filter(b => b && b.name && b.url)
-            .map(b => `<option value="${escapeHtml(b.url)}">${escapeHtml(b.name)}</option>`)
+          importBrands = (data.brands || []).filter(b => b && b.name && b.url);
+          // datalist 값 = 브랜드 "이름"(사용자가 이름으로 검색·선택) → 아래에서 URL로 변환.
+          importBrandListEl.innerHTML = importBrands
+            .map(b => `<option value="${escapeHtml(b.name)}"></option>`)
             .join('');
         } catch (e) {}
       }
@@ -318,8 +320,24 @@
 
       importFetchBtn.addEventListener('click', async () => {
         if (needRender()) return;
-        const brandUrl = (importBrandUrlEl.value || '').trim();
-        if (!brandUrl) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
+        const typed = (importBrandUrlEl.value || '').trim();
+        if (!typed) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
+
+        // 입력이 전체 URL이면 그대로, 아니면 브랜드 "이름"으로 보고 목록에서 URL을 찾음.
+        let brandUrl = typed;
+        if (!/^https?:\/\//i.test(typed)) {
+          if (!importBrands.length) await loadBrandList();
+          const low = typed.toLowerCase();
+          const hit = importBrands.find(b => b.name.toLowerCase() === low)
+            || importBrands.find(b => b.name.toLowerCase().startsWith(low))
+            || importBrands.find(b => b.name.toLowerCase().includes(low));
+          if (!hit) {
+            importStatusEl.textContent =
+              `"${typed}"에 맞는 브랜드를 목록에서 못 찾았습니다. 목록에서 고르거나 전체 URL(https://…)을 붙여넣으세요.`;
+            return;
+          }
+          brandUrl = hit.url;
+        }
 
         importFetchBtn.disabled = true;
         importGridEl.style.display = 'none';
