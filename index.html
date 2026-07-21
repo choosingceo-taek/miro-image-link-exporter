@@ -96,16 +96,16 @@
     .topbar { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
     .logo { font-size: 22px; font-weight: 800; letter-spacing: 1.5px; color: #1a1a2e; }
     .tabs-main { display: flex; gap: 6px; margin-bottom: 10px; }
+    .tabs-main { margin-top: 4px; }
     .mtab {
-      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px;
-      padding: 8px 4px; background: #f4f4f7; color: #666; border-radius: 10px;
-      font-size: 11px; font-weight: 700;
+      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+      padding: 9px 2px; background: #f4f4f7; color: #6b6b76; border-radius: 12px;
+      font-size: 9.5px; font-weight: 700; line-height: 1.15; text-align: center; letter-spacing: .1px;
     }
-    .mtab .ic { font-size: 17px; line-height: 1; }
-    .mtab.active { background: #4262ff; color: #fff; }
-    .help-line { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #555; margin: 0 0 10px; }
-    .help-line .t { font-weight: 700; }
-    .help-line button { width: auto; padding: 2px 9px; font-size: 11px; font-weight: 600; background: #eef0f5; color: #444; border-radius: 12px; }
+    .mtab .ic { font-size: 18px; line-height: 1; }
+    .mtab.active { background: #1a1a2e; color: #fff; }
+    .help-line { display: flex; justify-content: flex-end; margin: 4px 0 8px; }
+    .help-line button { width: auto; padding: 2px 9px; font-size: 11px; font-weight: 600; background: #eef0f5; color: #666; border-radius: 12px; }
     .help-box { background: #f4f6ff; border-radius: 8px; padding: 10px 11px; font-size: 12px; line-height: 1.65; margin-bottom: 10px; }
     .help-box b { color: #4262ff; }
     /* 드래그 선택 밴드 시각 표시 */
@@ -115,23 +115,15 @@
 <body>
   <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
-    <div class="topbar">
-      <span class="logo">RACK</span>
-      <span class="muted" style="font-size:11px">쇼핑몰 → 보드 → 엑셀</span>
-    </div>
-
     <nav class="tabs-main">
-      <button class="mtab active" data-tab="import"><span class="ic">📥</span>가져오기</button>
-      <button class="mtab" data-tab="extract"><span class="ic">📤</span>추출</button>
-      <button class="mtab" data-tab="settings"><span class="ic">⚙︎</span>설정</button>
+      <button class="mtab active" data-tab="import"><span class="ic">🔍</span>Market Research</button>
+      <button class="mtab" data-tab="extract"><span class="ic">📊</span>Export Excel</button>
+      <button class="mtab" data-tab="settings"><span class="ic">⚙</span>Settings</button>
     </nav>
 
-    <!-- ① 가져오기 -->
+    <!-- ① Market Research -->
     <section class="tabpane" id="pane-import">
-      <div class="help-line">
-        <span class="t">🛍 브랜드 상품을 보드에 채우기</span>
-        <button data-help="import">ⓘ 사용법</button>
-      </div>
+      <div class="help-line"><button data-help="import">ⓘ 사용법</button></div>
       <div class="help-box" id="help-import" style="display:none">
         <b>무슨 기능?</b> 쇼핑몰 신상품을 미리보고 골라 미로 보드에 <b>이미지+링크</b>로 넣습니다. (133개 브랜드)<br>
         <b>사용법</b> ① 브랜드 이름 입력·선택 → 🔎 &nbsp;② 카테고리 탭에서 상품 확인 &nbsp;③ <b>카드 클릭</b> 또는 <b>빈칸에서 드래그</b>로 여러 개 선택 &nbsp;④ 카드 사진을 <b>보드로 드래그앤드롭</b>(원하는 위치) 하거나 <b>➕ 보드에 추가</b> 버튼.<br>
@@ -172,12 +164,9 @@
       </details>
     </section>
 
-    <!-- ② 추출 -->
+    <!-- ② Export Excel -->
     <section class="tabpane" id="pane-extract" style="display:none">
-      <div class="help-line">
-        <span class="t">🧵 보드를 원단 엑셀로</span>
-        <button data-help="extract">ⓘ 사용법</button>
-      </div>
+      <div class="help-line"><button data-help="extract">ⓘ 사용법</button></div>
       <div class="help-box" id="help-extract" style="display:none">
         <b>무슨 기능?</b> 보드 이미지에 걸린 상품 링크를 읽어 <b>브랜드·썸네일·URL·소재·혼용률</b> 엑셀(.xlsx)을 만듭니다.<br>
         <b>사용법</b> <b>원단 정보 엑셀 만들기</b>(AI 원단 분석 포함) 또는 <b>썸네일+URL만</b>(빠름·분석 안 함)을 누르면 엑셀이 다운로드됩니다.
@@ -199,10 +188,7 @@
 
     <!-- 설정 -->
     <section class="tabpane" id="pane-settings" style="display:none">
-      <div class="help-line">
-        <span class="t">⚙︎ 서버 설정</span>
-        <button data-help="settings">ⓘ 사용법</button>
-      </div>
+      <div class="help-line"><button data-help="settings">ⓘ 사용법</button></div>
       <div class="help-box" id="help-settings" style="display:none">
         관리자가 준 주소를 <b>최초 1회</b>만 넣으면 브라우저에 저장됩니다.
         <b>가져오기 서버</b>는 상품 검색용(Render), <b>추출 Worker</b>는 원단분석·썸네일용(Cloudflare)입니다.
@@ -275,17 +261,28 @@
       try {
         miro.board.ui.on('drop', async ({ x, y, target }) => {
           if (!(target instanceof HTMLImageElement) || !target.classList.contains('miro-draggable')) return;
-          const link = target.dataset.link || '';
-          const title = target.dataset.title || '';
-          try {
-            let img;
-            try { img = await miro.board.createImage({ x, y, url: target.dataset.full || target.src, title, width: 220 }); }
-            catch (e) {
-              const durl = await imgToDataUrl(target.dataset.full || target.src); // CORS 차단 시 프록시
-              img = await miro.board.createImage({ x, y, url: durl, title, width: 220 });
-            }
-            if (link) { img.linkedTo = link; await img.sync(); }
-          } catch (e) {}
+          const card = target.closest('.imp-card');
+          const dragged = card ? importItems.find(i => String(i.id) === card.dataset.id) : null;
+          // 끌어놓은 상품이 "선택된 상태 + 다중 선택"이면 선택 전체를 함께 드롭. 아니면 그것 하나만.
+          let batch;
+          if (dragged && dragged.selected && importItems.filter(i => i.selected).length > 1) {
+            batch = importItems.filter(i => i.selected);
+          } else if (dragged) {
+            batch = [dragged];
+          } else {
+            batch = [{ imageUrl: target.dataset.full || target.src, productUrl: target.dataset.link || '', name: target.dataset.title || '', brand: '' }];
+          }
+          const cellW = 220, gapX = 26, gapY = 300, cols = Math.min(batch.length, 4);
+          for (let i = 0; i < batch.length; i++) {
+            const it = batch[i], col = i % cols, row = Math.floor(i / cols);
+            try {
+              const img = await createBoardImage(it, {
+                x: x + col * (cellW + gapX), y: y + row * gapY, width: cellW,
+                title: `${it.brand ? it.brand + ' · ' : ''}${it.name || ''}`,
+              });
+              if (it.productUrl) { img.linkedTo = it.productUrl; await img.sync(); }
+            } catch (e) {}
+          }
         });
       } catch (e) {}
 
