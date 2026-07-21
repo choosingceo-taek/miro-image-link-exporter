@@ -35,43 +35,49 @@
       width: 100%; padding: 6px 8px; font-size: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; resize: vertical;
     }
     hr.sep { border: none; border-top: 1px solid #eee; margin: 20px 0 16px; }
+    /* End Clothing 풍 미니멀 모바일 쇼핑 UI */
     .url-row { display: flex; gap: 6px; margin-top: 6px; }
-    .url-row input { flex: 1; padding: 8px; font-size: 12px; border: 1px solid #ddd; border-radius: 6px; }
-    .url-row .go { width: auto; padding: 8px 14px; background: #4262ff; color: #fff; }
-    #importTabs { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+    .url-row input { flex: 1; padding: 11px 15px; font-size: 13px; border: 1px solid #e2e2e2; border-radius: 26px; }
+    .url-row input:focus { outline: none; border-color: #111; }
+    .url-row .go { width: auto; padding: 0 16px; background: #111; color: #fff; border-radius: 26px; font-size: 15px; }
+    #importTabs { display: flex; gap: 6px; margin-top: 12px; overflow-x: auto; padding-bottom: 3px; }
+    #importTabs::-webkit-scrollbar { height: 0; }
     #importTabs button {
-      width: auto; padding: 4px 9px; font-size: 11px; font-weight: 600;
-      background: #f4f4f7; color: #555; border-radius: 14px;
+      flex: 0 0 auto; width: auto; padding: 6px 13px; font-size: 11px; font-weight: 600;
+      background: #f4f4f4; color: #444; border-radius: 20px; white-space: nowrap; letter-spacing: .2px;
     }
-    #importTabs button.active { background: #4262ff; color: #fff; }
-    .imp-card .price { color: #1a1a2e; font-weight: 700; margin-top: 2px; font-size: 11px; }
-    .imp-card .fab { margin-top: 3px; font-size: 9.5px; color: #16794a; font-weight: 600; line-height: 1.3; }
-    .imp-card .fabbtn { width: auto; padding: 2px 6px; font-size: 9px; font-weight: 600; background: #eef7f0; color: #16794a; border-radius: 8px; }
-    #importHeader { display: none; align-items: center; gap: 8px; margin: 10px 0 2px; }
-    #importHeader .bn { font-size: 18px; font-weight: 800; color: #1a1a2e; letter-spacing: .2px; }
-    #importHeader .cat { font-size: 11px; font-weight: 700; color: #4262ff; background: #eef1ff; padding: 2px 8px; border-radius: 10px; }
-    #importAdd { background: #4262ff; color: #fff; margin-top: 8px; display: none; }
+    #importTabs button.active { background: #111; color: #fff; }
+    .imp-card .price { color: #111; font-weight: 700; margin-top: 3px; font-size: 11px; }
+    .imp-card .fab { margin-top: 3px; font-size: 9.5px; color: #6a6a6a; font-weight: 500; line-height: 1.3; }
+    .imp-card .fabbtn { width: auto; padding: 2px 7px; font-size: 9px; font-weight: 600; background: #f2f2f2; color: #444; border-radius: 8px; }
+    #importHeader { display: none; align-items: baseline; gap: 8px; margin: 14px 0 2px; }
+    #importHeader .bn { font-size: 20px; font-weight: 800; color: #111; letter-spacing: -.2px; }
+    #importHeader .cat { font-size: 11px; font-weight: 600; color: #999; }
+    #importAdd { background: #111; color: #fff; margin-top: 12px; display: none; border-radius: 26px; padding: 12px; }
     #importStatus { font-size: 12px; margin: 8px 0 4px; color: #444; }
     #importGrid {
-      display: none; grid-template-columns: repeat(3, 1fr); gap: 8px;
-      margin-top: 10px; max-height: 320px; overflow-y: auto; padding-right: 2px;
+      display: none; grid-template-columns: repeat(2, 1fr); gap: 14px 12px;
+      margin-top: 14px; max-height: 60vh; overflow-y: auto; padding-right: 2px;
     }
     .imp-card {
-      border: 1px solid #eee; border-radius: 8px; padding: 6px; font-size: 10px;
+      border: none; border-radius: 0; padding: 0; font-size: 10px;
       cursor: pointer; position: relative; user-select: none;
     }
-    .imp-card.sel { border-color: #4262ff; background: #f4f6ff; }
     .imp-card img {
-      width: 100%; height: 84px; object-fit: cover; border-radius: 6px;
-      background: #f1f1f4; display: block; margin-bottom: 4px; cursor: grab;
+      width: 100%; aspect-ratio: 3/4; height: auto; object-fit: cover; border-radius: 3px;
+      background: #f4f4f4; display: block; margin-bottom: 6px; cursor: grab;
+      transition: outline .1s;
     }
     .imp-card img:active { cursor: grabbing; }
+    .imp-card.sel img { outline: 2.5px solid #111; outline-offset: 1px; }
     .imp-card .t {
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-      overflow: hidden; line-height: 1.3; pointer-events: none;
+      overflow: hidden; line-height: 1.35; pointer-events: none;
+      text-transform: uppercase; letter-spacing: .3px; font-size: 9.5px; color: #333; font-weight: 500;
     }
     .imp-card .chk {
-      position: absolute; top: 4px; right: 4px; width: 16px; height: 16px; pointer-events: none;
+      position: absolute; top: 7px; right: 7px; width: 17px; height: 17px; pointer-events: none;
+      accent-color: #111;
     }
     #importToolbar { display: flex; gap: 8px; align-items: center; margin-top: 8px; font-size: 11px; color: #666; }
     #importToolbar button {
@@ -221,6 +227,7 @@
     let __proxy = { url: '', token: '' };
     let __boardId = ''; // 미로 REST API로 보드 이미지를 받아올 때 필요(썸네일용).
     let __render = '';  // ① 가져오기용 Render 서버 주소.
+    let __imgCache = {}; // 보드에 추가한 이미지의 원본 URL 기억 { itemId: imageUrl } — 엑셀 썸네일용(토큰 불필요).
 
     if (params.get('view') === 'panel') {
       initPanel();
@@ -262,6 +269,17 @@
         if (h) h.style.display = (h.style.display === 'none') ? 'block' : 'none';
       }));
 
+      // 보드 ID를 미리 확보하고, 이 보드에서 예전에 추가한 이미지 URL 캐시를 불러옴.
+      (async () => {
+        try { const info = await miro.board.getInfo(); __boardId = (info && info.id) || ''; } catch (e) {}
+        try { __imgCache = JSON.parse(localStorage.getItem('rackImgCache:' + __boardId) || '{}'); } catch (e) {}
+      })();
+      function cacheImg(id, url) {
+        if (!id || !url) return;
+        __imgCache[id] = url;
+        try { localStorage.setItem('rackImgCache:' + __boardId, JSON.stringify(__imgCache)); } catch (e) {}
+      }
+
       // ── 상품 사진을 보드로 드래그앤드롭 → 그 위치에 이미지+링크 생성 ──
       // (Miro Web SDK: .miro-draggable 이미지가 보드에 드롭되면 'drop' 이벤트로 좌표를 받음)
       try {
@@ -291,6 +309,7 @@
                 title: `${it.brand ? it.brand + ' · ' : ''}${it.name || ''}`,
               });
               if (it.productUrl) { img.linkedTo = it.productUrl; await img.sync(); }
+              cacheImg(img.id, it.imageUrl);   // 엑셀 썸네일용으로 원본 URL 기억
             } catch (e) {}
           }
         });
@@ -468,15 +487,24 @@
           })).filter(p => p.imageUrl && p.productUrl);
 
           if (!importItems.length) {
-            importStatusEl.textContent = '가져온 상품이 없습니다. 다른 브랜드/URL로 시도하거나 잠시 후 다시 해보세요.' +
-              ((data.warnings && data.warnings.length) ? ' (' + escapeHtml(data.warnings.join(' / ')) + ')' : '');
+            // 403/429/verification = Akamai급 봇차단(Abercrombie·Massimo Dutti·Zara·H&M 등).
+            const blocked = /\b40[13]\b|\b429\b|verification|blocked|captcha/i.test(JSON.stringify(data.warnings || []));
+            if (blocked) {
+              importStatusEl.innerHTML =
+                `<div style="padding:8px;background:#fff4e5;border-radius:6px;color:#a15c00">` +
+                `<b>🚫 이 사이트는 봇 차단(Akamai 등)이라 자동 수집이 안 됩니다.</b><br>` +
+                `아래 <b>🔧 차단 사이트 추가·갱신</b>에서 콘솔 방식으로 넣어주세요. (버튼 눌러 펼쳤습니다)</div>`;
+              const md = document.getElementById('manualImport');
+              if (md) { md.open = true; md.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+            } else {
+              importStatusEl.textContent = '가져온 상품이 없습니다. 다른 브랜드/URL로 시도하거나 잠시 후 다시 해보세요.' +
+                ((data.warnings && data.warnings.length) ? ' (' + escapeHtml(data.warnings.join(' / ')) + ')' : '');
+            }
             return;
           }
-          const t = data.totals || {};
-          const totalTxt = IMPORT_CATS.map(c => `${c.label} ${t[c.key] || 0}`).join(' · ');
-          importStatusEl.innerHTML =
-            `<b>${escapeHtml(importBrand || '브랜드')}</b> · ${escapeHtml(totalTxt)}` +
-            (data.complete ? '' : ' <span style="color:#a15c00">(부분 카탈로그)</span>');
+          // 중복 방지: 카테고리별 개수는 탭에만 표시. 상태줄은 부분수집일 때만 안내.
+          importStatusEl.innerHTML = data.complete ? ''
+            : '<span style="color:#a15c00;font-size:11px">부분 카탈로그 (일부만 수집됨)</span>';
           importCat = catCount('tops') ? 'tops'
             : (IMPORT_CATS.find(c => catCount(c.key) > 0)?.key || 'tops');
           renderImportTabs();
@@ -516,7 +544,7 @@
         const h = document.getElementById('importHeader');
         if (!importItems.length) { h.style.display = 'none'; return; }
         h.querySelector('.bn').textContent = importBrand || '브랜드';
-        h.querySelector('.cat').textContent = `${CAT_LABEL[importCat] || importCat} · ${catCount(importCat)}개`;
+        h.querySelector('.cat').textContent = `${importItems.length} items`;
         h.style.display = 'flex';
       }
 
@@ -657,6 +685,7 @@
               });
               img.linkedTo = it.productUrl;
               await img.sync();
+              cacheImg(img.id, it.imageUrl);   // 엑셀 썸네일용으로 원본 URL 기억
               created.push(img);
             } catch (e) { fail++; if (!firstErr) firstErr = (e && e.message) || String(e); }
           }
@@ -849,13 +878,15 @@
           if (!__boardId) {
             try { const info = await miro.board.getInfo(); __boardId = (info && info.id) || ''; } catch (e) {}
           }
+          try { __imgCache = JSON.parse(localStorage.getItem('rackImgCache:' + __boardId) || '{}'); } catch (e) {}
 
           rows = images.map((img, i) => ({
             index: i + 1,
             id: img.id,
             title: (img.title || '').trim(),
             link: (img.linkedTo || '').trim(),   // 사진에 걸어둔 하이퍼링크
-            imageUrl: miroThumbUrl(img.id)       // 미로 보드 이미지(Worker 프록시 경유)
+            // 썸네일: 우리가 추가한 이미지면 기억해둔 원본 URL(토큰 불필요), 아니면 미로 REST 프록시.
+            imageUrl: __imgCache[img.id] || miroThumbUrl(img.id)
           }));
 
           const withLink = rows.filter(r => r.link).length;
