@@ -120,6 +120,15 @@
     <div id="importGrid"></div>
     <button id="importAdd">➕ 선택한 상품 보드에 추가</button>
 
+    <details class="settings" id="manualImport">
+      <summary>🔧 차단 사이트 수동 추가 (Massimo Dutti·Zara·H&M 등)</summary>
+      <p class="desc" style="margin:6px 0 4px">자동으로 막히는 사이트는 여기서 추가합니다. 각 줄에
+        <b>상품 URL</b>과 <b>이미지 URL</b>을 함께 붙여넣으세요(순서 무관). 아래 <b>북마클릿</b>을 쓰면
+        보고 있는 페이지에서 자동으로 뽑아 채워집니다.</p>
+      <textarea id="manualPaste" rows="4" placeholder="https://www.massimodutti.com/us/...상품페이지   https://static.massimodutti.net/....jpg"></textarea>
+      <button id="manualAdd" style="margin-top:6px">➕ 붙여넣은 상품 미리보기에 추가</button>
+    </details>
+
     <hr class="sep">
     <h2>② 📤 엑셀로 추출 <span class="muted" style="font-weight:400">— 보드 → 엑셀</span></h2>
     <p class="desc">보드 사진에 걸린 <b>상품 링크</b>를 읽어 <b>브랜드 · 썸네일 · URL · 소재 · 혼용률</b>을
@@ -387,7 +396,8 @@
 
       function renderImportTabs() {
         importTabsEl.innerHTML = '';
-        IMPORT_CATS.filter(c => catCount(c.key) > 0).forEach(c => {
+        const cats = [...IMPORT_CATS, { key: 'manual', label: '직접' }];
+        cats.filter(c => catCount(c.key) > 0).forEach(c => {
           const b = document.createElement('button');
           b.className = (c.key === importCat) ? 'active' : '';
           b.textContent = `${c.label} ${catCount(c.key)}`;
@@ -489,6 +499,44 @@
         } finally {
           importAddBtn.disabled = false;
         }
+      });
+
+      // 상품 URL 끝부분을 대략적 제목으로. 예: /w-tshirts-basic → "w tshirts basic"
+      function titleFromUrl(u) {
+        try {
+          const seg = new URL(u).pathname.split('/').filter(Boolean).pop() || '';
+          return decodeURIComponent(seg).replace(/\.\w+$/, '').replace(/[-_]+/g, ' ').trim();
+        } catch (e) { return ''; }
+      }
+
+      // 🔧 차단 사이트 수동 추가: 붙여넣은 각 줄에서 이미지/상품 URL을 분류해 미리보기('직접' 탭)에 추가.
+      const manualPasteEl = document.getElementById('manualPaste');
+      document.getElementById('manualAdd').addEventListener('click', () => {
+        const lines = (manualPasteEl.value || '').split('\n').map(s => s.trim()).filter(Boolean);
+        let added = 0;
+        lines.forEach(line => {
+          const urls = line.match(/https?:\/\/[^\s,|]+/gi) || [];
+          if (!urls.length) return;
+          let imageUrl = '', productUrl = '';
+          if (urls.length === 1) { imageUrl = urls[0]; productUrl = urls[0]; }
+          else {
+            let ii = urls.findIndex(u => /\.(jpe?g|png|webp|avif|gif)(\?|#|$)/i.test(u));
+            if (ii < 0) ii = urls.findIndex(u => /(images?|\/img|media|static|cdn|scene7)/i.test(u));
+            if (ii < 0) { productUrl = urls[0]; imageUrl = urls[1]; }
+            else { imageUrl = urls[ii]; productUrl = urls.find((_, i) => i !== ii) || urls[0]; }
+          }
+          if (!imageUrl) return;
+          importItems.push({
+            id: 'm' + Date.now() + '_' + added, name: titleFromUrl(productUrl) || '(상품)',
+            category: 'manual', imageUrl, productUrl, price: '', brand: '', selected: true,
+          });
+          added++;
+        });
+        if (!added) { importStatusEl.textContent = '유효한 URL을 못 찾았습니다. 각 줄에 상품 URL과 이미지 URL을 넣으세요.'; return; }
+        importCat = 'manual';
+        importStatusEl.textContent = `수동 ${added}개 추가됨. '직접' 탭에서 확인 후 "선택한 상품 보드에 추가"를 누르세요.`;
+        renderImportTabs();
+        renderImportGrid();
       });
 
       loadBrandList(); // 설정에 Render 주소가 이미 있으면 브랜드 목록 미리 로드
