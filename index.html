@@ -276,10 +276,22 @@
         try { const info = await miro.board.getInfo(); __boardId = (info && info.id) || ''; } catch (e) {}
         try { __imgCache = JSON.parse(localStorage.getItem('rackImgCache:' + __boardId) || '{}'); } catch (e) {}
       })();
-      function cacheImg(id, url) {
-        if (!id || !url) return;
-        __imgCache[id] = url;
+      // 보드에 추가한 상품의 정보(이미지URL·이름·가격·브랜드·상품URL)를 기억 → 엑셀에 그대로 사용(API 불필요).
+      function cacheImg(id, rec) {
+        if (!id || !rec || !rec.imageUrl) return;
+        __imgCache[id] = {
+          imageUrl: rec.imageUrl, name: rec.name || '', price: rec.price || '',
+          brand: rec.brand || '', productUrl: rec.productUrl || '',
+        };
         try { localStorage.setItem('rackImgCache:' + __boardId, JSON.stringify(__imgCache)); } catch (e) {}
+      }
+      function normalizeRec(v) { return !v ? null : (typeof v === 'string' ? { imageUrl: v } : v); }
+      // 캐시가 없는 이미지는 제목("브랜드 · 이름 · $가격")에서 이름/가격을 최대한 뽑음.
+      function parseTitle(t) {
+        const parts = (t || '').split('·').map(s => s.trim()).filter(Boolean);
+        let price = '', names = [];
+        parts.forEach(p => { if (/[$€£₩]\s?\d/.test(p)) price = p; else names.push(p); });
+        return { name: names.length > 1 ? names.slice(1).join(' · ') : (names[0] || ''), price };
       }
 
       // ── 상품 사진을 보드로 드래그앤드롭 → 그 위치에 이미지+링크 생성 ──
@@ -308,10 +320,10 @@
               // 첫 이미지(끌어놓은 것)의 중심이 커서(x,y)에 오도록. 나머지는 그 옆/아래로.
               const img = await createBoardImage(it, {
                 x: x + col * (W + gapX), y: y + row * gapY, width: W,
-                title: `${it.brand ? it.brand + ' · ' : ''}${it.name || ''}`,
+                title: `${it.brand ? it.brand + ' · ' : ''}${it.name || ''}${it.price ? ' · ' + it.price : ''}`,
               });
               if (it.productUrl) { img.linkedTo = it.productUrl; await img.sync(); }
-              cacheImg(img.id, it.imageUrl);   // 엑셀 썸네일용으로 원본 URL 기억
+              cacheImg(img.id, it);   // 엑셀용으로 이미지URL·이름·가격·브랜드 기억
             } catch (e) {}
           }
         });
@@ -643,7 +655,7 @@
               });
               img.linkedTo = it.productUrl;
               await img.sync();
-              cacheImg(img.id, it.imageUrl);   // 엑셀 썸네일용으로 원본 URL 기억
+              cacheImg(img.id, it);   // 엑셀용으로 이미지URL·이름·가격·브랜드 기억
               created.push(img);
             } catch (e) { fail++; if (!firstErr) firstErr = (e && e.message) || String(e); }
           }
@@ -838,14 +850,22 @@
           }
           try { __imgCache = JSON.parse(localStorage.getItem('rackImgCache:' + __boardId) || '{}'); } catch (e) {}
 
-          rows = images.map((img, i) => ({
-            index: i + 1,
-            id: img.id,
-            title: (img.title || '').trim(),
-            link: (img.linkedTo || '').trim(),   // 사진에 걸어둔 하이퍼링크
-            // 썸네일: 우리가 추가한 이미지면 기억해둔 원본 URL(토큰 불필요), 아니면 미로 REST 프록시.
-            imageUrl: __imgCache[img.id] || miroThumbUrl(img.id)
-          }));
+          rows = images.map((img, i) => {
+            const link = (img.linkedTo || '').trim();
+            const rec = normalizeRec(__imgCache[img.id]) || {};   // 우리가 넣은 상품이면 정보가 기억돼 있음
+            const parsed = parseTitle(img.title || '');           // 아니면 제목에서 최대한 추출
+            return {
+              index: i + 1,
+              id: img.id,
+              title: (img.title || '').trim(),
+              link,
+              // 썸네일: 기억해둔 원본 URL(토큰 불필요) → 없으면 미로 REST 프록시.
+              imageUrl: rec.imageUrl || miroThumbUrl(img.id),
+              name: rec.name || parsed.name || '',
+              price: rec.price || parsed.price || '',
+              brand: rec.brand || (link ? brandFromUrl(link) : ''),
+            };
+          });
 
           const withLink = rows.filter(r => r.link).length;
 
@@ -1060,18 +1080,23 @@
         const workbook = new ExcelJS.Workbook();
         const ws = workbook.addWorksheet('링크이미지');
         ws.columns = [
-          { header: '브랜드', key: 'brand', width: 20 },
-          { header: '썸네일', key: 'img', width: 20 },
-          { header: 'URL', key: 'link', width: 64 },
+          { header: '브랜드', key: 'brand', width: 18 },
+          { header: '썸네일', key: 'img', width: 18 },
+          { header: '상품명', key: 'name', width: 32 },
+          { header: '가격', key: 'price', width: 12 },
+          { header: 'URL', key: 'link', width: 52 },
         ];
         ws.getRow(1).font = { bold: true };
 
         let okThumb = 0, thumbFailDiag = '';
         for (let i = 0; i < items.length; i++) {
           const r = items[i], excelRow = i + 2;
-          const row = ws.addRow({ brand: brandFromUrl(r.link), img: '', link: '' });
+          const row = ws.addRow({
+            brand: r.brand || brandFromUrl(r.link), img: '',
+            name: r.name || '', price: r.price || '', link: '',
+          });
           row.height = 60;
-          const c = ws.getCell(`C${excelRow}`);
+          const c = ws.getCell(`E${excelRow}`);   // URL = E열
           c.value = { text: r.link, hyperlink: r.link };
           c.font = { color: { argb: 'FF4262FF' }, underline: true };
           let done = false;
