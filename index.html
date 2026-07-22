@@ -6,23 +6,20 @@
   <title>Board Scanner</title>
   <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,500&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     :root {
-      --bg: #ffffff; --card: #f0f5e6; --card2: #e7efd6;
-      --border: #dde8c9; --text: #1f2a15; --muted: #7f8a70; --accent: #4e8a2a;
-      --grad: linear-gradient(135deg, #a5d267 0%, #4e8a2a 100%);
+      --bg: #ffffff; --card: #f4f4f4; --card2: #ececec;
+      --border: #d9d9d9; --text: #111111; --muted: #8a8a8a; --accent: #111111;
+      --grad: linear-gradient(135deg, #3a3a3a 0%, #000000 100%);
     }
     body {
-      font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
-      margin: 0; padding: 18px 16px 24px; color: var(--text);
-      /* pistachio 그린 그라디언트 배경(전체 무드) */
-      background:
-        radial-gradient(120% 80% at 100% 0%, rgba(120, 180, 60, .22) 0%, rgba(120, 180, 60, 0) 48%),
-        radial-gradient(130% 90% at 0% 0%, rgba(78, 138, 42, .18) 0%, rgba(78, 138, 42, 0) 52%),
-        linear-gradient(170deg, #dcecbe 0%, #e9f3d4 30%, #f4f9ea 62%);
-      background-attachment: fixed;
+      font-family: "Bodoni Moda", "Apple SD Gothic Neo", "Malgun Gothic", "Times New Roman", serif;
+      margin: 0; padding: 18px 16px 24px; color: var(--text); background: var(--bg);
     }
     h1 { font-size: 16px; margin: 0 0 4px; }
     h2 { font-size: 14px; margin: 14px 0 4px; }
@@ -138,38 +135,42 @@
     /* 패널 전체를 세로 flex로: 위쪽(버튼·아이콘·상태)은 고정, 리스트만 남은 높이를 채워 스크롤 */
     #app { position: relative; height: 100%; display: flex; flex-direction: column; }
     #pane-extract { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
-    .scan-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
-    /* 기본은 둘 다 중립색. 활성화(작업 중)된 버튼만 gradient로 표시. */
-    .scan-row > .scan { height: 108px; }
+    .scan-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 2px; }
+    /* Vogue풍 모노크롬: 기본 흰 배경+얇은 검정 테두리, 활성(작업 중)만 검정 채움. */
+    .scan-row > .scan { height: 96px; }
     .scan {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px; padding: 14px; border-radius: 16px; text-align: center; color: var(--text);
-      /* 기본도 회색이 아니라 전체 무드에 맞춘 연한 그린 그라디언트 틴트 + 입체감 */
-      background: linear-gradient(158deg, rgba(120, 180, 60, .18) 0%, rgba(78, 138, 42, .12) 100%);
-      border: 1px solid rgba(78, 138, 42, .22);
-      box-shadow: 0 5px 16px rgba(70, 120, 40, .14);
+      gap: 9px; padding: 14px; border-radius: 2px; text-align: center;
+      background: var(--bg); color: var(--text); border: 1px solid var(--text); box-shadow: none;
     }
-    /* 아이콘 박스·간격·크기 통일: 동일 규격 SVG(24×24 뷰박스를 같은 영역만큼 채움) */
-    .scan .ic { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; color: var(--accent); }
+    .scan .ic { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; flex: 0 0 26px; color: var(--text); }
     .scan.working .ic { color: #fff; }
-    .scan .ic svg { width: 28px; height: 28px; display: block; }
-    .scan .lab { font-size: 14px; font-weight: 800; letter-spacing: .2px; line-height: 1.15; white-space: nowrap; }
-    .scan #selCount { font-size: 11px; color: var(--accent); font-weight: 800; }
-    /* 작업 중(활성): 그라데이션 + 흘러가는 애니메이션 */
+    .scan .ic svg { width: 26px; height: 26px; display: block; }
+    .scan .lab { font-size: 13px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; line-height: 1.15; white-space: nowrap; }
+    .scan #selCount { font-size: 11px; color: var(--accent); font-weight: 700; }
+    /* 작업 중(활성): 검정 채움 + 은은한 흐름 애니메이션 */
     .scan.working {
-      background-image: var(--grad); background-size: 220% 100%; color: #fff; border-color: transparent;
-      box-shadow: 0 6px 18px rgba(70, 120, 40, .34); animation: scanFlow 1.1s linear infinite;
+      background-image: var(--grad); background-size: 220% 100%; color: #fff; border-color: #000;
+      animation: scanFlow 1.2s linear infinite;
     }
     .scan.working .lab, .scan.working #selCount { color: #fff; }
     @keyframes scanFlow { 0% { background-position: 0% 50%; } 100% { background-position: 220% 50%; } }
-    /* 사용법·설정 아이콘 줄 (스캔 버튼 아래, 가운데) */
-    .tool-row { position: relative; display: flex; justify-content: center; gap: 10px; margin: 14px 0 2px; }
-    .icobtn {
-      width: 38px; height: 38px; padding: 0; border-radius: 50%; background: var(--card2); color: var(--text);
-      font-size: 16px; display: flex; align-items: center; justify-content: center; line-height: 1;
+    /* 검색바 (스캔 결과 필터) — Vogue 검색바 톤 */
+    .searchbar { display: flex; align-items: center; gap: 11px; margin: 10px 0 0; padding: 11px 14px; border: 1px solid var(--border); background: var(--bg); }
+    .searchbar .s-ic { width: 16px; height: 16px; flex: 0 0 16px; color: var(--text); }
+    .searchbar input {
+      flex: 1; min-width: 0; border: none; outline: none; background: transparent; color: var(--text);
+      font-family: inherit; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
     }
-    .icobtn:hover { background: var(--border); }
-    .icobtn svg { width: 18px; height: 18px; display: block; }
+    .searchbar input::placeholder { color: var(--muted); letter-spacing: 2px; }
+    /* 사용법·설정·리셋 아이콘 줄 (검색바 아래, 가운데) */
+    .tool-row { position: relative; display: flex; justify-content: center; gap: 12px; margin: 12px 0 2px; }
+    .icobtn {
+      width: 36px; height: 36px; padding: 0; border-radius: 50%; background: transparent; color: var(--text);
+      border: 1px solid var(--border); font-size: 15px; display: flex; align-items: center; justify-content: center; line-height: 1;
+    }
+    .icobtn:hover { background: var(--card2); }
+    .icobtn svg { width: 17px; height: 17px; display: block; }
     /* 아이콘에서 바로 펼쳐지는 팝오버(드롭다운) */
     .popover {
       position: absolute; top: 48px; left: 50%; transform: translateX(-50%);
@@ -193,43 +194,36 @@
     .scan-list { margin-top: 12px; flex: 1 1 auto; min-height: 0; overflow-y: auto; border-radius: 12px; -webkit-overflow-scrolling: touch; }
     .scan-list::-webkit-scrollbar { width: 8px; }
     .scan-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
-    /* ── 스캔 결과: 3열 상품 카드(이미지·브랜드 뱃지·제품명) ── */
-    #preview.cards { display: none; grid-template-columns: repeat(3, 1fr); gap: 12px 9px; padding: 2px 2px 8px; }
-    .pcard {
-      display: flex; flex-direction: column; gap: 6px; min-width: 0;
-      background: #ffffff; border: 1px solid rgba(78, 138, 42, .12); border-radius: 18px;
-      padding: 8px 8px 11px;
-      /* 입체감: 부드러운 앰비언트 + 방향성 그림자로 배경 위에 떠 보이게 */
-      box-shadow: 0 1px 2px rgba(40, 70, 20, .07), 0 10px 22px -8px rgba(70, 120, 40, .30);
-    }
-    .pcard.link { cursor: pointer; transition: transform .13s ease, box-shadow .13s ease; }
-    .pcard.link:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(40, 70, 20, .10), 0 18px 32px -8px rgba(70, 120, 40, .40); }
-    .pcard.link:active { transform: translateY(-1px) scale(.99); }
-    .pcard-img {
-      position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 11px; overflow: hidden;
-      background: var(--card2); display: flex; align-items: center; justify-content: center;
-    }
+    /* ── 스캔 결과: 2열 편집형 카드(이미지 풀블리드 + 하단 블러 캡션) ── */
+    #preview.cards { display: none; grid-template-columns: repeat(2, 1fr); gap: 4px; padding: 0 0 8px; }
+    .pcard { position: relative; overflow: hidden; background: var(--card2); aspect-ratio: 3 / 4; }
+    .pcard.link { cursor: pointer; }
+    .pcard-img { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
     .pcard-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .pcard-img.noimg::after { content: '🧵'; font-size: 22px; opacity: .35; }
-    /* 링크 있는 카드: 우상단 원형 아이콘 뱃지(↗) */
-    .pcard-badge {
-      position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; border-radius: 50%;
-      background: rgba(255, 255, 255, .92); color: var(--accent); display: flex; align-items: center;
-      justify-content: center; font-size: 12px; font-weight: 800; box-shadow: 0 2px 6px rgba(0, 0, 0, .16);
+    .pcard-img.noimg::after { content: '🧵'; font-size: 26px; opacity: .3; }
+    /* 하단 블러(프로스트) 캡션 위에 브랜드·제품명 + 우측 사이트 이동 아이콘 */
+    .pcard-cap {
+      position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end; gap: 8px;
+      padding: 9px 9px 10px; background: rgba(24, 22, 20, .30);
+      backdrop-filter: blur(9px) saturate(1.1); -webkit-backdrop-filter: blur(9px) saturate(1.1);
+      border-top: 1px solid rgba(255, 255, 255, .14);
     }
-    /* 브랜드 = 알약형 뱃지 */
-    .pcard-brand {
-      align-self: flex-start; max-width: 100%; padding: 2px 8px; border-radius: 999px;
-      background: rgba(78, 138, 42, .14); color: var(--accent);
-      font-size: 9.5px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase;
+    .pcard-cap-txt { flex: 1; min-width: 0; }
+    .cap-brand {
+      font-size: 10px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: #fff;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
-    .pcard-brand:empty { display: none; }
-    .pcard-name {
-      font-size: 11px; line-height: 1.32; color: var(--text); padding: 0 2px;
+    .cap-brand:empty { display: none; }
+    .cap-name {
+      font-size: 9.5px; letter-spacing: .3px; color: rgba(255, 255, 255, .82); margin-top: 2px; line-height: 1.3;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
-    .pcard-more { grid-column: 1 / -1; text-align: center; font-size: 11px; color: var(--muted); padding: 6px 0 2px; }
+    .pcard-cap-go {
+      flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: rgba(255, 255, 255, .92);
+      color: #111; display: flex; align-items: center; justify-content: center; text-decoration: none;
+    }
+    .pcard-cap-go svg { width: 12px; height: 12px; display: block; }
+    .pcard-more { grid-column: 1 / -1; text-align: center; font-size: 11px; color: var(--muted); padding: 8px 0 2px; letter-spacing: .5px; }
   </style>
 </head>
 <body>
@@ -285,7 +279,13 @@
         <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5" stroke-dasharray="3.6 3"/></svg></span><span class="lab">Scan Selected</span></button>
       </div>
 
-      <!-- 스캔 버튼 아래 가운데: 사용법·설정 아이콘 + 팝오버 -->
+      <!-- 스캔 결과 검색바 -->
+      <div class="searchbar">
+        <svg class="s-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="cardSearch" type="text" placeholder="Search" autocomplete="off" spellcheck="false" />
+      </div>
+
+      <!-- 검색바 아래 가운데: 사용법·설정·리셋 아이콘 + 팝오버 -->
       <div class="tool-row" id="toolRow">
         <button class="icobtn" id="helpBtn" aria-label="사용법" title="사용법">ⓘ</button>
         <button class="icobtn" id="settingsBtn" aria-label="설정" title="설정">⚙</button>
@@ -511,10 +511,20 @@
       basicBtn.addEventListener('click', () => runBasicExport(false));
       basicSelBtn.addEventListener('click', () => runBasicExport(true));
 
-      // ── ↺ 초기화(리셋): 스캔 결과·상태·활성표시를 모두 비움 ──
+      // ── 검색바: 스캔된 카드들을 브랜드/제품명으로 필터 ──
+      let cardFilter = '';
+      const cardSearchEl = document.getElementById('cardSearch');
+      if (cardSearchEl) cardSearchEl.addEventListener('input', () => {
+        cardFilter = cardSearchEl.value || '';
+        if (rows.length) renderPreview();
+      });
+
+      // ── ↺ 초기화(리셋): 스캔 결과·상태·활성표시·검색어를 모두 비움 ──
       const resetBtn = document.getElementById('resetBtn');
       function resetPanel() {
         rows = [];
+        cardFilter = '';
+        if (cardSearchEl) cardSearchEl.value = '';
         tbody.innerHTML = '';
         table.style.display = 'none';
         summaryEl.style.display = 'none';
@@ -1413,12 +1423,25 @@
         return `Worker 응답 ${status}: ${escapeHtml(body).slice(0, 160) || '(본문 없음)'}`;
       }
 
-      // ── 스캔 결과 렌더: 3열 상품 카드(이미지·브랜드·제품명) ─────────────
+      // 사이트 이동 아이콘(external-link) SVG
+      const GO_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 13.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4.5"/></svg>';
+
+      // ── 스캔 결과 렌더: 2열 편집형 카드(이미지 + 하단 블러 캡션 + 사이트 아이콘) ──
       function renderPreview() {
         tbody.innerHTML = '';
-        rows.slice(0, 60).forEach(r => {
-          const brand = (r.brand || (r.link ? brandFromUrl(r.link) : '') || '').trim();
-          const name = (r.name || r.title || '').trim();
+        const q = (cardFilter || '').trim().toLowerCase();
+        const meta = (r) => ({
+          brand: (r.brand || (r.link ? brandFromUrl(r.link) : '') || '').trim(),
+          name: (r.name || r.title || '').trim(),
+        });
+        const list = rows.filter(r => {
+          if (!q) return true;
+          const m = meta(r);
+          return m.brand.toLowerCase().includes(q) || m.name.toLowerCase().includes(q);
+        });
+
+        list.slice(0, 80).forEach(r => {
+          const { brand, name } = meta(r);
 
           const card = document.createElement('div');
           card.className = 'pcard';
@@ -1433,38 +1456,51 @@
           } else {
             imgWrap.classList.add('noimg');
           }
-          if (r.link) {
-            const badge = document.createElement('span');
-            badge.className = 'pcard-badge';
-            badge.textContent = '↗';
-            imgWrap.appendChild(badge);
-          }
-
-          const bEl = document.createElement('div');
-          bEl.className = 'pcard-brand';
-          bEl.textContent = brand;   // 비면 :empty 로 숨김
-          const nEl = document.createElement('div');
-          nEl.className = 'pcard-name';
-          nEl.textContent = name || '(제목 없음)';
-
           card.appendChild(imgWrap);
-          card.appendChild(bEl);
-          card.appendChild(nEl);
+
+          // 하단 블러 캡션: 브랜드 + 제품명 (+ 링크 있으면 우측 사이트 아이콘)
+          const cap = document.createElement('div');
+          cap.className = 'pcard-cap';
+          const txt = document.createElement('div');
+          txt.className = 'pcard-cap-txt';
+          const bEl = document.createElement('div');
+          bEl.className = 'cap-brand'; bEl.textContent = brand;
+          const nEl = document.createElement('div');
+          nEl.className = 'cap-name'; nEl.textContent = name || '(제목 없음)';
+          txt.appendChild(bEl); txt.appendChild(nEl);
+          cap.appendChild(txt);
+
+          if (r.link) {
+            const go = document.createElement('a');
+            go.className = 'pcard-cap-go';
+            go.href = r.link; go.target = '_blank'; go.rel = 'noopener';
+            go.title = r.link; go.setAttribute('aria-label', '사이트로 이동');
+            go.innerHTML = GO_SVG;
+            go.addEventListener('click', (e) => e.stopPropagation());
+            cap.appendChild(go);
+          }
+          card.appendChild(cap);
 
           if (r.link) {
             card.classList.add('link');
-            card.title = r.link;
             card.addEventListener('click', () => window.open(r.link, '_blank', 'noopener'));
           }
           tbody.appendChild(card);
         });
-        if (rows.length > 60) {
+
+        if (list.length > 80) {
           const more = document.createElement('div');
           more.className = 'pcard-more';
-          more.textContent = `…외 ${rows.length - 60}개는 엑셀 파일에서 확인`;
+          more.textContent = `…외 ${list.length - 80}개는 엑셀 파일에서 확인`;
           tbody.appendChild(more);
         }
-        table.style.display = rows.length ? 'grid' : 'none';
+        if (!list.length && q) {
+          const none = document.createElement('div');
+          none.className = 'pcard-more';
+          none.textContent = `"${cardFilter}" 검색 결과 없음`;
+          tbody.appendChild(none);
+        }
+        table.style.display = (list.length || q) ? 'grid' : 'none';
       }
 
       function fabricCellHtml(f) {
