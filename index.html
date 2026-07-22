@@ -31,13 +31,8 @@
     #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
     #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
     #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
-    #basicExport {
-      background: var(--grad); color: #fff; font-size: 15px; padding: 15px; border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(124, 92, 255, .28); letter-spacing: .2px;
-    }
-    #basicExportSel { background: var(--card2); color: var(--text); font-size: 13px; padding: 12px; border-radius: 14px; margin-top: 9px; border: 1px solid var(--border); }
-    #basicExportSel #selCount { color: var(--accent); font-weight: 800; }
-    #oneClick { background: var(--card2); color: var(--text); font-size: 13px; padding: 11px; }
+    /* (구 디자인의 #basicExport/#basicExportSel ID 규칙 제거 —
+        ID 우선순위가 .scan 클래스를 덮어써 padding·margin(9px)·배경이 어긋났음) */
     .settings button { margin-top: 8px; }
     .settings { margin-top: 6px; font-size: 12px; color: var(--muted); }
     details.settings summary { cursor: pointer; user-select: none; color: var(--muted); }
