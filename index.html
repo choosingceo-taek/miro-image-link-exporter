@@ -6,9 +6,6 @@
   <title>Board Scanner</title>
   <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; }
     html, body { height: 100%; }
@@ -19,7 +16,13 @@
     }
     body {
       font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
-      margin: 0; padding: 18px 16px 24px; color: var(--text); background: var(--bg);
+      margin: 0; padding: 18px 16px 24px; color: var(--text);
+      /* 감각적 그라디언트 배경(밝은 파스텔 — 가독성 유지) */
+      background:
+        radial-gradient(120% 80% at 100% 0%, rgba(217, 79, 213, .10) 0%, rgba(217, 79, 213, 0) 45%),
+        radial-gradient(120% 90% at 0% 0%, rgba(124, 92, 255, .16) 0%, rgba(124, 92, 255, 0) 50%),
+        linear-gradient(178deg, #eef0ff 0%, #f6f5ff 26%, var(--bg) 58%);
+      background-attachment: fixed;
     }
     h1 { font-size: 16px; margin: 0 0 4px; }
     h2 { font-size: 14px; margin: 14px 0 4px; }
@@ -186,33 +189,37 @@
     .scan-list { margin-top: 12px; flex: 1 1 auto; min-height: 0; overflow-y: auto; border-radius: 12px; -webkit-overflow-scrolling: touch; }
     .scan-list::-webkit-scrollbar { width: 8px; }
     .scan-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
-    /* ── 상단 워드마크(감각적 디스플레이 폰트) ── */
-    .brandbar { display: flex; align-items: baseline; gap: 9px; margin: 2px 2px 16px; flex-wrap: wrap; }
-    .wordmark {
-      margin: 0; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-optical-sizing: auto;
-      font-weight: 600; font-size: 30px; line-height: 1; letter-spacing: -.6px;
-      background: var(--grad); -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent; color: transparent;
+    /* ── 스캔 결과: 3열 상품 카드(이미지·브랜드 뱃지·제품명) ── */
+    #preview.cards { display: none; grid-template-columns: repeat(3, 1fr); gap: 12px 9px; padding: 2px 2px 8px; }
+    .pcard {
+      display: flex; flex-direction: column; gap: 6px; min-width: 0;
+      background: rgba(255, 255, 255, .72); border: 1px solid var(--border); border-radius: 15px;
+      padding: 7px 7px 9px; box-shadow: 0 3px 10px rgba(60, 50, 120, .06);
     }
-    .brandtag { font-size: 11px; font-style: italic; font-family: 'Fraunces', serif; color: var(--muted); }
-    /* ── 스캔 결과: 3열 상품 카드(이미지·브랜드·제품명) ── */
-    #preview.cards { display: none; grid-template-columns: repeat(3, 1fr); gap: 14px 10px; padding: 2px 2px 8px; }
-    .pcard { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
-    .pcard.link { cursor: pointer; }
+    .pcard.link { cursor: pointer; transition: transform .1s, box-shadow .1s; }
+    .pcard.link:active { transform: scale(.98); }
     .pcard-img {
-      width: 100%; aspect-ratio: 3 / 4; border-radius: 13px; overflow: hidden; background: var(--card2);
-      display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,.05);
+      position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 11px; overflow: hidden;
+      background: var(--card2); display: flex; align-items: center; justify-content: center;
     }
-    .pcard.link:active .pcard-img { transform: scale(.98); }
-    .pcard-img { transition: transform .1s; }
     .pcard-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .pcard-img.noimg::after { content: '🧵'; font-size: 22px; opacity: .35; }
+    /* 링크 있는 카드: 우상단 원형 아이콘 뱃지(↗) */
+    .pcard-badge {
+      position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(255, 255, 255, .92); color: var(--accent); display: flex; align-items: center;
+      justify-content: center; font-size: 12px; font-weight: 800; box-shadow: 0 2px 6px rgba(0, 0, 0, .16);
+    }
+    /* 브랜드 = 알약형 뱃지 */
     .pcard-brand {
-      font-size: 10px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; color: var(--accent);
+      align-self: flex-start; max-width: 100%; padding: 2px 8px; border-radius: 999px;
+      background: rgba(124, 92, 255, .12); color: var(--accent);
+      font-size: 9.5px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
+    .pcard-brand:empty { display: none; }
     .pcard-name {
-      font-size: 11px; line-height: 1.32; color: var(--text);
+      font-size: 11px; line-height: 1.32; color: var(--text); padding: 0 2px;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
     .pcard-more { grid-column: 1 / -1; text-align: center; font-size: 11px; color: var(--muted); padding: 6px 0 2px; }
@@ -266,11 +273,6 @@
 
     <!-- Export (메인) -->
     <section id="pane-extract">
-      <header class="brandbar">
-        <h1 class="wordmark">Board Scanner</h1>
-        <span class="brandtag">links → excel</span>
-      </header>
-
       <div class="scan-row">
         <button id="basicExport" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 2.5 7.5 12 12.5l9.5-5L12 2.5Z"/><path d="M2.5 12 12 17l9.5-5"/><path d="M2.5 16.5 12 21.5l9.5-5"/></svg></span><span class="lab">Scan All</span></button>
         <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5" stroke-dasharray="3.6 3"/></svg></span><span class="lab">Scan Selected</span></button>
@@ -1424,10 +1426,16 @@
           } else {
             imgWrap.classList.add('noimg');
           }
+          if (r.link) {
+            const badge = document.createElement('span');
+            badge.className = 'pcard-badge';
+            badge.textContent = '↗';
+            imgWrap.appendChild(badge);
+          }
 
           const bEl = document.createElement('div');
           bEl.className = 'pcard-brand';
-          bEl.textContent = brand || ' ';
+          bEl.textContent = brand;   // 비면 :empty 로 숨김
           const nEl = document.createElement('div');
           nEl.className = 'pcard-name';
           nEl.textContent = name || '(제목 없음)';
