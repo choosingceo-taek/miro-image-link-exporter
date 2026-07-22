@@ -8,34 +8,45 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
   <style>
     * { box-sizing: border-box; }
+    :root {
+      --bg: #17171c; --card: #1f1f27; --card2: #292933; --line: #35354011;
+      --border: #34343f; --text: #f1f1f5; --muted: #8b8b99; --accent: #8b5cf6;
+      --grad: linear-gradient(135deg, #7c5cff 0%, #d94fd5 100%);
+    }
     body {
-      font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      margin: 0; padding: 16px; color: #1a1a2e; background: #fff;
+      font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+      margin: 0; padding: 18px 16px 24px; color: var(--text); background: var(--bg);
     }
     h1 { font-size: 16px; margin: 0 0 4px; }
     h2 { font-size: 14px; margin: 14px 0 4px; }
-    p.desc { font-size: 12px; color: #666; margin: 0 0 16px; line-height: 1.5; }
+    p.desc { font-size: 12px; color: var(--muted); margin: 0 0 14px; line-height: 1.55; }
     button {
-      width: 100%; padding: 10px 12px; font-size: 14px; font-weight: 600;
-      border: none; border-radius: 8px; cursor: pointer;
+      width: 100%; padding: 12px; font-size: 14px; font-weight: 700; color: var(--text);
+      background: var(--card2); border: none; border-radius: 12px; cursor: pointer; font-family: inherit;
     }
-    button:disabled { opacity: .55; cursor: default; }
+    button:disabled { opacity: .5; cursor: default; }
     #run { background: #4262ff; color: #fff; }
     #downloadXlsx { background: #16a34a; color: #fff; margin-top: 8px; display: none; }
     #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
     #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
     #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
-    #basicExport { background: #111; color: #fff; font-size: 15px; padding: 14px; border-radius: 12px; }
-    #basicExportSel { background: #f2f2f2; color: #222; font-size: 13px; padding: 11px; border-radius: 12px; margin-top: 8px; }
-    #basicExportSel #selCount { color: #4262ff; font-weight: 700; }
-    #oneClick { background: #7c3aed; color: #fff; font-size: 13px; padding: 11px; }
-    .settings button { margin-top: 8px; }
-    .settings { margin-top: 12px; font-size: 12px; color: #555; }
-    details.settings summary { cursor: pointer; user-select: none; }
-    .settings label { display: block; margin: 8px 0 2px; font-weight: 600; }
-    .settings input, .settings textarea {
-      width: 100%; padding: 6px 8px; font-size: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; resize: vertical;
+    #basicExport {
+      background: var(--grad); color: #fff; font-size: 15px; padding: 15px; border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(124, 92, 255, .28); letter-spacing: .2px;
     }
+    #basicExportSel { background: var(--card2); color: var(--text); font-size: 13px; padding: 12px; border-radius: 14px; margin-top: 9px; border: 1px solid var(--border); }
+    #basicExportSel #selCount { color: #c9b8ff; font-weight: 800; }
+    #oneClick { background: var(--card2); color: var(--text); font-size: 13px; padding: 11px; }
+    .settings button { margin-top: 8px; }
+    .settings { margin-top: 6px; font-size: 12px; color: var(--muted); }
+    details.settings summary { cursor: pointer; user-select: none; color: var(--muted); }
+    .settings label { display: block; margin: 12px 0 5px; font-weight: 700; color: var(--text); }
+    .settings input, .settings textarea {
+      width: 100%; padding: 11px 13px; font-size: 13px; border: 1px solid var(--border); border-radius: 10px;
+      background: var(--card); color: var(--text); font-family: inherit; resize: vertical;
+    }
+    .settings input:focus, .settings textarea:focus { outline: none; border-color: var(--accent); }
+    .settings input::placeholder, .settings textarea::placeholder { color: #5a5a66; }
     hr.sep { border: none; border-top: 1px solid #eee; margin: 20px 0 16px; }
     /* End Clothing 풍 미니멀 모바일 쇼핑 UI */
     .url-row { display: flex; gap: 6px; margin-top: 6px; }
@@ -91,38 +102,36 @@
     .fbadge.warn { background: #fff4e5; color: #a15c00; }
     .fbadge.err { background: #fdeaea; color: #b42318; }
     .comp { font-weight: 600; }
-    #status { font-size: 12px; margin: 12px 0 4px; min-height: 16px; color: #444; }
+    #status { font-size: 12px; margin: 14px 0 4px; min-height: 16px; color: var(--muted); }
     .summary {
       display: none; margin-top: 12px; font-size: 12px;
-      background: #f4f6ff; border-radius: 8px; padding: 12px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; color: var(--muted);
     }
-    .summary b { color: #4262ff; }
-    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 11px; display: none; }
-    th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid #eee; vertical-align: top; }
-    th { color: #888; font-weight: 600; }
-    td a { color: #4262ff; word-break: break-all; }
+    .summary b { color: #c9b8ff; }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 11px; display: none; }
+    th, td { text-align: left; padding: 8px 5px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+    th { color: var(--muted); font-weight: 600; }
+    td a { color: #a99bff; word-break: break-all; }
     td.imgcell { width: 64px; }
-    .thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; background: #f1f1f4; display: block; }
+    .thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; background: var(--card2); display: block; }
     .ttl { font-weight: 600; margin-bottom: 3px; word-break: break-all; }
-    .muted { color: #bbb; }
-    /* ── 상단 바 + 탭 + 도움말 ── */
-    .topbar { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
-    .logo { font-size: 22px; font-weight: 800; letter-spacing: 1.5px; color: #1a1a2e; }
-    .tabs-main { display: flex; gap: 6px; margin-bottom: 10px; }
-    .tabs-main { margin-top: 4px; }
+    .muted { color: var(--muted); }
+    /* ── 탭(세그먼트) + 도움말 + 히어로 ── */
+    .tabs-main { display: flex; gap: 4px; margin: 2px 0 16px; padding: 4px; background: var(--card); border-radius: 14px; }
     .mtab {
-      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
-      padding: 9px 2px; background: #f4f4f7; color: #6b6b76; border-radius: 12px;
-      font-size: 9.5px; font-weight: 700; line-height: 1.15; text-align: center; letter-spacing: .1px;
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 10px 4px; background: transparent; color: var(--muted); border-radius: 10px;
+      font-size: 12px; font-weight: 700; letter-spacing: .2px;
     }
-    .mtab .ic { font-size: 18px; line-height: 1; }
-    .mtab.active { background: #1a1a2e; color: #fff; }
-    .help-line { display: flex; justify-content: flex-end; margin: 4px 0 8px; }
-    .help-line button { width: auto; padding: 2px 9px; font-size: 11px; font-weight: 600; background: #eef0f5; color: #666; border-radius: 12px; }
-    .help-box { background: #f4f6ff; border-radius: 8px; padding: 10px 11px; font-size: 12px; line-height: 1.65; margin-bottom: 10px; }
-    .help-box b { color: #4262ff; }
-    /* 드래그 선택 밴드 시각 표시 */
-    .imp-card.dragging-src { opacity: .5; }
+    .mtab .ic { font-size: 15px; line-height: 1; }
+    .mtab.active { background: var(--card2); color: #fff; }
+    .hero { margin: 8px 0 18px; }
+    .hero .k { font-size: 25px; font-weight: 800; letter-spacing: -.5px; color: #fff; line-height: 1.1; }
+    .hero .s { font-size: 12px; color: var(--muted); margin-top: 5px; line-height: 1.5; }
+    .help-line { display: flex; justify-content: flex-end; margin: -6px 0 8px; }
+    .help-line button { width: auto; padding: 3px 11px; font-size: 11px; font-weight: 600; background: var(--card2); color: var(--muted); border-radius: 20px; }
+    .help-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; font-size: 12px; line-height: 1.7; color: var(--muted); margin-bottom: 12px; }
+    .help-box b { color: #c9b8ff; }
   </style>
 </head>
 <body>
@@ -178,6 +187,10 @@
 
     <!-- Export Excel -->
     <section class="tabpane" id="pane-extract">
+      <div class="hero">
+        <div class="k">Export to Excel</div>
+        <div class="s">보드의 링크된 이미지를 <b style="color:#c9b8ff">브랜드 · 썸네일 · 상품명 · URL</b> 엑셀로.</div>
+      </div>
       <div class="help-line"><button data-help="extract">ⓘ 사용법</button></div>
       <div class="help-box" id="help-extract" style="display:none">
         <b>무슨 기능?</b> 보드에서 <b>링크가 걸린 이미지</b>를 읽어 <b>브랜드 · 썸네일(보드 이미지) · 상품명 · URL</b> 엑셀(.xlsx)로 뽑습니다. 브랜드순 정렬, 빈 행 없음, <b>완전 무료</b>.<br>
