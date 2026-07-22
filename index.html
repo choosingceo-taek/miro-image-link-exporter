@@ -181,17 +181,13 @@
     <section class="tabpane" id="pane-extract" style="display:none">
       <div class="help-line"><button data-help="extract">ⓘ 사용법</button></div>
       <div class="help-box" id="help-extract" style="display:none">
-        <b>무슨 기능?</b> 보드에서 <b>링크가 걸린 이미지</b>를 읽어 <b>브랜드 · 썸네일(보드 이미지) · 상품명 · URL</b> 엑셀(.xlsx)로 뽑습니다. (어떤 링크든 항상 채워지는 항목만.) 브랜드순 정렬, 빈 행 없음, <b>완전 무료</b>.<br>
-        <b>사용법</b> 아래 <b>📥 엑셀로 추출</b>을 누르면 바로 다운로드됩니다. (원단 정보까지 원하면 아래 접힘 메뉴)
+        <b>무슨 기능?</b> 보드에서 <b>링크가 걸린 이미지</b>를 읽어 <b>브랜드 · 썸네일(보드 이미지) · 상품명 · URL</b> 엑셀(.xlsx)로 뽑습니다. 브랜드순 정렬, 빈 행 없음, <b>완전 무료</b>.<br>
+        <b>사용법</b> <b>보드 전체 추출</b>은 링크된 이미지를 전부, <b>선택한 것만 추출</b>은 보드에서 고른 것만 뽑습니다.
       </div>
 
       <button id="basicExport">📥 보드 전체 추출 (링크된 이미지 전부)</button>
       <button id="basicExportSel">🖱 선택한 것만 추출 <span id="selCount"></span></button>
       <p class="desc" style="margin:6px 0 0">‘선택한 것만’은 보드에서 이미지를 <b>클릭 · Shift+클릭 · 마우스 박스 드래그</b>로 고른 뒤 누르세요.</p>
-      <details class="settings" style="margin-top:10px">
-        <summary>＋ 원단 정보까지 넣기 (AI · 무료 한도)</summary>
-        <button id="oneClick" style="margin-top:8px">🧵 원단 분석 포함 엑셀 만들기</button>
-      </details>
 
       <div id="status"></div>
       <div class="summary" id="summary"></div>
@@ -360,29 +356,8 @@
         syncProxy();
       });
 
-      // ── 원클릭: 추출 → 원단 분석 → 엑셀 다운로드 (한 번에) ────────────
-      const heroBtn = document.getElementById('oneClick');
-      heroBtn.addEventListener('click', async () => {
-        if (!(workerUrlEl.value || '').trim()) {
-          showTab('settings');
-          statusEl.textContent = '먼저 ⚙︎ 설정에서 Worker URL을 입력하세요 (최초 1회).';
-          return;
-        }
-        heroBtn.disabled = true;
-        try {
-          await collectRows(false);
-          if (!rows.length) return; // 상태 메시지는 collectRows가 이미 표시
-          const targets = rows.filter(r => r.link);
-          if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
-          const res = await analyzeAll();
-          if (!res) return; // 워커/타깃 문제로 중단
-          await buildFabricXlsx();
-        } catch (e) {
-          statusEl.textContent = '오류: ' + ((e && e.message) || e);
-        } finally {
-          heroBtn.disabled = false;
-        }
-      });
+      // 원단 AI 분석 기능은 제거됨(무료·범용 원칙). 공유 함수들이 참조하는 disabled만 받아주는 스텁.
+      const heroBtn = { disabled: false };
 
       // ── 📥 기본 추출: 브랜드·썸네일·상품명·URL (완전 무료). 전체 / 선택한 것만 두 모드. ──
       const basicBtn = document.getElementById('basicExport');
