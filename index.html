@@ -1099,14 +1099,26 @@
           const c = ws.getCell(`D${excelRow}`);   // URL = D열
           c.value = { text: r.link, hyperlink: r.link };
           c.font = { color: { argb: 'FF4262FF' }, underline: true };
+          // 썸네일 후보를 순서대로 시도: ① 보드 이미지(캐시 URL 또는 REST 프록시)
+          //  → ② (보드 이미지 실패 시) 링크된 페이지 대표이미지 og:image (토큰 불필요 폴백)
+          const putThumb = async (src) => {
+            const { base64, w, h } = await toPng(src, 110);
+            const id = workbook.addImage({ base64, extension: 'png' });
+            ws.addImage(id, { tl: { col: 1.1, row: (excelRow - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
+            row.height = Math.max(row.height, h * 0.75 + 6);
+          };
           let done = false;
           if (r.imageUrl) {
+            try { await putThumb(r.imageUrl); done = true; okThumb++; } catch (e) {}
+          }
+          if (!done && r.link && __proxy.url) {
+            // 폴백: 링크 페이지의 og:image (미로 토큰 만료/무효여도 썸네일이 비지 않게)
             try {
-              const { base64, w, h } = await toPng(r.imageUrl, 110);
-              const id = workbook.addImage({ base64, extension: 'png' });
-              ws.addImage(id, { tl: { col: 1.1, row: (excelRow - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
-              row.height = Math.max(row.height, h * 0.75 + 6);
-              done = true; okThumb++;
+              const base = __proxy.url.replace(/\/+$/, '');
+              const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
+              const resp = await fetch(base + '?meta=' + encodeURIComponent(r.link) + tok);
+              const data = await resp.json();
+              if (data && data.image_url) { await putThumb(data.image_url); done = true; okThumb++; }
             } catch (e) {}
           }
           if (!done) {
