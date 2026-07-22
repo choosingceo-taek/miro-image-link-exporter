@@ -143,11 +143,15 @@
     .scan-row > .scan { height: 108px; }
     .scan {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px; padding: 14px; border-radius: 16px;
-      background: var(--card2); color: var(--text); border: 1px solid var(--border); text-align: center;
+      gap: 10px; padding: 14px; border-radius: 16px; text-align: center; color: var(--text);
+      /* 기본도 회색이 아니라 전체 무드에 맞춘 연한 그라디언트 틴트 + 입체감 */
+      background: linear-gradient(158deg, rgba(124, 92, 255, .13) 0%, rgba(66, 98, 255, .09) 100%);
+      border: 1px solid rgba(124, 92, 255, .18);
+      box-shadow: 0 5px 16px rgba(90, 70, 180, .10);
     }
     /* 아이콘 박스·간격·크기 통일: 동일 규격 SVG(24×24 뷰박스를 같은 영역만큼 채움) */
-    .scan .ic { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; }
+    .scan .ic { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; color: var(--accent); }
+    .scan.working .ic { color: #fff; }
     .scan .ic svg { width: 28px; height: 28px; display: block; }
     .scan .lab { font-size: 14px; font-weight: 800; letter-spacing: .2px; line-height: 1.15; white-space: nowrap; }
     .scan #selCount { font-size: 11px; color: var(--accent); font-weight: 800; }
@@ -193,11 +197,14 @@
     #preview.cards { display: none; grid-template-columns: repeat(3, 1fr); gap: 12px 9px; padding: 2px 2px 8px; }
     .pcard {
       display: flex; flex-direction: column; gap: 6px; min-width: 0;
-      background: rgba(255, 255, 255, .72); border: 1px solid var(--border); border-radius: 15px;
-      padding: 7px 7px 9px; box-shadow: 0 3px 10px rgba(60, 50, 120, .06);
+      background: #ffffff; border: 1px solid rgba(124, 92, 255, .10); border-radius: 18px;
+      padding: 8px 8px 11px;
+      /* 입체감: 부드러운 앰비언트 + 방향성 그림자로 배경 위에 떠 보이게 */
+      box-shadow: 0 1px 2px rgba(60, 50, 120, .06), 0 10px 22px -8px rgba(90, 70, 180, .28);
     }
-    .pcard.link { cursor: pointer; transition: transform .1s, box-shadow .1s; }
-    .pcard.link:active { transform: scale(.98); }
+    .pcard.link { cursor: pointer; transition: transform .13s ease, box-shadow .13s ease; }
+    .pcard.link:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(60, 50, 120, .08), 0 18px 32px -8px rgba(90, 70, 180, .36); }
+    .pcard.link:active { transform: translateY(-1px) scale(.99); }
     .pcard-img {
       position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 11px; overflow: hidden;
       background: var(--card2); display: flex; align-items: center; justify-content: center;
