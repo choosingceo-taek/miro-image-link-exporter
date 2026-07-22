@@ -138,16 +138,18 @@
     #app { position: relative; height: 100%; display: flex; flex-direction: column; }
     #pane-extract { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
     .scan-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+    /* 기본은 둘 다 중립색. 활성화(작업 중)된 버튼만 gradient로 표시. */
     .scan {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 8px; padding: 15px; height: 108px; border-radius: 16px; background: var(--grad); color: #fff;
-      box-shadow: 0 6px 18px rgba(66, 98, 255, .26); text-align: center;
+      gap: 8px; padding: 15px; height: 108px; border-radius: 16px;
+      background: var(--card2); color: var(--text); border: 1px solid var(--border); text-align: center;
     }
-    .scan .ic { font-size: 24px; line-height: 1; }
+    /* 아이콘 크기 통일: 동일 규격 SVG(24×24) */
+    .scan .ic { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; }
+    .scan .ic svg { width: 26px; height: 26px; display: block; }
     .scan .lab { font-size: 14px; font-weight: 800; letter-spacing: .2px; }
-    .scan.alt { background: var(--card2); color: var(--text); box-shadow: none; border: 1px solid var(--border); }
     .scan #selCount { font-size: 11px; color: var(--accent); font-weight: 800; }
-    /* 작업 중: 그라데이션이 흘러가는 애니메이션 */
+    /* 작업 중(활성): 그라데이션 + 흘러가는 애니메이션 */
     .scan.working {
       background-image: var(--grad); background-size: 220% 100%; color: #fff; border-color: transparent;
       box-shadow: 0 6px 18px rgba(66, 98, 255, .32); animation: scanFlow 1.1s linear infinite;
@@ -161,6 +163,7 @@
       font-size: 16px; display: flex; align-items: center; justify-content: center; line-height: 1;
     }
     .icobtn:hover { background: var(--border); }
+    .icobtn svg { width: 18px; height: 18px; display: block; }
     /* 아이콘에서 바로 펼쳐지는 팝오버(드롭다운) */
     .popover {
       position: absolute; top: 48px; left: 50%; transform: translateX(-50%);
@@ -236,14 +239,15 @@
     <!-- Export (메인) -->
     <section id="pane-extract">
       <div class="scan-row">
-        <button id="basicExport" class="scan"><span class="ic">📥</span><span class="lab">Scan All</span></button>
-        <button id="basicExportSel" class="scan alt"><span class="ic">🖱</span><span class="lab">Scan Selected <span id="selCount"></span></span></button>
+        <button id="basicExport" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg></span><span class="lab">Scan All</span></button>
+        <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 14v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></svg></span><span class="lab">Scan Selected <span id="selCount"></span></span></button>
       </div>
 
       <!-- 스캔 버튼 아래 가운데: 사용법·설정 아이콘 + 팝오버 -->
       <div class="tool-row" id="toolRow">
         <button class="icobtn" id="helpBtn" aria-label="사용법" title="사용법">ⓘ</button>
         <button class="icobtn" id="settingsBtn" aria-label="설정" title="설정">⚙</button>
+        <button class="icobtn" id="resetBtn" aria-label="초기화" title="초기화(리셋)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
 
         <!-- 사용법 팝오버 (ⓘ 아이콘) -->
         <div class="popover" id="helpModal" style="display:none">
@@ -460,6 +464,20 @@
       }
       basicBtn.addEventListener('click', () => runBasicExport(false));
       basicSelBtn.addEventListener('click', () => runBasicExport(true));
+
+      // ── ↺ 초기화(리셋): 스캔 결과·상태·활성표시를 모두 비움 ──
+      const resetBtn = document.getElementById('resetBtn');
+      function resetPanel() {
+        rows = [];
+        tbody.innerHTML = '';
+        table.style.display = 'none';
+        summaryEl.style.display = 'none';
+        summaryEl.innerHTML = '';
+        statusEl.innerHTML = '';
+        basicBtn.classList.remove('working');
+        basicSelBtn.classList.remove('working');
+      }
+      if (resetBtn) resetBtn.addEventListener('click', resetPanel);
 
       // ── 📥 상품 가져오기: 브랜드 → Render 서버(133 브랜드) → 미리보기 → 선택 → 보드에 추가 ──
       const importBrandUrlEl = document.getElementById('importBrandUrl');
