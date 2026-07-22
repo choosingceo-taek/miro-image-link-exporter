@@ -1107,19 +1107,10 @@
             ws.addImage(id, { tl: { col: 1.1, row: (excelRow - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
             row.height = Math.max(row.height, h * 0.75 + 6);
           };
+          // 썸네일 = 미로 보드에 올라간 이미지 그 자체만 사용 (사이트 URL 미접근).
           let done = false;
           if (r.imageUrl) {
             try { await putThumb(r.imageUrl); done = true; okThumb++; } catch (e) {}
-          }
-          if (!done && r.link && __proxy.url) {
-            // 폴백: 링크 페이지의 og:image (미로 토큰 만료/무효여도 썸네일이 비지 않게)
-            try {
-              const base = __proxy.url.replace(/\/+$/, '');
-              const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
-              const resp = await fetch(base + '?meta=' + encodeURIComponent(r.link) + tok);
-              const data = await resp.json();
-              if (data && data.image_url) { await putThumb(data.image_url); done = true; okThumb++; }
-            } catch (e) {}
           }
           if (!done) {
             ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
