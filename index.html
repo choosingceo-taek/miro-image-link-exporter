@@ -241,7 +241,7 @@
     <section id="pane-extract">
       <div class="scan-row">
         <button id="basicExport" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 2.5 7.5 12 12.5l9.5-5L12 2.5Z"/><path d="M2.5 12 12 17l9.5-5"/><path d="M2.5 16.5 12 21.5l9.5-5"/></svg></span><span class="lab">Scan All</span></button>
-        <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5" stroke-dasharray="3.6 3"/></svg></span><span class="lab">Scan Selected <span id="selCount"></span></span></button>
+        <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5" stroke-dasharray="3.6 3"/></svg></span><span class="lab">Scan Selected</span></button>
       </div>
 
       <!-- 스캔 버튼 아래 가운데: 사용법·설정 아이콘 + 팝오버 -->
@@ -909,14 +909,15 @@
 
       // ── 1) 보드에서 이미지 + 링크 수집 (전체 또는 "선택한 것만") ─────────────
       runBtn.addEventListener('click', () => collectRows(false));
-      // 보드에서 사용자가 선택한 (링크 걸린) 이미지 개수를 '선택한 것만' 버튼에 실시간 표시.
+      // 보드에서 선택한 (링크 걸린) 이미지 개수를 버튼이 아니라 검색바 아래 한 줄 상태에 표시.
       try {
         miro.board.ui.on('selection:update', async () => {
           try {
             const sel = await miro.board.getSelection();
             const n = sel.filter(it => it.type === 'image' && (it.linkedTo || '').trim()).length;
-            const el = document.getElementById('selCount');
-            if (el) el.textContent = n ? `(${n}개)` : '';
+            // 작업 중에는 상태줄을 덮지 않음.
+            if (basicBtn.classList.contains('working') || basicSelBtn.classList.contains('working')) return;
+            statusEl.innerHTML = n ? `보드에서 <b>${n}</b>개 선택됨` : '';
           } catch (e) {}
         });
       } catch (e) {}
