@@ -146,7 +146,7 @@
     .scan .ic { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; flex: 0 0 26px; color: var(--text); }
     .scan.working .ic { color: #fff; }
     .scan .ic svg { width: 26px; height: 26px; display: block; }
-    .scan .lab { font-size: 13px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; line-height: 1.15; white-space: nowrap; }
+    .scan .lab { font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; line-height: 1.15; white-space: nowrap; }
     .scan #selCount { font-size: 11px; color: var(--accent); font-weight: 700; }
     /* 작업 중(활성): 검정 채움 + 은은한 흐름 애니메이션 */
     .scan.working {
@@ -1435,6 +1435,7 @@
           name: (r.name || r.title || '').trim(),
         });
         const list = rows.filter(r => {
+          if (!(r.link || '').trim()) return false;   // 링크 없는 이미지는 리스트에서 제외
           if (!q) return true;
           const m = meta(r);
           return m.brand.toLowerCase().includes(q) || m.name.toLowerCase().includes(q);
