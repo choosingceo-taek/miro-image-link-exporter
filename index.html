@@ -139,15 +139,16 @@
     #pane-extract { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
     .scan-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
     /* 기본은 둘 다 중립색. 활성화(작업 중)된 버튼만 gradient로 표시. */
+    .scan-row > .scan { height: 108px; }
     .scan {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 8px; padding: 15px; height: 108px; border-radius: 16px;
+      gap: 10px; padding: 14px; border-radius: 16px;
       background: var(--card2); color: var(--text); border: 1px solid var(--border); text-align: center;
     }
-    /* 아이콘 크기 통일: 동일 규격 SVG(24×24) */
-    .scan .ic { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; }
-    .scan .ic svg { width: 26px; height: 26px; display: block; }
-    .scan .lab { font-size: 14px; font-weight: 800; letter-spacing: .2px; }
+    /* 아이콘 박스·간격·크기 통일: 동일 규격 SVG(24×24 뷰박스를 같은 영역만큼 채움) */
+    .scan .ic { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; }
+    .scan .ic svg { width: 28px; height: 28px; display: block; }
+    .scan .lab { font-size: 14px; font-weight: 800; letter-spacing: .2px; line-height: 1.15; white-space: nowrap; }
     .scan #selCount { font-size: 11px; color: var(--accent); font-weight: 800; }
     /* 작업 중(활성): 그라데이션 + 흘러가는 애니메이션 */
     .scan.working {
@@ -239,8 +240,8 @@
     <!-- Export (메인) -->
     <section id="pane-extract">
       <div class="scan-row">
-        <button id="basicExport" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg></span><span class="lab">Scan All</span></button>
-        <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 14v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></svg></span><span class="lab">Scan Selected <span id="selCount"></span></span></button>
+        <button id="basicExport" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 2.5 7.5 12 12.5l9.5-5L12 2.5Z"/><path d="M2.5 12 12 17l9.5-5"/><path d="M2.5 16.5 12 21.5l9.5-5"/></svg></span><span class="lab">Scan All</span></button>
+        <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5" stroke-dasharray="3.6 3"/></svg></span><span class="lab">Scan Selected <span id="selCount"></span></span></button>
       </div>
 
       <!-- 스캔 버튼 아래 가운데: 사용법·설정 아이콘 + 팝오버 -->
