@@ -129,13 +129,12 @@
   <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
     <nav class="tabs-main">
-      <button class="mtab active" data-tab="import"><span class="ic">🔍</span>Market Research</button>
-      <button class="mtab" data-tab="extract"><span class="ic">📊</span>Export Excel</button>
+      <button class="mtab active" data-tab="extract"><span class="ic">📊</span>Export Excel</button>
       <button class="mtab" data-tab="settings"><span class="ic">⚙</span>Settings</button>
     </nav>
 
-    <!-- ① Market Research -->
-    <section class="tabpane" id="pane-import">
+    <!-- (Market Research 제거됨) -->
+    <section class="tabpane" id="pane-import" style="display:none">
       <div class="help-line"><button data-help="import">ⓘ 사용법</button></div>
       <div class="help-box" id="help-import" style="display:none">
         <b>무슨 기능?</b> 쇼핑몰 신상품을 미리보고 골라 미로 보드에 <b>이미지+링크</b>로 넣습니다. (133개 브랜드)<br>
@@ -177,8 +176,8 @@
       </details>
     </section>
 
-    <!-- ② Export Excel -->
-    <section class="tabpane" id="pane-extract" style="display:none">
+    <!-- Export Excel -->
+    <section class="tabpane" id="pane-extract">
       <div class="help-line"><button data-help="extract">ⓘ 사용법</button></div>
       <div class="help-box" id="help-extract" style="display:none">
         <b>무슨 기능?</b> 보드에서 <b>링크가 걸린 이미지</b>를 읽어 <b>브랜드 · 썸네일(보드 이미지) · 상품명 · URL</b> 엑셀(.xlsx)로 뽑습니다. 브랜드순 정렬, 빈 행 없음, <b>완전 무료</b>.<br>
@@ -204,15 +203,13 @@
     <section class="tabpane" id="pane-settings" style="display:none">
       <div class="help-line"><button data-help="settings">ⓘ 사용법</button></div>
       <div class="help-box" id="help-settings" style="display:none">
-        관리자가 준 주소를 <b>최초 1회</b>만 넣으면 브라우저에 저장됩니다.
-        <b>가져오기 서버</b>는 상품 검색용(Render), <b>추출 Worker</b>는 원단분석·썸네일용(Cloudflare)입니다.
+        관리자가 준 <b>Worker 주소</b>를 <b>최초 1회</b>만 넣으면 브라우저에 저장됩니다.
+        이 Worker가 <b>보드 이미지를 받아 엑셀 썸네일에 넣어줍니다</b>(무료지만 필수). Access token은 선택.
       </div>
       <div class="settings" style="margin-top:0">
-        <label for="renderUrl">① 가져오기 서버 (Render 주소)</label>
-        <input id="renderUrl" type="url" placeholder="https://…onrender.com" />
-        <label for="workerUrl">② 추출 Worker (Cloudflare 주소)</label>
+        <label for="workerUrl">썸네일 Worker (Cloudflare 주소)</label>
         <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
-        <label for="accessToken">Access token (선택 — 추출 Worker용)</label>
+        <label for="accessToken">Access token (선택 — Worker에 설정한 경우만)</label>
         <input id="accessToken" type="text" placeholder="Worker에 ACCESS_TOKEN을 설정한 경우만" />
       </div>
     </section>
@@ -330,18 +327,18 @@
       } catch (e) {}
 
       // 서버 설정을 브라우저에 기억(팀원마다 1회만 입력).
-      const renderUrlEl = document.getElementById('renderUrl');
+      const renderUrlEl = document.getElementById('renderUrl'); // 제거됨(가져오기 전용) → null 허용
       const syncProxy = () => {
         __proxy = { url: (workerUrlEl.value || '').trim(), token: (accessTokenEl.value || '').trim() };
-        __render = (renderUrlEl.value || '').trim().replace(/\/+$/, '');
+        __render = (renderUrlEl ? (renderUrlEl.value || '') : (localStorage.getItem('importRenderUrl') || '')).trim().replace(/\/+$/, '');
       };
       try {
-        renderUrlEl.value = localStorage.getItem('importRenderUrl') || '';
+        if (renderUrlEl) renderUrlEl.value = localStorage.getItem('importRenderUrl') || '';
         workerUrlEl.value = localStorage.getItem('fabricWorkerUrl') || '';
         accessTokenEl.value = localStorage.getItem('fabricAccessToken') || '';
       } catch (e) {}
       syncProxy();
-      renderUrlEl.addEventListener('change', () => {
+      if (renderUrlEl) renderUrlEl.addEventListener('change', () => {
         try { localStorage.setItem('importRenderUrl', renderUrlEl.value.trim()); } catch (e) {}
         syncProxy();
         loadBrandList();
