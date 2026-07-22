@@ -10,18 +10,18 @@
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     :root {
-      --bg: #ffffff; --card: #f6f6f8; --card2: #f0f0f3;
-      --border: #e6e6ea; --text: #1c1c1e; --muted: #8a8a90; --accent: #7c5cff;
-      --grad: linear-gradient(135deg, #8b5cf6 0%, #4262ff 100%);
+      --bg: #ffffff; --card: #f0f5e6; --card2: #e7efd6;
+      --border: #dde8c9; --text: #1f2a15; --muted: #7f8a70; --accent: #4e8a2a;
+      --grad: linear-gradient(135deg, #a5d267 0%, #4e8a2a 100%);
     }
     body {
       font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
       margin: 0; padding: 18px 16px 24px; color: var(--text);
-      /* 감각적 그라디언트 배경(밝은 파스텔 — 가독성 유지) */
+      /* pistachio 그린 그라디언트 배경(전체 무드) */
       background:
-        radial-gradient(120% 80% at 100% 0%, rgba(217, 79, 213, .10) 0%, rgba(217, 79, 213, 0) 45%),
-        radial-gradient(120% 90% at 0% 0%, rgba(124, 92, 255, .16) 0%, rgba(124, 92, 255, 0) 50%),
-        linear-gradient(178deg, #eef0ff 0%, #f6f5ff 26%, var(--bg) 58%);
+        radial-gradient(120% 80% at 100% 0%, rgba(120, 180, 60, .22) 0%, rgba(120, 180, 60, 0) 48%),
+        radial-gradient(130% 90% at 0% 0%, rgba(78, 138, 42, .18) 0%, rgba(78, 138, 42, 0) 52%),
+        linear-gradient(170deg, #dcecbe 0%, #e9f3d4 30%, #f4f9ea 62%);
       background-attachment: fixed;
     }
     h1 { font-size: 16px; margin: 0 0 4px; }
@@ -144,10 +144,10 @@
     .scan {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 10px; padding: 14px; border-radius: 16px; text-align: center; color: var(--text);
-      /* 기본도 회색이 아니라 전체 무드에 맞춘 연한 그라디언트 틴트 + 입체감 */
-      background: linear-gradient(158deg, rgba(124, 92, 255, .13) 0%, rgba(66, 98, 255, .09) 100%);
-      border: 1px solid rgba(124, 92, 255, .18);
-      box-shadow: 0 5px 16px rgba(90, 70, 180, .10);
+      /* 기본도 회색이 아니라 전체 무드에 맞춘 연한 그린 그라디언트 틴트 + 입체감 */
+      background: linear-gradient(158deg, rgba(120, 180, 60, .18) 0%, rgba(78, 138, 42, .12) 100%);
+      border: 1px solid rgba(78, 138, 42, .22);
+      box-shadow: 0 5px 16px rgba(70, 120, 40, .14);
     }
     /* 아이콘 박스·간격·크기 통일: 동일 규격 SVG(24×24 뷰박스를 같은 영역만큼 채움) */
     .scan .ic { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; flex: 0 0 28px; color: var(--accent); }
@@ -158,7 +158,7 @@
     /* 작업 중(활성): 그라데이션 + 흘러가는 애니메이션 */
     .scan.working {
       background-image: var(--grad); background-size: 220% 100%; color: #fff; border-color: transparent;
-      box-shadow: 0 6px 18px rgba(66, 98, 255, .32); animation: scanFlow 1.1s linear infinite;
+      box-shadow: 0 6px 18px rgba(70, 120, 40, .34); animation: scanFlow 1.1s linear infinite;
     }
     .scan.working .lab, .scan.working #selCount { color: #fff; }
     @keyframes scanFlow { 0% { background-position: 0% 50%; } 100% { background-position: 220% 50%; } }
@@ -197,13 +197,13 @@
     #preview.cards { display: none; grid-template-columns: repeat(3, 1fr); gap: 12px 9px; padding: 2px 2px 8px; }
     .pcard {
       display: flex; flex-direction: column; gap: 6px; min-width: 0;
-      background: #ffffff; border: 1px solid rgba(124, 92, 255, .10); border-radius: 18px;
+      background: #ffffff; border: 1px solid rgba(78, 138, 42, .12); border-radius: 18px;
       padding: 8px 8px 11px;
       /* 입체감: 부드러운 앰비언트 + 방향성 그림자로 배경 위에 떠 보이게 */
-      box-shadow: 0 1px 2px rgba(60, 50, 120, .06), 0 10px 22px -8px rgba(90, 70, 180, .28);
+      box-shadow: 0 1px 2px rgba(40, 70, 20, .07), 0 10px 22px -8px rgba(70, 120, 40, .30);
     }
     .pcard.link { cursor: pointer; transition: transform .13s ease, box-shadow .13s ease; }
-    .pcard.link:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(60, 50, 120, .08), 0 18px 32px -8px rgba(90, 70, 180, .36); }
+    .pcard.link:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(40, 70, 20, .10), 0 18px 32px -8px rgba(70, 120, 40, .40); }
     .pcard.link:active { transform: translateY(-1px) scale(.99); }
     .pcard-img {
       position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 11px; overflow: hidden;
@@ -220,7 +220,7 @@
     /* 브랜드 = 알약형 뱃지 */
     .pcard-brand {
       align-self: flex-start; max-width: 100%; padding: 2px 8px; border-radius: 999px;
-      background: rgba(124, 92, 255, .12); color: var(--accent);
+      background: rgba(78, 138, 42, .14); color: var(--accent);
       font-size: 9.5px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
