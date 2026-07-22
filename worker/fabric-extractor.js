@@ -94,7 +94,8 @@ export default {
     if (request.method === 'GET') {
       const tokOk = !env.ACCESS_TOKEN || reqUrl.searchParams.get('token') === env.ACCESS_TOKEN;
 
-      // og:image만 추출 (AI 미사용 — 무료 한도와 무관). "썸네일+URL만" 버튼이 사용.
+      // og:image + og:title만 추출 (AI 미사용 — 무료 한도와 무관).
+      // 패널이 상품명 보강(URL로만 추정한 이름 → 실제 페이지 제목)에도 사용.
       const meta = reqUrl.searchParams.get('meta');
       if (meta) {
         if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
@@ -102,6 +103,7 @@ export default {
         return json({
           url: meta,
           image_url: page.ok ? (page.ogImage || '') : '',
+          title: page.ok ? (page.title || '') : '',
           status: page.ok ? 'ok' : 'blocked',
           note: page.ok ? '' : ('fetch ' + page.status),
         }, 200, cors);
@@ -522,7 +524,7 @@ async function fetchShopifyJson(url) {
   let text = `${p.title || ''}. ${body} tags: ${p.tags || ''}`.trim();
   if (text.length > 16000) text = text.slice(0, 16000);
 
-  return { ok: true, text, ogImage: /^https?:\/\//i.test(img) ? img : '' };
+  return { ok: true, text, ogImage: /^https?:\/\//i.test(img) ? img : '', title: String(p.title || '').trim() };
 }
 
 // Shopify 컬렉션의 공개 상품 목록(JSON)을 가져와 최신순으로 정리.
@@ -585,6 +587,7 @@ async function fetchPageText(url) {
 
   const html = await r.text();
   const ogImage = findImage(html, url);
+  const title = findTitle(html);
 
   let text = html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -596,7 +599,25 @@ async function fetchPageText(url) {
     .trim();
   if (text.length > 16000) text = text.slice(0, 16000);
 
-  return { ok: true, text, ogImage };
+  return { ok: true, text, ogImage, title };
+}
+
+// 페이지 제목: og:title 우선, 없으면 <title>. (상품명 보강용 — 사이트 접속은 Worker가 대신)
+function findTitle(html) {
+  const pats = [
+    /<meta[^>]+(?:property|name)=["']og:title["'][^>]+content=["']([^"']+)["']/i,
+    /<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']og:title["']/i,
+    /<meta[^>]+name=["']twitter:title["'][^>]+content=["']([^"']+)["']/i,
+    /<title[^>]*>([^<]+)<\/title>/i,
+  ];
+  for (const re of pats) {
+    const m = html.match(re);
+    if (m && m[1]) {
+      return m[1].replace(/&amp;/gi, '&').replace(/&#0?39;|&apos;/gi, "'").replace(/&quot;/gi, '"')
+        .replace(/&nbsp;/gi, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+    }
+  }
+  return '';
 }
 
 // 대표 이미지 탐색: 페이지마다 고유한 메타 태그만 사용(og:image / twitter:image / link).

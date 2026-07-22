@@ -201,21 +201,21 @@
     .pcard-img { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
     .pcard-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .pcard-img.noimg::after { content: '🧵'; font-size: 26px; opacity: .3; }
-    /* 하단 블러(프로스트) 캡션 위에 브랜드·제품명 + 우측 사이트 이동 아이콘 */
+    /* 하단 블러(프로스트) 캡션 위에 브랜드·제품명 + 우측 사이트 이동 아이콘
+       — 높이는 제목 길이와 무관하게 고정(모든 카드 동일), 브랜드/이름 위치도 고정 */
     .pcard-cap {
-      position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end; gap: 8px;
-      padding: 9px 9px 10px; background: rgba(24, 22, 20, .30);
+      position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 8px;
+      height: 58px; padding: 0 9px; background: rgba(24, 22, 20, .30);
       backdrop-filter: blur(9px) saturate(1.1); -webkit-backdrop-filter: blur(9px) saturate(1.1);
       border-top: 1px solid rgba(255, 255, 255, .14);
     }
-    .pcard-cap-txt { flex: 1; min-width: 0; }
+    .pcard-cap-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
     .cap-brand {
-      font-size: 10px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: #fff;
+      height: 13px; font-size: 10px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: #fff;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
-    .cap-brand:empty { display: none; }
     .cap-name {
-      font-size: 9.5px; letter-spacing: .3px; color: rgba(255, 255, 255, .82); margin-top: 2px; line-height: 1.3;
+      height: 25px; font-size: 9.5px; letter-spacing: .3px; color: rgba(255, 255, 255, .82); margin-top: 2px; line-height: 1.3;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
     .pcard-cap-go {
@@ -500,6 +500,7 @@
         try {
           await collectRows(selectedOnly);
           if (!rows.length) return;
+          await enrichNames();   // URL로만 추정한 이름을 실제 페이지 제목(og:title)으로 보강
           await buildBasicXlsx();
         } catch (e) {
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
@@ -510,6 +511,51 @@
       }
       basicBtn.addEventListener('click', () => runBasicExport(false));
       basicSelBtn.addEventListener('click', () => runBasicExport(true));
+
+      // ── 상품명 보강: URL 추정 이름을 Worker의 무료 og:title 조회로 교체 ──
+      const __titleCache = {};   // link → 정제된 제목 (같은 세션 내 재조회 방지)
+      function cleanTitle(t, brand) {
+        let s = String(t || '').replace(/\s+/g, ' ').trim();
+        // "상품명 | 브랜드", "상품명 – 브랜드" 꼬리 제거
+        s = s.split(' | ')[0].split(' — ')[0].split(' – ')[0].trim();
+        if (brand) {
+          const esc = brand.replace(/[.*+?^${}()[\]\\]/g, '\\$&');
+          s = s.replace(new RegExp('\\s*[-·|]\\s*' + esc + '\\s*$', 'i'), '')
+               .replace(new RegExp('^' + esc + '\\s*[-·|]\\s*', 'i'), '').trim();
+        }
+        return s.slice(0, 120);
+      }
+      async function enrichNames() {
+        if (!__proxy.url) return;
+        const targets = rows.filter(r => r.link && r.nameFromUrl);
+        if (!targets.length) return;
+        const base = __proxy.url.replace(/\/+$/, '');
+        const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
+        let done = 0;
+        const queue = targets.slice();
+        const workers = Array.from({ length: Math.min(5, queue.length) }, async () => {
+          while (queue.length) {
+            const r = queue.shift();
+            try {
+              let title = __titleCache[r.link];
+              if (title === undefined) {
+                const ctl = new AbortController();
+                const timer = setTimeout(() => ctl.abort(), 8000);   // 느린 사이트는 8초에서 포기(다음으로)
+                const resp = await fetch(base + '/?meta=' + encodeURIComponent(r.link) + tok, { signal: ctl.signal });
+                clearTimeout(timer);
+                const data = await resp.json().catch(() => null);
+                title = cleanTitle(data && data.title, r.brand);
+                __titleCache[r.link] = title;
+              }
+              if (title) { r.name = title; r.nameFromUrl = false; }
+            } catch (e) {}
+            done++;
+            statusEl.innerHTML = `상품명 확인 중… <b>${done}</b>/${targets.length}`;
+          }
+        });
+        await Promise.all(workers);
+        renderPreview();
+      }
 
       // ── 검색바: 스캔된 카드들을 브랜드/제품명으로 필터 ──
       let cardFilter = '';
@@ -1041,8 +1087,10 @@
               link,
               // 썸네일: 기억해둔 원본 URL(토큰 불필요) → 없으면 미로 REST 프록시.
               imageUrl: rec.imageUrl || miroThumbUrl(img.id),
-              // 상품명: 가져온 상품이면 실제 이름 → 제목에서 → 그래도 없으면 URL 경로에서 추출(항상 채워짐).
+              // 상품명: 가져온 상품이면 실제 이름 → 제목에서 → 그래도 없으면 URL 경로에서 추출.
               name: rec.name || parsed.name || (link ? titleFromUrl(link) : ''),
+              // URL로만 추정한(또는 빈) 이름은 og:title 보강 대상.
+              nameFromUrl: !rec.name && !parsed.name && !!link,
               brand: rec.brand || (link ? brandFromUrl(link) : ''),
             };
           });
