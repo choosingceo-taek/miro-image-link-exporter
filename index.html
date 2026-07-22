@@ -25,6 +25,8 @@
     #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
     #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
     #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
+    .selrow { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #444; margin: 2px 0 10px; }
+    .selrow input { width: auto; }
     #basicExport { background: #111; color: #fff; font-size: 15px; padding: 14px; border-radius: 12px; }
     #oneClick { background: #7c3aed; color: #fff; font-size: 13px; padding: 11px; }
     .settings button { margin-top: 8px; }
@@ -183,6 +185,7 @@
         <b>사용법</b> 아래 <b>📥 엑셀로 추출</b>을 누르면 바로 다운로드됩니다. (원단 정보까지 원하면 아래 접힘 메뉴)
       </div>
 
+      <label class="selrow"><input type="checkbox" id="selectedOnly"> 보드에서 <b>선택한 이미지만</b> 추출 <span id="selCount" class="muted"></span></label>
       <button id="basicExport">📥 엑셀로 추출 (브랜드 · 썸네일 · URL)</button>
       <details class="settings" style="margin-top:10px">
         <summary>＋ 원단 정보까지 넣기 (AI · 무료 한도)</summary>
@@ -281,7 +284,7 @@
         if (!id || !rec || !rec.imageUrl) return;
         __imgCache[id] = {
           imageUrl: rec.imageUrl, name: rec.name || '', price: rec.price || '',
-          brand: rec.brand || '', productUrl: rec.productUrl || '',
+          brand: rec.brand || '', productUrl: rec.productUrl || '', category: rec.category || '',
         };
         try { localStorage.setItem('rackImgCache:' + __boardId, JSON.stringify(__imgCache)); } catch (e) {}
       }
@@ -366,7 +369,7 @@
         }
         heroBtn.disabled = true;
         try {
-          await collectRows();
+          await collectRows(selectedOnlyEl.checked);
           if (!rows.length) return; // 상태 메시지는 collectRows가 이미 표시
           const targets = rows.filter(r => r.link);
           if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
@@ -390,7 +393,7 @@
         }
         basicBtn.disabled = true; heroBtn.disabled = true;
         try {
-          await collectRows();
+          await collectRows(selectedOnlyEl.checked);
           if (!rows.length) return;
           await buildBasicXlsx();
         } catch (e) {
@@ -827,20 +830,43 @@
       loadBrandList(); // 설정에 Render 주소가 이미 있으면 브랜드 목록 미리 로드
       loadCatalogChips(); // 저장된(공유) 카탈로그 칩 표시
 
-      // ── 1) 보드에서 이미지 + 링크 수집 ──────────────────────────────
-      runBtn.addEventListener('click', collectRows);
-      async function collectRows() {
+      // ── 1) 보드에서 이미지 + 링크 수집 (전체 또는 "선택한 것만") ─────────────
+      runBtn.addEventListener('click', () => collectRows(false));
+      const selectedOnlyEl = document.getElementById('selectedOnly');
+      // 보드에서 사용자가 선택한 이미지 개수를 실시간 표시.
+      try {
+        miro.board.ui.on('selection:update', async () => {
+          try {
+            const sel = await miro.board.getSelection();
+            const n = sel.filter(it => it.type === 'image' && (it.linkedTo || '').trim()).length;
+            document.getElementById('selCount').textContent = n ? `(현재 ${n}개 선택됨)` : '';
+          } catch (e) {}
+        });
+      } catch (e) {}
+
+      async function collectRows(selectedOnly) {
         runBtn.disabled = true;
         xlsxBtn.style.display = 'none';
         csvBtn.style.display = 'none';
         table.style.display = 'none';
         summaryEl.style.display = 'none';
         tbody.innerHTML = '';
-        statusEl.textContent = '보드에서 이미지를 불러오는 중…';
+        statusEl.textContent = selectedOnly ? '보드에서 선택한 이미지를 확인하는 중…' : '보드에서 이미지를 불러오는 중…';
 
         try {
-          // Web SDK가 페이지네이션을 알아서 처리해 보드의 모든 이미지를 반환합니다.
-          const images = await miro.board.get({ type: 'image' });
+          // 선택한 것만: 보드에서 현재 선택된 이미지. 아니면 보드 전체 이미지.
+          let images;
+          if (selectedOnly) {
+            const sel = await miro.board.getSelection();
+            images = sel.filter(it => it.type === 'image');
+            if (!images.length) {
+              statusEl.textContent = '보드에서 선택된 이미지가 없습니다. 보드에서 이미지를 클릭하거나 마우스 박스로 드래그해 선택한 뒤 다시 눌러주세요.';
+              runBtn.disabled = false;
+              return;
+            }
+          } else {
+            images = await miro.board.get({ type: 'image' });
+          }
 
           // 미로는 "업로드된 이미지"의 원본 주소를 Web SDK로 노출하지 않습니다.
           // → 실제 이미지는 REST API로만 받을 수 있어, 보드 ID + 아이템 ID를
