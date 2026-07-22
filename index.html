@@ -297,9 +297,15 @@
     if (params.get('view') === 'panel') {
       initPanel();
     } else {
+      // 앱 URL에 ?worker=<주소> (선택 ?atoken=) 를 넣어두면, 팀원은 아무 설정 없이 바로 씀.
+      // 그 값을 패널로 그대로 전달(openPanel은 새 로드라 파라미터를 이어줘야 함).
+      const passthru = ['worker', 'atoken'].map(k => {
+        const v = params.get(k);
+        return v ? '&' + k + '=' + encodeURIComponent(v) : '';
+      }).join('');
       miro.board.ui.on('icon:click', async () => {
         // v=타임스탬프로 매번 새 URL을 만들어 브라우저 캐시를 우회합니다.
-        await miro.board.ui.openPanel({ url: 'index.html?view=panel&v=' + Date.now() });
+        await miro.board.ui.openPanel({ url: 'index.html?view=panel&v=' + Date.now() + passthru });
       });
     }
 
@@ -411,10 +417,13 @@
         __proxy = { url: (workerUrlEl.value || '').trim(), token: (accessTokenEl.value || '').trim() };
         __render = (renderUrlEl ? (renderUrlEl.value || '') : (localStorage.getItem('importRenderUrl') || '')).trim().replace(/\/+$/, '');
       };
+      // 앱 URL에서 넘어온 기본값(팀원 무설정용). 저장된 값이 있으면 그걸 우선.
+      const defWorker = (params.get('worker') || '').trim();
+      const defAToken = (params.get('atoken') || '').trim();
       try {
         if (renderUrlEl) renderUrlEl.value = localStorage.getItem('importRenderUrl') || '';
-        workerUrlEl.value = localStorage.getItem('fabricWorkerUrl') || '';
-        accessTokenEl.value = localStorage.getItem('fabricAccessToken') || '';
+        workerUrlEl.value = localStorage.getItem('fabricWorkerUrl') || defWorker || '';
+        accessTokenEl.value = localStorage.getItem('fabricAccessToken') || defAToken || '';
       } catch (e) {}
       syncProxy();
       if (renderUrlEl) renderUrlEl.addEventListener('change', () => {

@@ -15,11 +15,15 @@
 //  GET  ?collection=<Shopify 컬렉션URL>&limit=30[&token=...]
 //     → 그 컬렉션의 최신 상품 목록(제목/이미지/링크)을 JSON으로 반환(신상품 가져오기 기능이 사용).
 //
-//  필수 시크릿:  GEMINI_API_KEY   (`wrangler secret put GEMINI_API_KEY`)
-//               → https://aistudio.google.com/apikey 에서 무료 발급
-//               MIRO_TOKEN       (`wrangler secret put MIRO_TOKEN`)
-//               → 미로 앱 설정 "Install app and get OAuth token"에서 나온 access token.
-//                 (썸네일=보드 이미지 기능에만 필요. 없으면 썸네일만 빠지고 나머진 동작.)
+//  GET  /install            → 미로 authorize 로 리다이렉트(이 링크를 팀에 공유해 설치)
+//  GET  /oauth/callback     → 설치 시 그 팀의 access_token 을 받아 KV(mtok:<teamId>)에 저장
+//
+//  OAuth 설치용 시크릿(여러 팀이 설치 링크만으로 썸네일까지 쓰게 하려면 필요):
+//               CLIENT_ID       (`wrangler secret put CLIENT_ID`)     ← 미로 앱 설정의 Client ID
+//               CLIENT_SECRET   (`wrangler secret put CLIENT_SECRET`) ← 미로 앱 설정의 Client secret
+//               (미로 앱 설정 Redirect URI 에 https://<worker>/oauth/callback 을 등록해야 함)
+//  선택 시크릿:  MIRO_TOKEN      (`wrangler secret put MIRO_TOKEN`)  ← 단일 팀만 쓸 때의 개인 토큰(레거시)
+//               GEMINI_API_KEY  (원단 분석 레거시 기능에만)
 //  선택 변수:    ALLOWED_ORIGIN(기본 "*"), ACCESS_TOKEN(설정 시 POST 헤더/GET 쿼리로 검증)
 // ------------------------------------------------------------------
 
@@ -71,6 +75,20 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { headers: cors });
 
     const reqUrl = new URL(request.url);
+
+    // ── OAuth 설치 플로우 (팀이 이 링크로 설치 → 그 팀 토큰을 자동 저장) ──────
+    //   GET /install         → 미로 authorize 페이지로 리다이렉트(이 링크를 팀에 공유)
+    //   GET /oauth/callback  → 코드를 access_token 으로 교환해 KV(mtok:<teamId>)에 저장
+    //   (이렇게 하면 팀은 설치 링크 클릭만으로 썸네일까지 바로 동작 — 밑작업 불필요)
+    if (reqUrl.pathname === '/install' || reqUrl.pathname === '/oauth/install') {
+      if (!env.CLIENT_ID) return new Response('server is missing CLIENT_ID', { status: 500, headers: cors });
+      const redirectUri = reqUrl.origin + '/oauth/callback';
+      const authorize = 'https://miro.com/oauth/authorize?response_type=code'
+        + '&client_id=' + encodeURIComponent(env.CLIENT_ID)
+        + '&redirect_uri=' + encodeURIComponent(redirectUri);
+      return Response.redirect(authorize, 302);
+    }
+    if (reqUrl.pathname === '/oauth/callback') return handleOAuthCallback(reqUrl, env);
 
     // ── 이미지 프록시 (GET ?img=...) ──────────────────────────────
     if (request.method === 'GET') {
@@ -237,14 +255,64 @@ async function proxyImage(img, cors) {
 //                                              또는 3xx Location 로 직접 이동
 //   3) 그 링크의 실제 바이트를 받아 반환
 // 호스트는 항상 api.miro.com 로 고정되므로(사용자 입력 host 아님) SSRF 위험이 없습니다.
+// 여러 팀 토큰 지원. 토큰 후보 우선순위:
+//  ① board→team 캐시로 찾은 그 팀 토큰 → ② 저장된 모든 팀 토큰(mtok:*)
+//  → ③ 레거시 개인 토큰(env.MIRO_TOKEN, 있으면). 성공한 토큰의 팀을 캐시해 다음엔 바로 사용.
 async function proxyMiroImage(boardId, itemId, env, cors) {
-  if (!env.MIRO_TOKEN)
-    return new Response('server is missing MIRO_TOKEN secret', { status: 500, headers: cors });
   // 아이템 ID는 숫자, 보드 ID는 영숫자/기호 일부만 허용(안전 문자만).
   if (!/^[\w=-]{1,64}$/.test(String(boardId)) || !/^\d{1,32}$/.test(String(itemId)))
     return new Response('bad board/item id', { status: 400, headers: cors });
 
-  const auth = { authorization: 'Bearer ' + env.MIRO_TOKEN };
+  const candidates = await miroTokenCandidates(boardId, env);
+  if (!candidates.length)
+    return new Response('no MIRO token — 팀에서 앱을 설치(OAuth)했는지 확인하세요', { status: 503, headers: cors });
+
+  let lastStatus = 0;
+  for (const cand of candidates) {
+    const res = await fetchMiroImage(boardId, itemId, cand.token, cors);
+    if (res.ok) {
+      // 이 보드는 이 팀 토큰으로 열린다는 것을 기억(다음 썸네일부터 즉시 해당 토큰 사용)
+      if (env.RACK_CACHE && cand.team) {
+        try { await env.RACK_CACHE.put('b2t:' + boardId, cand.team, { expirationTtl: 60 * 60 * 24 * 30 }); } catch (e) {}
+      }
+      return res.response;
+    }
+    if (typeof res.status === 'number') lastStatus = res.status;
+  }
+  return new Response('miro item ' + (lastStatus || 'fetch failed'), { status: 502, headers: cors });
+}
+
+// 이 보드에 쓸 미로 토큰 후보 목록 [{team, token}] (우선순위 순, 중복 제거).
+async function miroTokenCandidates(boardId, env) {
+  const out = [], seen = new Set();
+  const push = (team, token) => { if (token && !seen.has(token)) { seen.add(token); out.push({ team, token }); } };
+
+  if (env.RACK_CACHE) {
+    // 1) board→team 캐시(직전에 성공한 팀) 우선
+    try {
+      const team = await env.RACK_CACHE.get('b2t:' + boardId);
+      if (team === 'legacy') push('legacy', env.MIRO_TOKEN);
+      else if (team) { const t = await env.RACK_CACHE.get('mtok:' + team); if (t) push(team, t); }
+    } catch (e) {}
+    // 2) 저장된 모든 팀 토큰
+    try {
+      const ls = await env.RACK_CACHE.list({ prefix: 'mtok:' });
+      for (const k of ls.keys) {
+        const team = k.name.slice('mtok:'.length);
+        const t = await env.RACK_CACHE.get(k.name);
+        push(team, t);
+      }
+    } catch (e) {}
+  }
+  // 3) 레거시 개인 토큰(있으면)
+  push('legacy', env.MIRO_TOKEN);
+  return out;
+}
+
+// 주어진 토큰 하나로 미로 보드 이미지를 받아옴. 성공 { ok:true, response } / 실패 { ok:false, status }.
+// 호스트는 항상 api.miro.com 로 고정(사용자 입력 host 아님)이라 SSRF 위험이 없습니다.
+async function fetchMiroImage(boardId, itemId, token, cors) {
+  const auth = { authorization: 'Bearer ' + token };
 
   // 1) 아이템 메타데이터에서 리소스 주소(imageUrl) 얻기
   let metaResp;
@@ -253,15 +321,13 @@ async function proxyMiroImage(boardId, itemId, env, cors) {
       `https://api.miro.com/v2/boards/${encodeURIComponent(boardId)}/images/${encodeURIComponent(itemId)}`,
       { headers: { ...auth, accept: 'application/json' } },
     );
-  } catch (e) {
-    return new Response('miro item fetch error', { status: 502, headers: cors });
-  }
-  if (!metaResp.ok) return new Response('miro item ' + metaResp.status, { status: 502, headers: cors });
+  } catch (e) { return { ok: false, status: 'fetch-error' }; }
+  if (!metaResp.ok) return { ok: false, status: metaResp.status };
 
   let meta;
-  try { meta = await metaResp.json(); } catch (e) { return new Response('miro item parse', { status: 502, headers: cors }); }
+  try { meta = await metaResp.json(); } catch (e) { return { ok: false, status: 'parse' }; }
   const resourceUrl = meta && meta.data && meta.data.imageUrl;
-  if (!resourceUrl) return new Response('miro imageUrl missing', { status: 502, headers: cors });
+  if (!resourceUrl) return { ok: false, status: 'no-url' };
 
   // 2) 리소스 주소를 직접 다운로드 가능한 링크로 변환(redirect=false → JSON {url}, 또는 3xx)
   let downloadUrl = '';
@@ -278,8 +344,7 @@ async function proxyMiroImage(boardId, itemId, env, cors) {
         const j = await rr.json().catch(() => null);
         if (j && j.url) downloadUrl = j.url;
       } else if (ct.startsWith('image/')) {
-        // 드물게 리소스 주소가 곧바로 이미지 바이트를 반환하는 경우
-        return imageResponse(await rr.arrayBuffer(), ct, cors);
+        return { ok: true, response: imageResponse(await rr.arrayBuffer(), ct, cors) };
       }
     }
   } catch (e) {}
@@ -299,11 +364,62 @@ async function proxyMiroImage(boardId, itemId, env, cors) {
       const ct = ir.headers.get('content-type') || 'image/jpeg';
       if (!ct.startsWith('image/')) continue;
       const buf = await ir.arrayBuffer();
-      if (buf.byteLength > MAX_IMG_BYTES) return new Response('image too large', { status: 413, headers: cors });
-      return imageResponse(buf, ct, cors);
+      if (buf.byteLength > MAX_IMG_BYTES) return { ok: true, response: new Response('image too large', { status: 413, headers: cors }) };
+      return { ok: true, response: imageResponse(buf, ct, cors) };
     } catch (e) {}
   }
-  return new Response('miro image fetch failed', { status: 502, headers: cors });
+  return { ok: false, status: 'bytes-failed' };
+}
+
+// OAuth 콜백: authorization code → access_token 교환 후 팀별로 KV에 저장.
+async function handleOAuthCallback(reqUrl, env) {
+  const head = '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+    + '<style>body{font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;max-width:520px;margin:56px auto;padding:0 22px;color:#1c1c1e}'
+    + 'h1{font-size:21px;margin:0 0 12px}.b{background:#f6f6f8;border:1px solid #e6e6ea;border-radius:14px;padding:18px;font-size:14px;line-height:1.7}'
+    + '.ok{color:#16794a}.err{color:#b42318}b{font-weight:700}</style>';
+  const err = reqUrl.searchParams.get('error');
+  const code = reqUrl.searchParams.get('code');
+  if (err) return htmlResp(head + `<h1 class="err">설치가 취소되었습니다</h1><div class="b">${escapeHtmlSafe(err)}</div>`, 400);
+  if (!code) return htmlResp(head + `<h1 class="err">잘못된 접근</h1><div class="b">인증 코드가 없습니다.</div>`, 400);
+  if (!env.CLIENT_ID || !env.CLIENT_SECRET)
+    return htmlResp(head + `<h1 class="err">서버 설정 필요</h1><div class="b">CLIENT_ID / CLIENT_SECRET 시크릿이 설정되지 않았습니다.</div>`, 500);
+
+  const redirectUri = reqUrl.origin + '/oauth/callback';
+  const tokenUrl = 'https://api.miro.com/v1/oauth/token?grant_type=authorization_code'
+    + '&client_id=' + encodeURIComponent(env.CLIENT_ID)
+    + '&client_secret=' + encodeURIComponent(env.CLIENT_SECRET)
+    + '&code=' + encodeURIComponent(code)
+    + '&redirect_uri=' + encodeURIComponent(redirectUri);
+
+  let data;
+  try {
+    const r = await fetch(tokenUrl, { method: 'POST', headers: { accept: 'application/json' } });
+    data = await r.json().catch(() => ({}));
+    if (!r.ok || !data.access_token)
+      return htmlResp(head + `<h1 class="err">토큰 발급 실패</h1><div class="b">${escapeHtmlSafe(JSON.stringify(data).slice(0, 300))}</div>`, 502);
+  } catch (e) {
+    return htmlResp(head + `<h1 class="err">토큰 요청 오류</h1><div class="b">${escapeHtmlSafe(String((e && e.message) || e))}</div>`, 502);
+  }
+
+  const teamId = String(data.team_id || data.team || '');
+  let saved = false;
+  if (env.RACK_CACHE && teamId) {
+    try { await env.RACK_CACHE.put('mtok:' + teamId, data.access_token); saved = true; } catch (e) {}
+  }
+  return htmlResp(head
+    + `<h1 class="ok">✅ 설치 완료</h1>`
+    + `<div class="b">이제 미로 보드를 열고 <b>Board Scanner</b> 앱 아이콘을 눌러 바로 사용하세요.<br>`
+    + `보드 이미지 <b>썸네일까지 자동</b>으로 들어갑니다. 이 창은 닫아도 됩니다.`
+    + (saved ? '' : `<br><br><span class="err">⚠ 서버에 KV(RACK_CACHE)가 없어 팀 토큰을 저장하지 못했습니다. 관리자에게 문의하세요.</span>`)
+    + `</div>`, 200);
+}
+
+function htmlResp(html, status) {
+  return new Response(html, { status, headers: { 'content-type': 'text/html; charset=utf-8' } });
+}
+
+function escapeHtmlSafe(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
 function imageResponse(buf, ct, cors) {
