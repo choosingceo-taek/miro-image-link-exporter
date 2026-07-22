@@ -25,9 +25,9 @@
     #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
     #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
     #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
-    .selrow { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #444; margin: 2px 0 10px; }
-    .selrow input { width: auto; }
     #basicExport { background: #111; color: #fff; font-size: 15px; padding: 14px; border-radius: 12px; }
+    #basicExportSel { background: #f2f2f2; color: #222; font-size: 13px; padding: 11px; border-radius: 12px; margin-top: 8px; }
+    #basicExportSel #selCount { color: #4262ff; font-weight: 700; }
     #oneClick { background: #7c3aed; color: #fff; font-size: 13px; padding: 11px; }
     .settings button { margin-top: 8px; }
     .settings { margin-top: 12px; font-size: 12px; color: #555; }
@@ -185,8 +185,9 @@
         <b>사용법</b> 아래 <b>📥 엑셀로 추출</b>을 누르면 바로 다운로드됩니다. (원단 정보까지 원하면 아래 접힘 메뉴)
       </div>
 
-      <label class="selrow"><input type="checkbox" id="selectedOnly"> 보드에서 <b>선택한 이미지만</b> 추출 <span id="selCount" class="muted"></span></label>
-      <button id="basicExport">📥 엑셀로 추출 (브랜드·썸네일·상품명·URL)</button>
+      <button id="basicExport">📥 보드 전체 추출 (링크된 이미지 전부)</button>
+      <button id="basicExportSel">🖱 선택한 것만 추출 <span id="selCount"></span></button>
+      <p class="desc" style="margin:6px 0 0">‘선택한 것만’은 보드에서 이미지를 <b>클릭 · Shift+클릭 · 마우스 박스 드래그</b>로 고른 뒤 누르세요.</p>
       <details class="settings" style="margin-top:10px">
         <summary>＋ 원단 정보까지 넣기 (AI · 무료 한도)</summary>
         <button id="oneClick" style="margin-top:8px">🧵 원단 분석 포함 엑셀 만들기</button>
@@ -369,7 +370,7 @@
         }
         heroBtn.disabled = true;
         try {
-          await collectRows(selectedOnlyEl.checked);
+          await collectRows(false);
           if (!rows.length) return; // 상태 메시지는 collectRows가 이미 표시
           const targets = rows.filter(r => r.link);
           if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
@@ -383,25 +384,28 @@
         }
       });
 
-      // ── 📥 기본 추출: 브랜드 · 썸네일(보드 이미지) · URL 3열 (완전 무료, AI 미사용) ──
+      // ── 📥 기본 추출: 브랜드·썸네일·상품명·URL (완전 무료). 전체 / 선택한 것만 두 모드. ──
       const basicBtn = document.getElementById('basicExport');
-      basicBtn.addEventListener('click', async () => {
+      const basicSelBtn = document.getElementById('basicExportSel');
+      async function runBasicExport(selectedOnly) {
         if (!(workerUrlEl.value || '').trim()) {
           showTab('settings');
           statusEl.textContent = '썸네일을 엑셀에 넣으려면 ⚙ 설정에 ② 추출 Worker 주소가 필요합니다 (최초 1회).';
           return;
         }
-        basicBtn.disabled = true; heroBtn.disabled = true;
+        basicBtn.disabled = true; basicSelBtn.disabled = true; heroBtn.disabled = true;
         try {
-          await collectRows(selectedOnlyEl.checked);
+          await collectRows(selectedOnly);
           if (!rows.length) return;
           await buildBasicXlsx();
         } catch (e) {
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
         } finally {
-          basicBtn.disabled = false; heroBtn.disabled = false;
+          basicBtn.disabled = false; basicSelBtn.disabled = false; heroBtn.disabled = false;
         }
-      });
+      }
+      basicBtn.addEventListener('click', () => runBasicExport(false));
+      basicSelBtn.addEventListener('click', () => runBasicExport(true));
 
       // ── 📥 상품 가져오기: 브랜드 → Render 서버(133 브랜드) → 미리보기 → 선택 → 보드에 추가 ──
       const importBrandUrlEl = document.getElementById('importBrandUrl');
@@ -832,14 +836,14 @@
 
       // ── 1) 보드에서 이미지 + 링크 수집 (전체 또는 "선택한 것만") ─────────────
       runBtn.addEventListener('click', () => collectRows(false));
-      const selectedOnlyEl = document.getElementById('selectedOnly');
-      // 보드에서 사용자가 선택한 이미지 개수를 실시간 표시.
+      // 보드에서 사용자가 선택한 (링크 걸린) 이미지 개수를 '선택한 것만' 버튼에 실시간 표시.
       try {
         miro.board.ui.on('selection:update', async () => {
           try {
             const sel = await miro.board.getSelection();
             const n = sel.filter(it => it.type === 'image' && (it.linkedTo || '').trim()).length;
-            document.getElementById('selCount').textContent = n ? `(현재 ${n}개 선택됨)` : '';
+            const el = document.getElementById('selCount');
+            if (el) el.textContent = n ? `(${n}개)` : '';
           } catch (e) {}
         });
       } catch (e) {}
