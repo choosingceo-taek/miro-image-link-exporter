@@ -810,8 +810,29 @@
       // 상품 URL 끝부분을 대략적 제목으로. 예: /w-tshirts-basic → "w tshirts basic"
       function titleFromUrl(u) {
         try {
-          const seg = new URL(u).pathname.split('/').filter(Boolean).pop() || '';
-          return decodeURIComponent(seg).replace(/\.\w+$/, '').replace(/[-_]+/g, ' ').trim();
+          const segs = new URL(u).pathname.split('/').filter(Boolean)
+            .map(s => { try { return decodeURIComponent(s); } catch (e) { return s; } })
+            .map(s => s.replace(/\.(html?|php|aspx?)$/i, ''));
+          // 마지막 조각이 항상 이름은 아님(lululemon: …/{이름}/prod123, aritzia: …/{이름}/121186.html).
+          // 뒤에서부터 "이름다운" 조각을 고름: 순수 ID·로케일·일반 경로어는 건너뜀.
+          const generic = /^(p|products?|item|items|shop|goods|detail|dp|prd|prod|sku|style|collections?|category|c|us|en|kr|ko|www)$/i;
+          const idLike = /^(prod|item|sku|p|s|style)?[-_]?\d[\d._-]*[a-z]{0,3}$/i;   // prod9820343 · 121186 · s20990 등
+          const locale = /^[a-z]{2}([-_][a-z]{2})?$/i;
+          let seg = '';
+          for (let i = segs.length - 1; i >= 0; i--) {
+            const s = segs[i];
+            if (!s || generic.test(s) || locale.test(s) || idLike.test(s)) continue;
+            const letters = (s.match(/[a-zÀ-ɏ가-힯]/gi) || []).length;
+            if (letters < 3) continue;   // 글자가 거의 없으면 이름이 아님
+            seg = s;
+            break;
+          }
+          if (!seg) return '';   // 이름다운 조각이 없으면(전부 ID뿐) 빈 값 — "00" 같은 ID 노출 방지
+          // 조각 앞뒤의 SKU 토큰 제거: "s20990-white-and-black" → "white and black", "자켓-p12345" → "자켓"
+          return seg.replace(/^[a-z]{0,4}\d{3,}[a-z0-9]*[-_]+/i, '')
+            .replace(/[-_]+[a-z]{0,4}\d{3,}[a-z0-9]*$/i, '')
+            .replace(/\.\d{4,}[\d.]*$/, '')
+            .replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
         } catch (e) { return ''; }
       }
 
@@ -1744,9 +1765,13 @@
         const m = String(url).match(/^(?:https?:\/\/)?([^/]+)/i);
         host = m ? m[1] : '';
       }
-      host = host.replace(/^www\d*\./i, '').toLowerCase();
+      host = host.replace(/^(www\d*|shop|store|kr|en|m)\./i, '').toLowerCase();
       const parts = host.split('.');
-      const base = parts.length >= 2 ? parts.slice(-2).join('.') : host;
+      // 복합 TLD(co.kr·co.uk·com.au 등)면 브랜드는 뒤에서 세 번째 조각.
+      // (예: lululemon.co.kr → "lululemon", 예전엔 "co"가 잘못 나왔음)
+      const twoPartTld = /^(co|com|net|org|ac|or|go)\.(kr|uk|jp|au|nz|in|id|th|il|za|br|mx|ar|tr|tw|hk|sg|my|ph|vn|cn)$/;
+      const isTwoPart = parts.length >= 3 && twoPartTld.test(parts.slice(-2).join('.'));
+      const base = parts.slice(isTwoPart ? -3 : -2).join('.');
       const known = {
         'hm.com': 'H&M',
         'etam.com': 'Etam',
@@ -1760,7 +1785,7 @@
         'mango.com': 'Mango',
       };
       if (known[base]) return known[base];
-      const label = parts.length >= 2 ? parts[parts.length - 2] : (parts[0] || '');
+      const label = parts.length >= 2 ? parts[parts.length - (isTwoPart ? 3 : 2)] : (parts[0] || '');
       return label ? label.charAt(0).toUpperCase() + label.slice(1) : host;
     }
   </script>
