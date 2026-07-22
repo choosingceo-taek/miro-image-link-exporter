@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
   <style>
     * { box-sizing: border-box; }
+    html, body { height: 100%; }
     :root {
       --bg: #ffffff; --card: #f6f6f8; --card2: #f0f0f3;
       --border: #e6e6ea; --text: #1c1c1e; --muted: #8a8a90; --accent: #7c5cff;
@@ -133,7 +134,9 @@
     .help-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; font-size: 12px; line-height: 1.7; color: var(--muted); margin-bottom: 12px; }
     .help-box b { color: var(--accent); }
     /* ── 스캔 버튼 + 도구(사용법·설정) 아이콘 + 팝오버 ── */
-    #app { position: relative; }
+    /* 패널 전체를 세로 flex로: 위쪽(버튼·아이콘·상태)은 고정, 리스트만 남은 높이를 채워 스크롤 */
+    #app { position: relative; height: 100%; display: flex; flex-direction: column; }
+    #pane-extract { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
     .scan-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
     .scan {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -177,8 +180,11 @@
     /* 검색바(스캔) 아래 한 줄 키워드 상태 */
     .scan-status { margin: 12px 2px 2px; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .1px; min-height: 16px; }
     .scan-status b { color: var(--accent); font-weight: 800; }
-    /* 인식된 리스트: 잘리지 않고 끝까지 펼쳐짐(패널 자체 스크롤) */
-    .scan-list { margin-top: 12px; border-radius: 12px; }
+    /* 인식된 리스트: 남은 높이를 모두 채우고 그 안에서 세로 스크롤 */
+    .scan-list { margin-top: 12px; flex: 1 1 auto; min-height: 0; overflow-y: auto; border-radius: 12px; -webkit-overflow-scrolling: touch; }
+    .scan-list::-webkit-scrollbar { width: 8px; }
+    .scan-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+    #preview { margin-top: 0; }
   </style>
 </head>
 <body>
@@ -298,7 +304,7 @@
     }
 
     function initPanel() {
-      document.getElementById('app').style.display = 'block';
+      document.getElementById('app').style.display = 'flex';   // 세로 flex 레이아웃(리스트 스크롤용)
 
       // 기타 도구 버튼은 UI에서 제거됨. 공유 함수(collectRows/analyzeAll/buildFabricXlsx)가
       // 참조하는 disabled/style/addEventListener만 무해하게 받아주는 스텁으로 대체(널 오류 방지).
