@@ -9,8 +9,8 @@
   <style>
     * { box-sizing: border-box; }
     :root {
-      --bg: #17171c; --card: #1f1f27; --card2: #292933; --line: #35354011;
-      --border: #34343f; --text: #f1f1f5; --muted: #8b8b99; --accent: #8b5cf6;
+      --bg: #ffffff; --card: #f6f6f8; --card2: #f0f0f3;
+      --border: #e6e6ea; --text: #1c1c1e; --muted: #8a8a90; --accent: #7c5cff;
       --grad: linear-gradient(135deg, #7c5cff 0%, #d94fd5 100%);
     }
     body {
@@ -35,7 +35,7 @@
       box-shadow: 0 6px 18px rgba(124, 92, 255, .28); letter-spacing: .2px;
     }
     #basicExportSel { background: var(--card2); color: var(--text); font-size: 13px; padding: 12px; border-radius: 14px; margin-top: 9px; border: 1px solid var(--border); }
-    #basicExportSel #selCount { color: #c9b8ff; font-weight: 800; }
+    #basicExportSel #selCount { color: var(--accent); font-weight: 800; }
     #oneClick { background: var(--card2); color: var(--text); font-size: 13px; padding: 11px; }
     .settings button { margin-top: 8px; }
     .settings { margin-top: 6px; font-size: 12px; color: var(--muted); }
@@ -46,7 +46,7 @@
       background: var(--card); color: var(--text); font-family: inherit; resize: vertical;
     }
     .settings input:focus, .settings textarea:focus { outline: none; border-color: var(--accent); }
-    .settings input::placeholder, .settings textarea::placeholder { color: #5a5a66; }
+    .settings input::placeholder, .settings textarea::placeholder { color: var(--muted); }
     hr.sep { border: none; border-top: 1px solid #eee; margin: 20px 0 16px; }
     /* End Clothing 풍 미니멀 모바일 쇼핑 UI */
     .url-row { display: flex; gap: 6px; margin-top: 6px; }
@@ -107,11 +107,11 @@
       display: none; margin-top: 12px; font-size: 12px;
       background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; color: var(--muted);
     }
-    .summary b { color: #c9b8ff; }
+    .summary b { color: var(--accent); }
     table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 11px; display: none; }
     th, td { text-align: left; padding: 8px 5px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
     th { color: var(--muted); font-weight: 600; }
-    td a { color: #a99bff; word-break: break-all; }
+    td a { color: var(--accent); word-break: break-all; }
     td.imgcell { width: 64px; }
     .thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; background: var(--card2); display: block; }
     .ttl { font-weight: 600; margin-bottom: 3px; word-break: break-all; }
@@ -124,23 +124,23 @@
       font-size: 12px; font-weight: 700; letter-spacing: .2px;
     }
     .mtab .ic { font-size: 15px; line-height: 1; }
-    .mtab.active { background: var(--card2); color: #fff; }
+    .mtab.active { background: var(--card2); color: var(--text); }
     .hero { margin: 8px 0 18px; }
-    .hero .k { font-size: 25px; font-weight: 800; letter-spacing: -.5px; color: #fff; line-height: 1.1; }
+    .hero .k { font-size: 25px; font-weight: 800; letter-spacing: -.5px; color: var(--text); line-height: 1.1; }
     .hero .s { font-size: 12px; color: var(--muted); margin-top: 5px; line-height: 1.5; }
     .help-line { display: flex; justify-content: flex-end; margin: -6px 0 8px; }
     .help-line button { width: auto; padding: 3px 11px; font-size: 11px; font-weight: 600; background: var(--card2); color: var(--muted); border-radius: 20px; }
     .help-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; font-size: 12px; line-height: 1.7; color: var(--muted); margin-bottom: 12px; }
-    .help-box b { color: #c9b8ff; }
+    .help-box b { color: var(--accent); }
     /* ── 애플뮤직식 상단바 + 스캔 버튼 + 모달 ── */
-    .appbar { display: flex; align-items: center; justify-content: space-between; margin: 2px 0 18px; }
-    .app-title { font-size: 28px; font-weight: 800; letter-spacing: -.6px; color: #fff; }
+    #app { position: relative; }
+    .appbar { display: flex; align-items: center; justify-content: flex-end; margin: 0 0 14px; }
     .app-actions { display: flex; gap: 8px; }
     .icobtn {
       width: 38px; height: 38px; padding: 0; border-radius: 50%; background: var(--card2); color: var(--text);
       font-size: 16px; display: flex; align-items: center; justify-content: center; line-height: 1;
     }
-    .icobtn:hover { background: #33333f; }
+    .icobtn:hover { background: var(--border); }
     .scan-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .scan {
       display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between;
@@ -150,20 +150,37 @@
     .scan .ic { font-size: 22px; }
     .scan .lab { font-size: 14px; font-weight: 800; letter-spacing: .2px; }
     .scan.alt { background: var(--card2); color: var(--text); box-shadow: none; border: 1px solid var(--border); }
-    .scan #selCount { font-size: 11px; color: #c9b8ff; font-weight: 800; }
-    .modal { position: fixed; inset: 0; background: rgba(0, 0, 0, .55); display: flex; align-items: flex-end; justify-content: center; z-index: 100; }
-    .sheet { width: 100%; max-width: 480px; background: var(--card); border: 1px solid var(--border); border-radius: 18px 18px 0 0; padding: 16px 16px 24px; }
-    .sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 16px; font-weight: 800; color: #fff; }
-    .sheet-head .x { width: auto; padding: 4px 8px; background: transparent; color: var(--muted); font-size: 16px; }
-    .help-item { padding: 11px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.5; }
-    .help-item b { display: block; color: #fff; font-size: 13px; margin-bottom: 3px; }
+    .scan #selCount { font-size: 11px; color: var(--accent); font-weight: 800; }
+    /* 아이콘에서 바로 펼쳐지는 팝오버(드롭다운) */
+    .popover {
+      position: absolute; top: 46px; right: 0; z-index: 100; width: 300px; max-width: calc(100vw - 32px);
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 14px; box-shadow: 0 12px 34px rgba(0, 0, 0, .16);
+    }
+    .popover::before {
+      content: ''; position: absolute; top: -6px; width: 12px; height: 12px; background: var(--card);
+      border-left: 1px solid var(--border); border-top: 1px solid var(--border);
+      transform: rotate(45deg); border-radius: 3px 0 0 0;
+    }
+    #helpModal.popover::before { right: 50px; }
+    #settingsModal.popover::before { right: 12px; }
+    .pop-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; font-size: 15px; font-weight: 800; color: var(--text); }
+    .pop-head .x { width: auto; padding: 4px 8px; background: transparent; color: var(--muted); font-size: 15px; }
+    .help-item { padding: 10px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .help-item b { display: block; color: var(--text); font-size: 13px; margin-bottom: 3px; }
+    /* 검색바(스캔) 아래 한 줄 키워드 상태 */
+    .scan-status { margin: 12px 2px 2px; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: .1px; min-height: 16px; }
+    .scan-status b { color: var(--accent); font-weight: 800; }
+    /* 인식된 리스트: 스크롤 가능 */
+    .scan-list { margin-top: 12px; max-height: 52vh; overflow-y: auto; border-radius: 12px; }
+    .scan-list::-webkit-scrollbar { width: 8px; }
+    .scan-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
   </style>
 </head>
 <body>
   <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
     <header class="appbar">
-      <span class="app-title">RACK</span>
       <div class="app-actions">
         <button class="icobtn" id="helpBtn" aria-label="사용법" title="사용법">ⓘ</button>
         <button class="icobtn" id="settingsBtn" aria-label="설정" title="설정">⚙</button>
@@ -220,21 +237,23 @@
         <button id="basicExportSel" class="scan alt"><span class="ic">🖱</span><span class="lab">Scan Selected <span id="selCount"></span></span></button>
       </div>
 
-      <div id="status"></div>
-      <div class="summary" id="summary"></div>
+      <div class="scan-status" id="status"></div>
+      <div class="summary" id="summary" style="display:none"></div>
 
-      <table id="preview">
-        <thead>
-          <tr><th>이미지</th><th>제목 / 링크</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="scan-list">
+        <table id="preview">
+          <thead>
+            <tr><th>이미지</th><th>제목 / 링크</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </section>
 
-    <!-- 설정 모달 (⚙ 아이콘) -->
-    <div class="modal" id="settingsModal" style="display:none">
-      <div class="sheet">
-        <div class="sheet-head"><span>Settings</span><button class="x" id="settingsClose" aria-label="닫기">✕</button></div>
+    <!-- 설정 팝오버 (⚙ 아이콘) -->
+    <div class="popover" id="settingsModal" style="display:none">
+      <div class="pop-head"><span>Settings</span><button class="x" id="settingsClose" aria-label="닫기">✕</button></div>
+      <div>
         <div class="settings" style="margin-top:0">
           <label for="workerUrl">썸네일 Worker (Cloudflare 주소)</label>
           <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
@@ -244,14 +263,12 @@
       </div>
     </div>
 
-    <!-- 사용법 모달 (ⓘ 아이콘) -->
-    <div class="modal" id="helpModal" style="display:none">
-      <div class="sheet">
-        <div class="sheet-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
-        <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 (브랜드·썸네일·상품명·URL).</div>
-        <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
-        <div class="help-item"><b>⚙ Settings</b>썸네일용 <b style="display:inline">Worker 주소</b>를 넣는 곳(최초 1회). 이게 있어야 엑셀에 썸네일이 들어갑니다.</div>
-      </div>
+    <!-- 사용법 팝오버 (ⓘ 아이콘) -->
+    <div class="popover" id="helpModal" style="display:none">
+      <div class="pop-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
+      <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 (브랜드·썸네일·상품명·URL).</div>
+      <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
+      <div class="help-item"><b>⚙ Settings</b>썸네일용 <b style="display:inline">Worker 주소</b>를 넣는 곳(최초 1회). 이게 있어야 엑셀에 썸네일이 들어갑니다.</div>
     </div>
   </div>
 
@@ -297,17 +314,29 @@
 
       let rows = [];
 
-      // ── 상단 아이콘: 설정/사용법 모달 열고 닫기 ──────────────────────
-      const openModal = (id) => { const m = document.getElementById(id); if (m) m.style.display = 'flex'; };
+      // ── 상단 아이콘: 설정/사용법 팝오버(아이콘에서 펼쳐지는 드롭다운) ──────
+      const popIds = ['settingsModal', 'helpModal'];
+      const closeAllPops = () => popIds.forEach(id => { const m = document.getElementById(id); if (m) m.style.display = 'none'; });
+      const openModal = (id) => {
+        const m = document.getElementById(id); if (!m) return;
+        const wasOpen = m.style.display === 'block';
+        closeAllPops();
+        if (!wasOpen) m.style.display = 'block';   // 같은 아이콘 다시 누르면 닫힘(토글)
+      };
       const closeModal = (m) => { if (m) m.style.display = 'none'; };
       function openSettings() { openModal('settingsModal'); }
-      document.getElementById('settingsBtn').addEventListener('click', openSettings);
-      document.getElementById('helpBtn').addEventListener('click', () => openModal('helpModal'));
+      document.getElementById('settingsBtn').addEventListener('click', (e) => { e.stopPropagation(); openModal('settingsModal'); });
+      document.getElementById('helpBtn').addEventListener('click', (e) => { e.stopPropagation(); openModal('helpModal'); });
       document.getElementById('settingsClose').addEventListener('click', () => closeModal(document.getElementById('settingsModal')));
       document.getElementById('helpClose').addEventListener('click', () => closeModal(document.getElementById('helpModal')));
-      document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); }));
-      // 하위호환: 기존 코드의 showTab('settings') 호출은 설정 모달을 연다.
-      function showTab(name) { if (name === 'settings') openSettings(); }
+      // 바깥(아이콘·팝오버 밖) 클릭 시 닫기
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('.popover') || e.target.closest('.icobtn')) return;
+        closeAllPops();
+      });
+      // 하위호환: 기존 코드의 showTab('settings') 호출은 설정 팝오버를 연다.
+      // (버튼 클릭 흐름에서 불려도 바깥클릭 리스너에 즉시 닫히지 않도록 다음 틱에 연다.)
+      function showTab(name) { if (name === 'settings') setTimeout(openSettings, 0); }
 
       // 보드 ID를 미리 확보하고, 이 보드에서 예전에 추가한 이미지 URL 캐시를 불러옴.
       (async () => {
@@ -912,19 +941,15 @@
 
           const withLink = rows.filter(r => r.link).length;
 
-          statusEl.textContent = '';
-          summaryEl.style.display = 'block';
-          summaryEl.innerHTML =
-            `전체 사진 <b>${rows.length}</b>개 중 링크가 걸린 사진 <b>${withLink}</b>개를 찾았습니다.`;
-
-          // 썸네일(미로 보드 이미지)은 Worker + 서버의 미로 토큰이 있어야 들어갑니다.
-          if (rows.length && (!__proxy.url || !__boardId)) {
-            const why = !__proxy.url
-              ? `아래 <b>⚙︎ 원단 분석 서버 설정</b>에 <b>Worker URL</b>을 입력하세요.`
-              : `보드 ID를 가져오지 못했습니다. 패널을 새로고침(F5) 후 다시 시도하세요.`;
-            summaryEl.innerHTML +=
-              `<div style="margin-top:8px;padding:8px;background:#fff7e6;border-radius:6px">` +
-              `<b>ℹ 썸네일(미로 이미지)을 넣으려면</b> ${why}</div>`;
+          // 검색바(스캔 버튼) 아래 한 줄 키워드 상태.
+          summaryEl.style.display = 'none';
+          summaryEl.innerHTML = '';
+          if (rows.length && !__proxy.url) {
+            statusEl.innerHTML = `링크 <b>${withLink}</b> · 썸네일은 ⚙ Worker 주소 필요`;
+          } else if (rows.length && !__boardId) {
+            statusEl.innerHTML = `링크 <b>${withLink}</b> · 보드 ID 없음 (F5 후 재시도)`;
+          } else {
+            statusEl.innerHTML = `스캔 <b>${rows.length}</b> · 링크 <b>${withLink}</b>`;
           }
 
           // 미리보기 (최대 50줄) — 썸네일 + 제목/링크 (+원단, 분석 후)
@@ -1157,7 +1182,7 @@
             ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
             if (!thumbFailDiag && r.imageUrl) thumbFailDiag = await diagnoseThumb(r.imageUrl);
           }
-          statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${items.length}`;
+          statusEl.textContent = `추출 중… ${i + 1}/${items.length}`;
         }
 
         const buf = await workbook.xlsx.writeBuffer();
@@ -1165,7 +1190,7 @@
           new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
           `miro_links_${stamp()}.xlsx`,
         );
-        statusEl.textContent = `완료! ${items.length}건 추출 (썸네일 ${okThumb}/${items.length}).`;
+        statusEl.innerHTML = `추출 <b>${items.length}</b> · 썸네일 <b>${okThumb}</b>`;
         if (thumbFailDiag) {
           summaryEl.style.display = 'block';
           summaryEl.innerHTML =
