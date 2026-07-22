@@ -132,15 +132,43 @@
     .help-line button { width: auto; padding: 3px 11px; font-size: 11px; font-weight: 600; background: var(--card2); color: var(--muted); border-radius: 20px; }
     .help-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; font-size: 12px; line-height: 1.7; color: var(--muted); margin-bottom: 12px; }
     .help-box b { color: #c9b8ff; }
+    /* ── 애플뮤직식 상단바 + 스캔 버튼 + 모달 ── */
+    .appbar { display: flex; align-items: center; justify-content: space-between; margin: 2px 0 18px; }
+    .app-title { font-size: 28px; font-weight: 800; letter-spacing: -.6px; color: #fff; }
+    .app-actions { display: flex; gap: 8px; }
+    .icobtn {
+      width: 38px; height: 38px; padding: 0; border-radius: 50%; background: var(--card2); color: var(--text);
+      font-size: 16px; display: flex; align-items: center; justify-content: center; line-height: 1;
+    }
+    .icobtn:hover { background: #33333f; }
+    .scan-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .scan {
+      display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between;
+      gap: 10px; padding: 15px; height: 104px; border-radius: 16px; background: var(--grad); color: #fff;
+      box-shadow: 0 6px 18px rgba(124, 92, 255, .25); text-align: left;
+    }
+    .scan .ic { font-size: 22px; }
+    .scan .lab { font-size: 14px; font-weight: 800; letter-spacing: .2px; }
+    .scan.alt { background: var(--card2); color: var(--text); box-shadow: none; border: 1px solid var(--border); }
+    .scan #selCount { font-size: 11px; color: #c9b8ff; font-weight: 800; }
+    .modal { position: fixed; inset: 0; background: rgba(0, 0, 0, .55); display: flex; align-items: flex-end; justify-content: center; z-index: 100; }
+    .sheet { width: 100%; max-width: 480px; background: var(--card); border: 1px solid var(--border); border-radius: 18px 18px 0 0; padding: 16px 16px 24px; }
+    .sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 16px; font-weight: 800; color: #fff; }
+    .sheet-head .x { width: auto; padding: 4px 8px; background: transparent; color: var(--muted); font-size: 16px; }
+    .help-item { padding: 11px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .help-item b { display: block; color: #fff; font-size: 13px; margin-bottom: 3px; }
   </style>
 </head>
 <body>
   <!-- 패널 UI (앱 아이콘 클릭 시 표시) -->
   <div id="app" style="display:none">
-    <nav class="tabs-main">
-      <button class="mtab active" data-tab="extract"><span class="ic">📊</span>Export Excel</button>
-      <button class="mtab" data-tab="settings"><span class="ic">⚙</span>Settings</button>
-    </nav>
+    <header class="appbar">
+      <span class="app-title">RACK</span>
+      <div class="app-actions">
+        <button class="icobtn" id="helpBtn" aria-label="사용법" title="사용법">ⓘ</button>
+        <button class="icobtn" id="settingsBtn" aria-label="설정" title="설정">⚙</button>
+      </div>
+    </header>
 
     <!-- (Market Research 제거됨) -->
     <section class="tabpane" id="pane-import" style="display:none">
@@ -185,21 +213,12 @@
       </details>
     </section>
 
-    <!-- Export Excel -->
-    <section class="tabpane" id="pane-extract">
-      <div class="hero">
-        <div class="k">Export to Excel</div>
-        <div class="s">보드의 링크된 이미지를 <b style="color:#c9b8ff">브랜드 · 썸네일 · 상품명 · URL</b> 엑셀로.</div>
+    <!-- Export (메인) -->
+    <section id="pane-extract">
+      <div class="scan-row">
+        <button id="basicExport" class="scan"><span class="ic">📥</span><span class="lab">Scan All</span></button>
+        <button id="basicExportSel" class="scan alt"><span class="ic">🖱</span><span class="lab">Scan Selected <span id="selCount"></span></span></button>
       </div>
-      <div class="help-line"><button data-help="extract">ⓘ 사용법</button></div>
-      <div class="help-box" id="help-extract" style="display:none">
-        <b>무슨 기능?</b> 보드에서 <b>링크가 걸린 이미지</b>를 읽어 <b>브랜드 · 썸네일(보드 이미지) · 상품명 · URL</b> 엑셀(.xlsx)로 뽑습니다. 브랜드순 정렬, 빈 행 없음, <b>완전 무료</b>.<br>
-        <b>사용법</b> <b>보드 전체 추출</b>은 링크된 이미지를 전부, <b>선택한 것만 추출</b>은 보드에서 고른 것만 뽑습니다.
-      </div>
-
-      <button id="basicExport">📥 보드 전체 추출 (링크된 이미지 전부)</button>
-      <button id="basicExportSel">🖱 선택한 것만 추출 <span id="selCount"></span></button>
-      <p class="desc" style="margin:6px 0 0">‘선택한 것만’은 보드에서 이미지를 <b>클릭 · Shift+클릭 · 마우스 박스 드래그</b>로 고른 뒤 누르세요.</p>
 
       <div id="status"></div>
       <div class="summary" id="summary"></div>
@@ -212,20 +231,28 @@
       </table>
     </section>
 
-    <!-- 설정 -->
-    <section class="tabpane" id="pane-settings" style="display:none">
-      <div class="help-line"><button data-help="settings">ⓘ 사용법</button></div>
-      <div class="help-box" id="help-settings" style="display:none">
-        관리자가 준 <b>Worker 주소</b>를 <b>최초 1회</b>만 넣으면 브라우저에 저장됩니다.
-        이 Worker가 <b>보드 이미지를 받아 엑셀 썸네일에 넣어줍니다</b>(무료지만 필수). Access token은 선택.
+    <!-- 설정 모달 (⚙ 아이콘) -->
+    <div class="modal" id="settingsModal" style="display:none">
+      <div class="sheet">
+        <div class="sheet-head"><span>Settings</span><button class="x" id="settingsClose" aria-label="닫기">✕</button></div>
+        <div class="settings" style="margin-top:0">
+          <label for="workerUrl">썸네일 Worker (Cloudflare 주소)</label>
+          <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
+          <label for="accessToken">Access token (선택)</label>
+          <input id="accessToken" type="text" placeholder="Worker에 ACCESS_TOKEN을 설정한 경우만" />
+        </div>
       </div>
-      <div class="settings" style="margin-top:0">
-        <label for="workerUrl">썸네일 Worker (Cloudflare 주소)</label>
-        <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
-        <label for="accessToken">Access token (선택 — Worker에 설정한 경우만)</label>
-        <input id="accessToken" type="text" placeholder="Worker에 ACCESS_TOKEN을 설정한 경우만" />
+    </div>
+
+    <!-- 사용법 모달 (ⓘ 아이콘) -->
+    <div class="modal" id="helpModal" style="display:none">
+      <div class="sheet">
+        <div class="sheet-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
+        <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 (브랜드·썸네일·상품명·URL).</div>
+        <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
+        <div class="help-item"><b>⚙ Settings</b>썸네일용 <b style="display:inline">Worker 주소</b>를 넣는 곳(최초 1회). 이게 있어야 엑셀에 썸네일이 들어갑니다.</div>
       </div>
-    </section>
+    </div>
   </div>
 
   <script>
@@ -270,16 +297,17 @@
 
       let rows = [];
 
-      // ── 상단 탭 전환 + 기능별 도움말 ──────────────────────────────
-      function showTab(name) {
-        document.querySelectorAll('.mtab').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
-        document.querySelectorAll('.tabpane').forEach(p => { p.style.display = (p.id === 'pane-' + name) ? 'block' : 'none'; });
-      }
-      document.querySelectorAll('.mtab').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
-      document.querySelectorAll('[data-help]').forEach(b => b.addEventListener('click', () => {
-        const h = document.getElementById('help-' + b.dataset.help);
-        if (h) h.style.display = (h.style.display === 'none') ? 'block' : 'none';
-      }));
+      // ── 상단 아이콘: 설정/사용법 모달 열고 닫기 ──────────────────────
+      const openModal = (id) => { const m = document.getElementById(id); if (m) m.style.display = 'flex'; };
+      const closeModal = (m) => { if (m) m.style.display = 'none'; };
+      function openSettings() { openModal('settingsModal'); }
+      document.getElementById('settingsBtn').addEventListener('click', openSettings);
+      document.getElementById('helpBtn').addEventListener('click', () => openModal('helpModal'));
+      document.getElementById('settingsClose').addEventListener('click', () => closeModal(document.getElementById('settingsModal')));
+      document.getElementById('helpClose').addEventListener('click', () => closeModal(document.getElementById('helpModal')));
+      document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); }));
+      // 하위호환: 기존 코드의 showTab('settings') 호출은 설정 모달을 연다.
+      function showTab(name) { if (name === 'settings') openSettings(); }
 
       // 보드 ID를 미리 확보하고, 이 보드에서 예전에 추가한 이미지 URL 캐시를 불러옴.
       (async () => {
