@@ -25,8 +25,8 @@
     #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
     #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
     #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
-    #oneClick { background: #7c3aed; color: #fff; font-size: 15px; padding: 13px; }
-    #linkOnly { background: #0d9488; color: #fff; margin-top: 8px; }
+    #basicExport { background: #111; color: #fff; font-size: 15px; padding: 14px; border-radius: 12px; }
+    #oneClick { background: #7c3aed; color: #fff; font-size: 13px; padding: 11px; }
     .settings button { margin-top: 8px; }
     .settings { margin-top: 12px; font-size: 12px; color: #555; }
     details.settings summary { cursor: pointer; user-select: none; }
@@ -179,12 +179,15 @@
     <section class="tabpane" id="pane-extract" style="display:none">
       <div class="help-line"><button data-help="extract">ⓘ 사용법</button></div>
       <div class="help-box" id="help-extract" style="display:none">
-        <b>무슨 기능?</b> 보드 이미지에 걸린 상품 링크를 읽어 <b>브랜드·썸네일·URL·소재·혼용률</b> 엑셀(.xlsx)을 만듭니다.<br>
-        <b>사용법</b> <b>원단 정보 엑셀 만들기</b>(AI 원단 분석 포함) 또는 <b>썸네일+URL만</b>(빠름·분석 안 함)을 누르면 엑셀이 다운로드됩니다.
+        <b>무슨 기능?</b> 보드에서 <b>링크가 걸린 이미지</b>를 읽어 <b>브랜드 · 썸네일(보드 이미지) · URL</b> 엑셀(.xlsx)로 뽑습니다. 브랜드순 정렬, 빈 행 없음, <b>완전 무료</b>.<br>
+        <b>사용법</b> 아래 <b>📥 엑셀로 추출</b>을 누르면 바로 다운로드됩니다. (원단 정보까지 원하면 아래 접힘 메뉴)
       </div>
 
-      <button id="oneClick">📋 원단 정보 엑셀 만들기</button>
-      <button id="linkOnly">🖼 썸네일+URL만</button>
+      <button id="basicExport">📥 엑셀로 추출 (브랜드 · 썸네일 · URL)</button>
+      <details class="settings" style="margin-top:10px">
+        <summary>＋ 원단 정보까지 넣기 (AI · 무료 한도)</summary>
+        <button id="oneClick" style="margin-top:8px">🧵 원단 분석 포함 엑셀 만들기</button>
+      </details>
 
       <div id="status"></div>
       <div class="summary" id="summary"></div>
@@ -365,30 +368,23 @@
         }
       });
 
-      // ── 썸네일+URL만: 썸네일은 "미로 보드 이미지"라서 사이트 접속이 아예 필요 없음 ──
-      // (Worker는 엑셀에 이미지를 넣을 때 CORS 우회 프록시로만 쓰임)
-      const linkOnlyBtn = document.getElementById('linkOnly');
-      linkOnlyBtn.addEventListener('click', async () => {
+      // ── 📥 기본 추출: 브랜드 · 썸네일(보드 이미지) · URL 3열 (완전 무료, AI 미사용) ──
+      const basicBtn = document.getElementById('basicExport');
+      basicBtn.addEventListener('click', async () => {
         if (!(workerUrlEl.value || '').trim()) {
           showTab('settings');
-          statusEl.textContent = '먼저 ⚙︎ 설정에서 Worker URL을 입력하세요 (최초 1회).';
+          statusEl.textContent = '썸네일을 엑셀에 넣으려면 ⚙ 설정에 ② 추출 Worker 주소가 필요합니다 (최초 1회).';
           return;
         }
-        linkOnlyBtn.disabled = true; heroBtn.disabled = true;
+        basicBtn.disabled = true; heroBtn.disabled = true;
         try {
           await collectRows();
-          const targets = rows.filter(r => r.link);
-          if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
-          targets.forEach(r => {
-            r.fabric = { product_name: '', image_url: '', composition: [], materials: [], status: 'skipped', note: '' };
-          });
-          renderPreview();
-          await buildFabricXlsx();
-          statusEl.textContent = `썸네일+URL 정리 완료 (${targets.length}건, 원단은 미분석).`;
+          if (!rows.length) return;
+          await buildBasicXlsx();
         } catch (e) {
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
         } finally {
-          linkOnlyBtn.disabled = false; heroBtn.disabled = false;
+          basicBtn.disabled = false; heroBtn.disabled = false;
         }
       });
 
@@ -1051,6 +1047,64 @@
 
       // ── 5) 원단 포함 엑셀(.xlsx): 상품 시트 + 소재 통계/차트 ──────────
       fabricXlsxBtn.addEventListener('click', buildFabricXlsx);
+      // 📥 기본 추출: 브랜드 · 썸네일(보드 이미지) · URL 만. 브랜드순 정렬, 빈 행 없음.
+      async function buildBasicXlsx() {
+        if (typeof ExcelJS === 'undefined') {
+          statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';
+          return;
+        }
+        const items = rows.filter(r => r.link).slice()
+          .sort((a, b) => brandFromUrl(a.link).localeCompare(brandFromUrl(b.link)) || a.link.localeCompare(b.link));
+        if (!items.length) { statusEl.textContent = '링크가 걸린 이미지가 없습니다.'; return; }
+
+        const workbook = new ExcelJS.Workbook();
+        const ws = workbook.addWorksheet('링크이미지');
+        ws.columns = [
+          { header: '브랜드', key: 'brand', width: 20 },
+          { header: '썸네일', key: 'img', width: 20 },
+          { header: 'URL', key: 'link', width: 64 },
+        ];
+        ws.getRow(1).font = { bold: true };
+
+        let okThumb = 0, thumbFailDiag = '';
+        for (let i = 0; i < items.length; i++) {
+          const r = items[i], excelRow = i + 2;
+          const row = ws.addRow({ brand: brandFromUrl(r.link), img: '', link: '' });
+          row.height = 60;
+          const c = ws.getCell(`C${excelRow}`);
+          c.value = { text: r.link, hyperlink: r.link };
+          c.font = { color: { argb: 'FF4262FF' }, underline: true };
+          let done = false;
+          if (r.imageUrl) {
+            try {
+              const { base64, w, h } = await toPng(r.imageUrl, 110);
+              const id = workbook.addImage({ base64, extension: 'png' });
+              ws.addImage(id, { tl: { col: 1.1, row: (excelRow - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
+              row.height = Math.max(row.height, h * 0.75 + 6);
+              done = true; okThumb++;
+            } catch (e) {}
+          }
+          if (!done) {
+            ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
+            if (!thumbFailDiag && r.imageUrl) thumbFailDiag = await diagnoseThumb(r.imageUrl);
+          }
+          statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${items.length}`;
+        }
+
+        const buf = await workbook.xlsx.writeBuffer();
+        downloadBlob(
+          new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
+          `miro_links_${stamp()}.xlsx`,
+        );
+        statusEl.textContent = `완료! ${items.length}건 추출 (썸네일 ${okThumb}/${items.length}).`;
+        if (thumbFailDiag) {
+          summaryEl.style.display = 'block';
+          summaryEl.innerHTML =
+            `<div style="padding:8px;background:#fff4f4;border-radius:6px">` +
+            `<b>⚠ 썸네일 실패 원인</b><br>${escapeHtml(thumbFailDiag)}</div>`;
+        }
+      }
+
       async function buildFabricXlsx() {
         if (typeof ExcelJS === 'undefined') {
           statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';
