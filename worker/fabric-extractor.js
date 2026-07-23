@@ -186,11 +186,29 @@ export default {
           category: String(p.category || 'tops').slice(0, 20),
         }));
       if (!items.length) return json({ error: 'no valid items' }, 400, cors);
-      const record = { site, brand: String(body.brand || '').slice(0, 80), updated: Date.now(), items };
+
+      // 기본은 "누적(병합)": 이 사이트의 기존 카탈로그에 상품URL 기준 중복 제거하며 합침.
+      // (카테고리 페이지를 하나씩 수집하면 브랜드 카탈로그가 채워짐 — Render 브랜드와 동일 경험)
+      // ?store=catalog&replace=1 이면 새로 덮어씀(신상 갱신용).
+      const replace = reqUrl.searchParams.get('replace') === '1';
+      let merged = items;
+      if (!replace) {
+        let prev = null;
+        try { prev = await env.RACK_CACHE.get('catalog:' + site); } catch (e) {}
+        if (prev) {
+          try {
+            const old = JSON.parse(prev);
+            const seen = new Set(items.map(p => p.productUrl));
+            const keptOld = (Array.isArray(old.items) ? old.items : []).filter(p => p && !seen.has(p.productUrl));
+            merged = items.concat(keptOld).slice(0, 800);   // 새 항목 우선, 총 800개 상한
+          } catch (e) {}
+        }
+      }
+      const record = { site, brand: String(body.brand || '').slice(0, 80), updated: Date.now(), items: merged };
       await env.RACK_CACHE.put('catalog:' + site, JSON.stringify(record), {
-        metadata: { brand: record.brand, count: items.length, updated: record.updated },
+        metadata: { brand: record.brand, count: merged.length, updated: record.updated },
       });
-      return json({ ok: true, site, count: items.length }, 200, cors);
+      return json({ ok: true, site, count: merged.length, added: items.length }, 200, cors);
     }
 
     if (env.ACCESS_TOKEN && request.headers.get('x-access-token') !== env.ACCESS_TOKEN)

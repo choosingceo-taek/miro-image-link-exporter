@@ -161,7 +161,10 @@ async function collectActive() {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ site, brand, items }),
     });
     const d = await resp.json().catch(() => ({}));
-    return { ok: !!d.ok, count: d.ok ? d.count : 0, msg: d.ok ? (site + ' · ' + d.count + '개 전송됨') : ('전송 실패 ' + (d.error || resp.status)) };
+    const msg = d.ok
+      ? (site + ' · 이 페이지 ' + (d.added != null ? d.added : d.count) + '개 → 저장소 총 ' + d.count + '개')
+      : ('전송 실패 ' + (d.error || resp.status));
+    return { ok: !!d.ok, count: d.ok ? d.count : 0, msg };
   } catch (e) { return { ok: false, msg: '오류: ' + String((e && e.message) || e) }; }
 }
 
