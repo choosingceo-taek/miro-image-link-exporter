@@ -734,7 +734,13 @@
         try {
           const q = '/api/products?new=50&tops=80&sweatshirts=30&shirts=20&dresses=30&pants=30&url=' +
             encodeURIComponent(brandUrl);
-          const resp = await fetch(__render + q);
+          // 서버 무응답(잠듦/다운) 시 90초에서 포기 — 영원히 "가져오는 중"으로 멈추지 않도록.
+          const ctl = new AbortController();
+          const timer = setTimeout(() => ctl.abort(), 90000);
+          let resp;
+          try { resp = await fetch(__render + q, { signal: ctl.signal }); }
+          finally { clearTimeout(timer); }
+          if (!resp.ok) throw new Error('server ' + resp.status);
           const data = await resp.json();
           importBrand = data.brand || '';
           importItems = (data.products || []).map(p => ({
@@ -768,8 +774,15 @@
           renderImportTabs();
           renderImportGrid();
         } catch (e) {
-          importStatusEl.textContent = '가져오기 실패: ' + ((e && e.message) || e) +
-            ' — ⚙︎ 설정의 Render 주소가 맞는지 확인하세요.';
+          const aborted = e && (e.name === 'AbortError' || /aborted/i.test(e.message || ''));
+          importStatusEl.innerHTML = aborted
+            ? `<div style="padding:8px;background:#fff4f4;border-radius:6px;font-size:12px">` +
+              `<b>⏱ Market Research 서버가 응답하지 않습니다(90초 초과).</b><br>` +
+              `Render 무료 서버가 <b>잠들어 있거나 내려간</b> 상태일 수 있어요. ` +
+              `<b>${escapeHtml(__render || '(주소 미설정)')}/api/brands</b> 를 브라우저에서 열어보세요 — ` +
+              `JSON이 뜨면 살아있는 것(다시 시도), 안 뜨면 서버 재가동이 필요합니다.</div>`
+            : '가져오기 실패: ' + escapeHtml((e && e.message) || String(e)) +
+              ' — ⚙ 설정의 Render 주소가 맞는지 확인하세요.';
         } finally {
           importFetchBtn.disabled = false;
         }
