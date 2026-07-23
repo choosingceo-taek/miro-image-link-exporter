@@ -980,16 +980,25 @@
               await img.sync();
               cacheImg(img.id, it);   // 엑셀용으로 이미지URL·이름·가격·브랜드 기억
               created.push(img);
-            } catch (e) { fail++; if (!firstErr) firstErr = (e && e.message) || String(e); }
+            } catch (e) {
+              fail++;
+              const reason = (e && e.message) || String(e);
+              if (!firstErr) firstErr = reason;
+              try { console.error('[RACK 보드추가 실패]', it.productUrl, '\n  이미지:', it.imageUrl, '\n  원인:', reason); } catch (_) {}
+            }
           }
           try { if (created.length && miro.board.viewport.zoomTo) await miro.board.viewport.zoomTo(created); } catch (e) {}
           let msg = `완료! ${created.length}개 추가` + (fail ? `, ${fail}개 실패` : '') + '.';
           if (fail && firstErr) {
             msg += /permission|scope|write|forbidden|401|403/i.test(firstErr)
-              ? ` ⚠ 권한 문제로 보입니다 — 앱에 boards:write 를 추가하고 재설치하세요. (원인: ${firstErr})`
+              ? ` ⚠ 권한 문제 — 앱에 boards:write 추가·재설치 필요. (원인: ${firstErr})`
               : ` (원인: ${firstErr})`;
           }
           importStatusEl.textContent = msg;
+          // 실패가 있으면 놓치지 않게 팝업으로도 원인을 보여줌(토스트에 가려지는 문제 대응).
+          if (fail) {
+            try { alert(`보드 추가 결과\n\n추가 ${created.length}개 · 실패 ${fail}개\n\n첫 실패 원인:\n${firstErr}\n\n(자세한 건 F12 → Console)`); } catch (_) {}
+          }
         } finally {
           importAddBtn.disabled = false;
         }
