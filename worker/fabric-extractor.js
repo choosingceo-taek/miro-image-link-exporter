@@ -156,7 +156,7 @@ export default {
       const img = reqUrl.searchParams.get('img');
       if (!img) return json({ error: 'use POST to extract, GET ?meta=<url> for og:image, GET ?img=<url> to proxy an image, or GET ?board=&item= for a Miro board image' }, 400, cors);
       if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
-      return proxyImage(img, cors);
+      return proxyImage(img, cors, reqUrl.searchParams.get('ref'));
     }
 
     if (request.method !== 'POST') return json({ error: 'POST only' }, 405, cors);
@@ -226,29 +226,48 @@ function json(obj, status, cors) {
 }
 
 // 남의 도메인 이미지를 서버에서 가져와 CORS 허용 헤더와 함께 반환.
-async function proxyImage(img, cors) {
+// 이미지 CDN은 흔히 Referer를 검사(핫링크 차단) → 여러 referer 전략을 순서대로 시도:
+//  ① ref(상품 사이트, 패널이 전달) → ② referer 없음 → ③ 이미지 도메인의 상위 사이트(www.<base>)
+//  → ④ 이미지 origin. 하나라도 이미지가 오면 성공.
+async function proxyImage(img, cors, ref) {
   let target;
   try { target = new URL(img); }
   catch { return new Response('bad img url', { status: 400, headers: cors }); }
   if (target.protocol !== 'https:' && target.protocol !== 'http:')
     return new Response('bad scheme', { status: 400, headers: cors });
 
-  const r = await fetch(target.toString(), {
-    headers: { 'user-agent': UA, accept: 'image/avif,image/webp,image/*,*/*;q=0.8', referer: target.origin + '/' },
-  });
-  if (!r.ok) return new Response('upstream ' + r.status, { status: 502, headers: cors });
+  // 이미지 호스트의 등록 도메인으로 상위 사이트 referer 추정 (asset-0.aritzia.com → https://www.aritzia.com/)
+  const parts = target.hostname.split('.');
+  const baseDomain = parts.length >= 2 ? parts.slice(-2).join('.') : target.hostname;
+  const guessedSite = 'https://www.' + baseDomain + '/';
 
-  const ct = r.headers.get('content-type') || 'image/jpeg';
-  if (!ct.startsWith('image/')) return new Response('not an image', { status: 415, headers: cors });
+  const referers = [];
+  if (ref && /^https?:\/\//i.test(ref)) { try { referers.push(new URL(ref).origin + '/'); } catch (e) {} }
+  referers.push('');                 // referer 없음
+  referers.push(guessedSite);
+  referers.push(target.origin + '/');
 
-  const len = Number(r.headers.get('content-length') || 0);
-  if (len && len > MAX_IMG_BYTES) return new Response('image too large', { status: 413, headers: cors });
-
-  const buf = await r.arrayBuffer();
-  return new Response(buf, {
-    status: 200,
-    headers: { ...cors, 'content-type': ct, 'cache-control': 'public, max-age=86400' },
-  });
+  let lastStatus = 0;
+  const seen = new Set();
+  for (const rf of referers) {
+    if (seen.has(rf)) continue; seen.add(rf);
+    const headers = { 'user-agent': UA, accept: 'image/avif,image/webp,image/*,*/*;q=0.8', 'accept-language': 'en-US,en;q=0.9' };
+    if (rf) headers.referer = rf;
+    let r;
+    try { r = await fetch(target.toString(), { headers, redirect: 'follow' }); }
+    catch (e) { lastStatus = 502; continue; }
+    if (!r.ok) { lastStatus = r.status; continue; }
+    const ct = r.headers.get('content-type') || 'image/jpeg';
+    if (!ct.startsWith('image/')) { lastStatus = 415; continue; }
+    const len = Number(r.headers.get('content-length') || 0);
+    if (len && len > MAX_IMG_BYTES) return new Response('image too large', { status: 413, headers: cors });
+    const buf = await r.arrayBuffer();
+    return new Response(buf, {
+      status: 200,
+      headers: { ...cors, 'content-type': ct, 'cache-control': 'public, max-age=86400' },
+    });
+  }
+  return new Response('upstream ' + (lastStatus || 'fail'), { status: 502, headers: cors });
 }
 
 // 미로 보드의 이미지(업로드본)를 REST API로 받아와 CORS 허용 헤더와 함께 반환.

@@ -890,14 +890,17 @@
 
       // 브라우저가 남의 도메인 이미지를 miro.createImage에 못 넣을 때(CORS),
       // Render의 /api/image 프록시로 받아 data URL로 변환해 넣는다.
-      async function imgToDataUrl(url) {
+      async function imgToDataUrl(url, refUrl) {
         // URL 정규화: HTML 엔티티(&amp;) 복원·프로토콜상대(//) 보정 — 이게 프록시 404의 흔한 원인.
         let u0 = String(url || '').replace(/&amp;/gi, '&').trim();
         if (u0.startsWith('//')) u0 = 'https:' + u0;
-        // ① Worker ?img= 프록시(UA·referer 위장) ② Render /api/image 순.
+        // 이미지 CDN의 Referer 검사(핫링크 차단) 대응: 상품 사이트 origin을 ref로 넘김.
+        let ref = '';
+        try { if (refUrl) ref = '&ref=' + encodeURIComponent(new URL(refUrl).origin); } catch (e) {}
+        // ① Worker ?img= 프록시(UA·referer 전략) ② Render /api/image 순.
         const attempts = [];
         if (__proxy.url) attempts.push(['worker', __proxy.url.replace(/\/+$/, '') + '/?img=' +
-          encodeURIComponent(u0) + (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '')]);
+          encodeURIComponent(u0) + ref + (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '')]);
         if (__render) attempts.push(['render', __render + '/api/image?url=' + encodeURIComponent(u0)]);
         const errs = [];
         for (const [name, u] of attempts) {
@@ -940,7 +943,7 @@
         // data URL로 "인라인" 삽입하는 걸 1순위로. 프록시가 실패할 때만 원본 URL로 시도.
         let proxyErr = null;
         try {
-          const dataUrl = await imgToDataUrl(it.imageUrl);
+          const dataUrl = await imgToDataUrl(it.imageUrl, it.productUrl);   // 상품 사이트를 referer로
           return await miro.board.createImage({ ...props, url: dataUrl });
         } catch (e) { proxyErr = e; }
         try {
