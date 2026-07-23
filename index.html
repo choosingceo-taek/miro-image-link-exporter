@@ -71,16 +71,18 @@
     .imp-card.sel { outline: 3px solid var(--text); outline-offset: -3px; }
     .imp-card .chk { position: absolute; top: 7px; right: 7px; width: 18px; height: 18px; accent-color: #111; z-index: 3; pointer-events: none; }
     .imp-card .cap {
-      position: absolute; left: 0; right: 0; bottom: 0; height: 52px; padding: 0 9px;
+      position: absolute; left: 0; right: 0; bottom: 0; height: 60px; padding: 0 9px;
       display: flex; flex-direction: column; justify-content: center; pointer-events: none;
       background: rgba(24, 22, 20, .34); backdrop-filter: blur(9px) saturate(1.1);
       -webkit-backdrop-filter: blur(9px) saturate(1.1); border-top: 1px solid rgba(255, 255, 255, .14);
     }
     .imp-card .cap .b { font-size: 10px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .imp-card .cap .b:empty { display: none; }
-    .imp-card .cap .n { font-size: 9.5px; color: rgba(255, 255, 255, .85); line-height: 1.3; margin-top: 1px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .imp-card .cap .n { font-size: 9.5px; color: rgba(255, 255, 255, .85); line-height: 1.3; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .imp-card .cap .p { font-size: 10px; font-weight: 700; color: #fff; margin-top: 2px; }
     /* 카드 위 툴바: 선택 개수 + ALL·RESET·EXPORT 아이콘 */
-    #importToolbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; font-size: 11px; color: var(--muted); }
+    #importToolbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; font-size: 11px; }
+    #importCount { color: var(--text); font-weight: 600; letter-spacing: .3px; }
     .imp-actions { display: flex; gap: 8px; }
     .imp-actions .ib {
       width: 34px; height: 34px; padding: 0; border-radius: 50%; background: transparent;
@@ -231,12 +233,20 @@
     #pane-import { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 2px; }
     #pane-import::-webkit-scrollbar { width: 8px; }
     #pane-import::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
-    /* 검색바(url-row)를 Board Scanner 검색바 톤으로 통일 */
-    #pane-import .url-row { gap: 0; margin-top: 2px; border: 1px solid var(--border); }
-    #pane-import .url-row input { border: none; border-radius: 0; font-family: inherit; font-size: 13px; letter-spacing: .6px; padding: 11px 14px; }
-    #pane-import .url-row input:focus { outline: none; }
+    /* 검색바(url-row) — image1 Board Scanner 검색바처럼 각진 박스 + 돋보기 왼쪽 */
+    #pane-import .url-row { align-items: center; gap: 0; margin-top: 2px; border: 1px solid var(--text); background: var(--bg); }
     #pane-import .url-row:focus-within { border-color: var(--text); }
-    #pane-import .url-row .go { border-radius: 0; background: var(--text); color: var(--bg); padding: 0 16px; }
+    #pane-import .url-row .go {
+      width: auto; flex: 0 0 auto; padding: 0 8px 0 13px; background: transparent; color: var(--text);
+      border-radius: 0; display: flex; align-items: center; justify-content: center;
+    }
+    #pane-import .url-row .go svg { width: 16px; height: 16px; display: block; }
+    #pane-import .url-row input {
+      flex: 1; min-width: 0; border: none; border-radius: 0; background: transparent; color: var(--text);
+      font-family: inherit; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; padding: 11px 13px 11px 8px;
+    }
+    #pane-import .url-row input:focus { outline: none; }
+    #pane-import .url-row input::placeholder { color: var(--muted); letter-spacing: 1px; }
   </style>
 </head>
 <body>
@@ -251,10 +261,10 @@
     <!-- Market Research (가져오기) -->
     <section class="tabpane" id="pane-import" style="display:none">
       <div class="url-row">
+        <button id="importFetch" class="go" title="검색" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
         <input id="importBrandUrl" type="text" list="importBrandList"
-          placeholder="브랜드 이름 선택 또는 전체 URL 붙여넣기 (예: Reformation)" />
+          placeholder="Brand search or URL" />
         <datalist id="importBrandList"></datalist>
-        <button id="importFetch" class="go">🔎</button>
       </div>
 
       <!-- 검색 아래 가운데: 사용법·설정 아이콘 + 팝오버 (Board Scanner와 동일 UI) -->
@@ -770,8 +780,7 @@
             return;
           }
           // 중복 방지: 카테고리별 개수는 탭에만 표시. 상태줄은 부분수집일 때만 안내.
-          importStatusEl.innerHTML = data.complete ? ''
-            : '<span style="color:#a15c00;font-size:11px">부분 카탈로그 (일부만 수집됨)</span>';
+          importStatusEl.textContent = '';   // (부분 카탈로그 안내 제거 — 불필요)
           importCat = catCount('tops') ? 'tops'
             : (IMPORT_CATS.find(c => catCount(c.key) > 0)?.key || 'tops');
           renderImportTabs();
@@ -820,12 +829,13 @@
           card.className = 'imp-card' + (it.selected ? ' sel' : '');
           card.dataset.id = String(it.id);
           const bd = (it.brand || importBrand || '').trim();
-          const nm = (it.name || '').trim() + (it.price ? '  ·  ' + it.price : '');
+          const nm = (it.name || '').trim();
           card.innerHTML =
             `<img class="miro-draggable" draggable="false" src="${escapeHtml(it.imageUrl)}" alt="" loading="lazy"` +
             ` data-full="${escapeHtml(it.imageUrl)}" data-link="${escapeHtml(it.productUrl)}" data-title="${escapeHtml((it.brand ? it.brand + ' · ' : '') + it.name)}">` +
             `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
-            `<div class="cap"><div class="b">${escapeHtml(bd)}</div><div class="n">${escapeHtml(nm) || '(제목 없음)'}</div></div>`;
+            `<div class="cap"><div class="b">${escapeHtml(bd)}</div><div class="n">${escapeHtml(nm) || '(제목 없음)'}</div>` +
+            (it.price ? `<div class="p">${escapeHtml(it.price)}</div>` : '') + `</div>`;
           card.addEventListener('click', () => {
             if (paintMoved) return;
             setCardSel(card, it, !it.selected);
