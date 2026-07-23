@@ -290,7 +290,17 @@
 
       <details class="settings" id="manualImport">
         <summary>🔧 차단 사이트 추가·갱신 (Massimo Dutti·Zara·H&M 등)</summary>
-        <p class="desc" style="margin:6px 0 4px">자동으로 막히는 사이트는 이렇게 갱신합니다 (한 사람이 가끔, ~10초):</p>
+        <div style="margin:8px 0;padding:11px;border:1px solid var(--border);background:var(--card)">
+          <b style="letter-spacing:.5px">✅ 추천 — 원클릭 수집기 (콘솔 복붙 불필요)</b>
+          <ol style="font-size:12px;padding-left:18px;margin:6px 0 0;line-height:1.7">
+            <li><b>Tampermonkey</b>(무료 확장) 설치 → 아래 링크를 브라우저에서 열면 설치창이 뜸:<br>
+              <a href="https://choosingceo-taek.github.io/miro-image-link-exporter/rack-harvester.user.js" target="_blank" rel="noopener" style="word-break:break-all">github.io/…/rack-harvester.user.js</a></li>
+            <li>차단 쇼핑몰의 <b>상품 목록 페이지</b>를 열면 우하단에 <b>📥 RACK 전송</b> 버튼이 뜸 → 클릭</li>
+            <li>자동으로 <b>끝까지 스크롤·수집·전송</b> → 이후 팀 전체가 이 앱에서 즉시 접근</li>
+          </ol>
+          <p class="desc" style="margin:6px 0 0">Worker 주소·토큰은 기본값이 내장돼 있어 <b>추가 설정 없이</b> 바로 됩니다.</p>
+        </div>
+        <p class="desc" style="margin:10px 0 4px">또는(수동) 콘솔 방식 — 확장 설치가 어려울 때 (한 사람이 가끔, ~10초):</p>
         <ol style="font-size:12px;padding-left:18px;margin:0 0 6px;color:#555;line-height:1.7">
           <li>쇼핑몰 <b>상품목록 페이지</b>를 끝까지 스크롤 → <b>F12</b> → <b>Console</b> (경고 시 <code>allow pasting</code>)</li>
           <li>아래 <b>📋 콘솔 코드 복사</b> → 콘솔에 붙여넣고 <b>Enter</b> (상품 자동 복사됨)</li>
