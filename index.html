@@ -267,10 +267,9 @@
         <datalist id="importBrandList"></datalist>
       </div>
 
-      <!-- 검색 아래 가운데: 사용법·설정 아이콘 + 팝오버 (Board Scanner와 동일 UI) -->
+      <!-- 검색 아래 가운데: 사용법 아이콘 (설정은 기본값 내장 → 숨김) -->
       <div class="tool-row" id="mrToolRow">
         <button class="icobtn" id="mrHelpBtn" aria-label="사용법" title="사용법">ⓘ</button>
-        <button class="icobtn" id="mrSettingsBtn" aria-label="설정" title="설정">⚙</button>
 
         <!-- Market Research 사용법 팝오버 -->
         <div class="popover" id="mrHelpModal" style="display:none">
@@ -279,15 +278,6 @@
           <div class="help-item"><b>🗂 카테고리</b>NEW·TOPS·SWEAT·SHIRTS·DRESSES·PANTS 탭으로 상품을 나눠 봅니다.</div>
           <div class="help-item"><b>✓ 선택</b>카드를 <b style="display:inline">클릭</b>하면 선택(우상단 체크). 여러 개는 카드 위를 <b style="display:inline">드래그</b>해 한 번에 선택.</div>
           <div class="help-item"><b>ALL · ↺ · ⤴</b>카드 위 아이콘 — <b style="display:inline">ALL</b> 이 탭 전체 선택, <b style="display:inline">↺</b> 선택 초기화, <b style="display:inline">⤴</b> 선택한 상품을 <b style="display:inline">보드에 추가</b>. (카드를 보드로 직접 드래그도 가능)</div>
-        </div>
-
-        <!-- Market Research 설정 팝오버 (Render 주소) -->
-        <div class="popover" id="mrSettingsModal" style="display:none">
-          <div class="pop-head"><span>Settings</span><button class="x" id="mrSettingsClose" aria-label="닫기">✕</button></div>
-          <div class="settings" style="margin-top:0">
-            <label for="renderUrl">Market Research 서버 (Render 주소)</label>
-            <input id="renderUrl" type="url" placeholder="https://…onrender.com" />
-          </div>
         </div>
       </div>
 
@@ -319,10 +309,9 @@
         <input id="cardSearch" type="text" placeholder="Search" autocomplete="off" spellcheck="false" />
       </div>
 
-      <!-- 검색바 아래 가운데: 사용법·설정·리셋 아이콘 + 팝오버 -->
+      <!-- 검색바 아래 가운데: 사용법·리셋 아이콘 (설정은 기본값 내장 → 숨김) -->
       <div class="tool-row" id="toolRow">
         <button class="icobtn" id="helpBtn" aria-label="사용법" title="사용법">ⓘ</button>
-        <button class="icobtn" id="settingsBtn" aria-label="설정" title="설정">⚙</button>
         <button class="icobtn" id="resetBtn" aria-label="초기화" title="초기화(리셋)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
 
         <!-- 사용법 팝오버 (ⓘ 아이콘) -->
@@ -330,21 +319,15 @@
           <div class="pop-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
           <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 (브랜드·썸네일·상품명·URL).</div>
           <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
-          <div class="help-item"><b>⚙ Settings</b>썸네일용 <b style="display:inline">Worker 주소</b>를 넣는 곳(최초 1회). 이게 있어야 엑셀에 썸네일이 들어갑니다.</div>
+          <div class="help-item"><b>↺ 리셋</b>스캔 결과·상태를 지우고 처음으로 되돌립니다.</div>
         </div>
+      </div>
 
-        <!-- 설정 팝오버 (⚙ 아이콘) -->
-        <div class="popover" id="settingsModal" style="display:none">
-          <div class="pop-head"><span>Settings</span><button class="x" id="settingsClose" aria-label="닫기">✕</button></div>
-          <div>
-            <div class="settings" style="margin-top:0">
-              <label for="workerUrl">썸네일 Worker (Cloudflare 주소)</label>
-              <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
-              <label for="accessToken">Access token (선택)</label>
-              <input id="accessToken" type="text" placeholder="Worker에 ACCESS_TOKEN을 설정한 경우만" />
-            </div>
-          </div>
-        </div>
+      <!-- 서버 주소·토큰은 기본값이 내장되어 유저에게 노출하지 않음(JS만 참조하는 숨김 입력) -->
+      <div style="display:none" aria-hidden="true">
+        <input id="workerUrl" type="url" />
+        <input id="accessToken" type="text" />
+        <input id="renderUrl" type="url" />
       </div>
 
       <div class="scan-status" id="status"></div>
