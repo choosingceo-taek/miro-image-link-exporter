@@ -52,7 +52,8 @@
     .url-row input { flex: 1; padding: 11px 15px; font-size: 13px; border: 1px solid #e2e2e2; border-radius: 26px; }
     .url-row input:focus { outline: none; border-color: #111; }
     .url-row .go { width: auto; padding: 0 16px; background: #111; color: #fff; border-radius: 26px; font-size: 15px; }
-    #importTabs { display: flex; gap: 6px; margin-top: 12px; overflow-x: auto; padding-bottom: 3px; }
+    /* 카테고리 탭: 가로 스크롤로 잘리지 않게 줄바꿈(세로로 흘러내림) */
+    #importTabs { display: flex; flex-wrap: wrap; gap: 2px 4px; margin-top: 12px; padding-bottom: 3px; }
     #importTabs::-webkit-scrollbar { height: 0; }
     #importTabs button {
       flex: 0 0 auto; width: auto; padding: 6px 13px; font-size: 11px; font-weight: 600;
@@ -250,7 +251,14 @@
     .imp-card img { border-radius: 0; }
     .imp-card .t { color: var(--text); }
     .imp-card .price { color: var(--text); }
-    #importToolbar button { border-radius: 0; background: transparent; border: 1px solid var(--border); color: var(--text); }
+    /* 툴바: 선택 개수 + ALL/RESET 미니 버튼(Vogue 모노 스타일) */
+    #importToolbar { justify-content: space-between; }
+    #importToolbar .mini {
+      flex: 0 0 auto; width: auto; padding: 6px 12px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1.4px; border: 1px solid var(--text); background: var(--bg); color: var(--text);
+      border-radius: 0; font-family: inherit;
+    }
+    #importToolbar .mini:hover { background: var(--text); color: var(--bg); }
   </style>
 </head>
 <body>
@@ -302,8 +310,10 @@
       <div id="importTabs" style="display:none"></div>
       <div id="importToolbar" style="display:none">
         <span id="importCount"></span>
-        <button id="importSelAll">이 탭 전체 선택</button>
-        <button id="importSelNone">이 탭 전체 해제</button>
+        <span style="display:flex;gap:6px">
+          <button id="importSelAll" class="mini" title="이 탭 전체 선택">ALL</button>
+          <button id="importSelNone" class="mini" title="모든 선택 초기화">RESET</button>
+        </span>
       </div>
       <div id="importGrid"></div>
       <button id="importAdd">➕ 선택한 상품 보드에 추가</button>
@@ -879,8 +889,9 @@
         importCountEl.textContent = `이 탭 ${here}/${visibleItems().length} · 전체 선택 ${total}개`;
       }
 
+      // ALL = 이 탭 전체 선택 · RESET = 모든 탭 선택 초기화
       importSelAllBtn.addEventListener('click', () => { visibleItems().forEach(it => it.selected = true); renderImportGrid(); });
-      importSelNoneBtn.addEventListener('click', () => { visibleItems().forEach(it => it.selected = false); renderImportGrid(); });
+      importSelNoneBtn.addEventListener('click', () => { importItems.forEach(it => it.selected = false); renderImportGrid(); });
 
       // 브라우저가 남의 도메인 이미지를 miro.createImage에 못 넣을 때(CORS),
       // Render의 /api/image 프록시로 받아 data URL로 변환해 넣는다.
@@ -901,14 +912,32 @@
             if (!resp.ok) { lastErr = new Error('image ' + resp.status); continue; }
             const blob = await resp.blob();
             if (!/^image\//.test(blob.type || '')) { lastErr = new Error('not an image'); continue; }
-            return await new Promise((res, rej) => {
-              const r = new FileReader();
-              r.onload = () => res(r.result); r.onerror = () => rej(new Error('read fail'));
-              r.readAsDataURL(blob);
-            });
+            return await blobToJpegDataUrl(blob, 1200);
           } catch (e) { lastErr = e; }
         }
         throw lastErr || new Error('image proxy failed');
+      }
+
+      // 원본이 크거나(수천px) webp/avif면 data URL이 미로 업로드 한도를 넘어 실패할 수 있음 →
+      // 캔버스로 최대 1200px JPEG로 축소·변환해 안정적으로 업로드.
+      async function blobToJpegDataUrl(blob, maxW) {
+        try {
+          const bmp = await createImageBitmap(blob);
+          const scale = Math.min(1, maxW / bmp.width);
+          const w = Math.max(1, Math.round(bmp.width * scale));
+          const h = Math.max(1, Math.round(bmp.height * scale));
+          const canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(bmp, 0, 0, w, h);
+          return canvas.toDataURL('image/jpeg', 0.87);
+        } catch (e) {
+          // 디코딩 실패(브라우저 미지원 포맷 등) 시 원본 그대로 data URL
+          return await new Promise((res, rej) => {
+            const r = new FileReader();
+            r.onload = () => res(r.result); r.onerror = () => rej(new Error('read fail'));
+            r.readAsDataURL(blob);
+          });
+        }
       }
 
       async function createBoardImage(it, props) {
