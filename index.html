@@ -723,7 +723,9 @@
         importToolbarEl.style.display = 'none';
         importAddBtn.style.display = 'none';
         importItems = [];
-        importStatusEl.textContent = '가져오는 중… (첫 검색은 서버가 깨어나며 30~60초 걸릴 수 있어요)';
+        importStatusEl.innerHTML =
+          `<div style="text-align:center;line-height:1.7">가져오는 중…` +
+          `<div style="font-size:12px;color:#888">첫 검색은 서버가 깨어나며 30~60초 걸릴 수 있어요</div></div>`;
 
         try {
           const q = '/api/products?new=50&tops=80&sweatshirts=30&shirts=20&dresses=30&pants=30&url=' +
@@ -762,8 +764,9 @@
                 `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
                 `해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>`;
             } else {
-              importStatusEl.textContent = '가져온 상품이 없습니다. 다른 브랜드/URL로 시도하거나 잠시 후 다시 해보세요.' +
-                ((data.warnings && data.warnings.length) ? ' (' + escapeHtml(data.warnings.join(' / ')) + ')' : '');
+              importStatusEl.innerHTML =
+                `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
+                `해당 브랜드는 추가 정보 확인이 필요합니다.<br>필요하신 브랜드와 카테고리 정보를 디지털팀에 전달 부탁드립니다. 감사합니다.</div>`;
             }
             return;
           }
