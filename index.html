@@ -763,7 +763,7 @@
                 `<div style="padding:9px;background:#fff4e5;border-radius:6px;color:#a15c00;font-size:12px;line-height:1.6">` +
                 `<b>🚫 봇 차단(Akamai) 사이트 — 서버 수집 불가.</b><br>` +
                 `<b>RACK Chrome 확장</b> 팝업에 아래 URL을 붙여넣고 <b>수집 시작</b>을 누르면,<br>` +
-                `수집 후 이 탭 상단 <b>저장된 카탈로그</b> 칩으로 팀 전체가 접근합니다.<br>` +
+                `수집 후 이 <b>브랜드를 검색</b>하면 팀 전체가 바로 봅니다.<br>` +
                 `<input readonly onclick="this.select()" value="${escapeHtml(brandUrl)}" ` +
                 `style="width:100%;margin-top:5px;padding:6px 8px;font-size:11px;border:1px solid #f0c98a;background:#fff">` +
                 `<div style="margin-top:4px;font-size:11px">수집기 설치 방법은 <b>관리자에게 문의</b>하세요.</div></div>`;
@@ -1080,7 +1080,11 @@
 
       // ── 공유 카탈로그(하드차단 사이트, 확장·유저스크립트가 올려둔 것) ─────────
       const cacheRowEl = document.getElementById('cacheRow');
+      // 저장된 카탈로그는 "칩"으로 따로 보이지 않게 함 — 브랜드명을 검색하면 리스트로 뜬다.
       async function loadCatalogChips() {
+        if (cacheRowEl) cacheRowEl.style.display = 'none';
+        return;
+        /* eslint-disable no-unreachable */
         if (!__proxy.url) return;
         try {
           const base = __proxy.url.replace(/\/+$/, '');
