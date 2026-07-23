@@ -546,14 +546,20 @@
         __proxy = { url: (workerUrlEl.value || '').trim(), token: (accessTokenEl.value || '').trim() };
         __render = (renderUrlEl ? (renderUrlEl.value || '') : (localStorage.getItem('importRenderUrl') || '')).trim().replace(/\/+$/, '');
       };
-      // 앱 URL에서 넘어온 기본값(팀원 무설정용). 저장된 값이 있으면 그걸 우선.
-      const defWorker = (params.get('worker') || '').trim();
-      const defAToken = (params.get('atoken') || '').trim();
-      const defRender = (params.get('render') || '').trim();
+      // 무설정 사용을 위한 기본값(내장). 우선순위: 저장값 > 앱URL 파라미터 > 내장 기본값.
+      // → 팀원은 앱만 설치하면 아무것도 입력하지 않아도 바로 동작.
+      const DEFAULTS = {
+        worker: 'https://fabric-extractor.hs-fabric-linker.workers.dev',
+        atoken: 'hsfabriclinker',
+        render: 'https://market-research-uzs2.onrender.com',
+      };
+      const defWorker = (params.get('worker') || '').trim() || DEFAULTS.worker;
+      const defAToken = (params.get('atoken') || '').trim() || DEFAULTS.atoken;
+      const defRender = (params.get('render') || '').trim() || DEFAULTS.render;
       try {
-        if (renderUrlEl) renderUrlEl.value = localStorage.getItem('importRenderUrl') || defRender || '';
-        workerUrlEl.value = localStorage.getItem('fabricWorkerUrl') || defWorker || '';
-        accessTokenEl.value = localStorage.getItem('fabricAccessToken') || defAToken || '';
+        if (renderUrlEl) renderUrlEl.value = localStorage.getItem('importRenderUrl') || defRender;
+        workerUrlEl.value = localStorage.getItem('fabricWorkerUrl') || defWorker;
+        accessTokenEl.value = localStorage.getItem('fabricAccessToken') || defAToken;
       } catch (e) {}
       syncProxy();
       if (renderUrlEl) renderUrlEl.addEventListener('change', () => {

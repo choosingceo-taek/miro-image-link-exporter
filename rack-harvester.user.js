@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         RACK 상품 수집기 (원클릭)
+// @name         RACK 상품 수집기 (자동)
 // @namespace    rack-miro
-// @version      2.0
-// @description  봇 차단 쇼핑몰(Zara·Massimo Dutti·H&M·Gap 등)에서 버튼 한 번으로 상품을 자동 스크롤·수집해 RACK 공유 저장소로 전송 → 팀 전체가 미로 앱에서 즉시 접근. (실제 브라우저에서 돌기 때문에 Akamai 차단을 자연히 통과)
+// @version      2.1
+// @description  봇 차단 쇼핑몰(Zara·Massimo Dutti·H&M·Gap 등)을 열람하는 동안 자동으로 상품을 수집해 RACK 공유 저장소로 전송 → 팀 전체가 미로 앱에서 즉시 접근. (실제 브라우저에서 돌기 때문에 Akamai 차단을 자연히 통과 · 설정값 내장 → 설치만 하면 바로 동작)
 // @author       RACK
 // @match        *://*/*
 // @grant        GM_setValue
@@ -18,8 +18,7 @@
 (function () {
   'use strict';
 
-  // ── 기본값 내장: 팀원은 설치만 하면 바로 사용(설정 입력 불필요) ──
-  //    다른 Worker/토큰을 쓰려면 버튼 우클릭(또는 Tampermonkey 메뉴)에서 변경.
+  // ── 설정값 내장: 설치만 하면 바로 동작(입력 불필요). 바꾸려면 메뉴 "⚙ 설정 변경". ──
   const DEFAULT_URL = 'https://fabric-extractor.hs-fabric-linker.workers.dev';
   const DEFAULT_TOKEN = 'hsfabriclinker';
 
@@ -35,8 +34,9 @@
     }
     return { url: String(url).replace(/\/+$/, ''), token: String(token || '') };
   }
+  const autoOn = () => GM_getValue('rackAuto', true);
 
-  // ── 카테고리 추정 (URL·이름 키워드) ──
+  // ── 카테고리 추정 ──
   function guessCategory(u, name) {
     const s = (u + ' ' + name).toLowerCase();
     if (/dress|원피스/.test(s)) return 'dresses';
@@ -50,7 +50,6 @@
   // 요소의 가장 큰 이미지 주소(placeholder·srcset·background 대응)
   function bestImage(el) {
     if (!el) return '';
-    // 1) <img> 직접
     const pickFrom = (img) => {
       if (!img) return '';
       let src = img.currentSrc || img.getAttribute('src') || img.getAttribute('data-src') ||
@@ -58,27 +57,24 @@
       if (!/^https?:/.test(src) || /\.svg(\?|#|$)/i.test(src) || /placeholder|blank|spacer|1x1/i.test(src)) {
         const ss = img.getAttribute('srcset') || img.getAttribute('data-srcset') || '';
         const m = ss.match(/https?:\/\/[^\s,]+/g);
-        if (m && m.length) src = m[m.length - 1];   // srcset 마지막 = 대개 최대 해상도
+        if (m && m.length) src = m[m.length - 1];
       }
       return /^https?:/.test(src) ? src : '';
     };
-    const img = el.querySelector('img');
-    let src = pickFrom(img);
-    // 2) <picture><source srcset>
+    let src = pickFrom(el.querySelector('img'));
     if (!src) {
       const s = el.querySelector('source[srcset], source[data-srcset]');
       if (s) { const m = (s.getAttribute('srcset') || s.getAttribute('data-srcset') || '').match(/https?:\/\/[^\s,]+/g); if (m) src = m[m.length - 1]; }
     }
-    // 3) background-image
     if (!src) {
       const bgEl = el.querySelector('[style*="background-image"]') || el;
-      const bg = (bgEl.getAttribute && bgEl.getAttribute('style') || '').match(/url\(["']?(https?:\/\/[^"')]+)/i);
+      const bg = ((bgEl.getAttribute && bgEl.getAttribute('style')) || '').match(/url\(["']?(https?:\/\/[^"')]+)/i);
       if (bg) src = bg[1];
     }
     return src || '';
   }
 
-  // ── 페이지에서 상품(링크+이미지+이름+가격) 수집 ──
+  // ── 페이지에서 상품 수집 ──
   function harvest() {
     const seen = new Set(), items = [];
     document.querySelectorAll('a[href]').forEach((a) => {
@@ -89,10 +85,10 @@
       const src = bestImage(a) || bestImage(card);
       if (!/^https?:/.test(src)) return;
       const img = a.querySelector('img') || card.querySelector('img');
-      if (img && img.naturalWidth && img.naturalWidth < 100) return;   // 아이콘·로고 제외
+      if (img && img.naturalWidth && img.naturalWidth < 100) return;
       const path = href.pathname.replace(/\/+$/, '');
-      if (path.length < 8) return;                                     // 네비게이션 제외
-      const key = href.origin + path;                                  // 쿼리 무시 중복 제거
+      if (path.length < 8) return;
+      const key = href.origin + path;
       if (seen.has(key)) return;
       seen.add(key);
       const nameEl = card.querySelector('h1,h2,h3,h4,[class*="name"],[class*="title"],[class*="Name"],[class*="Title"]');
@@ -110,83 +106,124 @@
     return items;
   }
 
-  // ── 페이지 끝까지 자동 스크롤(레이지 로딩 강제) ──
   function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
   async function autoScroll(onProgress) {
     let last = -1, stable = 0;
-    for (let i = 0; i < 60; i++) {                 // 최대 ~24초
+    for (let i = 0; i < 60; i++) {
       window.scrollTo(0, document.documentElement.scrollHeight);
       await sleep(400);
       const h = document.documentElement.scrollHeight;
-      if (onProgress) onProgress('스크롤 중… ' + harvest().length + '개');
+      if (onProgress) onProgress(harvest().length);
       if (h === last) { if (++stable >= 3) break; } else { stable = 0; last = h; }
     }
     window.scrollTo(0, 0);
     await sleep(300);
   }
 
-  // ── 전송 ──
-  let busy = false;
-  async function run(btn) {
-    if (busy) return;
+  // ── 전송 (공통) ──
+  function send(items, cb) {
     const cfg = getConfig(false);
-    if (!cfg || !cfg.url) return;
-    busy = true;
-    const setLabel = (t) => { if (btn) btn.textContent = t; };
-    try {
-      setLabel('⏳ 스크롤 중…');
-      await autoScroll(setLabel);
-      const items = harvest();
-      if (!items.length) { setLabel('상품 못 찾음'); alert('상품을 못 찾았습니다. 상품 목록 페이지에서 실행했는지 확인하세요.'); return; }
-      setLabel('전송 중… (' + items.length + '개)');
-      const site = location.hostname.replace(/^www\./, '');
-      const brand = site.split('.')[0];
-      await new Promise((resolve) => {
-        GM_xmlhttpRequest({
-          method: 'POST',
-          url: cfg.url + '/?store=catalog' + (cfg.token ? '&token=' + encodeURIComponent(cfg.token) : ''),
-          headers: { 'Content-Type': 'application/json' },
-          data: JSON.stringify({ site, brand, items }),
-          onload(r) {
-            try {
-              const d = JSON.parse(r.responseText);
-              setLabel(d.ok ? ('✅ ' + d.count + '개 전송됨') : ('⚠ ' + (d.error || r.status)));
-            } catch (e) { setLabel('⚠ 응답 오류 ' + r.status); }
-            resolve();
-          },
-          onerror() { setLabel('⚠ 전송 실패(주소/토큰 확인)'); resolve(); },
-        });
+    if (!cfg || !cfg.url || !items.length) { cb && cb(false, 'no-config-or-items'); return; }
+    const site = location.hostname.replace(/^www\./, '');
+    const brand = site.split('.')[0];
+    GM_xmlhttpRequest({
+      method: 'POST',
+      url: cfg.url + '/?store=catalog' + (cfg.token ? '&token=' + encodeURIComponent(cfg.token) : ''),
+      headers: { 'Content-Type': 'application/json' },
+      data: JSON.stringify({ site, brand, items }),
+      onload(r) { try { const d = JSON.parse(r.responseText); cb && cb(!!d.ok, d.ok ? d.count : (d.error || r.status)); } catch (e) { cb && cb(false, r.status); } },
+      onerror() { cb && cb(false, 'network'); },
+    });
+  }
+
+  // ── 화면 알림(토스트) ──
+  let toastEl = null;
+  function toast(msg, ms) {
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      Object.assign(toastEl.style, {
+        position: 'fixed', left: '16px', bottom: '16px', zIndex: 2147483647,
+        padding: '9px 13px', background: '#111', color: '#fff', borderRadius: '8px',
+        fontSize: '12px', fontFamily: 'sans-serif', boxShadow: '0 4px 14px rgba(0,0,0,.3)',
+        maxWidth: '260px', opacity: '0', transition: 'opacity .2s',
       });
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent = msg;
+    toastEl.style.opacity = '1';
+    clearTimeout(toastEl._t);
+    toastEl._t = setTimeout(() => { if (toastEl) toastEl.style.opacity = '0'; }, ms || 3500);
+  }
+
+  // ── 자동 모드: 열람(스크롤) 중 상품이 늘면 조용히 전송(강제 스크롤 없음) ──
+  let autoSent = 0, autoBusy = false, autoTimer = null;
+  function scheduleAuto() {
+    if (!autoOn()) return;
+    clearTimeout(autoTimer);
+    autoTimer = setTimeout(() => {
+      if (autoBusy) return;
+      const items = harvest();
+      if (items.length < 6 || items.length <= autoSent) return;
+      autoBusy = true;
+      send(items, (ok, info) => {
+        autoBusy = false;
+        if (ok) { autoSent = items.length; toast('📥 ' + info + '개 자동 저장됨 → 미로 RACK'); }
+      });
+    }, 2500);
+  }
+
+  // ── 수동 버튼: 끝까지 강제 스크롤 후 전송(전체 수집) ──
+  let manualBusy = false;
+  async function runManual(btn) {
+    if (manualBusy) return;
+    manualBusy = true;
+    const label = (t) => { if (btn) btn.textContent = t; };
+    try {
+      label('⏳ 스크롤 중…');
+      await autoScroll((n) => label('스크롤 중… ' + n + '개'));
+      const items = harvest();
+      if (!items.length) { label('상품 못 찾음'); return; }
+      label('전송 중… (' + items.length + ')');
+      await new Promise((res) => send(items, (ok, info) => {
+        label(ok ? ('✅ ' + info + '개 전송됨') : ('⚠ ' + info));
+        if (ok) autoSent = Math.max(autoSent, items.length);
+        res();
+      }));
     } finally {
-      busy = false;
-      setTimeout(() => setLabel('📥 RACK 전송'), 5000);
+      manualBusy = false;
+      setTimeout(() => label('📥 전체 수집·전송'), 5000);
     }
   }
 
-  // ── 상품 목록처럼 보이는 페이지에서만 버튼 노출 ──
+  // ── 상품 목록처럼 보이면 버튼 노출 ──
   function looksLikeListing() { return harvest().length >= 6; }
-
   let btn = null;
   function ensureButton() {
-    if (btn) return;
-    if (!looksLikeListing()) return;
+    if (btn || !looksLikeListing()) return;
     btn = document.createElement('button');
-    btn.textContent = '📥 RACK 전송';
+    btn.textContent = '📥 전체 수집·전송';
     Object.assign(btn.style, {
       position: 'fixed', right: '16px', bottom: '16px', zIndex: 2147483647,
       padding: '11px 15px', background: '#111', color: '#fff', border: 'none',
       borderRadius: '30px', fontSize: '13px', fontWeight: '700', cursor: 'pointer',
       boxShadow: '0 4px 16px rgba(0,0,0,.3)', fontFamily: 'sans-serif', letterSpacing: '.3px',
     });
-    btn.title = '이 페이지 상품을 RACK로 전송 · 우클릭=설정 변경';
-    btn.addEventListener('click', () => run(btn));
+    btn.title = '이 페이지 상품을 끝까지 스크롤해 전송 · 우클릭=설정';
+    btn.addEventListener('click', () => runManual(btn));
     btn.addEventListener('contextmenu', (e) => { e.preventDefault(); getConfig(true); });
     document.body.appendChild(btn);
   }
 
-  // 상품이 async 로딩되므로 여러 번 확인. Tampermonkey 메뉴로도 항상 실행 가능.
+  // 상품이 async 로딩되므로 반복 확인 + 스크롤마다 자동 수집 예약
   let tries = 0;
-  const timer = setInterval(() => { ensureButton(); if (btn || ++tries > 15) clearInterval(timer); }, 1000);
-  try { GM_registerMenuCommand('📥 RACK로 이 페이지 상품 전송', () => run(btn)); } catch (e) {}
-  try { GM_registerMenuCommand('⚙ Worker 주소/토큰 변경', () => getConfig(true)); } catch (e) {}
+  const timer = setInterval(() => { ensureButton(); if (++tries > 20) clearInterval(timer); }, 1000);
+  window.addEventListener('scroll', scheduleAuto, { passive: true });
+  setTimeout(scheduleAuto, 3500);   // 초기 로딩분 자동 전송
+
+  // 메뉴
+  try {
+    GM_registerMenuCommand('📥 지금 전체 수집·전송', () => runManual(btn));
+    GM_registerMenuCommand((autoOn() ? '⏸ 자동수집 끄기' : '▶ 자동수집 켜기'), () => { GM_setValue('rackAuto', !autoOn()); toast('자동 수집: ' + (autoOn() ? 'ON' : 'OFF')); });
+    GM_registerMenuCommand('⚙ Worker 주소/토큰 변경', () => getConfig(true));
+  } catch (e) {}
 })();
