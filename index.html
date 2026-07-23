@@ -885,14 +885,30 @@
       // 브라우저가 남의 도메인 이미지를 miro.createImage에 못 넣을 때(CORS),
       // Render의 /api/image 프록시로 받아 data URL로 변환해 넣는다.
       async function imgToDataUrl(url) {
-        const resp = await fetch(__render + '/api/image?url=' + encodeURIComponent(url));
-        if (!resp.ok) throw new Error('image ' + resp.status);
-        const blob = await resp.blob();
-        return await new Promise((res, rej) => {
-          const r = new FileReader();
-          r.onload = () => res(r.result); r.onerror = () => rej(new Error('read fail'));
-          r.readAsDataURL(blob);
-        });
+        // ① Worker ?img= 프록시(브라우저 UA·referer 위장 — Aritzia류 CDN에 잘 통함)
+        // ② Render /api/image 프록시 순으로 시도.
+        const tries = [];
+        if (__proxy.url) {
+          const base = __proxy.url.replace(/\/+$/, '');
+          tries.push(base + '/?img=' + encodeURIComponent(url) +
+            (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : ''));
+        }
+        if (__render) tries.push(__render + '/api/image?url=' + encodeURIComponent(url));
+        let lastErr = null;
+        for (const u of tries) {
+          try {
+            const resp = await fetch(u);
+            if (!resp.ok) { lastErr = new Error('image ' + resp.status); continue; }
+            const blob = await resp.blob();
+            if (!/^image\//.test(blob.type || '')) { lastErr = new Error('not an image'); continue; }
+            return await new Promise((res, rej) => {
+              const r = new FileReader();
+              r.onload = () => res(r.result); r.onerror = () => rej(new Error('read fail'));
+              r.readAsDataURL(blob);
+            });
+          } catch (e) { lastErr = e; }
+        }
+        throw lastErr || new Error('image proxy failed');
       }
 
       async function createBoardImage(it, props) {
