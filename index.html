@@ -264,19 +264,36 @@
 
     <!-- Market Research (가져오기) -->
     <section class="tabpane" id="pane-import" style="display:none">
-      <div class="help-line"><button data-help="import">ⓘ 사용법</button></div>
-      <div class="help-box" id="help-import" style="display:none">
-        <b>무슨 기능?</b> 쇼핑몰 신상품을 미리보고 골라 미로 보드에 <b>이미지+링크</b>로 넣습니다. (133개 브랜드)<br>
-        <b>사용법</b> ① 브랜드 이름 입력·선택 → 🔎 &nbsp;② 카테고리 탭에서 상품 확인 &nbsp;③ <b>카드 클릭</b> 또는 <b>빈칸에서 드래그</b>로 여러 개 선택 &nbsp;④ 카드 사진을 <b>보드로 드래그앤드롭</b>(원하는 위치) 하거나 <b>➕ 보드에 추가</b> 버튼.<br>
-        <b>차단 사이트</b>(Massimo Dutti 등)는 아래 <b>🔧</b> 참고.
-      </div>
-
       <div class="url-row">
         <input id="importBrandUrl" type="text" list="importBrandList"
           placeholder="브랜드 이름 선택 또는 전체 URL 붙여넣기 (예: Reformation)" />
         <datalist id="importBrandList"></datalist>
         <button id="importFetch" class="go">🔎</button>
       </div>
+
+      <!-- 검색 아래 가운데: 사용법·설정 아이콘 + 팝오버 (Board Scanner와 동일 UI) -->
+      <div class="tool-row" id="mrToolRow">
+        <button class="icobtn" id="mrHelpBtn" aria-label="사용법" title="사용법">ⓘ</button>
+        <button class="icobtn" id="mrSettingsBtn" aria-label="설정" title="설정">⚙</button>
+
+        <!-- Market Research 사용법 팝오버 -->
+        <div class="popover" id="mrHelpModal" style="display:none">
+          <div class="pop-head"><span>사용법</span><button class="x" id="mrHelpClose" aria-label="닫기">✕</button></div>
+          <div class="help-item"><b>🔎 브랜드 검색</b>브랜드 이름을 입력·선택하고 검색하면 카테고리별 신상품이 뜹니다.</div>
+          <div class="help-item"><b>🖱 선택 & 추가</b>카드를 <b style="display:inline">클릭·드래그</b>로 여러 개 고른 뒤, 사진을 <b style="display:inline">보드로 드래그앤드롭</b> 하거나 <b style="display:inline">➕ 보드에 추가</b>.</div>
+          <div class="help-item"><b>🔧 차단 사이트</b>Zara·H&M·Massimo Dutti 등은 아래 <b style="display:inline">원클릭 수집기</b>(유저스크립트)로 넣으세요.</div>
+        </div>
+
+        <!-- Market Research 설정 팝오버 (Render 주소) -->
+        <div class="popover" id="mrSettingsModal" style="display:none">
+          <div class="pop-head"><span>Settings</span><button class="x" id="mrSettingsClose" aria-label="닫기">✕</button></div>
+          <div class="settings" style="margin-top:0">
+            <label for="renderUrl">Market Research 서버 (Render 주소)</label>
+            <input id="renderUrl" type="url" placeholder="https://…onrender.com" />
+          </div>
+        </div>
+      </div>
+
       <div id="cacheRow" style="display:none; flex-wrap:wrap; gap:4px; margin-top:8px"></div>
       <div id="importStatus"></div>
       <div id="importTabs" style="display:none"></div>
@@ -351,8 +368,6 @@
               <input id="workerUrl" type="url" placeholder="https://…workers.dev" />
               <label for="accessToken">Access token (선택)</label>
               <input id="accessToken" type="text" placeholder="Worker에 ACCESS_TOKEN을 설정한 경우만" />
-              <label for="renderUrl">Market Research 서버 (Render 주소)</label>
-              <input id="renderUrl" type="url" placeholder="https://…onrender.com" />
             </div>
           </div>
         </div>
@@ -416,7 +431,8 @@
       let rows = [];
 
       // ── 상단 아이콘: 설정/사용법 팝오버(아이콘에서 펼쳐지는 드롭다운) ──────
-      const popIds = ['settingsModal', 'helpModal'];
+      // Board Scanner: settingsModal/helpModal · Market Research: mrSettingsModal/mrHelpModal
+      const popIds = ['settingsModal', 'helpModal', 'mrSettingsModal', 'mrHelpModal'];
       const closeAllPops = () => popIds.forEach(id => { const m = document.getElementById(id); if (m) m.style.display = 'none'; });
       const openModal = (id) => {
         const m = document.getElementById(id); if (!m) return;
@@ -426,10 +442,19 @@
       };
       const closeModal = (m) => { if (m) m.style.display = 'none'; };
       function openSettings() { openModal('settingsModal'); }
-      document.getElementById('settingsBtn').addEventListener('click', (e) => { e.stopPropagation(); openModal('settingsModal'); });
-      document.getElementById('helpBtn').addEventListener('click', (e) => { e.stopPropagation(); openModal('helpModal'); });
-      document.getElementById('settingsClose').addEventListener('click', () => closeModal(document.getElementById('settingsModal')));
-      document.getElementById('helpClose').addEventListener('click', () => closeModal(document.getElementById('helpModal')));
+      // 아이콘 → 팝오버 토글, 닫기(✕) 버튼 배선 (양쪽 탭 동일 UI)
+      [
+        ['settingsBtn', 'settingsModal'], ['helpBtn', 'helpModal'],
+        ['mrSettingsBtn', 'mrSettingsModal'], ['mrHelpBtn', 'mrHelpModal'],
+      ].forEach(([btn, modal]) => {
+        const b = document.getElementById(btn);
+        if (b) b.addEventListener('click', (e) => { e.stopPropagation(); openModal(modal); });
+      });
+      [['settingsClose', 'settingsModal'], ['helpClose', 'helpModal'],
+       ['mrSettingsClose', 'mrSettingsModal'], ['mrHelpClose', 'mrHelpModal']].forEach(([x, modal]) => {
+        const c = document.getElementById(x);
+        if (c) c.addEventListener('click', () => closeModal(document.getElementById(modal)));
+      });
       // 바깥(아이콘·팝오버 밖) 클릭 시 닫기
       document.addEventListener('click', (e) => {
         if (e.target.closest('.popover') || e.target.closest('.icobtn')) return;
@@ -456,12 +481,6 @@
       }
       tabResearchEl.addEventListener('click', () => switchPane('research'));
       tabScannerEl.addEventListener('click', () => switchPane('scanner'));
-
-      // ⓘ 사용법 토글 (Market Research 팬 상단)
-      document.querySelectorAll('[data-help]').forEach(b => b.addEventListener('click', () => {
-        const el = document.getElementById('help-' + b.dataset.help);
-        if (el) el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none';
-      }));
 
       // 보드 ID를 미리 확보하고, 이 보드에서 예전에 추가한 이미지 URL 캐시를 불러옴.
       (async () => {
@@ -695,8 +714,8 @@
 
       function needRender() {
         if (!__render) {
-          showTab('settings');
-          importStatusEl.textContent = '먼저 ⚙ 설정(Board Scanner 탭)에서 Market Research 서버(Render) 주소를 입력하세요 (최초 1회).';
+          setTimeout(() => openModal('mrSettingsModal'), 0);   // 이 탭의 ⚙ 설정 팝오버 열기
+          importStatusEl.textContent = '먼저 ⚙ 설정에서 Market Research 서버(Render) 주소를 입력하세요 (최초 1회).';
           return true;
         }
         return false;
