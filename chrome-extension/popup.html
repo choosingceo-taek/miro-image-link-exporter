@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    * { box-sizing: border-box; }
+    body { width: 340px; margin: 0; padding: 14px; font-family: "Times New Roman", "Malgun Gothic", serif; color: #111; background: #fff; }
+    h1 { font-size: 17px; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 2px; }
+    .sub { font-size: 11px; color: #888; margin: 0 0 12px; }
+    label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; margin: 10px 0 4px; }
+    textarea, input { width: 100%; padding: 9px 10px; font-size: 12px; border: 1px solid #ccc; border-radius: 0; font-family: inherit; }
+    textarea { height: 108px; resize: vertical; white-space: pre; overflow-wrap: normal; overflow-x: auto; }
+    .row { display: flex; gap: 6px; margin-top: 10px; }
+    button { flex: 1; padding: 11px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 1px solid #111; background: #111; color: #fff; cursor: pointer; }
+    button.ghost { background: #fff; color: #111; }
+    button:disabled { opacity: .45; cursor: default; }
+    .prog { margin-top: 12px; font-size: 12px; }
+    .bar { height: 4px; background: #eee; margin: 6px 0; }
+    .bar > i { display: block; height: 100%; background: #111; width: 0; transition: width .3s; }
+    .log { margin-top: 8px; max-height: 150px; overflow-y: auto; font-size: 11px; line-height: 1.5; }
+    .log .ok { color: #1a7f37; }
+    .log .no { color: #b42318; }
+    details { margin-top: 12px; } summary { font-size: 11px; color: #888; cursor: pointer; }
+    .hint { font-size: 10.5px; color: #999; margin-top: 4px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h1>RACK 수집기</h1>
+  <p class="sub">URL을 백그라운드 탭으로 자동 방문·수집 → 미로 앱 공유</p>
+
+  <label for="urls">브랜드/카테고리 URL (한 줄에 하나)</label>
+  <textarea id="urls" placeholder="https://www.zara.com/kr/ko/woman-new-in-l1180.html&#10;https://www2.hm.com/ko_kr/women/new-arrivals/view-all.html"></textarea>
+  <p class="hint">각 사이트의 <b>상품 목록 페이지</b> 주소를 넣으세요. (상품 상세 아님)</p>
+
+  <div class="row">
+    <button id="start">수집 시작</button>
+    <button id="stop" class="ghost" disabled>중지</button>
+  </div>
+
+  <div class="prog" id="prog" style="display:none">
+    <div id="progText"></div>
+    <div class="bar"><i id="progBar"></i></div>
+    <div class="log" id="log"></div>
+  </div>
+
+  <details>
+    <summary>⚙ Worker 설정 (기본값 내장 — 보통 건드릴 필요 없음)</summary>
+    <label for="worker">Worker 주소</label>
+    <input id="worker" type="url" placeholder="https://…workers.dev" />
+    <label for="token">Access token</label>
+    <input id="token" type="text" placeholder="hsfabriclinker" />
+    <div class="row"><button id="saveCfg" class="ghost">설정 저장</button></div>
+  </details>
+
+  <script src="popup.js"></script>
+</body>
+</html>
