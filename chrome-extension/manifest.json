@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "RACK 상품 수집기",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "브랜드/카테고리 URL 목록을 백그라운드 탭으로 자동 방문·스크롤·수집해 RACK 공유 저장소(미로 앱)로 전송합니다. 실제 크롬 탭이라 Akamai 등 봇 차단을 자연히 통과합니다.",
   "permissions": ["tabs", "scripting", "storage"],
   "host_permissions": ["<all_urls>"],

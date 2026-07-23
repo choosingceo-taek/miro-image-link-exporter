@@ -26,8 +26,14 @@
 </head>
 <body>
   <h1>RACK 수집기</h1>
-  <p class="sub">URL을 백그라운드 탭으로 자동 방문·수집 → 미로 앱 공유</p>
+  <p class="sub">상품 목록 페이지를 수집 → 미로 앱 공유</p>
 
+  <button id="collectHere">📥 지금 이 페이지 수집</button>
+  <p class="hint">지금 <b>보고 있는 상품 목록 페이지</b>를 그대로 수집합니다. Zara·H&M·Massimo Dutti 등 차단 사이트도 이 방법이 <b>가장 확실</b>합니다.</p>
+  <div id="hereResult" class="prog" style="display:none"></div>
+
+  <details style="margin-top:14px">
+    <summary>여러 URL 한꺼번에 (백그라운드 방문 — 무거운 사이트는 불안정할 수 있음)</summary>
   <label for="urls">브랜드/카테고리 URL (한 줄에 하나)</label>
   <textarea id="urls" placeholder="https://www.zara.com/kr/ko/woman-new-in-l1180.html&#10;https://www2.hm.com/ko_kr/women/new-arrivals/view-all.html"></textarea>
   <p class="hint">각 사이트의 <b>상품 목록 페이지</b> 주소를 넣으세요. (상품 상세 아님)</p>
@@ -42,6 +48,7 @@
     <div class="bar"><i id="progBar"></i></div>
     <div class="log" id="log"></div>
   </div>
+  </details>
 
   <details>
     <summary>⚙ Worker 설정 (기본값 내장 — 보통 건드릴 필요 없음)</summary>

@@ -145,7 +145,28 @@ async function collect(urls) {
   state.current = '';
 }
 
+// 지금 보고 있는 활성 탭을 바로 수집(제일 확실 — 이미 렌더된 실제 페이지).
+async function collectActive() {
+  const cfg = await getCfg();
+  let tab;
+  try { [tab] = await chrome.tabs.query({ active: true, currentWindow: true }); } catch (e) {}
+  if (!tab || !/^https?:/.test(tab.url || '')) return { ok: false, msg: '현재 탭이 웹페이지가 아닙니다.' };
+  try {
+    const inj = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: pageCollector });
+    const items = (inj && inj[0] && inj[0].result) || [];
+    if (!items.length) return { ok: false, msg: '상품을 못 찾았습니다(상품 목록 페이지인지 확인).' };
+    const site = new URL(tab.url).hostname.replace(/^www\./, '');
+    const brand = site.split('.')[0];
+    const resp = await fetch(cfg.worker + '/?store=catalog' + (cfg.token ? '&token=' + encodeURIComponent(cfg.token) : ''), {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ site, brand, items }),
+    });
+    const d = await resp.json().catch(() => ({}));
+    return { ok: !!d.ok, count: d.ok ? d.count : 0, msg: d.ok ? (site + ' · ' + d.count + '개 전송됨') : ('전송 실패 ' + (d.error || resp.status)) };
+  } catch (e) { return { ok: false, msg: '오류: ' + String((e && e.message) || e) }; }
+}
+
 chrome.runtime.onMessage.addListener((msg, sender, reply) => {
+  if (msg.type === 'collectActive') { collectActive().then(reply); return true; }
   if (msg.type === 'start') { collect(msg.urls || []); reply({ ok: true }); return; }
   if (msg.type === 'stop') { state.running = false; reply({ ok: true }); return; }
   if (msg.type === 'state') { reply(state); return; }

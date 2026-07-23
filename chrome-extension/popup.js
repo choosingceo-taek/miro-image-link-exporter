@@ -12,6 +12,21 @@ $('saveCfg').addEventListener('click', async () => {
   setTimeout(() => ($('saveCfg').textContent = '설정 저장'), 1500);
 });
 
+$('collectHere').addEventListener('click', async () => {
+  const box = $('hereResult');
+  box.style.display = 'block';
+  box.textContent = '⏳ 이 페이지 수집 중…';
+  $('collectHere').disabled = true;
+  try {
+    const r = await send({ type: 'collectActive' });
+    box.innerHTML = r && r.ok
+      ? `<span style="color:#1a7f37">✅ ${escapeHtml(r.msg)} → 미로 앱에서 확인</span>`
+      : `<span style="color:#b42318">⚠ ${escapeHtml((r && r.msg) || '실패')}</span>`;
+  } catch (e) {
+    box.innerHTML = `<span style="color:#b42318">⚠ ${escapeHtml(String(e && e.message || e))}</span>`;
+  } finally { $('collectHere').disabled = false; }
+});
+
 $('start').addEventListener('click', async () => {
   const urls = $('urls').value.split('\n').map((s) => s.trim()).filter((s) => /^https?:\/\//i.test(s));
   if (!urls.length) { alert('상품 목록 페이지 URL을 한 줄에 하나씩 넣으세요.'); return; }
