@@ -52,51 +52,44 @@
     .url-row input { flex: 1; padding: 11px 15px; font-size: 13px; border: 1px solid #e2e2e2; border-radius: 26px; }
     .url-row input:focus { outline: none; border-color: #111; }
     .url-row .go { width: auto; padding: 0 16px; background: #111; color: #fff; border-radius: 26px; font-size: 15px; }
-    /* 카테고리 탭: 가로 스크롤로 잘리지 않게 줄바꿈(세로로 흘러내림) */
-    #importTabs { display: flex; flex-wrap: wrap; gap: 2px 4px; margin-top: 12px; padding-bottom: 3px; }
-    #importTabs::-webkit-scrollbar { height: 0; }
+    /* 카테고리 탭: 가로폭에 맞게 가운데 정렬 + 박스 칩(모노 무드) */
+    #importTabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 12px; }
     #importTabs button {
-      flex: 0 0 auto; width: auto; padding: 6px 13px; font-size: 11px; font-weight: 600;
-      background: #f4f4f4; color: #444; border-radius: 20px; white-space: nowrap; letter-spacing: .2px;
+      flex: 0 0 auto; width: auto; padding: 6px 12px; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase; white-space: nowrap; border-radius: 0;
+      background: var(--bg); color: var(--muted); border: 1px solid var(--border); font-family: inherit;
     }
-    #importTabs button.active { background: #111; color: #fff; }
-    .imp-card .price { color: #111; font-weight: 700; margin-top: 3px; font-size: 11px; }
-    .imp-card .fab { margin-top: 3px; font-size: 9.5px; color: #6a6a6a; font-weight: 500; line-height: 1.3; }
-    .imp-card .fabbtn { width: auto; padding: 2px 7px; font-size: 9px; font-weight: 600; background: #f2f2f2; color: #444; border-radius: 8px; }
-    #importHeader { display: none; align-items: baseline; gap: 8px; margin: 14px 0 2px; }
-    #importHeader .bn { font-size: 20px; font-weight: 800; color: #111; letter-spacing: -.2px; }
-    #importHeader .cat { font-size: 11px; font-weight: 600; color: #999; }
-    #importAdd { background: #111; color: #fff; margin-top: 12px; display: none; border-radius: 26px; padding: 12px; }
-    #importStatus { font-size: 12px; margin: 8px 0 4px; color: #444; }
-    #importGrid {
-      display: none; grid-template-columns: repeat(2, 1fr); gap: 16px 12px;
-      margin-top: 14px; max-height: 72vh; overflow-y: auto; padding-right: 2px;
-    }
-    .imp-card {
-      border: none; border-radius: 0; padding: 0; font-size: 10px;
-      cursor: pointer; position: relative; user-select: none;
-    }
-    .imp-card img {
-      width: 100%; aspect-ratio: 3/4; height: auto; object-fit: cover; border-radius: 3px;
-      background: #f4f4f4; display: block; margin-bottom: 6px; cursor: grab;
-      transition: outline .1s;
-    }
+    #importTabs button.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+    #importHeader { display: none; }
+    #importAdd { display: none !important; }   /* 하단 버튼 제거 → 툴바 EXPORT 아이콘으로 대체 */
+    #importStatus { font-size: 12px; margin: 8px 0 4px; color: var(--muted); }
+    /* 상품 카드 그리드 — Board Scanner와 동일(2열·얇은 간격·풀블리드 이미지+하단 블러 캡션) */
+    #importGrid { display: none; grid-template-columns: repeat(2, 1fr); gap: 4px; margin-top: 12px; padding: 0 0 8px; }
+    .imp-card { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--card2); cursor: pointer; user-select: none; }
+    .imp-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; cursor: grab; }
     .imp-card img:active { cursor: grabbing; }
-    .imp-card.sel img { outline: 2.5px solid #111; outline-offset: 1px; }
-    .imp-card .t {
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-      overflow: hidden; line-height: 1.35; pointer-events: none;
-      text-transform: uppercase; letter-spacing: .3px; font-size: 9.5px; color: #333; font-weight: 500;
+    .imp-card.sel { outline: 3px solid var(--text); outline-offset: -3px; }
+    .imp-card .chk { position: absolute; top: 7px; right: 7px; width: 18px; height: 18px; accent-color: #111; z-index: 3; pointer-events: none; }
+    .imp-card .cap {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 52px; padding: 0 9px;
+      display: flex; flex-direction: column; justify-content: center; pointer-events: none;
+      background: rgba(24, 22, 20, .34); backdrop-filter: blur(9px) saturate(1.1);
+      -webkit-backdrop-filter: blur(9px) saturate(1.1); border-top: 1px solid rgba(255, 255, 255, .14);
     }
-    .imp-card .chk {
-      position: absolute; top: 7px; right: 7px; width: 17px; height: 17px; pointer-events: none;
-      accent-color: #111;
+    .imp-card .cap .b { font-size: 10px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .imp-card .cap .b:empty { display: none; }
+    .imp-card .cap .n { font-size: 9.5px; color: rgba(255, 255, 255, .85); line-height: 1.3; margin-top: 1px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    /* 카드 위 툴바: 선택 개수 + ALL·RESET·EXPORT 아이콘 */
+    #importToolbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; font-size: 11px; color: var(--muted); }
+    .imp-actions { display: flex; gap: 8px; }
+    .imp-actions .ib {
+      width: 34px; height: 34px; padding: 0; border-radius: 50%; background: transparent;
+      border: 1px solid var(--border); color: var(--text); display: flex; align-items: center; justify-content: center;
+      font-family: inherit; font-size: 10px; font-weight: 800; letter-spacing: .5px;
     }
-    #importToolbar { display: flex; gap: 8px; align-items: center; margin-top: 8px; font-size: 11px; color: #666; }
-    #importToolbar button {
-      width: auto; padding: 4px 8px; font-size: 11px; font-weight: 500;
-      background: #f4f4f7; color: #444; border-radius: 6px;
-    }
+    .imp-actions .ib:hover { background: var(--card2); }
+    .imp-actions .ib:disabled { opacity: .4; }
+    .imp-actions .ib svg { width: 16px; height: 16px; display: block; }
     .fbadge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 6px; margin-left: 4px; vertical-align: middle; }
     .fbadge.ok { background: #e7f6ec; color: #16794a; }
     .fbadge.warn { background: #fff4e5; color: #a15c00; }
@@ -238,27 +231,12 @@
     #pane-import { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 2px; }
     #pane-import::-webkit-scrollbar { width: 8px; }
     #pane-import::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
-    #pane-import .url-row input { border: 1px solid var(--border); border-radius: 0; font-family: inherit; font-size: 13px; letter-spacing: .6px; }
-    #pane-import .url-row input:focus { border-color: var(--text); }
-    #pane-import .url-row .go { border-radius: 0; background: var(--text); }
-    #importTabs button {
-      background: transparent; color: var(--muted); border-radius: 0; font-family: inherit;
-      font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase;
-      border-bottom: 2px solid transparent; padding: 6px 10px;
-    }
-    #importTabs button.active { background: transparent; color: var(--text); font-weight: 700; border-bottom-color: var(--text); }
-    #importAdd { border-radius: 0; background: var(--text); color: var(--bg); text-transform: uppercase; letter-spacing: 1.6px; font-size: 12px; font-weight: 700; }
-    .imp-card img { border-radius: 0; }
-    .imp-card .t { color: var(--text); }
-    .imp-card .price { color: var(--text); }
-    /* 툴바: 선택 개수 + ALL/RESET 미니 버튼(Vogue 모노 스타일) */
-    #importToolbar { justify-content: space-between; }
-    #importToolbar .mini {
-      flex: 0 0 auto; width: auto; padding: 6px 12px; font-size: 10px; font-weight: 700;
-      letter-spacing: 1.4px; border: 1px solid var(--text); background: var(--bg); color: var(--text);
-      border-radius: 0; font-family: inherit;
-    }
-    #importToolbar .mini:hover { background: var(--text); color: var(--bg); }
+    /* 검색바(url-row)를 Board Scanner 검색바 톤으로 통일 */
+    #pane-import .url-row { gap: 0; margin-top: 2px; border: 1px solid var(--border); }
+    #pane-import .url-row input { border: none; border-radius: 0; font-family: inherit; font-size: 13px; letter-spacing: .6px; padding: 11px 14px; }
+    #pane-import .url-row input:focus { outline: none; }
+    #pane-import .url-row:focus-within { border-color: var(--text); }
+    #pane-import .url-row .go { border-radius: 0; background: var(--text); color: var(--bg); padding: 0 16px; }
   </style>
 </head>
 <body>
@@ -310,9 +288,10 @@
       <div id="importTabs" style="display:none"></div>
       <div id="importToolbar" style="display:none">
         <span id="importCount"></span>
-        <span style="display:flex;gap:6px">
-          <button id="importSelAll" class="mini" title="이 탭 전체 선택">ALL</button>
-          <button id="importSelNone" class="mini" title="모든 선택 초기화">RESET</button>
+        <span class="imp-actions">
+          <button class="ib" id="importSelAll" title="이 탭 전체 선택" aria-label="전체 선택">ALL</button>
+          <button class="ib" id="importSelNone" title="모든 선택 초기화" aria-label="선택 초기화"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+          <button class="ib" id="importExport" title="선택한 상품 보드에 추가" aria-label="보드에 추가"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg></button>
         </span>
       </div>
       <div id="importGrid"></div>
@@ -840,12 +819,13 @@
           const card = document.createElement('div');
           card.className = 'imp-card' + (it.selected ? ' sel' : '');
           card.dataset.id = String(it.id);
+          const bd = (it.brand || importBrand || '').trim();
+          const nm = (it.name || '').trim() + (it.price ? '  ·  ' + it.price : '');
           card.innerHTML =
-            `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
             `<img class="miro-draggable" draggable="false" src="${escapeHtml(it.imageUrl)}" alt="" loading="lazy"` +
             ` data-full="${escapeHtml(it.imageUrl)}" data-link="${escapeHtml(it.productUrl)}" data-title="${escapeHtml((it.brand ? it.brand + ' · ' : '') + it.name)}">` +
-            `<div class="t">${escapeHtml(it.name) || '(제목 없음)'}</div>` +
-            (it.price ? `<div class="price">${escapeHtml(it.price)}</div>` : '');
+            `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
+            `<div class="cap"><div class="b">${escapeHtml(bd)}</div><div class="n">${escapeHtml(nm) || '(제목 없음)'}</div></div>`;
           card.addEventListener('click', () => {
             if (paintMoved) return;
             setCardSel(card, it, !it.selected);
@@ -886,12 +866,15 @@
       function updateImportToolbar() {
         const total = importItems.filter(it => it.selected).length;
         const here = visibleItems().filter(it => it.selected).length;
-        importCountEl.textContent = `이 탭 ${here}/${visibleItems().length} · 전체 선택 ${total}개`;
+        importCountEl.textContent = `이 탭 ${here}/${visibleItems().length} · 선택 ${total}`;
+        if (importExportBtn) importExportBtn.disabled = !total;
       }
 
-      // ALL = 이 탭 전체 선택 · RESET = 모든 탭 선택 초기화
+      // ALL = 이 탭 전체 선택 · RESET = 모든 탭 선택 초기화 · EXPORT = 선택 상품 보드에 추가
+      const importExportBtn = document.getElementById('importExport');
       importSelAllBtn.addEventListener('click', () => { visibleItems().forEach(it => it.selected = true); renderImportGrid(); });
       importSelNoneBtn.addEventListener('click', () => { importItems.forEach(it => it.selected = false); renderImportGrid(); });
+      if (importExportBtn) importExportBtn.addEventListener('click', () => importAddBtn.click());
 
       // 브라우저가 남의 도메인 이미지를 miro.createImage에 못 넣을 때(CORS),
       // Render의 /api/image 프록시로 받아 data URL로 변환해 넣는다.
