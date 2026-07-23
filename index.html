@@ -890,19 +890,44 @@
 
       // 브라우저가 남의 도메인 이미지를 miro.createImage에 못 넣을 때(CORS),
       // Render의 /api/image 프록시로 받아 data URL로 변환해 넣는다.
+      // 브라우저에서 직접 이미지를 로드(crossOrigin)해 캔버스로 data URL 변환.
+      // CDN이 CORS(Access-Control-Allow-Origin)를 주면 Worker 없이 바로 됨 — Aritzia 등 대부분 허용.
+      function imgElToDataUrl(url, maxW) {
+        return new Promise((resolve, reject) => {
+          const im = new Image();
+          im.crossOrigin = 'anonymous';
+          im.referrerPolicy = 'no-referrer';
+          im.onload = () => {
+            try {
+              const iw = im.naturalWidth || im.width, ih = im.naturalHeight || im.height;
+              if (!iw || !ih) return reject(new Error('empty'));
+              const scale = Math.min(1, maxW / iw);
+              const w = Math.max(1, Math.round(iw * scale)), h = Math.max(1, Math.round(ih * scale));
+              const c = document.createElement('canvas'); c.width = w; c.height = h;
+              c.getContext('2d').drawImage(im, 0, 0, w, h);
+              resolve(c.toDataURL('image/jpeg', 0.87));   // CORS 없으면 여기서 SecurityError
+            } catch (e) { reject(e); }
+          };
+          im.onerror = () => reject(new Error('load-fail'));
+          im.src = url;
+        });
+      }
+
       async function imgToDataUrl(url, refUrl) {
-        // URL 정규화: HTML 엔티티(&amp;) 복원·프로토콜상대(//) 보정 — 이게 프록시 404의 흔한 원인.
+        // URL 정규화: HTML 엔티티(&amp;) 복원·프로토콜상대(//) 보정.
         let u0 = String(url || '').replace(/&amp;/gi, '&').trim();
         if (u0.startsWith('//')) u0 = 'https:' + u0;
-        // 이미지 CDN의 Referer 검사(핫링크 차단) 대응: 상품 사이트 origin을 ref로 넘김.
+        const errs = [];
+        // ① 브라우저 직접(crossOrigin+캔버스) — CDN이 CORS 주면 Worker 불필요.
+        try { return await imgElToDataUrl(u0, 1200); } catch (e) { errs.push('direct:' + ((e && e.message) || e)); }
+        // 이미지 CDN Referer 검사 대응: 상품 사이트 origin을 ref로.
         let ref = '';
         try { if (refUrl) ref = '&ref=' + encodeURIComponent(new URL(refUrl).origin); } catch (e) {}
-        // ① Worker ?img= 프록시(UA·referer 전략) ② Render /api/image 순.
+        // ② Worker ?img=(referer 전략) ③ Render /api/image
         const attempts = [];
         if (__proxy.url) attempts.push(['worker', __proxy.url.replace(/\/+$/, '') + '/?img=' +
           encodeURIComponent(u0) + ref + (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '')]);
         if (__render) attempts.push(['render', __render + '/api/image?url=' + encodeURIComponent(u0)]);
-        const errs = [];
         for (const [name, u] of attempts) {
           try {
             const resp = await fetch(u);
@@ -912,7 +937,7 @@
             return await blobToJpegDataUrl(blob, 1200);
           } catch (e) { errs.push(name + ':' + ((e && e.message) || e)); }
         }
-        throw new Error('프록시 실패 [' + (errs.join(', ') || 'no proxy 설정') + ']');
+        throw new Error('이미지 변환 실패 [' + (errs.join(', ') || 'no method') + ']');
       }
 
       // 원본이 크거나(수천px) webp/avif면 data URL이 미로 업로드 한도를 넘어 실패할 수 있음 →
