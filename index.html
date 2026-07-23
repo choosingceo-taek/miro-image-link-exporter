@@ -706,10 +706,19 @@
       }
 
       importFetchBtn.addEventListener('click', async () => {
-        if (needRender()) return;
         const typed = (importBrandUrlEl.value || '').trim();
         if (!typed) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
 
+        // ① 먼저 팀 저장소(수집본)에서 이 브랜드를 찾아 바로 로드.
+        //    → 차단 브랜드(Massimo Dutti 등, Render 목록에 없음)도 "검색"만으로 열림.
+        try {
+          const probe = /^https?:\/\//i.test(typed) ? typed : ('https://' + typed.replace(/\s+/g, '').toLowerCase());
+          const saved = await findSavedCatalog(probe, typed);
+          if (saved) { await loadCatalog(saved.site, saved.brand); return; }
+        } catch (e) {}
+
+        // ② 저장본이 없으면 Render 서버로 신상 가져오기.
+        if (needRender()) return;
         // 입력이 전체 URL이면 그대로, 아니면 브랜드 "이름"으로 보고 목록에서 URL을 찾음.
         let brandUrl = typed;
         if (!/^https?:\/\//i.test(typed)) {
