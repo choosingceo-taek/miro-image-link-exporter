@@ -281,7 +281,10 @@
           <div class="pop-head"><span>사용법</span><button class="x" id="mrHelpClose" aria-label="닫기">✕</button></div>
           <div class="help-item"><b>🔎 브랜드 검색</b>브랜드 이름을 입력·선택하고 검색하면 카테고리별 신상품이 뜹니다.</div>
           <div class="help-item"><b>🖱 선택 & 추가</b>카드를 <b style="display:inline">클릭·드래그</b>로 여러 개 고른 뒤, 사진을 <b style="display:inline">보드로 드래그앤드롭</b> 하거나 <b style="display:inline">➕ 보드에 추가</b>.</div>
-          <div class="help-item"><b>🔧 차단 사이트</b>Zara·H&M·Massimo Dutti 등은 아래 <b style="display:inline">원클릭 수집기</b>(유저스크립트)로 넣으세요.</div>
+          <div class="help-item"><b>🔧 차단 사이트 (Zara·H&M·Massimo Dutti 등)</b>
+            <b style="display:inline">RACK 수집기</b>로 자동 수집 → 상단 <b style="display:inline">저장된 카탈로그</b> 칩에 뜸.<br>
+            · <a href="https://github.com/choosingceo-taek/miro-image-link-exporter/tree/main/chrome-extension" target="_blank" rel="noopener">Chrome 확장</a> — URL 목록만 넣으면 백그라운드 자동 방문·수집<br>
+            · <a href="https://choosingceo-taek.github.io/miro-image-link-exporter/rack-harvester.user.js" target="_blank" rel="noopener">유저스크립트</a> — 쇼핑몰을 구경하는 동안 자동 수집</div>
         </div>
 
         <!-- Market Research 설정 팝오버 (Render 주소) -->
@@ -304,32 +307,6 @@
       </div>
       <div id="importGrid"></div>
       <button id="importAdd">➕ 선택한 상품 보드에 추가</button>
-
-      <details class="settings" id="manualImport">
-        <summary>🔧 차단 사이트 추가·갱신 (Massimo Dutti·Zara·H&M 등)</summary>
-        <div style="margin:8px 0;padding:11px;border:1px solid var(--border);background:var(--card)">
-          <b style="letter-spacing:.5px">✅ 추천 — 원클릭 수집기 (콘솔 복붙 불필요)</b>
-          <ol style="font-size:12px;padding-left:18px;margin:6px 0 0;line-height:1.7">
-            <li><b>Tampermonkey</b>(무료 확장) 설치 → 아래 링크를 브라우저에서 열면 설치창이 뜸:<br>
-              <a href="https://choosingceo-taek.github.io/miro-image-link-exporter/rack-harvester.user.js" target="_blank" rel="noopener" style="word-break:break-all">github.io/…/rack-harvester.user.js</a></li>
-            <li>차단 쇼핑몰의 <b>상품 목록 페이지</b>를 열면 우하단에 <b>📥 RACK 전송</b> 버튼이 뜸 → 클릭</li>
-            <li>자동으로 <b>끝까지 스크롤·수집·전송</b> → 이후 팀 전체가 이 앱에서 즉시 접근</li>
-          </ol>
-          <p class="desc" style="margin:6px 0 0">Worker 주소·토큰은 기본값이 내장돼 있어 <b>추가 설정 없이</b> 바로 됩니다.</p>
-        </div>
-        <p class="desc" style="margin:10px 0 4px">또는(수동) 콘솔 방식 — 확장 설치가 어려울 때 (한 사람이 가끔, ~10초):</p>
-        <ol style="font-size:12px;padding-left:18px;margin:0 0 6px;color:#555;line-height:1.7">
-          <li>쇼핑몰 <b>상품목록 페이지</b>를 끝까지 스크롤 → <b>F12</b> → <b>Console</b> (경고 시 <code>allow pasting</code>)</li>
-          <li>아래 <b>📋 콘솔 코드 복사</b> → 콘솔에 붙여넣고 <b>Enter</b> (상품 자동 복사됨)</li>
-          <li>이 칸에 <b>Ctrl+V</b> → <b>미리보기에 추가</b> → 잡음 카드 체크 해제</li>
-          <li><b>보드에 추가</b> 또는 <b>☁ 팀 저장소에 저장</b>(팀 공유)</li>
-        </ol>
-        <textarea id="consoleCode" readonly rows="2" onclick="this.select()" style="font-size:10px;color:#555">(()=>{const s=new Set(),o=[];document.querySelectorAll('a[href]').forEach(a=>{const c=a.closest('article,li,div')||a;const g=a.querySelector('img')||c.querySelector('img');if(!g)return;let r=g.currentSrc||g.src||g.getAttribute('data-src')||'';if(!/^https?:/.test(r)){const m=(g.getAttribute('srcset')||'').match(/https?:\/\/\S+/);r=m?m[0]:'';}if(!/^https?:/.test(r)||!/^https?:/.test(a.href))return;if(g.naturalWidth&&g.naturalWidth<120)return;const k=a.href.split('?')[0];if(s.has(k))return;s.add(k);o.push(a.href+' '+r);});const t=o.join('\n');try{copy(t);}catch(e){}console.log(t);console.log('%c✅ '+o.length+'개 복사됨 → RACK 붙여넣기','color:green;font-size:15px');})()</textarea>
-        <button id="copyConsoleCode" style="margin-top:4px;background:#eef0f5;color:#333">📋 콘솔 코드 복사</button>
-        <textarea id="manualPaste" rows="3" placeholder="여기에 콘솔에서 복사한 목록을 붙여넣기 (Ctrl+V)" style="margin-top:8px"></textarea>
-        <button id="manualAdd" style="margin-top:6px">➕ 붙여넣은 상품 미리보기에 추가</button>
-        <button id="manualSaveShared" style="margin-top:6px;display:none;background:#0d9488;color:#fff">☁ 이 목록을 팀 저장소에 저장 (모두 공유)</button>
-      </details>
     </section>
 
     <!-- Export (메인) -->
@@ -780,11 +757,10 @@
             const blocked = /\b40[13]\b|\b429\b|verification|blocked|captcha/i.test(JSON.stringify(data.warnings || []));
             if (blocked) {
               importStatusEl.innerHTML =
-                `<div style="padding:8px;background:#fff4e5;border-radius:6px;color:#a15c00">` +
-                `<b>🚫 이 사이트는 봇 차단(Akamai 등)이라 자동 수집이 안 됩니다.</b><br>` +
-                `아래 <b>🔧 차단 사이트 추가·갱신</b>에서 콘솔 방식으로 넣어주세요. (버튼 눌러 펼쳤습니다)</div>`;
-              const md = document.getElementById('manualImport');
-              if (md) { md.open = true; md.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+                `<div style="padding:8px;background:#fff4e5;border-radius:6px;color:#a15c00;font-size:12px">` +
+                `<b>🚫 이 사이트는 봇 차단(Akamai 등)이라 서버 수집이 안 됩니다.</b><br>` +
+                `<b>RACK Chrome 확장</b>(또는 유저스크립트)으로 수집하세요 — 실제 브라우저라 차단을 통과하며, ` +
+                `전송되면 상단 <b>저장된 카탈로그</b> 칩에 자동으로 뜹니다.</div>`;
             } else {
               importStatusEl.textContent = '가져온 상품이 없습니다. 다른 브랜드/URL로 시도하거나 잠시 후 다시 해보세요.' +
                 ((data.warnings && data.warnings.length) ? ' (' + escapeHtml(data.warnings.join(' / ')) + ')' : '');
@@ -818,8 +794,7 @@
 
       function renderImportTabs() {
         importTabsEl.innerHTML = '';
-        const cats = [...IMPORT_CATS, { key: 'manual', label: '직접' }];
-        cats.filter(c => catCount(c.key) > 0).forEach(c => {
+        IMPORT_CATS.filter(c => catCount(c.key) > 0).forEach(c => {
           const b = document.createElement('button');
           b.className = (c.key === importCat) ? 'active' : '';
           b.textContent = `${c.label} ${catCount(c.key)}`;
@@ -1001,83 +976,10 @@
         return 'tops';
       }
 
-      // 🔧 차단 사이트 수동 추가: 붙여넣은 각 줄에서 이미지/상품 URL을 분류해 미리보기에 추가.
-      const manualPasteEl = document.getElementById('manualPaste');
-      const manualSaveBtn = document.getElementById('manualSaveShared');
-      document.getElementById('manualAdd').addEventListener('click', () => {
-        const lines = (manualPasteEl.value || '').split('\n').map(s => s.trim()).filter(Boolean);
-        let added = 0;
-        lines.forEach(line => {
-          const urls = line.match(/https?:\/\/[^\s,|]+/gi) || [];
-          if (!urls.length) return;
-          let imageUrl = '', productUrl = '';
-          if (urls.length === 1) { imageUrl = urls[0]; productUrl = urls[0]; }
-          else {
-            let ii = urls.findIndex(u => /\.(jpe?g|png|webp|avif|gif)(\?|#|$)/i.test(u));
-            if (ii < 0) ii = urls.findIndex(u => /(images?|\/img|media|static|cdn|scene7)/i.test(u));
-            if (ii < 0) { productUrl = urls[0]; imageUrl = urls[1]; }
-            else { imageUrl = urls[ii]; productUrl = urls.find((_, i) => i !== ii) || urls[0]; }
-          }
-          if (!imageUrl) return;
-          const nm = titleFromUrl(productUrl) || '(상품)';
-          importItems.push({
-            id: 'm' + Date.now() + '_' + added, name: nm,
-            category: guessCat(productUrl, nm), imageUrl, productUrl, price: '', brand: '',
-            selected: true, source: 'manual',
-          });
-          added++;
-        });
-        if (!added) { importStatusEl.textContent = '유효한 URL을 못 찾았습니다. 각 줄에 상품 URL과 이미지 URL을 넣으세요.'; return; }
-        importCat = catCount('tops') ? 'tops' : (IMPORT_CATS.find(c => catCount(c.key) > 0)?.key || 'tops');
-        manualSaveBtn.style.display = 'block';
-        importStatusEl.textContent = `${added}개 추가됨. 탭에서 확인 후 "보드에 추가", 또는 아래 "☁ 팀 저장소에 저장"으로 팀과 공유하세요.`;
-        renderImportTabs();
-        renderImportGrid();
-      });
+      // (차단 사이트 수동 추가(콘솔 복붙)·팀 저장소 저장 기능은 제거됨 —
+      //  Chrome 확장(chrome-extension/)·유저스크립트(rack-harvester.user.js)가 자동으로 대체.)
 
-      // 📋 콘솔 코드 복사 (자체 갱신용)
-      document.getElementById('copyConsoleCode').addEventListener('click', async () => {
-        const el = document.getElementById('consoleCode');
-        try { await navigator.clipboard.writeText(el.value); importStatusEl.textContent = '콘솔 코드 복사됨. 쇼핑몰 페이지 F12→Console에 붙여넣고 Enter 하세요.'; }
-        catch (e) { el.select(); document.execCommand && document.execCommand('copy'); }
-      });
-
-      // ☁ 수동으로 넣은 목록을 팀 공유 저장소(Worker KV)에 저장 → 이후 팀 전체가 칩으로 접근.
-      manualSaveBtn.addEventListener('click', async () => {
-        if (!__proxy.url) {
-          showTab('settings');
-          importStatusEl.textContent = '팀 저장소에 저장하려면 ⚙︎ 설정의 ② 추출 Worker 주소가 필요합니다.';
-          return;
-        }
-        const items = importItems.filter(it => it.source === 'manual');
-        if (!items.length) { importStatusEl.textContent = '저장할 수동 상품이 없습니다.'; return; }
-        let site = '';
-        try { site = new URL(items[0].productUrl).hostname.replace(/^www\./, ''); } catch (e) {}
-        if (!site) { importStatusEl.textContent = '상품 URL에서 사이트를 인식하지 못했습니다.'; return; }
-        const brand = site.split('.')[0];
-        manualSaveBtn.disabled = true;
-        importStatusEl.textContent = `팀 저장소에 저장 중… (${site}, ${items.length}개)`;
-        try {
-          const base = __proxy.url.replace(/\/+$/, '');
-          const resp = await fetch(base + '/?store=catalog' + (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : ''), {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ site, brand, items: items.map(it => ({ name: it.name, imageUrl: it.imageUrl, productUrl: it.productUrl, price: it.price, category: it.category })) }),
-          });
-          const data = await resp.json();
-          if (data.ok) {
-            importStatusEl.innerHTML = `☁ <b>${escapeHtml(site)}</b> 저장 완료 (${data.count}개). 이제 팀 전체가 상단 칩으로 바로 접근합니다.`;
-            loadCatalogChips();
-          } else {
-            importStatusEl.textContent = '저장 실패: ' + (data.error || resp.status);
-          }
-        } catch (e) {
-          importStatusEl.textContent = '저장 실패: ' + ((e && e.message) || e);
-        } finally {
-          manualSaveBtn.disabled = false;
-        }
-      });
-
-      // ── 공유 카탈로그(하드차단 사이트, 유저스크립트가 올려둔 것) ─────────
+      // ── 공유 카탈로그(하드차단 사이트, 확장·유저스크립트가 올려둔 것) ─────────
       const cacheRowEl = document.getElementById('cacheRow');
       async function loadCatalogChips() {
         if (!__proxy.url) return;
