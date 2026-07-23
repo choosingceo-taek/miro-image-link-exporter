@@ -38,12 +38,19 @@
 
   // ── 카테고리 추정 ──
   function guessCategory(u, name) {
-    const s = (u + ' ' + name).toLowerCase();
-    if (/dress|원피스/.test(s)) return 'dresses';
-    if (/pant|trouser|jean|denim|바지|팬츠|slack/.test(s)) return 'pants';
-    if (/sweat|hoodie|jumper|맨투맨|후드/.test(s)) return 'sweatshirts';
-    if (/shirt(?!s? ?dress)|blouse|셔츠|블라우스/.test(s)) return 'shirts';
-    if (/coat|jacket|outer|코트|자켓|재킷|아우터/.test(s)) return 'outerwear';
+    const n = ' ' + String(name || '').toLowerCase() + ' ';
+    const url = ' ' + String(u || '').toLowerCase() + ' ';
+    const nHas = (re) => re.test(n);
+    if (nHas(/dress|gown|원피스/) && !nHas(/shirt[-\s]?dress/)) return 'dresses';
+    if (nHas(/shirt|blouse|button[-\s]?down|oxford|셔츠|블라우스|남방/)) return 'shirts';
+    if (nHas(/sweat|hoodie|hoody|jumper|cardigan|knit|sweater|맨투맨|후드|니트|가디건|스웨터/)) return 'sweatshirts';
+    if (nHas(/t[-\s]?shirt|tee|tank|cami|camisole|halter|bodysuit|티셔츠|탑|나시|캐미|홀터/)) return 'tops';
+    if (nHas(/\bpants?\b|trouser|jean|denim|chino|legging|slack|shorts?|바지|팬츠|슬랙스|청바지|쇼츠|반바지/)) return 'pants';
+    if (nHas(/\btop\b/)) return 'tops';
+    if (/dress|원피스/.test(url)) return 'dresses';
+    if (/shirt|blouse|셔츠|블라우스/.test(url)) return 'shirts';
+    if (/sweat|hoodie|knit|cardigan|맨투맨|후드|니트/.test(url)) return 'sweatshirts';
+    if (/[\/=-](pants?|trousers?|jeans?|denim|chinos?|leggings?)[\/=&-]/.test(url) || /바지|팬츠/.test(url)) return 'pants';
     return 'tops';
   }
 

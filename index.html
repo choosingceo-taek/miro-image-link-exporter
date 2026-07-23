@@ -1062,13 +1062,24 @@
       }
 
       // 상품 URL·이름으로 카테고리 추정 (탭 분류용)
+      // 카테고리 추정: 이름(상품명) 우선 + 단어경계 매칭 → URL의 잡음 단어(코디/추천 경로의 'pant' 등)로
+      // 셔츠가 팬츠로 오분류되던 문제 해결. 이름에 단서가 없을 때만 URL을 보조로 사용.
       function guessCat(u, name) {
-        const s = ((u || '') + ' ' + (name || '')).toLowerCase();
-        if (/dress|원피스/.test(s)) return 'dresses';
-        if (/pant|trouser|jean|denim|바지|팬츠|slack/.test(s)) return 'pants';
-        if (/sweat|hoodie|jumper|맨투맨|후드/.test(s)) return 'sweatshirts';
-        if (/t[-\s]?shirt|tee|티셔츠|\btop\b|탑/.test(s)) return 'tops';
-        if (/shirt|blouse|셔츠|블라우스/.test(s)) return 'shirts';
+        const n = ' ' + String(name || '').toLowerCase() + ' ';
+        const url = ' ' + String(u || '').toLowerCase() + ' ';
+        const nHas = (re) => re.test(n);
+        // ① 이름 우선(가장 신뢰)
+        if (nHas(/dress|gown|원피스/) && !nHas(/shirt[-\s]?dress/)) return 'dresses';
+        if (nHas(/shirt|blouse|button[-\s]?down|oxford|셔츠|블라우스|남방/)) return 'shirts';
+        if (nHas(/sweat|hoodie|hoody|jumper|cardigan|knit|sweater|맨투맨|후드|니트|가디건|스웨터/)) return 'sweatshirts';
+        if (nHas(/t[-\s]?shirt|tee|tank|cami|camisole|halter|bodysuit|티셔츠|탑|나시|캐미|홀터/)) return 'tops';
+        if (nHas(/\bpants?\b|trouser|jean|denim|chino|legging|slack|shorts?|바지|팬츠|슬랙스|청바지|쇼츠|반바지/)) return 'pants';
+        if (nHas(/\btop\b/)) return 'tops';
+        // ② 이름에 단서가 없으면 URL 보조(경계 매칭)
+        if (/dress|원피스/.test(url)) return 'dresses';
+        if (/shirt|blouse|셔츠|블라우스/.test(url)) return 'shirts';
+        if (/sweat|hoodie|knit|cardigan|맨투맨|후드|니트/.test(url)) return 'sweatshirts';
+        if (/[\/=-](pants?|trousers?|jeans?|denim|chinos?|leggings?)[\/=&-]/.test(url) || /바지|팬츠/.test(url)) return 'pants';
         return 'tops';
       }
 
@@ -1115,11 +1126,14 @@
           const resp = await fetch(base + '/?catalog=' + encodeURIComponent(site) + tok);
           if (!resp.ok) { importStatusEl.textContent = '저장된 카탈로그가 없습니다.'; return; }
           const data = await resp.json();
-          importItems = (data.items || []).map((p, i) => ({
-            id: 'c' + i, name: p.name || '', category: p.category || 'tops',
-            imageUrl: p.imageUrl, productUrl: p.productUrl, price: p.price || '',
-            brand: data.brand || brand || '', selected: (p.category === 'tops'),
-          })).filter(p => p.imageUrl && p.productUrl);
+          importItems = (data.items || []).map((p, i) => {
+            const cat = guessCat(p.productUrl, p.name);   // 저장된 category 대신 재분류(오분류 교정)
+            return {
+              id: 'c' + i, name: p.name || '', category: cat,
+              imageUrl: p.imageUrl, productUrl: p.productUrl, price: p.price || '',
+              brand: data.brand || brand || '', selected: (cat === 'tops'),
+            };
+          }).filter(p => p.imageUrl && p.productUrl);
           if (!importItems.length) { importStatusEl.textContent = '카탈로그가 비어 있습니다.'; return; }
           importBrand = data.brand || brand || site;
           const upd = data.updated ? new Date(data.updated).toLocaleDateString() : '';
