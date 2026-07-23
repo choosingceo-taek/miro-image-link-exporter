@@ -1,0 +1,2905 @@
+{
+ "updated": "2026-07-23",
+ "count": 136,
+ "brands": [
+  {
+   "name": "Abercrombie & Fitch",
+   "url": "https://www.abercrombie.com/shop/wd",
+   "host": "abercrombie.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav",
+     "https://www.abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+nav"
+    ],
+    "shirts": [
+     "https://www.abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+nav"
+    ],
+    "sweat": [
+     "https://www.abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-left+nav"
+    ],
+    "dress": [
+     "https://www.abercrombie.com/shop/wd/womens-dresses-and-jumpsuits"
+    ],
+    "pants": [
+     "https://www.abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation-left+nav"
+    ]
+   }
+  },
+  {
+   "name": "American Eagle",
+   "url": "https://www.ae.com/intl/en",
+   "host": "ae.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030",
+     "https://www.ae.com/intl/en/c/women/tops/tank-tops-tube-tops/cat380157"
+    ],
+    "shirts": [
+     "https://www.ae.com/intl/en/c/women/tops/shirts-blouses/cat360002"
+    ],
+    "sweat": [
+     "https://www.ae.com/intl/en/c/women/tops/hoodies-sweatshirts/cat90048"
+    ],
+    "dress": [
+     "https://www.ae.com/intl/en/c/women/dresses/cat1320034"
+    ],
+    "pants": [
+     "https://www.ae.com/intl/en/c/women/bottoms/cat10051"
+    ]
+   }
+  },
+  {
+   "name": "Ann Taylor",
+   "url": "https://www.anntaylor.com/",
+   "host": "anntaylor.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.anntaylor.com/clothing/dresses/cata000012/"
+    ],
+    "pants": [
+     "https://www.anntaylor.com/clothing/pants/cata000014/"
+    ]
+   }
+  },
+  {
+   "name": "Apiece Apart",
+   "url": "https://www.apieceapart.com/",
+   "host": "apieceapart.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.apieceapart.com/shop/tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.apieceapart.com/shop/dresses"
+    ],
+    "pants": [
+     "https://www.apieceapart.com/shop/pants"
+    ]
+   }
+  },
+  {
+   "name": "Aritzia",
+   "url": "http://aritzia.com/",
+   "host": "aritzia.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.aritzia.com/us/en/clothing/tops",
+     "https://www.aritzia.com/us/en/clothing/tshirts"
+    ],
+    "shirts": [
+     "https://www.aritzia.com/us/en/clothing/shirts-blouses"
+    ],
+    "sweat": [
+     "https://www.aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74"
+    ],
+    "dress": [
+     "https://www.aritzia.com/us/en/clothing/dresses-3"
+    ],
+    "pants": [
+     "https://www.aritzia.com/us/en/clothing/sweatsuit-sets/sweat-pants"
+    ]
+   }
+  },
+  {
+   "name": "Arket",
+   "url": "https://www.arket.com/",
+   "host": "arket.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.arket.com/en-ww/women/clothing/tops/",
+     "https://www.arket.com/en-ww/women/clothing/tops/t-shirts/"
+    ],
+    "shirts": [
+     "https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/"
+    ],
+    "sweat": [
+     "https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/"
+    ],
+    "dress": [
+     "https://www.arket.com/en-ww/women/clothing/dresses/"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "Banana Republic",
+   "url": "https://bananarepublic.gap.com/",
+   "host": "bananarepublic.gap.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136",
+     "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136"
+    ],
+    "shirts": [
+     "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136"
+    ],
+    "pants": [
+     "https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136"
+    ]
+   }
+  },
+  {
+   "name": "Bassike",
+   "url": "http://intl.bassike.com/",
+   "host": "intl.bassike.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.bassike.com/collections/womens-clothing",
+     "https://www.bassike.com/collections/women-tops-shirts"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.bassike.com/collections/womens-dresses-skirts"
+    ],
+    "pants": [
+     "https://www.bassike.com/collections/womens-pants-shorts"
+    ]
+   }
+  },
+  {
+   "name": "Bellerose",
+   "url": "https://bellerose.com/",
+   "host": "bellerose.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://bellerose.com/collections/women-t-shirts-tops"
+    ],
+    "shirts": [
+     "https://bellerose.com/collections/women-blouses-shirts"
+    ],
+    "sweat": [
+     "https://bellerose.com/collections/women-sweatshirts"
+    ],
+    "dress": [
+     "https://bellerose.com/collections/women-dresses"
+    ],
+    "pants": [
+     "https://bellerose.com/collections/women-trousers?page=2"
+    ]
+   }
+  },
+  {
+   "name": "Damson Madder",
+   "url": "https://damsonmadder.com/",
+   "host": "damsonmadder.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://damsonmadder.com/collections/tops"
+    ],
+    "shirts": [
+     "https://damsonmadder.com/collections/shirts-blouses"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://damsonmadder.com/collections/dresses"
+    ],
+    "pants": [
+     "https://damsonmadder.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Gestuz",
+   "url": "https://www.gestuz.com/en-us",
+   "host": "gestuz.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.gestuz.com/en-us/shop/tops-t-shirts",
+     "https://www.gestuz.com/en-us/shop/blouses"
+    ],
+    "shirts": [
+     "https://www.gestuz.com/en-us/shop/shirts"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.gestuz.com/en-us/shop/dresses"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "H&M",
+   "url": "https://www2.hm.com/en_us/index.html",
+   "host": "www2.hm.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://www2.hm.com/en_us/women/products/tops.html?sort=newProduct"
+    ],
+    "shirts": [
+     "https://www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct"
+    ],
+    "sweat": [
+     "https://www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct"
+    ],
+    "dress": [
+     "https://www2.hm.com/en_us/women/products/dresses.html?sort=newProduct"
+    ],
+    "pants": [
+     "https://www2.hm.com/en_us/women/products/pants.html?sort=newProduct"
+    ]
+   }
+  },
+  {
+   "name": "Jigsaw",
+   "url": "https://www.jigsaw-online.com/",
+   "host": "jigsaw-online.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.jigsaw-online.com/collections/tops",
+     "https://www.jigsaw-online.com/collections/t-shirts"
+    ],
+    "shirts": [
+     "https://www.jigsaw-online.com/collections/shirts-blouses"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.jigsaw-online.com/collections/dresses"
+    ],
+    "pants": [
+     "https://www.jigsaw-online.com/collections/trousers"
+    ]
+   }
+  },
+  {
+   "name": "La Ligne",
+   "url": "https://lalignenyc.com/",
+   "host": "lalignenyc.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://lalignenyc.com/collections/all-tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://lalignenyc.com/collections/dresses"
+    ],
+    "pants": [
+     "https://lalignenyc.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Leset",
+   "url": "https://www.leset.com/",
+   "host": "leset.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://leset.com/collections/t-shirts",
+     "https://leset.com/collections/tank-tops"
+    ],
+    "shirts": [
+     "https://leset.com/collections/tops"
+    ],
+    "sweat": [
+     "https://leset.com/collections/sweat-sets"
+    ],
+    "dress": [
+     "https://leset.com/collections/dresses"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "Mango",
+   "url": "https://shop.mango.com/us/en/h/women",
+   "host": "shop.mango.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://shop.mango.com/us/en/c/women/t-shirts/8e23bdfb",
+     "https://shop.mango.com/us/en/c/women/tops/227371cd"
+    ],
+    "shirts": [
+     "https://shop.mango.com/us/en/c/women/shirts---blouses/b8003173"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705"
+    ],
+    "pants": [
+     "https://shop.mango.com/us/en/c/women/pants/0bf28b3b"
+    ]
+   }
+  },
+  {
+   "name": "Massimo Dutti",
+   "url": "https://www.massimodutti.com/us/",
+   "host": "massimodutti.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518",
+     "https://www.massimodutti.com/us/s/w-tops-n2889"
+    ],
+    "shirts": [
+     "https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374"
+    ],
+    "pants": [
+     "https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376"
+    ]
+   }
+  },
+  {
+   "name": "Ninety Percent",
+   "url": "https://ninetypercent.com/",
+   "host": "ninetypercent.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://ninetypercent.com/collections/tanks-and-t-shirts?sort_by=created-descending",
+     "https://ninetypercent.com/collections/womens-sustainable-t-shirts-and-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://ninetypercent.com/collections/signature-sweats"
+    ],
+    "dress": [
+     "https://ninetypercent.com/collections/dresses"
+    ],
+    "pants": [
+     "https://ninetypercent.com/collections/trousers-shorts"
+    ]
+   }
+  },
+  {
+   "name": "Oak + Fort",
+   "url": "https://ca.oakandfort.com/",
+   "host": "ca.oakandfort.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://oakandfort.ca/collections/tops",
+     "https://oakandfort.ca/collections/womens-tank-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://oakandfort.ca/collections/fleece-studio"
+    ],
+    "dress": [
+     "https://oakandfort.ca/collections/dresses"
+    ],
+    "pants": [
+     "https://oakandfort.ca/collections/womens-pants"
+    ]
+   }
+  },
+  {
+   "name": "Reformation",
+   "url": "https://www.thereformation.com/",
+   "host": "thereformation.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.thereformation.com/tops"
+    ],
+    "shirts": [
+     "https://www.thereformation.com/tops/button-ups"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.thereformation.com/dresses"
+    ],
+    "pants": [
+     "https://www.thereformation.com/clothing/pants"
+    ]
+   }
+  },
+  {
+   "name": "rouje",
+   "url": "https://www.rouje.com/en-int",
+   "host": "rouje.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.rouje.com/en-int/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.rouje.com/en-int/collections/dresses"
+    ],
+    "pants": [
+     "https://www.rouje.com/en-int/collections/pants"
+    ]
+   }
+  },
+  {
+   "name": "Sanctuary",
+   "url": "https://www.sanctuaryclothing.com/",
+   "host": "sanctuaryclothing.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.sanctuaryclothing.com/collections/tees-tanks"
+    ],
+    "shirts": [
+     "https://www.sanctuaryclothing.com/collections/tops"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.sanctuaryclothing.com/collections/dress"
+    ],
+    "pants": [
+     "https://www.sanctuaryclothing.com/collections/pant"
+    ]
+   }
+  },
+  {
+   "name": "Whistles",
+   "url": "https://www.whistles.com/",
+   "host": "whistles.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.whistles.com/us/clothing/tops/"
+    ],
+    "shirts": [
+     "https://www.whistles.com/us/clothing/tops/shirts-blouses/"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.whistles.com/us/clothing/dresses/"
+    ],
+    "pants": [
+     "https://www.whistles.com/us/clothing/pants/"
+    ]
+   }
+  },
+  {
+   "name": "Xirena",
+   "url": "https://www.xirena.com/",
+   "host": "xirena.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.xirena.com/collections/sweats-and-tees"
+    ],
+    "shirts": [
+     "https://www.xirena.com/collections/tops"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.xirena.com/collections/dresses"
+    ],
+    "pants": [
+     "https://www.xirena.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Zara",
+   "url": "https://www.zara.com/us/",
+   "host": "zara.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://www.zara.com/us/en/woman-tshirts-l1362.html?v1=2420417",
+     "https://www.zara.com/us/en/woman-tops-l1322.html?v1=2635766"
+    ],
+    "shirts": [
+     "https://www.zara.com/us/en/woman-shirts-l1217.html?v1=2420369"
+    ],
+    "sweat": [
+     "https://www.zara.com/us/en/woman-sweatshirts-l1320.html?v1=2467841"
+    ],
+    "dress": [
+     "https://www.zara.com/us/en/woman-dresses-l1066.html?v1=2420896"
+    ],
+    "pants": [
+     "https://www.zara.com/us/en/woman-trousers-l1335.html?v1=2420795"
+    ]
+   }
+  },
+  {
+   "name": "Aerie",
+   "url": "https://www.ae.com/us/en/c/aerie/cat4840006?pagetype=clp",
+   "host": "ae.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.ae.com/us/en/c/aerie/tops/hoodies-sweatshirts/cat7030169"
+    ],
+    "dress": [
+     "https://www.ae.com/us/en/c/aerie/apparel/dresses-skirts/cat7350015"
+    ],
+    "pants": [
+     "https://www.ae.com/us/en/c/aerie/clothing-accessories/bottoms/cat4130033"
+    ]
+   }
+  },
+  {
+   "name": "Anthropologie",
+   "url": "https://www.anthropologie.com/",
+   "host": "anthropologie.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.anthropologie.com/tees"
+    ],
+    "shirts": [
+     "https://www.anthropologie.com/tops"
+    ],
+    "sweat": [
+     "https://www.anthropologie.com/tops-sweatshirts"
+    ],
+    "dress": [
+     "https://www.anthropologie.com/dresses"
+    ],
+    "pants": [
+     "https://www.anthropologie.com/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Bash",
+   "url": "https://ba-sh.com/fr/en/",
+   "host": "ba-sh.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ."
+    ],
+    "shirts": [
+     "https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ."
+    ],
+    "sweat": [
+     "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ."
+    ],
+    "dress": [
+     "https://ba-sh.com/fr/en/ready-to-wear/dresses/?_gl=1*15p7q1u*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTYkajQxJGwwJGg1MzYzNDQ3NzQ."
+    ],
+    "pants": [
+     "https://ba-sh.com/fr/en/trousers-jeans/?_gl=1*6jfisz*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MzUkajIyJGwwJGg1MzYzNDQ3NzQ."
+    ]
+   }
+  },
+  {
+   "name": "Cotton on",
+   "url": "https://cottonon.com/US/",
+   "host": "cottonon.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://cottonon.com/US/co/women/women-clothing/womens-tops/"
+    ],
+    "shirts": [
+     "https://cottonon.com/US/co/women/women-clothing/womens-tops/womens-shirts-blouses/"
+    ],
+    "sweat": [
+     "https://cottonon.com/US/co/women/women-clothing/womens-sweats/"
+    ],
+    "dress": [
+     "https://cottonon.com/US/co/women/women-clothing/dresses/"
+    ],
+    "pants": [
+     "https://cottonon.com/US/co/women/women-clothing/womens-pants/"
+    ]
+   }
+  },
+  {
+   "name": "Cotton citizen",
+   "url": "https://cottoncitizen.com/",
+   "host": "cottoncitizen.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://cottoncitizen.com/collections/womens-t-shirts",
+     "https://cottoncitizen.com/collections/women-tanks"
+    ],
+    "shirts": [
+     "https://cottoncitizen.com/collections/women-shirts"
+    ],
+    "sweat": [
+     "https://cottoncitizen.com/collections/womens-loungewear"
+    ],
+    "dress": [
+     "https://cottoncitizen.com/collections/women-dresses"
+    ],
+    "pants": [
+     "https://cottoncitizen.com/collections/womens-trousers"
+    ]
+   }
+  },
+  {
+   "name": "Citizens of Humanity",
+   "url": "https://citizensofhumanity.com/",
+   "host": "citizensofhumanity.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://citizensofhumanity.com/collections/womens-tops?sort_by=created-descending",
+     "https://citizensofhumanity.com/collections/womens-tops?sort_by=created-descending"
+    ],
+    "shirts": [
+     "https://citizensofhumanity.com/collections/womens-tops?sort_by=created-descending"
+    ],
+    "sweat": [
+     "https://citizensofhumanity.com/collections/womens-tops?filter.p.m.custom.product_type=Sweatshirts&sort_by=manual"
+    ],
+    "dress": [
+     "https://citizensofhumanity.com/collections/dresses-jumpsuits"
+    ],
+    "pants": [
+     "https://citizensofhumanity.com/collections/womens-non-denim-pants"
+    ]
+   }
+  },
+  {
+   "name": "Evereve",
+   "url": "https://evereve.com/",
+   "host": "evereve.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://evereve.com/collections/tees-tanks"
+    ],
+    "shirts": [
+     "https://evereve.com/collections/tops"
+    ],
+    "sweat": [
+     "https://evereve.com/collections/sweatshirts"
+    ],
+    "dress": [
+     "https://evereve.com/collections/dresses"
+    ],
+    "pants": [
+     "https://evereve.com/collections/pants"
+    ]
+   }
+  },
+  {
+   "name": "Everlane",
+   "url": "https://www.everlane.com/",
+   "host": "everlane.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.everlane.com/collections/womens-tees"
+    ],
+    "shirts": [
+     "https://www.everlane.com/collections/womens-tops"
+    ],
+    "sweat": [
+     "https://www.everlane.com/collections/womens-active-lounge?__cf_chl_f_tk=Q8ynDAoxucPAizM7arSDV.mQLceg3upiOZNTFTYiI8o-1783305043-1.0.1.1-FOFvg3_ZN5PGMQNjSb0NgEMFfnbPwGVWHNln7PlzLxg"
+    ],
+    "dress": [
+     "https://www.everlane.com/collections/womens-dresses"
+    ],
+    "pants": [
+     "https://www.everlane.com/collections/womens-pants-trousers"
+    ]
+   }
+  },
+  {
+   "name": "Faherty",
+   "url": "https://fahertybrand.com/",
+   "host": "fahertybrand.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://fahertybrand.com/collections/womens-tees-and-tanks"
+    ],
+    "shirts": [
+     "https://fahertybrand.com/collections/womens-shirts-tops"
+    ],
+    "sweat": [
+     "https://fahertybrand.com/collections/womens-lounge"
+    ],
+    "dress": [
+     "https://fahertybrand.com/collections/womens-dresses"
+    ],
+    "pants": [
+     "https://fahertybrand.com/collections/womens-pant-guide"
+    ]
+   }
+  },
+  {
+   "name": "Free People",
+   "url": "https://www.freepeople.com/",
+   "host": "freepeople.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.freepeople.com/tops/"
+    ],
+    "shirts": [
+     "https://www.freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2"
+    ],
+    "sweat": [
+     "https://www.freepeople.com/sweatshirts-pullovers/?vis_nav=4"
+    ],
+    "dress": [
+     "https://www.freepeople.com/dresses/"
+    ],
+    "pants": [
+     "https://www.freepeople.com/pants/"
+    ]
+   }
+  },
+  {
+   "name": "FP Movement",
+   "url": "https://www.freepeople.com/fpmovement/?brand-switch=1&ref=tab",
+   "host": "freepeople.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.freepeople.com/fpmovement/workout-tops/"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.freepeople.com/fpmovement/hoodies-sweatshirts/"
+    ],
+    "dress": [
+     "https://www.freepeople.com/fpmovement/one-pieces/"
+    ],
+    "pants": [
+     "https://www.freepeople.com/fpmovement/workout-bottoms/"
+    ]
+   }
+  },
+  {
+   "name": "Gap",
+   "url": "https://www.gap.com/",
+   "host": "gap.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136"
+    ],
+    "dress": [
+     "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136"
+    ],
+    "pants": [
+     "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS"
+    ]
+   }
+  },
+  {
+   "name": "J crew",
+   "url": "https://www.jcrew.com/",
+   "host": "jcrew.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.jcrew.com/plp/womens/categories/clothing/tees-and-tanks"
+    ],
+    "shirts": [
+     "https://www.jcrew.com/plp/womens/categories/clothing/shirts-and-tops"
+    ],
+    "sweat": [
+     "https://www.jcrew.com/plp/womens/categories/clothing/sweatshirts-and-sweatpants"
+    ],
+    "dress": [
+     "https://www.jcrew.com/plp/womens/categories/clothing/dresses-and-jumpsuits"
+    ],
+    "pants": [
+     "https://www.jcrew.com/plp/womens/categories/clothing/pants"
+    ]
+   }
+  },
+  {
+   "name": "James Perse",
+   "url": "https://www.jamesperse.com/",
+   "host": "jamesperse.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.jamesperse.com/collections/womens-t-shirts",
+     "https://www.jamesperse.com/collections/womens-tanks"
+    ],
+    "shirts": [
+     "https://www.jamesperse.com/collections/womens-tops"
+    ],
+    "sweat": [
+     "https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms"
+    ],
+    "dress": [
+     "https://www.jamesperse.com/collections/womens-dresses-jumpsuits"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "Lilla P",
+   "url": "https://lillap.com/",
+   "host": "lillap.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://lillap.com/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://lillap.com/collections/dresses"
+    ],
+    "pants": [
+     "https://lillap.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "LNA",
+   "url": "https://www.lnaclothing.com/",
+   "host": "lnaclothing.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.lnaclothing.com/collections/tees",
+     "https://www.lnaclothing.com/collections/tanks"
+    ],
+    "shirts": [
+     "https://www.lnaclothing.com/collections/tops"
+    ],
+    "sweat": [
+     "https://www.lnaclothing.com/collections/hoodies-sweatshirts"
+    ],
+    "dress": [
+     "https://www.lnaclothing.com/collections/dresses-rompers"
+    ],
+    "pants": [
+     "https://www.lnaclothing.com/collections/pants-shorts"
+    ]
+   }
+  },
+  {
+   "name": "Joules",
+   "url": "https://www.joules.com/",
+   "host": "joules.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.joules.com/shop/womens/clothing/tops"
+    ],
+    "shirts": [
+     "https://www.joules.com/shop/womens/clothing/shirts-and-blouses"
+    ],
+    "sweat": [
+     "https://www.joules.com/shop/womens/clothing/sweatshirts-and-hoodies"
+    ],
+    "dress": [
+     "https://www.joules.com/shop/womens/clothing/dresses"
+    ],
+    "pants": [
+     "https://www.joules.com/shop/womens/clothing/all-trousers?p=2#1454.34375"
+    ]
+   }
+  },
+  {
+   "name": "Loft",
+   "url": "https://www.loft.com/",
+   "host": "loft.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.loft.com/clothing/tees-tanks/cat2860023/"
+    ],
+    "shirts": [
+     "https://www.loft.com/clothing/tops/catl000011/"
+    ],
+    "sweat": [
+     "https://www.loft.com/lou-grey/lou-grey-shop-all/cat1880002/"
+    ],
+    "dress": [
+     "https://www.loft.com/clothing/dresses/catl000013/"
+    ],
+    "pants": [
+     "https://www.loft.com/clothing/pants/catl000014/"
+    ]
+   }
+  },
+  {
+   "name": "Lucky Brand",
+   "url": "https://www.luckybrand.com/",
+   "host": "luckybrand.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops"
+    ],
+    "shirts": [
+     "https://www.luckybrand.com/women/clothing/shirts/blouses"
+    ],
+    "sweat": [
+     "https://www.luckybrand.com/women/clothing/sweaters"
+    ],
+    "dress": [
+     "https://www.luckybrand.com/women/clothing/dresses"
+    ],
+    "pants": [
+     "https://www.luckybrand.com/women/clothing/pants"
+    ]
+   }
+  },
+  {
+   "name": "Madewell",
+   "url": "https://www.madewell.com/",
+   "host": "madewell.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.madewell.com/kr/womens/clothing/tees/",
+     "https://www.madewell.com/kr/womens/clothing/tops-shirts/"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.madewell.com/kr/womens/clothing/dresses/"
+    ],
+    "pants": [
+     "https://www.madewell.com/kr/womens/clothing/pants/"
+    ]
+   }
+  },
+  {
+   "name": "Marine Layer",
+   "url": "https://www.marinelayer.com/",
+   "host": "marinelayer.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.marinelayer.com/collections/gals-tees-basics"
+    ],
+    "shirts": [
+     "https://www.marinelayer.com/collections/gals-tops-buttondowns"
+    ],
+    "sweat": [
+     "https://www.marinelayer.com/collections/gals-sweatshirts-sweatpants"
+    ],
+    "dress": [
+     "https://www.marinelayer.com/collections/gals-dresses"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "Me+Em",
+   "url": "https://www.meandem.com/",
+   "host": "meandem.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.meandem.com/us/tops/t-shirts"
+    ],
+    "shirts": [
+     "https://www.meandem.com/us/tops"
+    ],
+    "sweat": [
+     "https://www.meandem.com/us/tops/sweatshirts"
+    ],
+    "dress": [
+     "https://www.meandem.com/us/dresses"
+    ],
+    "pants": [
+     "https://www.meandem.com/us/pants"
+    ]
+   }
+  },
+  {
+   "name": "Michael Stars",
+   "url": "https://www.michaelstars.com/",
+   "host": "michaelstars.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.michaelstars.com/collections/tees",
+     "https://www.michaelstars.com/collections/tank"
+    ],
+    "shirts": [
+     "https://www.michaelstars.com/collections/tops"
+    ],
+    "sweat": [
+     "https://www.michaelstars.com/collections/lounge"
+    ],
+    "dress": [
+     "https://www.michaelstars.com/collections/dresses-jumpsuits"
+    ],
+    "pants": [
+     "https://www.michaelstars.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Nation LTD",
+   "url": "https://nationltd.com/",
+   "host": "nationltd.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://nation.la/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://nation.la/collections/sweatshirts"
+    ],
+    "dress": [
+     "https://nation.la/collections/dresses"
+    ],
+    "pants": [
+     "https://nation.la/collections/sweatpants"
+    ]
+   }
+  },
+  {
+   "name": "Old Navy",
+   "url": "https://oldnavy.gap.com/",
+   "host": "oldnavy.gap.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136"
+    ],
+    "shirts": [
+     "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click"
+    ],
+    "sweat": [
+     "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136"
+    ],
+    "dress": [
+     "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits"
+    ],
+    "pants": [
+     "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136"
+    ]
+   }
+  },
+  {
+   "name": "&Other Stories",
+   "url": "https://www.stories.com/en-us/",
+   "host": "stories.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.stories.com/en-us/clothing/tops/"
+    ],
+    "shirts": [
+     "https://www.stories.com/en-us/clothing/blouses-shirts/"
+    ],
+    "sweat": [
+     "https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/"
+    ],
+    "dress": [
+     "https://www.stories.com/en-us/clothing/dresses/"
+    ],
+    "pants": [
+     "https://www.stories.com/en-us/clothing/trousers/"
+    ]
+   }
+  },
+  {
+   "name": "Paige",
+   "url": "https://www.paige.com/",
+   "host": "paige.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://paige.com/collection/women-tees-and-tanks"
+    ],
+    "shirts": [
+     "https://paige.com/collection/women-tops"
+    ],
+    "sweat": [
+     "https://paige.com/collection/women-sweaters-and-sweatshirts"
+    ],
+    "dress": [
+     "https://paige.com/collection/women-dresses"
+    ],
+    "pants": [
+     "https://paige.com/collection/women-pants"
+    ]
+   }
+  },
+  {
+   "name": "Project Social T",
+   "url": "https://www.projectsocialt.com/",
+   "host": "projectsocialt.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.projectsocialt.com/collections/womens-tanks",
+     "https://www.projectsocialt.com/collections/womens-tees",
+     "https://www.projectsocialt.com/collections/womens-long-sleeves"
+    ],
+    "shirts": [
+     "https://www.projectsocialt.com/collections/elevated-tops"
+    ],
+    "sweat": [
+     "https://www.projectsocialt.com/collections/womens-sweatshirts-and-hoodies"
+    ],
+    "dress": [],
+    "pants": [
+     "https://www.projectsocialt.com/collections/womens-pants"
+    ]
+   }
+  },
+  {
+   "name": "Rails",
+   "url": "https://www.rails.com/",
+   "host": "rails.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.rails.com/collections/womens-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.rails.com/collections/womens-tops?filter.p.m.filters.subcategory=Sweatshirts"
+    ],
+    "dress": [
+     "https://www.rails.com/collections/dresses-rompers"
+    ],
+    "pants": [
+     "https://www.rails.com/collections/womens-pants-shorts"
+    ]
+   }
+  },
+  {
+   "name": "Rag & bone",
+   "url": "http://www.rag-bone.com/",
+   "host": "rag-bone.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.rag-bone.com/womens/tshirts/"
+    ],
+    "shirts": [
+     "https://www.rag-bone.com/womens/tops/"
+    ],
+    "sweat": [
+     "https://www.rag-bone.com/womens/sweaters/"
+    ],
+    "dress": [
+     "https://www.rag-bone.com/womens/dresses-skirts/"
+    ],
+    "pants": [
+     "https://www.rag-bone.com/womens/pants/"
+    ]
+   }
+  },
+  {
+   "name": "Sessun",
+   "url": "https://en.sessun.com/",
+   "host": "en.sessun.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://en.sessun.com/catalogue/t-shirts.html"
+    ],
+    "shirts": [
+     "https://en.sessun.com/catalogue/tops-and-bodies.html"
+    ],
+    "sweat": [
+     "https://en.sessun.com/catalogue/sweatshirts.html"
+    ],
+    "dress": [
+     "https://en.sessun.com/catalogue/dresses.html"
+    ],
+    "pants": [
+     "https://en.sessun.com/catalogue/trousers.html"
+    ]
+   }
+  },
+  {
+   "name": "Sezane",
+   "url": "https://www.sezane.com/us",
+   "host": "sezane.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops"
+    ],
+    "dress": [
+     "https://www.sezane.com/us-en/collection/dresses"
+    ],
+    "pants": [
+     "https://www.sezane.com/us-en/collection/bottoms/trousers"
+    ]
+   }
+  },
+  {
+   "name": "Splendid",
+   "url": "https://splendid.com/",
+   "host": "splendid.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://splendid.com/collections/the-tee-shop"
+    ],
+    "shirts": [
+     "https://splendid.com/collections/women-categories-tops"
+    ],
+    "sweat": [
+     "https://splendid.com/collections/women-categories-sweats-sweatshirts"
+    ],
+    "dress": [
+     "https://splendid.com/collections/women-categories-dresses"
+    ],
+    "pants": [
+     "https://splendid.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Stateside",
+   "url": "https://shopstateside.us/",
+   "host": "shopstateside.us",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://shopstateside.us/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://shopstateside.us/collections/sweats"
+    ],
+    "dress": [
+     "https://shopstateside.us/collections/dresses"
+    ],
+    "pants": [
+     "https://shopstateside.us/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Sundry",
+   "url": "https://sundryclothing.com/",
+   "host": "sundryclothing.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://sundryclothing.com/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://sundryclothing.com/collections/sweatshirt"
+    ],
+    "dress": [
+     "https://sundryclothing.com/collections/dresses"
+    ],
+    "pants": [
+     "https://sundryclothing.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Velvet",
+   "url": "https://velvet-tees.com/",
+   "host": "velvet-tees.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://velvet-tees.com/collections/womens-tees",
+     "https://velvet-tees.com/collections/tanks-camis"
+    ],
+    "shirts": [
+     "https://velvet-tees.com/collections/womens-tops"
+    ],
+    "sweat": [
+     "https://velvet-tees.com/collections/hoodies-sweatshirts"
+    ],
+    "dress": [
+     "https://velvet-tees.com/collections/dresses"
+    ],
+    "pants": [
+     "https://velvet-tees.com/collections/pants-shorts"
+    ]
+   }
+  },
+  {
+   "name": "Veronica Beard",
+   "url": "https://veronicabeard.com/",
+   "host": "veronicabeard.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://veronicabeard.com/collections/tops?filter.style=T-Shirts"
+    ],
+    "shirts": [
+     "https://veronicabeard.com/collections/tops"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://veronicabeard.com/collections/dresses"
+    ],
+    "pants": [
+     "https://veronicabeard.com/collections/bottoms-pants"
+    ]
+   }
+  },
+  {
+   "name": "The Great",
+   "url": "https://thisisthegreat.com/",
+   "host": "thisisthegreat.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://thisisthegreat.com/collections/the-great-knits"
+    ],
+    "shirts": [
+     "https://thisisthegreat.com/collections/tops"
+    ],
+    "sweat": [
+     "https://thisisthegreat.com/collections/knit-shop-sweatshirts"
+    ],
+    "dress": [
+     "https://thisisthegreat.com/collections/dresses"
+    ],
+    "pants": [
+     "https://thisisthegreat.com/collections/knit-shop-sweatpants"
+    ]
+   }
+  },
+  {
+   "name": "Z Supply",
+   "url": "https://zsupplyclothing.com/",
+   "host": "zsupplyclothing.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://zsupplyclothing.com/collections/tees-1",
+     "https://zsupplyclothing.com/collections/tanks"
+    ],
+    "shirts": [
+     "https://zsupplyclothing.com/collections/shirts-blouses"
+    ],
+    "sweat": [
+     "https://zsupplyclothing.com/collections/sweatshirts-hoodies-pullovers"
+    ],
+    "dress": [
+     "https://zsupplyclothing.com/collections/dresses"
+    ],
+    "pants": [
+     "https://zsupplyclothing.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Wrap",
+   "url": "https://www.wraplondon.com/",
+   "host": "wraplondon.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.wraplondon.com/subcats/SWAJT/jersey-tops/index.htm"
+    ],
+    "shirts": [
+     "https://www.wraplondon.com/subcats/SWABL/shirts-tops/index.htm"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.wraplondon.com/subcats/SWADRSK/dresses-skirts/index.htm"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "Varley",
+   "url": "https://www.varley.com/",
+   "host": "varley.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.varley.com/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.varley.com/collections/hoodies-and-sweatshirts"
+    ],
+    "dress": [
+     "https://www.varley.com/collections/dresses"
+    ],
+    "pants": [
+     "https://www.varley.com/collections/sweatpants"
+    ]
+   }
+  },
+  {
+   "name": "Athleta",
+   "url": "https://athleta.gap.com/",
+   "host": "athleta.gap.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts"
+    ],
+    "dress": [
+     "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A"
+    ],
+    "pants": [
+     "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A"
+    ]
+   }
+  },
+  {
+   "name": "Greyson",
+   "url": "https://greysonclothiers.com/",
+   "host": "greysonclothiers.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://greysonclothiers.com/collections/womens-t-shirts-tank-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://greysonclothiers.com/collections/womens-hoodies"
+    ],
+    "dress": [
+     "https://greysonclothiers.com/collections/womens-dresses-jumpsuits"
+    ],
+    "pants": [
+     "https://greysonclothiers.com/collections/womens-joggers"
+    ]
+   }
+  },
+  {
+   "name": "Nylora",
+   "url": "https://nylora.com/",
+   "host": "nylora.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://nylora.com/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://nylora.com/collections/sweatshirts-hoodies"
+    ],
+    "dress": [
+     "https://nylora.com/collections/dresses"
+    ],
+    "pants": [
+     "https://nylora.com/collections/bottom"
+    ]
+   }
+  },
+  {
+   "name": "The upside",
+   "url": "https://www.theupside.com/",
+   "host": "theupside.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.theupside.com/shop/tops/"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.theupside.com/shop/all-in-one/"
+    ],
+    "pants": [
+     "https://www.theupside.com/shop/bottoms/"
+    ]
+   }
+  },
+  {
+   "name": "Vuori",
+   "url": "https://vuoriclothing.com/",
+   "host": "vuoriclothing.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://vuoriclothing.com/collections/womens-tanks",
+     "https://vuoriclothing.com/collections/womens-short-sleeve-tops",
+     "https://vuoriclothing.com/collections/womens-long-sleeve-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://vuoriclothing.com/collections/womens-hoodies-and-sweatshirts"
+    ],
+    "dress": [
+     "https://vuoriclothing.com/collections/womens-dresses-jumpsuits"
+    ],
+    "pants": [
+     "https://vuoriclothing.com/collections/womens-joggers"
+    ]
+   }
+  },
+  {
+   "name": "Lululemon",
+   "url": "https://shop.lululemon.com/",
+   "host": "shop.lululemon.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://shop.lululemon.com/c/women-t-shirts/n1wx7w",
+     "https://shop.lululemon.com/c/women-tank-tops/n1uk4w"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6"
+    ],
+    "dress": [
+     "https://shop.lululemon.com/c/women-dresses/n1mk31"
+    ],
+    "pants": [
+     "https://shop.lululemon.com/c/women-sweatpants/n1m8w7"
+    ]
+   }
+  },
+  {
+   "name": "Barbour",
+   "url": "https://www.barbour.com/row/",
+   "host": "barbour.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts"
+    ],
+    "shirts": [
+     "https://www.barbour.com/row/womens/womens-clothing/womens-shirts-blouses"
+    ],
+    "sweat": [
+     "https://www.barbour.com/row/womens/womens-clothing/womens-sweatshirts-hoodies"
+    ],
+    "dress": [
+     "https://www.barbour.com/row/womens/womens-clothing/womens-dresses"
+    ],
+    "pants": [
+     "https://www.barbour.com/row/womens/womens-clothing/womens-trousers"
+    ]
+   }
+  },
+  {
+   "name": "Eddie bauer",
+   "url": "https://www.eddiebauer.com/",
+   "host": "eddiebauer.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.eddiebauer.com/collections/womens-tops-t-shirts?ref=topnav",
+     "https://www.eddiebauer.com/collections/womens-tops-tank-tops?ref=topnav"
+    ],
+    "shirts": [
+     "https://www.eddiebauer.com/collections/womens-tops-shirts?ref=topnav"
+    ],
+    "sweat": [
+     "https://www.eddiebauer.com/collections/womens-tops-sweatshirts-hoodies?ref=topnav"
+    ],
+    "dress": [
+     "https://www.eddiebauer.com/collections/womens-dresses?ref=topnav"
+    ],
+    "pants": [
+     "https://www.eddiebauer.com/collections/womens-bottoms?ref=topnav"
+    ]
+   }
+  },
+  {
+   "name": "L.L bean",
+   "url": "https://global.llbean.com/",
+   "host": "global.llbean.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro"
+    ],
+    "dress": [
+     "https://global.llbean.com/llb/shop/506213/?page=womens-dresses-and-skirts&nav=gnro"
+    ],
+    "pants": [
+     "https://global.llbean.com/llb/shop/622/?page=womens-pants-and-jeans&nav=gnro"
+    ]
+   }
+  },
+  {
+   "name": "Lands end",
+   "url": "https://www.landsend.com/",
+   "host": "landsend.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec"
+    ],
+    "shirts": [
+     "https://www.landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec"
+    ],
+    "sweat": [
+     "https://www.landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0d-xec"
+    ],
+    "dress": [
+     "https://www.landsend.com/shop/womens-dresses/S-xfg-xez-y5c-xec"
+    ],
+    "pants": [
+     "https://www.landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec"
+    ]
+   }
+  },
+  {
+   "name": "Prana",
+   "url": "https://www.prana.com/",
+   "host": "prana.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.prana.com/women/tops.html"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.prana.com/women/tops/sweaters-hoodies.html"
+    ],
+    "dress": [
+     "https://www.prana.com/women/dresses-skirts.html"
+    ],
+    "pants": [
+     "https://www.prana.com/women/bottoms.html"
+    ]
+   }
+  },
+  {
+   "name": "Sweaty betty",
+   "url": "https://www.sweatybetty.com/",
+   "host": "sweatybetty.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.sweatybetty.com/us/shop/tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.sweatybetty.com/us/shop/tops/sweatshirts-and-hoodies"
+    ],
+    "dress": [
+     "https://www.sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits"
+    ],
+    "pants": [
+     "https://www.sweatybetty.com/us/shop/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Splits59",
+   "url": "https://www.splits59.com/?country=US",
+   "host": "splits59.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.splits59.com/collections/tanks-tees"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.splits59.com/collections/sweats-1"
+    ],
+    "dress": [
+     "https://www.splits59.com/collections/dresses-and-skorts"
+    ],
+    "pants": [
+     "https://www.splits59.com/collections/lifestyle-pants"
+    ]
+   }
+  },
+  {
+   "name": "Oysho",
+   "url": "https://www.oysho.com/gb/",
+   "host": "oysho.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+     "https://www.oysho.com/gb/womens-sports-tops-n5484"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.oysho.com/gb/womens-sweatshirts-n4922"
+    ],
+    "dress": [
+     "https://www.oysho.com/gb/dresses-jumpsuits-n4954"
+    ],
+    "pants": [
+     "https://www.oysho.com/gb/womens-pants-n4813"
+    ]
+   }
+  },
+  {
+   "name": "On",
+   "url": "https://www.on.com/en-us/",
+   "host": "on.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.on.com/en-us/shop/womens/apparel/tops-tshirts"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.on.com/en-us/shop/womens/apparel/hoodies-sweatshirts"
+    ],
+    "dress": [
+     "https://www.on.com/en-us/shop/womens/apparel/dresses"
+    ],
+    "pants": [
+     "https://www.on.com/en-us/shop/womens/apparel/pants"
+    ]
+   }
+  },
+  {
+   "name": "Spanx",
+   "url": "https://spanx.com/",
+   "host": "spanx.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://spanx.com/collections/tops?collection_cursor=eyJsYXN0X3ZhbHVlIjoiMyIsImxhc3RfaWQiOjkzNDkwOTg5MzAzODcsIm9mZnNldCI6M30%3D&collection_direction=next"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://spanx.com/collections/airessentials?collection_cursor=eyJsYXN0X3ZhbHVlIjoiMyIsImxhc3RfaWQiOjkzNDkwNzE3MzI5NDcsIm9mZnNldCI6M30%3D&collection_direction=next"
+    ],
+    "dress": [
+     "https://spanx.com/collections/dresses-jumpsuits"
+    ],
+    "pants": [
+     "https://spanx.com/collections/pants?collection_cursor=eyJsYXN0X3ZhbHVlIjoiMyIsImxhc3RfaWQiOjkzNDg2Mjc3NTkzMTUsIm9mZnNldCI6M30%3D&collection_direction=next"
+    ]
+   }
+  },
+  {
+   "name": "Coldwatercreek",
+   "url": "https://www.coldwatercreek.com/",
+   "host": "coldwatercreek.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.coldwatercreek.com/clothing/knit-tops-tees"
+    ],
+    "shirts": [
+     "https://www.coldwatercreek.com/clothing/shirts-blouses"
+    ],
+    "sweat": [
+     "https://www.coldwatercreek.com/clothing/sweatshirts"
+    ],
+    "dress": [
+     "https://www.coldwatercreek.com/clothing/dresses"
+    ],
+    "pants": [
+     "https://www.coldwatercreek.com/clothing/pants-shorts"
+    ]
+   }
+  },
+  {
+   "name": "Ann taylor",
+   "url": "https://www.anntaylor.com/",
+   "host": "anntaylor.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.anntaylor.com/clothing/dresses/cata000012/"
+    ],
+    "pants": [
+     "https://www.anntaylor.com/clothing/pants/cata000014/"
+    ]
+   }
+  },
+  {
+   "name": "Tuckernuck",
+   "url": "https://tnuck.com/",
+   "host": "tnuck.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://tnuck.com/collections/ladies-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://tnuck.com/collections/ladies-matching-sets"
+    ],
+    "dress": [
+     "https://tnuck.com/collections/ladies-dresses"
+    ],
+    "pants": [
+     "https://tnuck.com/collections/ladies-pants"
+    ]
+   }
+  },
+  {
+   "name": "Jager",
+   "url": "https://www.marksandspencer.com/l/brands/jaeger",
+   "host": "marksandspencer.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.marksandspencer.com/l/brands/jaeger/fs5/t-shirts-3?filter=Categories%253DSubCategory_28994397",
+     "https://www.marksandspencer.com/l/brands/jaeger?filter=Categories%253DSubCategory_28994397%7EProduct%2520Type%253DTops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.marksandspencer.com/l/brands/jaeger?filter=Categories%253DSubCategory_28994397%7EProduct%2520Type%253DDresses"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "Monsoon",
+   "url": "https://www.monsoonlondon.com/us/",
+   "host": "monsoonlondon.com",
+   "blocked": false,
+   "categories": {
+    "tops": [],
+    "shirts": [],
+    "sweat": [],
+    "dress": [],
+    "pants": []
+   }
+  },
+  {
+   "name": "Hobbs",
+   "url": "https://www.hobbs.com/us/",
+   "host": "hobbs.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.hobbs.com/us/clothing/tops/"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.hobbs.com/us/clothing/dresses/"
+    ],
+    "pants": [
+     "https://www.hobbs.com/us/clothing/pants/"
+    ]
+   }
+  },
+  {
+   "name": "Chico's",
+   "url": "https://www.chicos.com/store",
+   "host": "chicos.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.chicos.com/store/category/tees-tanks/cat11199293"
+    ],
+    "shirts": [
+     "https://www.chicos.com/store/category/blouses-shirts/cat11199294"
+    ],
+    "sweat": [
+     "https://www.chicos.com/store/category/activewear/cat20059281"
+    ],
+    "dress": [
+     "https://www.chicos.com/store/category/dresses/cat40004"
+    ],
+    "pants": [
+     "https://www.chicos.com/store/category/pants/cat8289646"
+    ]
+   }
+  },
+  {
+   "name": "Garnet hill",
+   "url": "https://www.garnethill.com/",
+   "host": "garnethill.com",
+   "blocked": true,
+   "categories": {
+    "tops": [
+     "https://www.garnethill.com/clothing/categories/tops-tees/"
+    ],
+    "shirts": [
+     "https://www.garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__am__spBlouses?categoryId=191619"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.garnethill.com/clothing/categories/dresses/"
+    ],
+    "pants": [
+     "https://www.garnethill.com/clothing/categories/pants/"
+    ]
+   }
+  },
+  {
+   "name": "Gerard darel",
+   "url": "https://gerarddarel.com/en-us",
+   "host": "gerarddarel.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://gerarddarel.com/en-us/collections/tops-t-shirts"
+    ],
+    "shirts": [
+     "https://gerarddarel.com/en-us/collections/chemises-blouses"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://gerarddarel.com/en-us/collections/robes"
+    ],
+    "pants": [
+     "https://gerarddarel.com/en-us/collections/pantalons-jeans"
+    ]
+   }
+  },
+  {
+   "name": "CCC",
+   "url": "https://www.crewclothing.co.uk/",
+   "host": "crewclothing.co.uk",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.crewclothing.co.uk/womens/clothing/tops-and-tshirts/"
+    ],
+    "shirts": [
+     "https://www.crewclothing.co.uk/womens/clothing/shirts-and-blouses/"
+    ],
+    "sweat": [
+     "https://www.crewclothing.co.uk/womens/clothing/sweatshirts-hoodies/"
+    ],
+    "dress": [
+     "https://www.crewclothing.co.uk/womens/clothing/womens-dresses-and-skirts/dresses/"
+    ],
+    "pants": [
+     "https://www.crewclothing.co.uk/womens/clothing/trousers/"
+    ]
+   }
+  },
+  {
+   "name": "J.jill",
+   "url": "https://www.jjill.com/",
+   "host": "jjill.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.jjill.com/shop/womens-clothing/knit-tops-tees"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.jjill.com/shop/womens-clothing/dresses"
+    ],
+    "pants": [
+     "https://www.jjill.com/shop/womens-clothing/pants-jeans"
+    ]
+   }
+  },
+  {
+   "name": "Boden",
+   "url": "https://us.boden.com/",
+   "host": "us.boden.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://us.boden.com/collections/womens-tops"
+    ],
+    "shirts": [
+     "https://us.boden.com/collections/womens-shirts-blouses"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://us.boden.com/collections/womens-dresses"
+    ],
+    "pants": [
+     "https://us.boden.com/collections/womens-pants"
+    ]
+   }
+  },
+  {
+   "name": "J.mclaughlin",
+   "url": "https://www.jmclaughlin.com/",
+   "host": "jmclaughlin.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.jmclaughlin.com/collections/women-tops-tee"
+    ],
+    "shirts": [
+     "https://www.jmclaughlin.com/collections/women-tops-shirts"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.jmclaughlin.com/collections/women-dresses"
+    ],
+    "pants": [
+     "https://www.jmclaughlin.com/collections/women-pants"
+    ]
+   }
+  },
+  {
+   "name": "vineyardvines",
+   "url": "https://www.vineyardvines.com/",
+   "host": "vineyardvines.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9"
+    ],
+    "shirts": [
+     "https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7"
+    ],
+    "sweat": [
+     "https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3"
+    ],
+    "dress": [
+     "https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2"
+    ],
+    "pants": [
+     "https://www.vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--womens-clothing--8"
+    ]
+   }
+  },
+  {
+   "name": "Oasis",
+   "url": "https://www.oasisfashion.com/",
+   "host": "oasisfashion.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.oasisfashion.com/categories/womens-tops"
+    ],
+    "shirts": [
+     "https://www.oasisfashion.com/categories/womens-tops-shirts-and-blouses"
+    ],
+    "sweat": [
+     "https://www.oasisfashion.com/categories/womens-tops/facet/categoryTaxonomy/Hoodies%20&%20Sweatshirts"
+    ],
+    "dress": [
+     "https://www.oasisfashion.com/categories/womens-dresses"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "Whitestuff",
+   "url": "https://www.whitestuff.com/",
+   "host": "whitestuff.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.whitestuff.com/browse/collection/womens-t-shirts",
+     "https://www.whitestuff.com/browse/womens/tops-and-tees"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.whitestuff.com/browse/womens/dresses"
+    ],
+    "pants": [
+     "https://www.whitestuff.com/browse/womens/trousers-and-leggings"
+    ]
+   }
+  },
+  {
+   "name": "Fatface",
+   "url": "https://www.fatface.com/",
+   "host": "fatface.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.fatface.com/shop/womens/clothing/tops/t-shirts"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.fatface.com/shop/womens/clothing/sweatshirts-and-hoodies"
+    ],
+    "dress": [
+     "https://www.fatface.com/shop/womens/clothing/dresses"
+    ],
+    "pants": [
+     "https://www.fatface.com/shop/womens/clothing/all-trousers"
+    ]
+   }
+  },
+  {
+   "name": "Seasalt cornwall",
+   "url": "https://www.seasaltcornwall.com/",
+   "host": "seasaltcornwall.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.seasaltcornwall.com/clothing/tops"
+    ],
+    "shirts": [
+     "https://www.seasaltcornwall.com/clothing/shirts-blouses"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.seasaltcornwall.com/clothing/dresses"
+    ],
+    "pants": [
+     "https://www.seasaltcornwall.com/clothing/trousers-leggings-cropped"
+    ]
+   }
+  },
+  {
+   "name": "The white company",
+   "url": "https://www.thewhitecompany.com/uk/",
+   "host": "thewhitecompany.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear"
+    ],
+    "dress": [
+     "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics"
+    ],
+    "pants": []
+   }
+  },
+  {
+   "name": "Phase eight",
+   "url": "https://www.phase-eight.com/row/",
+   "host": "phase-eight.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.phase-eight.com/row/clothing/tops/"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.phase-eight.com/row/clothing/dresses/"
+    ],
+    "pants": [
+     "https://www.phase-eight.com/row/clothing/trousers/"
+    ]
+   }
+  },
+  {
+   "name": "Poetry",
+   "url": "https://www.poetryfashion.co.uk/",
+   "host": "poetryfashion.co.uk",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.poetryfashion.co.uk/category-POETT/tshirts-tops/index.htm"
+    ],
+    "shirts": [
+     "https://www.poetryfashion.co.uk/category-POEST/shirts-tunics/index.htm"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.poetryfashion.co.uk/category-POEDS/dresses-skirts/index.htm"
+    ],
+    "pants": [
+     "https://www.poetryfashion.co.uk/category-POETJ/trousers-shorts/index.htm"
+    ]
+   }
+  },
+  {
+   "name": "Mint velvet",
+   "url": "https://mintvelvet.com/",
+   "host": "mintvelvet.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://mintvelvet.com/collections/t-shirts",
+     "https://mintvelvet.com/collections/tops"
+    ],
+    "shirts": [
+     "https://mintvelvet.com/collections/shirts-blouses"
+    ],
+    "sweat": [
+     "https://mintvelvet.com/collections/sweatshirts-hoodies"
+    ],
+    "dress": [
+     "https://mintvelvet.com/collections/dresses"
+    ],
+    "pants": [
+     "https://mintvelvet.com/collections/trousers"
+    ]
+   }
+  },
+  {
+   "name": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store",
+   "host": "whitehouseblackmarket.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
+     "https://www.whitehouseblackmarket.com/store/category/tops/cat210001"
+    ],
+    "shirts": [
+     "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002"
+    ],
+    "pants": [
+     "https://www.whitehouseblackmarket.com/store/category/pants/cat210003"
+    ]
+   }
+  },
+  {
+   "name": "Shopbop",
+   "url": "https://www.shopbop.com/",
+   "host": "shopbop.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.shopbop.com/clothing-tops/br/v=1/13332.htm"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.shopbop.com/clothing-tops/br/v=1/13332.htm?f=MATopsStyle-Sweatshirt"
+    ],
+    "dress": [
+     "https://www.shopbop.com/clothing-dresses/br/v=1/13351.htm"
+    ],
+    "pants": [
+     "https://www.shopbop.com/clothing-pants/br/v=1/13281.htm?f=MAWomensPantsStyle-Sweatpants"
+    ]
+   }
+  },
+  {
+   "name": "Alo",
+   "url": "https://www.aloyoga.com/",
+   "host": "aloyoga.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.aloyoga.com/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.aloyoga.com/collections/womens-sweatshirts-hoodies"
+    ],
+    "dress": [
+     "https://www.aloyoga.com/collections/dresses"
+    ],
+    "pants": [
+     "https://www.aloyoga.com/collections/sweatpants"
+    ]
+   }
+  },
+  {
+   "name": "Theory",
+   "url": "https://www.theory.com/",
+   "host": "theory.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.theory.com/women/t-shirts-and-tanks/"
+    ],
+    "shirts": [
+     "https://www.theory.com/women/tops/"
+    ],
+    "sweat": [
+     "https://www.theory.com/women/loungewear/"
+    ],
+    "dress": [
+     "https://www.theory.com/women/dresses/"
+    ],
+    "pants": [
+     "https://www.theory.com/women/pants/"
+    ]
+   }
+  },
+  {
+   "name": "Club monaco",
+   "url": "https://www.clubmonaco.com/",
+   "host": "clubmonaco.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.clubmonaco.com/collections/womens-shirts-tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.clubmonaco.com/collections/womens-dresses-jumpsuits"
+    ],
+    "pants": [
+     "https://www.clubmonaco.com/collections/womens-pants-denim-jeans"
+    ]
+   }
+  },
+  {
+   "name": "Eileen fisher",
+   "url": "https://www.eileenfisher.com/",
+   "host": "eileenfisher.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.eileenfisher.com/shop/clothing/tops-tees",
+     "https://www.eileenfisher.com/shop/clothing/tanks-camis"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.eileenfisher.com/shop/clothing/dresses-skirts"
+    ],
+    "pants": [
+     "https://www.eileenfisher.com/shop/clothing/pants-jumpsuits"
+    ]
+   }
+  },
+  {
+   "name": "Thread & supply",
+   "url": "https://threadandsupply.com/",
+   "host": "threadandsupply.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://threadandsupply.com/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://threadandsupply.com/collections/pullovers"
+    ],
+    "dress": [
+     "https://threadandsupply.com/collections/dresses-1"
+    ],
+    "pants": [
+     "https://threadandsupply.com/collections/pants"
+    ]
+   }
+  },
+  {
+   "name": "Apieceapart",
+   "url": "https://www.apieceapart.com/",
+   "host": "apieceapart.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.apieceapart.com/shop/tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.apieceapart.com/shop/dresses"
+    ],
+    "pants": [
+     "https://www.apieceapart.com/shop/pants"
+    ]
+   }
+  },
+  {
+   "name": "Monrow",
+   "url": "https://www.monrow.com/",
+   "host": "monrow.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.monrow.com/collections/womens-tops-1"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.monrow.com/collections/womens-sweatshirts-outerwear"
+    ],
+    "dress": [],
+    "pants": [
+     "https://www.monrow.com/collections/womens-bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Frame",
+   "url": "https://frame-store.com/",
+   "host": "frame-store.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://frame-store.com/collections/tanks-tees-women"
+    ],
+    "shirts": [
+     "https://frame-store.com/collections/tops-blouses-women"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://frame-store.com/collections/dresses-women"
+    ],
+    "pants": [
+     "https://frame-store.com/collections/pants-women"
+    ]
+   }
+  },
+  {
+   "name": "Addison bay",
+   "url": "https://addisonbay.com/",
+   "host": "addisonbay.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://addisonbay.com/collections/shop-all-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://addisonbay.com/collections/sweatshirts"
+    ],
+    "dress": [
+     "https://addisonbay.com/collections/dresses"
+    ],
+    "pants": [
+     "https://addisonbay.com/collections/shop-all-bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Wilson",
+   "url": "https://www.wilson.com/en-us/",
+   "host": "wilson.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
+     "https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops",
+     "https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts"
+    ],
+    "dress": [
+     "https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits"
+    ],
+    "pants": [
+     "https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings"
+    ]
+   }
+  },
+  {
+   "name": "Addidas",
+   "url": "https://www.adidas.com/us",
+   "host": "adidas.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.adidas.com/us/women-tops?sort=newest-to-oldest"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.adidas.com/us/women-hoodies_sweatshirts"
+    ],
+    "dress": [
+     "https://www.adidas.com/us/women-skirts_dresses"
+    ],
+    "pants": [
+     "https://www.adidas.com/us/women-pants"
+    ]
+   }
+  },
+  {
+   "name": "Nike",
+   "url": "https://www.nike.com/",
+   "host": "nike.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.nike.com/w/womens-tops-t-shirts-5e1x6z9om13"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.nike.com/w/womens-fleece-4xh6qz5e1x6"
+    ],
+    "dress": [],
+    "pants": [
+     "https://www.nike.com/w/womens-pants-and-tights-2kq19z5e1x6"
+    ]
+   }
+  },
+  {
+   "name": "Beyond yoga",
+   "url": "https://beyondyoga.com/",
+   "host": "beyondyoga.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://beyondyoga.com/collections/tops-shop-all"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://beyondyoga.com/collections/sweatshirts"
+    ],
+    "dress": [
+     "https://beyondyoga.com/collections/shop-all-dresses-skirts-jumpsuits"
+    ],
+    "pants": [
+     "https://beyondyoga.com/collections/bottoms-shop-all"
+    ]
+   }
+  },
+  {
+   "name": "Gymshark",
+   "url": "https://row.gymshark.com/",
+   "host": "row.gymshark.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://row.gymshark.com/collections/t-shirts-tops/womens"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://row.gymshark.com/collections/hoodies/womens"
+    ],
+    "dress": [
+     "https://row.gymshark.com/collections/all-in-one/womens"
+    ],
+    "pants": [
+     "https://row.gymshark.com/collections/bottoms/womens"
+    ]
+   }
+  },
+  {
+   "name": "Frank & Eileen",
+   "url": "https://www.frankandeileen.com/",
+   "host": "frankandeileen.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.frankandeileen.com/collections/tees-tanks"
+    ],
+    "shirts": [
+     "https://www.frankandeileen.com/collections/button-ups"
+    ],
+    "sweat": [
+     "https://www.frankandeileen.com/collections/sweatshirts-capelets"
+    ],
+    "dress": [
+     "https://www.frankandeileen.com/collections/dresses"
+    ],
+    "pants": [
+     "https://www.frankandeileen.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Buck Mason",
+   "url": "https://www.buckmason.com/",
+   "host": "buckmason.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.buckmason.com/collections/womens-tees-and-long-sleeves",
+     "https://www.buckmason.com/collections/womens-tanks",
+     "https://www.buckmason.com/collections/womens-tops-and-shirts"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.buckmason.com/collections/womens-sweats"
+    ],
+    "dress": [
+     "https://www.buckmason.com/collections/womens-dresses"
+    ],
+    "pants": [
+     "https://www.buckmason.com/collections/womens-bottoms"
+    ]
+   }
+  },
+  {
+   "name": "ALC",
+   "url": "https://alcltd.com/",
+   "host": "alcltd.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://alcltd.com/collections/tees-tanks"
+    ],
+    "shirts": [
+     "https://alcltd.com/collections/tops"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://alcltd.com/collections/dresses"
+    ],
+    "pants": [
+     "https://alcltd.com/collections/bottoms-jumpsuits"
+    ]
+   }
+  },
+  {
+   "name": "English factory",
+   "url": "https://shopenglishfactory.com/",
+   "host": "shopenglishfactory.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://shopenglishfactory.com/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://shopenglishfactory.com/collections/dresses"
+    ],
+    "pants": [
+     "https://shopenglishfactory.com/collections/pants"
+    ]
+   }
+  },
+  {
+   "name": "Vanessa bruno",
+   "url": "https://www.vanessabruno.com/",
+   "host": "vanessabruno.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html",
+     "https://www.vanessabruno.com/clothing/shirts-tops/top.html"
+    ],
+    "shirts": [
+     "https://www.vanessabruno.com/clothing/shirts-tops.html"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.vanessabruno.com/clothing/dresses-jumpsuits.html"
+    ],
+    "pants": [
+     "https://www.vanessabruno.com/clothing/trousers.html"
+    ]
+   }
+  },
+  {
+   "name": "Patagonia",
+   "url": "https://www.patagonia.com/home/",
+   "host": "patagonia.com",
+   "blocked": false,
+   "categories": {
+    "tops": [],
+    "shirts": [],
+    "sweat": [],
+    "dress": [],
+    "pants": []
+   }
+  },
+  {
+   "name": "Outdoorvoices",
+   "url": "https://www.outdoorvoices.com/",
+   "host": "outdoorvoices.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.outdoorvoices.com/collections/womens-tops"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.outdoorvoices.com/collections/w-jackets"
+    ],
+    "dress": [
+     "https://www.outdoorvoices.com/collections/dresses"
+    ],
+    "pants": [
+     "https://www.outdoorvoices.com/collections/w-pants"
+    ]
+   }
+  },
+  {
+   "name": "Boldest",
+   "url": "https://www.kolonmall.com/Brands/boldest",
+   "host": "kolonmall.com",
+   "blocked": false,
+   "categories": {
+    "tops": [],
+    "shirts": [],
+    "sweat": [],
+    "dress": [],
+    "pants": []
+   }
+  },
+  {
+   "name": "Dickies",
+   "url": "https://www.dickies.com/",
+   "host": "dickies.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.dickies.com/collections/womens-tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://www.dickies.com/collections/womens-skirts-dresses"
+    ],
+    "pants": [
+     "https://www.dickies.com/collections/womens-pants"
+    ]
+   }
+  },
+  {
+   "name": "Carlhartt",
+   "url": "https://www.carhartt.com/",
+   "host": "carhartt.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.carhartt.com/c/women-tops-tshirt"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.carhartt.com/c/women-hoodies-sweatshirts"
+    ],
+    "dress": [
+     "https://www.carhartt.com/c/women-bibs-overalls"
+    ],
+    "pants": [
+     "https://www.carhartt.com/c/womens-sweatpants"
+    ]
+   }
+  },
+  {
+   "name": "Goldie",
+   "url": "https://www.goldietees.com/",
+   "host": "goldietees.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.goldietees.com/collections/shop-all-whats-new"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://www.goldietees.com/collections/shop-all-lounge"
+    ],
+    "dress": [],
+    "pants": []
+   }
+  },
+  {
+   "name": "Scoth & soda",
+   "url": "https://scotchandsoda.com/",
+   "host": "scotchandsoda.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://scotchandsoda.com/collections/women-clothing-tops-t-shirts"
+    ],
+    "shirts": [
+     "https://scotchandsoda.com/collections/women-clothing-blouses-shirts"
+    ],
+    "sweat": [
+     "https://scotchandsoda.com/collections/women-clothing-hoodies-sweats"
+    ],
+    "dress": [
+     "https://scotchandsoda.com/collections/women-clothing-dresses-skirts"
+    ],
+    "pants": [
+     "https://scotchandsoda.com/collections/women-clothing-pants"
+    ]
+   }
+  },
+  {
+   "name": "Vince",
+   "url": "https://www.vince.com/home",
+   "host": "vince.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.vince.com/women-tees/"
+    ],
+    "shirts": [
+     "https://www.vince.com/women-shirts-tops/"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.vince.com/women-dresses-jumpsuits/"
+    ],
+    "pants": [
+     "https://www.vince.com/women-pants/"
+    ]
+   }
+  },
+  {
+   "name": "Good American",
+   "url": "https://www.goodamerican.com/en-kr",
+   "host": "goodamerican.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://www.goodamerican.com/en-kr/collections/tees-tanks"
+    ],
+    "shirts": [
+     "https://www.goodamerican.com/en-kr/collections/womens-tops"
+    ],
+    "sweat": [],
+    "dress": [
+     "https://www.goodamerican.com/en-kr/collections/dresses"
+    ],
+    "pants": [
+     "https://www.goodamerican.com/en-kr/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Draper James",
+   "url": "https://draperjames.com/",
+   "host": "draperjames.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://draperjames.com/collections/tops"
+    ],
+    "shirts": [],
+    "sweat": [],
+    "dress": [
+     "https://draperjames.com/collections/dresses"
+    ],
+    "pants": [
+     "https://draperjames.com/collections/bottoms"
+    ]
+   }
+  },
+  {
+   "name": "Ulla Johnson",
+   "url": "",
+   "host": "ullajohnson.com",
+   "blocked": false,
+   "categories": {
+    "tops": [
+     "https://ullajohnson.com/collections/tops-9975a1"
+    ],
+    "shirts": [],
+    "sweat": [
+     "https://ullajohnson.com/collections/knits-and-sweatshirts"
+    ],
+    "dress": [
+     "https://ullajohnson.com/collections/dresses-9975a1"
+    ],
+    "pants": [
+     "https://ullajohnson.com/collections/pants-and-jumpsuits"
+    ]
+   }
+  }
+ ]
+}
