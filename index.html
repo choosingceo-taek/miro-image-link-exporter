@@ -679,6 +679,10 @@
       importBrandUrlEl.addEventListener('change', () => {
         try { localStorage.setItem('importBrandUrl', importBrandUrlEl.value.trim()); } catch (e) {}
       });
+      // 검색바에서 Enter로 검색 실행
+      importBrandUrlEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); importFetchBtn.click(); }
+      });
 
       // 브랜드 목록을 서버에서 받아 자동완성(datalist)에 채움.
       async function loadBrandList() {
@@ -889,26 +893,25 @@
       // 브라우저가 남의 도메인 이미지를 miro.createImage에 못 넣을 때(CORS),
       // Render의 /api/image 프록시로 받아 data URL로 변환해 넣는다.
       async function imgToDataUrl(url) {
-        // ① Worker ?img= 프록시(브라우저 UA·referer 위장 — Aritzia류 CDN에 잘 통함)
-        // ② Render /api/image 프록시 순으로 시도.
-        const tries = [];
-        if (__proxy.url) {
-          const base = __proxy.url.replace(/\/+$/, '');
-          tries.push(base + '/?img=' + encodeURIComponent(url) +
-            (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : ''));
-        }
-        if (__render) tries.push(__render + '/api/image?url=' + encodeURIComponent(url));
-        let lastErr = null;
-        for (const u of tries) {
+        // URL 정규화: HTML 엔티티(&amp;) 복원·프로토콜상대(//) 보정 — 이게 프록시 404의 흔한 원인.
+        let u0 = String(url || '').replace(/&amp;/gi, '&').trim();
+        if (u0.startsWith('//')) u0 = 'https:' + u0;
+        // ① Worker ?img= 프록시(UA·referer 위장) ② Render /api/image 순.
+        const attempts = [];
+        if (__proxy.url) attempts.push(['worker', __proxy.url.replace(/\/+$/, '') + '/?img=' +
+          encodeURIComponent(u0) + (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '')]);
+        if (__render) attempts.push(['render', __render + '/api/image?url=' + encodeURIComponent(u0)]);
+        const errs = [];
+        for (const [name, u] of attempts) {
           try {
             const resp = await fetch(u);
-            if (!resp.ok) { lastErr = new Error('image ' + resp.status); continue; }
+            if (!resp.ok) { errs.push(name + ':' + resp.status); continue; }
             const blob = await resp.blob();
-            if (!/^image\//.test(blob.type || '')) { lastErr = new Error('not an image'); continue; }
+            if (!/^image\//.test(blob.type || '')) { errs.push(name + ':not-image(' + (blob.type || '?') + ')'); continue; }
             return await blobToJpegDataUrl(blob, 1200);
-          } catch (e) { lastErr = e; }
+          } catch (e) { errs.push(name + ':' + ((e && e.message) || e)); }
         }
-        throw lastErr || new Error('image proxy failed');
+        throw new Error('프록시 실패 [' + (errs.join(', ') || 'no proxy 설정') + ']');
       }
 
       // 원본이 크거나(수천px) webp/avif면 data URL이 미로 업로드 한도를 넘어 실패할 수 있음 →
@@ -934,11 +937,18 @@
       }
 
       async function createBoardImage(it, props) {
+        // 미로에 URL을 넘기면 "미로 서버"가 그 CDN을 fetch하는데, Aritzia 등은 미로 서버 요청을
+        // 차단해 위젯만 생기고 이미지가 깨짐(경고 토스트). → 브라우저에서 프록시로 바이트를 받아
+        // data URL로 "인라인" 삽입하는 걸 1순위로. 프록시가 실패할 때만 원본 URL로 시도.
+        let proxyErr = null;
+        try {
+          const dataUrl = await imgToDataUrl(it.imageUrl);
+          return await miro.board.createImage({ ...props, url: dataUrl });
+        } catch (e) { proxyErr = e; }
         try {
           return await miro.board.createImage({ ...props, url: it.imageUrl });
-        } catch (e) {
-          const dataUrl = await imgToDataUrl(it.imageUrl);   // CORS/차단 시 프록시 폴백
-          return miro.board.createImage({ ...props, url: dataUrl });
+        } catch (e2) {
+          throw proxyErr || e2;   // 둘 다 실패면 프록시 원인을 보고(진단용)
         }
       }
 
