@@ -276,7 +276,8 @@
           <div class="pop-head"><span>사용법</span><button class="x" id="mrHelpClose" aria-label="닫기">✕</button></div>
           <div class="help-item"><b>🔎 검색</b>검색바에 브랜드 이름을 입력하고 <b style="display:inline">Enter</b>(또는 🔍) → 카테고리 탭에서 신상품을 확인합니다.</div>
           <div class="help-item"><b>🗂 카테고리</b>NEW·TOPS·SWEAT·SHIRTS·DRESSES·PANTS 탭으로 상품을 나눠 봅니다.</div>
-          <div class="help-item"><b>✓ 선택</b>카드를 <b style="display:inline">클릭</b>하면 선택(우상단 체크). 여러 개는 카드 위를 <b style="display:inline">드래그</b>해 한 번에 선택. 카드 위 아이콘 — <b style="display:inline">ALL</b> 이 탭 전체 선택, <b style="display:inline">↺</b> 선택 초기화, <b style="display:inline">⤴</b> 선택한 상품을 보드에 추가. (카드를 보드로 직접 드래그도 가능)</div>
+          <div class="help-item"><b>✓ 선택</b>카드를 <b style="display:inline">클릭</b>하면 선택(우상단 체크). 카드 위 아이콘 — <b style="display:inline">ALL</b> 이 탭 전체 선택, <b style="display:inline">↺</b> 선택 초기화, <b style="display:inline">⤴</b> 선택한 상품을 보드에 추가.</div>
+          <div class="help-item"><b>⤢ 보드로 드래그</b>이미지를 보드로 <b style="display:inline">끌어다 놓으면</b> 커서에 썸네일이 따라오고, 놓은 자리에 이미지가 생성됩니다.</div>
         </div>
       </div>
 
@@ -823,13 +824,13 @@
           const bd = (it.brand || importBrand || '').trim();
           const nm = (it.name || '').trim();
           card.innerHTML =
-            `<img class="miro-draggable" draggable="false" src="${escapeHtml(it.imageUrl)}" alt="" loading="lazy"` +
+            `<img class="miro-draggable" draggable="true" src="${escapeHtml(it.imageUrl)}" alt="" loading="lazy"` +
             ` data-full="${escapeHtml(it.imageUrl)}" data-link="${escapeHtml(it.productUrl)}" data-title="${escapeHtml((it.brand ? it.brand + ' · ' : '') + it.name)}">` +
             `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
             `<div class="cap"><div class="b">${escapeHtml(bd)}</div><div class="n">${escapeHtml(nm) || '(제목 없음)'}</div>` +
             (it.price ? `<div class="p">${escapeHtml(it.price)}</div>` : '') + `</div>`;
           card.addEventListener('click', () => {
-            if (paintMoved) return;
+            if (justDragged) return;   // 보드로 드래그한 직후의 click은 무시
             setCardSel(card, it, !it.selected);
             updateImportToolbar();
           });
@@ -841,34 +842,27 @@
         updateImportToolbar();
       }
 
-      // ── 마우스 드래그로 여러 상품 선택(페인트 선택) ──
-      // 카드 위에서 누른 채 끌면 지나가는 카드를 모두 선택/해제. (이미지 위에서 시작하면
-      // 보드 드래그앤드롭이 우선이므로 밴드선택은 하지 않음.)
-      let painting = false, paintVal = true, paintMoved = false;
-      importGridEl.addEventListener('mousedown', (e) => {
-        // 이미지가 카드 전체를 덮으므로(full-bleed) 이미지 위에서도 페인트선택 시작.
-        // 보드로 드래그는 Miro SDK의 drop 이벤트가 별도 처리(native draggable=false).
-        if (e.target.closest('.fabbtn')) return;  // 원단 버튼은 페인트선택 제외
-        const card = e.target.closest('.imp-card'); if (!card) return;
-        const it = importItems.find(x => String(x.id) === card.dataset.id); if (!it) return;
-        painting = true; paintMoved = false; paintVal = !it.selected;
-        e.preventDefault();
+      // ── 보드로 드래그: 커서에 상품 썸네일이 따라가도록(어디에 놓일지 보이게) ──
+      // 이미지가 카드 전체를 덮으므로(full-bleed) 드래그 = 보드 추가. 다중 선택은 클릭·ALL 사용.
+      let justDragged = false;
+      importGridEl.addEventListener('dragstart', (e) => {
+        const img = e.target.closest('img.miro-draggable');
+        if (!img) { e.preventDefault(); return; }
+        justDragged = true;
+        try {
+          e.dataTransfer.effectAllowed = 'copy';
+          e.dataTransfer.setData('text/uri-list', img.dataset.link || img.src);
+          e.dataTransfer.setData('text/plain', img.dataset.link || img.src);
+          // 커서 중앙에 썸네일이 붙어 따라다니도록.
+          const r = img.getBoundingClientRect();
+          e.dataTransfer.setDragImage(img, r.width / 2, r.height / 2);
+        } catch (_) {}
       });
-      importGridEl.addEventListener('mouseover', (e) => {
-        if (!painting) return;
-        const card = e.target.closest('.imp-card'); if (!card) return;
-        const it = importItems.find(x => String(x.id) === card.dataset.id); if (!it) return;
-        paintMoved = true;
-        setCardSel(card, it, paintVal);
-        updateImportToolbar();
-      });
-      document.addEventListener('mouseup', () => {
-        if (painting) { painting = false; setTimeout(() => { paintMoved = false; }, 0); }
-      });
+      importGridEl.addEventListener('dragend', () => { setTimeout(() => { justDragged = false; }, 0); });
 
       function updateImportToolbar() {
         const total = importItems.filter(it => it.selected).length;
-        importCountEl.textContent = `선택 ${total}`;
+        importCountEl.textContent = `Selected ${total}`;
         if (importExportBtn) importExportBtn.disabled = !total;
       }
 
