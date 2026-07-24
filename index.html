@@ -728,8 +728,8 @@
           `<div style="font-size:12px;color:#888">첫 검색은 서버가 깨어나며 30~60초 걸릴 수 있어요</div></div>`;
 
         try {
-          // 브랜드 1회 스캔 최대 100개(tops45+sweat12+shirts8+dresses15+pants20). NEW는 신상 부분집합.
-          const q = '/api/products?new=20&tops=45&sweatshirts=12&shirts=8&dresses=15&pants=20&url=' +
+          // 각 카테고리마다 최대 100개(tops·pants·dresses … 각각 100).
+          const q = '/api/products?new=100&tops=100&sweatshirts=100&shirts=100&dresses=100&pants=100&url=' +
             encodeURIComponent(brandUrl);
           // 서버 무응답(잠듦/다운) 시 90초에서 포기 — 영원히 "가져오는 중"으로 멈추지 않도록.
           const ctl = new AbortController();
