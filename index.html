@@ -867,8 +867,7 @@
 
       function updateImportToolbar() {
         const total = importItems.filter(it => it.selected).length;
-        const here = visibleItems().filter(it => it.selected).length;
-        importCountEl.textContent = `이 탭 ${here}/${visibleItems().length} · 선택 ${total}`;
+        importCountEl.textContent = `선택 ${total}`;
         if (importExportBtn) importExportBtn.disabled = !total;
       }
 
