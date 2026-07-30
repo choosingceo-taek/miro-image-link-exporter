@@ -263,7 +263,7 @@
       <div class="url-row">
         <button id="importFetch" class="go" title="검색" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
         <input id="importBrandUrl" type="text" list="importBrandList"
-          placeholder="Brand search or URL" />
+          placeholder="Brand, category or URL" />
         <datalist id="importBrandList"></datalist>
       </div>
 
@@ -274,7 +274,7 @@
         <!-- Market Research 사용법 팝오버 -->
         <div class="popover" id="mrHelpModal" style="display:none">
           <div class="pop-head"><span>사용법</span><button class="x" id="mrHelpClose" aria-label="닫기">✕</button></div>
-          <div class="help-item"><b>🔎 검색</b>검색바에 브랜드 이름을 입력하고 <b style="display:inline">Enter</b>(또는 🔍) → 카테고리 탭에서 신상품을 확인합니다.</div>
+          <div class="help-item"><b>🔎 검색</b>검색바에 브랜드 이름을 입력하고 <b style="display:inline">Enter</b>(또는 🔍) → 카테고리 탭에서 신상품을 확인합니다. 목록에서 <b style="display:inline">브랜드 · Pants</b>처럼 카테고리까지 고르면 그 탭이 바로 열립니다.</div>
           <div class="help-item"><b>🗂 카테고리</b>NEW·TOPS·SWEAT·SHIRTS·DRESSES·PANTS 탭으로 상품을 나눠 봅니다.</div>
           <div class="help-item"><b>✓ 선택</b>카드를 <b style="display:inline">클릭</b>하면 선택(우상단 체크). 카드 위 아이콘 — <b style="display:inline">ALL</b> 이 탭 전체 선택, <b style="display:inline">↺</b> 선택 초기화, <b style="display:inline">⤴</b> 선택한 상품을 보드에 추가.</div>
           <div class="help-item"><b>⤢ 보드로 드래그</b>이미지를 보드로 <b style="display:inline">끌어다 놓으면</b> 커서에 썸네일이 따라오고, 놓은 자리에 이미지가 생성됩니다.</div>
@@ -653,8 +653,19 @@
       ];
       let importItems = [];      // 서버가 준 상품들 { id,name,category,imageUrl,productUrl,price,brand,selected }
       let importCat = 'tops';    // 현재 보고 있는 카테고리 탭
+      let wantCat = '';          // 검색바에서 "브랜드 · 카테고리"로 고른 카테고리(있으면 그 탭을 염)
       let importBrand = '';
-      let importBrands = [];     // 서버가 준 브랜드 목록 [{name,url}] — 이름→URL 변환용
+      let importBrands = [];     // 서버가 준 브랜드 목록 [{name,url,categories}] — 이름→URL 변환용
+      const CAT_SEP = ' · ';     // 검색바 "브랜드 · 카테고리" 구분자
+
+      // "Aritzia · Pants" → { text:'Aritzia', cat:'pants' }. 카테고리가 없으면 cat:''.
+      function splitBrandCat(input) {
+        const i = input.lastIndexOf(CAT_SEP);
+        if (i < 0) return { text: input, cat: '' };
+        const tail = input.slice(i + CAT_SEP.length).trim().toLowerCase();
+        const hit = IMPORT_CATS.find(c => c.label.toLowerCase() === tail || c.key === tail);
+        return hit ? { text: input.slice(0, i).trim(), cat: hit.key } : { text: input, cat: '' };
+      }
 
       try { importBrandUrlEl.value = localStorage.getItem('importBrandUrl') || ''; } catch (e) {}
       importBrandUrlEl.addEventListener('change', () => {
@@ -672,9 +683,17 @@
           const resp = await fetch(__render + '/api/brands');
           const data = await resp.json();
           importBrands = (data.brands || []).filter(b => b && b.name && b.url);
-          // datalist 값 = 브랜드 "이름"(사용자가 이름으로 검색·선택) → 아래에서 URL로 변환.
+          // datalist 값 = 브랜드 "이름" + "브랜드 · 카테고리"(그 브랜드가 실제 가진 카테고리만).
+          // 사용자가 검색바에서 카테고리까지 골라 바로 그 탭으로 열 수 있게 함.
           importBrandListEl.innerHTML = importBrands
-            .map(b => `<option value="${escapeHtml(b.name)}"></option>`)
+            .map(b => {
+              const rows = [`<option value="${escapeHtml(b.name)}"></option>`];
+              (b.categories || []).forEach(key => {
+                const label = (IMPORT_CATS.find(c => c.key === key) || {}).label;
+                if (label) rows.push(`<option value="${escapeHtml(b.name + CAT_SEP + label)}"></option>`);
+              });
+              return rows.join('');
+            })
             .join('');
         } catch (e) {}
       }
@@ -689,8 +708,12 @@
       }
 
       importFetchBtn.addEventListener('click', async () => {
-        const typed = (importBrandUrlEl.value || '').trim();
-        if (!typed) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
+        const raw = (importBrandUrlEl.value || '').trim();
+        if (!raw) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
+        // "브랜드 · Pants"처럼 카테고리까지 고른 경우 → 검색 후 그 탭을 바로 연다.
+        const picked = splitBrandCat(raw);
+        const typed = picked.text;
+        wantCat = picked.cat;
 
         // ① 먼저 팀 저장소(수집본)에서 이 브랜드를 찾아 바로 로드.
         //    → 차단 브랜드(Massimo Dutti 등, Render 목록에 없음)도 "검색"만으로 열림.
@@ -774,7 +797,9 @@
           }
           // 중복 방지: 카테고리별 개수는 탭에만 표시. 상태줄은 부분수집일 때만 안내.
           importStatusEl.textContent = '';   // (부분 카탈로그 안내 제거 — 불필요)
-          importCat = catCount('tops') ? 'tops'
+          // 검색바에서 카테고리를 골랐고 그 탭에 상품이 있으면 그 탭을 먼저 연다.
+          importCat = (wantCat && catCount(wantCat)) ? wantCat
+            : catCount('tops') ? 'tops'
             : (IMPORT_CATS.find(c => catCount(c.key) > 0)?.key || 'tops');
           renderImportTabs();
           renderImportGrid();
@@ -1132,7 +1157,8 @@
           const upd = data.updated ? new Date(data.updated).toLocaleDateString() : '';
           importStatusEl.innerHTML = `<b>${escapeHtml(importBrand)}</b> · 저장본 ${importItems.length}개` +
             (upd ? ` <span class="muted">(${upd} 수집)</span>` : '');
-          importCat = catCount('tops') ? 'tops' : (importItems[0] ? importItems[0].category : 'tops');
+          importCat = (wantCat && catCount(wantCat)) ? wantCat
+            : catCount('tops') ? 'tops' : (importItems[0] ? importItems[0].category : 'tops');
           renderImportTabs(); renderImportGrid();
         } catch (e) {
           importStatusEl.textContent = '카탈로그 로드 실패: ' + ((e && e.message) || e);
