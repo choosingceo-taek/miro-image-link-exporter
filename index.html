@@ -303,15 +303,18 @@
         </label>
       </div>
 
-      <!-- 검색 아래 가운데: 사용법 아이콘 (설정은 기본값 내장 → 숨김) -->
+      <!-- 검색 아래 가운데: 시작 · 초기화 · 사용법 -->
       <div class="tool-row" id="mrToolRow">
+        <button class="icobtn" id="mrRunBtn" aria-label="검색 시작" title="선택한 브랜드·카테고리로 검색 시작"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4.5 19 12 6 19.5V4.5Z"/></svg></button>
+        <button class="icobtn" id="mrResetBtn" aria-label="초기화" title="초기화(리셋)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
         <button class="icobtn" id="mrHelpBtn" aria-label="사용법" title="사용법">ⓘ</button>
 
         <!-- Market Research 사용법 팝오버 -->
         <div class="popover" id="mrHelpModal" style="display:none">
           <div class="pop-head"><span>사용법</span><button class="x" id="mrHelpClose" aria-label="닫기">✕</button></div>
           <div class="help-item"><b>🔎 검색</b>검색바에 브랜드 이름이나 URL을 입력하고 <b style="display:inline">Enter</b>(또는 🔍).</div>
-          <div class="help-item"><b>▾ 브랜드 · 카테고리</b>검색바 아래에서 <b style="display:inline">브랜드</b>를 고르면 바로 검색되고, <b style="display:inline">카테고리</b>를 고르면 그 탭이 열립니다. 카테고리 옆 숫자는 검색된 상품 수이고, 0개인 카테고리는 선택되지 않습니다.</div>
+          <div class="help-item"><b>▾ 브랜드 · 카테고리</b>검색바 아래에서 <b style="display:inline">브랜드</b>와 <b style="display:inline">카테고리</b>를 고릅니다. 고르는 것만으로는 검색되지 않고, 아래 <b style="display:inline">▶ 시작</b>을 눌러야 실행됩니다. 카테고리 옆 숫자는 검색된 상품 수이고 0개는 선택되지 않습니다.</div>
+          <div class="help-item"><b>▶ 시작 · ↺ 초기화</b><b style="display:inline">▶</b> 고른 조건으로 검색 실행, <b style="display:inline">↺</b> 결과·선택·검색어를 모두 지우고 처음 상태로.</div>
           <div class="help-item"><b>🗂 카테고리 탭</b>NEW·TOPS·SWEAT·SHIRTS·DRESSES·PANTS 탭으로도 나눠 볼 수 있습니다.</div>
           <div class="help-item"><b>✓ 선택</b>카드를 <b style="display:inline">클릭</b>하면 선택(우상단 체크). 카드 위 아이콘 — <b style="display:inline">ALL</b> 이 탭 전체 선택, <b style="display:inline">↺</b> 선택 초기화, <b style="display:inline">⤴</b> 선택한 상품을 보드에 추가.</div>
           <div class="help-item"><b>⤢ 보드로 드래그</b>이미지를 보드로 <b style="display:inline">끌어다 놓으면</b> 커서에 썸네일이 따라오고, 놓은 자리에 이미지가 생성됩니다.</div>
@@ -762,12 +765,9 @@
         pickCatEl.value = loaded ? importCat : (wantCat || 'tops');
       }
       if (pickBrandEl) {
-        // 브랜드를 고르면 그 브랜드로 바로 검색(선택한 카테고리 탭이 열림).
+        // 고르기만 하고 검색은 ▶(시작) 버튼으로. 검색바 입력값만 맞춰 둔다.
         pickBrandEl.addEventListener('change', () => {
-          const name = pickBrandEl.value;
-          if (!name) return;
-          importBrandUrlEl.value = name;
-          importFetchBtn.click();
+          if (pickBrandEl.value) importBrandUrlEl.value = pickBrandEl.value;
         });
       }
       if (pickCatEl) {
@@ -780,6 +780,32 @@
             renderImportTabs();
             renderImportGrid();
           }
+        });
+      }
+      // ▶ 시작 — 선택(또는 검색바 입력)으로 검색 실행
+      const mrRunBtn = document.getElementById('mrRunBtn');
+      if (mrRunBtn) {
+        mrRunBtn.addEventListener('click', () => {
+          if (pickBrandEl && pickBrandEl.value) importBrandUrlEl.value = pickBrandEl.value;
+          importFetchBtn.click();
+        });
+      }
+      // ↺ 초기화 — 결과·선택·검색어를 모두 지우고 처음 상태로
+      const mrResetBtn = document.getElementById('mrResetBtn');
+      if (mrResetBtn) {
+        mrResetBtn.addEventListener('click', () => {
+          importItems = []; importBrand = ''; importCat = 'tops'; wantCat = '';
+          importBrandUrlEl.value = '';
+          try { localStorage.removeItem('importBrandUrl'); } catch (e) {}
+          if (pickBrandEl) pickBrandEl.value = '';
+          fillCatPicker();
+          importGridEl.innerHTML = '';
+          importGridEl.style.display = 'none';
+          importTabsEl.style.display = 'none';
+          importToolbarEl.style.display = 'none';
+          importAddBtn.style.display = 'none';
+          importStatusEl.textContent = '';
+          importFetchBtn.disabled = false;
         });
       }
 
