@@ -648,6 +648,24 @@ async function fetchPageText(url) {
     }
     if (attempt === 0) await new Promise(res => setTimeout(res, 1200));
   }
+  // 3) 봇 차단(403/429)으로 직접 접근이 막히면 리더 프록시로 한 번 더.
+  //    adidas·ae.com처럼 데이터센터 IP를 통째로 막는 사이트는 이 경로로만 본문을 얻을 수 있다.
+  if (!r) {
+    try {
+      const rr = await fetch('https://r.jina.ai/' + url, { headers: { accept: 'text/plain' } });
+      if (rr.ok) {
+        let md = await rr.text();
+        const title = (md.match(/^Title:\s*(.+)$/m) || [, ''])[1].trim().slice(0, 200);
+        const img = (md.match(/https?:\/\/[^\s)"']+\.(?:jpe?g|png|webp)(?:\?[^\s)"']*)?/i) || [''])[0];
+        md = md.replace(/\s+/g, ' ').trim();
+        if (md.length > 16000) md = md.slice(0, 16000);
+        return { ok: true, text: md, ogImage: img, title, via: 'reader' };
+      }
+      lastErr = 'reader ' + rr.status;
+    } catch (e) {
+      lastErr = 'reader error:' + ((e && e.message) || e);
+    }
+  }
   if (!r) return { ok: false, status: lastErr || 'fetch failed' };
 
   const html = await r.text();

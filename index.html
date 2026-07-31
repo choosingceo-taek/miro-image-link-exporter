@@ -344,7 +344,7 @@
       </div>
       <label style="display:flex;align-items:center;gap:7px;margin:8px 2px 0;font-size:12px;color:#111;cursor:pointer">
         <input type="checkbox" id="detailChk" style="width:15px;height:15px;accent-color:#111">
-        가격 · 색상 · 혼용률 포함 (상품 페이지 분석 — 개당 2~4초 추가)
+        가격 · 색상 · 혼용률 포함 (상품 페이지 분석 — 개당 2~4초 추가, 봇 차단 사이트는 빈칸)
       </label>
 
       <!-- 스캔 결과 검색바 -->
@@ -1620,8 +1620,15 @@
 
         const workbook = new ExcelJS.Workbook();
         const ws = workbook.addWorksheet('링크이미지');
-        // 상세 분석(가격·색상·혼용률)을 돌렸을 때만 해당 열을 추가.
-        const hasDetail = items.some(r => r.fabric || r.price);
+        // 상세 열은 "실제로 값이 하나라도 있을 때만" 추가.
+        // (adidas·ae.com처럼 봇 차단으로 분석이 전부 실패하면 빈 열을 만들지 않는다)
+        const detailOf = (r) => {
+          const f = r.fabric || {};
+          const comp = (f.composition || []).map(x => `${x.material} ${x.percent}%`).join(' / ')
+            || (f.materials || []).join(' / ');
+          return { price: r.price || f.price || '', color: f.color || '', comp };
+        };
+        const hasDetail = items.some(r => { const d = detailOf(r); return d.price || d.color || d.comp; });
         ws.columns = [
           { header: '브랜드', key: 'brand', width: 18 },
           { header: '썸네일', key: 'img', width: 18 },
@@ -1639,12 +1646,10 @@
         let okThumb = 0, thumbFailDiag = '';
         for (let i = 0; i < items.length; i++) {
           const r = items[i], excelRow = i + 2;
-          const f = r.fabric || {};
-          const compStr = (f.composition || []).map(x => `${x.material} ${x.percent}%`).join(' / ')
-            || (f.materials || []).join(' / ');
+          const d = detailOf(r);
           const row = ws.addRow({
             brand: r.brand || brandFromUrl(r.link), img: '', name: r.name || '', link: '',
-            ...(hasDetail ? { price: r.price || f.price || '', color: f.color || '', comp: compStr } : {}),
+            ...(hasDetail ? { price: d.price, color: d.color, comp: d.comp } : {}),
           });
           row.height = 60;
           const c = ws.getCell(`${urlCol}${excelRow}`);   // URL 열
