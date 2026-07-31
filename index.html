@@ -302,6 +302,10 @@
         <button id="basicExport" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 2.5 7.5 12 12.5l9.5-5L12 2.5Z"/><path d="M2.5 12 12 17l9.5-5"/><path d="M2.5 16.5 12 21.5l9.5-5"/></svg></span><span class="lab">Scan All</span></button>
         <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5" stroke-dasharray="3.6 3"/></svg></span><span class="lab">Scan Selected</span></button>
       </div>
+      <label style="display:flex;align-items:center;gap:7px;margin:8px 2px 0;font-size:12px;color:#111;cursor:pointer">
+        <input type="checkbox" id="detailChk" style="width:15px;height:15px;accent-color:#111">
+        가격 · 색상 · 혼용률 포함 (상품 페이지 분석 — 개당 2~4초 추가)
+      </label>
 
       <!-- 스캔 결과 검색바 -->
       <div class="searchbar">
@@ -318,6 +322,7 @@
         <div class="popover" id="helpModal" style="display:none">
           <div class="pop-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
           <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 (브랜드·썸네일·상품명·URL).</div>
+          <div class="help-item"><b>☑ 가격·색상·혼용률</b>체크하고 스캔하면 각 상품 페이지를 분석해 <b style="display:inline">가격·색상·혼용률</b> 열이 엑셀에 추가됩니다 (개당 2~4초).</div>
           <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
           <div class="help-item"><b>↺ 리셋</b>스캔 결과·상태를 지우고 처음으로 되돌립니다.</div>
         </div>
@@ -553,6 +558,9 @@
           await collectRows(selectedOnly);
           if (!rows.length) return;
           await enrichNames();   // URL로만 추정한 이름을 실제 페이지 제목(og:title)으로 보강
+          // 옵션: 상품 페이지를 분석해 가격·색상·혼용률까지 채움 (개당 2~4초).
+          const detailChk = document.getElementById('detailChk');
+          if (detailChk && detailChk.checked && rows.some(r => r.link)) await analyzeAll();
           await buildBasicXlsx();
         } catch (e) {
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
@@ -1250,6 +1258,8 @@
               // URL로만 추정한(또는 빈) 이름은 og:title 보강 대상.
               nameFromUrl: !rec.name && !parsed.name && !!link,
               brand: rec.brand || (link ? brandFromUrl(link) : ''),
+              // 가격: 우리가 넣은 상품이면 기억된 값 → 아니면 제목("… · $128")에서 추출.
+              price: rec.price || parsed.price || '',
             };
           });
 
@@ -1433,9 +1443,12 @@
             image_url: data.image_url || '',
             composition: Array.isArray(data.composition) ? data.composition : [],
             materials: Array.isArray(data.materials) ? data.materials : [],
+            price: data.price || '',
+            color: data.color || '',
             status: data.status || 'error',
             note: data.note || (data.error || ''),
           };
+          if (!r.price && r.fabric.price) r.price = r.fabric.price;   // 페이지에서 찾은 가격으로 보강
           if (r.fabric.status === 'ok' && (r.fabric.composition.length || r.fabric.materials.length)) okc++;
           else failc++;
           done++; update(); renderPreview();
@@ -1461,22 +1474,34 @@
 
         const workbook = new ExcelJS.Workbook();
         const ws = workbook.addWorksheet('링크이미지');
+        // 상세 분석(가격·색상·혼용률)을 돌렸을 때만 해당 열을 추가.
+        const hasDetail = items.some(r => r.fabric || r.price);
         ws.columns = [
           { header: '브랜드', key: 'brand', width: 18 },
           { header: '썸네일', key: 'img', width: 18 },
           { header: '상품명', key: 'name', width: 34 },
+          ...(hasDetail ? [
+            { header: '가격', key: 'price', width: 12 },
+            { header: '색상', key: 'color', width: 14 },
+            { header: '혼용률', key: 'comp', width: 30 },
+          ] : []),
           { header: 'URL', key: 'link', width: 56 },
         ];
         ws.getRow(1).font = { bold: true };
+        const urlCol = hasDetail ? 'G' : 'D';   // URL 열 위치(상세 열 유무에 따라 이동)
 
         let okThumb = 0, thumbFailDiag = '';
         for (let i = 0; i < items.length; i++) {
           const r = items[i], excelRow = i + 2;
+          const f = r.fabric || {};
+          const compStr = (f.composition || []).map(x => `${x.material} ${x.percent}%`).join(' / ')
+            || (f.materials || []).join(' / ');
           const row = ws.addRow({
             brand: r.brand || brandFromUrl(r.link), img: '', name: r.name || '', link: '',
+            ...(hasDetail ? { price: r.price || f.price || '', color: f.color || '', comp: compStr } : {}),
           });
           row.height = 60;
-          const c = ws.getCell(`D${excelRow}`);   // URL = D열
+          const c = ws.getCell(`${urlCol}${excelRow}`);   // URL 열
           c.value = { text: r.link, hyperlink: r.link };
           c.font = { color: { argb: 'FF4262FF' }, underline: true };
           // 썸네일 후보를 순서대로 시도: ① 보드 이미지(캐시 URL 또는 REST 프록시)

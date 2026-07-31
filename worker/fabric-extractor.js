@@ -47,6 +47,8 @@ Respond with ONLY one JSON object — no markdown fences, no prose. Shape:
     { "material": string, "percent": number }   // e.g. {"material":"Cotton","percent":60}
   ],
   "materials": [string],         // distinct material names present, e.g. ["Cotton","Elastane"]
+  "price": string,               // price with currency symbol exactly as stated, e.g. "$128", "₩89,000"; "" if not stated
+  "color": string,               // colorway of THIS product page, e.g. "Black", "Ivory / Navy"; "" if not stated
   "status": "ok" | "no_data" | "blocked",  // no_data = loaded but no composition; blocked = could not access
   "note": string                 // short reason when not "ok"; else ""
 }
@@ -550,6 +552,8 @@ async function extractFabric(url, apiKey) {
           .filter((c) => c.material && !Number.isNaN(c.percent))
       : [],
     materials: Array.isArray(parsed.materials) ? parsed.materials.map(String) : [],
+    price: String(parsed.price || '').slice(0, 40),
+    color: String(parsed.color || '').slice(0, 80),
     status: parsed.status || 'ok',
     note: parsed.note || '',
   };
