@@ -247,6 +247,30 @@
     }
     #pane-import .url-row input:focus { outline: none; }
     #pane-import .url-row input::placeholder { color: var(--muted); letter-spacing: 1px; }
+    /* 검색바 아래 브랜드·카테고리 선택 — 같은 각진 모노톤 무드 */
+    #pane-import .pick-row { display: flex; gap: 6px; margin-top: 15px; }
+    #pane-import .pick {
+      flex: 1; min-width: 0; position: relative; display: flex; align-items: center;
+      border: 1px solid var(--border); background: var(--bg);
+    }
+    #pane-import .pick:focus-within { border-color: var(--text); }
+    #pane-import .pick-lab {
+      position: absolute; left: 9px; top: -6px; padding: 0 4px; background: var(--bg);
+      font-size: 8.5px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted);
+    }
+    #pane-import .pick select {
+      width: 100%; border: none; background: transparent; color: var(--text); cursor: pointer;
+      font-family: inherit; font-size: 11.5px; letter-spacing: .8px; text-transform: uppercase;
+      padding: 10px 24px 10px 11px; appearance: none; -webkit-appearance: none;
+      text-overflow: ellipsis; white-space: nowrap;
+    }
+    #pane-import .pick select:focus { outline: none; }
+    #pane-import .pick select:disabled { color: var(--muted); cursor: default; }
+    #pane-import .pick::after {
+      content: ''; position: absolute; right: 11px; width: 6px; height: 6px; pointer-events: none;
+      border-right: 1.4px solid var(--text); border-bottom: 1.4px solid var(--text);
+      transform: rotate(45deg) translate(-2px, -2px);
+    }
   </style>
 </head>
 <body>
@@ -267,6 +291,18 @@
         <datalist id="importBrandList"></datalist>
       </div>
 
+      <!-- 검색바 아래: 브랜드 · 카테고리 선택 -->
+      <div class="pick-row">
+        <label class="pick">
+          <span class="pick-lab">Brand</span>
+          <select id="pickBrand"><option value="">Loading…</option></select>
+        </label>
+        <label class="pick">
+          <span class="pick-lab">Category</span>
+          <select id="pickCat"></select>
+        </label>
+      </div>
+
       <!-- 검색 아래 가운데: 사용법 아이콘 (설정은 기본값 내장 → 숨김) -->
       <div class="tool-row" id="mrToolRow">
         <button class="icobtn" id="mrHelpBtn" aria-label="사용법" title="사용법">ⓘ</button>
@@ -274,8 +310,9 @@
         <!-- Market Research 사용법 팝오버 -->
         <div class="popover" id="mrHelpModal" style="display:none">
           <div class="pop-head"><span>사용법</span><button class="x" id="mrHelpClose" aria-label="닫기">✕</button></div>
-          <div class="help-item"><b>🔎 검색</b>검색바에 브랜드 이름을 입력하고 <b style="display:inline">Enter</b>(또는 🔍) → 카테고리 탭에서 신상품을 확인합니다. 목록에서 <b style="display:inline">브랜드 · Pants</b>처럼 카테고리까지 고르면 그 탭이 바로 열립니다.</div>
-          <div class="help-item"><b>🗂 카테고리</b>NEW·TOPS·SWEAT·SHIRTS·DRESSES·PANTS 탭으로 상품을 나눠 봅니다.</div>
+          <div class="help-item"><b>🔎 검색</b>검색바에 브랜드 이름이나 URL을 입력하고 <b style="display:inline">Enter</b>(또는 🔍).</div>
+          <div class="help-item"><b>▾ 브랜드 · 카테고리</b>검색바 아래에서 <b style="display:inline">브랜드</b>를 고르면 바로 검색되고, <b style="display:inline">카테고리</b>를 고르면 그 탭이 열립니다. 카테고리 옆 숫자는 검색된 상품 수이고, 0개인 카테고리는 선택되지 않습니다.</div>
+          <div class="help-item"><b>🗂 카테고리 탭</b>NEW·TOPS·SWEAT·SHIRTS·DRESSES·PANTS 탭으로도 나눠 볼 수 있습니다.</div>
           <div class="help-item"><b>✓ 선택</b>카드를 <b style="display:inline">클릭</b>하면 선택(우상단 체크). 카드 위 아이콘 — <b style="display:inline">ALL</b> 이 탭 전체 선택, <b style="display:inline">↺</b> 선택 초기화, <b style="display:inline">⤴</b> 선택한 상품을 보드에 추가.</div>
           <div class="help-item"><b>⤢ 보드로 드래그</b>이미지를 보드로 <b style="display:inline">끌어다 놓으면</b> 커서에 썸네일이 따라오고, 놓은 자리에 이미지가 생성됩니다.</div>
         </div>
@@ -653,6 +690,8 @@
       const importCountEl = document.getElementById('importCount');
       const importSelAllBtn = document.getElementById('importSelAll');
       const importSelNoneBtn = document.getElementById('importSelNone');
+      const pickBrandEl = document.getElementById('pickBrand');
+      const pickCatEl = document.getElementById('pickCat');
 
       const IMPORT_CATS = [
         { key: 'new', label: 'New' }, { key: 'tops', label: 'Tops' },
@@ -691,19 +730,57 @@
           const resp = await fetch(__render + '/api/brands');
           const data = await resp.json();
           importBrands = (data.brands || []).filter(b => b && b.name && b.url);
-          // datalist 값 = 브랜드 "이름" + "브랜드 · 카테고리"(그 브랜드가 실제 가진 카테고리만).
-          // 사용자가 검색바에서 카테고리까지 골라 바로 그 탭으로 열 수 있게 함.
+          // 검색바 자동완성(직접 타이핑용) = 브랜드 이름. 카테고리 선택은 아래 선택 UI에서.
           importBrandListEl.innerHTML = importBrands
-            .map(b => {
-              const rows = [`<option value="${escapeHtml(b.name)}"></option>`];
-              (b.categories || []).forEach(key => {
-                const label = (IMPORT_CATS.find(c => c.key === key) || {}).label;
-                if (label) rows.push(`<option value="${escapeHtml(b.name + CAT_SEP + label)}"></option>`);
-              });
-              return rows.join('');
-            })
+            .map(b => `<option value="${escapeHtml(b.name)}"></option>`)
             .join('');
-        } catch (e) {}
+          fillBrandPicker();
+        } catch (e) {
+          if (pickBrandEl && !importBrands.length) {
+            pickBrandEl.innerHTML = '<option value="">브랜드 목록 불러오기 실패</option>';
+          }
+        }
+      }
+
+      // ── 검색바 아래 브랜드·카테고리 선택 UI ──
+      function fillBrandPicker() {
+        if (!pickBrandEl) return;
+        const cur = pickBrandEl.value;
+        pickBrandEl.innerHTML = '<option value="">브랜드 선택</option>' +
+          importBrands.map(b => `<option value="${escapeHtml(b.name)}">${escapeHtml(b.name)}</option>`).join('');
+        if (cur) pickBrandEl.value = cur;
+      }
+      // 카테고리 옵션: 검색 전에는 전체 목록, 검색 후에는 실제 개수를 붙이고 0개는 비활성.
+      function fillCatPicker() {
+        if (!pickCatEl) return;
+        const loaded = importItems.length > 0;
+        pickCatEl.innerHTML = IMPORT_CATS.map(c => {
+          const n = loaded ? catCount(c.key) : 0;
+          const dis = loaded && !n ? ' disabled' : '';
+          return `<option value="${c.key}"${dis}>${c.label}${loaded ? ` (${n})` : ''}</option>`;
+        }).join('');
+        pickCatEl.value = loaded ? importCat : (wantCat || 'tops');
+      }
+      if (pickBrandEl) {
+        // 브랜드를 고르면 그 브랜드로 바로 검색(선택한 카테고리 탭이 열림).
+        pickBrandEl.addEventListener('change', () => {
+          const name = pickBrandEl.value;
+          if (!name) return;
+          importBrandUrlEl.value = name;
+          importFetchBtn.click();
+        });
+      }
+      if (pickCatEl) {
+        // 이미 결과가 있으면 탭만 전환. 없으면 다음 검색에서 열 카테고리로 기억.
+        pickCatEl.addEventListener('change', () => {
+          const key = pickCatEl.value;
+          wantCat = key;
+          if (importItems.length && catCount(key)) {
+            importCat = key;
+            renderImportTabs();
+            renderImportGrid();
+          }
+        });
       }
 
       function needRender() {
@@ -718,10 +795,15 @@
       importFetchBtn.addEventListener('click', async () => {
         const raw = (importBrandUrlEl.value || '').trim();
         if (!raw) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
-        // "브랜드 · Pants"처럼 카테고리까지 고른 경우 → 검색 후 그 탭을 바로 연다.
+        // "브랜드 · Pants"처럼 카테고리까지 입력한 경우도 지원. 없으면 아래 선택 UI의 카테고리 사용.
         const picked = splitBrandCat(raw);
         const typed = picked.text;
-        wantCat = picked.cat;
+        wantCat = picked.cat || (pickCatEl ? pickCatEl.value : '');
+        // 검색바로 직접 검색한 경우에도 아래 브랜드 선택값을 맞춰준다(목록에 있으면).
+        if (pickBrandEl) {
+          const hit = importBrands.find(b => b.name.toLowerCase() === typed.toLowerCase());
+          pickBrandEl.value = hit ? hit.name : '';
+        }
 
         // ① 먼저 팀 저장소(수집본)에서 이 브랜드를 찾아 바로 로드.
         //    → 차단 브랜드(Massimo Dutti 등, Render 목록에 없음)도 "검색"만으로 열림.
@@ -839,6 +921,7 @@
           importTabsEl.appendChild(b);
         });
         importTabsEl.style.display = 'flex';
+        fillCatPicker();   // 아래 선택 UI의 카테고리 개수·현재값 동기화
       }
 
       function setCardSel(card, it, val) {
@@ -1192,6 +1275,7 @@
         } catch (e) { return null; }
       }
 
+      fillCatPicker();  // 카테고리 선택 기본값(검색 전)
       loadBrandList(); // 설정에 Render 주소가 이미 있으면 브랜드 목록 미리 로드
       loadCatalogChips(); // 저장된(공유) 카탈로그 칩 표시
 
