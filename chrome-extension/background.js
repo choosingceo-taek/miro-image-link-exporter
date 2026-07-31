@@ -22,12 +22,13 @@ async function getCfg() {
 // 대상 = 서버가 못 긁는 브랜드(blocked-brands.json)의 카테고리 URL 전부.
 // 목록을 서버에서 받아오므로 브랜드가 바뀌어도 확장을 다시 배포할 필요가 없음.
 async function getSched() {
-  const s = await chrome.storage.local.get(['schedOn', 'schedHour', 'schedMin', 'visible', 'lastRun']);
+  const s = await chrome.storage.local.get(['schedOn', 'schedHour', 'schedMin', 'visible', 'maxPages', 'lastRun']);
   return {
     schedOn: !!s.schedOn,
     schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 8,   // 기본 08:00
     schedMin: Number.isInteger(s.schedMin) ? s.schedMin : 0,      // 분 단위까지 지정 가능
     visible: s.visible !== false,   // 기본 true — 숨은 탭은 크롬이 타이머를 늦춰 수집률이 떨어짐
+    maxPages: Number.isInteger(s.maxPages) ? s.maxPages : 20,     // 카테고리당 최대 페이지 수
     lastRun: s.lastRun || null,
   };
 }
@@ -183,17 +184,57 @@ async function pageCollector() {
     });
     return items;
   };
-  // 자동 스크롤로 레이지 로딩 강제
-  let last = -1, stable = 0;
-  for (let i = 0; i < 50; i++) {
+  // "더 보기" 류 버튼 찾기(보이는 것만).
+  const findLoadMore = () => {
+    const rx = /load\s*more|show\s*more|see\s*more|view\s*more|더\s*보기|더\s*불러오기|상품\s*더/i;
+    const sel = 'button, a[role="button"], [data-testid*="load" i], [class*="load-more" i], [class*="loadMore" i], [class*="show-more" i]';
+    return [...document.querySelectorAll(sel)].find((el) => {
+      if (el.disabled || el.getAttribute('aria-disabled') === 'true') return false;
+      const r = el.getBoundingClientRect();
+      if (!r.width || !r.height) return false;                  // 숨겨진 것 제외
+      const t = (el.textContent || '') + ' ' + (el.getAttribute('aria-label') || '');
+      return rx.test(t) || /load-?more|show-?more/i.test(String(el.className || ''));
+    });
+  };
+
+  // 다음 페이지 주소(rel=next → 다음/Next 링크 → page 파라미터 증가 순).
+  const findNext = () => {
+    const rel = document.querySelector('link[rel="next"], a[rel="next"]');
+    if (rel && rel.href) return rel.href;
+    const rx = /^\s*(next|다음|next page|›|»|＞|>)\s*$/i;
+    const a = [...document.querySelectorAll('a[href]')].find((x) => {
+      const t = (x.textContent || '').trim();
+      const al = x.getAttribute('aria-label') || '';
+      return (rx.test(t) || rx.test(al)) && !/prev|이전/i.test(t + al);
+    });
+    if (a && a.href) return a.href;
+    try {
+      const u = new URL(location.href);
+      for (const k of ['page', 'pageNumber', 'pageNo', 'p', 'pg']) {
+        if (u.searchParams.has(k)) {
+          const n = parseInt(u.searchParams.get(k), 10);
+          if (Number.isFinite(n)) { u.searchParams.set(k, String(n + 1)); return u.href; }
+        }
+      }
+      // 페이지 파라미터가 없는 첫 페이지면 ?page=2 를 시도(빈 결과면 호출측이 멈춤).
+      u.searchParams.set('page', '2');
+      return u.href;
+    } catch (e) { return ''; }
+  };
+
+  // 스크롤 + "더 보기" 클릭을 상품 수가 늘지 않을 때까지 반복(무한스크롤·버튼형 모두 대응).
+  let stable = 0, lastCount = -1;
+  for (let i = 0; i < 60; i++) {
     window.scrollTo(0, document.documentElement.scrollHeight);
-    await sleep(450);
-    const h = document.documentElement.scrollHeight;
-    if (h === last) { if (++stable >= 3) break; } else { stable = 0; last = h; }
+    await sleep(500);
+    const btn = findLoadMore();
+    if (btn) { try { btn.click(); } catch (e) {} await sleep(1200); }
+    const n = harvest().length;
+    if (n === lastCount) { if (++stable >= (btn ? 4 : 3)) break; } else { stable = 0; lastCount = n; }
   }
   window.scrollTo(0, 0);
   await sleep(250);
-  return harvest();
+  return { items: harvest(), nextUrl: findNext() };
 }
 
 function pushLog(entry) { state.log.unshift(entry); if (state.log.length > 200) state.log.pop(); }
@@ -201,7 +242,7 @@ function pushLog(entry) { state.log.unshift(entry); if (state.log.length > 200) 
 async function collect(urls) {
   if (state.running) return;
   const cfg = await getCfg();
-  const { visible } = await getSched();
+  const { visible, maxPages } = await getSched();
   let okCount = 0, failCount = 0;
   // 표시 모드: 전용 창 하나를 만들어 거기서 탭을 돌린다(사용자 작업창을 건드리지 않음).
   // 숨은 탭은 크롬이 타이머를 늦춰(throttling) 레이지 로딩·봇 챌린지 통과율이 떨어진다.
@@ -222,10 +263,30 @@ async function collect(urls) {
       tab = winId
         ? await chrome.tabs.create({ url, active: true, windowId: winId })
         : await chrome.tabs.create({ url, active: false });
-      await waitForComplete(tab.id, 45000);
-      await sleep(visible ? 2500 : 1800);   // Akamai/JS 챌린지·초기 렌더 여유
-      const inj = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: pageCollector });
-      const items = (inj && inj[0] && inj[0].result) || [];
+      // 카테고리의 모든 페이지를 순회: 같은 탭을 다음 페이지로 이동시키며 누적.
+      // 새 상품이 하나도 안 늘면(같은 페이지 반복/마지막 페이지) 중단.
+      const byUrl = new Map();
+      let pageUrl = url, pages = 0;
+      while (pageUrl && pages < maxPages) {
+        if (pages > 0) {
+          await chrome.tabs.update(tab.id, { url: pageUrl });
+        }
+        await waitForComplete(tab.id, 45000);
+        await sleep(visible ? 2500 : 1800);   // Akamai/JS 챌린지·초기 렌더 여유
+        const inj = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: pageCollector });
+        const res = (inj && inj[0] && inj[0].result) || {};
+        const pageItems = res.items || [];
+        let added = 0;
+        for (const it of pageItems) {
+          if (it && it.productUrl && !byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, it); added++; }
+        }
+        pages++;
+        state.current = url + (pages > 1 ? ` (p${pages})` : '');
+        if (!added) break;                       // 더 이상 새 상품 없음 → 마지막 페이지
+        pageUrl = res.nextUrl && res.nextUrl !== pageUrl ? res.nextUrl : '';
+        if (pageUrl) await sleep(900);           // 페이지 넘김 텀
+      }
+      const items = [...byUrl.values()];
       if (items.length) {
         const site = new URL(url).hostname.replace(/^www\./, '');
         const brand = site.split('.')[0];
@@ -234,7 +295,10 @@ async function collect(urls) {
         });
         const d = await resp.json().catch(() => ({}));
         if (d.ok) okCount++; else failCount++;
-        pushLog({ url, ok: !!d.ok, count: d.ok ? d.count : 0, msg: d.ok ? (d.count + '개 전송') : ('전송실패 ' + (d.error || resp.status)) });
+        pushLog({
+          url, ok: !!d.ok, count: d.ok ? d.count : 0,
+          msg: d.ok ? `${items.length}개 수집(${pages}p) → 전송` : ('전송실패 ' + (d.error || resp.status)),
+        });
       } else {
         failCount++;
         pushLog({ url, ok: false, count: 0, msg: '상품 못 찾음(차단/비목록 페이지?)' });
@@ -265,7 +329,7 @@ async function collectActive() {
   if (!tab || !/^https?:/.test(tab.url || '')) return { ok: false, msg: '현재 탭이 웹페이지가 아닙니다.' };
   try {
     const inj = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: pageCollector });
-    const items = (inj && inj[0] && inj[0].result) || [];
+    const items = ((inj && inj[0] && inj[0].result) || {}).items || [];
     if (!items.length) return { ok: false, msg: '상품을 못 찾았습니다(상품 목록 페이지인지 확인).' };
     const site = new URL(tab.url).hostname.replace(/^www\./, '');
     const brand = site.split('.')[0];
@@ -297,6 +361,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         schedHour: Math.min(Math.max(Number(msg.schedHour) || 0, 0), 23),
         schedMin: Math.min(Math.max(Number(msg.schedMin) || 0, 0), 59),
         visible: msg.visible !== false,
+        maxPages: Math.min(Math.max(Number(msg.maxPages) || 20, 1), 100),
       });
       await applySchedule();
       const a = await chrome.alarms.get(ALARM);

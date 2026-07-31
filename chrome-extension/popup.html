@@ -44,6 +44,11 @@
     <label style="display:flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:11px;color:#666;cursor:pointer;margin-top:8px">
       <input type="checkbox" id="schedVisible" style="width:auto"> 전용 창을 열어 수집(권장 — 숨은 탭은 수집률이 떨어짐)
     </label>
+    <label style="display:flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:11px;color:#666;margin-top:6px">
+      카테고리당 최대 페이지
+      <input type="number" id="maxPages" min="1" max="100" style="width:64px;padding:4px 6px;font-size:11px;border:1px solid #ccc">
+    </label>
+    <p class="hint" style="margin-top:2px">각 카테고리의 <b>모든 페이지</b>를 끝까지 넘기며 수집합니다(더 보기 버튼·무한스크롤 포함). 이 값은 안전 상한이며, 마지막 페이지에 도달하면 자동으로 멈춥니다.</p>
     <div class="row">
       <button id="runNow" class="ghost">지금 전체 실행</button>
     </div>
