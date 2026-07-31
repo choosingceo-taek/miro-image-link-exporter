@@ -109,6 +109,30 @@ export default {
         }, 200, cors);
       }
 
+      // 페이지 HTML 프록시 (GET ?html=<url>) — Render(AWS IP)가 막힌 사이트를
+      // Cloudflare IP로 한 번 더 시도하는 폴백. IP 대역 기반 차단은 이걸로 뚫리기도 함.
+      const htmlUrl = reqUrl.searchParams.get('html');
+      if (htmlUrl) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        try {
+          const u = new URL(htmlUrl);
+          if (!/^https?:$/.test(u.protocol)) return json({ error: 'bad url' }, 400, cors);
+          const r = await fetch(u.href, {
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36',
+              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+              'Accept-Language': 'en-US,en;q=0.9',
+            },
+            redirect: 'follow',
+            cf: { cacheTtl: 0 },
+          });
+          const body = await r.text();
+          return json({ ok: r.ok, status: r.status, finalUrl: r.url, body: body.slice(0, 600_000) }, 200, cors);
+        } catch (e) {
+          return json({ ok: false, status: 0, error: String((e && e.message) || e) }, 200, cors);
+        }
+      }
+
       // Shopify 컬렉션 상품 목록 (GET ?collection=<컬렉션URL>&limit=30)
       // 신상품 가져오기(보드에 채워넣기) 기능이 사용. Shopify 공개 JSON이라 봇 차단이 약함.
       const collection = reqUrl.searchParams.get('collection');
