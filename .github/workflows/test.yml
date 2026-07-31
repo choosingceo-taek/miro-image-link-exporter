@@ -1,0 +1,23 @@
+name: Category classifier tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run category regression tests
+        run: node scripts/test-category.mjs
+      - name: Syntax check panel/extension/userscript
+        run: |
+          node --check chrome-extension/background.js
+          node --check chrome-extension/popup.js
+          node --check rack-harvester.user.js
+          node --check worker/fabric-extractor.js

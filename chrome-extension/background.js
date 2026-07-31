@@ -121,14 +121,14 @@ async function pageCollector() {
     const n = ' ' + String(name || '').toLowerCase() + ' ';
     const url = ' ' + String(u || '').toLowerCase() + ' ';
     const nHas = (re) => re.test(n);
-    if (nHas(/dress|gown|원피스/) && !nHas(/shirt[-\s]?dress/)) return 'dresses';
-    if (nHas(/pants?\b|trouser|jeans?\b|denim|chino|legging|jogger|slack|\bshorts\b|culotte|capri|바지|팬츠|슬랙스|청바지|쇼츠|반바지|레깅스|조거/)) return 'pants';
-    if (nHas(/sweat|hoodie|hoody|jumper|cardigan|knit|sweater|맨투맨|후드|니트|가디건|스웨터/)) return 'sweatshirts';
+    if (nHas(/dress|gown|jumpsuit|romper|원피스|점프수트/) && !nHas(/(?<!t[-\s])shirt[-\s]?dress/)) return 'dresses';
+    if (nHas(/pants?\b|trouser|chino|legging|jogger|slack|culotte|capri|skorts?\b|skirts?\b|\bshorts\b|바지|팬츠|슬랙스|청바지|쇼츠|반바지|레깅스|조거|스커트|치마/) || nHas(/\b(?:jeans?|denim)\b(?!\s?(?:jacket|shirt|blouse|dress|skirt|vest|coat|top))/)) return 'pants';
+    if (nHas(/sweat|hoodie|hoody|jumper|cardigan|knit(?!\s?(?:tank|tee|cami|top))|sweater|맨투맨|후드|니트|가디건|스웨터/)) return 'sweatshirts';
     if (nHas(/t[-\s]?shirt|tees?\b|tank|cami|camisole|halter|bodysuit|crop\s*top|티셔츠|나시|캐미|홀터/)) return 'tops';
     if (nHas(/shirt|blouse|button[-\s]?down|oxford|셔츠|블라우스|남방/)) return 'shirts';
     if (nHas(/\btop\b|탑/)) return 'tops';
     if (/dress|원피스/.test(url)) return 'dresses';
-    if (/pants?[\/_-]|trouser|jeans?[\/_-]|denim|chino|legging|jogger|shorts[\/_-]|바지|팬츠/.test(url)) return 'pants';
+    if (/pants?\b|trouser|jeans?\b|denim|chino|legging|jogger|shorts?\b|skirts?\b|skorts?\b|바지|팬츠/.test(url)) return 'pants';
     if (/sweat|hoodie|knit|cardigan|맨투맨|후드|니트/.test(url)) return 'sweatshirts';
     if (/shirt|blouse|셔츠|블라우스/.test(url)) return 'shirts';
     return 'tops';
