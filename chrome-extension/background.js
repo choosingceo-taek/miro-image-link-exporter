@@ -77,8 +77,26 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
   }
 });
 
+// 따라잡기: 예약 시각에 크롬이 꺼져 있었어도, 크롬을 켜면 "오늘 아직 안 돌았고
+// 예약 시각이 지났으면" 즉시 1회 수집. (출근 후 크롬만 켜면 자동 실행되는 핵심)
+async function maybeCatchUp() {
+  const { schedOn, schedHour, lastRun } = await getSched();
+  if (!schedOn || state.running) return;
+  const now = new Date();
+  const todayAt = new Date(now);
+  todayAt.setHours(schedHour, 0, 0, 0);
+  const ranToday = lastRun && lastRun.when &&
+    new Date(lastRun.when).toDateString() === now.toDateString();
+  if (now >= todayAt && !ranToday) {
+    try {
+      const urls = await buildTargets();
+      if (urls.length) collect(urls);
+    } catch (e) {}
+  }
+}
+
 chrome.runtime.onInstalled.addListener(applySchedule);
-chrome.runtime.onStartup.addListener(applySchedule);
+chrome.runtime.onStartup.addListener(() => { applySchedule(); maybeCatchUp(); });
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
