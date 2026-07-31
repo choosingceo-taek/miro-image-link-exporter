@@ -51,7 +51,19 @@
     <p class="hint" style="margin-top:2px">각 카테고리의 <b>모든 페이지</b>를 끝까지 넘기며 수집합니다(더 보기 버튼·무한스크롤 포함). 이 값은 안전 상한이며, 마지막 페이지에 도달하면 자동으로 멈춥니다.</p>
     <div class="row">
       <button id="runNow" class="ghost">지금 전체 실행</button>
+      <button id="runStop" class="ghost" style="flex:0 0 72px" disabled>중지</button>
     </div>
+
+    <!-- 진행 상황: 게이지 + 남은 시간 -->
+    <div id="runProg" style="display:none;margin-top:10px">
+      <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700">
+        <span id="runPct">0%</span><span id="runCount">0 / 0</span>
+      </div>
+      <div class="bar" style="height:8px"><i id="runBar"></i></div>
+      <div id="runEta" style="font-size:11px;color:#666;margin-top:3px"></div>
+      <div id="runNow2" style="font-size:10.5px;color:#999;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+    </div>
+
     <div id="schedInfo" class="hint"></div>
   </div>
 

@@ -7,7 +7,7 @@ const DEFAULT_TOKEN = 'hsfabriclinker';
 const DEFAULT_RENDER = 'https://market-research-uzs2.onrender.com';
 const ALARM = 'rackDailyScan';
 
-let state = { running: false, done: 0, total: 0, current: '', log: [] };
+let state = { running: false, done: 0, total: 0, current: '', log: [], startedAt: 0, items: 0 };
 
 async function getCfg() {
   const s = await chrome.storage.local.get(['worker', 'token', 'render']);
@@ -253,7 +253,7 @@ async function collect(urls) {
       winId = w.id;
     } catch (e) {}
   }
-  state = { running: true, done: 0, total: urls.length, current: '', log: [] };
+  state = { running: true, done: 0, total: urls.length, current: '', log: [], startedAt: Date.now(), items: 0 };
   for (let i = 0; i < urls.length; i++) {
     if (!state.running) break;
     const url = urls[i];
