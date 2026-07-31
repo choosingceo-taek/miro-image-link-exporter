@@ -32,6 +32,24 @@
   <p class="hint">지금 <b>보고 있는 상품 목록 페이지</b>를 그대로 수집합니다. Zara·H&M·Massimo Dutti 등 차단 사이트도 이 방법이 <b>가장 확실</b>합니다.</p>
   <div id="hereResult" class="prog" style="display:none"></div>
 
+  <div style="margin-top:16px;border-top:1px solid #eee;padding-top:12px">
+    <label style="margin-top:0">매일 자동 수집</label>
+    <p class="hint" style="margin-top:0">서버가 못 긁는 <b>차단 브랜드 전체</b>(목록은 서버에서 자동 동기화)를 매일 정해진 시간에 방문·수집합니다. <b>PC가 켜져 있고 크롬이 실행 중</b>일 때만 동작합니다.</p>
+    <div class="row" style="align-items:center;gap:8px">
+      <label style="flex:0 0 auto;margin:0;display:flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:12px;cursor:pointer">
+        <input type="checkbox" id="schedOn" style="width:auto;padding:0"> 켜기
+      </label>
+      <select id="schedHour" style="flex:1;padding:8px;font-size:12px;border:1px solid #ccc;font-family:inherit"></select>
+    </div>
+    <label style="display:flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:11px;color:#666;cursor:pointer;margin-top:8px">
+      <input type="checkbox" id="schedVisible" style="width:auto"> 전용 창을 열어 수집(권장 — 숨은 탭은 수집률이 떨어짐)
+    </label>
+    <div class="row">
+      <button id="runNow" class="ghost">지금 전체 실행</button>
+    </div>
+    <div id="schedInfo" class="hint"></div>
+  </div>
+
   <details style="margin-top:14px">
     <summary>여러 URL 한꺼번에 (백그라운드 방문 — 무거운 사이트는 불안정할 수 있음)</summary>
   <label for="urls">브랜드/카테고리 URL (한 줄에 하나)</label>

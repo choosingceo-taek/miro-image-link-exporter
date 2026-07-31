@@ -60,9 +60,64 @@ function poll() {
   });
 }
 
+// ── 매일 자동 수집 ──────────────────────────────────────────────
+for (let h = 0; h < 24; h++) {
+  const o = document.createElement('option');
+  o.value = String(h);
+  o.textContent = `매일 ${String(h).padStart(2, '0')}:00`;
+  $('schedHour').appendChild(o);
+}
+function fmtWhen(ms) {
+  if (!ms) return '';
+  const d = new Date(ms);
+  return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+}
+function renderSched(s) {
+  if (!s) return;
+  $('schedOn').checked = !!s.schedOn;
+  $('schedHour').value = String(s.schedHour);
+  $('schedVisible').checked = s.visible !== false;
+  const parts = [];
+  if (s.schedOn && s.nextRun) parts.push(`다음 실행 ${fmtWhen(s.nextRun)}`);
+  else if (!s.schedOn) parts.push('자동 수집 꺼짐');
+  if (s.lastRun) {
+    const r = s.lastRun;
+    parts.push(r.error
+      ? `지난 실행 ${fmtWhen(r.when)} — 오류: ${r.error}`
+      : `지난 실행 ${fmtWhen(r.when)} — 성공 ${r.ok}/${r.total}`);
+  }
+  $('schedInfo').textContent = parts.join(' · ');
+}
+async function saveSched() {
+  const r = await send({
+    type: 'setSched',
+    schedOn: $('schedOn').checked,
+    schedHour: Number($('schedHour').value),
+    visible: $('schedVisible').checked,
+  });
+  const s = await send({ type: 'getSched' });
+  renderSched(s);
+  return r;
+}
+['schedOn', 'schedHour', 'schedVisible'].forEach((id) => $(id).addEventListener('change', saveSched));
+$('runNow').addEventListener('click', async () => {
+  $('runNow').disabled = true;
+  $('schedInfo').textContent = '대상 목록을 불러오는 중…';
+  const r = await send({ type: 'runNow' });
+  if (r && r.ok) {
+    $('prog').style.display = 'block';
+    $('schedInfo').textContent = `${r.total}개 페이지 수집 시작 — 아래 진행상황 참고`;
+    poll();
+  } else {
+    $('schedInfo').textContent = '⚠ ' + ((r && r.msg) || '실행 실패');
+  }
+  $('runNow').disabled = false;
+});
+
 function hostOf(u) { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } }
 function shorten(u) { const h = hostOf(u); return h.length > 22 ? h.slice(0, 22) + '…' : h; }
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
 loadCfg();
+send({ type: 'getSched' }).then(renderSched);
 poll();   // 팝업 다시 열어도 진행상황 이어서 표시

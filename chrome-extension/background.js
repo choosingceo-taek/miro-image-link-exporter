@@ -4,16 +4,81 @@
 
 const DEFAULT_WORKER = 'https://fabric-extractor.hs-fabric-linker.workers.dev';
 const DEFAULT_TOKEN = 'hsfabriclinker';
+const DEFAULT_RENDER = 'https://market-research-uzs2.onrender.com';
+const ALARM = 'rackDailyScan';
 
 let state = { running: false, done: 0, total: 0, current: '', log: [] };
 
 async function getCfg() {
-  const s = await chrome.storage.local.get(['worker', 'token']);
+  const s = await chrome.storage.local.get(['worker', 'token', 'render']);
   return {
     worker: String(s.worker || DEFAULT_WORKER).replace(/\/+$/, ''),
     token: s.token !== undefined ? String(s.token) : DEFAULT_TOKEN,
+    render: String(s.render || DEFAULT_RENDER).replace(/\/+$/, ''),
   };
 }
+
+// ── 매일 자동 수집(스케줄) ───────────────────────────────────────────
+// 대상 = 서버가 못 긁는 브랜드(blocked-brands.json)의 카테고리 URL 전부.
+// 목록을 서버에서 받아오므로 브랜드가 바뀌어도 확장을 다시 배포할 필요가 없음.
+async function getSched() {
+  const s = await chrome.storage.local.get(['schedOn', 'schedHour', 'visible', 'lastRun']);
+  return {
+    schedOn: !!s.schedOn,
+    schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 4,   // 기본 새벽 4시
+    visible: s.visible !== false,   // 기본 true — 숨은 탭은 크롬이 타이머를 늦춰 수집률이 떨어짐
+    lastRun: s.lastRun || null,
+  };
+}
+
+function nextRunAt(hour) {
+  const now = new Date();
+  const at = new Date(now);
+  at.setHours(hour, 0, 0, 0);
+  if (at <= now) at.setDate(at.getDate() + 1);
+  return at.getTime();
+}
+
+async function applySchedule() {
+  const { schedOn, schedHour } = await getSched();
+  await chrome.alarms.clear(ALARM);
+  if (schedOn) {
+    chrome.alarms.create(ALARM, { when: nextRunAt(schedHour), periodInMinutes: 1440 });
+  }
+}
+
+// 서버에서 차단 브랜드 목록 + 카테고리 링크를 받아 방문할 URL 목록을 만든다.
+async function buildTargets() {
+  const cfg = await getCfg();
+  const [blocked, links] = await Promise.all([
+    fetch(cfg.render + '/blocked-brands.json').then((r) => r.json()),
+    fetch(cfg.render + '/category-links.json').then((r) => r.json()),
+  ]);
+  const names = (blocked && blocked.brands) || [];
+  const urls = [];
+  for (const name of names) {
+    const c = links[name] || {};
+    for (const key of ['tops', 'sweatshirts', 'shirts', 'dresses', 'pants']) {
+      for (const u of c[key] || []) if (/^https?:\/\//i.test(u)) urls.push(u);
+    }
+  }
+  return [...new Set(urls)];
+}
+
+chrome.alarms.onAlarm.addListener(async (alarm) => {
+  if (alarm.name !== ALARM) return;
+  try {
+    const urls = await buildTargets();
+    if (urls.length) await collect(urls);
+  } catch (e) {
+    await chrome.storage.local.set({
+      lastRun: { when: Date.now(), ok: 0, fail: 0, total: 0, error: String((e && e.message) || e) },
+    });
+  }
+});
+
+chrome.runtime.onInstalled.addListener(applySchedule);
+chrome.runtime.onStartup.addListener(applySchedule);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -117,6 +182,17 @@ function pushLog(entry) { state.log.unshift(entry); if (state.log.length > 200) 
 async function collect(urls) {
   if (state.running) return;
   const cfg = await getCfg();
+  const { visible } = await getSched();
+  let okCount = 0, failCount = 0;
+  // 표시 모드: 전용 창 하나를 만들어 거기서 탭을 돌린다(사용자 작업창을 건드리지 않음).
+  // 숨은 탭은 크롬이 타이머를 늦춰(throttling) 레이지 로딩·봇 챌린지 통과율이 떨어진다.
+  let winId = null;
+  if (visible) {
+    try {
+      const w = await chrome.windows.create({ url: 'about:blank', focused: true, width: 1280, height: 900 });
+      winId = w.id;
+    } catch (e) {}
+  }
   state = { running: true, done: 0, total: urls.length, current: '', log: [] };
   for (let i = 0; i < urls.length; i++) {
     if (!state.running) break;
@@ -124,9 +200,11 @@ async function collect(urls) {
     state.current = url;
     let tab = null;
     try {
-      tab = await chrome.tabs.create({ url, active: false });
+      tab = winId
+        ? await chrome.tabs.create({ url, active: true, windowId: winId })
+        : await chrome.tabs.create({ url, active: false });
       await waitForComplete(tab.id, 45000);
-      await sleep(1800);   // Akamai/JS 챌린지·초기 렌더 여유
+      await sleep(visible ? 2500 : 1800);   // Akamai/JS 챌린지·초기 렌더 여유
       const inj = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: pageCollector });
       const items = (inj && inj[0] && inj[0].result) || [];
       if (items.length) {
@@ -136,11 +214,14 @@ async function collect(urls) {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ site, brand, items }),
         });
         const d = await resp.json().catch(() => ({}));
+        if (d.ok) okCount++; else failCount++;
         pushLog({ url, ok: !!d.ok, count: d.ok ? d.count : 0, msg: d.ok ? (d.count + '개 전송') : ('전송실패 ' + (d.error || resp.status)) });
       } else {
+        failCount++;
         pushLog({ url, ok: false, count: 0, msg: '상품 못 찾음(차단/비목록 페이지?)' });
       }
     } catch (e) {
+      failCount++;
       pushLog({ url, ok: false, count: 0, msg: '오류: ' + String((e && e.message) || e) });
     } finally {
       if (tab) { try { await chrome.tabs.remove(tab.id); } catch (e) {} }
@@ -148,8 +229,13 @@ async function collect(urls) {
     }
     await sleep(1500);   // 사이트 부담·차단 방지 텀
   }
+  if (winId) { try { await chrome.windows.remove(winId); } catch (e) {} }
   state.running = false;
   state.current = '';
+  // 팝업이 "마지막 실행" 요약을 보여줄 수 있도록 저장(서비스워커가 잠들어도 유지).
+  await chrome.storage.local.set({
+    lastRun: { when: Date.now(), ok: okCount, fail: failCount, total: urls.length },
+  });
 }
 
 // 지금 보고 있는 활성 탭을 바로 수집(제일 확실 — 이미 렌더된 실제 페이지).
@@ -177,6 +263,40 @@ async function collectActive() {
 
 chrome.runtime.onMessage.addListener((msg, sender, reply) => {
   if (msg.type === 'collectActive') { collectActive().then(reply); return true; }
+  if (msg.type === 'getSched') {
+    (async () => {
+      const s = await getSched();
+      const a = await chrome.alarms.get(ALARM);
+      reply({ ...s, nextRun: a ? a.scheduledTime : 0 });
+    })();
+    return true;
+  }
+  if (msg.type === 'setSched') {
+    (async () => {
+      await chrome.storage.local.set({
+        schedOn: !!msg.schedOn,
+        schedHour: Math.min(Math.max(Number(msg.schedHour) || 0, 0), 23),
+        visible: msg.visible !== false,
+      });
+      await applySchedule();
+      const a = await chrome.alarms.get(ALARM);
+      reply({ ok: true, nextRun: a ? a.scheduledTime : 0 });
+    })();
+    return true;
+  }
+  if (msg.type === 'runNow') {
+    (async () => {
+      try {
+        const urls = await buildTargets();
+        if (!urls.length) { reply({ ok: false, msg: '대상 URL을 받지 못했습니다.' }); return; }
+        collect(urls);   // 기다리지 않고 시작 — 진행상황은 state 폴링으로.
+        reply({ ok: true, total: urls.length });
+      } catch (e) {
+        reply({ ok: false, msg: '목록 로드 실패: ' + String((e && e.message) || e) });
+      }
+    })();
+    return true;
+  }
   if (msg.type === 'start') { collect(msg.urls || []); reply({ ok: true }); return; }
   if (msg.type === 'stop') { state.running = false; reply({ ok: true }); return; }
   if (msg.type === 'state') { reply(state); return; }
