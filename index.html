@@ -499,6 +499,12 @@
         try { localStorage.setItem('rackImgCache:' + __boardId, JSON.stringify(__imgCache)); } catch (e) {}
       }
       function normalizeRec(v) { return !v ? null : (typeof v === 'string' ? { imageUrl: v } : v); }
+      // 평문 http:// 주소는 Akamai 등이 "Access Denied"로 막는다(브라우저가 그 주소로 직접 이동).
+      // 쇼핑몰은 사실상 전부 https라, 링크를 열거나 내보낼 때 https로 올려준다.
+      function httpsUrl(u) {
+        const s = String(u || '').trim();
+        return /^http:\/\//i.test(s) ? s.replace(/^http:\/\//i, 'https://') : s;
+      }
       // 캐시가 없는 이미지는 제목("브랜드 · 이름 · $가격")에서 이름/가격을 최대한 뽑음.
       function parseTitle(t) {
         const parts = (t || '').split('·').map(s => s.trim()).filter(Boolean);
@@ -535,7 +541,7 @@
                 x: x + col * (W + gapX), y: y + row * gapY, width: W,
                 title: `${it.brand ? it.brand + ' · ' : ''}${it.name || ''}${it.price ? ' · ' + it.price : ''}`,
               });
-              if (it.productUrl) { img.linkedTo = it.productUrl; await img.sync(); }
+              if (it.productUrl) { img.linkedTo = httpsUrl(it.productUrl); await img.sync(); }
               cacheImg(img.id, it);   // 엑셀용으로 이미지URL·이름·가격·브랜드 기억
             } catch (e) {}
           }
@@ -1130,7 +1136,7 @@
                 y: startY + row * (cellW * 1.5 + gap) + cellW / 2,
                 width: cellW,
               });
-              img.linkedTo = it.productUrl;
+              img.linkedTo = httpsUrl(it.productUrl);
               await img.sync();
               cacheImg(img.id, it);   // 엑셀용으로 이미지URL·이름·가격·브랜드 기억
               created.push(img);
@@ -1353,7 +1359,8 @@
           try { __imgCache = JSON.parse(localStorage.getItem('rackImgCache:' + __boardId) || '{}'); } catch (e) {}
 
           rows = images.map((img, i) => {
-            const link = (img.linkedTo || '').trim();
+            // 보드에 이미 http:// 로 걸린 링크도 여기서 https로 올려 내보낸다(Access Denied 방지).
+            const link = httpsUrl(img.linkedTo);
             const rec = normalizeRec(__imgCache[img.id]) || {};   // 우리가 넣은 상품이면 정보가 기억돼 있음
             const parsed = parseTitle(img.title || '');           // 아니면 제목에서 최대한 추출
             return {
