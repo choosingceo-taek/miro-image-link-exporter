@@ -61,12 +61,7 @@ function poll() {
 }
 
 // ── 매일 자동 수집 ──────────────────────────────────────────────
-for (let h = 0; h < 24; h++) {
-  const o = document.createElement('option');
-  o.value = String(h);
-  o.textContent = `매일 ${String(h).padStart(2, '0')}:00`;
-  $('schedHour').appendChild(o);
-}
+const pad2 = (n) => String(n).padStart(2, '0');
 function fmtWhen(ms) {
   if (!ms) return '';
   const d = new Date(ms);
@@ -75,7 +70,7 @@ function fmtWhen(ms) {
 function renderSched(s) {
   if (!s) return;
   $('schedOn').checked = !!s.schedOn;
-  $('schedHour').value = String(s.schedHour);
+  $('schedTime').value = `${pad2(s.schedHour)}:${pad2(s.schedMin || 0)}`;
   $('schedVisible').checked = s.visible !== false;
   const parts = [];
   if (s.schedOn && s.nextRun) parts.push(`다음 실행 ${fmtWhen(s.nextRun)}`);
@@ -89,17 +84,19 @@ function renderSched(s) {
   $('schedInfo').textContent = parts.join(' · ');
 }
 async function saveSched() {
+  const [h, m] = String($('schedTime').value || '08:00').split(':');
   const r = await send({
     type: 'setSched',
     schedOn: $('schedOn').checked,
-    schedHour: Number($('schedHour').value),
+    schedHour: Number(h),
+    schedMin: Number(m),
     visible: $('schedVisible').checked,
   });
   const s = await send({ type: 'getSched' });
   renderSched(s);
   return r;
 }
-['schedOn', 'schedHour', 'schedVisible'].forEach((id) => $(id).addEventListener('change', saveSched));
+['schedOn', 'schedTime', 'schedVisible'].forEach((id) => $(id).addEventListener('change', saveSched));
 $('runNow').addEventListener('click', async () => {
   $('runNow').disabled = true;
   $('schedInfo').textContent = '대상 목록을 불러오는 중…';

@@ -22,28 +22,29 @@ async function getCfg() {
 // 대상 = 서버가 못 긁는 브랜드(blocked-brands.json)의 카테고리 URL 전부.
 // 목록을 서버에서 받아오므로 브랜드가 바뀌어도 확장을 다시 배포할 필요가 없음.
 async function getSched() {
-  const s = await chrome.storage.local.get(['schedOn', 'schedHour', 'visible', 'lastRun']);
+  const s = await chrome.storage.local.get(['schedOn', 'schedHour', 'schedMin', 'visible', 'lastRun']);
   return {
     schedOn: !!s.schedOn,
-    schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 4,   // 기본 새벽 4시
+    schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 8,   // 기본 08:00
+    schedMin: Number.isInteger(s.schedMin) ? s.schedMin : 0,      // 분 단위까지 지정 가능
     visible: s.visible !== false,   // 기본 true — 숨은 탭은 크롬이 타이머를 늦춰 수집률이 떨어짐
     lastRun: s.lastRun || null,
   };
 }
 
-function nextRunAt(hour) {
+function nextRunAt(hour, min) {
   const now = new Date();
   const at = new Date(now);
-  at.setHours(hour, 0, 0, 0);
+  at.setHours(hour, min || 0, 0, 0);
   if (at <= now) at.setDate(at.getDate() + 1);
   return at.getTime();
 }
 
 async function applySchedule() {
-  const { schedOn, schedHour } = await getSched();
+  const { schedOn, schedHour, schedMin } = await getSched();
   await chrome.alarms.clear(ALARM);
   if (schedOn) {
-    chrome.alarms.create(ALARM, { when: nextRunAt(schedHour), periodInMinutes: 1440 });
+    chrome.alarms.create(ALARM, { when: nextRunAt(schedHour, schedMin), periodInMinutes: 1440 });
   }
 }
 
@@ -80,11 +81,11 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
 // 따라잡기: 예약 시각에 크롬이 꺼져 있었어도, 크롬을 켜면 "오늘 아직 안 돌았고
 // 예약 시각이 지났으면" 즉시 1회 수집. (출근 후 크롬만 켜면 자동 실행되는 핵심)
 async function maybeCatchUp() {
-  const { schedOn, schedHour, lastRun } = await getSched();
+  const { schedOn, schedHour, schedMin, lastRun } = await getSched();
   if (!schedOn || state.running) return;
   const now = new Date();
   const todayAt = new Date(now);
-  todayAt.setHours(schedHour, 0, 0, 0);
+  todayAt.setHours(schedHour, schedMin || 0, 0, 0);
   const ranToday = lastRun && lastRun.when &&
     new Date(lastRun.when).toDateString() === now.toDateString();
   if (now >= todayAt && !ranToday) {
@@ -294,6 +295,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       await chrome.storage.local.set({
         schedOn: !!msg.schedOn,
         schedHour: Math.min(Math.max(Number(msg.schedHour) || 0, 0), 23),
+        schedMin: Math.min(Math.max(Number(msg.schedMin) || 0, 0), 59),
         visible: msg.visible !== false,
       });
       await applySchedule();
