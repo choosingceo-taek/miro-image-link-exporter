@@ -107,6 +107,7 @@ function why(it) {
 
 const report = [];
 const low = [];                 // 수집량이 비정상적으로 적은 브랜드
+const deadUrls = [];            // 상품을 한 개도 못 준 카테고리 URL(교체 대상)
 const LOW_MARK = Math.max(1, Number(process.env.LOW_MARK) || 60);
 let scanned = 0, flagged = 0;
 for (const c of list) {
@@ -125,6 +126,25 @@ for (const c of list) {
     if (!bySrc.has(src)) bySrc.set(src, []);
     bySrc.get(src).push({ name: it.name, productUrl: it.productUrl, category: it.category, reason });
   }
+  // 상품을 한 개도 못 준 카테고리 URL = 교체 대상. 저조 여부와 상관없이 전 브랜드에서 모은다.
+  // (한 카테고리가 죽어도 다른 카테고리가 많으면 총계로는 안 드러난다)
+  {
+    const brandName = d.brand || c.brand || "";
+    const linked = linkPaths.get(String(brandName).toLowerCase()) || [];
+    if (linked.length) {
+      const got = new Set(items.map((it) => it.src).filter(Boolean));
+      const anySrc = got.size > 0;   // src 기록이 없는 옛 저장분은 판정 불가 → 건너뜀
+      const dead = linked.filter((a) => !got.has(a.url)).map((a) => a.url);
+      if (anySrc && dead.length) {
+        deadUrls.push({
+          brand: brandName,
+          group: groupOf.get(String(brandName).toLowerCase()) || "?",
+          total: items.length, dead,
+        });
+      }
+    }
+  }
+
   // 수집이 저조한 브랜드는 "어느 카테고리 URL이 몇 개를 줬는지"까지 남긴다.
   // 5개 카테고리를 돌았는데 총계가 적다면, 어떤 URL이 빈손이었는지가 원인이다.
   if (items.length < LOW_MARK) {
@@ -170,6 +190,19 @@ for (const r of report) {
   }
   md += `\n`;
 }
+// 죽은 URL 먼저 — 사람이 조치할 수 있는 유일한 항목이라 맨 위에 둔다.
+deadUrls.sort((a, z) => z.dead.length - a.dead.length);
+let dm = `# 교체가 필요한 카테고리 URL\n\n`;
+dm += `상품을 **한 개도** 주지 못한 주소입니다. 브랜드 사이트에서 개편·삭제됐을 가능성이 큽니다.\n`;
+dm += `대체 주소를 찾으면 \`카테고리 URL 수정\` 워크플로로 갈아끼우세요.\n\n`;
+dm += `- 대상 ${deadUrls.length}개 브랜드 · URL ${deadUrls.reduce((s, r) => s + r.dead.length, 0)}개\n\n`;
+for (const r of deadUrls) {
+  dm += `## ${r.brand} (${r.group}) — 현재 ${r.total}개 저장\n\n`;
+  for (const u of r.dead) dm += `- ${u}\n`;
+  dm += `\n`;
+}
+md = dm + `\n---\n\n` + md;
+
 low.sort((a, z) => a.total - z.total);
 md += `# 수집량이 적은 브랜드 (${LOW_MARK}개 미만)\n\n`;
 md += `카테고리 URL별로 몇 개를 줬는지 — 0개인 URL이 원인이다.\n\n`;
@@ -179,6 +212,7 @@ for (const r of low) {
   for (const sm of r.sample) md += `  - 표본: ${sm.name || "(무명)"} — ${sm.productUrl}\n`;
   md += `\n`;
 }
-writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low }, null, 1));
+writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls }, null, 1));
 writeFileSync(join(ROOT, "catalog-audit.md"), md);
 console.log(`\n검사 ${scanned}개 · 문제 ${flagged}개 · 브랜드 ${report.filter((r) => r.badCount).length}개`);
+console.log(`교체 필요 URL ${deadUrls.reduce((s, r) => s + r.dead.length, 0)}개 (브랜드 ${deadUrls.length}개)`);
