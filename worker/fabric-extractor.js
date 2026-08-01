@@ -203,7 +203,7 @@ export default {
       if (!site) return json({ error: 'missing site' }, 400, cors);
       const items = (Array.isArray(body.items) ? body.items : [])
         .filter(p => p && /^https?:\/\//i.test(p.imageUrl || '') && /^https?:\/\//i.test(p.productUrl || ''))
-        .slice(0, 500)
+        .slice(0, 800)   // 저장 상한(병합 경로의 800과 동일하게 맞춤)
         .map(p => ({
           name: String(p.name || '').slice(0, 200),
           imageUrl: String(p.imageUrl).slice(0, 1000),

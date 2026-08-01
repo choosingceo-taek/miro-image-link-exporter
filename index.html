@@ -316,23 +316,6 @@
         </label>
       </div>
 
-      <!-- 검색 아래 가운데: 시작 · 초기화 · 사용법 -->
-      <div class="tool-row" id="mrToolRow">
-        <button class="icobtn" id="mrRunBtn" aria-label="검색 시작" title="선택한 브랜드·카테고리로 검색 시작"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4.5 19 12 6 19.5V4.5Z"/></svg></button>
-        <button class="icobtn" id="mrResetBtn" aria-label="초기화" title="초기화(리셋)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
-        <button class="icobtn" id="mrHelpBtn" aria-label="사용법" title="사용법">ⓘ</button>
-
-        <!-- Market Research 사용법 팝오버 -->
-        <div class="popover" id="mrHelpModal" style="display:none">
-          <div class="pop-head"><span>사용법</span><button class="x" id="mrHelpClose" aria-label="닫기">✕</button></div>
-          <div class="help-item"><b>🔎 검색</b>검색바에 브랜드 이름이나 URL을 입력하고 <b style="display:inline">Enter</b>(또는 🔍).</div>
-          <div class="help-item"><b>▾ 브랜드 · 카테고리</b>검색바 아래에서 <b style="display:inline">브랜드</b>와 <b style="display:inline">카테고리</b>를 고릅니다. 카테고리 목록은 <b style="display:inline">브랜드마다 다르게</b> — 그 브랜드가 실제 보유한 카테고리만 표시됩니다. 고르는 것만으로는 검색되지 않고 <b style="display:inline">▶ 시작</b>을 눌러야 실행되며, 검색 후에는 숫자(상품 수)가 붙고 0개는 선택되지 않습니다.</div>
-          <div class="help-item"><b>▶ 시작 · ↺ 초기화</b><b style="display:inline">▶</b> 고른 조건으로 검색 실행, <b style="display:inline">↺</b> 결과·선택·검색어를 모두 지우고 처음 상태로.</div>
-          <div class="help-item"><b>🗂 카테고리 탭</b>NEW·TOPS·SWEAT·SHIRTS·DRESSES·PANTS 탭으로도 나눠 볼 수 있습니다.</div>
-          <div class="help-item"><b>✓ 선택</b>카드를 <b style="display:inline">클릭</b>하면 선택(우상단 체크). 카드 위 아이콘 — <b style="display:inline">ALL</b> 이 탭 전체 선택, <b style="display:inline">↺</b> 선택 초기화, <b style="display:inline">⤴</b> 선택한 상품을 보드에 추가.</div>
-          <div class="help-item"><b>⤢ 보드로 드래그</b>이미지를 보드로 <b style="display:inline">끌어다 놓으면</b> 커서에 썸네일이 따라오고, 놓은 자리에 이미지가 생성됩니다.</div>
-        </div>
-      </div>
 
       <div id="cacheRow" style="display:none; flex-wrap:wrap; gap:4px; margin-top:8px"></div>
       <div id="importStatus"></div>
@@ -841,14 +824,16 @@
         }
       }
       if (pickBrandEl) {
-        // 고르기만 하고 검색은 ▶(시작) 버튼으로. 검색바 입력값과 카테고리 목록만 맞춰 둔다.
+        // 브랜드를 고르면 곧바로 검색(저장본이 있으면 즉시 표시되므로 시작 버튼이 불필요).
         pickBrandEl.addEventListener('change', () => {
-          if (pickBrandEl.value) importBrandUrlEl.value = pickBrandEl.value;
-          fillCatPicker();   // 이 브랜드가 가진 카테고리로 좁힘
+          if (!pickBrandEl.value) return;
+          importBrandUrlEl.value = pickBrandEl.value;
+          fillCatPicker();          // 이 브랜드가 가진 카테고리로 좁힘
+          importFetchBtn.click();
         });
       }
       if (pickCatEl) {
-        // 이미 결과가 있으면 탭만 전환. 없으면 다음 검색에서 열 카테고리로 기억.
+        // 결과가 이미 있으면 탭 전환만, 없으면 그 카테고리로 검색.
         pickCatEl.addEventListener('change', () => {
           const key = pickCatEl.value;
           wantCat = key;
@@ -856,45 +841,11 @@
             importCat = key;
             renderImportTabs();
             renderImportGrid();
+          } else if (importBrandUrlEl.value.trim()) {
+            importFetchBtn.click();
           }
         });
       }
-      // ▶ 시작 — 선택(또는 검색바 입력)으로 검색 실행
-      const mrRunBtn = document.getElementById('mrRunBtn');
-      if (mrRunBtn) {
-        mrRunBtn.addEventListener('click', () => {
-          if (pickBrandEl && pickBrandEl.value) importBrandUrlEl.value = pickBrandEl.value;
-          importFetchBtn.click();
-        });
-      }
-      // ↺ 초기화 — 결과·선택·검색어를 모두 지우고 처음 상태로
-      const mrResetBtn = document.getElementById('mrResetBtn');
-      if (mrResetBtn) {
-        mrResetBtn.addEventListener('click', () => {
-          importItems = []; importBrand = ''; importCat = 'tops'; wantCat = '';
-          importBrandUrlEl.value = '';
-          try { localStorage.removeItem('importBrandUrl'); } catch (e) {}
-          if (pickBrandEl) pickBrandEl.value = '';
-          fillCatPicker();
-          importGridEl.innerHTML = '';
-          importGridEl.style.display = 'none';
-          importTabsEl.style.display = 'none';
-          importToolbarEl.style.display = 'none';
-          importAddBtn.style.display = 'none';
-          importStatusEl.textContent = '';
-          importFetchBtn.disabled = false;
-        });
-      }
-
-      function needRender() {
-        if (!__render) {
-          setTimeout(() => openModal('mrSettingsModal'), 0);   // 이 탭의 ⚙ 설정 팝오버 열기
-          importStatusEl.textContent = '먼저 ⚙ 설정에서 Market Research 서버(Render) 주소를 입력하세요 (최초 1회).';
-          return true;
-        }
-        return false;
-      }
-
       importFetchBtn.addEventListener('click', async () => {
         const raw = (importBrandUrlEl.value || '').trim();
         if (!raw) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
@@ -1363,9 +1314,9 @@
             ? new Date(data.updated).toLocaleDateString() + ' ' +
               new Date(data.updated).toTimeString().slice(0, 5)
             : '';
-          importStatusEl.innerHTML = `<b>${escapeHtml(importBrand)}</b> · 저장본 ${importItems.length}개` +
-            (stored > importItems.length ? ` <span class="muted">(전체 ${stored} · 카테고리당 100개까지)</span>` : '') +
-            (upd ? ` <span class="muted">(${upd} 수집)</span>` : '');
+          importStatusEl.innerHTML = `<b>${escapeHtml(importBrand)}</b> · ${importItems.length}개` +
+            (stored > importItems.length ? ` <span class="muted">(카테고리당 100개 상한)</span>` : '') +
+            (upd ? ` <span class="muted">· ${upd} 수집</span>` : '');
           importCat = (wantCat && catCount(wantCat)) ? wantCat
             : catCount('tops') ? 'tops' : (importItems[0] ? importItems[0].category : 'tops');
           renderImportTabs(); renderImportGrid();
