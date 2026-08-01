@@ -108,11 +108,23 @@ async function buildTargets() {
   return groups;
 }
 
+// MV3 서비스워커는 놀고 있으면 30초 만에 종료된다. 수집은 30분 넘게 걸리므로
+// 도중에 워커가 내려가면 그날 수집이 조용히 중단된다. 실행 중에는 짧은 주기 알람을
+// 걸어 워커를 깨어 있게 한다(알람 이벤트가 유휴 타이머를 리셋).
+const KEEPALIVE = 'rackKeepAlive';
+function keepAlive(on) {
+  try {
+    if (on) chrome.alarms.create(KEEPALIVE, { periodInMinutes: 0.4 });
+    else chrome.alarms.clear(KEEPALIVE);
+  } catch (e) {}
+}
+
 chrome.alarms.onAlarm.addListener(async (alarm) => {
+  if (alarm.name === KEEPALIVE) return;   // 깨우는 것 자체가 목적 — 할 일 없음
   if (alarm.name !== ALARM) return;
   try {
-    const urls = await buildTargets();
-    if (urls.length) await collect(urls);
+    const groups = await buildTargets();
+    if (groups.length) await collect(groups);
   } catch (e) {
     await chrome.storage.local.set({
       lastRun: { when: Date.now(), ok: 0, fail: 0, total: 0, error: String((e && e.message) || e) },
@@ -140,6 +152,8 @@ async function maybeCatchUp() {
 
 chrome.runtime.onInstalled.addListener(applySchedule);
 chrome.runtime.onStartup.addListener(() => { applySchedule(); maybeCatchUp(); });
+// 워커가 수집 도중 종료됐다면 깨우기 알람만 남는다 — 새로 뜰 때 정리한다.
+if (!state.running) keepAlive(false);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -189,6 +203,7 @@ async function collect(input) {
     } catch (e) {}
   }
   state = { running: true, done: 0, total: totalUrls, current: '', log: [], startedAt: Date.now(), items: 0 };
+  keepAlive(true);
   for (const g of groups) {
     if (!state.running) break;
     // 한 브랜드의 모든 카테고리 URL을 먼저 모은 뒤, 브랜드 단위로 한 번만 저장한다.
@@ -275,6 +290,7 @@ async function collect(input) {
     }
   }
   if (winId) { try { await chrome.windows.remove(winId); } catch (e) {} }
+  keepAlive(false);
   state.running = false;
   state.current = '';
   // 팝업이 "마지막 실행" 요약을 보여줄 수 있도록 저장(서비스워커가 잠들어도 유지).
@@ -373,7 +389,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
     return true;
   }
   if (msg.type === 'start') { collect(msg.urls || []); reply({ ok: true }); return; }
-  if (msg.type === 'stop') { state.running = false; reply({ ok: true }); return; }
+  if (msg.type === 'stop') { state.running = false; keepAlive(false); reply({ ok: true }); return; }
   if (msg.type === 'state') { reply(state); return; }
   if (msg.type === 'getCfg') { getCfg().then(reply); return true; }
   if (msg.type === 'setCfg') {
