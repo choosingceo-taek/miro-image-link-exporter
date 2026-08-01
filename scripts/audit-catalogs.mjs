@@ -190,6 +190,47 @@ for (const r of report) {
   }
   md += `\n`;
 }
+// 확장 담당 브랜드는 사람이 크롬을 켜야만 갱신된다. 며칠 잊으면 미로 앱이 조용히
+// 옛날 상품을 보여주므로, 저장본의 갱신 시각을 여기서 같이 찍어 둔다.
+// (샌드박스에서는 Worker 로 직접 못 나가서, 이 리포트가 유일한 확인 경로다.)
+const STALE_H = Math.max(1, Number(process.env.STALE_HOURS) || 36);
+const now = Date.now();
+const slug = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+const seen = new Map();
+for (const c of list) {
+  if (c.brand) seen.set(slug(c.brand), c);
+  // 저장 키가 <host>.<브랜드슬러그> 라서 브랜드 메타가 비어도 뒤쪽으로 되찾을 수 있다.
+  const tail = String(c.site || "").split(".").pop();
+  if (tail && !seen.has(slug(tail))) seen.set(slug(tail), c);
+}
+const extBrands = (brandsJson.brands || []).filter((b) => (b.group || "server") === "extension");
+const extRows = extBrands.map((b) => {
+  const c = seen.get(slug(b.name));
+  const age = c && c.updated ? (now - c.updated) / 3600e3 : null;
+  return { name: b.name, items: c ? c.count || 0 : 0, age, missing: !c };
+}).sort((a, z) => (z.age ?? 1e9) - (a.age ?? 1e9));
+const stale = extRows.filter((r) => r.missing || r.age === null || r.age > STALE_H);
+
+let em = `# 크롬 확장 담당 브랜드 갱신 상태 (${extRows.length}개)\n\n`;
+if (!stale.length) {
+  em += `모두 ${STALE_H}시간 안에 갱신됨 — 확장 실행이 밀리지 않았습니다.\n\n`;
+} else {
+  em += `**확장 실행 필요 ${stale.length}개** — ${STALE_H}시간 넘게 갱신되지 않았습니다.\n`;
+  em += `개인/회사 PC 크롬에서 \`RACK 상품 수집기\` 팝업의 전체 수집을 한 번 돌리세요.\n\n`;
+  for (const r of stale) {
+    em += r.missing
+      ? `- ⛔ ${r.name} — 저장본 없음(한 번도 수집 안 됨)\n`
+      : `- ⚠ ${r.name} — ${Math.round(r.age)}시간 전 · ${r.items}개\n`;
+  }
+  em += `\n`;
+}
+const okRows = extRows.filter((r) => !stale.includes(r));
+if (okRows.length) {
+  em += `<details><summary>정상 ${okRows.length}개</summary>\n\n`;
+  for (const r of okRows) em += `- ${r.name} — ${Math.round(r.age)}시간 전 · ${r.items}개\n`;
+  em += `\n</details>\n\n`;
+}
+
 // 죽은 URL 먼저 — 사람이 조치할 수 있는 유일한 항목이라 맨 위에 둔다.
 deadUrls.sort((a, z) => z.dead.length - a.dead.length);
 let dm = `# 교체가 필요한 카테고리 URL\n\n`;
@@ -201,7 +242,7 @@ for (const r of deadUrls) {
   for (const u of r.dead) dm += `- ${u}\n`;
   dm += `\n`;
 }
-md = dm + `\n---\n\n` + md;
+md = em + `\n---\n\n` + dm + `\n---\n\n` + md;
 
 low.sort((a, z) => a.total - z.total);
 md += `# 수집량이 적은 브랜드 (${LOW_MARK}개 미만)\n\n`;
@@ -212,7 +253,8 @@ for (const r of low) {
   for (const sm of r.sample) md += `  - 표본: ${sm.name || "(무명)"} — ${sm.productUrl}\n`;
   md += `\n`;
 }
-writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls }, null, 1));
+writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows }, null, 1));
 writeFileSync(join(ROOT, "catalog-audit.md"), md);
 console.log(`\n검사 ${scanned}개 · 문제 ${flagged}개 · 브랜드 ${report.filter((r) => r.badCount).length}개`);
 console.log(`교체 필요 URL ${deadUrls.reduce((s, r) => s + r.dead.length, 0)}개 (브랜드 ${deadUrls.length}개)`);
+console.log(`확장 담당 ${extRows.length}개 중 ${STALE_H}시간 초과 ${stale.length}개${stale.length ? ": " + stale.map((r) => r.name).join(", ") : ""}`);
