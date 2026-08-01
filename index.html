@@ -892,6 +892,21 @@
           }
         } catch (e) {}
 
+        // ②-a 차단 브랜드(서버 수집 불가)인데 저장본도 없으면 → 90초 헛기다림 없이 즉시 안내.
+        //      (확장이 수집해 두면 위 ①에서 저장본으로 표시된다)
+        const bInfo = importBrands.find(b => b.name.toLowerCase() === typed.toLowerCase());
+        if (bInfo && bInfo.blocked && !savedCat) {
+          importItems = [];
+          importGridEl.style.display = 'none';
+          importTabsEl.style.display = 'none';
+          importToolbarEl.style.display = 'none';
+          importAddBtn.style.display = 'none';
+          importStatusEl.innerHTML =
+            `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
+            `해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>`;
+          return;
+        }
+
         // ② 저장본이 없으면 Render 서버로 신상 가져오기.
         if (needRender()) return;
         // 입력이 전체 URL이면 그대로, 아니면 브랜드 "이름"으로 보고 목록에서 URL을 찾음.
