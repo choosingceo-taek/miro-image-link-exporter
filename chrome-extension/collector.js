@@ -96,8 +96,19 @@ async function pageCollector() {
       const card = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
       const src = bestImage(a) || bestImage(card);
       if (!/^https?:/.test(src)) { rej.noImage++; return; }
+      // 아이콘·배지를 걸러내려는 검사인데, naturalWidth(실제 로드된 비트맵 크기)로 보면
+      // 지연 로딩 중인 저해상도 상품 이미지까지 버린다 — Carhartt sweatpants 에서
+      // 상품 66개가 통째로 이렇게 날아갔다. 화면에 그려진 크기를 기준으로 판단한다.
       const img = a.querySelector('img') || card.querySelector('img');
-      if (img && img.naturalWidth && img.naturalWidth < 100) { rej.tinyImage++; return; }
+      if (img) {
+        const r = img.getBoundingClientRect();
+        const shown = Math.max(r.width, r.height);
+        const declared = Math.max(Number(img.getAttribute('width')) || 0, Number(img.getAttribute('height')) || 0);
+        // 그려진 크기도 선언된 크기도 모두 작을 때만 아이콘으로 본다.
+        // (레이지 이미지는 아직 로드 전이라 naturalWidth 가 0이거나 작을 수 있다)
+        if (shown && shown < 60 && declared < 60) { rej.tinyImage++; return; }
+        if (!shown && !declared && img.naturalWidth && img.naturalWidth < 40) { rej.tinyImage++; return; }
+      }
       const path = href.pathname.replace(/\/+$/, '');
       if (path.length < 8) { rej.shortPath++; return; }
       if (path === here) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
