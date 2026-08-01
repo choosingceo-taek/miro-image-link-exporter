@@ -124,6 +124,7 @@ const results = [];
 for (const g of targets) {
   const t0 = Date.now();
   const brandItems = new Map();
+  const seenIn = new Map();   // productUrl → 몇 개의 카테고리 페이지에서 나왔나
   const perUrl = [];
   for (const url of g.urls) {
     const page = await context.newPage();
@@ -161,12 +162,23 @@ for (const g of targets) {
     for (const it of byUrl.values()) {
       if (n++ >= PER_CATEGORY) break;
       if (!brandItems.has(it.productUrl)) brandItems.set(it.productUrl, it);
+      seenIn.set(it.productUrl, (seenIn.get(it.productUrl) || 0) + 1);
     }
     perUrl.push({ url, count: byUrl.size, note });
     console.log(`   ${byUrl.size ? "·" : "✕"} ${byUrl.size}개  ${url}${note ? "  ← " + note : ""}`);
   }
 
-  const items = [...brandItems.values()].slice(0, MAX_PER_BRAND);
+  // 모든 카테고리 페이지에 똑같이 등장하는 링크는 상품이 아니라 내비게이션·추천 블록이다.
+  // (Madewell처럼 4개 카테고리가 저마다 18개를 주는데 합쳐도 22개면 대부분이 공용 블록이다)
+  const okUrls = perUrl.filter((u) => u.count > 0).length;
+  let dropped = 0;
+  let items = [...brandItems.values()];
+  if (okUrls >= 3) {
+    const before = items.length;
+    items = items.filter((it) => (seenIn.get(it.productUrl) || 0) < okUrls);
+    dropped = before - items.length;
+  }
+  items = items.slice(0, MAX_PER_BRAND);
   const cats = {};
   for (const it of items) cats[it.category] = (cats[it.category] || 0) + 1;
   let stored = 0, storeErr = "";
@@ -186,10 +198,15 @@ for (const g of targets) {
     } catch (e) { storeErr = String((e && e.message) || e).slice(0, 80); }
   }
   const secs = Math.round((Date.now() - t0) / 1000);
-  results.push({ brand: g.brand, site: g.site, collected: items.length, stored, storeErr, cats, perUrl, secs });
+  results.push({
+    brand: g.brand, site: g.site, collected: items.length, stored, storeErr, cats, perUrl, secs, dropped,
+    // 무엇이 잡혔는지 눈으로 확인할 수 있게 표본을 남긴다(선택자 오작동 진단용).
+    sample: items.slice(0, 5).map((it) => ({ name: it.name, productUrl: it.productUrl })),
+  });
   const blockedUrls = perUrl.filter((u) => /차단|HTTP 40|HTTP 42/.test(u.note)).length;
   console.log(
     `[${results.length}/${targets.length}] ${g.brand}: ${items.length}개` +
+    (dropped ? ` (공용 링크 ${dropped}개 제외)` : "") +
     (STORE ? ` → 저장 ${stored}${storeErr ? " (" + storeErr + ")" : ""}` : "") +
     (blockedUrls ? `  ⛔ 차단 ${blockedUrls}/${g.urls.length}` : "") + ` (${secs}s)`,
   );
@@ -213,8 +230,10 @@ md += `- 대상 ${results.length} · ✅ 자동화 가능 ${auto.length} · ⛔ 
 for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요(봇 차단)", blk], ["🔧 보완 필요", fix]]) {
   md += `## ${title} (${rows.length})\n\n`;
   for (const r of rows) {
-    md += `- **${r.brand}** — ${r.collected}개 ${JSON.stringify(r.cats)} (${r.secs}s)\n`;
+    md += `- **${r.brand}** — ${r.collected}개 ${JSON.stringify(r.cats)}` +
+      (r.dropped ? ` · 공용 링크 ${r.dropped}개 제외` : "") + ` (${r.secs}s)\n`;
     for (const u of r.perUrl) if (u.note) md += `  - ${u.count}개 · ${u.url} ← ${u.note}\n`;
+    for (const sm of r.sample || []) md += `  - 표본: ${sm.name} — ${sm.productUrl}\n`;
   }
   md += `\n`;
 }
