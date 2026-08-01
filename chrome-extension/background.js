@@ -278,15 +278,15 @@ async function collect(input) {
         state.items += d.ok ? items.length : 0;
         pushLog({
           url: g.site, ok: !!d.ok, count: d.ok ? d.count : 0,
-          msg: d.ok ? `✅ ${g.brand} · ${items.length}개 저장` : `❌ ${g.brand} 전송실패 ` + (d.error || resp.status),
+          msg: d.ok ? `${g.brand} · ${items.length}개 저장` : `${g.brand} 전송실패 ` + (d.error || resp.status),
         });
       } catch (e) {
         failCount++;
-        pushLog({ url: g.site, ok: false, count: 0, msg: `❌ ${g.brand} 전송오류: ` + String((e && e.message) || e) });
+        pushLog({ url: g.site, ok: false, count: 0, msg: `${g.brand} 전송오류: ` + String((e && e.message) || e) });
       }
     } else {
       failCount++;
-      pushLog({ url: g.site, ok: false, count: 0, msg: `❌ ${g.brand} · 수집 0개(저장 안 함 — 이전 저장본 유지)` });
+      pushLog({ url: g.site, ok: false, count: 0, msg: `${g.brand} · 수집 0개(저장 안 함 — 이전 저장본 유지)` });
     }
   }
   if (winId) { try { await chrome.windows.remove(winId); } catch (e) {} }

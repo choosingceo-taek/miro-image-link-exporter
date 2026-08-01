@@ -1,20 +1,23 @@
-# 매일 자동 수집 세팅 가이드 (확장 담당 브랜드 29개)
+# 매일 자동 수집 세팅 가이드 (확장 담당 브랜드 17개)
 
-서버(GitHub Actions)가 매일 새벽 3시에 **105개 브랜드**를 자동 수집합니다.
-봇 차단 때문에 서버로는 못 긁는 **29개 브랜드**만 이 확장이 담당합니다.
-수집 담당 PC **1대**가 매일 한 번 실행하면, 팀원들은 아무 설정 없이
-미로 앱에서 최신 상품을 봅니다.
+전체 134개 브랜드 중 **117개는 사람 손 없이** 매일 새벽에 자동 수집됩니다.
+봇 차단(403·봇체크) 때문에 데이터센터에서는 브라우저를 써도 막히는
+**17개 브랜드**만 이 확장이 담당합니다. 수집 담당 PC **1대**가 하루 한 번
+실행하면, 팀원들은 아무 설정 없이 미로 앱에서 최신 상품을 봅니다.
 
 | 구분 | 브랜드 수 | 방법 | PC 필요? |
 |---|---|---|---|
-| 자동 | 105 | 매일 03:00 GitHub Actions | ❌ |
-| 확장 | 29 | 이 확장 (카테고리 130개) | ✅ 하루 1회 |
+| 서버 자동 | 105 | 매일 03:00 · GitHub Actions → Render | ❌ |
+| 헤드리스 자동 | 12 | 매일 03:40 · GitHub Actions의 진짜 크롬 | ❌ |
+| **확장** | **17** | 이 확장 (카테고리 77개) | ✅ 하루 1회 |
 
-**확장 담당 29개** — Abercrombie & Fitch, Addidas, Ann Taylor, Apiece Apart,
-Barbour, Boldest, CCC, Carlhartt, Cotton on, FP Movement, Fatface, Free People,
-J crew, Joules, Lands end, Loft, Lucky Brand, Lululemon, Madewell,
-Massimo Dutti, Oysho, Paige, Poetry, Sezane, Sweaty betty, The upside,
-The white company, Wilson, Wrap
+**확장 담당 17개** — Abercrombie & Fitch, Addidas, Ann Taylor, Apiece Apart,
+FP Movement, Fatface, Free People, Joules, Lands end, Loft, Lululemon,
+Massimo Dutti, Oysho, Paige, Sezane, The white company, Wilson
+
+> 2026-08-01 헤드리스 크롬으로 29개를 전수 테스트해, 실제로 차단된 곳만 남겼습니다.
+> Barbour·Boldest·CCC·Carlhartt·Cotton on·J crew·Lucky Brand·Madewell·Poetry·
+> Sweaty betty·The upside·Wrap 12개는 이제 서버에서 자동으로 돌아갑니다.
 
 > 목록은 서버(`blocked-brands.json`)에서 실행할 때마다 받아옵니다.
 > 브랜드가 늘거나 줄어도 확장을 다시 설치할 필요는 없습니다.
@@ -42,9 +45,9 @@ The white company, Wilson, Wrap
    - **시각 입력**: 원하는 시각을 분 단위로 자유롭게 지정 (예: `08:30`)
    - **전용 창을 열어 수집** 은 켠 상태 유지(권장 — 숨은 탭은 크롬이 타이머를 늦춰 수집률이 떨어집니다)
 3. **지금 전체 실행**을 한 번 눌러 정상 동작 확인
-   - `29개 브랜드 · 130개 카테고리 수집 시작` 이 뜨고, 별도 창이 열렸다 자동으로 닫힙니다.
-   - 카테고리마다 여러 페이지를 넘기므로 **25~40분** 정도 걸립니다. 게이지의 남은 시간을 참고하세요.
-   - 완료 후 팝업에 `지난 실행 … — 브랜드 성공 N/29 (카테고리 130개)` 가 표시되면 정상.
+   - `17개 브랜드 · 77개 카테고리 수집 시작` 이 뜨고, 별도 창이 열렸다 자동으로 닫힙니다.
+   - 카테고리마다 여러 페이지를 넘기므로 **15~25분** 정도 걸립니다. 게이지의 남은 시간을 참고하세요.
+   - 완료 후 팝업에 `지난 실행 … — 브랜드 성공 N/17 (카테고리 77개)` 가 표시되면 정상.
 
 ## 4. 매일 아침엔 이렇게 동작합니다
 - **크롬이 켜져 있으면** → 예약 시각에 자동 실행

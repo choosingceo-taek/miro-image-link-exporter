@@ -125,15 +125,18 @@ async function load() {
       getJson(WORKER + '/?catalogs=1' + tok),
     ]);
     const list = (cat && cat.list) || [];
-    const blocked = new Set((blockedJson.brands || []).map((n) => n.toLowerCase()));
+    // 세 그룹: 확장(봇 차단) · 헤드리스(진짜 크롬으로 매일 자동) · 서버(Render 야간 프리페치)
+    const extSet = new Set((blockedJson.brands || []).map((n) => n.toLowerCase()));
+    const browserSet = new Set((blockedJson.browser || []).map((n) => n.toLowerCase()));
 
     // 저장소에 있지만 어느 브랜드도 가져가지 않는 키(옛 호스트 키 등)를 찾기 위해 사용처를 기록.
     const claimed = new Set();
     const rows = brands.map((b) => {
       const hit = matchCatalog(list, b.name, b.url);
-      const isExt = blocked.has(b.name.toLowerCase());
+      const low = b.name.toLowerCase();
       const r = {
-        brand: b.name, group: isExt ? '확장' : '자동',
+        brand: b.name,
+        group: extSet.has(low) ? '확장' : browserSet.has(low) ? '헤드리스' : '서버',
         site: hit ? hit.site : '', count: hit ? hit.count : 0,
         agoText: hit ? ago(hit.updated) : '—', catText: '', msg: '', state: 'none',
       };
@@ -174,7 +177,8 @@ async function load() {
       } catch (e) { r.catText = '읽기 실패'; }
     }));
 
-    const auto = rows.filter((r) => r.group === '자동');
+    const auto = rows.filter((r) => r.group === '서버');
+    const headless = rows.filter((r) => r.group === '헤드리스');
     const ext = rows.filter((r) => r.group === '확장');
     const bad = rows.filter((r) => r.state === 'none' || r.state === 'cross');
     const stale = rows.filter((r) => r.state === 'stale');
@@ -182,6 +186,8 @@ async function load() {
 
     let html = `<div class="cards">
       <div class="card"><b>${rows.length}</b><span>전체 브랜드</span></div>
+      <div class="card"><b>${rows.length - ext.length}</b><span>완전 자동</span></div>
+      <div class="card"><b>${ext.length}</b><span>확장 필요</span></div>
       <div class="card"><b class="ok">${rows.filter((r) => r.state === 'ok').length}</b><span>정상</span></div>
       <div class="card"><b class="warn">${stale.length}</b><span>갱신 지연</span></div>
       <div class="card"><b class="bad">${bad.length}</b><span>문제</span></div>
@@ -191,8 +197,9 @@ async function load() {
       html += table('❌ 지금 앱에서 안 나오는 브랜드', bad);
       html += `<div class="note">먼저 봐야 할 항목만 모은 것으로, 아래 그룹별 표에도 같이 나옵니다.</div>`;
     }
-    html += table('🔌 크롬 확장 담당', ext);
-    html += table('⚙ 매일 자동 수집', auto);
+    html += table('🔌 크롬 확장 담당 — PC에서 하루 1회 실행 필요', ext);
+    html += table('🤖 헤드리스 크롬 자동 수집 (매일 03:40)', headless);
+    html += table('⚙ 서버 자동 수집 (매일 03:00)', auto);
     if (orphan.length) {
       html += `<h2>사용되지 않는 저장 키 (${orphan.length})</h2><div class="note">` +
         orphan.map((c) => esc(c.site) + ' · ' + (c.count || 0) + '개').join('<br>') +
