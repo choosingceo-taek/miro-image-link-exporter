@@ -222,7 +222,10 @@ async function collect(input) {
         // 카테고리의 모든 페이지를 순회: 같은 탭을 다음 페이지로 이동시키며 누적.
         // 새 상품이 하나도 안 늘면(같은 페이지 반복/마지막 페이지) 중단.
         const byUrl = new Map();
-        let pageUrl = url, pages = 0;
+        // 허브 페이지(상품 대신 하위 카테고리 타일만 있는 곳) 대응 큐.
+        const queue = [url];
+        let hubFollowed = 0;
+        let pageUrl = queue.shift(), pages = 0;
         while (pageUrl && pages < maxPages && byUrl.size < PER_CATEGORY) {
           if (pages > 0) {
             await chrome.tabs.update(tab.id, { url: pageUrl });
@@ -240,8 +243,13 @@ async function collect(input) {
           }
           pages++;
           state.current = g.brand + ' · ' + url + (pages > 1 ? ` (p${pages})` : '');
-          if (!added) break;                       // 더 이상 새 상품 없음 → 마지막 페이지
-          pageUrl = res.nextUrl && res.nextUrl !== pageUrl ? res.nextUrl : '';
+          // 상품이 거의 없고 하위 카테고리 타일만 있으면 허브 페이지다 → 한 단계 내려간다.
+          if (byUrl.size < 20 && !hubFollowed && (res.subCats || []).length) {
+            for (const sc of res.subCats.slice(0, 4)) if (!queue.includes(sc)) queue.push(sc);
+            hubFollowed = 1;
+          }
+          const next = res.nextUrl && res.nextUrl !== pageUrl ? res.nextUrl : '';
+          pageUrl = (added && next) ? next : (queue.shift() || '');
           if (pageUrl) await sleep(900);           // 페이지 넘김 텀
         }
         // 카테고리당 상한(앱 표시 상한 100 + 재분류 여유). 브랜드 합계는 Worker 저장 상한 이하로.

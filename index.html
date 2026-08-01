@@ -283,6 +283,14 @@
     #pane-import .pick select:focus { outline: none; }
     #pane-import .pick select::-ms-expand { display: none; }   /* 화살표 이중 표시 방지 */
     #pane-import .pick select:disabled { color: var(--muted); cursor: default; }
+    /* 검색바 + 브랜드/카테고리 = 상단 고정. 스크롤은 상품 목록만 내려간다. */
+    #pane-import .mr-head {
+      position: sticky; top: 0; z-index: 40; background: var(--bg);
+      /* 라벨(pick-lab)이 박스 위로 6px 튀어나오므로 그만큼 위를 비워 잘리지 않게 한다 */
+      padding: 8px 0 12px; margin-top: -8px;
+      box-shadow: 0 6px 10px -8px rgba(0, 0, 0, .18);
+    }
+    #pane-import .mr-head .pick-row { margin-top: 15px; }
     #pane-import .pick::after {
       content: ''; position: absolute; right: 11px; width: 6px; height: 6px; pointer-events: none;
       border-right: 1.4px solid var(--text); border-bottom: 1.4px solid var(--text);
@@ -301,6 +309,8 @@
 
     <!-- Market Research (가져오기) -->
     <section class="tabpane" id="pane-import" style="display:none">
+      <!-- 검색바와 브랜드·카테고리는 스크롤해도 위에 고정된다(상품만 내려감) -->
+      <div class="mr-head">
       <div class="url-row">
         <button id="importFetch" class="go" title="검색" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
         <input id="importBrandUrl" type="text" autocomplete="off" spellcheck="false"
@@ -319,6 +329,7 @@
         </label>
         <button class="pick-reset" id="pickReset" title="브랜드·카테고리 필터를 ALL로 초기화" aria-label="필터 초기화"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
       </div>
+      </div><!-- /mr-head -->
 
 
       <div id="cacheRow" style="display:none; flex-wrap:wrap; gap:4px; margin-top:8px"></div>
@@ -726,7 +737,6 @@
         if (__searchIndex) return __searchIndex;
         const base = __proxy.url.replace(/\/+$/, '');
         const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
-        importStatusEl.innerHTML = '<div style="text-align:center;line-height:1.7">전체 상품 인덱스 불러오는 중…</div>';
         const resp = await fetch(base + '/?index=1' + tok);
         const data = await resp.json().catch(() => ({}));
         __searchIndex = Array.isArray(data.items) ? data.items : [];
@@ -751,14 +761,7 @@
             imageUrl: it.imageUrl, productUrl: it.productUrl, price: it.price || '',
             brand: it.brand || '', selected: false,
           })).filter(it => it.imageUrl && it.productUrl);
-          if (!importItems.length) {
-            importGridEl.style.display = 'none'; importTabsEl.style.display = 'none';
-            importToolbarEl.style.display = 'none'; importAddBtn.style.display = 'none';
-            importStatusEl.innerHTML =
-              '<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">' +
-              '해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>';
-            return;
-          }
+          if (!importItems.length) { showNoResult(); return; }
           importStatusEl.textContent = '';
           importCat = '';   // ALL — 전 카테고리 표시
           renderImportTabs(); renderImportGrid();
@@ -910,17 +913,7 @@
 
         // ②-a 차단 브랜드(서버 수집 불가)인데 저장본도 없으면 → 90초 헛기다림 없이 즉시 안내.
         //      (확장이 수집해 두면 위 ①에서 저장본으로 표시된다)
-        if (bInfo && bInfo.blocked && !savedCat) {
-          importItems = [];
-          importGridEl.style.display = 'none';
-          importTabsEl.style.display = 'none';
-          importToolbarEl.style.display = 'none';
-          importAddBtn.style.display = 'none';
-          importStatusEl.innerHTML =
-            `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
-            `해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>`;
-          return;
-        }
+        if (bInfo && bInfo.blocked && !savedCat) { showNoResult(); return; }
 
         // ② 저장본이 없으면 Render 서버로 신상 가져오기.
         if (needRender()) return;
@@ -976,13 +969,8 @@
               await loadCatalog(saved.site, saved.brand);
               return;
             }
-            // 403/429/verification = Akamai급 봇차단(Abercrombie·Massimo Dutti·Zara·H&M 등).
-            const blocked = /\b40[13]\b|\b429\b|verification|blocked|captcha/i.test(JSON.stringify(data.warnings || []));
-            importStatusEl.innerHTML = blocked
-              ? `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
-                `해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>`
-              : `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
-                `해당 브랜드는 추가 정보 확인이 필요합니다.<br>필요하신 브랜드와 카테고리 정보를 디지털팀에 전달 부탁드립니다. 감사합니다.</div>`;
+            // 원인(봇차단·수집실패)을 구분해 봐야 사용자가 할 일은 같다 → 한 가지 안내로 통일.
+            showNoResult();
             return;
           }
           loadedBrandMode = true;
@@ -1330,13 +1318,26 @@
         } catch (e) { cacheRowEl.style.display = 'none'; }
       }
 
+      // 결과가 하나도 없을 때만 쓰는 안내. (로딩 중에는 아무 문구도 띄우지 않는다)
+      function showNoResult() {
+        importItems = [];
+        importGridEl.style.display = 'none';
+        importTabsEl.style.display = 'none';
+        importToolbarEl.style.display = 'none';
+        importAddBtn.style.display = 'none';
+        importStatusEl.innerHTML =
+          '<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">' +
+          '해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>';
+      }
+
       async function loadCatalog(site, brand) {
-        importStatusEl.textContent = `저장된 카탈로그 불러오는 중… (${brand || site})`;
+        // 저장본은 즉시 뜨므로 "불러오는 중" 안내를 띄우지 않는다 — 문구가 깜빡였다 사라질 뿐이다.
+        importStatusEl.textContent = '';
         try {
           const base = __proxy.url.replace(/\/+$/, '');
           const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
           const resp = await fetch(base + '/?catalog=' + encodeURIComponent(site) + tok);
-          if (!resp.ok) { importStatusEl.textContent = '저장된 카탈로그가 없습니다.'; return; }
+          if (!resp.ok) { showNoResult(); return; }
           const data = await resp.json();
           importItems = (data.items || []).map((p, i) => {
             const cat = guessCat(p.productUrl, p.name);   // 저장된 category 대신 재분류(오분류 교정)
@@ -1353,14 +1354,14 @@
             perCat[p.category] = (perCat[p.category] || 0) + 1;
             return perCat[p.category] <= 100;
           });
-          if (!importItems.length) { importStatusEl.textContent = '카탈로그가 비어 있습니다.'; return; }
+          if (!importItems.length) { showNoResult(); return; }
           loadedBrandMode = true;
           importBrand = data.brand || brand || site;
           importStatusEl.textContent = '';   // 수집 시각·개수 등 내부 정보는 노출하지 않음
           importCat = (wantCat && catCount(wantCat)) ? wantCat : '';   // 기본 ALL(전 카테고리)
           renderImportTabs(); renderImportGrid();
         } catch (e) {
-          importStatusEl.textContent = '카탈로그 로드 실패: ' + ((e && e.message) || e);
+          showNoResult();
         }
       }
 
