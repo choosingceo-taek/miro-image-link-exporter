@@ -171,7 +171,20 @@ for (const g of targets) {
         if (added && next) { pageUrl = next; continue; }
         pageUrl = queue.shift() || "";   // 다음 하위 카테고리로
       }
-      if (!byUrl.size && !note) note = "상품 0개(선택자 불일치/빈 목록)";
+      if (!byUrl.size && !note) {
+        // 0개일 때는 "왜"를 남긴다 — 주소가 틀린 건지, 리다이렉트된 건지, 진짜 빈 목록인지
+        // 구분이 안 되면 엉뚱한 URL을 교체하게 된다.
+        const d = await page.evaluate(() => ({
+          finalUrl: location.href,
+          title: document.title,
+          links: document.querySelectorAll("a[href]").length,
+          imgs: document.querySelectorAll("img").length,
+          text: (document.body ? document.body.innerText : "").replace(/\s+/g, " ").trim().slice(0, 120),
+        })).catch(() => null);
+        note = d
+          ? `상품 0개 · 최종주소 ${d.finalUrl} · 제목 "${d.title}" · 링크 ${d.links}/이미지 ${d.imgs} · "${d.text}"`
+          : "상품 0개(페이지 확인 실패)";
+      }
     } catch (e) {
       note = "오류: " + String((e && e.message) || e).split("\n")[0].slice(0, 90);
     } finally {
