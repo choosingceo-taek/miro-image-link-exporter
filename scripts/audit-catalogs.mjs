@@ -34,7 +34,7 @@ async function getJson(url, tries = 3) {
 const NON_PRODUCT_PATH = new RegExp([
   "/account", "/login", "/register", "/cart", "/basket", "/checkout", "/wishlist",
   "/gift-?cards?", "/e-?gift", "/size-?(guide|chart)", "/help", "/faq", "/contact",
-  "/customer-?(service|care)", "/store-?locator", "/stores?/", "/find-a-store",
+  "/customer-?(service|care)", "/store-?locator", "/find-a-stores?", "/our-stores?",
   "/blogs?/", "/journal/", "/magazine/", "/press/", "/about", "/careers?/", "/jobs?/",
   "/returns?", "/shipping", "/delivery", "/terms", "/privacy", "/cookie", "/legal",
   "/sitemap", "/search", "/newsletter", "/subscribe", "/sustainability", "/lookbook",
