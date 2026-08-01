@@ -1,66 +1,80 @@
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T11:27Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T12:29Z)
 
-- 카탈로그 133개 · 상품 29031개 검사 · **문제 항목 213개**
-- 문제가 있는 브랜드 41개
+- 카탈로그 134개 · 상품 27403개 검사 · **문제 항목 190개**
+- 문제가 있는 브랜드 36개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
 
-## anntaylor — 38/800개 (?)
+## Ann Taylor — 38/373개 (extension)
 
-- **38개** · (출처 불명)
+- **27개** · https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/
   - [배너 문구가 상품명] tops · New Arrivals — https://www.anntaylor.com/new-arrivals/all-new-arrivals/cata00008/
   - [배너 문구가 상품명] tops · New Arrivals — https://www.anntaylor.com/cata00008
   - [최상위 경로(랜딩 페이지로 보임)] tops · Shades of the Season — https://www.anntaylor.com/cat5310001
   - [최상위 경로(랜딩 페이지로 보임)] tops · Trends to Try — https://www.anntaylor.com/cata7000090
   - [최상위 경로(랜딩 페이지로 보임)] tops · Work Tops — https://www.anntaylor.com/cat1410003
   - [최상위 경로(랜딩 페이지로 보임)] pants · Work Pants — https://www.anntaylor.com/cat4190020
-  - [최상위 경로(랜딩 페이지로 보임)] tops · New Weekend Styles — https://www.anntaylor.com/cata7000064
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Weekend-Ready Tops — https://www.anntaylor.com/cata7000065
+- **6개** · https://www.anntaylor.com/clothing/dresses/cata000012/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Follow Us — https://www.anntaylor.com/ann-privacy/
+  - [상품 페이지가 아닌 경로] tops · Follow Us — https://www.anntaylor.com/terms-of-use/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Anntaylor — https://www.facebook.com/Anntaylor/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · @anntaylor — https://www.tiktok.com/@anntaylor
+  - [최상위 경로(랜딩 페이지로 보임)] tops · anntaylorstyle — https://www.pinterest.com/anntaylorstyle/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Anntaylor — https://www.instagram.com/Anntaylor/
+- **5개** · https://www.anntaylor.com/clothing/pants/cata000014/
+  - [카테고리 목록 페이지 자체] pants · A woman in a floral blouse and navy wide-leg pants stands against a plain, light-colored background. — https://www.anntaylor.com/clothing/pants/cata000014/
+  - [배너 문구가 상품명] tops · Shop Ann Taylor — https://www.anntaylor.com/cat3140006
+  - [배너 문구가 상품명] tops · Shop Ann Taylor — https://www.anntaylor.com/cat5690001
+  - [배너 문구가 상품명] tops · Shop Ann Taylor — https://www.anntaylor.com/cat2600119
+  - [배너 문구가 상품명] tops · Shop Ann Taylor — https://www.anntaylor.com/cat550090
 
-## freepeople — 29/454개 (?)
+## FP Movement — 16/58개 (extension)
 
-- **29개** · (출처 불명)
+- **9개** · https://www.freepeople.com/fpmovement/workout-tops/
+  - [카테고리 목록 페이지 자체] tops · Free People — https://www.freepeople.com/fpmovement/workout-tops/
   - [최상위 경로(랜딩 페이지로 보임)] tops · FP Movement — https://www.freepeople.com/fpmovement/
-  - [배너 문구가 상품명] pants · Shop FP Pants: Statement — https://www.freepeople.com/statement-pants-curation/
-  - [상품 페이지가 아닌 경로] tops · Download on the App Store — https://itunes.apple.com/us/app/free-people/id659532790
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Learn About Care FP — https://www.freepeople.com/care-fp/
+  - [배너 문구가 상품명] tops · Shop FP Movement: Top Rated Tops — https://www.freepeople.com/fpmovement/top-rated-activewear-tops/
+  - [배너 문구가 상품명] tops · Shop FP Movement: Casual Tops — https://www.freepeople.com/fpmovement/casual-tops/
+  - [배너 문구가 상품명] tops · Shop FP Movement: Performance Tops — https://www.freepeople.com/fpmovement/performance-tops/
+  - [배너 문구가 상품명] tops · Shop FP Movement: Outerwear — https://www.freepeople.com/fpmovement/outerwear/
+- **5개** · https://www.freepeople.com/fpmovement/one-pieces/
+  - [카테고리 목록 페이지 자체] tops · Free People — https://www.freepeople.com/fpmovement/one-pieces/
+  - [배너 문구가 상품명] tops · Shop FP Movement: Casual One-Pieces — https://www.freepeople.com/fpmovement/casual-wear/
+  - [배너 문구가 상품명] tops · Shop FP Movement: Performance One Pieces — https://www.freepeople.com/fpmovement/performance-wear/
+  - [배너 문구가 상품명] tops · Shop FP Movement: The Hot Shot Collection — https://www.freepeople.com/fpmovement/activewear-hot-shot-collection/
+  - [배너 문구가 상품명] tops · Shop FP Movement: Shortsies + Skortsies — https://www.freepeople.com/fpmovement/shortsies-and-skortsies/
+- **2개** · https://www.freepeople.com/fpmovement/workout-bottoms/
+  - [카테고리 목록 페이지 자체] tops · Free People — https://www.freepeople.com/fpmovement/workout-bottoms/
+  - [배너 문구가 상품명] pants · Shop FP Movement Bottoms: Balloon — https://www.freepeople.com/fpmovement/balloon-bubble-pants/
+
+## Free People — 15/136개 (extension)
+
+- **8개** · https://www.freepeople.com/tops/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · FP Movement — https://www.freepeople.com/fpmovement/
+  - [배너 문구가 상품명] tops · Shop FP Tops: Going Out Tops — https://www.freepeople.com/going-out-tops/
+  - [배너 문구가 상품명] shirts · Shop FP Tops: Blouses — https://www.freepeople.com/blouses/
+  - [배너 문구가 상품명] shirts · Shop FP Tops: Blouses — https://www.freepeople.com/button-downs/
+  - [배너 문구가 상품명] tops · Shop Graphic Tees — https://www.freepeople.com/graphic-tees/
+  - [배너 문구가 상품명] tops · Shop Top Rated Tops — https://www.freepeople.com/top-rated-tops/
+- **6개** · https://www.freepeople.com/dresses/
   - [카테고리 목록 페이지 자체] dresses · Free People — https://www.freepeople.com/dresses/
   - [배너 문구가 상품명] dresses · Shop FP Dresses: Maxi Dresses — https://www.freepeople.com/maxi-dresses/
   - [배너 문구가 상품명] dresses · Shop FP Dresses: Mini Dresses — https://www.freepeople.com/mini-dresses/
   - [배너 문구가 상품명] dresses · Shop FP Dresses: Midi Dresses — https://www.freepeople.com/midi-dresses/
+  - [배너 문구가 상품명] dresses · Shop FP Dresses: Printed Dresses — https://www.freepeople.com/printed-dresses/
+  - [배너 문구가 상품명] dresses · Shop FP Dresses: Special Occassion Dresses — https://www.freepeople.com/party-dresses/
+- **1개** · https://www.freepeople.com/pants/
+  - [배너 문구가 상품명] pants · Shop FP Pants: Statement — https://www.freepeople.com/statement-pants-curation/
 
-## thewhitecompany — 14/87개 (?)
+## The white company — 14/86개 (extension)
 
-- **14개** · (출처 불명)
+- **14개** · https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear
   - [배너 문구가 상품명] tops · shop sale — https://www.thewhitecompany.com/uk/c/sale
   - [상품 페이지가 아닌 경로] tops · a bedroom with a bed, a table and a lamp — https://www.thewhitecompany.com/uk/magazine/sleep
   - [상품 페이지가 아닌 경로] dresses · a woman in a white dress standing under a tree with a table and chairs — https://www.thewhitecompany.com/uk/magazine/home
   - [상품 페이지가 아닌 경로] tops · two women in white and beige outfits standing next to each other — https://www.thewhitecompany.com/uk/magazine/style/lookbook
   - [상품 페이지가 아닌 경로] tops · a candle sitting on top of a stack of books with a glass on top of it — https://www.thewhitecompany.com/uk/magazine/scent
   - [상품 페이지가 아닌 경로] tops · a white table with a shell and shells on it — https://www.thewhitecompany.com/uk/magazine/wellness
-  - [상품 페이지가 아닌 경로] tops · three children carrying a surfboard on the beach — https://www.thewhitecompany.com/uk/magazine/little-ones
-  - [상품 페이지가 아닌 경로] tops · a candle and a vase of flowers sit on a table — https://www.thewhitecompany.com/uk/magazine/gifts
-
-## Barbour — 12/183개 (browser)
-
-- **7개** · (출처 불명)
-  - [배너 문구가 상품명] tops · Discover Now — https://www.barbour.com/row/mens-home.html
-  - [배너 문구가 상품명] tops · Discover Now — https://www.barbour.com/row/mens/mens-new-arrivals
-  - [배너 문구가 상품명] tops · Discover Now — https://www.barbour.com/row/barbour-international-home.html
-  - [배너 문구가 상품명] tops · Discover Now — https://www.barbour.com/row/all-barbour-international/barbour-international-collections
-  - [배너 문구가 상품명] tops · Discover Barbour FARM Rio — https://www.barbour.com/row/our-history.html
-  - [배너 문구가 상품명] tops · Discover Barbour FARM Rio — https://www.barbour.com/row/womens/womens-collaborations/barbour-farm-rio
-  - [상품 페이지가 아닌 경로] pants · Cartmel Flared Jeans Dark Indigo — https://www.barbour.com/row/cartmel-flared-jeans-LTR0429IN93.html
-- **1개** · https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts
-  - [카테고리 목록 페이지 자체] shirts · Discover Now — https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts
-- **1개** · https://www.barbour.com/row/womens/womens-clothing/womens-sweatshirts-hoodies
-  - [카테고리 목록 페이지 자체] sweatshirts · Discover Now — https://www.barbour.com/row/womens/womens-clothing/womens-sweatshirts-hoodies
-- **1개** · https://www.barbour.com/row/womens/womens-clothing/womens-shirts-blouses
-  - [카테고리 목록 페이지 자체] shirts · Discover Now — https://www.barbour.com/row/womens/womens-clothing/womens-shirts-blouses
-- **1개** · https://www.barbour.com/row/womens/womens-clothing/womens-dresses
-  - [카테고리 목록 페이지 자체] dresses · Discover Now — https://www.barbour.com/row/womens/womens-clothing/womens-dresses
-- **1개** · https://www.barbour.com/row/womens/womens-clothing/womens-trousers
-  - [카테고리 목록 페이지 자체] pants · Discover Now — https://www.barbour.com/row/womens/womens-clothing/womens-trousers
 
 ## Leset — 12/184개 (server)
 
@@ -71,42 +85,52 @@
   - [배너 문구가 상품명] sweatshirts · More Colors + — https://leset.com/products/jamie-patch-hoodie-leset-blue
   - [배너 문구가 상품명] sweatshirts · More Colors + — https://leset.com/products/jamie-carpenter-pant-leset-blue
   - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/barb-lace-sleeveless-mini-dress-chocolate
-  - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/ari-short-sleeve-mini-dress-daffodil
-  - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/ari-one-shoulder-dress-daffodil
 
-## sezane — 11/137개 (extension)
+## Sezane — 11/137개 (extension)
 
-- **8개** · (출처 불명)
+- **10개** · https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops
   - [배너 문구가 상품명] tops · SHOP — https://www.sezane.com/us-en/collection
   - [상품 페이지가 아닌 경로] tops · Gift cards — https://www.sezane.com/us-en/gift-cards
   - [배너 문구가 상품명] tops · NEW IN — https://www.sezane.com/us-en/new-in
   - [상품 페이지가 아닌 경로] tops · Leather Goods — https://www.sezane.com/us-en/basket-bags-clutch-bags
   - [배너 문구가 상품명] tops · New in — https://www.sezane.com/us-en/petit-sezane/enfant/kids-petit-sezane
   - [상품 페이지가 아닌 경로] tops · GIFT CARDS — https://www.sezane.com/us-en/octobre-editions/gift-cards
-  - [상품 페이지가 아닌 경로] tops · ABOUT — https://www.sezane.com/us-en/about-us-sezane
-  - [상품 페이지가 아닌 경로] tops · FAQ — https://www.sezane.com/us-en/help
 - **1개** · https://www.sezane.com/us-en/collection/bottoms/trousers
-  - [카테고리 목록 페이지 자체] tops · trousers — https://www.sezane.com/us-en/collection/bottoms/trousers
-- **1개** · https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres
-  - [카테고리 목록 페이지 자체] shirts · t shirts sweatshirts marinieres — https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres
-- **1개** · https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops
-  - [카테고리 목록 페이지 자체] shirts · sweat shirts sailor tops — https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops
+  - [카테고리 목록 페이지 자체] pants · trousers — https://www.sezane.com/us-en/collection/bottoms/trousers
 
-## Lucky Brand — 7/261개 (browser)
+## Loft — 10/600개 (extension)
 
-- **2개** · (출처 불명)
-  - [배너 문구가 상품명] tops · shop all clothing — https://www.luckybrand.com/women/shop-all-clothing
-  - [배너 문구가 상품명] sweatshirts · Shop Sweaters — https://www.luckybrand.com/sale/featured-shops/shop-29.99-womens-sweaters
-- **1개** · https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops
-  - [카테고리 목록 페이지 자체] shirts · tshirts tanktops — https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops
-- **1개** · https://www.luckybrand.com/women/clothing/sweaters
-  - [카테고리 목록 페이지 자체] sweatshirts · sweaters — https://www.luckybrand.com/women/clothing/sweaters
-- **1개** · https://www.luckybrand.com/women/clothing/shirts/blouses
-  - [카테고리 목록 페이지 자체] shirts · blouses — https://www.luckybrand.com/women/clothing/shirts/blouses
-- **1개** · https://www.luckybrand.com/women/clothing/dresses
-  - [카테고리 목록 페이지 자체] dresses · dresses — https://www.luckybrand.com/women/clothing/dresses
-- **1개** · https://www.luckybrand.com/women/clothing/pants
-  - [카테고리 목록 페이지 자체] pants · pants — https://www.luckybrand.com/women/clothing/pants
+- **5개** · https://www.loft.com/clothing/tees-tanks/cat2860023/
+  - [카테고리 목록 페이지 자체] pants · meganav-img-2 — https://www.loft.com/clothing/pants/catl000014/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · meganav-img-2 — https://www.loft.com/style-report/
+  - [카테고리 목록 페이지 자체] pants · A woman in a striped tank top and denim shorts stands against a plain white background, holding a brown tote bag. — https://www.loft.com/clothing/tees-tanks/cat2860023/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Follow Us — https://www.loft.com/loft-privacy/
+  - [상품 페이지가 아닌 경로] tops · Follow Us — https://www.loft.com/terms-of-use/
+- **2개** · https://www.loft.com/clothing/pants/catl000014/
+  - [배너 문구가 상품명] pants · View All — https://www.loft.com/clothing/pants/palmer/cat4950033/
+  - [배너 문구가 상품명] pants · View All — https://www.loft.com/clothing/pants/shorts/cat370074/
+- **1개** · https://www.loft.com/lou-grey/lou-grey-shop-all/cat1880002/
+  - [카테고리 목록 페이지 자체] tops · Lou & Grey — https://www.loft.com/lou-grey/lou-grey-shop-all/cat1880002/
+- **1개** · https://www.loft.com/clothing/tops/catl000011/
+  - [카테고리 목록 페이지 자체] tops · A woman in a white t-shirt with a lace hem stands against a plain white background. — https://www.loft.com/clothing/tops/catl000011/
+- **1개** · https://www.loft.com/clothing/dresses/catl000013/
+  - [카테고리 목록 페이지 자체] dresses · Shop All — https://www.loft.com/clothing/dresses/catl000013/
+
+## The upside — 9/341개 (extension)
+
+- **6개** · https://www.theupside.com/shop/tops/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Header Submenu Image — https://www.theupside.com/tanks-tees/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Meet Eddie Nelson, the Founder of Bred Breathwork — https://www.theupside.com/journal/
+  - [상품 페이지가 아닌 경로] tops · International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method — https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method
+  - [카테고리 목록 페이지 자체] tops · Instagram — https://www.theupside.com/shop/tops/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Instagram — https://www.instagram.com/the_upside/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Facebook — https://www.facebook.com/TheUpsideSport/
+- **1개** · https://www.theupside.com/shop/tops/knitwear/
+  - [카테고리 목록 페이지 자체] sweatshirts · Instagram — https://www.theupside.com/shop/tops/knitwear/
+- **1개** · https://www.theupside.com/shop/all-in-one/
+  - [카테고리 목록 페이지 자체] tops · Instagram — https://www.theupside.com/shop/all-in-one/
+- **1개** · https://www.theupside.com/shop/bottoms/
+  - [카테고리 목록 페이지 자체] tops · Instagram — https://www.theupside.com/shop/bottoms/
 
 ## Sanctuary — 7/402개 (server)
 
@@ -130,33 +154,6 @@
   - [카테고리 목록 페이지 자체] shirts · Black — https://shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6
   - [카테고리 목록 페이지 자체] tops · Black — https://shop.lululemon.com/c/women-tank-tops/n1uk4w
   - [카테고리 목록 페이지 자체] shirts · Black — https://shop.lululemon.com/c/women-t-shirts/n1wx7w
-  - [카테고리 목록 페이지 자체] sweatshirts · Black — https://shop.lululemon.com/c/women-sweatpants/n1m8w7
-
-## J crew — 6/202개 (browser)
-
-- **1개** · https://www.jcrew.com/plp/womens/categories/clothing/tees-and-tanks
-  - [카테고리 목록 페이지 자체] tops · J.Crew Logo — https://www.jcrew.com/plp/womens/categories/clothing/tees-and-tanks
-- **1개** · (출처 불명)
-  - [배너 문구가 상품명] tops · new arrivals — https://www.jcrew.com/plp/womens/features/new-arrivals
-- **1개** · https://www.jcrew.com/plp/womens/categories/clothing/dresses-and-jumpsuits
-  - [카테고리 목록 페이지 자체] dresses · dresses and jumpsuits — https://www.jcrew.com/plp/womens/categories/clothing/dresses-and-jumpsuits
-- **1개** · https://www.jcrew.com/plp/womens/categories/clothing/shirts-and-tops
-  - [카테고리 목록 페이지 자체] shirts · shirts and tops — https://www.jcrew.com/plp/womens/categories/clothing/shirts-and-tops
-- **1개** · https://www.jcrew.com/plp/womens/categories/clothing/pants
-  - [카테고리 목록 페이지 자체] pants · pants — https://www.jcrew.com/plp/womens/categories/clothing/pants
-- **1개** · https://www.jcrew.com/plp/womens/categories/clothing/sweatshirts-and-sweatpants
-  - [카테고리 목록 페이지 자체] pants · J.Crew Logo — https://www.jcrew.com/plp/womens/categories/clothing/sweatshirts-and-sweatpants
-
-## The upside — 6/63개 (extension)
-
-- **5개** · (출처 불명)
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Header Submenu Image — https://www.theupside.com/tanks-tees/
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Meet Eddie Nelson, the Founder of Bred Breathwork — https://www.theupside.com/journal/
-  - [상품 페이지가 아닌 경로] tops · International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method — https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Instagram — https://www.instagram.com/the_upside/
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Facebook — https://www.facebook.com/TheUpsideSport/
-- **1개** · https://www.theupside.com/shop/tops/knitwear/
-  - [카테고리 목록 페이지 자체] sweatshirts · Instagram — https://www.theupside.com/shop/tops/knitwear/
 
 ## ALC — 5/393개 (server)
 
@@ -168,31 +165,7 @@
   - [상품 페이지가 아닌 경로] pants · Woman wearing a white sleeveless top and pants on a white background — https://alcltd.com/collections/bottoms-jumpsuits/products/carter-pant-ivory
   - [상품 페이지가 아닌 경로] pants · Woman wearing a brown sleeveless top and beige cargo pants on a white background — https://alcltd.com/collections/bottoms-jumpsuits/products/carter-pant-bark
 
-## Cotton on — 5/216개 (browser)
-
-- **1개** · https://cottonon.com/US/co/women/women-clothing/womens-tops/
-  - [카테고리 목록 페이지 자체] pants · Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background — https://cottonon.com/US/co/women/women-clothing/womens-tops/
-- **1개** · https://cottonon.com/US/co/women/women-clothing/womens-sweats/
-  - [카테고리 목록 페이지 자체] pants · Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background — https://cottonon.com/US/co/women/women-clothing/womens-sweats/
-- **1개** · https://cottonon.com/US/co/women/women-clothing/womens-tops/womens-shirts-blouses/
-  - [카테고리 목록 페이지 자체] pants · Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background — https://cottonon.com/US/co/women/women-clothing/womens-tops/womens-shirts-blouses/
-- **1개** · https://cottonon.com/US/co/women/women-clothing/dresses/
-  - [카테고리 목록 페이지 자체] pants · Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background — https://cottonon.com/US/co/women/women-clothing/dresses/
-- **1개** · https://cottonon.com/US/co/women/women-clothing/womens-pants/
-  - [카테고리 목록 페이지 자체] pants · Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background — https://cottonon.com/US/co/women/women-clothing/womens-pants/
-
-## loft — 5/800개 (extension)
-
-- **3개** · (출처 불명)
-  - [최상위 경로(랜딩 페이지로 보임)] tops · meganav-img-2 — https://www.loft.com/style-report/
-  - [배너 문구가 상품명] pants · View All — https://www.loft.com/clothing/pants/palmer/cat4950033/
-  - [배너 문구가 상품명] pants · View All — https://www.loft.com/clothing/pants/shorts/cat370074/
-- **1개** · https://www.loft.com/clothing/pants/catl000014/
-  - [카테고리 목록 페이지 자체] pants · meganav-img-2 — https://www.loft.com/clothing/pants/catl000014/
-- **1개** · https://www.loft.com/clothing/dresses/catl000013/
-  - [카테고리 목록 페이지 자체] dresses · Shop All — https://www.loft.com/clothing/dresses/catl000013/
-
-## Madewell — 5/22개 (browser)
+## Madewell — 5/22개 (extension)
 
 - **2개** · (출처 불명)
   - [배너 문구가 상품명] tops · Shop the look — https://www.madewell.com/kr/feature/womens-tees/
@@ -213,16 +186,15 @@
   - [상품 페이지가 아닌 경로] dresses · Dress Code Solutions | How To Style A Maxi Dress | ME+EM — https://www.meandem.com/us/the-editorial/how-to-style-a-maxi-dress-from-am-to-pm
   - [배너 문구가 상품명] pants · The Trouser Lab | Find Your Silhouette | ME+EM — https://www.meandem.com/us/the-editorial/the-trouser-lab
 
-## oysho — 4/19개 (extension)
+## Oysho — 4/19개 (extension)
 
-- **1개** · https://www.oysho.com/gb/womens-pants-n4813
-  - [카테고리 목록 페이지 자체] pants · womens pants n4813 — https://www.oysho.com/gb/womens-pants-n4813
-- **1개** · (출처 불명)
+- **2개** · https://www.oysho.com/gb/womens-sports-t-shirts-n4764
+  - [카테고리 목록 페이지 자체] shirts · womens sports t shirts n4764 — https://www.oysho.com/gb/womens-sports-t-shirts-n4764
   - [상품 페이지가 아닌 경로] tops · Powered by Onetrust — https://www.onetrust.com/products/cookie-consent/
 - **1개** · https://www.oysho.com/gb/womens-sweatshirts-n4922
-  - [카테고리 목록 페이지 자체] shirts · womens sweatshirts n4922 — https://www.oysho.com/gb/womens-sweatshirts-n4922
-- **1개** · https://www.oysho.com/gb/womens-sports-t-shirts-n4764
-  - [카테고리 목록 페이지 자체] shirts · womens sports t shirts n4764 — https://www.oysho.com/gb/womens-sports-t-shirts-n4764
+  - [카테고리 목록 페이지 자체] sweatshirts · womens sweatshirts n4922 — https://www.oysho.com/gb/womens-sweatshirts-n4922
+- **1개** · https://www.oysho.com/gb/womens-pants-n4813
+  - [카테고리 목록 페이지 자체] pants · womens pants n4813 — https://www.oysho.com/gb/womens-pants-n4813
 
 ## Aritzia — 3/365개 (server)
 
@@ -245,12 +217,12 @@
   - [배너 문구가 상품명] tops · new arrivals — https://www.wilson.com/en-us/sportswear/women/new-arrivals
   - [배너 문구가 상품명] tops · new arrivals — https://www.wilson.com/en-us/sportswear/men/new-arrivals
 
-## fatface — 2/699개 (extension)
+## Fatface — 2/463개 (extension)
 
+- **1개** · https://www.fatface.com/shop/womens/clothing/tops/t-shirts
+  - [카테고리 목록 페이지 자체] tops · Women's T-Shirts — https://www.fatface.com/shop/womens/clothing/tops/t-shirts
 - **1개** · https://www.fatface.com/shop/womens/clothing/dresses
   - [카테고리 목록 페이지 자체] dresses · Women's Dresses — https://www.fatface.com/shop/womens/clothing/dresses
-- **1개** · https://www.fatface.com/shop/womens/clothing/tops/t-shirts
-  - [카테고리 목록 페이지 자체] shirts · Women's T-Shirts — https://www.fatface.com/shop/womens/clothing/tops/t-shirts
 
 ## LNA — 2/204개 (server)
 
@@ -272,22 +244,15 @@
   - [상품 페이지가 아닌 경로] sweatshirts · Cookies for Breakfast Crewneck — https://splendid.com/products/cookies-for-breakfast-crewneck
   - [배너 문구가 상품명] pants · Splendid x @Cellajaneblog Interlock Pant — https://splendid.com/products/splendid-x-cellajaneblog-interlock-pant-in-truffle
 
-## Sweaty betty — 2/366개 (browser)
+## Abercrombie & Fitch — 1/80개 (extension)
 
-- **1개** · (출처 불명)
-  - [배너 문구가 상품명] tops · New Arrivals — https://www.sweatybetty.com/us/shop/new-arrivals
-- **1개** · https://www.sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits
-  - [카테고리 목록 페이지 자체] dresses · Summer Dresses — https://www.sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits
-
-## abercrombie — 1/252개 (?)
-
-- **1개** · (출처 불명)
+- **1개** · https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav
   - [상품 페이지가 아닌 경로] tops · Powered by Onetrust — https://www.onetrust.com/products/cookie-consent/
 
-## adidas — 1/800개 (?)
+## Barbour — 1/162개 (browser)
 
-- **1개** · (출처 불명)
-  - [배너 문구가 상품명] tops · sale — https://www.adidas.com/us/sale
+- **1개** · https://www.barbour.com/row/womens/womens-clothing/womens-trousers
+  - [상품 페이지가 아닌 경로] pants · Cartmel Flared Jeans Dark Indigo — https://www.barbour.com/row/cartmel-flared-jeans-LTR0429IN93.html
 
 ## Bassike — 1/219개 (server)
 
@@ -304,11 +269,6 @@
 - **1개** · (출처 불명)
   - [상품 페이지가 아닌 경로] shirts · Carter Shirt in Pashmina — https://citizensofhumanity.com/products/carter-shirt-pashmina
 
-## CCC — 1/592개 (browser)
-
-- **1개** · (출처 불명)
-  - [상품 페이지가 아닌 경로] tops · delivery and returns — https://www.crewclothing.co.uk/customer-services/delivery-and-returns/
-
 ## Damson Madder — 1/216개 (server)
 
 - **1개** · (출처 불명)
@@ -324,14 +284,14 @@
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] sweatshirts · Gift Card — https://fahertybrand.com/products/copy-of-faherty-e-gift-card-good-vibes-for-all
 
-## joules — 1/322개 (extension)
+## Joules — 1/306개 (extension)
 
-- **1개** · https://www.joules.com/shop/womens/clothing/shirts-and-blouses
+- **1개** · https://www.joules.com/shop/womens/clothing/tops
   - [카테고리 목록 페이지 자체] shirts · Shirts & Blouses — https://www.joules.com/shop/womens/clothing/shirts-and-blouses
 
-## landsend — 1/106개 (?)
+## Lands end — 1/17개 (extension)
 
-- **1개** · (출처 불명)
+- **1개** · https://www.landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec
   - [카테고리 목록 페이지 자체] shirts · Woman wearing a sleeveless blouse — https://www.landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec
 
 ## Rails — 1/280개 (server)

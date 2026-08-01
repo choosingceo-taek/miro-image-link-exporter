@@ -1,18 +1,18 @@
 {
- "when": "2026-08-01T11:27:33.872Z",
- "scanned": 29031,
- "flagged": 213,
+ "when": "2026-08-01T12:29:18.118Z",
+ "scanned": 27403,
+ "flagged": 190,
  "report": [
   {
-   "brand": "anntaylor",
-   "site": "anntaylor.com",
-   "group": "?",
-   "total": 800,
+   "brand": "Ann Taylor",
+   "site": "anntaylor.com.anntaylor",
+   "group": "extension",
+   "total": 373,
    "badCount": 38,
    "bySrc": [
     {
-     "src": "(출처 불명)",
-     "count": 38,
+     "src": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/",
+     "count": 27,
      "rows": [
       {
        "name": "New Arrivals",
@@ -49,33 +49,204 @@
        "productUrl": "https://www.anntaylor.com/cat4190020",
        "category": "pants",
        "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
+      }
+     ]
+    },
+    {
+     "src": "https://www.anntaylor.com/clothing/dresses/cata000012/",
+     "count": 6,
+     "rows": [
       {
-       "name": "New Weekend Styles",
-       "productUrl": "https://www.anntaylor.com/cata7000064",
+       "name": "Follow Us",
+       "productUrl": "https://www.anntaylor.com/ann-privacy/",
        "category": "tops",
        "reason": "최상위 경로(랜딩 페이지로 보임)"
       },
       {
-       "name": "Weekend-Ready Tops",
-       "productUrl": "https://www.anntaylor.com/cata7000065",
+       "name": "Follow Us",
+       "productUrl": "https://www.anntaylor.com/terms-of-use/",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Anntaylor",
+       "productUrl": "https://www.facebook.com/Anntaylor/",
        "category": "tops",
        "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "@anntaylor",
+       "productUrl": "https://www.tiktok.com/@anntaylor",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "anntaylorstyle",
+       "productUrl": "https://www.pinterest.com/anntaylorstyle/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Anntaylor",
+       "productUrl": "https://www.instagram.com/Anntaylor/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      }
+     ]
+    },
+    {
+     "src": "https://www.anntaylor.com/clothing/pants/cata000014/",
+     "count": 5,
+     "rows": [
+      {
+       "name": "A woman in a floral blouse and navy wide-leg pants stands against a plain, light-colored background.",
+       "productUrl": "https://www.anntaylor.com/clothing/pants/cata000014/",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Shop Ann Taylor",
+       "productUrl": "https://www.anntaylor.com/cat3140006",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop Ann Taylor",
+       "productUrl": "https://www.anntaylor.com/cat5690001",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop Ann Taylor",
+       "productUrl": "https://www.anntaylor.com/cat2600119",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop Ann Taylor",
+       "productUrl": "https://www.anntaylor.com/cat550090",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
       }
      ]
     }
    ]
   },
   {
-   "brand": "freepeople",
-   "site": "freepeople.com",
-   "group": "?",
-   "total": 454,
-   "badCount": 29,
+   "brand": "FP Movement",
+   "site": "freepeople.com.fpmovement",
+   "group": "extension",
+   "total": 58,
+   "badCount": 16,
    "bySrc": [
     {
-     "src": "(출처 불명)",
-     "count": 29,
+     "src": "https://www.freepeople.com/fpmovement/workout-tops/",
+     "count": 9,
+     "rows": [
+      {
+       "name": "Free People",
+       "productUrl": "https://www.freepeople.com/fpmovement/workout-tops/",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "FP Movement",
+       "productUrl": "https://www.freepeople.com/fpmovement/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Shop FP Movement: Top Rated Tops",
+       "productUrl": "https://www.freepeople.com/fpmovement/top-rated-activewear-tops/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Movement: Casual Tops",
+       "productUrl": "https://www.freepeople.com/fpmovement/casual-tops/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Movement: Performance Tops",
+       "productUrl": "https://www.freepeople.com/fpmovement/performance-tops/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Movement: Outerwear",
+       "productUrl": "https://www.freepeople.com/fpmovement/outerwear/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    },
+    {
+     "src": "https://www.freepeople.com/fpmovement/one-pieces/",
+     "count": 5,
+     "rows": [
+      {
+       "name": "Free People",
+       "productUrl": "https://www.freepeople.com/fpmovement/one-pieces/",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Shop FP Movement: Casual One-Pieces",
+       "productUrl": "https://www.freepeople.com/fpmovement/casual-wear/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Movement: Performance One Pieces",
+       "productUrl": "https://www.freepeople.com/fpmovement/performance-wear/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Movement: The Hot Shot Collection",
+       "productUrl": "https://www.freepeople.com/fpmovement/activewear-hot-shot-collection/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Movement: Shortsies + Skortsies",
+       "productUrl": "https://www.freepeople.com/fpmovement/shortsies-and-skortsies/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    },
+    {
+     "src": "https://www.freepeople.com/fpmovement/workout-bottoms/",
+     "count": 2,
+     "rows": [
+      {
+       "name": "Free People",
+       "productUrl": "https://www.freepeople.com/fpmovement/workout-bottoms/",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Shop FP Movement Bottoms: Balloon",
+       "productUrl": "https://www.freepeople.com/fpmovement/balloon-bubble-pants/",
+       "category": "pants",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "Free People",
+   "site": "freepeople.com.freepeople",
+   "group": "extension",
+   "total": 136,
+   "badCount": 15,
+   "bySrc": [
+    {
+     "src": "https://www.freepeople.com/tops/",
+     "count": 8,
      "rows": [
       {
        "name": "FP Movement",
@@ -84,23 +255,41 @@
        "reason": "최상위 경로(랜딩 페이지로 보임)"
       },
       {
-       "name": "Shop FP Pants: Statement",
-       "productUrl": "https://www.freepeople.com/statement-pants-curation/",
-       "category": "pants",
+       "name": "Shop FP Tops: Going Out Tops",
+       "productUrl": "https://www.freepeople.com/going-out-tops/",
+       "category": "tops",
        "reason": "배너 문구가 상품명"
       },
       {
-       "name": "Download on the App Store",
-       "productUrl": "https://itunes.apple.com/us/app/free-people/id659532790",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
+       "name": "Shop FP Tops: Blouses",
+       "productUrl": "https://www.freepeople.com/blouses/",
+       "category": "shirts",
+       "reason": "배너 문구가 상품명"
       },
       {
-       "name": "Learn About Care FP",
-       "productUrl": "https://www.freepeople.com/care-fp/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
+       "name": "Shop FP Tops: Blouses",
+       "productUrl": "https://www.freepeople.com/button-downs/",
+       "category": "shirts",
+       "reason": "배너 문구가 상품명"
       },
+      {
+       "name": "Shop Graphic Tees",
+       "productUrl": "https://www.freepeople.com/graphic-tees/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop Top Rated Tops",
+       "productUrl": "https://www.freepeople.com/top-rated-tops/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    },
+    {
+     "src": "https://www.freepeople.com/dresses/",
+     "count": 6,
+     "rows": [
       {
        "name": "Free People",
        "productUrl": "https://www.freepeople.com/dresses/",
@@ -124,20 +313,44 @@
        "productUrl": "https://www.freepeople.com/midi-dresses/",
        "category": "dresses",
        "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Dresses: Printed Dresses",
+       "productUrl": "https://www.freepeople.com/printed-dresses/",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Dresses: Special Occassion Dresses",
+       "productUrl": "https://www.freepeople.com/party-dresses/",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    },
+    {
+     "src": "https://www.freepeople.com/pants/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Shop FP Pants: Statement",
+       "productUrl": "https://www.freepeople.com/statement-pants-curation/",
+       "category": "pants",
+       "reason": "배너 문구가 상품명"
       }
      ]
     }
    ]
   },
   {
-   "brand": "thewhitecompany",
-   "site": "thewhitecompany.com",
-   "group": "?",
-   "total": 87,
+   "brand": "The white company",
+   "site": "thewhitecompany.com.thewhitecompany",
+   "group": "extension",
+   "total": 86,
    "badCount": 14,
    "bySrc": [
     {
-     "src": "(출처 불명)",
+     "src": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear",
      "count": 14,
      "rows": [
       {
@@ -175,135 +388,6 @@
        "productUrl": "https://www.thewhitecompany.com/uk/magazine/wellness",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "three children carrying a surfboard on the beach",
-       "productUrl": "https://www.thewhitecompany.com/uk/magazine/little-ones",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "a candle and a vase of flowers sit on a table",
-       "productUrl": "https://www.thewhitecompany.com/uk/magazine/gifts",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Barbour",
-   "site": "barbour.com.barbour",
-   "group": "browser",
-   "total": 183,
-   "badCount": 12,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 7,
-     "rows": [
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/mens-home.html",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/mens/mens-new-arrivals",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/barbour-international-home.html",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/all-barbour-international/barbour-international-collections",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Discover Barbour FARM Rio",
-       "productUrl": "https://www.barbour.com/row/our-history.html",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Discover Barbour FARM Rio",
-       "productUrl": "https://www.barbour.com/row/womens/womens-collaborations/barbour-farm-rio",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Cartmel Flared Jeans Dark Indigo",
-       "productUrl": "https://www.barbour.com/row/cartmel-flared-jeans-LTR0429IN93.html",
-       "category": "pants",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    },
-    {
-     "src": "https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts",
-       "category": "shirts",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.barbour.com/row/womens/womens-clothing/womens-sweatshirts-hoodies",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/womens/womens-clothing/womens-sweatshirts-hoodies",
-       "category": "sweatshirts",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.barbour.com/row/womens/womens-clothing/womens-shirts-blouses",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/womens/womens-clothing/womens-shirts-blouses",
-       "category": "shirts",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.barbour.com/row/womens/womens-clothing/womens-dresses",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/womens/womens-clothing/womens-dresses",
-       "category": "dresses",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.barbour.com/row/womens/womens-clothing/womens-trousers",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Discover Now",
-       "productUrl": "https://www.barbour.com/row/womens/womens-clothing/womens-trousers",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
       }
      ]
     }
@@ -355,33 +439,21 @@
        "productUrl": "https://leset.com/products/barb-lace-sleeveless-mini-dress-chocolate",
        "category": "dresses",
        "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "More Colors +",
-       "productUrl": "https://leset.com/products/ari-short-sleeve-mini-dress-daffodil",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "More Colors +",
-       "productUrl": "https://leset.com/products/ari-one-shoulder-dress-daffodil",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
       }
      ]
     }
    ]
   },
   {
-   "brand": "sezane",
-   "site": "sezane.com",
+   "brand": "Sezane",
+   "site": "sezane.com.sezane",
    "group": "extension",
    "total": 137,
    "badCount": 11,
    "bySrc": [
     {
-     "src": "(출처 불명)",
-     "count": 8,
+     "src": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
+     "count": 10,
      "rows": [
       {
        "name": "SHOP",
@@ -418,18 +490,6 @@
        "productUrl": "https://www.sezane.com/us-en/octobre-editions/gift-cards",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "ABOUT",
-       "productUrl": "https://www.sezane.com/us-en/about-us-sezane",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "FAQ",
-       "productUrl": "https://www.sezane.com/us-en/help",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
       }
      ]
     },
@@ -440,31 +500,7 @@
       {
        "name": "trousers",
        "productUrl": "https://www.sezane.com/us-en/collection/bottoms/trousers",
-       "category": "tops",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres",
-     "count": 1,
-     "rows": [
-      {
-       "name": "t shirts sweatshirts marinieres",
-       "productUrl": "https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres",
-       "category": "shirts",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
-     "count": 1,
-     "rows": [
-      {
-       "name": "sweat shirts sailor tops",
-       "productUrl": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
-       "category": "shirts",
+       "category": "pants",
        "reason": "카테고리 목록 페이지 자체"
       }
      ]
@@ -472,86 +508,185 @@
    ]
   },
   {
-   "brand": "Lucky Brand",
-   "site": "luckybrand.com.luckybrand",
-   "group": "browser",
-   "total": 261,
-   "badCount": 7,
+   "brand": "Loft",
+   "site": "loft.com.loft",
+   "group": "extension",
+   "total": 600,
+   "badCount": 10,
    "bySrc": [
     {
-     "src": "(출처 불명)",
+     "src": "https://www.loft.com/clothing/tees-tanks/cat2860023/",
+     "count": 5,
+     "rows": [
+      {
+       "name": "meganav-img-2",
+       "productUrl": "https://www.loft.com/clothing/pants/catl000014/",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "meganav-img-2",
+       "productUrl": "https://www.loft.com/style-report/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "A woman in a striped tank top and denim shorts stands against a plain white background, holding a brown tote bag.",
+       "productUrl": "https://www.loft.com/clothing/tees-tanks/cat2860023/",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Follow Us",
+       "productUrl": "https://www.loft.com/loft-privacy/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Follow Us",
+       "productUrl": "https://www.loft.com/terms-of-use/",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    },
+    {
+     "src": "https://www.loft.com/clothing/pants/catl000014/",
      "count": 2,
      "rows": [
       {
-       "name": "shop all clothing",
-       "productUrl": "https://www.luckybrand.com/women/shop-all-clothing",
-       "category": "tops",
+       "name": "View All",
+       "productUrl": "https://www.loft.com/clothing/pants/palmer/cat4950033/",
+       "category": "pants",
        "reason": "배너 문구가 상품명"
       },
       {
-       "name": "Shop Sweaters",
-       "productUrl": "https://www.luckybrand.com/sale/featured-shops/shop-29.99-womens-sweaters",
-       "category": "sweatshirts",
+       "name": "View All",
+       "productUrl": "https://www.loft.com/clothing/pants/shorts/cat370074/",
+       "category": "pants",
        "reason": "배너 문구가 상품명"
       }
      ]
     },
     {
-     "src": "https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops",
+     "src": "https://www.loft.com/lou-grey/lou-grey-shop-all/cat1880002/",
      "count": 1,
      "rows": [
       {
-       "name": "tshirts tanktops",
-       "productUrl": "https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops",
-       "category": "shirts",
+       "name": "Lou & Grey",
+       "productUrl": "https://www.loft.com/lou-grey/lou-grey-shop-all/cat1880002/",
+       "category": "tops",
        "reason": "카테고리 목록 페이지 자체"
       }
      ]
     },
     {
-     "src": "https://www.luckybrand.com/women/clothing/sweaters",
+     "src": "https://www.loft.com/clothing/tops/catl000011/",
      "count": 1,
      "rows": [
       {
-       "name": "sweaters",
-       "productUrl": "https://www.luckybrand.com/women/clothing/sweaters",
-       "category": "sweatshirts",
+       "name": "A woman in a white t-shirt with a lace hem stands against a plain white background.",
+       "productUrl": "https://www.loft.com/clothing/tops/catl000011/",
+       "category": "tops",
        "reason": "카테고리 목록 페이지 자체"
       }
      ]
     },
     {
-     "src": "https://www.luckybrand.com/women/clothing/shirts/blouses",
+     "src": "https://www.loft.com/clothing/dresses/catl000013/",
      "count": 1,
      "rows": [
       {
-       "name": "blouses",
-       "productUrl": "https://www.luckybrand.com/women/clothing/shirts/blouses",
-       "category": "shirts",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.luckybrand.com/women/clothing/dresses",
-     "count": 1,
-     "rows": [
-      {
-       "name": "dresses",
-       "productUrl": "https://www.luckybrand.com/women/clothing/dresses",
+       "name": "Shop All",
+       "productUrl": "https://www.loft.com/clothing/dresses/catl000013/",
        "category": "dresses",
        "reason": "카테고리 목록 페이지 자체"
       }
      ]
+    }
+   ]
+  },
+  {
+   "brand": "The upside",
+   "site": "theupside.com.theupside",
+   "group": "extension",
+   "total": 341,
+   "badCount": 9,
+   "bySrc": [
+    {
+     "src": "https://www.theupside.com/shop/tops/",
+     "count": 6,
+     "rows": [
+      {
+       "name": "Header Submenu Image",
+       "productUrl": "https://www.theupside.com/tanks-tees/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Meet Eddie Nelson, the Founder of Bred Breathwork",
+       "productUrl": "https://www.theupside.com/journal/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method",
+       "productUrl": "https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.theupside.com/shop/tops/",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.instagram.com/the_upside/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Facebook",
+       "productUrl": "https://www.facebook.com/TheUpsideSport/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      }
+     ]
     },
     {
-     "src": "https://www.luckybrand.com/women/clothing/pants",
+     "src": "https://www.theupside.com/shop/tops/knitwear/",
      "count": 1,
      "rows": [
       {
-       "name": "pants",
-       "productUrl": "https://www.luckybrand.com/women/clothing/pants",
-       "category": "pants",
+       "name": "Instagram",
+       "productUrl": "https://www.theupside.com/shop/tops/knitwear/",
+       "category": "sweatshirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.theupside.com/shop/all-in-one/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.theupside.com/shop/all-in-one/",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.theupside.com/shop/bottoms/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.theupside.com/shop/bottoms/",
+       "category": "tops",
        "reason": "카테고리 목록 페이지 자체"
       }
      ]
@@ -673,150 +808,6 @@
        "productUrl": "https://shop.lululemon.com/c/women-t-shirts/n1wx7w",
        "category": "shirts",
        "reason": "카테고리 목록 페이지 자체"
-      },
-      {
-       "name": "Black",
-       "productUrl": "https://shop.lululemon.com/c/women-sweatpants/n1m8w7",
-       "category": "sweatshirts",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "J crew",
-   "site": "jcrew.com.jcrew",
-   "group": "browser",
-   "total": 202,
-   "badCount": 6,
-   "bySrc": [
-    {
-     "src": "https://www.jcrew.com/plp/womens/categories/clothing/tees-and-tanks",
-     "count": 1,
-     "rows": [
-      {
-       "name": "J.Crew Logo",
-       "productUrl": "https://www.jcrew.com/plp/womens/categories/clothing/tees-and-tanks",
-       "category": "tops",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
-      {
-       "name": "new arrivals",
-       "productUrl": "https://www.jcrew.com/plp/womens/features/new-arrivals",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      }
-     ]
-    },
-    {
-     "src": "https://www.jcrew.com/plp/womens/categories/clothing/dresses-and-jumpsuits",
-     "count": 1,
-     "rows": [
-      {
-       "name": "dresses and jumpsuits",
-       "productUrl": "https://www.jcrew.com/plp/womens/categories/clothing/dresses-and-jumpsuits",
-       "category": "dresses",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.jcrew.com/plp/womens/categories/clothing/shirts-and-tops",
-     "count": 1,
-     "rows": [
-      {
-       "name": "shirts and tops",
-       "productUrl": "https://www.jcrew.com/plp/womens/categories/clothing/shirts-and-tops",
-       "category": "shirts",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.jcrew.com/plp/womens/categories/clothing/pants",
-     "count": 1,
-     "rows": [
-      {
-       "name": "pants",
-       "productUrl": "https://www.jcrew.com/plp/womens/categories/clothing/pants",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.jcrew.com/plp/womens/categories/clothing/sweatshirts-and-sweatpants",
-     "count": 1,
-     "rows": [
-      {
-       "name": "J.Crew Logo",
-       "productUrl": "https://www.jcrew.com/plp/womens/categories/clothing/sweatshirts-and-sweatpants",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "The upside",
-   "site": "theupside.com.theupside",
-   "group": "extension",
-   "total": 63,
-   "badCount": 6,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 5,
-     "rows": [
-      {
-       "name": "Header Submenu Image",
-       "productUrl": "https://www.theupside.com/tanks-tees/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "Meet Eddie Nelson, the Founder of Bred Breathwork",
-       "productUrl": "https://www.theupside.com/journal/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method",
-       "productUrl": "https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Instagram",
-       "productUrl": "https://www.instagram.com/the_upside/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "Facebook",
-       "productUrl": "https://www.facebook.com/TheUpsideSport/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      }
-     ]
-    },
-    {
-     "src": "https://www.theupside.com/shop/tops/knitwear/",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Instagram",
-       "productUrl": "https://www.theupside.com/shop/tops/knitwear/",
-       "category": "sweatshirts",
-       "reason": "카테고리 목록 페이지 자체"
       }
      ]
     }
@@ -874,135 +865,9 @@
    ]
   },
   {
-   "brand": "Cotton on",
-   "site": "cottonon.com.cottonon",
-   "group": "browser",
-   "total": 216,
-   "badCount": 5,
-   "bySrc": [
-    {
-     "src": "https://cottonon.com/US/co/women/women-clothing/womens-tops/",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background",
-       "productUrl": "https://cottonon.com/US/co/women/women-clothing/womens-tops/",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://cottonon.com/US/co/women/women-clothing/womens-sweats/",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background",
-       "productUrl": "https://cottonon.com/US/co/women/women-clothing/womens-sweats/",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://cottonon.com/US/co/women/women-clothing/womens-tops/womens-shirts-blouses/",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background",
-       "productUrl": "https://cottonon.com/US/co/women/women-clothing/womens-tops/womens-shirts-blouses/",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://cottonon.com/US/co/women/women-clothing/dresses/",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background",
-       "productUrl": "https://cottonon.com/US/co/women/women-clothing/dresses/",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://cottonon.com/US/co/women/women-clothing/womens-pants/",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Four young people sitting outdoors wearing casual denim and cotton clothing against a blue sky background",
-       "productUrl": "https://cottonon.com/US/co/women/women-clothing/womens-pants/",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "loft",
-   "site": "loft.com",
-   "group": "extension",
-   "total": 800,
-   "badCount": 5,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 3,
-     "rows": [
-      {
-       "name": "meganav-img-2",
-       "productUrl": "https://www.loft.com/style-report/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "View All",
-       "productUrl": "https://www.loft.com/clothing/pants/palmer/cat4950033/",
-       "category": "pants",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "View All",
-       "productUrl": "https://www.loft.com/clothing/pants/shorts/cat370074/",
-       "category": "pants",
-       "reason": "배너 문구가 상품명"
-      }
-     ]
-    },
-    {
-     "src": "https://www.loft.com/clothing/pants/catl000014/",
-     "count": 1,
-     "rows": [
-      {
-       "name": "meganav-img-2",
-       "productUrl": "https://www.loft.com/clothing/pants/catl000014/",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.loft.com/clothing/dresses/catl000013/",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Shop All",
-       "productUrl": "https://www.loft.com/clothing/dresses/catl000013/",
-       "category": "dresses",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    }
-   ]
-  },
-  {
    "brand": "Madewell",
    "site": "madewell.com.madewell",
-   "group": "browser",
+   "group": "extension",
    "total": 22,
    "badCount": 5,
    "bySrc": [
@@ -1108,28 +973,22 @@
    ]
   },
   {
-   "brand": "oysho",
-   "site": "oysho.com",
+   "brand": "Oysho",
+   "site": "oysho.com.oysho",
    "group": "extension",
    "total": 19,
    "badCount": 4,
    "bySrc": [
     {
-     "src": "https://www.oysho.com/gb/womens-pants-n4813",
-     "count": 1,
+     "src": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+     "count": 2,
      "rows": [
       {
-       "name": "womens pants n4813",
-       "productUrl": "https://www.oysho.com/gb/womens-pants-n4813",
-       "category": "pants",
+       "name": "womens sports t shirts n4764",
+       "productUrl": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+       "category": "shirts",
        "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
+      },
       {
        "name": "Powered by Onetrust",
        "productUrl": "https://www.onetrust.com/products/cookie-consent/",
@@ -1145,19 +1004,19 @@
       {
        "name": "womens sweatshirts n4922",
        "productUrl": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
-       "category": "shirts",
+       "category": "sweatshirts",
        "reason": "카테고리 목록 페이지 자체"
       }
      ]
     },
     {
-     "src": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+     "src": "https://www.oysho.com/gb/womens-pants-n4813",
      "count": 1,
      "rows": [
       {
-       "name": "womens sports t shirts n4764",
-       "productUrl": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
-       "category": "shirts",
+       "name": "womens pants n4813",
+       "productUrl": "https://www.oysho.com/gb/womens-pants-n4813",
+       "category": "pants",
        "reason": "카테고리 목록 페이지 자체"
       }
      ]
@@ -1264,12 +1123,24 @@
    ]
   },
   {
-   "brand": "fatface",
-   "site": "fatface.com",
+   "brand": "Fatface",
+   "site": "fatface.com.fatface",
    "group": "extension",
-   "total": 699,
+   "total": 463,
    "badCount": 2,
    "bySrc": [
+    {
+     "src": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Women's T-Shirts",
+       "productUrl": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
     {
      "src": "https://www.fatface.com/shop/womens/clothing/dresses",
      "count": 1,
@@ -1278,18 +1149,6 @@
        "name": "Women's Dresses",
        "productUrl": "https://www.fatface.com/shop/womens/clothing/dresses",
        "category": "dresses",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    },
-    {
-     "src": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Women's T-Shirts",
-       "productUrl": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
-       "category": "shirts",
        "reason": "카테고리 목록 페이지 자체"
       }
      ]
@@ -1390,47 +1249,14 @@
    ]
   },
   {
-   "brand": "Sweaty betty",
-   "site": "sweatybetty.com.sweatybetty",
-   "group": "browser",
-   "total": 366,
-   "badCount": 2,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
-      {
-       "name": "New Arrivals",
-       "productUrl": "https://www.sweatybetty.com/us/shop/new-arrivals",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      }
-     ]
-    },
-    {
-     "src": "https://www.sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Summer Dresses",
-       "productUrl": "https://www.sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits",
-       "category": "dresses",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "abercrombie",
-   "site": "abercrombie.com",
-   "group": "?",
-   "total": 252,
+   "brand": "Abercrombie & Fitch",
+   "site": "abercrombie.com.abercrombiefitch",
+   "group": "extension",
+   "total": 80,
    "badCount": 1,
    "bySrc": [
     {
-     "src": "(출처 불명)",
+     "src": "https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav",
      "count": 1,
      "rows": [
       {
@@ -1444,21 +1270,21 @@
    ]
   },
   {
-   "brand": "adidas",
-   "site": "adidas.com",
-   "group": "?",
-   "total": 800,
+   "brand": "Barbour",
+   "site": "barbour.com.barbour",
+   "group": "browser",
+   "total": 162,
    "badCount": 1,
    "bySrc": [
     {
-     "src": "(출처 불명)",
+     "src": "https://www.barbour.com/row/womens/womens-clothing/womens-trousers",
      "count": 1,
      "rows": [
       {
-       "name": "sale",
-       "productUrl": "https://www.adidas.com/us/sale",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
+       "name": "Cartmel Flared Jeans Dark Indigo",
+       "productUrl": "https://www.barbour.com/row/cartmel-flared-jeans-LTR0429IN93.html",
+       "category": "pants",
+       "reason": "상품 페이지가 아닌 경로"
       }
      ]
     }
@@ -1521,27 +1347,6 @@
        "name": "Carter Shirt in Pashmina",
        "productUrl": "https://citizensofhumanity.com/products/carter-shirt-pashmina",
        "category": "shirts",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "CCC",
-   "site": "crewclothing.co.uk.ccc",
-   "group": "browser",
-   "total": 592,
-   "badCount": 1,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
-      {
-       "name": "delivery and returns",
-       "productUrl": "https://www.crewclothing.co.uk/customer-services/delivery-and-returns/",
-       "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
       }
      ]
@@ -1612,14 +1417,14 @@
    ]
   },
   {
-   "brand": "joules",
-   "site": "joules.com",
+   "brand": "Joules",
+   "site": "joules.com.joules",
    "group": "extension",
-   "total": 322,
+   "total": 306,
    "badCount": 1,
    "bySrc": [
     {
-     "src": "https://www.joules.com/shop/womens/clothing/shirts-and-blouses",
+     "src": "https://www.joules.com/shop/womens/clothing/tops",
      "count": 1,
      "rows": [
       {
@@ -1633,14 +1438,14 @@
    ]
   },
   {
-   "brand": "landsend",
-   "site": "landsend.com",
-   "group": "?",
-   "total": 106,
+   "brand": "Lands end",
+   "site": "landsend.com.landsend",
+   "group": "extension",
+   "total": 17,
    "badCount": 1,
    "bySrc": [
     {
-     "src": "(출처 불명)",
+     "src": "https://www.landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec",
      "count": 1,
      "rows": [
       {
