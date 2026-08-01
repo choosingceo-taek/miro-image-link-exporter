@@ -166,6 +166,7 @@ export default {
           brand: (k.metadata && k.metadata.brand) || '',
           count: (k.metadata && k.metadata.count) || 0,
           updated: (k.metadata && k.metadata.updated) || 0,
+          cats: (k.metadata && k.metadata.cats) || null,
         }));
         return json({ ok: true, list }, 200, cors);
       }
@@ -265,8 +266,12 @@ export default {
         }
       }
       const record = { site, brand: String(body.brand || '').slice(0, 80), updated: Date.now(), items: merged };
+      // 카테고리 분포를 메타데이터에 함께 남긴다 — 상태 페이지가 카탈로그 본문을 내려받지 않고도
+      // 브랜드별 구성을 보여줄 수 있다. (KV 메타데이터 상한 1KB 이내로 충분히 작다)
+      const cats = {};
+      for (const p of merged) cats[p.category] = (cats[p.category] || 0) + 1;
       await env.RACK_CACHE.put('catalog:' + site, JSON.stringify(record), {
-        metadata: { brand: record.brand, count: merged.length, updated: record.updated },
+        metadata: { brand: record.brand, count: merged.length, updated: record.updated, cats },
       });
       // 레거시 정리: 예전 크롬 확장은 호스트만으로 키를 만들어(catalog:freepeople.com) 한 도메인의
       // 두 브랜드를 섞어 저장했다. 이제 <호스트>.<브랜드슬러그>로 저장하는데, 같은 호스트의 옛 키가

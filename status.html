@@ -153,16 +153,24 @@ async function load() {
       return r;
     });
 
-    // 카테고리 분포는 저장본을 하나씩 읽어야 알 수 있다 — 문제 있는 브랜드만 열어본다(요청 수 절약).
-    const need = rows.filter((r) => r.site && r.state !== 'none').slice(0, 200);
-    await Promise.all(need.map(async (r) => {
+    // 카테고리 분포는 보통 목록 조회의 메타데이터에 들어 있다(저장할 때 함께 기록).
+    // 그 값이 없는 옛 저장본만 본문을 읽어 계산한다 — 전부 내려받으면 수십 MB가 된다.
+    const fmtCats = (c) => ['tops', 'sweatshirts', 'shirts', 'dresses', 'pants']
+      .filter((k) => c[k]).map((k) => k + ' ' + c[k]).join(' · ');
+    const byKey = new Map(list.map((c) => [c.site, c]));
+    const need = [];
+    for (const r of rows) {
+      if (!r.site || r.state === 'none') continue;
+      const meta = byKey.get(r.site);
+      if (meta && meta.cats) r.catText = fmtCats(meta.cats) || '분류 없음';
+      else need.push(r);
+    }
+    await Promise.all(need.slice(0, 60).map(async (r) => {
       try {
         const d = await getJson(WORKER + '/?catalog=' + encodeURIComponent(r.site) + tok);
         const c = {};
         for (const it of d.items || []) c[it.category] = (c[it.category] || 0) + 1;
-        r.catText = ['tops', 'sweatshirts', 'shirts', 'dresses', 'pants']
-          .filter((k) => c[k]).map((k) => k + ' ' + c[k]).join(' · ');
-        if (!r.catText) r.catText = '분류 없음';
+        r.catText = fmtCats(c) || '분류 없음';
       } catch (e) { r.catText = '읽기 실패'; }
     }));
 
