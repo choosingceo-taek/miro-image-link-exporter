@@ -4,7 +4,7 @@ name: Catalog audit (non-product items)
 # 읽기만 하므로 저장소를 건드리지 않는다.
 on:
   schedule:
-    - cron: "20 19 * * *"   # UTC 19:20 = KST 04:20 — 서버·헤드리스 수집이 끝난 뒤
+    - cron: "0 19 * * *"    # UTC 19:00 = KST 04:00 — 서버·헤드리스 수집이 끝난 뒤
   workflow_dispatch:
     inputs:
       limit:

@@ -7,7 +7,7 @@ name: Headless browser collect
 # (차단이 풀렸는지 확인용). 그때는 store=0 으로 두고 결과 리포트만 본다.
 on:
   schedule:
-    - cron: "40 18 * * *"   # UTC 18:40 = KST 03:40 — 야간 프리페치(03:00) 뒤에 이어서
+    - cron: "30 18 * * *"   # UTC 18:30 = KST 03:30 — 서버 프리페치(03:00) 뒤에 이어서
   workflow_dispatch:
     inputs:
       group:
