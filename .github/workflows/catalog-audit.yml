@@ -3,8 +3,13 @@ name: Catalog audit (non-product items)
 # 저장된 카탈로그에서 배너·안내 페이지처럼 상품이 아닌 항목을 찾아 브랜드·카테고리 URL별로 보고한다.
 # 읽기만 하므로 저장소를 건드리지 않는다.
 on:
+  # 헤드리스 수집이 끝나면 곧바로 이어서 돈다. cron 은 깃허브 사정으로 최대 1시간 넘게
+  # 밀리거나 통째로 건너뛰기도 해서, 그것 하나만 믿으면 점검이 수집보다 먼저 돌거나 아예 안 돈다.
+  workflow_run:
+    workflows: ["Headless browser collect"]
+    types: [completed]
   schedule:
-    - cron: "0 19 * * *"    # UTC 19:00 = KST 04:00 — 서버·헤드리스 수집이 끝난 뒤
+    - cron: "0 20 * * *"    # UTC 20:00 = KST 05:00 — 위 연결이 끊겼을 때를 위한 예비
   workflow_dispatch:
     inputs:
       limit:
@@ -14,6 +19,11 @@ on:
 
 permissions:
   contents: write
+
+# 예비 cron 과 workflow_run 이 겹치면 리포트 커밋이 서로 밀어내므로 한 번에 하나만 돈다.
+concurrency:
+  group: catalog-audit
+  cancel-in-progress: false
 
 jobs:
   audit:
