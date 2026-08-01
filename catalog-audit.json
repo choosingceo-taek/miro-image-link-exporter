@@ -1,182 +1,8 @@
 {
- "when": "2026-08-01T11:21:22.498Z",
+ "when": "2026-08-01T11:27:33.872Z",
  "scanned": 29031,
- "flagged": 833,
+ "flagged": 213,
  "report": [
-  {
-   "brand": "Chico's",
-   "site": "chicos.com",
-   "group": "server",
-   "total": 342,
-   "badCount": 342,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 342,
-     "rows": [
-      {
-       "name": "Printed Cotton Slub Scoop Neck Tee",
-       "productUrl": "https://www.chicos.com/store/product/printed-cotton-slub-scoop-neck-tee/570413841?inseam=regular&sizeType=regular&color=852&catId=cat11199293&collectionId=category&parentId=199761064120",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Pima Elbow Sleeve Tee",
-       "productUrl": "https://www.chicos.com/store/product/pima-elbow-sleeve-tee/570412558?inseam=regular&sizeType=regular&color=7158&catId=cat11199293&collectionId=category&parentId=199761003730",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Island Cotton Slub Crewneck Button Tee",
-       "productUrl": "https://www.chicos.com/store/product/island-cotton-slub-crewneck-button-tee/570413842?inseam=regular&sizeType=regular&color=7012&catId=cat11199293&collectionId=category&parentId=199761143382",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Travelers™ Convertible Tank",
-       "productUrl": "https://www.chicos.com/store/product/travelers-convertible-tank/570375323?inseam=regular&sizeType=regular&color=7060&catId=cat11199293&collectionId=category&parentId=196534704863",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Geo Print Pima V-Neck Tee",
-       "productUrl": "https://www.chicos.com/store/product/geo-print-pima-v-neck-tee/570414043?inseam=regular&sizeType=regular&color=001&catId=cat11199293&collectionId=category&parentId=199761072774",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Pima Cotton 3/4 Sleeve Tee",
-       "productUrl": "https://www.chicos.com/store/product/pima-cotton-3-4-sleeve-tee/570396792?inseam=regular&sizeType=regular&color=7062&catId=cat11199293&collectionId=category&parentId=196536012065",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Printed Pima V-Neck Tee",
-       "productUrl": "https://www.chicos.com/store/product/printed-pima-v-neck-tee/570414042?inseam=regular&sizeType=regular&color=001&catId=cat11199293&collectionId=category&parentId=199761072705",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Pima Cotton Boatneck Tee",
-       "productUrl": "https://www.chicos.com/store/product/pima-cotton-boatneck-tee/570396700?inseam=regular&sizeType=regular&color=7063&catId=cat11199293&collectionId=category&parentId=196535972544",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Zebra Pima Elbow Sleeve Tee",
-       "productUrl": "https://www.chicos.com/store/product/zebra-pima-elbow-sleeve-tee/570413025?inseam=regular&sizeType=regular&color=5062&catId=cat11199293&collectionId=category&parentId=199761031856",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Cotton Slub V-Neck Tee",
-       "productUrl": "https://www.chicos.com/store/product/cotton-slub-v-neck-tee/570404641?inseam=regular&sizeType=regular&color=001&catId=cat11199293&collectionId=category&parentId=196536616881",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Printed Cotton Slub Tee",
-       "productUrl": "https://www.chicos.com/store/product/printed-cotton-slub-tee/570414511?inseam=regular&sizeType=regular&color=7063&catId=cat11199293&collectionId=category&parentId=199761184705",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Cotton Stretch 3/4 Sleeve Tee",
-       "productUrl": "https://www.chicos.com/store/product/cotton-stretch-3-4-sleeve-tee/570403265?inseam=regular&sizeType=regular&color=5448&catId=cat11199293&collectionId=category&parentId=196536333443",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "WHBM",
-   "site": "whitehouseblackmarket.com",
-   "group": "server",
-   "total": 278,
-   "badCount": 278,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 278,
-     "rows": [
-      {
-       "name": "Jetsetter Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/jetsetter-tee/570412811?inseam=regular&sizeType=regular&color=7613&catId=cat4769286&collectionId=category&parentId=194300960925",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "WHBM FORME™ Ribbed Scoop Neck Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&parentId=196536535526",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "WHBM FORME™ Ribbed Scoop Neck Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&parentId=196536535526",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "WHBM FORME™ Ribbed Scoop Neck Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413978?inseam=regular&sizeType=regular&color=1332&catId=cat4769286&collectionId=category&parentId=196536535526",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Jetsetter Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/jetsetter-tee/570413650?inseam=regular&sizeType=regular&color=7593&catId=cat4769286&collectionId=category&parentId=194301070937",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "WHBM FORME™ Ribbed Scoop Neck Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413565?inseam=regular&sizeType=regular&color=3009&catId=cat4769286&collectionId=category&parentId=196536535526",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "V-neck Short Sleeve Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/v-neck-short-sleeve-tee/570413149?inseam=regular&sizeType=regular&color=7636&catId=cat4769286&collectionId=category&parentId=196536957472",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Jetsetter Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/jetsetter-tee/570413649?inseam=regular&sizeType=regular&color=7592&catId=cat4769286&collectionId=category&parentId=194301070937",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "V-neck Short Sleeve Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/v-neck-short-sleeve-tee/570412774?inseam=regular&sizeType=regular&color=001&catId=cat4769286&collectionId=category&parentId=196536957472",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Satin Puff Sleeve Knit Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/satin-puff-sleeve-knit-tee/570411366?inseam=regular&sizeType=regular&color=7503&catId=cat4769286&collectionId=category&parentId=196536838658",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Satin Sleeve Knit Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/satin-sleeve-knit-tee/570411387?inseam=regular&sizeType=regular&color=2277&catId=cat4769286&collectionId=category&parentId=196536838931",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Jetsetter Tee",
-       "productUrl": "https://www.whitehouseblackmarket.com/store/product/jetsetter-tee/570404920?inseam=regular&sizeType=regular&color=7480&catId=cat4769286&collectionId=category&parentId=194300960925",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
   {
    "brand": "anntaylor",
    "site": "anntaylor.com",
@@ -234,30 +60,6 @@
        "name": "Weekend-Ready Tops",
        "productUrl": "https://www.anntaylor.com/cata7000065",
        "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "Occasion Dressing",
-       "productUrl": "https://www.anntaylor.com/cat5550004",
-       "category": "dresses",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "All Clothing",
-       "productUrl": "https://www.anntaylor.com/cat3630020",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Everyday Dresses",
-       "productUrl": "https://www.anntaylor.com/clothing/dresses/cata000012/",
-       "category": "dresses",
-       "reason": "카테고리 목록 페이지 자체"
-      },
-      {
-       "name": "Everyday Dresses",
-       "productUrl": "https://www.anntaylor.com/cata000012",
-       "category": "dresses",
        "reason": "최상위 경로(랜딩 페이지로 보임)"
       }
      ]
@@ -322,30 +124,6 @@
        "productUrl": "https://www.freepeople.com/midi-dresses/",
        "category": "dresses",
        "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Shop FP Dresses: Printed Dresses",
-       "productUrl": "https://www.freepeople.com/printed-dresses/",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Shop FP Dresses: Special Occassion Dresses",
-       "productUrl": "https://www.freepeople.com/party-dresses/",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Free People",
-       "productUrl": "https://www.freepeople.com/blouses/",
-       "category": "shirts",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "Shop FP Tops: Going Out Tops",
-       "productUrl": "https://www.freepeople.com/going-out-tops/",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
       }
      ]
     }
@@ -407,30 +185,6 @@
       {
        "name": "a candle and a vase of flowers sit on a table",
        "productUrl": "https://www.thewhitecompany.com/uk/magazine/gifts",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "the thread style",
-       "productUrl": "https://www.thewhitecompany.com/uk/magazine/style",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "delivery information",
-       "productUrl": "https://www.thewhitecompany.com/uk/help/delivery",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "gift box servive",
-       "productUrl": "https://www.thewhitecompany.com/uk/help/gift-box-service",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "gift cards",
-       "productUrl": "https://www.thewhitecompany.com/uk/gift-cards",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
       }
@@ -611,30 +365,6 @@
       {
        "name": "More Colors +",
        "productUrl": "https://leset.com/products/ari-one-shoulder-dress-daffodil",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "More Colors +",
-       "productUrl": "https://leset.com/products/ari-v-neck-mini-dress-black",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "More Colors +",
-       "productUrl": "https://leset.com/products/ari-v-neck-mini-dress-ice",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "More Colors +",
-       "productUrl": "https://leset.com/products/yoko-halter-maxi-dress-malbec",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "More Colors +",
-       "productUrl": "https://leset.com/products/yoko-halter-maxi-dress-white",
        "category": "dresses",
        "reason": "배너 문구가 상품명"
       }

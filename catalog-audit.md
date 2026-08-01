@@ -1,41 +1,9 @@
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T11:21Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T11:27Z)
 
-- 카탈로그 133개 · 상품 29031개 검사 · **문제 항목 833개**
-- 문제가 있는 브랜드 43개
+- 카탈로그 133개 · 상품 29031개 검사 · **문제 항목 213개**
+- 문제가 있는 브랜드 41개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
-
-## Chico's — 342/342개 (server)
-
-- **342개** · (출처 불명)
-  - [상품 페이지가 아닌 경로] tops · Printed Cotton Slub Scoop Neck Tee — https://www.chicos.com/store/product/printed-cotton-slub-scoop-neck-tee/570413841?inseam=regular&sizeType=regular&color=852&catId=cat11199293&collectionId=category&parentId=199761064120
-  - [상품 페이지가 아닌 경로] tops · Pima Elbow Sleeve Tee — https://www.chicos.com/store/product/pima-elbow-sleeve-tee/570412558?inseam=regular&sizeType=regular&color=7158&catId=cat11199293&collectionId=category&parentId=199761003730
-  - [상품 페이지가 아닌 경로] tops · Island Cotton Slub Crewneck Button Tee — https://www.chicos.com/store/product/island-cotton-slub-crewneck-button-tee/570413842?inseam=regular&sizeType=regular&color=7012&catId=cat11199293&collectionId=category&parentId=199761143382
-  - [상품 페이지가 아닌 경로] tops · Travelers™ Convertible Tank — https://www.chicos.com/store/product/travelers-convertible-tank/570375323?inseam=regular&sizeType=regular&color=7060&catId=cat11199293&collectionId=category&parentId=196534704863
-  - [상품 페이지가 아닌 경로] tops · Geo Print Pima V-Neck Tee — https://www.chicos.com/store/product/geo-print-pima-v-neck-tee/570414043?inseam=regular&sizeType=regular&color=001&catId=cat11199293&collectionId=category&parentId=199761072774
-  - [상품 페이지가 아닌 경로] tops · Pima Cotton 3/4 Sleeve Tee — https://www.chicos.com/store/product/pima-cotton-3-4-sleeve-tee/570396792?inseam=regular&sizeType=regular&color=7062&catId=cat11199293&collectionId=category&parentId=196536012065
-  - [상품 페이지가 아닌 경로] tops · Printed Pima V-Neck Tee — https://www.chicos.com/store/product/printed-pima-v-neck-tee/570414042?inseam=regular&sizeType=regular&color=001&catId=cat11199293&collectionId=category&parentId=199761072705
-  - [상품 페이지가 아닌 경로] tops · Pima Cotton Boatneck Tee — https://www.chicos.com/store/product/pima-cotton-boatneck-tee/570396700?inseam=regular&sizeType=regular&color=7063&catId=cat11199293&collectionId=category&parentId=196535972544
-  - [상품 페이지가 아닌 경로] tops · Zebra Pima Elbow Sleeve Tee — https://www.chicos.com/store/product/zebra-pima-elbow-sleeve-tee/570413025?inseam=regular&sizeType=regular&color=5062&catId=cat11199293&collectionId=category&parentId=199761031856
-  - [상품 페이지가 아닌 경로] tops · Cotton Slub V-Neck Tee — https://www.chicos.com/store/product/cotton-slub-v-neck-tee/570404641?inseam=regular&sizeType=regular&color=001&catId=cat11199293&collectionId=category&parentId=196536616881
-  - [상품 페이지가 아닌 경로] tops · Printed Cotton Slub Tee — https://www.chicos.com/store/product/printed-cotton-slub-tee/570414511?inseam=regular&sizeType=regular&color=7063&catId=cat11199293&collectionId=category&parentId=199761184705
-  - [상품 페이지가 아닌 경로] tops · Cotton Stretch 3/4 Sleeve Tee — https://www.chicos.com/store/product/cotton-stretch-3-4-sleeve-tee/570403265?inseam=regular&sizeType=regular&color=5448&catId=cat11199293&collectionId=category&parentId=196536333443
-
-## WHBM — 278/278개 (server)
-
-- **278개** · (출처 불명)
-  - [상품 페이지가 아닌 경로] tops · Jetsetter Tee — https://www.whitehouseblackmarket.com/store/product/jetsetter-tee/570412811?inseam=regular&sizeType=regular&color=7613&catId=cat4769286&collectionId=category&parentId=194300960925
-  - [상품 페이지가 아닌 경로] tops · WHBM FORME™ Ribbed Scoop Neck Tee — https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&parentId=196536535526
-  - [상품 페이지가 아닌 경로] tops · WHBM FORME™ Ribbed Scoop Neck Tee — https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&parentId=196536535526
-  - [상품 페이지가 아닌 경로] tops · WHBM FORME™ Ribbed Scoop Neck Tee — https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413978?inseam=regular&sizeType=regular&color=1332&catId=cat4769286&collectionId=category&parentId=196536535526
-  - [상품 페이지가 아닌 경로] tops · Jetsetter Tee — https://www.whitehouseblackmarket.com/store/product/jetsetter-tee/570413650?inseam=regular&sizeType=regular&color=7593&catId=cat4769286&collectionId=category&parentId=194301070937
-  - [상품 페이지가 아닌 경로] tops · WHBM FORME™ Ribbed Scoop Neck Tee — https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413565?inseam=regular&sizeType=regular&color=3009&catId=cat4769286&collectionId=category&parentId=196536535526
-  - [상품 페이지가 아닌 경로] tops · V-neck Short Sleeve Tee — https://www.whitehouseblackmarket.com/store/product/v-neck-short-sleeve-tee/570413149?inseam=regular&sizeType=regular&color=7636&catId=cat4769286&collectionId=category&parentId=196536957472
-  - [상품 페이지가 아닌 경로] tops · Jetsetter Tee — https://www.whitehouseblackmarket.com/store/product/jetsetter-tee/570413649?inseam=regular&sizeType=regular&color=7592&catId=cat4769286&collectionId=category&parentId=194301070937
-  - [상품 페이지가 아닌 경로] tops · V-neck Short Sleeve Tee — https://www.whitehouseblackmarket.com/store/product/v-neck-short-sleeve-tee/570412774?inseam=regular&sizeType=regular&color=001&catId=cat4769286&collectionId=category&parentId=196536957472
-  - [상품 페이지가 아닌 경로] tops · Satin Puff Sleeve Knit Tee — https://www.whitehouseblackmarket.com/store/product/satin-puff-sleeve-knit-tee/570411366?inseam=regular&sizeType=regular&color=7503&catId=cat4769286&collectionId=category&parentId=196536838658
-  - [상품 페이지가 아닌 경로] tops · Satin Sleeve Knit Tee — https://www.whitehouseblackmarket.com/store/product/satin-sleeve-knit-tee/570411387?inseam=regular&sizeType=regular&color=2277&catId=cat4769286&collectionId=category&parentId=196536838931
-  - [상품 페이지가 아닌 경로] tops · Jetsetter Tee — https://www.whitehouseblackmarket.com/store/product/jetsetter-tee/570404920?inseam=regular&sizeType=regular&color=7480&catId=cat4769286&collectionId=category&parentId=194300960925
 
 ## anntaylor — 38/800개 (?)
 
@@ -48,10 +16,6 @@
   - [최상위 경로(랜딩 페이지로 보임)] pants · Work Pants — https://www.anntaylor.com/cat4190020
   - [최상위 경로(랜딩 페이지로 보임)] tops · New Weekend Styles — https://www.anntaylor.com/cata7000064
   - [최상위 경로(랜딩 페이지로 보임)] tops · Weekend-Ready Tops — https://www.anntaylor.com/cata7000065
-  - [최상위 경로(랜딩 페이지로 보임)] dresses · Occasion Dressing — https://www.anntaylor.com/cat5550004
-  - [배너 문구가 상품명] tops · All Clothing — https://www.anntaylor.com/cat3630020
-  - [카테고리 목록 페이지 자체] dresses · Everyday Dresses — https://www.anntaylor.com/clothing/dresses/cata000012/
-  - [최상위 경로(랜딩 페이지로 보임)] dresses · Everyday Dresses — https://www.anntaylor.com/cata000012
 
 ## freepeople — 29/454개 (?)
 
@@ -64,10 +28,6 @@
   - [배너 문구가 상품명] dresses · Shop FP Dresses: Maxi Dresses — https://www.freepeople.com/maxi-dresses/
   - [배너 문구가 상품명] dresses · Shop FP Dresses: Mini Dresses — https://www.freepeople.com/mini-dresses/
   - [배너 문구가 상품명] dresses · Shop FP Dresses: Midi Dresses — https://www.freepeople.com/midi-dresses/
-  - [배너 문구가 상품명] dresses · Shop FP Dresses: Printed Dresses — https://www.freepeople.com/printed-dresses/
-  - [배너 문구가 상품명] dresses · Shop FP Dresses: Special Occassion Dresses — https://www.freepeople.com/party-dresses/
-  - [최상위 경로(랜딩 페이지로 보임)] shirts · Free People — https://www.freepeople.com/blouses/
-  - [배너 문구가 상품명] tops · Shop FP Tops: Going Out Tops — https://www.freepeople.com/going-out-tops/
 
 ## thewhitecompany — 14/87개 (?)
 
@@ -80,10 +40,6 @@
   - [상품 페이지가 아닌 경로] tops · a white table with a shell and shells on it — https://www.thewhitecompany.com/uk/magazine/wellness
   - [상품 페이지가 아닌 경로] tops · three children carrying a surfboard on the beach — https://www.thewhitecompany.com/uk/magazine/little-ones
   - [상품 페이지가 아닌 경로] tops · a candle and a vase of flowers sit on a table — https://www.thewhitecompany.com/uk/magazine/gifts
-  - [상품 페이지가 아닌 경로] tops · the thread style — https://www.thewhitecompany.com/uk/magazine/style
-  - [상품 페이지가 아닌 경로] tops · delivery information — https://www.thewhitecompany.com/uk/help/delivery
-  - [상품 페이지가 아닌 경로] tops · gift box servive — https://www.thewhitecompany.com/uk/help/gift-box-service
-  - [상품 페이지가 아닌 경로] tops · gift cards — https://www.thewhitecompany.com/uk/gift-cards
 
 ## Barbour — 12/183개 (browser)
 
@@ -117,10 +73,6 @@
   - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/barb-lace-sleeveless-mini-dress-chocolate
   - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/ari-short-sleeve-mini-dress-daffodil
   - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/ari-one-shoulder-dress-daffodil
-  - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/ari-v-neck-mini-dress-black
-  - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/ari-v-neck-mini-dress-ice
-  - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/yoko-halter-maxi-dress-malbec
-  - [배너 문구가 상품명] dresses · More Colors + — https://leset.com/products/yoko-halter-maxi-dress-white
 
 ## sezane — 11/137개 (extension)
 
