@@ -81,7 +81,15 @@
     .imp-card .cap .n { font-size: 9.5px; color: rgba(255, 255, 255, .85); line-height: 1.3; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .imp-card .cap .p { font-size: 10px; font-weight: 700; color: #fff; margin-top: 2px; }
     /* 카드 위 툴바: 선택 개수 + ALL·RESET·EXPORT 아이콘 */
-    #importToolbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; font-size: 11px; }
+    /* 선택 액션 바 — 스크롤과 무관하게 화면 하단에 상시 노출 */
+    #importAdd { display: none !important; }   /* 하단 고정 바의 ⤴ 로 대체 */
+    #importToolbar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      padding: 9px 16px calc(9px + env(safe-area-inset-bottom, 0px));
+      background: var(--bg); border-top: 1px solid var(--text); font-size: 11px;
+      box-shadow: 0 -6px 14px rgba(0, 0, 0, .06);
+    }
     #importCount { color: var(--text); font-weight: 600; letter-spacing: .3px; }
     .imp-actions { display: flex; gap: 8px; }
     .imp-actions .ib {
@@ -230,7 +238,7 @@
     }
     .tnav.active { color: var(--text); font-weight: 700; border-bottom-color: var(--text); }
     /* ── Market Research 팬 — Board Scanner와 동일 무드로 재스타일 ── */
-    #pane-import { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 2px; }
+    #pane-import { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 2px; padding-bottom: 64px; }
     #pane-import::-webkit-scrollbar { width: 8px; }
     #pane-import::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
     /* 검색바(url-row) — image1 Board Scanner 검색바처럼 각진 박스 + 돋보기 왼쪽 */
@@ -315,7 +323,6 @@
 
       <div id="cacheRow" style="display:none; flex-wrap:wrap; gap:4px; margin-top:8px"></div>
       <div id="importStatus"></div>
-      <div id="importTabs" style="display:none"></div>
       <div id="importToolbar" style="display:none">
         <span id="importCount"></span>
         <span class="imp-actions">
@@ -466,6 +473,9 @@
         tabResearchEl.classList.toggle('active', research);
         tabScannerEl.classList.toggle('active', !research);
         closeAllPops();
+        // 하단 고정 선택바는 Market Research 탭에서, 결과가 있을 때만 노출.
+        const tb = document.getElementById('importToolbar');
+        if (tb) tb.style.display = (research && importItems.length) ? 'flex' : 'none';
         if (research) { try { loadBrandList(); loadCatalogChips(); } catch (e) {} }
       }
       tabResearchEl.addEventListener('click', () => switchPane('research'));
@@ -677,7 +687,7 @@
       const importAddBtn = document.getElementById('importAdd');
       const importStatusEl = document.getElementById('importStatus');
       const importGridEl = document.getElementById('importGrid');
-      const importTabsEl = document.getElementById('importTabs');
+      const importTabsEl = { style: {}, innerHTML: '', appendChild() {} };   // 탭 UI 제거 — 카테고리는 드롭다운으로 일원화
       const importToolbarEl = document.getElementById('importToolbar');
       const importCountEl = document.getElementById('importCount');
       const importSelAllBtn = document.getElementById('importSelAll');
@@ -749,7 +759,7 @@
               '해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>';
             return;
           }
-          importStatusEl.innerHTML = '"' + escapeHtml(importBrandUrlEl.value.trim()) + '" · ' + importItems.length + '개 <span class="muted">(전체 브랜드)</span>';
+          importStatusEl.textContent = '';
           importCat = '';   // ALL — 전 카테고리 표시
           renderImportTabs(); renderImportGrid();
         } catch (e) {
@@ -1002,23 +1012,9 @@
         return importItems.filter(p => (!importCat || p.category === importCat) && titleMatch(p));
       }
 
+      // 카테고리 UI는 드롭다운 하나로 일원화. (호출부 호환을 위해 이름 유지)
       function renderImportTabs() {
-        importTabsEl.innerHTML = '';
-        const total = importItems.filter(titleMatch).length;
-        const allBtn = document.createElement('button');
-        allBtn.className = importCat === '' ? 'active' : '';
-        allBtn.textContent = `All ${total}`;
-        allBtn.addEventListener('click', () => { importCat = ''; renderImportTabs(); renderImportGrid(); });
-        importTabsEl.appendChild(allBtn);
-        IMPORT_CATS.filter(c => catCount(c.key) > 0).forEach(c => {
-          const b = document.createElement('button');
-          b.className = (c.key === importCat) ? 'active' : '';
-          b.textContent = `${c.label} ${catCount(c.key)}`;
-          b.addEventListener('click', () => { importCat = c.key; renderImportTabs(); renderImportGrid(); });
-          importTabsEl.appendChild(b);
-        });
-        importTabsEl.style.display = 'flex';
-        fillCatPicker();   // 아래 선택 UI의 카테고리 개수·현재값 동기화
+        fillCatPicker();
       }
 
       function setCardSel(card, it, val) {
@@ -1352,13 +1348,7 @@
           if (!importItems.length) { importStatusEl.textContent = '카탈로그가 비어 있습니다.'; return; }
           loadedBrandMode = true;
           importBrand = data.brand || brand || site;
-          const upd = data.updated
-            ? new Date(data.updated).toLocaleDateString() + ' ' +
-              new Date(data.updated).toTimeString().slice(0, 5)
-            : '';
-          importStatusEl.innerHTML = `<b>${escapeHtml(importBrand)}</b> · ${importItems.length}개` +
-            (stored > importItems.length ? ` <span class="muted">(카테고리당 100개 상한)</span>` : '') +
-            (upd ? ` <span class="muted">· ${upd} 수집</span>` : '');
+          importStatusEl.textContent = '';   // 수집 시각·개수 등 내부 정보는 노출하지 않음
           importCat = (wantCat && catCount(wantCat)) ? wantCat : '';   // 기본 ALL(전 카테고리)
           renderImportTabs(); renderImportGrid();
         } catch (e) {
