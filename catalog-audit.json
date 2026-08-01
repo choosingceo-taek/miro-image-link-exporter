@@ -1,7 +1,7 @@
 {
- "when": "2026-08-01T12:29:18.118Z",
+ "when": "2026-08-01T12:31:05.002Z",
  "scanned": 27403,
- "flagged": 190,
+ "flagged": 156,
  "report": [
   {
    "brand": "Ann Taylor",
@@ -66,7 +66,7 @@
        "name": "Follow Us",
        "productUrl": "https://www.anntaylor.com/terms-of-use/",
        "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
       },
       {
        "name": "Anntaylor",
@@ -347,11 +347,11 @@
    "site": "thewhitecompany.com.thewhitecompany",
    "group": "extension",
    "total": 86,
-   "badCount": 14,
+   "badCount": 13,
    "bySrc": [
     {
      "src": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear",
-     "count": 14,
+     "count": 13,
      "rows": [
       {
        "name": "shop sale",
@@ -445,69 +445,6 @@
    ]
   },
   {
-   "brand": "Sezane",
-   "site": "sezane.com.sezane",
-   "group": "extension",
-   "total": 137,
-   "badCount": 11,
-   "bySrc": [
-    {
-     "src": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
-     "count": 10,
-     "rows": [
-      {
-       "name": "SHOP",
-       "productUrl": "https://www.sezane.com/us-en/collection",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Gift cards",
-       "productUrl": "https://www.sezane.com/us-en/gift-cards",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "NEW IN",
-       "productUrl": "https://www.sezane.com/us-en/new-in",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "Leather Goods",
-       "productUrl": "https://www.sezane.com/us-en/basket-bags-clutch-bags",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "New in",
-       "productUrl": "https://www.sezane.com/us-en/petit-sezane/enfant/kids-petit-sezane",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "GIFT CARDS",
-       "productUrl": "https://www.sezane.com/us-en/octobre-editions/gift-cards",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    },
-    {
-     "src": "https://www.sezane.com/us-en/collection/bottoms/trousers",
-     "count": 1,
-     "rows": [
-      {
-       "name": "trousers",
-       "productUrl": "https://www.sezane.com/us-en/collection/bottoms/trousers",
-       "category": "pants",
-       "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    }
-   ]
-  },
-  {
    "brand": "Loft",
    "site": "loft.com.loft",
    "group": "extension",
@@ -546,7 +483,7 @@
        "name": "Follow Us",
        "productUrl": "https://www.loft.com/terms-of-use/",
        "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
       }
      ]
     },
@@ -607,6 +544,69 @@
    ]
   },
   {
+   "brand": "Sezane",
+   "site": "sezane.com.sezane",
+   "group": "extension",
+   "total": 137,
+   "badCount": 9,
+   "bySrc": [
+    {
+     "src": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
+     "count": 8,
+     "rows": [
+      {
+       "name": "SHOP",
+       "productUrl": "https://www.sezane.com/us-en/collection",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Gift cards",
+       "productUrl": "https://www.sezane.com/us-en/gift-cards",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "NEW IN",
+       "productUrl": "https://www.sezane.com/us-en/new-in",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "New in",
+       "productUrl": "https://www.sezane.com/us-en/petit-sezane/enfant/kids-petit-sezane",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "GIFT CARDS",
+       "productUrl": "https://www.sezane.com/us-en/octobre-editions/gift-cards",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "FAQ",
+       "productUrl": "https://www.sezane.com/us-en/help",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    },
+    {
+     "src": "https://www.sezane.com/us-en/collection/bottoms/trousers",
+     "count": 1,
+     "rows": [
+      {
+       "name": "trousers",
+       "productUrl": "https://www.sezane.com/us-en/collection/bottoms/trousers",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "brand": "The upside",
    "site": "theupside.com.theupside",
    "group": "extension",
@@ -627,7 +627,7 @@
        "name": "Meet Eddie Nelson, the Founder of Bred Breathwork",
        "productUrl": "https://www.theupside.com/journal/",
        "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
+       "reason": "상품 페이지가 아닌 경로"
       },
       {
        "name": "International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method",
@@ -694,75 +694,6 @@
    ]
   },
   {
-   "brand": "Sanctuary",
-   "site": "sanctuaryclothing.com",
-   "group": "server",
-   "total": 402,
-   "badCount": 7,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 5,
-     "rows": [
-      {
-       "name": "About Us Relaxed Pullover Black",
-       "productUrl": "https://www.sanctuaryclothing.com/products/about-us-relaxed-pullover-black",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Back To Bare Tank Black",
-       "productUrl": "https://www.sanctuaryclothing.com/products/back-to-bare-tank-black",
-       "category": "sweatshirts",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "About Us Relaxed Pullover Cumin",
-       "productUrl": "https://www.sanctuaryclothing.com/products/about-us-relaxed-pullover-cumin",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Gift Card",
-       "productUrl": "https://www.sanctuaryclothing.com/products/gift-card",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "More The Better Halter Dress Navy Blazer",
-       "productUrl": "https://www.sanctuaryclothing.com/products/more-the-better-halter-dress-navy-blazer",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      }
-     ]
-    },
-    {
-     "src": "https://www.sanctuaryclothing.com/collections/sweater",
-     "count": 1,
-     "rows": [
-      {
-       "name": "About Us Relaxed Pullover Cumin",
-       "productUrl": "https://www.sanctuaryclothing.com/collections/sweater/products/about-us-relaxed-pullover-cumin",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    },
-    {
-     "src": "https://www.sanctuaryclothing.com/collections/dress",
-     "count": 1,
-     "rows": [
-      {
-       "name": "More The Better Halter Dress Navy Blazer",
-       "productUrl": "https://www.sanctuaryclothing.com/collections/dress/products/more-the-better-halter-dress-navy-blazer",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      }
-     ]
-    }
-   ]
-  },
-  {
    "brand": "shop",
    "site": "shop.lululemon.com",
    "group": "?",
@@ -808,57 +739,6 @@
        "productUrl": "https://shop.lululemon.com/c/women-t-shirts/n1wx7w",
        "category": "shirts",
        "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "ALC",
-   "site": "alcltd.com",
-   "group": "server",
-   "total": 393,
-   "badCount": 5,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 3,
-     "rows": [
-      {
-       "name": "Carter Cotton Cargo Pant",
-       "productUrl": "https://alcltd.com/products/carter-pant-ivory",
-       "category": "pants",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Carter Cotton Cargo Pant",
-       "productUrl": "https://alcltd.com/products/carter-pant-bark",
-       "category": "pants",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Carter Cotton Cargo Pant",
-       "productUrl": "https://alcltd.com/products/carter-pant-deep-navy",
-       "category": "pants",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    },
-    {
-     "src": "https://alcltd.com/collections/bottoms-jumpsuits",
-     "count": 2,
-     "rows": [
-      {
-       "name": "Woman wearing a white sleeveless top and pants on a white background",
-       "productUrl": "https://alcltd.com/collections/bottoms-jumpsuits/products/carter-pant-ivory",
-       "category": "pants",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Woman wearing a brown sleeveless top and beige cargo pants on a white background",
-       "productUrl": "https://alcltd.com/collections/bottoms-jumpsuits/products/carter-pant-bark",
-       "category": "pants",
-       "reason": "상품 페이지가 아닌 경로"
       }
      ]
     }
@@ -928,44 +808,44 @@
    ]
   },
   {
-   "brand": "Me+Em",
-   "site": "meandem.com",
+   "brand": "Sanctuary",
+   "site": "sanctuaryclothing.com",
    "group": "server",
-   "total": 8,
-   "badCount": 5,
+   "total": 402,
+   "badCount": 4,
    "bySrc": [
     {
      "src": "(출처 불명)",
-     "count": 5,
+     "count": 3,
      "rows": [
       {
-       "name": "How To Dress for a Formula 1 Weekend | ME+EM",
-       "productUrl": "https://www.meandem.com/us/the-editorial/how-to-dress-for-a-formula-1-weekend",
-       "category": "dresses",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "How to Dress for Every Holiday Sit-Down | ME+EM",
-       "productUrl": "https://www.meandem.com/de/the-editorial/how-to-dress-for-every-holiday-sit-down",
-       "category": "dresses",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Dress Science | How To Find Your Perfect Shape | ME+EM",
-       "productUrl": "https://www.meandem.com/us/the-editorial/dress-science-or-how-to-find-your-perfect-shape",
-       "category": "dresses",
+       "name": "Back To Bare Tank Black",
+       "productUrl": "https://www.sanctuaryclothing.com/products/back-to-bare-tank-black",
+       "category": "sweatshirts",
        "reason": "배너 문구가 상품명"
       },
       {
-       "name": "Dress Code Solutions | How To Style A Maxi Dress | ME+EM",
-       "productUrl": "https://www.meandem.com/us/the-editorial/how-to-style-a-maxi-dress-from-am-to-pm",
-       "category": "dresses",
+       "name": "Gift Card",
+       "productUrl": "https://www.sanctuaryclothing.com/products/gift-card",
+       "category": "sweatshirts",
        "reason": "상품 페이지가 아닌 경로"
       },
       {
-       "name": "The Trouser Lab | Find Your Silhouette | ME+EM",
-       "productUrl": "https://www.meandem.com/us/the-editorial/the-trouser-lab",
-       "category": "pants",
+       "name": "More The Better Halter Dress Navy Blazer",
+       "productUrl": "https://www.sanctuaryclothing.com/products/more-the-better-halter-dress-navy-blazer",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    },
+    {
+     "src": "https://www.sanctuaryclothing.com/collections/dress",
+     "count": 1,
+     "rows": [
+      {
+       "name": "More The Better Halter Dress Navy Blazer",
+       "productUrl": "https://www.sanctuaryclothing.com/collections/dress/products/more-the-better-halter-dress-navy-blazer",
+       "category": "dresses",
        "reason": "배너 문구가 상품명"
       }
      ]
@@ -977,23 +857,17 @@
    "site": "oysho.com.oysho",
    "group": "extension",
    "total": 19,
-   "badCount": 4,
+   "badCount": 3,
    "bySrc": [
     {
      "src": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
-     "count": 2,
+     "count": 1,
      "rows": [
       {
        "name": "womens sports t shirts n4764",
        "productUrl": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
        "category": "shirts",
        "reason": "카테고리 목록 페이지 자체"
-      },
-      {
-       "name": "Powered by Onetrust",
-       "productUrl": "https://www.onetrust.com/products/cookie-consent/",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
       }
      ]
     },
@@ -1018,105 +892,6 @@
        "productUrl": "https://www.oysho.com/gb/womens-pants-n4813",
        "category": "pants",
        "reason": "카테고리 목록 페이지 자체"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Aritzia",
-   "site": "aritzia.com",
-   "group": "server",
-   "total": 365,
-   "badCount": 3,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 3,
-     "rows": [
-      {
-       "name": "Carter Blouse",
-       "productUrl": "https://www.aritzia.com/intl/en/product/carter-blouse/95895.html?color=34340",
-       "category": "shirts",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Inspiration Dress - Wonder Yarn",
-       "productUrl": "https://www.aritzia.com/intl/en/product/inspiration-dress/136274.html?color=37622",
-       "category": "dresses",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Account Dress",
-       "productUrl": "https://www.aritzia.com/intl/en/product/account-dress/126416.html?color=34340",
-       "category": "dresses",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Splits59",
-   "site": "splits59.com",
-   "group": "server",
-   "total": 109,
-   "badCount": 3,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 3,
-     "rows": [
-      {
-       "name": "Carter Airweight Lite Tank - Black",
-       "productUrl": "https://www.splits59.com/products/carter-airweight-lite-tank",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Carter Airweight Tank",
-       "productUrl": "https://www.splits59.com/products/carter-airweight-tank",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "Carter Airweight Lite Tank - White",
-       "productUrl": "https://www.splits59.com/products/carter-airweight-lite-tank-3",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "wilson",
-   "site": "wilson.com",
-   "group": "extension",
-   "total": 50,
-   "badCount": 3,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 3,
-     "rows": [
-      {
-       "name": "basketballs",
-       "productUrl": "https://www.wilson.com/en-us/custom/basketballs",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "new arrivals",
-       "productUrl": "https://www.wilson.com/en-us/sportswear/women/new-arrivals",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "new arrivals",
-       "productUrl": "https://www.wilson.com/en-us/sportswear/men/new-arrivals",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
       }
      ]
     }
@@ -1156,76 +931,10 @@
    ]
   },
   {
-   "brand": "LNA",
-   "site": "lnaclothing.com",
+   "brand": "Me+Em",
+   "site": "meandem.com",
    "group": "server",
-   "total": 204,
-   "badCount": 2,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Carter Half Zip - Washed Brick",
-       "productUrl": "https://www.lnaclothing.com/products/carter-half-zip-washed-brick",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    },
-    {
-     "src": "https://www.lnaclothing.com/collections/hoodies-sweatshirts",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Carter Half Zip - Washed Brick",
-       "productUrl": "https://www.lnaclothing.com/collections/hoodies-sweatshirts/products/carter-half-zip-washed-brick",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Nylora",
-   "site": "nylora.com",
-   "group": "server",
-   "total": 226,
-   "badCount": 2,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
-      {
-       "name": "CARTER TOP WASHED GREY",
-       "productUrl": "https://nylora.com/products/carter-top-washed-grey",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    },
-    {
-     "src": "https://nylora.com/collections/sweatshirts-hoodies",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Carter Top Washed Grey",
-       "productUrl": "https://nylora.com/collections/sweatshirts-hoodies/products/carter-top-washed-grey",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Splendid",
-   "site": "splendid.com",
-   "group": "server",
-   "total": 399,
+   "total": 8,
    "badCount": 2,
    "bySrc": [
     {
@@ -1233,14 +942,14 @@
      "count": 2,
      "rows": [
       {
-       "name": "Cookies for Breakfast Crewneck",
-       "productUrl": "https://splendid.com/products/cookies-for-breakfast-crewneck",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
+       "name": "Dress Science | How To Find Your Perfect Shape | ME+EM",
+       "productUrl": "https://www.meandem.com/us/the-editorial/dress-science-or-how-to-find-your-perfect-shape",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
       },
       {
-       "name": "Splendid x @Cellajaneblog Interlock Pant",
-       "productUrl": "https://splendid.com/products/splendid-x-cellajaneblog-interlock-pant-in-truffle",
+       "name": "The Trouser Lab | Find Your Silhouette | ME+EM",
+       "productUrl": "https://www.meandem.com/us/the-editorial/the-trouser-lab",
        "category": "pants",
        "reason": "배너 문구가 상품명"
       }
@@ -1249,63 +958,27 @@
    ]
   },
   {
-   "brand": "Abercrombie & Fitch",
-   "site": "abercrombie.com.abercrombiefitch",
+   "brand": "wilson",
+   "site": "wilson.com",
    "group": "extension",
-   "total": 80,
-   "badCount": 1,
-   "bySrc": [
-    {
-     "src": "https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Powered by Onetrust",
-       "productUrl": "https://www.onetrust.com/products/cookie-consent/",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Barbour",
-   "site": "barbour.com.barbour",
-   "group": "browser",
-   "total": 162,
-   "badCount": 1,
-   "bySrc": [
-    {
-     "src": "https://www.barbour.com/row/womens/womens-clothing/womens-trousers",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Cartmel Flared Jeans Dark Indigo",
-       "productUrl": "https://www.barbour.com/row/cartmel-flared-jeans-LTR0429IN93.html",
-       "category": "pants",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Bassike",
-   "site": "bassike.com",
-   "group": "server",
-   "total": 219,
-   "badCount": 1,
+   "total": 50,
+   "badCount": 2,
    "bySrc": [
     {
      "src": "(출처 불명)",
-     "count": 1,
+     "count": 2,
      "rows": [
       {
-       "name": "E Gift Card",
-       "productUrl": "https://www.bassike.com/products/e-gift-card",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
+       "name": "new arrivals",
+       "productUrl": "https://www.wilson.com/en-us/sportswear/women/new-arrivals",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "new arrivals",
+       "productUrl": "https://www.wilson.com/en-us/sportswear/men/new-arrivals",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
       }
      ]
     }
@@ -1327,27 +1000,6 @@
        "productUrl": "https://www.buckmason.com/products/gift",
        "category": "sweatshirts",
        "reason": "배너 문구가 상품명"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Citizens of Humanity",
-   "site": "citizensofhumanity.com",
-   "group": "server",
-   "total": 209,
-   "badCount": 1,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
-      {
-       "name": "Carter Shirt in Pashmina",
-       "productUrl": "https://citizensofhumanity.com/products/carter-shirt-pashmina",
-       "category": "shirts",
-       "reason": "상품 페이지가 아닌 경로"
       }
      ]
     }
@@ -1459,10 +1111,10 @@
    ]
   },
   {
-   "brand": "Rails",
-   "site": "rails.com",
+   "brand": "Splendid",
+   "site": "splendid.com",
    "group": "server",
-   "total": 280,
+   "total": 399,
    "badCount": 1,
    "bySrc": [
     {
@@ -1470,10 +1122,10 @@
      "count": 1,
      "rows": [
       {
-       "name": "Go to E-Gift Card",
-       "productUrl": "https://www.rails.com/products/e-gift-card",
-       "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
+       "name": "Splendid x @Cellajaneblog Interlock Pant",
+       "productUrl": "https://splendid.com/products/splendid-x-cellajaneblog-interlock-pant-in-truffle",
+       "category": "pants",
+       "reason": "배너 문구가 상품명"
       }
      ]
     }
@@ -1501,27 +1153,6 @@
    ]
   },
   {
-   "brand": "Thread & supply",
-   "site": "threadandsupply.com",
-   "group": "server",
-   "total": 302,
-   "badCount": 1,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
-      {
-       "name": "CARTER TANK",
-       "productUrl": "https://threadandsupply.com/products/carter-tank-jan26",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
    "brand": "Whistles",
    "site": "whistles.com",
    "group": "server",
@@ -1536,28 +1167,7 @@
        "name": "GIFT CARD 88888",
        "productUrl": "https://www.whistles.com/product/GIFT-CARD-88888.html",
        "category": "sweatshirts",
-       "reason": "상품 페이지가 아닌 경로"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Whitestuff",
-   "site": "whitestuff.com",
-   "group": "server",
-   "total": 419,
-   "badCount": 1,
-   "bySrc": [
-    {
-     "src": "(출처 불명)",
-     "count": 1,
-     "rows": [
-      {
-       "name": "DARK NAVY swatch",
-       "productUrl": "https://www.whitestuff.com/p/8353/carter-mix-sweat-dress/DARK_NAVY",
-       "category": "dresses",
-       "reason": "상품 페이지가 아닌 경로"
+       "reason": "배너 문구가 상품명"
       }
      ]
     }
