@@ -142,15 +142,21 @@ async function pageCollector() {
     } catch (e) { return ''; }
   };
 
+  // 상품 그리드가 나타날 때까지 먼저 기다린다. 느린 SPA(Massimo Dutti·Oysho 등)는
+  // 첫 렌더가 늦어서, 바로 훑으면 몇 개만 잡고 끝난다.
+  for (let i = 0; i < 20 && harvest().length < 4; i++) await sleep(400);
+
   // 스크롤 + "더 보기" 클릭을 상품 수가 늘지 않을 때까지 반복(무한스크롤·버튼형 모두 대응).
+  // 예전에는 500ms×3회(=1.5초)만 안 늘면 끝냈는데, 다음 묶음을 받아오는 데 2~3초 걸리는
+  // 사이트에서는 그 사이에 멈춰 버렸다. 기다림을 늘려 실제로 다 받을 때까지 본다.
   let stable = 0, lastCount = -1;
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 80; i++) {
     window.scrollTo(0, document.documentElement.scrollHeight);
-    await sleep(500);
+    await sleep(700);
     const btn = findLoadMore();
-    if (btn) { try { btn.click(); } catch (e) {} await sleep(1200); }
+    if (btn) { try { btn.click(); } catch (e) {} await sleep(1500); }
     const n = harvest().length;
-    if (n === lastCount) { if (++stable >= (btn ? 4 : 3)) break; } else { stable = 0; lastCount = n; }
+    if (n === lastCount) { if (++stable >= (btn ? 6 : 5)) break; } else { stable = 0; lastCount = n; }
   }
   window.scrollTo(0, 0);
   await sleep(250);
