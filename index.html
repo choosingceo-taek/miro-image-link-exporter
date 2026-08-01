@@ -848,12 +848,18 @@
           fillCatPicker();
         }
 
-        // ① 먼저 팀 저장소(수집본)에서 이 브랜드를 찾아 바로 로드.
-        //    → 차단 브랜드(Massimo Dutti 등, Render 목록에 없음)도 "검색"만으로 열림.
+        // ① 먼저 팀 저장소(야간 프리페치 + 확장 수집본)에서 이 브랜드를 찾음.
+        //    36시간 이내 저장본이면 그대로 즉시 표시(콜드스타트·75초 수집 대기 없음).
+        //    오래된 저장본은 실시간 수집을 먼저 시도하고, 실패하면 그걸로 폴백.
+        let savedCat = null;
         try {
           const probe = /^https?:\/\//i.test(typed) ? typed : ('https://' + typed.replace(/\s+/g, '').toLowerCase());
-          const saved = await findSavedCatalog(probe, typed);
-          if (saved) { await loadCatalog(saved.site, saved.brand); return; }
+          savedCat = await findSavedCatalog(probe, typed);
+          const FRESH_MS = 36 * 3600 * 1000;
+          if (savedCat && savedCat.updated && (Date.now() - savedCat.updated) < FRESH_MS) {
+            await loadCatalog(savedCat.site, savedCat.brand);
+            return;
+          }
         } catch (e) {}
 
         // ② 저장본이 없으면 Render 서버로 신상 가져오기.
@@ -905,27 +911,19 @@
           })).filter(p => p.imageUrl && p.productUrl);
 
           if (!importItems.length) {
+            // 실시간 수집이 비었으면: 오래된 저장본이라도 있으면 그걸 표시(빈 화면보다 낫다).
+            const saved = savedCat || await findSavedCatalog(brandUrl, typed);
+            if (saved) {
+              await loadCatalog(saved.site, saved.brand);
+              return;
+            }
             // 403/429/verification = Akamai급 봇차단(Abercrombie·Massimo Dutti·Zara·H&M 등).
             const blocked = /\b40[13]\b|\b429\b|verification|blocked|captcha/i.test(JSON.stringify(data.warnings || []));
-            if (blocked) {
-              // ① 팀 저장소에 이미 수집본(확장/유저스크립트가 올린 것)이 있으면 자동으로 그걸 표시.
-              const saved = await findSavedCatalog(brandUrl, typed);
-              if (saved) {
-                importStatusEl.innerHTML =
-                  `<div style="padding:8px;background:#fff4e5;border-radius:6px;color:#a15c00;font-size:12px">` +
-                  `🚫 봇 차단 사이트 → ☁ <b>저장된 카탈로그</b>로 자동 대체합니다.</div>`;
-                await loadCatalog(saved.site, saved.brand);
-                return;
-              }
-              // ② 수집본이 없으면: 디지털팀 확인 안내 메시지.
-              importStatusEl.innerHTML =
-                `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
-                `해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>`;
-            } else {
-              importStatusEl.innerHTML =
-                `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
+            importStatusEl.innerHTML = blocked
+              ? `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
+                `해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>`
+              : `<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">` +
                 `해당 브랜드는 추가 정보 확인이 필요합니다.<br>필요하신 브랜드와 카테고리 정보를 디지털팀에 전달 부탁드립니다. 감사합니다.</div>`;
-            }
             return;
           }
           // 중복 방지: 카테고리별 개수는 탭에만 표시. 상태줄은 부분수집일 때만 안내.
@@ -937,6 +935,10 @@
           renderImportTabs();
           renderImportGrid();
         } catch (e) {
+          // 서버 무응답/오류 → 오래된 저장본이라도 있으면 그걸로 폴백.
+          if (savedCat) {
+            try { await loadCatalog(savedCat.site, savedCat.brand); return; } catch (e2) {}
+          }
           const aborted = e && (e.name === 'AbortError' || /aborted/i.test(e.message || ''));
           importStatusEl.innerHTML = aborted
             ? `<div style="padding:8px;background:#fff4f4;border-radius:6px;font-size:12px">` +
@@ -1297,7 +1299,10 @@
           });
           if (!importItems.length) { importStatusEl.textContent = '카탈로그가 비어 있습니다.'; return; }
           importBrand = data.brand || brand || site;
-          const upd = data.updated ? new Date(data.updated).toLocaleDateString() : '';
+          const upd = data.updated
+            ? new Date(data.updated).toLocaleDateString() + ' ' +
+              new Date(data.updated).toTimeString().slice(0, 5)
+            : '';
           importStatusEl.innerHTML = `<b>${escapeHtml(importBrand)}</b> · 저장본 ${importItems.length}개` +
             (stored > importItems.length ? ` <span class="muted">(전체 ${stored} · 카테고리당 100개까지)</span>` : '') +
             (upd ? ` <span class="muted">(${upd} 수집)</span>` : '');
