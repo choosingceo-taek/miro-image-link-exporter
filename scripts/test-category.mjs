@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 카테고리 분류 회귀 테스트.
-// index.html · chrome-extension/background.js · rack-harvester.user.js 세 곳의
+// index.html · chrome-extension/collector.js · rack-harvester.user.js 세 곳의
 // 분류 규칙을 추출해 ① 코퍼스 정답과 비교하고 ② 세 구현이 서로 어긋나면 실패시킨다.
 // (trackpant→tops 같은 오분류가 다시 생기면 CI가 push 단계에서 잡는다)
 import { readFileSync } from "node:fs";
@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const FILES = ["index.html", "chrome-extension/background.js", "rack-harvester.user.js"];
+const FILES = ["index.html", "chrome-extension/collector.js", "rack-harvester.user.js"];
 
 // 파일에서 규칙 블록(dress 규칙 ~ 마지막 return 'tops';)을 추출해 함수로 만든다.
 function classifierFrom(path) {
@@ -51,6 +51,12 @@ const CASES = [
   ["JUMPSUIT", "dresses"], ["KNIT ROMPER", "dresses"], ["린넨 원피스", "dresses"],
   // ── 기본값(카테고리 밖 품목은 tops로 수렴) ──
   ["DENIM JACKET", "tops"], ["JEAN JACKET", "tops"], ["PUFFER JACKET", "tops"],
+  // 겉옷 + 주소에 하의 단어가 섞인 경우(실제 상품 페이지에서 나온 조합).
+  // 주소의 denim/jeans/skirt 때문에 pants로 새면 안 된다.
+  ["DENIM JACKET", "tops", "/shop/product/6-denim-jacket"],
+  ["JEAN JACKET", "tops", "/womens/jeans-jacket"],
+  ["QUILTED VEST", "tops", "/collections/womens-pants/products/quilted-vest"],
+  ["WOOL COAT", "tops", "/c/dresses/wool-coat"],
   // ── URL 폴백(이름에 단서가 없을 때) ──
   ["", "pants", "/collections/womens-pants"], ["", "dresses", "/c/dresses"],
   ["", "shirts", "/shop/shirts-blouses"], ["", "sweatshirts", "/c/hoodies-sweatshirts"],

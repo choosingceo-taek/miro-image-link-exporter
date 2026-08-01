@@ -18,6 +18,8 @@ jobs:
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
+          node --check chrome-extension/collector.js
           node --check chrome-extension/popup.js
+          node --check scripts/browser-collect.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js

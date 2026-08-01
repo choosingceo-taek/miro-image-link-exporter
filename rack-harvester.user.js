@@ -47,8 +47,11 @@
     if (nHas(/t[-\s]?shirt|tees?\b|tank|cami|camisole|halter|bodysuit|crop\s*top|티셔츠|나시|캐미|홀터/)) return 'tops';
     if (nHas(/shirt|blouse|button[-\s]?down|oxford|셔츠|블라우스|남방/)) return 'shirts';
     if (nHas(/\btop\b|탑/)) return 'tops';
-    if (/dress|원피스/.test(url)) return 'dresses';
-    if (/pants?\b|trouser|jeans?\b|denim|chino|legging|jogger|shorts?\b|skirts?\b|skorts?\b|바지|팬츠/.test(url)) return 'pants';
+    // 이름이 겉옷을 가리키면 URL 보조는 건너뛴다. 상품명이 'Denim Jacket'인데 주소에 denim이
+    // 들어 있다는 이유로 pants가 되던 문제 — 겉옷 칸이 없으니 기본값 tops로 두는 편이 덜 틀리다.
+    const outer = nHas(/jacket|coat|blazer|parka|anorak|\bvest\b|재킷|자켓|코트|점퍼|베스트|조끼/);
+    if (!outer && /dress|원피스/.test(url)) return 'dresses';
+    if (!outer && /pants?\b|trouser|jeans?\b|denim|chino|legging|jogger|shorts?\b|skirts?\b|skorts?\b|바지|팬츠/.test(url)) return 'pants';
     if (/sweat|hoodie|knit|cardigan|맨투맨|후드|니트/.test(url)) return 'sweatshirts';
     if (/shirt|blouse|셔츠|블라우스/.test(url)) return 'shirts';
     return 'tops';
