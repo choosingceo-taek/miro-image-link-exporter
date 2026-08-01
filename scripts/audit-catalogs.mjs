@@ -106,6 +106,8 @@ function why(it) {
 }
 
 const report = [];
+const low = [];                 // 수집량이 비정상적으로 적은 브랜드
+const LOW_MARK = Math.max(1, Number(process.env.LOW_MARK) || 60);
 let scanned = 0, flagged = 0;
 for (const c of list) {
   let d;
@@ -123,6 +125,25 @@ for (const c of list) {
     if (!bySrc.has(src)) bySrc.set(src, []);
     bySrc.get(src).push({ name: it.name, productUrl: it.productUrl, category: it.category, reason });
   }
+  // 수집이 저조한 브랜드는 "어느 카테고리 URL이 몇 개를 줬는지"까지 남긴다.
+  // 5개 카테고리를 돌았는데 총계가 적다면, 어떤 URL이 빈손이었는지가 원인이다.
+  if (items.length < LOW_MARK) {
+    const per = new Map();
+    for (const it of items) {
+      const k = it.src || "(출처 없음 — 옛 수집분)";
+      per.set(k, (per.get(k) || 0) + 1);
+    }
+    const links = linkPaths.get(String(d.brand || c.brand || "").toLowerCase()) || [];
+    for (const a of links) if (!per.has(a.url)) per.set(a.url, 0);   // 한 개도 못 준 URL도 보이게
+    low.push({
+      brand: d.brand || c.brand || c.site, site: c.site,
+      group: groupOf.get(String(d.brand || c.brand || "").toLowerCase()) || "?",
+      total: items.length,
+      perSrc: [...per.entries()].map(([src, n]) => ({ src, n })).sort((a, b) => a.n - b.n),
+      sample: items.slice(0, 3).map((it) => ({ name: it.name, productUrl: it.productUrl })),
+    });
+  }
+
   if (bySrc.size) {
     const bad = [...bySrc.entries()].map(([src, rows]) => ({ src, count: rows.length, rows: rows.slice(0, LIMIT) }));
     bad.sort((a, b) => b.count - a.count);
@@ -149,6 +170,15 @@ for (const r of report) {
   }
   md += `\n`;
 }
-writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report }, null, 1));
+low.sort((a, z) => a.total - z.total);
+md += `# 수집량이 적은 브랜드 (${LOW_MARK}개 미만)\n\n`;
+md += `카테고리 URL별로 몇 개를 줬는지 — 0개인 URL이 원인이다.\n\n`;
+for (const r of low) {
+  md += `## ${r.brand} — ${r.total}개 (${r.group})\n\n`;
+  for (const p of r.perSrc) md += `- ${String(p.n).padStart(4)}개 · ${p.src}\n`;
+  for (const sm of r.sample) md += `  - 표본: ${sm.name || "(무명)"} — ${sm.productUrl}\n`;
+  md += `\n`;
+}
+writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low }, null, 1));
 writeFileSync(join(ROOT, "catalog-audit.md"), md);
 console.log(`\n검사 ${scanned}개 · 문제 ${flagged}개 · 브랜드 ${report.filter((r) => r.badCount).length}개`);
