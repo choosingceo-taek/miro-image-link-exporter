@@ -160,7 +160,7 @@ function pushLog(entry) { state.log.unshift(entry); if (state.log.length > 200) 
 // 입력은 buildTargets()가 만든 브랜드 그룹 [{brand, site, urls}].
 // (예전처럼 URL 배열이 들어와도 동작하도록 호스트 기준 그룹으로 감싼다.)
 function asGroups(input) {
-  const arr = input || [];
+  const arr = Array.isArray(input) ? input : [];
   if (arr.length && typeof arr[0] === 'object' && arr[0].urls) return arr;
   const byHost = new Map();
   for (const u of arr) {

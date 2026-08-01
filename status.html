@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Lens — 수집 상태</title>
+<style>
+  :root { --bg:#fff; --text:#111; --muted:#7a7a7a; --border:#e3e3e3; --ok:#1a7f37; --warn:#9a6700; --bad:#b42318; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#141414; --text:#f2f2f2; --muted:#9a9a9a; --border:#2e2e2e; --ok:#4ac26b; --warn:#d4a72c; --bad:#ff7b72; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:24px 18px 60px; background:var(--bg); color:var(--text);
+    font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size:19px; letter-spacing:.5px; text-transform:uppercase; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:12.5px; margin-bottom:18px; }
+  .cards { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:22px; }
+  .card { flex:1 1 150px; border:1px solid var(--border); padding:12px 14px; }
+  .card b { display:block; font-size:24px; line-height:1.2; }
+  .card span { font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); }
+  h2 { font-size:13px; letter-spacing:1.2px; text-transform:uppercase; margin:26px 0 8px; color:var(--muted); }
+  .scroll { overflow-x:auto; border:1px solid var(--border); }
+  table { border-collapse:collapse; width:100%; min-width:720px; font-size:13px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  th { font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); font-weight:700; }
+  tr:last-child td { border-bottom:none; }
+  td.num { text-align:right; font-variant-numeric:tabular-nums; }
+  .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+  .key { color:var(--muted); font-size:11.5px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .cats { color:var(--muted); font-size:11.5px; }
+  .bar { display:flex; gap:8px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
+  button { font:inherit; padding:7px 14px; border:1px solid var(--text); background:var(--bg); color:var(--text); cursor:pointer; }
+  button:disabled { opacity:.5; cursor:default; }
+  .note { color:var(--muted); font-size:12px; margin-top:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Market Lens — 수집 상태</h1>
+  <div class="sub">
+    미로 앱이 실제로 읽는 저장소(Worker KV)를 그대로 조회해, 브랜드별로
+    <b>검색이 되는지 · 몇 개가 있는지 · 언제 수집됐는지</b>를 보여줍니다.
+    앱 패널의 브랜드 매칭 규칙과 동일한 로직으로 판정합니다.
+  </div>
+  <div class="bar">
+    <button id="reload">다시 조회</button>
+    <span id="when" class="note"></span>
+  </div>
+  <div id="out">불러오는 중…</div>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const WORKER = (params.get('worker') || 'https://fabric-extractor.hs-fabric-linker.workers.dev').replace(/\/+$/, '');
+const TOKEN  = params.get('atoken') || 'hsfabriclinker';
+const RENDER = (params.get('render') || 'https://market-research-uzs2.onrender.com').replace(/\/+$/, '');
+const FRESH_H = Number(params.get('fresh')) || 36;   // 이 시간 이내면 최신으로 본다
+
+const el = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+// 패널(index.html)의 findSavedCatalog 과 같은 규칙 — 여기 판정이 곧 앱에서의 검색 결과다.
+function matchCatalog(list, typedBrand, brandUrl) {
+  let host = '';
+  try { host = new URL(brandUrl).hostname.replace(/^www\./, ''); } catch (e) {}
+  const nBrand = norm(typedBrand), nHost = norm(host);
+  const keySlug = (c) => norm(String(c.site || '').split('.').pop());
+  const cands = list.filter((c) => nBrand && (norm(c.brand) === nBrand || keySlug(c) === nBrand));
+  if (cands.length) {
+    cands.sort((a, b) =>
+      ((norm(b.brand) === nBrand) - (norm(a.brand) === nBrand)) || ((b.updated || 0) - (a.updated || 0)));
+    return cands[0];
+  }
+  if (nHost) {
+    const same = list.filter((c) => { const ns = norm(c.site); return ns === nHost || ns.startsWith(nHost); });
+    if (same.length === 1) return same[0];
+  }
+  return null;
+}
+
+const ago = (ms) => {
+  if (!ms) return '—';
+  const h = (Date.now() - ms) / 3600000;
+  if (h < 1) return Math.round(h * 60) + '분 전';
+  if (h < 48) return Math.round(h) + '시간 전';
+  return Math.round(h / 24) + '일 전';
+};
+
+async function getJson(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(url.split('?')[0] + ' → HTTP ' + r.status);
+  return r.json();
+}
+
+function row(r) {
+  const cls = r.state === 'ok' ? 'ok' : r.state === 'stale' ? 'warn' : 'bad';
+  const mark = { ok: '✅', stale: '⚠', none: '❌', cross: '🔀' }[r.state];
+  return `<tr>
+    <td class="${cls}">${mark} ${esc(r.brand)}</td>
+    <td class="num">${r.count || ''}</td>
+    <td class="cats">${esc(r.catText)}</td>
+    <td>${esc(r.agoText)}</td>
+    <td class="key">${esc(r.site || '')}</td>
+    <td class="${cls}">${esc(r.msg)}</td>
+  </tr>`;
+}
+
+function table(title, rows) {
+  if (!rows.length) return '';
+  return `<h2>${esc(title)} (${rows.length})</h2><div class="scroll"><table>
+    <thead><tr><th>브랜드</th><th class="num">상품</th><th>카테고리</th><th>수집 시각</th><th>저장 키</th><th>판정</th></tr></thead>
+    <tbody>${rows.map(row).join('')}</tbody></table></div>`;
+}
+
+async function load() {
+  el('reload').disabled = true;
+  el('out').textContent = '불러오는 중… (Render가 잠들어 있으면 최대 1분)';
+  try {
+    const tok = '&token=' + encodeURIComponent(TOKEN);
+    const [brands, blockedJson, cat] = await Promise.all([
+      getJson(RENDER + '/brands.json'),
+      getJson(RENDER + '/blocked-brands.json'),
+      getJson(WORKER + '/?catalogs=1' + tok),
+    ]);
+    const list = (cat && cat.list) || [];
+    const blocked = new Set((blockedJson.brands || []).map((n) => n.toLowerCase()));
+
+    // 저장소에 있지만 어느 브랜드도 가져가지 않는 키(옛 호스트 키 등)를 찾기 위해 사용처를 기록.
+    const claimed = new Set();
+    const rows = brands.map((b) => {
+      const hit = matchCatalog(list, b.name, b.url);
+      const isExt = blocked.has(b.name.toLowerCase());
+      const r = {
+        brand: b.name, group: isExt ? '확장' : '자동',
+        site: hit ? hit.site : '', count: hit ? hit.count : 0,
+        agoText: hit ? ago(hit.updated) : '—', catText: '', msg: '', state: 'none',
+      };
+      if (!hit) { r.msg = '저장본 없음 — 앱에서 검색해도 결과가 안 나옵니다'; return r; }
+      claimed.add(hit.site);
+      // 다른 브랜드의 카탈로그를 물어온 경우(브랜드 섞임) 즉시 표시.
+      const hitBrand = norm(hit.brand), me = norm(b.name);
+      if (hitBrand && hitBrand !== me && norm(hit.site).indexOf(me) === -1) {
+        r.state = 'cross';
+        r.msg = '다른 브랜드(' + hit.brand + ') 카탈로그가 잡힘 — 키 충돌';
+        return r;
+      }
+      const fresh = hit.updated && (Date.now() - hit.updated) < FRESH_H * 3600000;
+      if (!hit.count) { r.msg = '저장본이 비어 있음'; return r; }
+      r.state = fresh ? 'ok' : 'stale';
+      r.msg = fresh ? '정상' : FRESH_H + '시간 넘게 갱신 안 됨';
+      return r;
+    });
+
+    // 카테고리 분포는 저장본을 하나씩 읽어야 알 수 있다 — 문제 있는 브랜드만 열어본다(요청 수 절약).
+    const need = rows.filter((r) => r.site && r.state !== 'none').slice(0, 200);
+    await Promise.all(need.map(async (r) => {
+      try {
+        const d = await getJson(WORKER + '/?catalog=' + encodeURIComponent(r.site) + tok);
+        const c = {};
+        for (const it of d.items || []) c[it.category] = (c[it.category] || 0) + 1;
+        r.catText = ['tops', 'sweatshirts', 'shirts', 'dresses', 'pants']
+          .filter((k) => c[k]).map((k) => k + ' ' + c[k]).join(' · ');
+        if (!r.catText) r.catText = '분류 없음';
+      } catch (e) { r.catText = '읽기 실패'; }
+    }));
+
+    const auto = rows.filter((r) => r.group === '자동');
+    const ext = rows.filter((r) => r.group === '확장');
+    const bad = rows.filter((r) => r.state === 'none' || r.state === 'cross');
+    const stale = rows.filter((r) => r.state === 'stale');
+    const orphan = list.filter((c) => !claimed.has(c.site));
+
+    let html = `<div class="cards">
+      <div class="card"><b>${rows.length}</b><span>전체 브랜드</span></div>
+      <div class="card"><b class="ok">${rows.filter((r) => r.state === 'ok').length}</b><span>정상</span></div>
+      <div class="card"><b class="warn">${stale.length}</b><span>갱신 지연</span></div>
+      <div class="card"><b class="bad">${bad.length}</b><span>문제</span></div>
+      <div class="card"><b>${rows.reduce((s, r) => s + (r.count || 0), 0).toLocaleString()}</b><span>저장된 상품</span></div>
+    </div>`;
+    if (bad.length) {
+      html += table('❌ 지금 앱에서 안 나오는 브랜드', bad);
+      html += `<div class="note">먼저 봐야 할 항목만 모은 것으로, 아래 그룹별 표에도 같이 나옵니다.</div>`;
+    }
+    html += table('🔌 크롬 확장 담당', ext);
+    html += table('⚙ 매일 자동 수집', auto);
+    if (orphan.length) {
+      html += `<h2>사용되지 않는 저장 키 (${orphan.length})</h2><div class="note">` +
+        orphan.map((c) => esc(c.site) + ' · ' + (c.count || 0) + '개').join('<br>') +
+        `</div><div class="note">브랜드 목록의 어느 항목과도 연결되지 않는 키입니다. 예전 형식으로 저장된 잔여 데이터일 수 있습니다.</div>`;
+    }
+    el('out').innerHTML = html;
+    el('when').textContent = '조회 ' + new Date().toLocaleString('ko-KR');
+  } catch (e) {
+    el('out').innerHTML = '<div class="bad">조회 실패: ' + esc(e.message || e) + '</div>';
+  } finally {
+    el('reload').disabled = false;
+  }
+}
+el('reload').addEventListener('click', load);
+load();
+</script>
+</body>
+</html>
