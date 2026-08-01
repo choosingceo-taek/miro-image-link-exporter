@@ -111,6 +111,15 @@ export default {
         }, 200, cors);
       }
 
+      // 전체 상품 검색 인덱스 (GET ?index=1) — 야간 프리페치가 만들어 둔 것을 반환.
+      if (reqUrl.searchParams.get('index')) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        if (!env.RACK_CACHE) return json({ items: [] }, 200, cors);
+        const raw = await env.RACK_CACHE.get('search:index');
+        if (!raw) return json({ items: [] }, 200, cors);
+        return new Response(raw, { status: 200, headers: { 'Content-Type': 'application/json', ...cors } });
+      }
+
       // 페이지 HTML 프록시 (GET ?html=<url>) — Render(AWS IP)가 막힌 사이트를
       // Cloudflare IP로 한 번 더 시도하는 폴백. IP 대역 기반 차단은 이걸로 뚫리기도 함.
       const htmlUrl = reqUrl.searchParams.get('html');
@@ -186,6 +195,31 @@ export default {
     }
 
     if (request.method !== 'POST') return json({ error: 'POST only' }, 405, cors);
+
+    // 검색 인덱스 저장 (POST ?store=index) — 야간 프리페치 전용.
+    if (reqUrl.searchParams.get('store') === 'index') {
+      const tokOk2 = !env.ACCESS_TOKEN ||
+        request.headers.get('x-access-token') === env.ACCESS_TOKEN ||
+        reqUrl.searchParams.get('token') === env.ACCESS_TOKEN;
+      if (!tokOk2) return json({ error: 'unauthorized' }, 401, cors);
+      if (!env.RACK_CACHE) return json({ error: 'RACK_CACHE KV not configured' }, 500, cors);
+      let body;
+      try { body = await request.json(); }
+      catch { return json({ error: 'invalid JSON body' }, 400, cors); }
+      const items = (Array.isArray(body.items) ? body.items : [])
+        .filter(p => p && /^https?:\/\//i.test(p.imageUrl || '') && /^https?:\/\//i.test(p.productUrl || ''))
+        .slice(0, 40000)
+        .map(p => ({
+          name: String(p.name || '').slice(0, 200),
+          brand: String(p.brand || '').slice(0, 80),
+          category: String(p.category || 'tops').slice(0, 20),
+          imageUrl: String(p.imageUrl).slice(0, 1000),
+          productUrl: String(p.productUrl).slice(0, 1000),
+          price: String(p.price || '').slice(0, 40),
+        }));
+      await env.RACK_CACHE.put('search:index', JSON.stringify({ updated: Date.now(), items }));
+      return json({ ok: true, count: items.length }, 200, cors);
+    }
 
     // 카탈로그 저장 (POST ?store=catalog) — 유저스크립트가 쇼핑몰 페이지에서 전송.
     // 토큰은 헤더 또는 쿼리 둘 다 허용(유저스크립트 편의).

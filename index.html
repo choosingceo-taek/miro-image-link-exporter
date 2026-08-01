@@ -247,18 +247,13 @@
     }
     #pane-import .url-row input:focus { outline: none; }
     #pane-import .url-row input::placeholder { color: var(--muted); letter-spacing: 1px; }
-    /* 검색 자동완성 — 검색바·선택박스와 동일한 흰 배경 + 검정 선 박스 */
-    #pane-import .url-row { position: relative; }
-    #pane-import .sugg {
-      position: absolute; top: calc(100% + 5px); left: -1px; right: -1px; z-index: 40;
-      background: var(--bg); border: 1px solid var(--text); max-height: 228px; overflow-y: auto;
+    /* 필터 리셋(ALL) — 선택박스와 같은 높이의 각진 아이콘 버튼 */
+    #pane-import .pick-reset {
+      flex: 0 0 38px; width: 38px; padding: 0; display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border); background: var(--bg); color: var(--text); cursor: pointer; border-radius: 0;
     }
-    #pane-import .sugg-it {
-      padding: 10px 14px; font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--text); cursor: pointer; border-bottom: 1px solid var(--card2);
-    }
-    #pane-import .sugg-it:last-child { border-bottom: none; }
-    #pane-import .sugg-it:hover, #pane-import .sugg-it.on { background: var(--text); color: var(--bg); }
+    #pane-import .pick-reset:hover { border-color: var(--text); }
+    #pane-import .pick-reset svg { width: 15px; height: 15px; display: block; }
     /* 검색바 아래 브랜드·카테고리 선택 — 같은 각진 모노톤 무드 */
     #pane-import .pick-row { display: flex; gap: 6px; margin-top: 15px; }
     #pane-import .pick {
@@ -273,10 +268,12 @@
     #pane-import .pick select {
       width: 100%; border: none; background: transparent; color: var(--text); cursor: pointer;
       font-family: inherit; font-size: 11.5px; letter-spacing: .8px; text-transform: uppercase;
-      padding: 10px 24px 10px 11px; appearance: none; -webkit-appearance: none;
+      padding: 10px 24px 10px 11px; appearance: none; -webkit-appearance: none; -moz-appearance: none;
+      background: transparent; background-image: none;
       text-overflow: ellipsis; white-space: nowrap;
     }
     #pane-import .pick select:focus { outline: none; }
+    #pane-import .pick select::-ms-expand { display: none; }   /* 화살표 이중 표시 방지 */
     #pane-import .pick select:disabled { color: var(--muted); cursor: default; }
     #pane-import .pick::after {
       content: ''; position: absolute; right: 11px; width: 6px; height: 6px; pointer-events: none;
@@ -299,21 +296,20 @@
       <div class="url-row">
         <button id="importFetch" class="go" title="검색" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
         <input id="importBrandUrl" type="text" autocomplete="off" spellcheck="false"
-          placeholder="Brand, category or URL" />
-        <!-- 커스텀 자동완성(브라우저 기본 datalist는 스타일 불가 → 앱 무드에 맞춘 흰 배경·검정 선 박스) -->
-        <div id="brandSugg" class="sugg" style="display:none"></div>
+          placeholder="Search products" />
       </div>
 
       <!-- 검색바 아래: 브랜드 · 카테고리 선택 -->
       <div class="pick-row">
         <label class="pick">
           <span class="pick-lab">Brand</span>
-          <select id="pickBrand"><option value="">Loading…</option></select>
+          <select id="pickBrand"><option value="">ALL</option></select>
         </label>
         <label class="pick">
           <span class="pick-lab">Category</span>
           <select id="pickCat"></select>
         </label>
+        <button class="pick-reset" id="pickReset" title="브랜드·카테고리 필터를 ALL로 초기화" aria-label="필터 초기화"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
       </div>
 
 
@@ -677,7 +673,6 @@
 
       // ── 📥 상품 가져오기: 브랜드 → Render 서버(133 브랜드) → 미리보기 → 선택 → 보드에 추가 ──
       const importBrandUrlEl = document.getElementById('importBrandUrl');
-      const brandSuggEl = document.getElementById('brandSugg');
       const importFetchBtn = document.getElementById('importFetch');
       const importAddBtn = document.getElementById('importAdd');
       const importStatusEl = document.getElementById('importStatus');
@@ -711,78 +706,86 @@
         return hit ? { text: input.slice(0, i).trim(), cat: hit.key } : { text: input, cat: '' };
       }
 
-      try { importBrandUrlEl.value = localStorage.getItem('importBrandUrl') || ''; } catch (e) {}
-      importBrandUrlEl.addEventListener('change', () => {
-        try { localStorage.setItem('importBrandUrl', importBrandUrlEl.value.trim()); } catch (e) {}
+      // ── 검색바 = 상품명 검색 (브랜드·카테고리 필터와 독립) ──
+      // 브랜드가 선택돼 있으면 그 결과 안에서, ALL이면 전체 스캔 인덱스에서 제목으로 찾는다.
+      let titleQuery = '';
+      let loadedBrandMode = false;   // true = 특정 브랜드 카탈로그가 로드된 상태
+      let __searchIndex = null;      // 전체 상품 인덱스(최초 전역 검색 때 1회 로드)
+
+      async function ensureIndex() {
+        if (__searchIndex) return __searchIndex;
+        const base = __proxy.url.replace(/\/+$/, '');
+        const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
+        importStatusEl.innerHTML = '<div style="text-align:center;line-height:1.7">전체 상품 인덱스 불러오는 중…</div>';
+        const resp = await fetch(base + '/?index=1' + tok);
+        const data = await resp.json().catch(() => ({}));
+        __searchIndex = Array.isArray(data.items) ? data.items : [];
+        return __searchIndex;
+      }
+
+      async function globalTitleSearch() {
+        const q = titleQuery;
+        if (q.length < 2) {
+          importItems = []; importGridEl.style.display = 'none'; importTabsEl.style.display = 'none';
+          importToolbarEl.style.display = 'none'; importAddBtn.style.display = 'none';
+          importStatusEl.textContent = q ? '두 글자 이상 입력하세요.' : '';
+          return;
+        }
+        try {
+          const idx = await ensureIndex();
+          const hits = idx.filter(it => (it.name || '').toLowerCase().includes(q)).slice(0, 300);
+          loadedBrandMode = false;
+          importBrand = '';
+          importItems = hits.map((it, i) => ({
+            id: 'g' + i, name: it.name || '', category: guessCat(it.productUrl, it.name),
+            imageUrl: it.imageUrl, productUrl: it.productUrl, price: it.price || '',
+            brand: it.brand || '', selected: false,
+          })).filter(it => it.imageUrl && it.productUrl);
+          if (!importItems.length) {
+            importGridEl.style.display = 'none'; importTabsEl.style.display = 'none';
+            importToolbarEl.style.display = 'none'; importAddBtn.style.display = 'none';
+            importStatusEl.innerHTML =
+              '<div style="padding:12px;background:#f6f6f6;border-radius:6px;color:#111;font-size:13px;line-height:1.7;text-align:center">' +
+              '해당 정보는 검색 결과 확인이 필요합니다.<br>디지털팀에 확인 요청 부탁드립니다. 감사합니다.</div>';
+            return;
+          }
+          importStatusEl.innerHTML = '"' + escapeHtml(importBrandUrlEl.value.trim()) + '" · ' + importItems.length + '개 <span class="muted">(전체 브랜드)</span>';
+          importCat = '';   // ALL — 전 카테고리 표시
+          renderImportTabs(); renderImportGrid();
+        } catch (e) {
+          importStatusEl.textContent = '검색 실패: ' + ((e && e.message) || e);
+        }
+      }
+
+      function applySearch() {
+        titleQuery = importBrandUrlEl.value.trim().toLowerCase();
+        if (loadedBrandMode && importItems.length) {
+          // 브랜드 결과 안에서 제목 필터(visibleItems/catCount가 titleQuery를 반영)
+          renderImportTabs(); renderImportGrid();
+        } else {
+          globalTitleSearch();
+        }
+      }
+      let __tqTimer = null;
+      importBrandUrlEl.addEventListener('input', () => {
+        clearTimeout(__tqTimer);
+        __tqTimer = setTimeout(applySearch, 300);
       });
-      // ── 커스텀 자동완성: 흰 배경·검정 선 박스(앱 무드 통일) ──
-      let suggIdx = -1;
-      function hideSugg() {
-        if (!brandSuggEl) return;
-        brandSuggEl.style.display = 'none'; brandSuggEl.innerHTML = ''; suggIdx = -1;
-      }
-      function showSugg() {
-        if (!brandSuggEl) return;
-        const q = importBrandUrlEl.value.trim().toLowerCase();
-        if (!q || /^https?:/i.test(q) || !importBrands.length) { hideSugg(); return; }
-        const starts = importBrands.filter(b => b.name.toLowerCase().startsWith(q));
-        const incl = importBrands.filter(b => !b.name.toLowerCase().startsWith(q) && b.name.toLowerCase().includes(q));
-        const list = [...starts, ...incl].slice(0, 8);
-        if (!list.length) { hideSugg(); return; }
-        brandSuggEl.innerHTML = list
-          .map(b => `<div class="sugg-it" data-name="${escapeHtml(b.name)}">${escapeHtml(b.name)}</div>`)
-          .join('');
-        brandSuggEl.style.display = 'block'; suggIdx = -1;
-      }
-      function pickSugg(name) {
-        importBrandUrlEl.value = name;
-        if (pickBrandEl) { pickBrandEl.value = name; fillCatPicker(); }
-        hideSugg();
-      }
-      importBrandUrlEl.addEventListener('input', showSugg);
-      importBrandUrlEl.addEventListener('focus', showSugg);
-      if (brandSuggEl) {
-        brandSuggEl.addEventListener('mousedown', (e) => {
-          const it = e.target.closest('.sugg-it'); if (!it) return;
-          e.preventDefault();   // input blur 방지
-          pickSugg(it.dataset.name);
-        });
-      }
-      document.addEventListener('click', (e) => { if (!e.target.closest('#pane-import .url-row')) hideSugg(); });
-      // 키보드: ↑↓로 이동, Enter로 선택(목록이 열려 있고 항목이 짚혀 있으면) 또는 검색 실행, Esc 닫기
       importBrandUrlEl.addEventListener('keydown', (e) => {
-        const items = brandSuggEl ? [...brandSuggEl.querySelectorAll('.sugg-it')] : [];
-        const open = items.length && brandSuggEl.style.display !== 'none';
-        if (e.key === 'ArrowDown' && open) {
-          e.preventDefault(); suggIdx = (suggIdx + 1) % items.length;
-          items.forEach((el, i) => el.classList.toggle('on', i === suggIdx));
-          return;
-        }
-        if (e.key === 'ArrowUp' && open) {
-          e.preventDefault(); suggIdx = (suggIdx - 1 + items.length) % items.length;
-          items.forEach((el, i) => el.classList.toggle('on', i === suggIdx));
-          return;
-        }
-        if (e.key === 'Escape') { hideSugg(); return; }
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          if (open && suggIdx >= 0) { pickSugg(items[suggIdx].dataset.name); return; }
-          hideSugg();
-          importFetchBtn.click();
-        }
+        if (e.key === 'Enter') { e.preventDefault(); clearTimeout(__tqTimer); applySearch(); }
       });
 
-      // 브랜드 목록을 서버에서 받아 자동완성(datalist)에 채움.
+      // 브랜드 목록을 서버에서 받아 선택박스에 채움.
       async function loadBrandList() {
         if (!__render) return;
         try {
           const resp = await fetch(__render + '/api/brands');
           const data = await resp.json();
           importBrands = (data.brands || []).filter(b => b && b.name && b.url);
-          fillBrandPicker();   // 자동완성(brandSugg)은 importBrands를 직접 읽음
+          fillBrandPicker();
         } catch (e) {
           if (pickBrandEl && !importBrands.length) {
-            pickBrandEl.innerHTML = '<option value="">브랜드 목록 불러오기 실패</option>';
+            pickBrandEl.innerHTML = '<option value="">ALL</option>';
           }
         }
       }
@@ -791,7 +794,7 @@
       function fillBrandPicker() {
         if (!pickBrandEl) return;
         const cur = pickBrandEl.value;
-        pickBrandEl.innerHTML = '<option value="">브랜드 선택</option>' +
+        pickBrandEl.innerHTML = '<option value="">ALL</option>' +
           importBrands.map(b => `<option value="${escapeHtml(b.name)}">${escapeHtml(b.name)}</option>`).join('');
         if (cur) pickBrandEl.value = cur;
       }
@@ -809,56 +812,71 @@
             cats = IMPORT_CATS.filter(c => c.key === 'new' || b.categories.includes(c.key));
           }
         }
-        pickCatEl.innerHTML = cats.map(c => {
-          const n = loaded ? catCount(c.key) : 0;
-          const dis = loaded && !n ? ' disabled' : '';
-          return `<option value="${c.key}"${dis}>${c.label}${loaded ? ` (${n})` : ''}</option>`;
+        // 숫자 없이 카테고리 이름만. 로드된 상태에서 0개인 카테고리는 비활성.
+        pickCatEl.innerHTML = '<option value="">ALL</option>' + cats.map(c => {
+          const dis = loaded && !catCount(c.key) ? ' disabled' : '';
+          return `<option value="${c.key}"${dis}>${c.label}</option>`;
         }).join('');
-        const want = loaded ? importCat : (wantCat || 'tops');
-        if (cats.some(c => c.key === want)) {
-          pickCatEl.value = want;
-        } else {
-          // 브랜드가 그 카테고리를 안 가지면 첫 실제 카테고리로 이동(NEW 제외 우선).
-          pickCatEl.value = (cats.find(c => c.key !== 'new') || cats[0]).key;
-          if (!loaded && wantCat) wantCat = pickCatEl.value;
-        }
+        const want = loaded ? importCat : wantCat;
+        pickCatEl.value = (want && cats.some(c => c.key === want)) ? want : '';
       }
       if (pickBrandEl) {
-        // 브랜드를 고르면 곧바로 검색(저장본이 있으면 즉시 표시되므로 시작 버튼이 불필요).
+        // 브랜드 = 필터. 고르면 곧바로 그 브랜드 결과 표시, ALL이면 전역 제목검색 상태로.
         pickBrandEl.addEventListener('change', () => {
-          if (!pickBrandEl.value) return;
-          importBrandUrlEl.value = pickBrandEl.value;
-          fillCatPicker();          // 이 브랜드가 가진 카테고리로 좁힘
-          importFetchBtn.click();
-        });
-      }
-      if (pickCatEl) {
-        // 결과가 이미 있으면 탭 전환만, 없으면 그 카테고리로 검색.
-        pickCatEl.addEventListener('change', () => {
-          const key = pickCatEl.value;
-          wantCat = key;
-          if (importItems.length && catCount(key)) {
-            importCat = key;
-            renderImportTabs();
-            renderImportGrid();
-          } else if (importBrandUrlEl.value.trim()) {
-            importFetchBtn.click();
+          const name = pickBrandEl.value;
+          fillCatPicker();
+          if (name) { runBrandFetch(name); }
+          else {
+            loadedBrandMode = false;
+            if (titleQuery) globalTitleSearch();
+            else {
+              importItems = []; importGridEl.style.display = 'none'; importTabsEl.style.display = 'none';
+              importToolbarEl.style.display = 'none'; importAddBtn.style.display = 'none';
+              importStatusEl.textContent = '';
+            }
           }
         });
       }
-      importFetchBtn.addEventListener('click', async () => {
-        const raw = (importBrandUrlEl.value || '').trim();
-        if (!raw) { importStatusEl.textContent = '브랜드를 고르거나 URL을 입력하세요.'; return; }
-        // "브랜드 · Pants"처럼 카테고리까지 입력한 경우도 지원. 없으면 아래 선택 UI의 카테고리 사용.
-        const picked = splitBrandCat(raw);
-        const typed = picked.text;
-        wantCat = picked.cat || (pickCatEl ? pickCatEl.value : '');
-        // 검색바로 직접 검색한 경우에도 아래 브랜드 선택값·카테고리 목록을 맞춰준다(목록에 있으면).
-        if (pickBrandEl) {
-          const hit = importBrands.find(b => b.name.toLowerCase() === typed.toLowerCase());
-          pickBrandEl.value = hit ? hit.name : '';
+      if (pickCatEl) {
+        // 카테고리 = 필터. ALL이면 전 카테고리, 아니면 그 카테고리만.
+        pickCatEl.addEventListener('change', () => {
+          const key = pickCatEl.value;
+          wantCat = key;
+          if (importItems.length) {
+            importCat = key;   // '' = ALL
+            renderImportTabs();
+            renderImportGrid();
+          } else if (pickBrandEl && pickBrandEl.value) {
+            runBrandFetch(pickBrandEl.value);
+          } else if (titleQuery) {
+            globalTitleSearch();
+          }
+        });
+      }
+      // ↺ 리셋: 브랜드·카테고리를 ALL로 (검색어는 유지 — 있으면 전역 검색으로 전환)
+      const pickResetBtn = document.getElementById('pickReset');
+      if (pickResetBtn) {
+        pickResetBtn.addEventListener('click', () => {
+          if (pickBrandEl) pickBrandEl.value = '';
+          wantCat = ''; importCat = '';
+          loadedBrandMode = false;
           fillCatPicker();
-        }
+          if (titleQuery) { globalTitleSearch(); }
+          else {
+            importItems = []; importGridEl.style.display = 'none'; importTabsEl.style.display = 'none';
+            importToolbarEl.style.display = 'none'; importAddBtn.style.display = 'none';
+            importStatusEl.textContent = '';
+          }
+        });
+      }
+      // 돋보기 버튼 = 제목 검색 실행(검색바와 동일)
+      importFetchBtn.addEventListener('click', () => { clearTimeout(__tqTimer); applySearch(); });
+
+      // 브랜드 카탈로그 로드(선택박스에서 브랜드를 고르면 실행)
+      async function runBrandFetch(raw) {
+        const typed = (raw || '').trim();
+        if (!typed) return;
+        wantCat = pickCatEl ? pickCatEl.value : '';
 
         // ① 먼저 팀 저장소(야간 프리페치 + 확장 수집본)에서 이 브랜드를 찾음.
         //    36시간 이내 저장본이면 그대로 즉시 표시(콜드스타트·75초 수집 대기 없음).
@@ -937,12 +955,11 @@
                 `해당 브랜드는 추가 정보 확인이 필요합니다.<br>필요하신 브랜드와 카테고리 정보를 디지털팀에 전달 부탁드립니다. 감사합니다.</div>`;
             return;
           }
+          loadedBrandMode = true;
           // 중복 방지: 카테고리별 개수는 탭에만 표시. 상태줄은 부분수집일 때만 안내.
           importStatusEl.textContent = '';   // (부분 카탈로그 안내 제거 — 불필요)
-          // 검색바에서 카테고리를 골랐고 그 탭에 상품이 있으면 그 탭을 먼저 연다.
-          importCat = (wantCat && catCount(wantCat)) ? wantCat
-            : catCount('tops') ? 'tops'
-            : (IMPORT_CATS.find(c => catCount(c.key) > 0)?.key || 'tops');
+          // 카테고리 필터가 선택돼 있으면 그 탭, 아니면 ALL(전 카테고리).
+          importCat = (wantCat && catCount(wantCat)) ? wantCat : '';
           renderImportTabs();
           renderImportGrid();
         } catch (e) {
@@ -962,13 +979,22 @@
         } finally {
           importFetchBtn.disabled = false;
         }
-      });
+      }
 
-      function catCount(key) { return importItems.filter(p => p.category === key).length; }
-      function visibleItems() { return importItems.filter(p => p.category === importCat); }
+      const titleMatch = (p) => !titleQuery || (p.name || '').toLowerCase().includes(titleQuery);
+      function catCount(key) { return importItems.filter(p => p.category === key && titleMatch(p)).length; }
+      function visibleItems() {
+        return importItems.filter(p => (!importCat || p.category === importCat) && titleMatch(p));
+      }
 
       function renderImportTabs() {
         importTabsEl.innerHTML = '';
+        const total = importItems.filter(titleMatch).length;
+        const allBtn = document.createElement('button');
+        allBtn.className = importCat === '' ? 'active' : '';
+        allBtn.textContent = `All ${total}`;
+        allBtn.addEventListener('click', () => { importCat = ''; renderImportTabs(); renderImportGrid(); });
+        importTabsEl.appendChild(allBtn);
         IMPORT_CATS.filter(c => catCount(c.key) > 0).forEach(c => {
           const b = document.createElement('button');
           b.className = (c.key === importCat) ? 'active' : '';
@@ -1309,6 +1335,7 @@
             return perCat[p.category] <= 100;
           });
           if (!importItems.length) { importStatusEl.textContent = '카탈로그가 비어 있습니다.'; return; }
+          loadedBrandMode = true;
           importBrand = data.brand || brand || site;
           const upd = data.updated
             ? new Date(data.updated).toLocaleDateString() + ' ' +
@@ -1317,8 +1344,7 @@
           importStatusEl.innerHTML = `<b>${escapeHtml(importBrand)}</b> · ${importItems.length}개` +
             (stored > importItems.length ? ` <span class="muted">(카테고리당 100개 상한)</span>` : '') +
             (upd ? ` <span class="muted">· ${upd} 수집</span>` : '');
-          importCat = (wantCat && catCount(wantCat)) ? wantCat
-            : catCount('tops') ? 'tops' : (importItems[0] ? importItems[0].category : 'tops');
+          importCat = (wantCat && catCount(wantCat)) ? wantCat : '';   // 기본 ALL(전 카테고리)
           renderImportTabs(); renderImportGrid();
         } catch (e) {
           importStatusEl.textContent = '카탈로그 로드 실패: ' + ((e && e.message) || e);
