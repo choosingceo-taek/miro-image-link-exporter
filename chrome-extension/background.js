@@ -231,7 +231,8 @@ async function collect(input) {
           const pageItems = res.items || [];
           let added = 0;
           for (const it of pageItems) {
-            if (it && it.productUrl && !byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, it); added++; }
+            // src = 출처 카테고리 URL. 나중에 잘못 잡힌 항목이 어느 페이지에서 왔는지 추적한다.
+            if (it && it.productUrl && !byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, { ...it, src: url }); added++; }
           }
           pages++;
           state.current = g.brand + ' · ' + url + (pages > 1 ? ` (p${pages})` : '');
