@@ -138,6 +138,7 @@ for (const g of targets) {
   for (const url of g.urls) {
     const page = await context.newPage();
     let note = "";
+    let lastRej = null;
     const byUrl = new Map();
     try {
       // 허브 페이지(상품 대신 하위 카테고리 타일만 있는 곳) 대응: 큐에 뒤따라 붙인다.
@@ -156,6 +157,7 @@ for (const g of targets) {
           if (sig) { note = sig; break; }
         }
         const res = (await page.evaluate(COLLECTOR)) || {};
+        lastRej = res.rej || lastRej;
         let added = 0;
         for (const it of res.items || []) {
           if (!it || !it.productUrl || listing.has(norm(it.productUrl))) continue;
@@ -181,8 +183,11 @@ for (const g of targets) {
           imgs: document.querySelectorAll("img").length,
           text: (document.body ? document.body.innerText : "").replace(/\s+/g, " ").trim().slice(0, 120),
         })).catch(() => null);
+        // 마지막 harvest 의 탈락 사유 집계 — 어느 조건에서 다 걸렸는지 바로 보인다.
+        const rj = lastRej ? Object.entries(lastRej).map(([k, v]) => `${k}=${v}`).join(" ") : "";
         note = d
-          ? `상품 0개 · 최종주소 ${d.finalUrl} · 제목 "${d.title}" · 링크 ${d.links}/이미지 ${d.imgs} · "${d.text}"`
+          ? `상품 0개 · 최종주소 ${d.finalUrl} · 제목 "${d.title}" · 링크 ${d.links}/이미지 ${d.imgs}` +
+            (rj ? ` · 탈락[${rj}]` : "") + ` · "${d.text}"`
           : "상품 0개(페이지 확인 실패)";
       }
     } catch (e) {

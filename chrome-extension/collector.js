@@ -26,28 +26,47 @@ async function pageCollector() {
     if (/shirt|blouse|셔츠|블라우스/.test(url)) return 'shirts';
     return 'tops';
   };
+  // 이미지 주소는 절대경로가 아닐 수 있다 — //assets.gap.com/... (프로토콜 상대),
+  // /webcontent/0056/... (루트 상대) 둘 다 흔하다. 예전에는 http(s)로 시작하지
+  // 않으면 버려서, 그런 사이트는 상품을 통째로 놓쳤다(Gap·Carhartt).
+  const abs = (u) => {
+    const v = String(u || '').trim();
+    if (!v || /^(data|blob|javascript):/i.test(v)) return '';
+    try { const a = new URL(v, location.href); return /^https?:$/.test(a.protocol) ? a.href : ''; }
+    catch (e) { return ''; }
+  };
+  // srcset("url 1x, url 2x")에서 가장 큰(마지막) 후보를 고른다. 상대경로도 받는다.
+  const fromSrcset = (ss) => {
+    const parts = String(ss || '').split(',').map((x) => x.trim().split(/\s+/)[0]).filter(Boolean);
+    for (let i = parts.length - 1; i >= 0; i--) { const u = abs(parts[i]); if (u) return u; }
+    return '';
+  };
+  const bad = (u) => !u || /\.svg(\?|#|$)/i.test(u) || /placeholder|blank|spacer|1x1|transparent/i.test(u);
+
   const bestImage = (el) => {
     if (!el) return '';
     const pick = (img) => {
       if (!img) return '';
-      let src = img.currentSrc || img.getAttribute('src') || img.getAttribute('data-src') ||
-                img.getAttribute('data-lazy') || img.getAttribute('data-original') || '';
-      if (!/^https?:/.test(src) || /\.svg(\?|#|$)/i.test(src) || /placeholder|blank|spacer|1x1/i.test(src)) {
-        const ss = img.getAttribute('srcset') || img.getAttribute('data-srcset') || '';
-        const m = ss.match(/https?:\/\/[^\s,]+/g);
-        if (m && m.length) src = m[m.length - 1];
+      let src = abs(img.currentSrc) || abs(img.getAttribute('src')) || abs(img.getAttribute('data-src')) ||
+                abs(img.getAttribute('data-lazy')) || abs(img.getAttribute('data-original')) ||
+                abs(img.getAttribute('data-image')) || abs(img.getAttribute('data-srcset'));
+      if (bad(src)) {
+        const alt = fromSrcset(img.getAttribute('srcset')) || fromSrcset(img.getAttribute('data-srcset'));
+        if (!bad(alt)) src = alt;
       }
-      return /^https?:/.test(src) ? src : '';
+      return bad(src) ? '' : src;
     };
     let src = pick(el.querySelector('img'));
     if (!src) {
-      const s = el.querySelector('source[srcset], source[data-srcset]');
-      if (s) { const m = (s.getAttribute('srcset') || s.getAttribute('data-srcset') || '').match(/https?:\/\/[^\s,]+/g); if (m) src = m[m.length - 1]; }
+      for (const s of el.querySelectorAll('source[srcset], source[data-srcset]')) {
+        const u = fromSrcset(s.getAttribute('srcset')) || fromSrcset(s.getAttribute('data-srcset'));
+        if (!bad(u)) { src = u; break; }
+      }
     }
     if (!src) {
       const bgEl = el.querySelector('[style*="background-image"]') || el;
-      const bg = ((bgEl.getAttribute && bgEl.getAttribute('style')) || '').match(/url\(["']?(https?:\/\/[^"')]+)/i);
-      if (bg) src = bg[1];
+      const bg = ((bgEl.getAttribute && bgEl.getAttribute('style')) || '').match(/url\(["']?([^"')]+)/i);
+      if (bg) { const u = abs(bg[1]); if (!bad(u)) src = u; }
     }
     return src || '';
   };
@@ -63,27 +82,33 @@ async function pageCollector() {
   // 그때 호출측이 이 목록을 한 단계 더 따라가 실제 상품을 가져온다.
   const subCats = new Set();
 
+  // 0개로 끝났을 때 "왜 다 걸러졌는지" 세어 둔다. 추측 대신 숫자로 원인을 좁힌다.
+  const rej = { total: 0, noImage: 0, tinyImage: 0, shortPath: 0, samePage: 0, banner: 0, dup: 0 };
+
   const harvest = () => {
     const here = location.pathname.replace(/\/+$/, '');
     const seen = new Set(), items = [];
+    for (const k of Object.keys(rej)) rej[k] = 0;
     document.querySelectorAll('a[href]').forEach((a) => {
       let href; try { href = new URL(a.href, location.href); } catch (e) { return; }
       if (!/^https?:/.test(href.protocol)) return;
+      rej.total++;
       const card = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
       const src = bestImage(a) || bestImage(card);
-      if (!/^https?:/.test(src)) return;
+      if (!/^https?:/.test(src)) { rej.noImage++; return; }
       const img = a.querySelector('img') || card.querySelector('img');
-      if (img && img.naturalWidth && img.naturalWidth < 100) return;
+      if (img && img.naturalWidth && img.naturalWidth < 100) { rej.tinyImage++; return; }
       const path = href.pathname.replace(/\/+$/, '');
-      if (path.length < 8) return;
-      if (path === here) return;                     // 지금 보고 있는 목록 페이지 자체
-      if (here.startsWith(path + '/')) return;       // 상위 카테고리(브레드크럼)
+      if (path.length < 8) { rej.shortPath++; return; }
+      if (path === here) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
+      if (here.startsWith(path + '/')) { rej.samePage++; return; }   // 상위 카테고리(브레드크럼)
       const key = href.origin + path;
-      if (seen.has(key)) return;
+      if (seen.has(key)) { rej.dup++; return; }
       seen.add(key);
       const nameEl = card.querySelector('h1,h2,h3,h4,[class*="name"],[class*="title"],[class*="Name"],[class*="Title"]');
       const name = ((img && img.alt) || (nameEl && nameEl.textContent) || '').replace(/\s+/g, ' ').trim().slice(0, 150);
       if (name && BANNER_NAME.test(name)) {          // "Click to shop" 류 카테고리 타일
+        rej.banner++;
         // 같은 구역(현재 경로의 부모 아래)에 있는 타일이면 하위/형제 카테고리로 기억한다.
         // FP Movement의 /fpmovement/workout-tops/ 는 형제인 /fpmovement/casual-tops/ 를
         // 타일로 보여 준다 — 자식만 보면 놓친다. 상품으로는 쓰지 않는다.
@@ -160,5 +185,6 @@ async function pageCollector() {
   }
   window.scrollTo(0, 0);
   await sleep(250);
-  return { items: harvest(), nextUrl: findNext(), subCats: [...subCats].slice(0, 8) };
+  const out = harvest();
+  return { items: out, nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej } };
 }
