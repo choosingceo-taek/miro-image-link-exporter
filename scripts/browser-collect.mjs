@@ -146,7 +146,7 @@ for (const g of targets) {
         const res = (await page.evaluate(COLLECTOR)) || {};
         let added = 0;
         for (const it of res.items || []) {
-          if (it && it.productUrl && !byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, it); added++; }
+          if (it && it.productUrl && !byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, { ...it, src: url }); added++; }
         }
         pages++;
         if (!added) break;

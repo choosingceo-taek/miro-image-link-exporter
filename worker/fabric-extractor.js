@@ -245,6 +245,8 @@ export default {
           productUrl: String(p.productUrl).slice(0, 1000),
           price: String(p.price || '').slice(0, 40),
           category: String(p.category || 'tops').slice(0, 20),
+          // src = 이 상품을 어느 카테고리 URL에서 긁었는지. 잘못 잡힌 항목의 출처 추적용.
+          src: String(p.src || '').slice(0, 300),
         }));
       if (!items.length) return json({ error: 'no valid items' }, 400, cors);
 

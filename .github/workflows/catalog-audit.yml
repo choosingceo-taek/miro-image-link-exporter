@@ -1,0 +1,44 @@
+name: Catalog audit (non-product items)
+
+# 저장된 카탈로그에서 배너·안내 페이지처럼 상품이 아닌 항목을 찾아 브랜드·카테고리 URL별로 보고한다.
+# 읽기만 하므로 저장소를 건드리지 않는다.
+on:
+  schedule:
+    - cron: "20 19 * * *"   # UTC 19:20 = KST 04:20 — 서버·헤드리스 수집이 끝난 뒤
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "출처별로 보여줄 예시 개수"
+        required: false
+        default: "12"
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Audit stored catalogs
+        env:
+          LIMIT: ${{ github.event.inputs.limit }}
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+        run: node scripts/audit-catalogs.mjs
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- catalog-audit.json catalog-audit.md || true
+          git commit -m "catalog-audit: non-product items by brand and category URL" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin ${{ github.ref_name }} \
+              && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed after retries"
