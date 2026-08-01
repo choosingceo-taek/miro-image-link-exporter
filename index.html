@@ -1659,36 +1659,23 @@
 
         const workbook = new ExcelJS.Workbook();
         const ws = workbook.addWorksheet('링크이미지');
-        // 상세 열은 "실제로 값이 하나라도 있을 때만" 추가.
-        // (adidas·ae.com처럼 봇 차단으로 분석이 전부 실패하면 빈 열을 만들지 않는다)
-        const detailOf = (r) => {
-          const f = r.fabric || {};
-          const comp = (f.composition || []).map(x => `${x.material} ${x.percent}%`).join(' / ')
-            || (f.materials || []).join(' / ');
-          return { price: r.price || f.price || '', color: f.color || '', comp };
-        };
-        const hasDetail = items.some(r => { const d = detailOf(r); return d.price || d.color || d.comp; });
+        // 가격: Market Research로 담은 상품은 캐시에, 아니면 이미지 제목에서 뽑아둔 값.
         ws.columns = [
           { header: '브랜드', key: 'brand', width: 18 },
           { header: '썸네일', key: 'img', width: 18 },
           { header: '상품명', key: 'name', width: 34 },
-          ...(hasDetail ? [
-            { header: '가격', key: 'price', width: 12 },
-            { header: '색상', key: 'color', width: 14 },
-            { header: '혼용률', key: 'comp', width: 30 },
-          ] : []),
+          { header: '가격', key: 'price', width: 12 },
           { header: 'URL', key: 'link', width: 56 },
         ];
         ws.getRow(1).font = { bold: true };
-        const urlCol = hasDetail ? 'G' : 'D';   // URL 열 위치(상세 열 유무에 따라 이동)
+        const urlCol = 'E';   // 브랜드·썸네일·상품명·가격·URL
 
         let okThumb = 0, thumbFailDiag = '';
         for (let i = 0; i < items.length; i++) {
           const r = items[i], excelRow = i + 2;
-          const d = detailOf(r);
           const row = ws.addRow({
-            brand: r.brand || brandFromUrl(r.link), img: '', name: r.name || '', link: '',
-            ...(hasDetail ? { price: d.price, color: d.color, comp: d.comp } : {}),
+            brand: r.brand || brandFromUrl(r.link), img: '', name: r.name || '',
+            price: r.price || '', link: '',
           });
           row.height = 60;
           const c = ws.getCell(`${urlCol}${excelRow}`);   // URL 열
@@ -1709,7 +1696,13 @@
           }
           if (!done) {
             ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
-            if (!thumbFailDiag && r.imageUrl) thumbFailDiag = await diagnoseThumb(r.imageUrl);
+            if (!thumbFailDiag && r.imageUrl) {
+              const probe = __proxy.url
+                ? __proxy.url.replace(/\/+$/, '') + '?img=' + encodeURIComponent(r.imageUrl) +
+                  (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '')
+                : r.imageUrl;
+              thumbFailDiag = await diagnoseThumb(probe);
+            }
           }
           statusEl.textContent = `추출 중… ${i + 1}/${items.length}`;
         }
@@ -1791,7 +1784,13 @@
             if (!thumbDone && thumbCandidates.length) {
               ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
               // 첫 실패는 원인을 직접 조회해 화면에 표시(보통 Worker의 MIRO_TOKEN 문제).
-              if (!thumbFailDiag && r.imageUrl) thumbFailDiag = await diagnoseThumb(r.imageUrl);
+              if (!thumbFailDiag && r.imageUrl) {
+              const probe = __proxy.url
+                ? __proxy.url.replace(/\/+$/, '') + '?img=' + encodeURIComponent(r.imageUrl) +
+                  (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '')
+                : r.imageUrl;
+              thumbFailDiag = await diagnoseThumb(probe);
+            }
             }
             if (f.status === 'ok' && (compStr || (f.materials || []).length)) ok++; else fail++;
             statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${items.length}`;
@@ -1853,7 +1852,7 @@
           status = resp.status;
           try { body = (await resp.text()).slice(0, 300); } catch (e) {}
         } catch (e) {
-          return `Worker에 연결하지 못했습니다 (${(e && e.message) || e}). ⚙︎ 설정의 Worker URL을 확인하세요.`;
+          return `이미지 서버에 연결하지 못했습니다 (${(e && e.message) || e}).`;
         }
         const b = (body || '').toLowerCase();
         if (status === 200) return `이미지 응답은 정상(200)인데 엑셀 삽입에 실패했습니다. 형식 문제일 수 있어요: ${escapeHtml(body).slice(0,120)}`;
@@ -1862,7 +1861,8 @@
         if (b.includes('miro item 401') || b.includes('miro item 403')) return `미로 토큰이 만료/무효입니다(${status}). 미로 앱의 "Install app and get OAuth token"에서 토큰을 새로 받아 MIRO_TOKEN을 다시 넣고 재배포하세요.`;
         if (b.includes('miro item 404')) return `미로가 이 이미지를 찾지 못했습니다(404). 앱 권한(boards:read)과 토큰이 이 보드가 속한 팀의 것인지 확인하세요.`;
         if (b.includes('miro imageurl missing')) return `미로 응답에 이미지 주소가 없습니다. 앱 권한(boards:read)을 확인하세요.`;
-        return `Worker 응답 ${status}: ${escapeHtml(body).slice(0, 160) || '(본문 없음)'}`;
+        if (status === 502) return `이 브랜드 이미지 서버가 외부 요청을 차단합니다(502). 썸네일만 비고 나머지 정보는 정상입니다.`;
+        return `이미지 프록시 응답 ${status}: ${escapeHtml(body).slice(0, 160) || '(본문 없음)'}`;
       }
 
       // 사이트 이동 아이콘(external-link) SVG
@@ -2118,13 +2118,21 @@
     // 이미지 주소 → 다운스케일 PNG(base64).
     // 직접 fetch가 CORS로 막히면 Worker 프록시(?img=)로 자동 재시도 → 엑셀에 이미지가 실제로 들어감.
     async function toPng(url, maxSize) {
+      // ① 직접(호스트가 CORS를 주면 성공) → ② Worker 프록시 → ③ Render 프록시(다른 IP)
       try {
         return await fetchToPng(url, maxSize);
       } catch (e) {
-        if (__proxy.url && !/[?&]img=/.test(url)) {
-          const p = __proxy.url.replace(/\/+$/, '') + '?img=' + encodeURIComponent(url) +
-            (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '');
-          return await fetchToPng(p, maxSize);
+        if (/[?&]img=|\/api\/image/.test(url)) throw e;   // 이미 프록시 주소면 재귀 금지
+        if (__proxy.url) {
+          try {
+            const p = __proxy.url.replace(/\/+$/, '') + '?img=' + encodeURIComponent(url) +
+              (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '');
+            return await fetchToPng(p, maxSize);
+          } catch (e2) {}
+        }
+        if (__render) {
+          const r = __render.replace(/\/+$/, '') + '/api/image?url=' + encodeURIComponent(url);
+          return await fetchToPng(r, maxSize);
         }
         throw e;
       }
