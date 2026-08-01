@@ -11,7 +11,7 @@
 //
 // env:
 //   GROUP       browser(기본) | extension(차단 그룹 재조사) | all
-//   BRANDS      쉼표로 구분한 브랜드(비우면 그룹 전체)
+//   BRANDS      쉼표로 구분한 브랜드(주면 그룹 무시하고 전체에서 선택 · 비우면 그룹 전체)
 //   STORE       "1" 이면 Worker KV에 저장. 0이면 조사만(기존 데이터 손대지 않음)
 //   MAX_PAGES   카테고리당 최대 페이지(기본 8)
 //   HEADFUL     "1" 이면 headless 끔(로컬 디버깅용)
@@ -69,7 +69,11 @@ async function buildTargets() {
     getJson(RENDER + "/brands.json").catch(() => []),
   ]);
   const byName = new Map((Array.isArray(brands) ? brands : []).map((b) => [String(b.name).toLowerCase(), b]));
-  const names = GROUP === "extension" ? (blocked.brands || [])
+  // BRANDS 를 직접 주면 그룹을 무시하고 전체 브랜드에서 고른다 —
+  // 아직 어느 그룹에도 없는 후보를 헤드리스로 시험해 볼 때 쓴다.
+  const names = only.length
+    ? (Array.isArray(brands) ? brands : []).map((b) => b.name)
+    : GROUP === "extension" ? (blocked.brands || [])
     : GROUP === "all" ? [...(blocked.browser || []), ...(blocked.brands || [])]
     : (blocked.browser || []);
   const groups = [];
