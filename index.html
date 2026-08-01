@@ -1373,11 +1373,19 @@
           try { host = new URL(brandUrl).hostname.replace(/^www\./, ''); } catch (e) {}
           const nBrand = norm(typed), nHost = norm(host);
 
-          // ① 브랜드 이름 정확 일치 (가장 신뢰) — 저장 키가 <host>.<slug>인 경우 포함
-          const byBrand = list.find(c => nBrand && (
-            norm(c.brand) === nBrand || norm(c.site).endsWith(nBrand)
-          ));
-          if (byBrand) return byBrand;
+          // ① 브랜드 이름 정확 일치 (가장 신뢰).
+          //    저장 키는 <host>.<브랜드슬러그> 형식이므로 마지막 조각도 정확 비교한다.
+          //    (endsWith로 비교하면 'cottonon'의 끝이 브랜드 'On'과 걸리는 식으로 오염된다.)
+          const keySlug = (c) => norm(String(c.site || '').split('.').pop());
+          const cands = list.filter(c => nBrand && (norm(c.brand) === nBrand || keySlug(c) === nBrand));
+          if (cands.length) {
+            // 이름 정확 일치 우선 → 그다음 최신 저장본.
+            // (예전 확장이 남긴 호스트-only 키와 새 브랜드별 키가 함께 있을 때 새 쪽을 고른다)
+            cands.sort((a, b) =>
+              ((norm(b.brand) === nBrand) - (norm(a.brand) === nBrand)) ||
+              ((b.updated || 0) - (a.updated || 0)));
+            return cands[0];
+          }
 
           // ② 호스트 정확 일치 — 한 호스트에 브랜드가 하나뿐일 때만 채택(서브브랜드 혼동 방지)
           if (nHost) {

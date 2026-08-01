@@ -268,6 +268,14 @@ export default {
       await env.RACK_CACHE.put('catalog:' + site, JSON.stringify(record), {
         metadata: { brand: record.brand, count: merged.length, updated: record.updated },
       });
+      // 레거시 정리: 예전 크롬 확장은 호스트만으로 키를 만들어(catalog:freepeople.com) 한 도메인의
+      // 두 브랜드를 섞어 저장했다. 이제 <호스트>.<브랜드슬러그>로 저장하는데, 같은 호스트의 옛 키가
+      // 남아 있으면 검색이 그쪽(섞인 데이터)에 먼저 걸린다 → 클라이언트가 지정한 옛 키를 함께 삭제.
+      const legacy = String(reqUrl.searchParams.get('legacy') || '')
+        .toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 80);
+      if (legacy && legacy !== site && site.startsWith(legacy + '.')) {
+        try { await env.RACK_CACHE.delete('catalog:' + legacy); } catch (e) {}
+      }
       return json({ ok: true, site, count: merged.length, added: items.length }, 200, cors);
     }
 

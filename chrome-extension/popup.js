@@ -116,7 +116,8 @@ function renderSched(s) {
     const r = s.lastRun;
     parts.push(r.error
       ? `지난 실행 ${fmtWhen(r.when)} — 오류: ${r.error}`
-      : `지난 실행 ${fmtWhen(r.when)} — 성공 ${r.ok}/${r.total}`);
+      : `지난 실행 ${fmtWhen(r.when)} — 브랜드 성공 ${r.ok}/${r.total}` +
+        (r.urls ? ` (카테고리 ${r.urls}개)` : ''));
   }
   $('schedInfo').textContent = parts.join(' · ');
 }
@@ -142,7 +143,7 @@ $('runNow').addEventListener('click', async () => {
   if (r && r.ok) {
     $('prog').style.display = 'block';
     $('runProg').style.display = 'block';
-    $('schedInfo').textContent = `${r.total}개 카테고리 수집 시작`;
+    $('schedInfo').textContent = `${r.brands || 0}개 브랜드 · ${r.total}개 카테고리 수집 시작`;
     poll();
   } else {
     $('schedInfo').textContent = '⚠ ' + ((r && r.msg) || '실행 실패');
