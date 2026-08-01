@@ -7,9 +7,9 @@
 
 <details><summary>정상 29개</summary>
 
-- Banana Republic — 13시간 전 · 36개
-- Mango — 13시간 전 · 45개
-- Anthropologie — 13시간 전 · 13개
+- Banana Republic — 14시간 전 · 36개
+- Mango — 14시간 전 · 45개
+- Anthropologie — 14시간 전 · 13개
 - Gap — 13시간 전 · 36개
 - Old Navy — 13시간 전 · 38개
 - Athleta — 13시간 전 · 37개
@@ -19,8 +19,8 @@
 - Arket — 12시간 전 · 38개
 - Paige — 10시간 전 · 51개
 - Wilson — 10시간 전 · 50개
-- Abercrombie & Fitch — 7시간 전 · 47개
-- Addidas — 7시간 전 · 450개
+- Abercrombie & Fitch — 8시간 전 · 47개
+- Addidas — 8시간 전 · 450개
 - Ann Taylor — 7시간 전 · 376개
 - FP Movement — 7시간 전 · 78개
 - Fatface — 7시간 전 · 460개
@@ -31,10 +31,10 @@
 - Lululemon — 7시간 전 · 172개
 - Madewell — 7시간 전 · 28개
 - Massimo Dutti — 7시간 전 · 5개
-- Oysho — 6시간 전 · 16개
-- Sezane — 6시간 전 · 166개
-- The upside — 6시간 전 · 339개
-- The white company — 6시간 전 · 82개
+- Oysho — 7시간 전 · 16개
+- Sezane — 7시간 전 · 166개
+- The upside — 7시간 전 · 339개
+- The white company — 7시간 전 · 82개
 - &Other Stories — 5시간 전 · 400개
 
 </details>
@@ -90,9 +90,9 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T20:20Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T20:36Z)
 
-- 카탈로그 134개 · 상품 30835개 검사 · **문제 항목 75개**
+- 카탈로그 134개 · 상품 30843개 검사 · **문제 항목 75개**
 - 문제가 있는 브랜드 20개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.

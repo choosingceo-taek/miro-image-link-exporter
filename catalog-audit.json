@@ -1,6 +1,6 @@
 {
- "when": "2026-08-01T20:20:01.890Z",
- "scanned": 30835,
+ "when": "2026-08-01T20:36:34.663Z",
+ "scanned": 30843,
  "flagged": 75,
  "report": [
   {
@@ -1676,175 +1676,175 @@
   {
    "name": "Banana Republic",
    "items": 36,
-   "age": 13.298688055555555,
+   "age": 13.574458333333334,
    "missing": false
   },
   {
    "name": "Mango",
    "items": 45,
-   "age": 13.264208333333332,
+   "age": 13.539978611111112,
    "missing": false
   },
   {
    "name": "Anthropologie",
    "items": 13,
-   "age": 13.230624444444445,
+   "age": 13.506394722222222,
    "missing": false
   },
   {
    "name": "Gap",
    "items": 36,
-   "age": 13.184841666666667,
+   "age": 13.460611944444445,
    "missing": false
   },
   {
    "name": "Old Navy",
    "items": 38,
-   "age": 13.131535555555555,
+   "age": 13.407305833333334,
    "missing": false
   },
   {
    "name": "Athleta",
    "items": 37,
-   "age": 13.054613055555556,
+   "age": 13.330383333333334,
    "missing": false
   },
   {
    "name": "Garnet hill",
    "items": 9,
-   "age": 12.951600833333334,
+   "age": 13.227371111111111,
    "missing": false
   },
   {
    "name": "Theory",
    "items": 51,
-   "age": 12.810581944444445,
+   "age": 13.086352222222223,
    "missing": false
   },
   {
    "name": "Patagonia",
    "items": 165,
-   "age": 12.737815555555555,
+   "age": 13.013585833333334,
    "missing": false
   },
   {
    "name": "Arket",
    "items": 38,
-   "age": 12.183352222222222,
+   "age": 12.4591225,
    "missing": false
   },
   {
    "name": "Paige",
    "items": 51,
-   "age": 10.070400833333334,
+   "age": 10.346171111111111,
    "missing": false
   },
   {
    "name": "Wilson",
    "items": 50,
-   "age": 9.919142222222222,
+   "age": 10.1949125,
    "missing": false
   },
   {
    "name": "Abercrombie & Fitch",
    "items": 47,
-   "age": 7.273571388888889,
+   "age": 7.549341666666667,
    "missing": false
   },
   {
    "name": "Addidas",
    "items": 450,
-   "age": 7.231925,
+   "age": 7.507695277777778,
    "missing": false
   },
   {
    "name": "Ann Taylor",
    "items": 376,
-   "age": 7.192528333333334,
+   "age": 7.468298611111111,
    "missing": false
   },
   {
    "name": "FP Movement",
    "items": 78,
-   "age": 7.045033888888889,
+   "age": 7.320804166666667,
    "missing": false
   },
   {
    "name": "Fatface",
    "items": 460,
-   "age": 6.992183611111111,
+   "age": 7.267953888888889,
    "missing": false
   },
   {
    "name": "Free People",
    "items": 124,
-   "age": 6.862261944444445,
+   "age": 7.138032222222222,
    "missing": false
   },
   {
    "name": "Joules",
    "items": 305,
-   "age": 6.821084444444445,
+   "age": 7.096854722222222,
    "missing": false
   },
   {
    "name": "Lands end",
    "items": 16,
-   "age": 6.785395555555556,
+   "age": 7.061165833333333,
    "missing": false
   },
   {
    "name": "Loft",
    "items": 603,
-   "age": 6.705279444444445,
+   "age": 6.981049722222222,
    "missing": false
   },
   {
    "name": "Lululemon",
    "items": 172,
-   "age": 6.620362777777777,
+   "age": 6.896133055555556,
    "missing": false
   },
   {
    "name": "Madewell",
    "items": 28,
-   "age": 6.583739722222222,
+   "age": 6.85951,
    "missing": false
   },
   {
    "name": "Massimo Dutti",
    "items": 5,
-   "age": 6.529515555555555,
+   "age": 6.8052858333333335,
    "missing": false
   },
   {
    "name": "Oysho",
    "items": 16,
-   "age": 6.457719166666666,
+   "age": 6.733489444444444,
    "missing": false
   },
   {
    "name": "Sezane",
    "items": 166,
-   "age": 6.410708888888889,
+   "age": 6.6864791666666665,
    "missing": false
   },
   {
    "name": "The upside",
    "items": 339,
-   "age": 6.383487777777778,
+   "age": 6.659258055555555,
    "missing": false
   },
   {
    "name": "The white company",
    "items": 82,
-   "age": 6.3667855555555555,
+   "age": 6.642555833333334,
    "missing": false
   },
   {
    "name": "&Other Stories",
    "items": 400,
-   "age": 4.6203725,
+   "age": 4.8961427777777775,
    "missing": false
   }
  ]
