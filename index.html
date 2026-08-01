@@ -890,13 +890,19 @@
 
         // ① 먼저 팀 저장소(야간 프리페치 + 확장 수집본)에서 이 브랜드를 찾음.
         //    36시간 이내 저장본이면 그대로 즉시 표시(콜드스타트·75초 수집 대기 없음).
-        //    오래된 저장본은 실시간 수집을 먼저 시도하고, 실패하면 그걸로 폴백.
+        //    서버 수집이 불가능한 브랜드는 오래된 저장본이라도 즉시 표시.
+        //    그 외에는 실시간 수집을 먼저 시도하고, 실패하면 저장본으로 폴백.
+        const bInfo = importBrands.find(b => b.name.toLowerCase() === typed.toLowerCase());
         let savedCat = null;
         try {
           const probe = /^https?:\/\//i.test(typed) ? typed : ('https://' + typed.replace(/\s+/g, '').toLowerCase());
           savedCat = await findSavedCatalog(probe, typed);
           const FRESH_MS = 36 * 3600 * 1000;
-          if (savedCat && savedCat.updated && (Date.now() - savedCat.updated) < FRESH_MS) {
+          const fresh = savedCat && savedCat.updated && (Date.now() - savedCat.updated) < FRESH_MS;
+          // 서버가 못 긁는 브랜드(확장·헤드리스 담당)는 실시간 수집이 어차피 실패한다.
+          // 저장본이 오래됐어도 그대로 보여준다 — 안 그러면 실패할 게 뻔한 90초를 기다린 뒤
+          // 결국 같은 저장본을 보게 된다.
+          if (savedCat && (fresh || (bInfo && bInfo.blocked))) {
             await loadCatalog(savedCat.site, savedCat.brand);
             return;
           }
@@ -904,7 +910,6 @@
 
         // ②-a 차단 브랜드(서버 수집 불가)인데 저장본도 없으면 → 90초 헛기다림 없이 즉시 안내.
         //      (확장이 수집해 두면 위 ①에서 저장본으로 표시된다)
-        const bInfo = importBrands.find(b => b.name.toLowerCase() === typed.toLowerCase());
         if (bInfo && bInfo.blocked && !savedCat) {
           importItems = [];
           importGridEl.style.display = 'none';
