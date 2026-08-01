@@ -1,19 +1,27 @@
-name: Headless browser collect (extension brands)
+name: Headless browser collect
 
-# 확장 담당 브랜드를 진짜 크롬(headless)으로 돌려본다.
-# · 기본은 조사 모드(store=0) — 저장소를 건드리지 않고 어떤 브랜드가 되는지만 본다.
-# · store=1 로 돌리면 확장과 동일한 키/형식으로 Worker KV에 저장한다.
+# Render 스크래퍼로는 못 읽지만 진짜 크롬이면 읽히는 브랜드(blocked-brands.json 의 browser 그룹)를
+# 매일 자동 수집한다. 사람 PC가 필요 없다 — 남은 확장 담당 브랜드만 크롬 확장이 맡는다.
+#
+# 수동 실행 시 group=extension 으로 두면 확장 담당 브랜드를 재조사할 수 있다
+# (차단이 풀렸는지 확인용). 그때는 store=0 으로 두고 결과 리포트만 본다.
 on:
+  schedule:
+    - cron: "40 18 * * *"   # UTC 18:40 = KST 03:40 — 야간 프리페치(03:00) 뒤에 이어서
   workflow_dispatch:
     inputs:
+      group:
+        description: "browser(기본) | extension(재조사) | all"
+        required: false
+        default: "browser"
       brands:
-        description: "쉼표로 구분한 브랜드(비우면 확장 담당 전체)"
+        description: "쉼표로 구분한 브랜드(비우면 그룹 전체)"
         required: false
         default: ""
       store:
-        description: "1이면 Worker KV에 저장(기본 0 = 조사만)"
+        description: "1이면 Worker KV에 저장(기본 1)"
         required: false
-        default: "0"
+        default: "1"
       max_pages:
         description: "카테고리당 최대 페이지"
         required: false
@@ -38,9 +46,11 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Collect
         env:
+          # schedule 실행에는 inputs 가 없으므로 기본값을 여기서 채운다.
+          GROUP: ${{ github.event.inputs.group || 'browser' }}
           BRANDS: ${{ github.event.inputs.brands }}
-          STORE: ${{ github.event.inputs.store }}
-          MAX_PAGES: ${{ github.event.inputs.max_pages }}
+          STORE: ${{ github.event.inputs.store || '1' }}
+          MAX_PAGES: ${{ github.event.inputs.max_pages || '8' }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: node scripts/browser-collect.mjs
       - name: Upload report

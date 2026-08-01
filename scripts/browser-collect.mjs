@@ -1,19 +1,21 @@
 #!/usr/bin/env node
-// 헤드리스 크롬 수집기 — 크롬 확장이 담당하는 브랜드를 진짜 브라우저로 돌려본다.
+// 헤드리스 크롬 수집기 — Render 스크래퍼로는 못 읽는 브랜드를 진짜 브라우저로 수집한다.
 //
-// 왜 필요한가: 확장 담당 29개 브랜드의 실패 원인은 두 가지가 섞여 있다.
-//   (A) 봇 차단(Akamai/PerimeterX) — 데이터센터 IP면 브라우저를 써도 막힌다 → 확장만이 답
+// Render로 실패하는 원인은 두 가지가 섞여 있다.
+//   (A) 봇 차단(Akamai/PerimeterX) — 데이터센터 IP면 브라우저를 써도 403이다 → 크롬 확장만이 답
 //   (B) JS 렌더링 — 서버 스크래퍼가 못 읽을 뿐, 진짜 브라우저면 IP와 무관하게 읽힌다
-// (B)는 GitHub Actions에서 헤드리스 크롬으로 매일 자동 수집할 수 있다.
-// 이 스크립트로 둘을 실제로 구분하고, (B)는 자동 그룹으로 옮긴다.
+// (B)는 GitHub Actions에서 매일 자동 수집할 수 있다(사람 PC 불필요).
+// 그 분류가 blocked-brands.json 의 browser(=B) / brands(=A) 두 배열이다.
 //
 // 수집 로직은 크롬 확장과 동일한 chrome-extension/collector.js 를 그대로 주입한다(코드 이중화 없음).
 //
 // env:
-//   BRANDS      쉼표로 구분한 브랜드(비우면 blocked-brands.json 전체)
-//   STORE       "1" 이면 Worker KV에 저장. 기본은 조사만(=기존 데이터 손대지 않음)
+//   GROUP       browser(기본) | extension(차단 그룹 재조사) | all
+//   BRANDS      쉼표로 구분한 브랜드(비우면 그룹 전체)
+//   STORE       "1" 이면 Worker KV에 저장. 0이면 조사만(기존 데이터 손대지 않음)
 //   MAX_PAGES   카테고리당 최대 페이지(기본 8)
 //   HEADFUL     "1" 이면 headless 끔(로컬 디버깅용)
+//   CHROMIUM_PATH  미리 설치된 크롬 실행 경로(선택)
 //   RENDER_URL / WORKER_URL / WORKER_TOKEN
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -29,6 +31,8 @@ const STORE = process.env.STORE === "1";
 const MAX_PAGES = Math.max(1, Number(process.env.MAX_PAGES) || 8);
 const HEADFUL = process.env.HEADFUL === "1";
 const only = (process.env.BRANDS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
+// browser = 헤드리스로 수집 가능한 그룹(기본, 매일 자동) · extension = 크롬 확장 담당 그룹(재조사용) · all = 둘 다
+const GROUP = (process.env.GROUP || "browser").toLowerCase();
 
 const PER_CATEGORY = 150;    // 확장(background.js)과 동일
 const MAX_PER_BRAND = 750;
@@ -65,8 +69,11 @@ async function buildTargets() {
     getJson(RENDER + "/brands.json").catch(() => []),
   ]);
   const byName = new Map((Array.isArray(brands) ? brands : []).map((b) => [String(b.name).toLowerCase(), b]));
+  const names = GROUP === "extension" ? (blocked.brands || [])
+    : GROUP === "all" ? [...(blocked.browser || []), ...(blocked.brands || [])]
+    : (blocked.browser || []);
   const groups = [];
-  for (const name of blocked.brands || []) {
+  for (const name of names) {
     if (only.length && !only.includes(name.toLowerCase())) continue;
     const c = links[name] || {};
     const urls = [];
@@ -92,13 +99,14 @@ function blockSignal(status, title, text) {
 
 const targets = await buildTargets();
 if (!targets.length) { console.error("no targets"); process.exit(1); }
-console.log(`헤드리스 수집 ${targets.length}개 브랜드 (저장 ${STORE ? "ON" : "OFF — 조사만"}, 카테고리당 최대 ${MAX_PAGES}페이지)`);
+console.log(`헤드리스 수집 [${GROUP}] ${targets.length}개 브랜드 (저장 ${STORE ? "ON" : "OFF — 조사만"}, 카테고리당 최대 ${MAX_PAGES}페이지)`);
 
 const browser = await chromium.launch({
   headless: !HEADFUL,
   // 컨테이너에 크롬이 미리 깔려 있으면(예: PLAYWRIGHT_BROWSERS_PATH) 그걸 쓴다.
   ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
-  args: ["--disable-blink-features=AutomationControlled", "--no-sandbox"],
+  // 일부 사이트(예: shop.lululemon.com)는 헤드리스 크롬의 HTTP/2 협상에서 즉시 끊는다 → HTTP/1.1로.
+  args: ["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-http2"],
 });
 const context = await browser.newContext({
   viewport: { width: 1440, height: 1000 },
