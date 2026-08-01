@@ -1,7 +1,41 @@
 {
- "when": "2026-08-01T14:43:15.589Z",
+ "when": "2026-08-01T15:04:06.128Z",
  "store": false,
  "results": [
+  {
+   "brand": "Banana Republic",
+   "site": "bananarepublic.gap.com.bananarepublic",
+   "collected": 0,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {},
+   "perUrl": [
+    {
+     "url": "https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136",
+     "count": 1,
+     "note": ""
+    },
+    {
+     "url": "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136",
+     "count": 1,
+     "note": ""
+    },
+    {
+     "url": "https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136",
+     "count": 1,
+     "note": ""
+    },
+    {
+     "url": "https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136",
+     "count": 1,
+     "note": ""
+    }
+   ],
+   "secs": 146,
+   "dropped": 1,
+   "sample": [],
+   "verdict": "보완 필요(수집 0~소량)"
+  },
   {
    "brand": "Gap",
    "site": "gap.com.gap",
@@ -31,47 +65,81 @@
      "note": ""
     }
    ],
-   "secs": 44,
+   "secs": 84,
    "dropped": 4,
    "sample": [],
    "verdict": "보완 필요(수집 0~소량)"
   },
   {
-   "brand": "Patagonia",
-   "site": "patagonia.com.patagonia",
+   "brand": "Old Navy",
+   "site": "oldnavy.gap.com.oldnavy",
    "collected": 0,
    "stored": 0,
    "storeErr": "",
    "cats": {},
    "perUrl": [
     {
-     "url": "https://www.patagonia.com/shop/womens/tops/t-shirts",
-     "count": 0,
-     "note": "상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/tops/t-shirts · 제목 \"\" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0] · \"Not found\""
+     "url": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
+     "count": 3,
+     "note": ""
     },
     {
-     "url": "https://www.patagonia.com/shop/womens/tops/sweatshirts-hoodies",
-     "count": 0,
-     "note": "상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/tops/sweatshirts-hoodies · 제목 \"\" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0] · \"Not found\""
+     "url": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
+     "count": 3,
+     "note": ""
     },
     {
-     "url": "https://www.patagonia.com/shop/womens/tops/button-down",
-     "count": 0,
-     "note": "상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/tops/button-down · 제목 \"\" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0] · \"Not found\""
+     "url": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
+     "count": 3,
+     "note": ""
     },
     {
-     "url": "https://www.patagonia.com/shop/womens/dresses-jumpsuits",
-     "count": 0,
-     "note": "상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/dresses-jumpsuits · 제목 \"\" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0] · \"Not found\""
+     "url": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
+     "count": 3,
+     "note": ""
     },
     {
-     "url": "https://www.patagonia.com/shop/womens/bottoms",
-     "count": 0,
-     "note": "상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/bottoms · 제목 \"\" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0] · \"Not found\""
+     "url": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
+     "count": 3,
+     "note": ""
     }
    ],
-   "secs": 76,
-   "dropped": 0,
+   "secs": 185,
+   "dropped": 3,
+   "sample": [],
+   "verdict": "보완 필요(수집 0~소량)"
+  },
+  {
+   "brand": "Athleta",
+   "site": "athleta.gap.com.athleta",
+   "collected": 0,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {},
+   "perUrl": [
+    {
+     "url": "https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops",
+     "count": 1,
+     "note": ""
+    },
+    {
+     "url": "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts",
+     "count": 1,
+     "note": ""
+    },
+    {
+     "url": "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A",
+     "count": 1,
+     "note": ""
+    },
+    {
+     "url": "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A",
+     "count": 1,
+     "note": ""
+    }
+   ],
+   "secs": 133,
+   "dropped": 1,
    "sample": [],
    "verdict": "보완 필요(수집 0~소량)"
   },
@@ -111,10 +179,10 @@
     {
      "url": "https://www.carhartt.com/c/womens-sweatpants",
      "count": 0,
-     "note": "상품 0개 · 최종주소 https://www.carhartt.com/c/womens-sweatpants · 제목 \"Women's Sweatpants | Carhartt\" · 링크 679/이미지 129 · 탈락[total=678 noImage=611 tinyImage=66 shortPath=1 samePage=0 banner=0 dup=0] · \"Skip to Header Skip to Main Content Skip to Footer CARHARTT REWORKED CARHARTT COMPANY GEAR ALL-NEW SHADES OF OUR BEST SU\""
+     "note": "상품 0개 · 최종주소 https://www.carhartt.com/c/womens-sweatpants · 제목 \"Women's Sweatpants | Carhartt\" · 링크 679/이미지 129 · 탈락[total=678 noImage=611 tinyImage=7 shortPath=1 samePage=59 banner=0 dup=0] · \"Skip to Header Skip to Main Content Skip to Footer CARHARTT REWORKED CARHARTT COMPANY GEAR ALL-NEW SHADES OF OUR BEST SU\""
     }
    ],
-   "secs": 124,
+   "secs": 228,
    "dropped": 0,
    "sample": [
     {
