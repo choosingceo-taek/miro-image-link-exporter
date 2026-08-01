@@ -1368,7 +1368,12 @@
           const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
           let host = '';
           try { host = new URL(brandUrl).hostname.replace(/^www\./, ''); } catch (e) {}
-          const keys = [norm(host), norm(typed)].filter(k => k.length >= 3);
+          // 브랜드 이름이 정확히 일치하는 저장본을 최우선(같은 호스트를 쓰는 서브브랜드 구분:
+          // American Eagle vs Aerie, Free People vs FP Movement).
+          const nTyped = norm(typed);
+          const exact = list.find(c => norm(c.brand) === nTyped || norm(c.site).endsWith('.' + nTyped));
+          if (exact) return exact;
+          const keys = [norm(host), nTyped].filter(k => k.length >= 3);
           return list.find(c => keys.some(k =>
             norm(c.site).includes(k) || k.includes(norm(c.site).split('com')[0]) || norm(c.brand) === k
           )) || null;
