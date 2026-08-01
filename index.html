@@ -342,10 +342,6 @@
         <button id="basicExport" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 2.5 7.5 12 12.5l9.5-5L12 2.5Z"/><path d="M2.5 12 12 17l9.5-5"/><path d="M2.5 16.5 12 21.5l9.5-5"/></svg></span><span class="lab">Scan All</span></button>
         <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5" stroke-dasharray="3.6 3"/></svg></span><span class="lab">Scan Selected</span></button>
       </div>
-      <label style="display:flex;align-items:center;gap:7px;margin:8px 2px 0;font-size:12px;color:#111;cursor:pointer">
-        <input type="checkbox" id="detailChk" style="width:15px;height:15px;accent-color:#111">
-        가격 · 색상 · 혼용률 포함 (상품 페이지 분석 — 개당 2~4초 추가, 봇 차단 사이트는 빈칸)
-      </label>
 
       <!-- 스캔 결과 검색바 -->
       <div class="searchbar">
@@ -362,7 +358,6 @@
         <div class="popover" id="helpModal" style="display:none">
           <div class="pop-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
           <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 (브랜드·썸네일·상품명·URL).</div>
-          <div class="help-item"><b>☑ 가격·색상·혼용률</b>체크하고 스캔하면 각 상품 페이지를 분석해 <b style="display:inline">가격·색상·혼용률</b> 열이 엑셀에 추가됩니다 (개당 2~4초).</div>
           <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
           <div class="help-item"><b>↺ 리셋</b>스캔 결과·상태를 지우고 처음으로 되돌립니다.</div>
         </div>
@@ -604,9 +599,6 @@
           await collectRows(selectedOnly);
           if (!rows.length) return;
           await enrichNames();   // URL로만 추정한 이름을 실제 페이지 제목(og:title)으로 보강
-          // 옵션: 상품 페이지를 분석해 가격·색상·혼용률까지 채움 (개당 2~4초).
-          const detailChk = document.getElementById('detailChk');
-          if (detailChk && detailChk.checked && rows.some(r => r.link)) await analyzeAll();
           await buildBasicXlsx();
         } catch (e) {
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
