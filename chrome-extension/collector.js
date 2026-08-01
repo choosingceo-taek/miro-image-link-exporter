@@ -51,7 +51,13 @@ async function pageCollector() {
     }
     return src || '';
   };
+  // 상품이 아니라 카테고리·배너 링크인지 판별.
+  // 목록 페이지 상단에는 하위 카테고리 타일("Tanks & Camis. Click to shop.")과
+  // 로고·브레드크럼이 이미지와 함께 있어서, 그냥 두면 상품인 척 섞여 들어온다.
+  const BANNER_NAME = /click to shop|shop the look|discover now|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|\blogo\b/i;
+
   const harvest = () => {
+    const here = location.pathname.replace(/\/+$/, '');
     const seen = new Set(), items = [];
     document.querySelectorAll('a[href]').forEach((a) => {
       let href; try { href = new URL(a.href, location.href); } catch (e) { return; }
@@ -63,11 +69,14 @@ async function pageCollector() {
       if (img && img.naturalWidth && img.naturalWidth < 100) return;
       const path = href.pathname.replace(/\/+$/, '');
       if (path.length < 8) return;
+      if (path === here) return;                     // 지금 보고 있는 목록 페이지 자체
+      if (here.startsWith(path + '/')) return;       // 상위 카테고리(브레드크럼)
       const key = href.origin + path;
       if (seen.has(key)) return;
       seen.add(key);
       const nameEl = card.querySelector('h1,h2,h3,h4,[class*="name"],[class*="title"],[class*="Name"],[class*="Title"]');
       const name = ((img && img.alt) || (nameEl && nameEl.textContent) || '').replace(/\s+/g, ' ').trim().slice(0, 150);
+      if (name && BANNER_NAME.test(name)) return;    // "Click to shop" 류 카테고리 타일
       const priceM = (card.textContent || '').match(/(?:[$€£₩¥]|\bUSD|\bEUR|\bKRW)\s?\d[\d.,]*/);
       items.push({
         name: name || decodeURIComponent(path.split('/').pop() || '').replace(/[-_]+/g, ' '),

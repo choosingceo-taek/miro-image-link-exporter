@@ -208,6 +208,9 @@ async function collect(input) {
     if (!state.running) break;
     // 한 브랜드의 모든 카테고리 URL을 먼저 모은 뒤, 브랜드 단위로 한 번만 저장한다.
     const brandItems = new Map();
+    // 카테고리 URL 자체가 상품으로 잡히는 것을 막는다(목록 상단의 하위 카테고리 타일).
+    const normUrl = (u) => String(u || '').split('?')[0].replace(/\/+$/, '');
+    const listing = new Set(g.urls.map(normUrl));
     for (const url of g.urls) {
       if (!state.running) break;
       state.current = g.brand + ' · ' + url;
@@ -231,8 +234,9 @@ async function collect(input) {
           const pageItems = res.items || [];
           let added = 0;
           for (const it of pageItems) {
+            if (!it || !it.productUrl || listing.has(normUrl(it.productUrl))) continue;
             // src = 출처 카테고리 URL. 나중에 잘못 잡힌 항목이 어느 페이지에서 왔는지 추적한다.
-            if (it && it.productUrl && !byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, { ...it, src: url }); added++; }
+            if (!byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, { ...it, src: url }); added++; }
           }
           pages++;
           state.current = g.brand + ' · ' + url + (pages > 1 ? ` (p${pages})` : '');

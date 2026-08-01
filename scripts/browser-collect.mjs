@@ -120,9 +120,14 @@ await context.addInitScript(() => {
   Object.defineProperty(navigator, "webdriver", { get: () => undefined });
 });
 
+const norm = (u) => String(u || "").split("?")[0].replace(/\/+$/, "");
+
 const results = [];
 for (const g of targets) {
   const t0 = Date.now();
+  // 이 브랜드의 카테고리 URL 자체가 상품으로 잡히는 경우를 막는다
+  // (목록 페이지 상단의 하위 카테고리 타일이 대표적).
+  const listing = new Set(g.urls.map(norm));
   const brandItems = new Map();
   const seenIn = new Map();   // productUrl → 몇 개의 카테고리 페이지에서 나왔나
   const perUrl = [];
@@ -146,7 +151,8 @@ for (const g of targets) {
         const res = (await page.evaluate(COLLECTOR)) || {};
         let added = 0;
         for (const it of res.items || []) {
-          if (it && it.productUrl && !byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, { ...it, src: url }); added++; }
+          if (!it || !it.productUrl || listing.has(norm(it.productUrl))) continue;
+          if (!byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, { ...it, src: url }); added++; }
         }
         pages++;
         if (!added) break;
