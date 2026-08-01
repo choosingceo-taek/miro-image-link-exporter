@@ -247,6 +247,18 @@
     }
     #pane-import .url-row input:focus { outline: none; }
     #pane-import .url-row input::placeholder { color: var(--muted); letter-spacing: 1px; }
+    /* 검색 자동완성 — 검색바·선택박스와 동일한 흰 배경 + 검정 선 박스 */
+    #pane-import .url-row { position: relative; }
+    #pane-import .sugg {
+      position: absolute; top: calc(100% + 5px); left: -1px; right: -1px; z-index: 40;
+      background: var(--bg); border: 1px solid var(--text); max-height: 228px; overflow-y: auto;
+    }
+    #pane-import .sugg-it {
+      padding: 10px 14px; font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--text); cursor: pointer; border-bottom: 1px solid var(--card2);
+    }
+    #pane-import .sugg-it:last-child { border-bottom: none; }
+    #pane-import .sugg-it:hover, #pane-import .sugg-it.on { background: var(--text); color: var(--bg); }
     /* 검색바 아래 브랜드·카테고리 선택 — 같은 각진 모노톤 무드 */
     #pane-import .pick-row { display: flex; gap: 6px; margin-top: 15px; }
     #pane-import .pick {
@@ -286,9 +298,10 @@
     <section class="tabpane" id="pane-import" style="display:none">
       <div class="url-row">
         <button id="importFetch" class="go" title="검색" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
-        <input id="importBrandUrl" type="text" list="importBrandList"
+        <input id="importBrandUrl" type="text" autocomplete="off" spellcheck="false"
           placeholder="Brand, category or URL" />
-        <datalist id="importBrandList"></datalist>
+        <!-- 커스텀 자동완성(브라우저 기본 datalist는 스타일 불가 → 앱 무드에 맞춘 흰 배경·검정 선 박스) -->
+        <div id="brandSugg" class="sugg" style="display:none"></div>
       </div>
 
       <!-- 검색바 아래: 브랜드 · 카테고리 선택 -->
@@ -681,7 +694,7 @@
 
       // ── 📥 상품 가져오기: 브랜드 → Render 서버(133 브랜드) → 미리보기 → 선택 → 보드에 추가 ──
       const importBrandUrlEl = document.getElementById('importBrandUrl');
-      const importBrandListEl = document.getElementById('importBrandList');
+      const brandSuggEl = document.getElementById('brandSugg');
       const importFetchBtn = document.getElementById('importFetch');
       const importAddBtn = document.getElementById('importAdd');
       const importStatusEl = document.getElementById('importStatus');
@@ -719,9 +732,61 @@
       importBrandUrlEl.addEventListener('change', () => {
         try { localStorage.setItem('importBrandUrl', importBrandUrlEl.value.trim()); } catch (e) {}
       });
-      // 검색바에서 Enter로 검색 실행
+      // ── 커스텀 자동완성: 흰 배경·검정 선 박스(앱 무드 통일) ──
+      let suggIdx = -1;
+      function hideSugg() {
+        if (!brandSuggEl) return;
+        brandSuggEl.style.display = 'none'; brandSuggEl.innerHTML = ''; suggIdx = -1;
+      }
+      function showSugg() {
+        if (!brandSuggEl) return;
+        const q = importBrandUrlEl.value.trim().toLowerCase();
+        if (!q || /^https?:/i.test(q) || !importBrands.length) { hideSugg(); return; }
+        const starts = importBrands.filter(b => b.name.toLowerCase().startsWith(q));
+        const incl = importBrands.filter(b => !b.name.toLowerCase().startsWith(q) && b.name.toLowerCase().includes(q));
+        const list = [...starts, ...incl].slice(0, 8);
+        if (!list.length) { hideSugg(); return; }
+        brandSuggEl.innerHTML = list
+          .map(b => `<div class="sugg-it" data-name="${escapeHtml(b.name)}">${escapeHtml(b.name)}</div>`)
+          .join('');
+        brandSuggEl.style.display = 'block'; suggIdx = -1;
+      }
+      function pickSugg(name) {
+        importBrandUrlEl.value = name;
+        if (pickBrandEl) { pickBrandEl.value = name; fillCatPicker(); }
+        hideSugg();
+      }
+      importBrandUrlEl.addEventListener('input', showSugg);
+      importBrandUrlEl.addEventListener('focus', showSugg);
+      if (brandSuggEl) {
+        brandSuggEl.addEventListener('mousedown', (e) => {
+          const it = e.target.closest('.sugg-it'); if (!it) return;
+          e.preventDefault();   // input blur 방지
+          pickSugg(it.dataset.name);
+        });
+      }
+      document.addEventListener('click', (e) => { if (!e.target.closest('#pane-import .url-row')) hideSugg(); });
+      // 키보드: ↑↓로 이동, Enter로 선택(목록이 열려 있고 항목이 짚혀 있으면) 또는 검색 실행, Esc 닫기
       importBrandUrlEl.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') { e.preventDefault(); importFetchBtn.click(); }
+        const items = brandSuggEl ? [...brandSuggEl.querySelectorAll('.sugg-it')] : [];
+        const open = items.length && brandSuggEl.style.display !== 'none';
+        if (e.key === 'ArrowDown' && open) {
+          e.preventDefault(); suggIdx = (suggIdx + 1) % items.length;
+          items.forEach((el, i) => el.classList.toggle('on', i === suggIdx));
+          return;
+        }
+        if (e.key === 'ArrowUp' && open) {
+          e.preventDefault(); suggIdx = (suggIdx - 1 + items.length) % items.length;
+          items.forEach((el, i) => el.classList.toggle('on', i === suggIdx));
+          return;
+        }
+        if (e.key === 'Escape') { hideSugg(); return; }
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (open && suggIdx >= 0) { pickSugg(items[suggIdx].dataset.name); return; }
+          hideSugg();
+          importFetchBtn.click();
+        }
       });
 
       // 브랜드 목록을 서버에서 받아 자동완성(datalist)에 채움.
@@ -731,11 +796,7 @@
           const resp = await fetch(__render + '/api/brands');
           const data = await resp.json();
           importBrands = (data.brands || []).filter(b => b && b.name && b.url);
-          // 검색바 자동완성(직접 타이핑용) = 브랜드 이름. 카테고리 선택은 아래 선택 UI에서.
-          importBrandListEl.innerHTML = importBrands
-            .map(b => `<option value="${escapeHtml(b.name)}"></option>`)
-            .join('');
-          fillBrandPicker();
+          fillBrandPicker();   // 자동완성(brandSugg)은 importBrands를 직접 읽음
         } catch (e) {
           if (pickBrandEl && !importBrands.length) {
             pickBrandEl.innerHTML = '<option value="">브랜드 목록 불러오기 실패</option>';
@@ -887,8 +948,7 @@
         importAddBtn.style.display = 'none';
         importItems = [];
         importStatusEl.innerHTML =
-          `<div style="text-align:center;line-height:1.7">가져오는 중…` +
-          `<div style="font-size:12px;color:#888">첫 검색은 서버가 깨어나며 30~60초 걸릴 수 있어요</div></div>`;
+          `<div style="text-align:center;line-height:1.7">가져오는 중…</div>`;
 
         try {
           // 각 카테고리마다 최대 100개(tops·pants·dresses … 각각 100).
@@ -907,7 +967,7 @@
             id: p.id, name: p.name || '', category: p.category || 'tops',
             imageUrl: p.imageUrl || '', productUrl: p.productUrl || '',
             price: p.price || '', brand: p.brand || importBrand,
-            selected: (p.category === 'tops'),   // 기본은 Tops만 선택(원본 앱과 동일)
+            selected: false,   // 시작은 전부 미선택 — 사용자가 직접 고른다
           })).filter(p => p.imageUrl && p.productUrl);
 
           if (!importItems.length) {
@@ -1287,7 +1347,7 @@
             return {
               id: 'c' + i, name: p.name || '', category: cat,
               imageUrl: p.imageUrl, productUrl: p.productUrl, price: p.price || '',
-              brand: data.brand || brand || '', selected: (cat === 'tops'),
+              brand: data.brand || brand || '', selected: false,
             };
           }).filter(p => p.imageUrl && p.productUrl);
           // 서버 검색과 동일하게 카테고리당 최대 100개만 표시(저장본은 수백 개일 수 있음).
