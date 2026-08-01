@@ -57,6 +57,12 @@ async function pageCollector() {
   // 'Logo Tee' 같은 진짜 상품을 죽이지 않도록, 로고는 "이름이 로고로 끝나는 짧은 링크"만 막는다.
   const BANNER_NAME = /click to shop|shop the look|discover now|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|^.{0,24}\blogo\s*$/i;
 
+  // 하위 카테고리 타일 주소를 따로 모아 둔다.
+  // 엑셀의 카테고리 URL이 상품 목록이 아니라 "허브 페이지"인 경우가 있다
+  // (예: /fpmovement/workout-tops/ 는 casual-tops·performance-tops 타일만 보여준다).
+  // 그때 호출측이 이 목록을 한 단계 더 따라가 실제 상품을 가져온다.
+  const subCats = new Set();
+
   const harvest = () => {
     const here = location.pathname.replace(/\/+$/, '');
     const seen = new Set(), items = [];
@@ -77,7 +83,18 @@ async function pageCollector() {
       seen.add(key);
       const nameEl = card.querySelector('h1,h2,h3,h4,[class*="name"],[class*="title"],[class*="Name"],[class*="Title"]');
       const name = ((img && img.alt) || (nameEl && nameEl.textContent) || '').replace(/\s+/g, ' ').trim().slice(0, 150);
-      if (name && BANNER_NAME.test(name)) return;    // "Click to shop" 류 카테고리 타일
+      if (name && BANNER_NAME.test(name)) {          // "Click to shop" 류 카테고리 타일
+        // 같은 구역(현재 경로의 부모 아래)에 있는 타일이면 하위/형제 카테고리로 기억한다.
+        // FP Movement의 /fpmovement/workout-tops/ 는 형제인 /fpmovement/casual-tops/ 를
+        // 타일로 보여 준다 — 자식만 보면 놓친다. 상품으로는 쓰지 않는다.
+        if (here) {
+          const parent = here.slice(0, here.lastIndexOf('/'));
+          if (parent && path !== here && path.startsWith(parent + '/')) {
+            subCats.add(href.origin + href.pathname);
+          }
+        }
+        return;
+      }
       const priceM = (card.textContent || '').match(/(?:[$€£₩¥]|\bUSD|\bEUR|\bKRW)\s?\d[\d.,]*/);
       items.push({
         name: name || decodeURIComponent(path.split('/').pop() || '').replace(/[-_]+/g, ' '),
@@ -137,5 +154,5 @@ async function pageCollector() {
   }
   window.scrollTo(0, 0);
   await sleep(250);
-  return { items: harvest(), nextUrl: findNext() };
+  return { items: harvest(), nextUrl: findNext(), subCats: [...subCats].slice(0, 8) };
 }

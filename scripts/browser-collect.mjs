@@ -136,7 +136,10 @@ for (const g of targets) {
     let note = "";
     const byUrl = new Map();
     try {
-      let pageUrl = url, pages = 0;
+      // 허브 페이지(상품 대신 하위 카테고리 타일만 있는 곳) 대응: 큐에 뒤따라 붙인다.
+      const queue = [url];
+      let hubFollowed = 0;
+      let pageUrl = queue.shift(), pages = 0;
       while (pageUrl && pages < MAX_PAGES && byUrl.size < PER_CATEGORY) {
         const resp = await page.goto(pageUrl, { waitUntil: "domcontentloaded", timeout: 60_000 });
         await page.waitForTimeout(2500);
@@ -155,8 +158,14 @@ for (const g of targets) {
           if (!byUrl.has(it.productUrl)) { byUrl.set(it.productUrl, { ...it, src: url }); added++; }
         }
         pages++;
-        if (!added) break;
-        pageUrl = res.nextUrl && res.nextUrl !== pageUrl ? res.nextUrl : "";
+        // 상품이 거의 없고 하위 카테고리 타일만 있으면 허브 페이지다 → 한 단계 내려간다.
+        if (byUrl.size < 20 && !hubFollowed && (res.subCats || []).length) {
+          for (const sc of res.subCats.slice(0, 4)) if (!queue.includes(sc)) queue.push(sc);
+          hubFollowed = 1;
+        }
+        const next = res.nextUrl && res.nextUrl !== pageUrl ? res.nextUrl : "";
+        if (added && next) { pageUrl = next; continue; }
+        pageUrl = queue.shift() || "";   // 다음 하위 카테고리로
       }
       if (!byUrl.size && !note) note = "상품 0개(선택자 불일치/빈 목록)";
     } catch (e) {
