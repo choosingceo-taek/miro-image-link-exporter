@@ -1,3 +1,47 @@
+# 크롬 확장 담당 브랜드 갱신 상태 (30개)
+
+**확장 실행 필요 1개** — 36시간 넘게 갱신되지 않았습니다.
+개인/회사 PC 크롬에서 `RACK 상품 수집기` 팝업의 전체 수집을 한 번 돌리세요.
+
+- ⛔ Apiece Apart — 저장본 없음(한 번도 수집 안 됨)
+
+<details><summary>정상 29개</summary>
+
+- Banana Republic — 13시간 전 · 36개
+- Mango — 13시간 전 · 45개
+- Anthropologie — 13시간 전 · 13개
+- Gap — 13시간 전 · 36개
+- Old Navy — 13시간 전 · 38개
+- Athleta — 13시간 전 · 37개
+- Garnet hill — 13시간 전 · 9개
+- Theory — 13시간 전 · 51개
+- Patagonia — 13시간 전 · 165개
+- Arket — 12시간 전 · 38개
+- Paige — 10시간 전 · 51개
+- Wilson — 10시간 전 · 50개
+- Abercrombie & Fitch — 7시간 전 · 47개
+- Addidas — 7시간 전 · 450개
+- Ann Taylor — 7시간 전 · 376개
+- FP Movement — 7시간 전 · 78개
+- Fatface — 7시간 전 · 460개
+- Free People — 7시간 전 · 124개
+- Joules — 7시간 전 · 305개
+- Lands end — 7시간 전 · 16개
+- Loft — 7시간 전 · 603개
+- Lululemon — 7시간 전 · 172개
+- Madewell — 7시간 전 · 28개
+- Massimo Dutti — 7시간 전 · 5개
+- Oysho — 6시간 전 · 16개
+- Sezane — 6시간 전 · 166개
+- The upside — 6시간 전 · 339개
+- The white company — 6시간 전 · 82개
+- &Other Stories — 5시간 전 · 400개
+
+</details>
+
+
+---
+
 # 교체가 필요한 카테고리 URL
 
 상품을 **한 개도** 주지 못한 주소입니다. 브랜드 사이트에서 개편·삭제됐을 가능성이 큽니다.
@@ -46,7 +90,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T20:09Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T20:20Z)
 
 - 카탈로그 134개 · 상품 30835개 검사 · **문제 항목 75개**
 - 문제가 있는 브랜드 20개
