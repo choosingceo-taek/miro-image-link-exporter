@@ -1357,6 +1357,9 @@
       }
 
       // 차단 사이트 검색 시: 팀 저장소에 그 브랜드 수집본이 있는지 찾기(있으면 자동 대체 표시용).
+      // 저장본 찾기 — 브랜드가 뒤섞이지 않도록 "정확 일치"만 인정한다.
+      // (예전 느슨한 규칙은 site 'on.com'의 접두사 'on'이 'thereformationcom'에
+      //  포함된다는 이유로 Reformation 검색에 On 카탈로그를 물려줬다.)
       async function findSavedCatalog(brandUrl, typed) {
         if (!__proxy.url) return null;
         try {
@@ -1368,15 +1371,23 @@
           const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
           let host = '';
           try { host = new URL(brandUrl).hostname.replace(/^www\./, ''); } catch (e) {}
-          // 브랜드 이름이 정확히 일치하는 저장본을 최우선(같은 호스트를 쓰는 서브브랜드 구분:
-          // American Eagle vs Aerie, Free People vs FP Movement).
-          const nTyped = norm(typed);
-          const exact = list.find(c => norm(c.brand) === nTyped || norm(c.site).endsWith('.' + nTyped));
-          if (exact) return exact;
-          const keys = [norm(host), nTyped].filter(k => k.length >= 3);
-          return list.find(c => keys.some(k =>
-            norm(c.site).includes(k) || k.includes(norm(c.site).split('com')[0]) || norm(c.brand) === k
-          )) || null;
+          const nBrand = norm(typed), nHost = norm(host);
+
+          // ① 브랜드 이름 정확 일치 (가장 신뢰) — 저장 키가 <host>.<slug>인 경우 포함
+          const byBrand = list.find(c => nBrand && (
+            norm(c.brand) === nBrand || norm(c.site).endsWith(nBrand)
+          ));
+          if (byBrand) return byBrand;
+
+          // ② 호스트 정확 일치 — 한 호스트에 브랜드가 하나뿐일 때만 채택(서브브랜드 혼동 방지)
+          if (nHost) {
+            const sameHost = list.filter(c => {
+              const ns = norm(c.site);
+              return ns === nHost || ns.startsWith(nHost);
+            });
+            if (sameHost.length === 1) return sameHost[0];
+          }
+          return null;
         } catch (e) { return null; }
       }
 
