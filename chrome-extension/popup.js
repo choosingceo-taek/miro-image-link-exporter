@@ -135,6 +135,12 @@ async function saveSched() {
   renderSched(s);
   return r;
 }
+// 설치된 버전 표시(팝업에서 바로 최신 여부를 확인할 수 있게).
+try {
+  const m = chrome.runtime.getManifest();
+  $('verInfo').textContent = `버전 ${m.version}`;
+} catch (e) {}
+
 ['schedOn', 'schedTime', 'schedVisible', 'maxPages'].forEach((id) => $(id).addEventListener('change', saveSched));
 $('runNow').addEventListener('click', async () => {
   $('runNow').disabled = true;
