@@ -30,17 +30,20 @@ async function getJson(url, tries = 3) {
   throw last;
 }
 
-// 상품 상세 페이지가 아닌 것이 확실한 경로들.
-const NON_PRODUCT_PATH = new RegExp([
-  "/account", "/login", "/register", "/cart", "/basket", "/checkout", "/wishlist",
-  "/gift-?cards?", "/e-?gift", "/size-?(guide|chart)", "/help", "/faq", "/contact",
-  "/customer-?(service|care)", "/store-?locator", "/find-a-stores?", "/our-stores?",
-  "/blogs?/", "/journal/", "/magazine/", "/press/", "/about", "/careers?/", "/jobs?/",
-  "/returns?", "/shipping", "/delivery", "/terms", "/privacy", "/cookie", "/legal",
-  "/sitemap", "/search", "/newsletter", "/subscribe", "/sustainability", "/lookbook",
-  "/campaign", "/edit(orial)?/", "/inspiration", "/guide/", "/how-to", "/app/",
-  "/klarna", "/afterpay", "/loyalty", "/rewards", "/students?", "/affiliate",
-].join("|"), "i");
+// 상품 상세 페이지가 아닌 것이 확실한 "경로 조각"들.
+// 부분 문자열이 아니라 경로 세그먼트 단위로 맞춰야 한다 —
+// /cart 를 그냥 찾으면 /cartmel-flared-jeans 가 걸리고, /store 는 /store/product/... 가 걸린다.
+const NON_PRODUCT_SEGMENTS = [
+  "account", "login", "signin", "register", "cart", "bag", "basket", "checkout", "wishlist",
+  "gift-?cards?", "e-?gift", "size-?(?:guide|chart)", "help", "faq", "contact",
+  "customer-?(?:service|care)", "store-?locator", "find-a-stores?", "our-stores?",
+  "blogs?", "journal", "magazine", "press", "about(?:-us)?", "careers?", "jobs?",
+  "returns?", "shipping", "delivery", "terms", "privacy", "cookies?", "legal",
+  "sitemap", "search", "newsletter", "subscribe", "sustainability", "lookbook",
+  "campaigns?", "editorial", "inspiration", "guides?", "how-to", "klarna", "afterpay",
+  "loyalty", "rewards", "affiliates?",
+];
+const NON_PRODUCT_PATH = new RegExp("/(?:" + NON_PRODUCT_SEGMENTS.join("|") + ")(?:/|$)", "i");
 
 // 상품명이 아니라 배너 문구인 것들.
 const BANNER_TEXT = new RegExp([
