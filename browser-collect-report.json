@@ -1,16 +1,16 @@
 {
- "when": "2026-08-01T12:15:46.127Z",
+ "when": "2026-08-01T13:43:44.767Z",
  "store": true,
  "results": [
   {
    "brand": "Barbour",
    "site": "barbour.com.barbour",
-   "collected": 162,
-   "stored": 162,
+   "collected": 168,
+   "stored": 168,
    "storeErr": "",
    "cats": {
-    "tops": 36,
-    "sweatshirts": 34,
+    "tops": 41,
+    "sweatshirts": 35,
     "shirts": 32,
     "pants": 26,
     "dresses": 34
@@ -18,12 +18,12 @@
    "perUrl": [
     {
      "url": "https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts",
-     "count": 35,
+     "count": 40,
      "note": ""
     },
     {
      "url": "https://www.barbour.com/row/womens/womens-clothing/womens-sweatshirts-hoodies",
-     "count": 39,
+     "count": 40,
      "note": ""
     },
     {
@@ -42,7 +42,7 @@
      "note": ""
     }
    ],
-   "secs": 94,
+   "secs": 122,
    "dropped": 4,
    "sample": [
     {
@@ -54,16 +54,16 @@
      "productUrl": "https://www.barbour.com/row/bede-t-shirt-LTS0718WH11.html"
     },
     {
+     "name": "Niamh Logo T-Shirt White",
+     "productUrl": "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html"
+    },
+    {
      "name": "Colletta T-Shirt Nutmeg",
      "productUrl": "https://www.barbour.com/row/colletta-t-shirt-LTS0757BR13.html"
     },
     {
      "name": "Santana T-Shirt White",
      "productUrl": "https://www.barbour.com/row/santana-t-shirt-LTS0725WH11.html"
-    },
-    {
-     "name": "Barbour x Mul Heaton Oversized T-Shirt White",
-     "productUrl": "https://www.barbour.com/row/barbour-x-mul-heaton-oversized-t-shirt-LTS0740WH11.html"
     }
    ],
    "verdict": "자동화 가능"
@@ -92,7 +92,7 @@
      "note": ""
     }
    ],
-   "secs": 39,
+   "secs": 69,
    "dropped": 0,
    "sample": [
     {
@@ -121,20 +121,20 @@
   {
    "brand": "CCC",
    "site": "crewclothing.co.uk.ccc",
-   "collected": 629,
-   "stored": 629,
+   "collected": 644,
+   "stored": 644,
    "storeErr": "",
    "cats": {
     "tops": 126,
-    "shirts": 191,
+    "shirts": 196,
     "sweatshirts": 111,
-    "dresses": 109,
-    "pants": 92
+    "dresses": 112,
+    "pants": 99
    },
    "perUrl": [
     {
      "url": "https://www.crewclothing.co.uk/womens/clothing/tops-and-tshirts/",
-     "count": 255,
+     "count": 263,
      "note": ""
     },
     {
@@ -144,21 +144,21 @@
     },
     {
      "url": "https://www.crewclothing.co.uk/womens/clothing/shirts-and-blouses/",
-     "count": 139,
-     "note": ""
-    },
-    {
-     "url": "https://www.crewclothing.co.uk/womens/clothing/womens-dresses-and-skirts/dresses/",
      "count": 143,
      "note": ""
     },
     {
+     "url": "https://www.crewclothing.co.uk/womens/clothing/womens-dresses-and-skirts/dresses/",
+     "count": 147,
+     "note": ""
+    },
+    {
      "url": "https://www.crewclothing.co.uk/womens/clothing/trousers/",
-     "count": 93,
+     "count": 100,
      "note": ""
     }
    ],
-   "secs": 95,
+   "secs": 132,
    "dropped": 1,
    "sample": [
     {
@@ -223,7 +223,7 @@
      "note": "상품 0개(선택자 불일치/빈 목록)"
     }
    ],
-   "secs": 100,
+   "secs": 194,
    "dropped": 0,
    "sample": [
     {
@@ -252,13 +252,13 @@
   {
    "brand": "Cotton on",
    "site": "cottonon.com.cottonon",
-   "collected": 199,
-   "stored": 199,
+   "collected": 202,
+   "stored": 202,
    "storeErr": "",
    "cats": {
     "tops": 96,
     "sweatshirts": 26,
-    "pants": 63,
+    "pants": 66,
     "shirts": 1,
     "dresses": 13
    },
@@ -270,7 +270,7 @@
     },
     {
      "url": "https://cottonon.com/US/co/women/women-clothing/womens-sweats/",
-     "count": 49,
+     "count": 59,
      "note": ""
     },
     {
@@ -280,16 +280,16 @@
     },
     {
      "url": "https://cottonon.com/US/co/women/women-clothing/dresses/",
-     "count": 15,
+     "count": 61,
      "note": ""
     },
     {
      "url": "https://cottonon.com/US/co/women/women-clothing/womens-pants/",
-     "count": 38,
+     "count": 54,
      "note": ""
     }
    ],
-   "secs": 290,
+   "secs": 675,
    "dropped": 2,
    "sample": [
     {
@@ -355,7 +355,7 @@
      "note": ""
     }
    ],
-   "secs": 114,
+   "secs": 142,
    "dropped": 5,
    "sample": [
     {
@@ -384,25 +384,25 @@
   {
    "brand": "Lucky Brand",
    "site": "luckybrand.com.luckybrand",
-   "collected": 150,
-   "stored": 150,
+   "collected": 153,
+   "stored": 153,
    "storeErr": "",
    "cats": {
-    "tops": 70,
+    "tops": 75,
     "sweatshirts": 26,
-    "shirts": 12,
     "pants": 13,
-    "dresses": 29
+    "dresses": 28,
+    "shirts": 11
    },
    "perUrl": [
     {
      "url": "https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops",
-     "count": 156,
+     "count": 138,
      "note": ""
     },
     {
      "url": "https://www.luckybrand.com/women/clothing/sweaters",
-     "count": 152,
+     "count": 153,
      "note": ""
     },
     {
@@ -412,7 +412,7 @@
     },
     {
      "url": "https://www.luckybrand.com/women/clothing/dresses",
-     "count": 158,
+     "count": 159,
      "note": ""
     },
     {
@@ -421,12 +421,16 @@
      "note": ""
     }
    ],
-   "secs": 497,
-   "dropped": 106,
+   "secs": 755,
+   "dropped": 105,
    "sample": [
     {
      "name": "RIBBED HENLEY TEE, image 4",
      "productUrl": "https://www.luckybrand.com/ribbed-henley-tee/168419.html"
+    },
+    {
+     "name": "SANDWASH NOTCH NECK DOLMAN TEE, image 4",
+     "productUrl": "https://www.luckybrand.com/sandwash-notch-neck-dolman-tee/170539.html"
     },
     {
      "name": "SMOCKED TIE FRONT KNIT TOP, image 4",
@@ -439,10 +443,6 @@
     {
      "name": "EMBROIDERED PEASANT TEE, image 4",
      "productUrl": "https://www.luckybrand.com/embroidered-peasant-tee/163744.html"
-    },
-    {
-     "name": "LACE BUTTON THROUGH SWING TANK, image 4",
-     "productUrl": "https://www.luckybrand.com/lace-button-through-swing-tank/169177.html"
     }
    ],
    "verdict": "자동화 가능"
@@ -482,7 +482,7 @@
      "note": ""
     }
    ],
-   "secs": 47,
+   "secs": 61,
    "dropped": 0,
    "sample": [
     {
@@ -511,12 +511,12 @@
   {
    "brand": "Sweaty betty",
    "site": "sweatybetty.com.sweatybetty",
-   "collected": 359,
-   "stored": 359,
+   "collected": 358,
+   "stored": 358,
    "storeErr": "",
    "cats": {
     "tops": 67,
-    "sweatshirts": 89,
+    "sweatshirts": 88,
     "pants": 141,
     "shirts": 31,
     "dresses": 31
@@ -529,7 +529,7 @@
     },
     {
      "url": "https://www.sweatybetty.com/us/shop/tops/sweatshirts-and-hoodies",
-     "count": 104,
+     "count": 103,
      "note": ""
     },
     {
@@ -539,11 +539,11 @@
     },
     {
      "url": "https://www.sweatybetty.com/us/shop/bottoms",
-     "count": 154,
+     "count": 153,
      "note": ""
     }
    ],
-   "secs": 106,
+   "secs": 148,
    "dropped": 10,
    "sample": [
     {
@@ -609,7 +609,7 @@
      "note": ""
     }
    ],
-   "secs": 64,
+   "secs": 85,
    "dropped": 0,
    "sample": [
     {
