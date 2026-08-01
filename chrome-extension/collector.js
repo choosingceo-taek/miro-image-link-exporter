@@ -54,7 +54,8 @@ async function pageCollector() {
   // 상품이 아니라 카테고리·배너 링크인지 판별.
   // 목록 페이지 상단에는 하위 카테고리 타일("Tanks & Camis. Click to shop.")과
   // 로고·브레드크럼이 이미지와 함께 있어서, 그냥 두면 상품인 척 섞여 들어온다.
-  const BANNER_NAME = /click to shop|shop the look|discover now|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|\blogo\b/i;
+  // 'Logo Tee' 같은 진짜 상품을 죽이지 않도록, 로고는 "이름이 로고로 끝나는 짧은 링크"만 막는다.
+  const BANNER_NAME = /click to shop|shop the look|discover now|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|^.{0,24}\blogo\s*$/i;
 
   const harvest = () => {
     const here = location.pathname.replace(/\/+$/, '');
