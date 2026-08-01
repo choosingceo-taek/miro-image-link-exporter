@@ -88,10 +88,38 @@ const ago = (ms) => {
   return Math.round(h / 24) + '일 전';
 };
 
-async function getJson(url) {
-  const r = await fetch(url);
-  if (!r.ok) throw new Error(url.split('?')[0] + ' → HTTP ' + r.status);
-  return r.json();
+async function getJson(url, tries) {
+  let last;
+  for (let i = 0; i < (tries || 1); i++) {
+    try {
+      const r = await fetch(url);
+      if (r.ok) return await r.json();
+      last = new Error('HTTP ' + r.status);
+    } catch (e) {
+      // fetch 자체가 실패하면 브라우저는 이유를 안 알려준다(CORS·네트워크·잠든 서버 전부 "Failed to fetch").
+      last = new Error('연결 실패(CORS 또는 서버 응답 없음)');
+    }
+    if (i + 1 < (tries || 1)) await new Promise((r) => setTimeout(r, 4000));
+  }
+  last.message = url.split('?')[0] + ' → ' + last.message;
+  throw last;
+}
+
+// 브랜드 목록 + 그룹 분류를 가져온다.
+// /api/brands 를 먼저 쓴다 — Render의 JSON API는 CORS 헤더를 붙여 주고 그룹까지 함께 준다.
+// 옛 서버(그룹 필드 없음)면 정적 blocked-brands.json 으로 보완한다.
+async function loadBrands() {
+  const api = await getJson(RENDER + '/api/brands', 3);   // 잠들어 있으면 깨어날 때까지 재시도
+  const brands = (api && api.brands) || [];
+  if (brands.some((b) => b.group)) return brands;
+  const bj = await getJson(RENDER + '/blocked-brands.json', 2).catch(() => ({}));
+  const ext = new Set((bj.brands || []).map((n) => n.toLowerCase()));
+  const br = new Set((bj.browser || []).map((n) => n.toLowerCase()));
+  return brands.map((b) => ({
+    ...b,
+    group: ext.has(b.name.toLowerCase()) ? 'extension'
+      : br.has(b.name.toLowerCase()) ? 'browser' : 'server',
+  }));
 }
 
 function row(r) {
@@ -116,27 +144,22 @@ function table(title, rows) {
 
 async function load() {
   el('reload').disabled = true;
-  el('out').textContent = '불러오는 중… (Render가 잠들어 있으면 최대 1분)';
+  el('out').textContent = '불러오는 중… (Render가 잠들어 있으면 깨어날 때까지 최대 1분)';
   try {
     const tok = '&token=' + encodeURIComponent(TOKEN);
-    const [brands, blockedJson, cat] = await Promise.all([
-      getJson(RENDER + '/brands.json'),
-      getJson(RENDER + '/blocked-brands.json'),
-      getJson(WORKER + '/?catalogs=1' + tok),
+    const [brands, cat] = await Promise.all([
+      loadBrands(),
+      getJson(WORKER + '/?catalogs=1' + tok, 2),
     ]);
     const list = (cat && cat.list) || [];
-    // 세 그룹: 확장(봇 차단) · 헤드리스(진짜 크롬으로 매일 자동) · 서버(Render 야간 프리페치)
-    const extSet = new Set((blockedJson.brands || []).map((n) => n.toLowerCase()));
-    const browserSet = new Set((blockedJson.browser || []).map((n) => n.toLowerCase()));
 
     // 저장소에 있지만 어느 브랜드도 가져가지 않는 키(옛 호스트 키 등)를 찾기 위해 사용처를 기록.
     const claimed = new Set();
     const rows = brands.map((b) => {
       const hit = matchCatalog(list, b.name, b.url);
-      const low = b.name.toLowerCase();
       const r = {
         brand: b.name,
-        group: extSet.has(low) ? '확장' : browserSet.has(low) ? '헤드리스' : '서버',
+        group: b.group === 'extension' ? '확장' : b.group === 'browser' ? '헤드리스' : '서버',
         site: hit ? hit.site : '', count: hit ? hit.count : 0,
         agoText: hit ? ago(hit.updated) : '—', catText: '', msg: '', state: 'none',
       };
@@ -208,7 +231,10 @@ async function load() {
     el('out').innerHTML = html;
     el('when').textContent = '조회 ' + new Date().toLocaleString('ko-KR');
   } catch (e) {
-    el('out').innerHTML = '<div class="bad">조회 실패: ' + esc(e.message || e) + '</div>';
+    el('out').innerHTML = '<div class="bad">조회 실패: ' + esc(e.message || e) + '</div>' +
+      '<div class="note">Render 무료 서버는 잠들어 있으면 첫 응답까지 1분 정도 걸립니다 — ' +
+      '<b>다시 조회</b>를 한 번 더 눌러 보세요. 계속 실패하면 위 주소를 브라우저에서 직접 열어 ' +
+      '응답이 오는지 확인하세요.</div>';
   } finally {
     el('reload').disabled = false;
   }
