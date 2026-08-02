@@ -180,7 +180,13 @@ function asGroups(input) {
   for (const u of arr) {
     let host = 'brand';
     try { host = new URL(u).hostname.replace(/^www\./, ''); } catch (e) { continue; }
-    if (!byHost.has(host)) byHost.set(host, { brand: host.split('.')[0], site: host, urls: [] });
+    if (!byHost.has(host)) {
+      // 저장 키는 반드시 <host>.<브랜드슬러그> 로 만든다. 예전엔 여기서 host 만 썼는데,
+      // 그러면 정상 경로가 만든 <host>.<slug> 와 별개의 카탈로그가 하나 더 생겨
+      // 같은 브랜드가 두 벌 저장되고 미로 앱이 둘 중 아무거나 집게 된다.
+      const brand = host.split('.')[0];
+      byHost.set(host, { brand, site: siteKeyOf(brand, u), urls: [] });
+    }
     byHost.get(host).urls.push(u);
   }
   return [...byHost.values()];
