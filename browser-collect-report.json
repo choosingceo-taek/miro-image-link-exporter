@@ -1,17 +1,527 @@
 {
- "when": "2026-08-02T02:18:57.982Z",
+ "when": "2026-08-02T20:37:39.920Z",
  "store": true,
  "results": [
   {
+   "brand": "Barbour",
+   "site": "barbour.com.barbour",
+   "collected": 168,
+   "stored": 168,
+   "storeErr": "",
+   "cats": {
+    "tops": 41,
+    "sweatshirts": 35,
+    "shirts": 32,
+    "pants": 26,
+    "dresses": 34
+   },
+   "perUrl": [
+    {
+     "url": "https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts",
+     "count": 40,
+     "note": ""
+    },
+    {
+     "url": "https://www.barbour.com/row/womens/womens-clothing/womens-sweatshirts-hoodies",
+     "count": 40,
+     "note": ""
+    },
+    {
+     "url": "https://www.barbour.com/row/womens/womens-clothing/womens-shirts-blouses",
+     "count": 40,
+     "note": ""
+    },
+    {
+     "url": "https://www.barbour.com/row/womens/womens-clothing/womens-dresses",
+     "count": 40,
+     "note": ""
+    },
+    {
+     "url": "https://www.barbour.com/row/womens/womens-clothing/womens-trousers",
+     "count": 28,
+     "note": ""
+    }
+   ],
+   "secs": 123,
+   "dropped": 4,
+   "sample": [
+    {
+     "name": "Rosalie T-Shirt White",
+     "productUrl": "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html"
+    },
+    {
+     "name": "Bede T-Shirt White",
+     "productUrl": "https://www.barbour.com/row/bede-t-shirt-LTS0718WH11.html"
+    },
+    {
+     "name": "Niamh Logo T-Shirt White",
+     "productUrl": "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html"
+    },
+    {
+     "name": "Colletta T-Shirt Nutmeg",
+     "productUrl": "https://www.barbour.com/row/colletta-t-shirt-LTS0757BR13.html"
+    },
+    {
+     "name": "Santana T-Shirt White",
+     "productUrl": "https://www.barbour.com/row/santana-t-shirt-LTS0725WH11.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Boldest",
+   "site": "kolonmall.com.boldest",
+   "collected": 201,
+   "stored": 201,
+   "storeErr": "",
+   "cats": {
+    "tops": 91,
+    "sweatshirts": 5,
+    "shirts": 24,
+    "pants": 81
+   },
+   "perUrl": [
+    {
+     "url": "https://www.kolonmall.com/boldest/List/133020162237",
+     "count": 119,
+     "note": ""
+    },
+    {
+     "url": "https://www.kolonmall.com/boldest/List/133020161437",
+     "count": 83,
+     "note": ""
+    }
+   ],
+   "secs": 70,
+   "dropped": 0,
+   "sample": [
+    {
+     "name": "133010010000",
+     "productUrl": "https://www.kolonmall.com/Category/List/133010010000"
+    },
+    {
+     "name": "초경량 에어리도트 반팔 티셔츠 V2",
+     "productUrl": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26501BKS"
+    },
+    {
+     "name": "초경량 에어리도트 반팔 티셔츠 V2",
+     "productUrl": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26501NYA"
+    },
+    {
+     "name": "초경량 에어리도트 폴로 반팔 티셔츠",
+     "productUrl": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26502ORC"
+    },
+    {
+     "name": "초경량 에어리도트 폴로 반팔 티셔츠",
+     "productUrl": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26502BKS"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "CCC",
+   "site": "crewclothing.co.uk.ccc",
+   "collected": 592,
+   "stored": 592,
+   "storeErr": "",
+   "cats": {
+    "tops": 127,
+    "shirts": 177,
+    "sweatshirts": 104,
+    "dresses": 104,
+    "pants": 80
+   },
+   "perUrl": [
+    {
+     "url": "https://www.crewclothing.co.uk/womens/clothing/tops-and-tshirts/",
+     "count": 243,
+     "note": ""
+    },
+    {
+     "url": "https://www.crewclothing.co.uk/womens/clothing/sweatshirts-hoodies/",
+     "count": 106,
+     "note": ""
+    },
+    {
+     "url": "https://www.crewclothing.co.uk/womens/clothing/shirts-and-blouses/",
+     "count": 126,
+     "note": ""
+    },
+    {
+     "url": "https://www.crewclothing.co.uk/womens/clothing/womens-dresses-and-skirts/dresses/",
+     "count": 137,
+     "note": ""
+    },
+    {
+     "url": "https://www.crewclothing.co.uk/womens/clothing/trousers/",
+     "count": 81,
+     "note": ""
+    }
+   ],
+   "secs": 107,
+   "dropped": 1,
+   "sample": [
+    {
+     "name": "Breton T-Shirt in White & Navy",
+     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/breton-tshirt-white-navy-stripe-woe052/"
+    },
+    {
+     "name": "Perfect V Neck Slub T-Shirt in Black",
+     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/perfect-v-neck-slub-tshirt-black-wse050/"
+    },
+    {
+     "name": "Perfect Crew Neck Slub T-Shirt in Black",
+     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/perfect-crew-neck-slub-tshirt-black-wue014/"
+    },
+    {
+     "name": "Perfect Crew Slub T-Shirt in Navy",
+     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/perfect-crew-slub-tshirt-blue-woe300/"
+    },
+    {
+     "name": "Perfect Crew Slub T-Shirt in Pink",
+     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/perfect-crew-slub-tshirt-pink-woe300/"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Carlhartt",
+   "site": "carhartt.com.carlhartt",
+   "collected": 23,
+   "stored": 23,
+   "storeErr": "",
+   "cats": {
+    "shirts": 6,
+    "sweatshirts": 9,
+    "tops": 6,
+    "pants": 2
+   },
+   "perUrl": [
+    {
+     "url": "https://www.carhartt.com/c/women-tops-tshirt",
+     "count": 13,
+     "note": ""
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-hoodies-sweatshirts",
+     "count": 11,
+     "note": ""
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-tops",
+     "count": 1,
+     "note": ""
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-bibs-overalls",
+     "count": 2,
+     "note": ""
+    },
+    {
+     "url": "https://www.carhartt.com/c/womens-sweatpants",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://www.carhartt.com/c/womens-sweatpants · 제목 \"Women's Sweatpants | Carhartt\" · 링크 679/이미지 129 · 탈락[total=678 noImage=611 tinyImage=7 shortPath=1 samePage=59 banner=0 dup=0] · \"Skip to Header Skip to Main Content Skip to Footer CARHARTT REWORKED CARHARTT COMPANY GEAR ALL-NEW SHADES OF OUR BEST SU\""
+    }
+   ],
+   "secs": 227,
+   "dropped": 0,
+   "sample": [
+    {
+     "name": "womens irvine relaxed t shirt",
+     "productUrl": "https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt"
+    },
+    {
+     "name": "womens force sun defender relaxed t shirt",
+     "productUrl": "https://www.carhartt.com/product/106830/womens-force-sun-defender-relaxed-t-shirt"
+    },
+    {
+     "name": "womens iconic k87 pocket t shirt",
+     "productUrl": "https://www.carhartt.com/product/103067/womens-iconic-k87-pocket-t-shirt"
+    },
+    {
+     "name": "womens tencel fiber series loose t shirt",
+     "productUrl": "https://www.carhartt.com/product/106122/womens-tencel-fiber-series-loose-t-shirt"
+    },
+    {
+     "name": "womens force sun defender relaxed ls logo t shirt",
+     "productUrl": "https://www.carhartt.com/product/106632/womens-force-sun-defender-relaxed-ls-logo-t-shirt"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Coldwatercreek",
+   "site": "coldwatercreek.com.coldwatercreek",
+   "collected": 202,
+   "stored": 202,
+   "storeErr": "",
+   "cats": {
+    "tops": 61,
+    "sweatshirts": 42,
+    "shirts": 26,
+    "dresses": 37,
+    "pants": 36
+   },
+   "perUrl": [
+    {
+     "url": "https://www.coldwatercreek.com/clothing/knit-tops-tees",
+     "count": 66,
+     "note": ""
+    },
+    {
+     "url": "https://www.coldwatercreek.com/clothing/sweatshirts",
+     "count": 58,
+     "note": ""
+    },
+    {
+     "url": "https://www.coldwatercreek.com/clothing/shirts-blouses",
+     "count": 69,
+     "note": ""
+    },
+    {
+     "url": "https://www.coldwatercreek.com/clothing/dresses",
+     "count": 74,
+     "note": ""
+    },
+    {
+     "url": "https://www.coldwatercreek.com/clothing/pants-shorts",
+     "count": 69,
+     "note": ""
+    }
+   ],
+   "secs": 175,
+   "dropped": 26,
+   "sample": [
+    {
+     "name": "Valley Floral Waffle Tee",
+     "productUrl": "https://www.coldwatercreek.com/valley-floral-waffle-tee/24805/"
+    },
+    {
+     "name": "Easy Waffle Long-Sleeve Tee",
+     "productUrl": "https://www.coldwatercreek.com/easy-waffle-long-sleeve-tee/25756/"
+    },
+    {
+     "name": "Casa Rosa Waffle Henley",
+     "productUrl": "https://www.coldwatercreek.com/casa-rosa-waffle-henley/24921/"
+    },
+    {
+     "name": "Waffle Knit Button-Front Tee",
+     "productUrl": "https://www.coldwatercreek.com/waffle-knit-button-front-tee/25757/"
+    },
+    {
+     "name": "Santa Rosa Vintage-Wash Henley",
+     "productUrl": "https://www.coldwatercreek.com/santa-rosa-embroidered-henley/19695/"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Cotton on",
+   "site": "cottonon.com.cottonon",
+   "collected": 505,
+   "stored": 505,
+   "storeErr": "",
+   "cats": {
+    "tops": 193,
+    "sweatshirts": 73,
+    "pants": 187,
+    "shirts": 18,
+    "dresses": 34
+   },
+   "perUrl": [
+    {
+     "url": "https://cottonon.com/US/co/women/women-clothing/womens-tops/",
+     "count": 182,
+     "note": ""
+    },
+    {
+     "url": "https://cottonon.com/US/co/women/women-clothing/womens-sweats/",
+     "count": 181,
+     "note": ""
+    },
+    {
+     "url": "https://cottonon.com/US/co/women/women-clothing/womens-tops/womens-shirts-blouses/",
+     "count": 58,
+     "note": ""
+    },
+    {
+     "url": "https://cottonon.com/US/co/women/women-clothing/dresses/",
+     "count": 38,
+     "note": ""
+    },
+    {
+     "url": "https://cottonon.com/US/co/women/women-clothing/womens-pants/",
+     "count": 169,
+     "note": ""
+    }
+   ],
+   "secs": 262,
+   "dropped": 1,
+   "sample": [
+    {
+     "name": "90S V Neck ¾ Sleeve, BLACK",
+     "productUrl": "https://cottonon.com/US/90s-v-neck-%C2%BE-sleeve/2062142-01.html"
+    },
+    {
+     "name": "90S V Neck ¾ Sleeve, WHITE",
+     "productUrl": "https://cottonon.com/US/90s-v-neck-%C2%BE-sleeve/2062142-02.html"
+    },
+    {
+     "name": "90S Baby Tee, WHITE",
+     "productUrl": "https://cottonon.com/US/90s-baby-tee/2058329-02.html"
+    },
+    {
+     "name": "90S Baby Tee, BLACK",
+     "productUrl": "https://cottonon.com/US/90s-baby-tee/2058329-01.html"
+    },
+    {
+     "name": "90S Baby Raglan Tee, WHITE/DARK OAK",
+     "productUrl": "https://cottonon.com/US/90s-baby-raglan-tee/2062134-02.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Gerard darel",
+   "site": "gerarddarel.com.gerarddarel",
+   "collected": 225,
+   "stored": 225,
+   "storeErr": "",
+   "cats": {
+    "shirts": 48,
+    "tops": 127,
+    "dresses": 1,
+    "pants": 49
+   },
+   "perUrl": [
+    {
+     "url": "https://gerarddarel.com/en-us/collections/tops-t-shirts",
+     "count": 48,
+     "note": ""
+    },
+    {
+     "url": "https://gerarddarel.com/en-us/collections/chemises-blouses",
+     "count": 73,
+     "note": ""
+    },
+    {
+     "url": "https://gerarddarel.com/en-us/collections/robes",
+     "count": 55,
+     "note": ""
+    },
+    {
+     "url": "https://gerarddarel.com/en-us/collections/pantalons-jeans",
+     "count": 49,
+     "note": ""
+    }
+   ],
+   "secs": 96,
+   "dropped": 0,
+   "sample": [
+    {
+     "name": "5",
+     "productUrl": "https://gerarddarel.com/en-us/products/t-shirt-mayane_ddt05d2501100"
+    },
+    {
+     "name": "5",
+     "productUrl": "https://gerarddarel.com/en-us/products/t-shirt-mellina_ddt43d2702100"
+    },
+    {
+     "name": "5",
+     "productUrl": "https://gerarddarel.com/en-us/products/t-shirt-melva_ddt19d2532100"
+    },
+    {
+     "name": "t shirt melva ddt19d2535000",
+     "productUrl": "https://gerarddarel.com/en-us/products/t-shirt-melva_ddt19d2535000"
+    },
+    {
+     "name": "g",
+     "productUrl": "https://gerarddarel.com/en-us/products/t-shirt-melly_ddt32d2602100"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Gestuz",
+   "site": "gestuz.com.gestuz",
+   "collected": 667,
+   "stored": 667,
+   "storeErr": "",
+   "cats": {
+    "tops": 222,
+    "shirts": 153,
+    "sweatshirts": 50,
+    "dresses": 147,
+    "pants": 95
+   },
+   "perUrl": [
+    {
+     "url": "https://www.gestuz.com/en-us/shop/tops-t-shirts",
+     "count": 157,
+     "note": ""
+    },
+    {
+     "url": "https://www.gestuz.com/en-us/shop/blouses",
+     "count": 123,
+     "note": ""
+    },
+    {
+     "url": "https://www.gestuz.com/en-us/shop/knitwear-cardigans",
+     "count": 128,
+     "note": ""
+    },
+    {
+     "url": "https://www.gestuz.com/en-us/shop/shirts",
+     "count": 66,
+     "note": ""
+    },
+    {
+     "url": "https://www.gestuz.com/en-us/shop/dresses",
+     "count": 180,
+     "note": ""
+    },
+    {
+     "url": "https://www.gestuz.com/en-us/shop/trousers",
+     "count": 95,
+     "note": ""
+    }
+   ],
+   "secs": 224,
+   "dropped": 0,
+   "sample": [
+    {
+     "name": "GZstacy Top LOOKBOOK FRONT 10911438-1908141",
+     "productUrl": "https://www.gestuz.com/en-us/gzstacy-top--10911438-1908141"
+    },
+    {
+     "name": "GZdami Oversized t-shirt LOOKBOOK FRONT 10910545-191018",
+     "productUrl": "https://www.gestuz.com/en-us/gzdami-oversized-t-shirt--10910545-191018"
+    },
+    {
+     "name": "GZcami Top LOOKBOOK FRONT 10910985-190814",
+     "productUrl": "https://www.gestuz.com/en-us/gzcami-top--10910985-190814"
+    },
+    {
+     "name": "GZnadya T-shirt LOOKBOOK FRONT 10911950-100493",
+     "productUrl": "https://www.gestuz.com/en-us/gznadya-t-shirt--10911950-100493"
+    },
+    {
+     "name": "GZgilsa Oversized T-shirt LOOKBOOK FRONT 10911090-109842",
+     "productUrl": "https://www.gestuz.com/en-us/gzgilsa-oversized-t-shirt--10911090-109842"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
    "brand": "J crew",
    "site": "jcrew.com.jcrew",
-   "collected": 191,
-   "stored": 191,
+   "collected": 190,
+   "stored": 190,
    "storeErr": "",
    "cats": {
     "shirts": 72,
     "tops": 21,
-    "pants": 52,
+    "pants": 51,
     "sweatshirts": 5,
     "dresses": 41
    },
@@ -28,7 +538,7 @@
     },
     {
      "url": "https://www.jcrew.com/plp/womens/categories/clothing/shirts-and-tops",
-     "count": 45,
+     "count": 44,
      "note": ""
     },
     {
@@ -42,7 +552,7 @@
      "note": ""
     }
    ],
-   "secs": 118,
+   "secs": 119,
    "dropped": 2,
    "sample": [
     {
@@ -69,28 +579,225 @@
    "verdict": "자동화 가능"
   },
   {
-   "brand": "Me+Em",
-   "site": "meandem.com.meem",
-   "collected": 498,
-   "stored": 498,
+   "brand": "J.mclaughlin",
+   "site": "jmclaughlin.com.jmclaughlin",
+   "collected": 55,
+   "stored": 55,
    "storeErr": "",
    "cats": {
-    "tops": 161,
+    "pants": 36,
+    "sweatshirts": 1,
+    "shirts": 3,
+    "dresses": 15
+   },
+   "perUrl": [
+    {
+     "url": "https://www.jmclaughlin.com/collections/women-tops-tee",
+     "count": 39,
+     "note": ""
+    },
+    {
+     "url": "https://www.jmclaughlin.com/collections/women-tops-shirts",
+     "count": 45,
+     "note": ""
+    },
+    {
+     "url": "https://www.jmclaughlin.com/collections/women-dresses",
+     "count": 45,
+     "note": ""
+    },
+    {
+     "url": "https://www.jmclaughlin.com/collections/women-pants",
+     "count": 46,
+     "note": ""
+    }
+   ],
+   "secs": 123,
+   "dropped": 30,
+   "sample": [
+    {
+     "name": "Woman smiling on a beach wearing a Sinclair Henley in Stripe by J.McLaughlin, styled with a yellow sweater draped over shoulders and beige pants, embo",
+     "productUrl": "https://www.jmclaughlin.com/products/sinclair-henley-stripe-ivory-mirage-blue"
+    },
+    {
+     "name": "Model wearing a Sinclair Henley in Stripe with a navy sweater draped over shoulders paired with dark blue jeans and a brown belt, showcasing J.McLaugh",
+     "productUrl": "https://www.jmclaughlin.com/products/sinclair-henley-stripe-parchment-bordeaux"
+    },
+    {
+     "name": "Woman wearing a Sinclair Henley in Stripe by J.McLaughlin, featuring a classic long-sleeve striped shirt paired with casual blue pants, reflecting tim",
+     "productUrl": "https://www.jmclaughlin.com/products/sinclair-henley-stripe-bordeaux-rose"
+    },
+    {
+     "name": "Woman wearing a J.McLaughlin Nico Tee in Stripe with red and white horizontal stripes, styled with white pants, a tan belt, and gold accessories, show",
+     "productUrl": "https://www.jmclaughlin.com/products/nico-tee-stripe-white-red"
+    },
+    {
+     "name": "Woman wearing a Kate Ruffle Top in Neo Jewel Ikat by J.McLaughlin in a blue patterned fabric paired with white pants and gold accessories, showcasing ",
+     "productUrl": "https://www.jmclaughlin.com/products/kate-ruffle-top-neo-jewel-ikat-navy-blue"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Leset",
+   "site": "leset.com.leset",
+   "collected": 208,
+   "stored": 208,
+   "storeErr": "",
+   "cats": {
+    "tops": 101,
+    "pants": 59,
+    "sweatshirts": 7,
+    "shirts": 10,
+    "dresses": 31
+   },
+   "perUrl": [
+    {
+     "url": "https://leset.com/collections/t-shirts",
+     "count": 0,
+     "note": "HTTP 429"
+    },
+    {
+     "url": "https://leset.com/collections/tank-tops",
+     "count": 87,
+     "note": ""
+    },
+    {
+     "url": "https://leset.com/collections/sweat-sets",
+     "count": 23,
+     "note": ""
+    },
+    {
+     "url": "https://leset.com/collections/tops",
+     "count": 96,
+     "note": ""
+    },
+    {
+     "url": "https://leset.com/collections/dresses",
+     "count": 46,
+     "note": ""
+    },
+    {
+     "url": "https://leset.com/collections/skirts-shorts",
+     "count": 64,
+     "note": ""
+    }
+   ],
+   "secs": 138,
+   "dropped": 12,
+   "sample": [
+    {
+     "name": "Nando Sleeveless V Neck",
+     "productUrl": "https://leset.com/products/nando-sleeveless-v-neck-white"
+    },
+    {
+     "name": "Nando Sleeveless V Neck",
+     "productUrl": "https://leset.com/products/nando-sleeveless-v-neck-black"
+    },
+    {
+     "name": "Barb Bias Tank",
+     "productUrl": "https://leset.com/products/barb-bias-tank-creme"
+    },
+    {
+     "name": "Barb Bias Tank",
+     "productUrl": "https://leset.com/products/barb-bias-tank-black"
+    },
+    {
+     "name": "Ari High Neck Tank",
+     "productUrl": "https://leset.com/products/ari-high-neck-tank-moon"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Lucky Brand",
+   "site": "luckybrand.com.luckybrand",
+   "collected": 149,
+   "stored": 149,
+   "storeErr": "",
+   "cats": {
+    "tops": 72,
+    "sweatshirts": 26,
+    "pants": 13,
+    "dresses": 27,
+    "shirts": 11
+   },
+   "perUrl": [
+    {
+     "url": "https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops",
+     "count": 161,
+     "note": ""
+    },
+    {
+     "url": "https://www.luckybrand.com/women/clothing/sweaters",
+     "count": 155,
+     "note": ""
+    },
+    {
+     "url": "https://www.luckybrand.com/women/clothing/shirts/blouses",
+     "count": 154,
+     "note": ""
+    },
+    {
+     "url": "https://www.luckybrand.com/women/clothing/dresses",
+     "count": 160,
+     "note": ""
+    },
+    {
+     "url": "https://www.luckybrand.com/women/clothing/pants",
+     "count": 162,
+     "note": ""
+    }
+   ],
+   "secs": 741,
+   "dropped": 110,
+   "sample": [
+    {
+     "name": "RIBBED HENLEY TEE, image 4",
+     "productUrl": "https://www.luckybrand.com/ribbed-henley-tee/168419.html"
+    },
+    {
+     "name": "SANDWASH BANDED WAIST TEE, image 4",
+     "productUrl": "https://www.luckybrand.com/sandwash-banded-waist-tee/164430.html"
+    },
+    {
+     "name": "SANDWASH NOTCH NECK DOLMAN TEE, image 4",
+     "productUrl": "https://www.luckybrand.com/sandwash-notch-neck-dolman-tee/170539.html"
+    },
+    {
+     "name": "SMOCKED TIE FRONT KNIT TOP, image 4",
+     "productUrl": "https://www.luckybrand.com/smocked-tie-front-knit-top/144698.html"
+    },
+    {
+     "name": "EMBROIDERED BOXY KNIT TOP, image 4",
+     "productUrl": "https://www.luckybrand.com/embroidered-boxy-knit-top/169181.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Me+Em",
+   "site": "meandem.com.meem",
+   "collected": 495,
+   "stored": 495,
+   "storeErr": "",
+   "cats": {
     "sweatshirts": 21,
+    "tops": 159,
     "pants": 136,
-    "shirts": 50,
+    "shirts": 49,
     "dresses": 130
    },
    "perUrl": [
     {
      "url": "https://www.meandem.com/us/tops/t-shirts",
-     "count": 137,
+     "count": 134,
      "note": ""
     },
     {
      "url": "https://www.meandem.com/us/tops/sweatshirts",
-     "count": 23,
-     "note": ""
+     "count": 20,
+     "note": "오류: page.evaluate: Execution context was destroyed, most likely because of a navigation"
     },
     {
      "url": "https://www.meandem.com/us/tops",
@@ -99,7 +806,7 @@
     },
     {
      "url": "https://www.meandem.com/us/dresses",
-     "count": 157,
+     "count": 156,
      "note": ""
     },
     {
@@ -108,94 +815,398 @@
      "note": ""
     }
    ],
-   "secs": 116,
+   "secs": 107,
    "dropped": 15,
    "sample": [
     {
-     "name": "Straight Tee",
-     "productUrl": "https://www.meandem.com/us/soft-washed-v-neck-tee-fresh-white"
+     "name": "Sweatshirt Baby Tee",
+     "productUrl": "https://www.meandem.com/us/baby-tee-lightweight-sweatshirt-chambray-marl"
     },
     {
-     "name": "Fitted Crew Neck Tee",
-     "productUrl": "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-bright-white"
-    },
-    {
-     "name": "Feminine Sleeve Tee",
-     "productUrl": "https://www.meandem.com/us/pouf-sleeve-v-neck-tee-soft-white"
+     "name": "Cap Sleeve Swing Tee",
+     "productUrl": "https://www.meandem.com/us/cap-sleeve-crew-neck-swing-tee-navy"
     },
     {
      "name": "Raw Edge Sweatshirt",
      "productUrl": "https://www.meandem.com/us/raw-edge-raglan-sweatshirt-soft-white"
     },
     {
+     "name": "Fitted Crew Neck Tee",
+     "productUrl": "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-bright-white"
+    },
+    {
      "name": "Straight Tee",
-     "productUrl": "https://www.meandem.com/us/cotton-slub-tee-fresh-white"
+     "productUrl": "https://www.meandem.com/us/soft-washed-v-neck-tee-fresh-white"
     }
    ],
    "verdict": "자동화 가능"
   },
   {
-   "brand": "CCC",
-   "site": "crewclothing.co.uk.ccc",
-   "collected": 594,
-   "stored": 594,
+   "brand": "Nike",
+   "site": "nike.com.nike",
+   "collected": 469,
+   "stored": 469,
    "storeErr": "",
    "cats": {
-    "tops": 126,
-    "shirts": 180,
-    "sweatshirts": 102,
-    "dresses": 103,
-    "pants": 83
+    "tops": 156,
+    "sweatshirts": 80,
+    "pants": 189,
+    "dresses": 43,
+    "shirts": 1
    },
    "perUrl": [
     {
-     "url": "https://www.crewclothing.co.uk/womens/clothing/tops-and-tshirts/",
+     "url": "https://www.nike.com/w/womens-tops-t-shirts-5e1x6z9om13",
+     "count": 154,
+     "note": ""
+    },
+    {
+     "url": "https://www.nike.com/w/womens-fleece-4xh6qz5e1x6",
+     "count": 174,
+     "note": ""
+    },
+    {
+     "url": "https://www.nike.com/w/womens-skirts-and-dresses-5e1x6z8y3qp",
+     "count": 140,
+     "note": ""
+    },
+    {
+     "url": "https://www.nike.com/w/womens-pants-and-tights-2kq19z5e1x6",
+     "count": 63,
+     "note": ""
+    }
+   ],
+   "secs": 151,
+   "dropped": 0,
+   "sample": [
+    {
+     "name": "Nike Swift Aero-FIT Women's Short-Sleeve Running Top",
+     "productUrl": "https://www.nike.com/t/swift-aero-fit-womens-short-sleeve-running-top-JHJs4SDp/IH8114-014"
+    },
+    {
+     "name": "Nike Swift Aero-FIT Women's Running Tank Top",
+     "productUrl": "https://www.nike.com/t/swift-aero-fit-womens-running-tank-top-pzLndwvl/IH8111-014"
+    },
+    {
+     "name": "Nike Sportswear Classic Women's Oversized T-Shirt",
+     "productUrl": "https://www.nike.com/t/sportswear-classic-womens-oversized-t-shirt-gwt1Acxw/IM6396-417"
+    },
+    {
+     "name": "Nike Sportswear Classic Women's Oversized T-Shirt",
+     "productUrl": "https://www.nike.com/t/sportswear-classic-womens-oversized-t-shirt-02puEFSN/IM6399-417"
+    },
+    {
+     "name": "Nike Sportswear Classic Women's Oversized T-Shirt",
+     "productUrl": "https://www.nike.com/t/sportswear-classic-womens-oversized-t-shirt-0C1rhV1N/IM6426-013"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "On",
+   "site": "on.com.on",
+   "collected": 163,
+   "stored": 163,
+   "storeErr": "",
+   "cats": {
+    "tops": 114,
+    "pants": 27,
+    "sweatshirts": 18,
+    "dresses": 4
+   },
+   "perUrl": [
+    {
+     "url": "https://www.on.com/en-us/shop/womens/apparel/tops-tshirts",
+     "count": 127,
+     "note": ""
+    },
+    {
+     "url": "https://www.on.com/en-us/shop/womens/apparel/hoodies-sweatshirts",
+     "count": 66,
+     "note": ""
+    },
+    {
+     "url": "https://www.on.com/en-us/shop/womens/apparel/dresses",
+     "count": 53,
+     "note": ""
+    },
+    {
+     "url": "https://www.on.com/en-us/shop/womens/apparel/pants",
+     "count": 59,
+     "note": ""
+    }
+   ],
+   "secs": 226,
+   "dropped": 20,
+   "sample": [
+    {
+     "name": "Black",
+     "productUrl": "https://www.on.com/en-us/products/club-t-w-1we1006/womens/black-apparel-1WE10060553"
+    },
+    {
+     "name": "Crater",
+     "productUrl": "https://www.on.com/en-us/products/club-t-w-1we1006/womens/crater-apparel-1WE10061756"
+    },
+    {
+     "name": "White",
+     "productUrl": "https://www.on.com/en-us/products/club-t-w-1we1006/womens/white-apparel-1WE10060069"
+    },
+    {
+     "name": "Flurry",
+     "productUrl": "https://www.on.com/en-us/products/club-t-w-1we1006/womens/flurry-apparel-1WE10064975"
+    },
+    {
+     "name": "On Core 2-in-1 Crop Bubblegum Women – Mixed sports, versatile, added support Tops and t-shirts",
+     "productUrl": "https://www.on.com/en-us/products/core-2-in-1-crop-1wf1007/womens/bubblegum-apparel-1WF10074983"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Poetry",
+   "site": "poetryfashion.co.uk.poetry",
+   "collected": 388,
+   "stored": 388,
+   "storeErr": "",
+   "cats": {
+    "tops": 58,
+    "shirts": 80,
+    "sweatshirts": 4,
+    "pants": 192,
+    "dresses": 54
+   },
+   "perUrl": [
+    {
+     "url": "https://www.poetryfashion.co.uk/category-POETT/tshirts-tops/index.htm",
+     "count": 72,
+     "note": ""
+    },
+    {
+     "url": "https://www.poetryfashion.co.uk/category-POEST/shirts-tunics/index.htm",
+     "count": 68,
+     "note": ""
+    },
+    {
+     "url": "https://www.poetryfashion.co.uk/category-POEDS/dresses-skirts/index.htm",
+     "count": 98,
+     "note": ""
+    },
+    {
+     "url": "https://www.poetryfashion.co.uk/category-POETJ/trousers-shorts/index.htm",
+     "count": 166,
+     "note": ""
+    }
+   ],
+   "secs": 58,
+   "dropped": 0,
+   "sample": [
+    {
+     "name": "Product Image of Panelled hemp & organic cotton top",
+     "productUrl": "https://www.poetryfashion.co.uk/product-VE01-POETT/colour-n-ecru/tshirts-tops/panelled-hemp-organic-cotton-top.htm"
+    },
+    {
+     "name": "Product Image of Panelled hemp & organic cotton top",
+     "productUrl": "https://www.poetryfashion.co.uk/product-VE01-POETT/colour-bd-mulberry-red/tshirts-tops/panelled-hemp-organic-cotton-top.htm"
+    },
+    {
+     "name": "Product Image of Hemp & cotton ribbed jersey top",
+     "productUrl": "https://www.poetryfashion.co.uk/product-RF07-POETT/colour-s-taupe/tshirts-tops/hemp-cotton-ribbed-jersey-top.htm"
+    },
+    {
+     "name": "Product Image of Hemp & cotton ribbed jersey top",
+     "productUrl": "https://www.poetryfashion.co.uk/product-RF07-POETT/colour-t-port/tshirts-tops/hemp-cotton-ribbed-jersey-top.htm"
+    },
+    {
+     "name": "Product Image of Printed organic cotton top",
+     "productUrl": "https://www.poetryfashion.co.uk/product-RW95-POETT/colour-a-warm-mink/tshirts-tops/printed-organic-cotton-top.htm"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Shopbop",
+   "site": "shopbop.com.shopbop",
+   "collected": 453,
+   "stored": 453,
+   "storeErr": "",
+   "cats": {
+    "tops": 159,
+    "sweatshirts": 82,
+    "shirts": 8,
+    "pants": 101,
+    "dresses": 103
+   },
+   "perUrl": [
+    {
+     "url": "https://www.shopbop.com/clothing-tops/br/v=1/13332.htm",
+     "count": 231,
+     "note": ""
+    },
+    {
+     "url": "https://www.shopbop.com/clothing-tops/br/v=1/13332.htm?f=MATopsStyle-Sweatshirt",
+     "count": 241,
+     "note": ""
+    },
+    {
+     "url": "https://www.shopbop.com/clothing-dresses/br/v=1/13351.htm",
      "count": 245,
      "note": ""
     },
     {
-     "url": "https://www.crewclothing.co.uk/womens/clothing/sweatshirts-hoodies/",
-     "count": 104,
-     "note": ""
-    },
-    {
-     "url": "https://www.crewclothing.co.uk/womens/clothing/shirts-and-blouses/",
-     "count": 128,
-     "note": ""
-    },
-    {
-     "url": "https://www.crewclothing.co.uk/womens/clothing/womens-dresses-and-skirts/dresses/",
-     "count": 136,
-     "note": ""
-    },
-    {
-     "url": "https://www.crewclothing.co.uk/womens/clothing/trousers/",
-     "count": 84,
+     "url": "https://www.shopbop.com/clothing-pants/br/v=1/13281.htm?f=MAWomensPantsStyle-Sweatpants",
+     "count": 243,
      "note": ""
     }
    ],
-   "secs": 124,
-   "dropped": 1,
+   "secs": 67,
+   "dropped": 30,
    "sample": [
     {
-     "name": "Breton T-Shirt in White & Navy",
-     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/breton-tshirt-white-navy-stripe-woe052/"
+     "name": "Exclusive",
+     "productUrl": "https://www.shopbop.com/varsity-mockneck-parke/vp/v=1/1540323977.htm"
     },
     {
-     "name": "Perfect Crew Neck Slub T-Shirt in Black",
-     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/perfect-crew-neck-slub-tshirt-black-wue014/"
+     "name": "Exclusive",
+     "productUrl": "https://www.shopbop.com/varsity-mockneck-parke/vp/v=1/1541343355.htm"
     },
     {
-     "name": "Perfect Crew Slub T-Shirt in Navy",
-     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/perfect-crew-slub-tshirt-blue-woe300/"
+     "name": "1533759103.htm",
+     "productUrl": "https://www.shopbop.com/crew-neck-sweatshirt-polo-ralph/vp/v=1/1533759103.htm"
     },
     {
-     "name": "Perfect Crew Slub T-Shirt in Pink",
-     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/perfect-crew-slub-tshirt-pink-woe300/"
+     "name": "Exclusive",
+     "productUrl": "https://www.shopbop.com/farrah-terry-tee-le-bop/vp/v=1/1506758292.htm"
     },
     {
-     "name": "Perfect Stripe Crew Neck Slub T-Shirt in Navy White Stripes",
-     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/stripe-slub-tshirt-navy-white-wue065/"
+     "name": "1556183986.htm",
+     "productUrl": "https://www.shopbop.com/hazel-tee-le-bop/vp/v=1/1556183986.htm"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Sweaty betty",
+   "site": "sweatybetty.com.sweatybetty",
+   "collected": 353,
+   "stored": 353,
+   "storeErr": "",
+   "cats": {
+    "tops": 68,
+    "shirts": 28,
+    "sweatshirts": 87,
+    "pants": 139,
+    "dresses": 31
+   },
+   "perUrl": [
+    {
+     "url": "https://www.sweatybetty.com/us/shop/tops",
+     "count": 168,
+     "note": ""
+    },
+    {
+     "url": "https://www.sweatybetty.com/us/shop/tops/sweatshirts-and-hoodies",
+     "count": 99,
+     "note": ""
+    },
+    {
+     "url": "https://www.sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits",
+     "count": 40,
+     "note": ""
+    },
+    {
+     "url": "https://www.sweatybetty.com/us/shop/bottoms",
+     "count": 165,
+     "note": ""
+    }
+   ],
+   "secs": 174,
+   "dropped": 9,
+   "sample": [
+    {
+     "name": "motion waterproof cropped jacket SB10228 BrownMiniCheckPrint.html",
+     "productUrl": "https://www.sweatybetty.com/us/shop/tops/jackets/motion-waterproof-cropped-jacket-SB10228_BrownMiniCheckPrint.html"
+    },
+    {
+     "name": "breathe easy mesh tee SB9910 Black.html",
+     "productUrl": "https://www.sweatybetty.com/us/shop/tops/t-shirts/breathe-easy-mesh-tee-SB9910_Black.html"
+    },
+    {
+     "name": "motion waterproof mid parka SB10899 BrackenGreen.html",
+     "productUrl": "https://www.sweatybetty.com/us/shop/tops/jackets/motion-waterproof-mid-parka-SB10899_BrackenGreen.html"
+    },
+    {
+     "name": "after class seam detail longline sweatshirt SB05098 DecoPink.html",
+     "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/after-class-seam-detail-longline-sweatshirt-SB05098_DecoPink.html"
+    },
+    {
+     "name": "plush fleece contrast zip up SB10781 BrownInkLeopardPrint.html",
+     "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/plush-fleece-contrast-zip-up-SB10781_BrownInkLeopardPrint.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Wrap",
+   "site": "wraplondon.com.wrap",
+   "collected": 469,
+   "stored": 469,
+   "storeErr": "",
+   "cats": {
+    "tops": 65,
+    "sweatshirts": 140,
+    "dresses": 50,
+    "shirts": 72,
+    "pants": 142
+   },
+   "perUrl": [
+    {
+     "url": "https://www.wraplondon.com/subcats/SWAJT/jersey-tops/index.htm",
+     "count": 82,
+     "note": ""
+    },
+    {
+     "url": "https://www.wraplondon.com/subcats/SWAKW/knitwear/index.htm",
+     "count": 124,
+     "note": ""
+    },
+    {
+     "url": "https://www.wraplondon.com/subcats/SWABL/shirts-tops/index.htm",
+     "count": 69,
+     "note": ""
+    },
+    {
+     "url": "https://www.wraplondon.com/subcats/SWADRSK/dresses-skirts/index.htm",
+     "count": 72,
+     "note": ""
+    },
+    {
+     "url": "https://www.wraplondon.com/subcats/SWATR/jeans-trousers/index.htm",
+     "count": 122,
+     "note": ""
+    }
+   ],
+   "secs": 81,
+   "dropped": 0,
+   "sample": [
+    {
+     "name": "Product Image of Ribbed jersey cotton t-shirt",
+     "productUrl": "https://www.wraplondon.com/fashion-TH16-SWAJT/colour-d-crimson/jersey-tops/ribbed-jersey-cotton-tshirt.htm"
+    },
+    {
+     "name": "Product Image of Hemp & organic cotton jersey t-shirt",
+     "productUrl": "https://www.wraplondon.com/fashion-ZU80-SWAJT/colour-p-dusty-rose/jersey-tops/hemp-organic-cotton-jersey-tshirt.htm"
+    },
+    {
+     "name": "Product Image of Hemp & organic cotton roll-neck top",
+     "productUrl": "https://www.wraplondon.com/fashion-TJ22-SWAJT/colour-e-dusty-rose/jersey-tops/hemp-organic-cotton-rollneck-top.htm"
+    },
+    {
+     "name": "Product Image of Hemp & organic cotton drop-shoulder top",
+     "productUrl": "https://www.wraplondon.com/fashion-TD51-SWAJT/colour-g-peach-pink/jersey-tops/hemp-organic-cotton-dropshoulder-top.htm"
+    },
+    {
+     "name": "Product Image of Cotton velour top",
+     "productUrl": "https://www.wraplondon.com/fashion-TB01-SWAJT/colour-e-grape/jersey-tops/cotton-velour-top.htm"
     }
    ],
    "verdict": "자동화 가능"
