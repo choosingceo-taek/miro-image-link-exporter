@@ -332,7 +332,9 @@ export default {
 
     try {
       // 키가 없어도 막지 않는다 — 구조화 데이터만으로 채울 수 있는 항목이 많다.
-      const result = await extractFabric(url, env.GEMINI_API_KEY || '');
+      // noai=1 은 패널이 AI 한도에 걸린 뒤 보내는 신호. AI 없이 뽑을 수 있는 것만 돌려준다.
+      const noAi = reqUrl.searchParams.get('noai') === '1';
+      const result = await extractFabric(url, noAi ? '' : (env.GEMINI_API_KEY || ''));
       // 실패는 캐시하지 않는다 — 일시적 차단이면 다음에 성공할 수 있다.
       if (env.RACK_CACHE && result.status !== 'blocked' && result.status !== 'error') {
         try {
@@ -603,16 +605,19 @@ async function extractFabric(url, apiKey) {
   //    이걸로 다 채워지면 AI 호출 자체를 건너뛰어 무료 한도(429)를 쓰지 않는다.
   const sp0 = page.shopify || {};
   const ld = fromJsonLd(page.html);
+  const textComp = (ld.composition && ld.composition.length) ? ld.composition : compFromText(page.text);
   const pre = {
     product_name: ld.product_name || page.title || '',
     price: sp0.price || ld.price || '',
     price_original: sp0.priceOrig || ld.price_original || '',
     color: sp0.color || ld.color || '',
     sizes: (sp0.sizes && sp0.sizes.length ? sp0.sizes : ld.sizes) || [],
-    composition: ld.composition || [],
-    materials: ld.materials || [],
+    composition: textComp,
+    materials: (ld.materials && ld.materials.length) ? ld.materials : textComp.map((c) => c.material),
   };
-  const complete = pre.price && pre.color && pre.sizes.length && pre.composition.length;
+  // AI 는 "이걸로도 안 되는 것"에만 쓴다. 컬러 하나 때문에 호출하면 무료 한도가
+  // 금방 바닥나고, 정작 중요한 혼용률·가격이 있는 상품까지 대기에 걸린다.
+  const complete = pre.composition.length && pre.price && pre.sizes.length;
   if (complete || !apiKey) {
     return {
       product_name: pre.product_name,
@@ -923,6 +928,53 @@ function fromJsonLd(html) {
       ? out.composition.map((c) => c.material)
       : matRaw.split(/[,/]/).map((t) => titleCase(t.trim())).filter(Boolean).slice(0, 8);
   }
+  return out;
+}
+
+// ── 본문 텍스트에서 혼용률 뽑기 (AI 미사용) ─────────────────────────────
+// 혼용률은 구조화 데이터에 잘 안 들어가지만, 본문에는 거의 항상 "60% Cotton" 형태로 적혀 있다.
+// 이걸 먼저 읽으면 AI 호출이 크게 줄어 무료 한도 대기가 사라진다.
+// "20% OFF", "100% satisfaction" 같은 숫자를 섬유로 오인하지 않도록 섬유명 목록으로 제한한다.
+const FIBRES = {
+  cotton: 'Cotton', 'organic cotton': 'Cotton', polyester: 'Polyester',
+  'recycled polyester': 'Polyester', elastane: 'Elastane', spandex: 'Elastane',
+  lycra: 'Elastane', modal: 'Modal', nylon: 'Nylon', polyamide: 'Nylon',
+  viscose: 'Viscose', rayon: 'Viscose', wool: 'Wool', 'merino wool': 'Wool', merino: 'Wool',
+  silk: 'Silk', linen: 'Linen', flax: 'Linen', cashmere: 'Cashmere', acrylic: 'Acrylic',
+  lyocell: 'Lyocell', tencel: 'Lyocell', hemp: 'Hemp', ramie: 'Ramie', jute: 'Jute',
+  alpaca: 'Alpaca', mohair: 'Mohair', angora: 'Angora', bamboo: 'Bamboo', cupro: 'Cupro',
+  acetate: 'Acetate', triacetate: 'Triacetate', polyurethane: 'Polyurethane', leather: 'Leather',
+  // 한국어 표기. 한 글자짜리(면·울)는 '화면'·'서울' 같은 낱말에 걸려 오탐이 나므로 뺀다.
+  폴리에스테르: 'Polyester', 나일론: 'Nylon', 스판덱스: 'Elastane', 레이온: 'Viscose',
+  모달: 'Modal', 리넨: 'Linen', 실크: 'Silk', 캐시미어: 'Cashmere', 아크릴: 'Acrylic',
+  비스코스: 'Viscose', 텐셀: 'Lyocell', 라이오셀: 'Lyocell',
+};
+const FIBRE_ALT = Object.keys(FIBRES)
+  .sort((a, z) => z.length - a.length)
+  .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  .join('|');
+// \b 는 한글에 걸리지 않는다(한글은 \w 가 아니라 '폴리에스테르' 앞뒤에 경계가 없다).
+// 그래서 경계 대신 "라틴 문자와 붙어 있지 않을 것" 으로 판정한다.
+const COMP_RX = new RegExp(
+  '(\\d{1,3})\\s*%\\s*(?:of\\s+)?(' + FIBRE_ALT + ')(?![A-Za-z])' +
+  '|(?<![A-Za-z])(' + FIBRE_ALT + ')\\s*[::]?\\s*(\\d{1,3})\\s*%', 'gi');
+
+function compFromText(text) {
+  const out = [];
+  const seen = new Set();
+  for (const m of String(text || '').slice(0, 16000).matchAll(COMP_RX)) {
+    const pct = Number(m[1] || m[4]);
+    const key = String(m[2] || m[3] || '').toLowerCase().trim();
+    const material = FIBRES[key];
+    if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
+    if (seen.has(material)) continue;
+    seen.add(material);
+    out.push({ material, percent: pct });
+    if (out.length >= 8) break;
+  }
+  // 합이 터무니없으면(겉감·안감이 뒤섞였거나 오탐) 버린다. 100 하나만 있는 것은 정상.
+  const total = out.reduce((n, c) => n + c.percent, 0);
+  if (!out.length || total > 210) return [];
   return out;
 }
 

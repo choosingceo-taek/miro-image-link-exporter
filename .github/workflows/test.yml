@@ -21,6 +21,8 @@ jobs:
         run: node scripts/test-rowvalues.mjs
       - name: Run structured-data (JSON-LD) tests
         run: node scripts/test-jsonld.mjs
+      - name: Run composition-from-text tests
+        run: node scripts/test-composition.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
