@@ -17,6 +17,8 @@ jobs:
         run: node scripts/test-category.mjs
       - name: Run price parser tests
         run: node scripts/test-price.mjs
+      - name: Run excel row tests
+        run: node scripts/test-rowvalues.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
