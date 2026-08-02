@@ -315,9 +315,31 @@ export default {
     const url = ((body && body.url) || '').trim();
     if (!url) return json({ error: 'missing "url"' }, 400, cors);
 
+    // 같은 상품을 다시 스캔하는 일이 잦다(보드를 조금 고치고 또 뽑는다).
+    // 상품 페이지 내용은 하루 이틀 사이에 바뀌지 않으므로 결과를 7일 보관한다.
+    // 캐시가 맞으면 사이트 접속도 AI 호출도 아예 일어나지 않아 즉시 응답한다.
+    const CACHE_MS = 7 * 24 * 3600 * 1000;
+    const cacheKey = 'prod:' + url.slice(0, 400);
+    const noCache = reqUrl.searchParams.get('nocache') === '1';
+    if (!noCache && env.RACK_CACHE) {
+      try {
+        const hit = await env.RACK_CACHE.get(cacheKey, 'json');
+        if (hit && hit.at && Date.now() - hit.at < CACHE_MS && hit.data) {
+          return json({ url, ...hit.data, cached: true }, 200, cors);
+        }
+      } catch (e) {}
+    }
+
     try {
       // 키가 없어도 막지 않는다 — 구조화 데이터만으로 채울 수 있는 항목이 많다.
       const result = await extractFabric(url, env.GEMINI_API_KEY || '');
+      // 실패는 캐시하지 않는다 — 일시적 차단이면 다음에 성공할 수 있다.
+      if (env.RACK_CACHE && result.status !== 'blocked' && result.status !== 'error') {
+        try {
+          await env.RACK_CACHE.put(cacheKey, JSON.stringify({ at: Date.now(), data: result }),
+            { expirationTtl: 8 * 24 * 3600 });
+        } catch (e) {}
+      }
       return json({ url, ...result }, 200, cors);
     } catch (e) {
       return json(
