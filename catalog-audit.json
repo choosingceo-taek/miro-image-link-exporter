@@ -1,8 +1,182 @@
 {
- "when": "2026-08-02T02:19:31.723Z",
- "scanned": 31177,
- "flagged": 66,
+ "when": "2026-08-02T20:38:52.774Z",
+ "scanned": 37211,
+ "flagged": 219,
  "report": [
+  {
+   "brand": "anntaylor",
+   "site": "anntaylor.com",
+   "group": "?",
+   "total": 782,
+   "badCount": 32,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 32,
+     "rows": [
+      {
+       "name": "New Arrivals",
+       "productUrl": "https://www.anntaylor.com/new-arrivals/all-new-arrivals/cata00008/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "New Arrivals",
+       "productUrl": "https://www.anntaylor.com/cata00008",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shades of the Season",
+       "productUrl": "https://www.anntaylor.com/cat5310001",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Trends to Try",
+       "productUrl": "https://www.anntaylor.com/cata7000090",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Work Tops",
+       "productUrl": "https://www.anntaylor.com/cat1410003",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Work Pants",
+       "productUrl": "https://www.anntaylor.com/cat4190020",
+       "category": "pants",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "New Weekend Styles",
+       "productUrl": "https://www.anntaylor.com/cata7000064",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Weekend-Ready Tops",
+       "productUrl": "https://www.anntaylor.com/cata7000065",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Occasion Dressing",
+       "productUrl": "https://www.anntaylor.com/cat5550004",
+       "category": "dresses",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "All Clothing",
+       "productUrl": "https://www.anntaylor.com/cat3630020",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Everyday Dresses",
+       "productUrl": "https://www.anntaylor.com/clothing/dresses/cata000012/",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Everyday Dresses",
+       "productUrl": "https://www.anntaylor.com/cata000012",
+       "category": "dresses",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "freepeople",
+   "site": "freepeople.com",
+   "group": "?",
+   "total": 276,
+   "badCount": 29,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 29,
+     "rows": [
+      {
+       "name": "FP Movement",
+       "productUrl": "https://www.freepeople.com/fpmovement/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Shop FP Pants: Statement",
+       "productUrl": "https://www.freepeople.com/statement-pants-curation/",
+       "category": "pants",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Download on the App Store",
+       "productUrl": "https://itunes.apple.com/us/app/free-people/id659532790",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Learn About Care FP",
+       "productUrl": "https://www.freepeople.com/care-fp/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Free People",
+       "productUrl": "https://www.freepeople.com/dresses/",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Shop FP Dresses: Maxi Dresses",
+       "productUrl": "https://www.freepeople.com/maxi-dresses/",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Dresses: Mini Dresses",
+       "productUrl": "https://www.freepeople.com/mini-dresses/",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Dresses: Midi Dresses",
+       "productUrl": "https://www.freepeople.com/midi-dresses/",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Dresses: Printed Dresses",
+       "productUrl": "https://www.freepeople.com/printed-dresses/",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop FP Dresses: Special Occassion Dresses",
+       "productUrl": "https://www.freepeople.com/party-dresses/",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Free People",
+       "productUrl": "https://www.freepeople.com/blouses/",
+       "category": "shirts",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Shop FP Tops: Going Out Tops",
+       "productUrl": "https://www.freepeople.com/going-out-tops/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    }
+   ]
+  },
   {
    "brand": "Ann Taylor",
    "site": "anntaylor.com.anntaylor",
@@ -91,6 +265,249 @@
    ]
   },
   {
+   "brand": "thewhitecompany",
+   "site": "thewhitecompany.com",
+   "group": "?",
+   "total": 82,
+   "badCount": 13,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 13,
+     "rows": [
+      {
+       "name": "shop sale",
+       "productUrl": "https://www.thewhitecompany.com/uk/c/sale",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "a bedroom with a bed, a table and a lamp",
+       "productUrl": "https://www.thewhitecompany.com/uk/magazine/sleep",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "a woman in a white dress standing under a tree with a table and chairs",
+       "productUrl": "https://www.thewhitecompany.com/uk/magazine/home",
+       "category": "dresses",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "two women in white and beige outfits standing next to each other",
+       "productUrl": "https://www.thewhitecompany.com/uk/magazine/style/lookbook",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "a candle sitting on top of a stack of books with a glass on top of it",
+       "productUrl": "https://www.thewhitecompany.com/uk/magazine/scent",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "a white table with a shell and shells on it",
+       "productUrl": "https://www.thewhitecompany.com/uk/magazine/wellness",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "three children carrying a surfboard on the beach",
+       "productUrl": "https://www.thewhitecompany.com/uk/magazine/little-ones",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "a candle and a vase of flowers sit on a table",
+       "productUrl": "https://www.thewhitecompany.com/uk/magazine/gifts",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "the thread style",
+       "productUrl": "https://www.thewhitecompany.com/uk/magazine/style",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "delivery information",
+       "productUrl": "https://www.thewhitecompany.com/uk/help/delivery",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "gift box servive",
+       "productUrl": "https://www.thewhitecompany.com/uk/help/gift-box-service",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "gift cards",
+       "productUrl": "https://www.thewhitecompany.com/uk/gift-cards",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "sezane",
+   "site": "sezane.com",
+   "group": "extension",
+   "total": 170,
+   "badCount": 9,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 6,
+     "rows": [
+      {
+       "name": "SHOP",
+       "productUrl": "https://www.sezane.com/us-en/collection",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Gift cards",
+       "productUrl": "https://www.sezane.com/us-en/gift-cards",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "NEW IN",
+       "productUrl": "https://www.sezane.com/us-en/new-in",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "New in",
+       "productUrl": "https://www.sezane.com/us-en/petit-sezane/enfant/kids-petit-sezane",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "GIFT CARDS",
+       "productUrl": "https://www.sezane.com/us-en/octobre-editions/gift-cards",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "FAQ",
+       "productUrl": "https://www.sezane.com/us-en/help",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    },
+    {
+     "src": "https://www.sezane.com/us-en/collection/bottoms/trousers",
+     "count": 1,
+     "rows": [
+      {
+       "name": "trousers",
+       "productUrl": "https://www.sezane.com/us-en/collection/bottoms/trousers",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres",
+     "count": 1,
+     "rows": [
+      {
+       "name": "t shirts sweatshirts marinieres",
+       "productUrl": "https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
+     "count": 1,
+     "rows": [
+      {
+       "name": "sweat shirts sailor tops",
+       "productUrl": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "theupside",
+   "site": "theupside.com",
+   "group": "?",
+   "total": 589,
+   "badCount": 9,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 9,
+     "rows": [
+      {
+       "name": "Header Submenu Image",
+       "productUrl": "https://www.theupside.com/tanks-tees/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Meet Eddie Nelson, the Founder of Bred Breathwork",
+       "productUrl": "https://www.theupside.com/journal/",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method",
+       "productUrl": "https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.theupside.com/shop/bottoms/",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.instagram.com/the_upside/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Facebook",
+       "productUrl": "https://www.facebook.com/TheUpsideSport/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.theupside.com/shop/all-in-one/",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.theupside.com/shop/tops/knitwear/",
+       "category": "sweatshirts",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Instagram",
+       "productUrl": "https://www.theupside.com/shop/tops/",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "brand": "The white company",
    "site": "thewhitecompany.com.thewhitecompany",
    "group": "extension",
@@ -154,6 +571,345 @@
        "productUrl": "https://www.thewhitecompany.com/help/mobile-app",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "anthropologie",
+   "site": "anthropologie.com",
+   "group": "extension",
+   "total": 315,
+   "badCount": 8,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 5,
+     "rows": [
+      {
+       "name": "AnthroHome",
+       "productUrl": "https://www.anthropologie.com/anthrohome",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Download on the App Store",
+       "productUrl": "https://apps.apple.com/us/app/anthropologie/id922496703",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Teacher Appreciation",
+       "productUrl": "https://www.anthropologie.com/help/teacher-appreciation",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Sign up for text messages",
+       "productUrl": "https://www.anthropologie.com/help/sign-up",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "free shipping for anthroperks members",
+       "productUrl": "https://www.anthropologie.com/help/anthro-loyalty",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    },
+    {
+     "src": "https://www.anthropologie.com/bottoms",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Anthropologie",
+       "productUrl": "https://www.anthropologie.com/bottoms",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.anthropologie.com/dresses",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Anthropologie",
+       "productUrl": "https://www.anthropologie.com/dresses",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.anthropologie.com/tops-sweatshirts",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Anthropologie",
+       "productUrl": "https://www.anthropologie.com/tops-sweatshirts",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "loft",
+   "site": "loft.com",
+   "group": "extension",
+   "total": 800,
+   "badCount": 7,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 5,
+     "rows": [
+      {
+       "name": "meganav-img-2",
+       "productUrl": "https://www.loft.com/style-report/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "View All",
+       "productUrl": "https://www.loft.com/clothing/pants/palmer/cat4950033/",
+       "category": "pants",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "View All",
+       "productUrl": "https://www.loft.com/clothing/pants/shorts/cat370074/",
+       "category": "pants",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Follow Us",
+       "productUrl": "https://www.loft.com/loft-privacy/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Follow Us",
+       "productUrl": "https://www.loft.com/terms-of-use/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      }
+     ]
+    },
+    {
+     "src": "https://www.loft.com/clothing/pants/catl000014/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "meganav-img-2",
+       "productUrl": "https://www.loft.com/clothing/pants/catl000014/",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.loft.com/clothing/dresses/catl000013/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Shop All",
+       "productUrl": "https://www.loft.com/clothing/dresses/catl000013/",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "theory",
+   "site": "theory.com",
+   "group": "extension",
+   "total": 76,
+   "badCount": 7,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 5,
+     "rows": [
+      {
+       "name": "New Arrivals",
+       "productUrl": "https://www.theory.com/new-arrivals/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "New Arrivals",
+       "productUrl": "https://www.theory.com/womens-new/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "New Arrivals",
+       "productUrl": "https://www.theory.com/mens-new/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Linen Shop",
+       "productUrl": "https://www.theory.com/the-linen-shop/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "Download on the App Store",
+       "productUrl": "https://us-theory.onelink.me/VoRa/p47l071y",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    },
+    {
+     "src": "https://www.theory.com/women/dresses/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Dresses",
+       "productUrl": "https://www.theory.com/women/dresses/",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.theory.com/women/pants/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "pants",
+       "productUrl": "https://www.theory.com/women/pants/",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "gap",
+   "site": "gap.com",
+   "group": "extension",
+   "total": 14,
+   "badCount": 6,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 6,
+     "rows": [
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://www.gap.com/customer-service/gap-good-rewards",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://www.gap.com/customer-service/customer-service-faqs",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://www.gap.com/customer-service/contact-us",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://www.gap.com/customer-service/shipping-handling-information",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://www.gap.com/customerService/info.do",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://www.gapinc.com/en-us/careers/gap-careers",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "madewell",
+   "site": "madewell.com",
+   "group": "extension",
+   "total": 33,
+   "badCount": 6,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 3,
+     "rows": [
+      {
+       "name": "Icon",
+       "productUrl": "https://www.madewell.com/kr/store-locator",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Shop the look",
+       "productUrl": "https://www.madewell.com/kr/feature/womens-tees/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Shop the look",
+       "productUrl": "https://www.madewell.com/kr/mens/tees/bundles/",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/pants/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "pants",
+       "productUrl": "https://www.madewell.com/kr/womens/clothing/pants/",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/dresses/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "dresses",
+       "productUrl": "https://www.madewell.com/kr/womens/clothing/dresses/",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
+     "count": 1,
+     "rows": [
+      {
+       "name": "tops shirts",
+       "productUrl": "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
       }
      ]
     }
@@ -268,6 +1024,219 @@
    ]
   },
   {
+   "brand": "shop",
+   "site": "shop.lululemon.com",
+   "group": "?",
+   "total": 177,
+   "badCount": 6,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 6,
+     "rows": [
+      {
+       "name": "Bestsellers",
+       "productUrl": "https://shop.lululemon.com/c/women-bestsellers-dresses/n13fpxz6o10znskl",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Black",
+       "productUrl": "https://shop.lululemon.com/c/women-dresses/n1mk31",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Explore Loungewear",
+       "productUrl": "https://shop.lululemon.com/story/loungewear",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "Black",
+       "productUrl": "https://shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Black",
+       "productUrl": "https://shop.lululemon.com/c/women-tank-tops/n1uk4w",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Black",
+       "productUrl": "https://shop.lululemon.com/c/women-t-shirts/n1wx7w",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "shop",
+   "site": "shop.mango.com",
+   "group": "?",
+   "total": 54,
+   "badCount": 6,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 6,
+     "rows": [
+      {
+       "name": "High-waist suits trousers - General plane, Maroon. Ref: 37075841-00.",
+       "productUrl": "https://shop.mango.com/us/en/c/women/pants/0bf28b3b",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Crocheted dress with scalloped hem - General plane, White. Ref: 37072008-00.",
+       "productUrl": "https://shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Striped wrap blouse with tie - General plane, Blue. Ref: 37062894-00.",
+       "productUrl": "https://shop.mango.com/us/en/c/women/shirts---blouses/b8003173",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Knit sweater with contrasting trim - General plane, Green. Ref: 37092554-00.",
+       "productUrl": "https://shop.mango.com/us/en/c/women/knitwear/7e46863e",
+       "category": "sweatshirts",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "Asymmetrical draped top - Medium plane, Black. Ref: 37043321-00.",
+       "productUrl": "https://shop.mango.com/us/en/c/women/tops/227371cd",
+       "category": "tops",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "100% cotton round neck t-shirt - General plane, Pastel Pink. Ref: 37091331-00.",
+       "productUrl": "https://shop.mango.com/us/en/c/women/t-shirts/8e23bdfb",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "oldnavy",
+   "site": "oldnavy.gap.com",
+   "group": "?",
+   "total": 13,
+   "badCount": 3,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 3,
+     "rows": [
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://oldnavy.gap.com/customerService/info.do",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://jobs.gapinc.com/old-navy-home",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
+      {
+       "name": "all tops",
+       "productUrl": "https://oldnavy.gap.com/browse/women/all-tops",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "oysho",
+   "site": "oysho.com",
+   "group": "extension",
+   "total": 19,
+   "badCount": 3,
+   "bySrc": [
+    {
+     "src": "https://www.oysho.com/gb/womens-pants-n4813",
+     "count": 1,
+     "rows": [
+      {
+       "name": "womens pants n4813",
+       "productUrl": "https://www.oysho.com/gb/womens-pants-n4813",
+       "category": "pants",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
+     "count": 1,
+     "rows": [
+      {
+       "name": "womens sweatshirts n4922",
+       "productUrl": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+     "count": 1,
+     "rows": [
+      {
+       "name": "womens sports t shirts n4764",
+       "productUrl": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "stories",
+   "site": "stories.com",
+   "group": "?",
+   "total": 481,
+   "badCount": 3,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 3,
+     "rows": [
+      {
+       "name": "gift card",
+       "productUrl": "https://www.stories.com/en-us/customer-service/gift-card/",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "dresses",
+       "productUrl": "https://www.stories.com/en-us/clothing/dresses/",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      },
+      {
+       "name": "blouses shirts",
+       "productUrl": "https://www.stories.com/en-us/clothing/blouses-shirts/",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "brand": "The upside",
    "site": "theupside.com.theupside",
    "group": "extension",
@@ -322,6 +1291,39 @@
        "productUrl": "https://www.anthropologie.com/help/teacher-appreciation",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "fatface",
+   "site": "fatface.com",
+   "group": "extension",
+   "total": 544,
+   "badCount": 2,
+   "bySrc": [
+    {
+     "src": "https://www.fatface.com/shop/womens/clothing/dresses",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Women's Dresses",
+       "productUrl": "https://www.fatface.com/shop/womens/clothing/dresses",
+       "category": "dresses",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    },
+    {
+     "src": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Women's T-Shirts",
+       "productUrl": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
       }
      ]
     }
@@ -409,10 +1411,52 @@
    ]
   },
   {
+   "brand": "adidas",
+   "site": "adidas.com",
+   "group": "?",
+   "total": 800,
+   "badCount": 1,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 1,
+     "rows": [
+      {
+       "name": "sale",
+       "productUrl": "https://www.adidas.com/us/sale",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "bananarepublic",
+   "site": "bananarepublic.gap.com",
+   "group": "?",
+   "total": 8,
+   "badCount": 1,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Encore Credit Card Logo",
+       "productUrl": "https://bananarepublic.gap.com/customerService/info.do",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "brand": "Buck Mason",
    "site": "buckmason.com.buckmason",
    "group": "server",
-   "total": 139,
+   "total": 141,
    "badCount": 1,
    "bySrc": [
     {
@@ -454,7 +1498,7 @@
    "brand": "Evereve",
    "site": "evereve.com.evereve",
    "group": "server",
-   "total": 454,
+   "total": 450,
    "badCount": 1,
    "bySrc": [
     {
@@ -514,6 +1558,48 @@
    ]
   },
   {
+   "brand": "joules",
+   "site": "joules.com",
+   "group": "extension",
+   "total": 311,
+   "badCount": 1,
+   "bySrc": [
+    {
+     "src": "https://www.joules.com/shop/womens/clothing/shirts-and-blouses",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Shirts & Blouses",
+       "productUrl": "https://www.joules.com/shop/womens/clothing/shirts-and-blouses",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "landsend",
+   "site": "landsend.com",
+   "group": "?",
+   "total": 17,
+   "badCount": 1,
+   "bySrc": [
+    {
+     "src": "(출처 불명)",
+     "count": 1,
+     "rows": [
+      {
+       "name": "Woman wearing a sleeveless blouse",
+       "productUrl": "https://www.landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec",
+       "category": "shirts",
+       "reason": "카테고리 목록 페이지 자체"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "brand": "Loft",
    "site": "loft.com.loft",
    "group": "extension",
@@ -535,10 +1621,10 @@
    ]
   },
   {
-   "brand": "Mint velvet",
-   "site": "mintvelvet.com.mintvelvet",
-   "group": "server",
-   "total": 355,
+   "brand": "patagonia",
+   "site": "patagonia.com",
+   "group": "extension",
+   "total": 140,
    "badCount": 1,
    "bySrc": [
     {
@@ -546,10 +1632,10 @@
      "count": 1,
      "rows": [
       {
-       "name": "Gift Cards",
-       "productUrl": "https://mintvelvet.com/products/mv-gift-card",
-       "category": "sweatshirts",
-       "reason": "배너 문구가 상품명"
+       "name": "Patagonia Our Commitment Icon",
+       "productUrl": "https://www.patagonia.com/ownership/",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
       }
      ]
     }
@@ -643,7 +1729,7 @@
    "brand": "Whistles",
    "site": "whistles.com.whistles",
    "group": "server",
-   "total": 198,
+   "total": 195,
    "badCount": 1,
    "bySrc": [
     {
@@ -803,6 +1889,194 @@
    ]
   },
   {
+   "brand": "garnethill",
+   "site": "garnethill.com",
+   "group": "?",
+   "total": 5,
+   "perSrc": [
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 5
+    }
+   ],
+   "sample": [
+    {
+     "name": "Comfort Bootcut Pants",
+     "productUrl": "https://www.garnethill.com/comfort-bootcut-pants/clothing/categories/pants/734342"
+    },
+    {
+     "name": "Better Business Bureau Accredited Site",
+     "productUrl": "https://www.bbb.org/us/nh/franconia/profile/catalog-shopping/garnet-hill-inc-0051-13000170"
+    },
+    {
+     "name": "Naomi Lightweight Twill Midi Dress - Blue Mini Floral",
+     "productUrl": "https://www.garnethill.com/naomi-lightweight-twill-midi-dress---blue-mini-floral/clothing/categories/dresses/736921"
+    }
+   ]
+  },
+  {
+   "brand": "massimodutti",
+   "site": "massimodutti.com",
+   "group": "?",
+   "total": 5,
+   "perSrc": [
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 5
+    }
+   ],
+   "sample": [
+    {
+     "name": "White thin-strap top set with a straight neckline and chocolate-colored skort with an asymmetrical overlay panel.",
+     "productUrl": "https://www.massimodutti.com/us/pants-with-skirt-detail-and-linen-l05013713"
+    },
+    {
+     "name": "Powered by Onetrust",
+     "productUrl": "https://www.onetrust.com/solutions/consent-and-preferences/"
+    },
+    {
+     "name": "Close-up of the neckline of a brown dress with a center seam and black sunglasses.",
+     "productUrl": "https://www.massimodutti.com/us/100-cotton-poplin-draped-dress-l06652511"
+    }
+   ]
+  },
+  {
+   "brand": "athleta",
+   "site": "athleta.gap.com",
+   "group": "extension",
+   "total": 8,
+   "perSrc": [
+    {
+     "src": "https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops",
+     "n": 0
+    },
+    {
+     "src": "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts",
+     "n": 0
+    },
+    {
+     "src": "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A",
+     "n": 0
+    },
+    {
+     "src": "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A",
+     "n": 0
+    },
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 8
+    }
+   ],
+   "sample": [
+    {
+     "name": "20-40% Off* Almost Everything",
+     "productUrl": "https://athleta.gap.com/browse/bottoms/all-bottoms"
+    },
+    {
+     "name": "Brooklyn Mid Rise Ankle Pant",
+     "productUrl": "https://athleta.gap.com/browse/product.do"
+    },
+    {
+     "name": "Encore Credit Card Logo",
+     "productUrl": "https://athleta.gap.com/my-account/sign-in"
+    }
+   ]
+  },
+  {
+   "brand": "bananarepublic",
+   "site": "bananarepublic.gap.com",
+   "group": "?",
+   "total": 8,
+   "perSrc": [
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 8
+    }
+   ],
+   "sample": [
+    {
+     "name": "pants",
+     "productUrl": "https://bananarepublic.gap.com/browse/women/pants"
+    },
+    {
+     "name": "Mid-Rise Barrel Cotton Poplin Pant",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do"
+    },
+    {
+     "name": "Encore Credit Card Logo",
+     "productUrl": "https://bananarepublic.gap.com/my-account/sign-in"
+    }
+   ]
+  },
+  {
+   "brand": "oldnavy",
+   "site": "oldnavy.gap.com",
+   "group": "?",
+   "total": 13,
+   "perSrc": [
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 13
+    }
+   ],
+   "sample": [
+    {
+     "name": "sweatpants",
+     "productUrl": "https://oldnavy.gap.com/browse/women/sweatpants"
+    },
+    {
+     "name": "High-Waisted SoComfy Wide-Leg Sweatpants",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do"
+    },
+    {
+     "name": "Encore Credit Card Logo",
+     "productUrl": "https://oldnavy.gap.com/my-account/sign-in"
+    }
+   ]
+  },
+  {
+   "brand": "gap",
+   "site": "gap.com",
+   "group": "extension",
+   "total": 14,
+   "perSrc": [
+    {
+     "src": "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136",
+     "n": 0
+    },
+    {
+     "src": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
+     "n": 0
+    },
+    {
+     "src": "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
+     "n": 0
+    },
+    {
+     "src": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS",
+     "n": 0
+    },
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 14
+    }
+   ],
+   "sample": [
+    {
+     "name": "sweatshirts and sweatpants",
+     "productUrl": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants"
+    },
+    {
+     "name": "GapSweats Guide",
+     "productUrl": "https://www.gap.com/browse/info.do"
+    },
+    {
+     "name": "VintageSoft Baggy Sweatpants",
+     "productUrl": "https://www.gap.com/browse/product.do"
+    }
+   ]
+  },
+  {
    "brand": "Oysho",
    "site": "oysho.com.oysho",
    "group": "extension",
@@ -925,6 +2199,124 @@
    ]
   },
   {
+   "brand": "landsend",
+   "site": "landsend.com",
+   "group": "?",
+   "total": 17,
+   "perSrc": [
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 17
+    }
+   ],
+   "sample": [
+    {
+     "name": "Powered by Onetrust",
+     "productUrl": "https://www.onetrust.com/solutions/consent-and-preferences/"
+    },
+    {
+     "name": "casual dresses",
+     "productUrl": "https://www.landsend.com/shop/womens-casual-dresses/S-xfg-xez-y5c-xh9-xec"
+    },
+    {
+     "name": "midi length dresses",
+     "productUrl": "https://www.landsend.com/shop/womens-mid-calf-dresses/S-xfg-xez-y7r-y5c-xec"
+    }
+   ]
+  },
+  {
+   "brand": "Sessun",
+   "site": "en.sessun.com.sessun",
+   "group": "server",
+   "total": 18,
+   "perSrc": [
+    {
+     "src": "https://en.sessun.com/catalogue/t-shirts.html",
+     "n": 0
+    },
+    {
+     "src": "https://en.sessun.com/catalogue/sweatshirts.html",
+     "n": 0
+    },
+    {
+     "src": "https://en.sessun.com/catalogue/tops-and-bodies.html",
+     "n": 0
+    },
+    {
+     "src": "https://en.sessun.com/catalogue/dresses.html",
+     "n": 0
+    },
+    {
+     "src": "https://en.sessun.com/catalogue/trousers.html",
+     "n": 0
+    },
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 18
+    }
+   ],
+   "sample": [
+    {
+     "name": "RYTHMIA Barcelonazul | Shirt | SESSÙN Official website",
+     "productUrl": "https://us.sessun.com/catalogue/shirt-and-blouses/rythmia-barcelonazul.html"
+    },
+    {
+     "name": "DAZIK Modernazul | Shirt | SESSÙN Official website",
+     "productUrl": "https://us.sessun.com/catalogue/shirt-and-blouses/dazik-modernazul.html"
+    },
+    {
+     "name": "PROCIDA Whi Papier Libre | Shirt | SESSÙN Official website",
+     "productUrl": "https://us.sessun.com/catalogue/shirt-and-blouses/procida-whi-papier-libre.html"
+    }
+   ]
+  },
+  {
+   "brand": "oysho",
+   "site": "oysho.com",
+   "group": "extension",
+   "total": 19,
+   "perSrc": [
+    {
+     "src": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+     "n": 0
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-sports-tops-n5484",
+     "n": 0
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
+     "n": 0
+    },
+    {
+     "src": "https://www.oysho.com/gb/dresses-jumpsuits-n4954",
+     "n": 0
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-pants-n4813",
+     "n": 0
+    },
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 19
+    }
+   ],
+   "sample": [
+    {
+     "name": "womens pants n4813",
+     "productUrl": "https://www.oysho.com/gb/womens-pants-n4813"
+    },
+    {
+     "name": "flare pants n4815",
+     "productUrl": "https://www.oysho.com/gb/flare-pants-n4815"
+    },
+    {
+     "name": "jogger pants women n4818",
+     "productUrl": "https://www.oysho.com/gb/jogger-pants-women-n4818"
+    }
+   ]
+  },
+  {
    "brand": "Carlhartt",
    "site": "carhartt.com.carlhartt",
    "group": "browser",
@@ -970,7 +2362,7 @@
    "brand": "Monsoon",
    "site": "monsoonlondon.com.monsoon",
    "group": "server",
-   "total": 32,
+   "total": 31,
    "perSrc": [
     {
      "src": "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/",
@@ -990,7 +2382,7 @@
     },
     {
      "src": "(출처 없음 — 옛 수집분)",
-     "n": 32
+     "n": 31
     }
    ],
    "sample": [
@@ -999,12 +2391,54 @@
      "productUrl": "https://www.monsoonlondon.com/ie/irina-lace-trim-shirt-black-10062530001.html"
     },
     {
-     "name": "Laila Embellished Print Blouse Ivory",
-     "productUrl": "https://www.monsoonlondon.com/ie/laila-embellished-print-blouse-ivory-10062310016.html"
-    },
-    {
      "name": "Lucy Linen Blend Tank Top Black",
      "productUrl": "https://www.monsoonlondon.com/ie/lucy-linen-blend-tank-top-black-10063000001.html"
+    },
+    {
+     "name": "Laila Embellished Print Blouse Ivory",
+     "productUrl": "https://www.monsoonlondon.com/ie/laila-embellished-print-blouse-ivory-10062310016.html"
+    }
+   ]
+  },
+  {
+   "brand": "madewell",
+   "site": "madewell.com",
+   "group": "extension",
+   "total": 33,
+   "perSrc": [
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/tees/",
+     "n": 0
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
+     "n": 0
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/dresses/",
+     "n": 0
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/pants/",
+     "n": 0
+    },
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 33
+    }
+   ],
+   "sample": [
+    {
+     "name": "pants",
+     "productUrl": "https://www.madewell.com/kr/womens/clothing/pants/"
+    },
+    {
+     "name": "The Emmy Wide-Leg Pant",
+     "productUrl": "https://www.madewell.com/kr/p/womens/clothing/pants/wide-leg-pants/the-emmy-wide-leg-pant/OA961/"
+    },
+    {
+     "name": "The Low-Slung Baggy Utility Pant",
+     "productUrl": "https://www.madewell.com/kr/p/womens/clothing/pants/the-low-slung-baggy-utility-pant/OA963/"
     }
    ]
   },
@@ -1051,48 +2485,6 @@
     {
      "name": "gst footballs",
      "productUrl": "https://www.wilson.com/en-us/football/footballs/gst-footballs"
-    }
-   ]
-  },
-  {
-   "brand": "Prana",
-   "site": "prana.com.prana",
-   "group": "server",
-   "total": 43,
-   "perSrc": [
-    {
-     "src": "https://www.prana.com/women/tops.html",
-     "n": 0
-    },
-    {
-     "src": "https://www.prana.com/women/tops/sweaters-hoodies.html",
-     "n": 0
-    },
-    {
-     "src": "https://www.prana.com/women/dresses-skirts.html",
-     "n": 0
-    },
-    {
-     "src": "https://www.prana.com/women/bottoms.html",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 43
-    }
-   ],
-   "sample": [
-    {
-     "name": "Everyday Daisy Crop Tee",
-     "productUrl": "https://www.prana.com/p/everyday-daisy-crop-tee/2178941.html?dwvar_2178941_color=Black"
-    },
-    {
-     "name": "Moonvale Short Sleeve Top",
-     "productUrl": "https://www.prana.com/p/moonvale-short-sleeve-top/2162831.html?dwvar_2162831_color=Stone"
-    },
-    {
-     "name": "Mountain Maven Denim Shirt",
-     "productUrl": "https://www.prana.com/p/mountain-maven-denim-shirt/2163521.html?dwvar_2163521_color=Blue%20Denim"
     }
    ]
   },
@@ -1189,6 +2581,48 @@
    ]
   },
   {
+   "brand": "Prana",
+   "site": "prana.com.prana",
+   "group": "server",
+   "total": 50,
+   "perSrc": [
+    {
+     "src": "https://www.prana.com/women/tops.html",
+     "n": 0
+    },
+    {
+     "src": "https://www.prana.com/women/tops/sweaters-hoodies.html",
+     "n": 0
+    },
+    {
+     "src": "https://www.prana.com/women/dresses-skirts.html",
+     "n": 0
+    },
+    {
+     "src": "https://www.prana.com/women/bottoms.html",
+     "n": 0
+    },
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 50
+    }
+   ],
+   "sample": [
+    {
+     "name": "Everyday Daisy Crop Tee",
+     "productUrl": "https://www.prana.com/p/everyday-daisy-crop-tee/2178941.html?dwvar_2178941_color=Black"
+    },
+    {
+     "name": "Moonvale Short Sleeve Top",
+     "productUrl": "https://www.prana.com/p/moonvale-short-sleeve-top/2162831.html?dwvar_2162831_color=Stone"
+    },
+    {
+     "name": "Mountain Maven Denim Shirt",
+     "productUrl": "https://www.prana.com/p/mountain-maven-denim-shirt/2163521.html?dwvar_2163521_color=Blue%20Denim"
+    }
+   ]
+  },
+  {
    "brand": "Paige",
    "site": "paige.com.paige",
    "group": "extension",
@@ -1231,14 +2665,40 @@
    ]
   },
   {
+   "brand": "shop",
+   "site": "shop.mango.com",
+   "group": "?",
+   "total": 54,
+   "perSrc": [
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 54
+    }
+   ],
+   "sample": [
+    {
+     "name": "High-waist suits trousers - General plane, Maroon. Ref: 37075841-00.",
+     "productUrl": "https://shop.mango.com/us/en/c/women/pants/0bf28b3b"
+    },
+    {
+     "name": "High-waist suits trousers - General plane, Maroon. Ref: 37075841-00.",
+     "productUrl": "https://shop.mango.com/us/en/p/women/trousers/smart/high-waist-suits-trousers/37075841/76/00"
+    },
+    {
+     "name": "Straight pants with removable scarf - General plane, Khaki. Ref: 37091399-00.",
+     "productUrl": "https://shop.mango.com/us/en/p/women/trousers/casual/straight-pants-with-removable-scarf/37091399/37/00"
+    }
+   ]
+  },
+  {
    "brand": "J.mclaughlin",
    "site": "jmclaughlin.com.jmclaughlin",
    "group": "browser",
-   "total": 56,
+   "total": 55,
    "perSrc": [
     {
      "src": "https://www.jmclaughlin.com/collections/women-tops-tee",
-     "n": 10
+     "n": 9
     },
     {
      "src": "https://www.jmclaughlin.com/collections/women-tops-shirts",
@@ -1407,179 +2867,195 @@
   {
    "name": "&Other Stories",
    "items": 284,
-   "age": 1.9638308333333334,
+   "age": 20.286345,
    "missing": false
   },
   {
    "name": "Abercrombie & Fitch",
    "items": 46,
-   "age": 1.9261208333333333,
+   "age": 20.248635,
    "missing": false
   },
   {
    "name": "Addidas",
    "items": 600,
-   "age": 1.8732066666666667,
+   "age": 20.195720833333333,
    "missing": false
   },
   {
    "name": "Ann Taylor",
    "items": 139,
-   "age": 1.8493833333333334,
+   "age": 20.1718975,
    "missing": false
   },
   {
    "name": "Anthropologie",
    "items": 104,
-   "age": 1.7384416666666667,
+   "age": 20.060955833333335,
    "missing": false
   },
   {
    "name": "Arket",
    "items": 254,
-   "age": 1.683138611111111,
+   "age": 20.00565277777778,
    "missing": false
   },
   {
    "name": "Athleta",
    "items": 1,
-   "age": 1.6434883333333334,
+   "age": 19.9660025,
    "missing": false
   },
   {
    "name": "Banana Republic",
    "items": 1,
-   "age": 1.6001941666666666,
+   "age": 19.922708333333333,
    "missing": false
   },
   {
    "name": "FP Movement",
    "items": 98,
-   "age": 1.5193016666666668,
+   "age": 19.84181583333333,
    "missing": false
   },
   {
    "name": "Fatface",
    "items": 452,
-   "age": 1.4712361111111112,
+   "age": 19.79375027777778,
    "missing": false
   },
   {
    "name": "Free People",
    "items": 170,
-   "age": 1.3858244444444445,
+   "age": 19.70833861111111,
    "missing": false
   },
   {
    "name": "Gap",
    "items": 4,
-   "age": 1.3514083333333333,
+   "age": 19.6739225,
    "missing": false
   },
   {
    "name": "Garnet hill",
    "items": 118,
-   "age": 1.3023719444444444,
+   "age": 19.62488611111111,
    "missing": false
   },
   {
    "name": "Joules",
    "items": 299,
-   "age": 1.260911111111111,
+   "age": 19.583425277777778,
    "missing": false
   },
   {
    "name": "Lands end",
    "items": 87,
-   "age": 1.1600219444444444,
+   "age": 19.482536111111113,
    "missing": false
   },
   {
    "name": "Loft",
    "items": 616,
-   "age": 1.1137544444444445,
+   "age": 19.43626861111111,
    "missing": false
   },
   {
    "name": "Lululemon",
    "items": 114,
-   "age": 1.0291627777777779,
+   "age": 19.351676944444446,
    "missing": false
   },
   {
    "name": "Madewell",
    "items": 16,
-   "age": 0.9962233333333333,
+   "age": 19.3187375,
    "missing": false
   },
   {
    "name": "Mango",
    "items": 47,
-   "age": 0.9659252777777778,
+   "age": 19.288439444444446,
    "missing": false
   },
   {
    "name": "Massimo Dutti",
    "items": 16,
-   "age": 0.9135922222222222,
+   "age": 19.23610638888889,
    "missing": false
   },
   {
    "name": "Old Navy",
    "items": 3,
-   "age": 0.8596444444444444,
+   "age": 19.18215861111111,
    "missing": false
   },
   {
    "name": "Oysho",
    "items": 15,
-   "age": 0.7989533333333333,
+   "age": 19.1214675,
    "missing": false
   },
   {
    "name": "Paige",
    "items": 51,
-   "age": 0.7605597222222222,
+   "age": 19.08307388888889,
    "missing": false
   },
   {
    "name": "Patagonia",
    "items": 202,
-   "age": 0.7292355555555555,
+   "age": 19.051749722222223,
    "missing": false
   },
   {
    "name": "Sezane",
    "items": 167,
-   "age": 0.7074205555555556,
+   "age": 19.029934722222222,
    "missing": false
   },
   {
    "name": "The upside",
    "items": 341,
-   "age": 0.6800577777777778,
+   "age": 19.002571944444444,
    "missing": false
   },
   {
    "name": "The white company",
    "items": 78,
-   "age": 0.6634936111111112,
+   "age": 18.98600777777778,
    "missing": false
   },
   {
    "name": "Theory",
    "items": 291,
-   "age": 0.5691972222222222,
+   "age": 18.89171138888889,
    "missing": false
   },
   {
    "name": "Wilson",
    "items": 40,
-   "age": 0.5449780555555556,
+   "age": 18.86749222222222,
    "missing": false
   }
  ],
  "priceCoverage": [
+  {
+   "brand": "loft",
+   "group": "extension",
+   "total": 800,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "anntaylor",
+   "group": "?",
+   "total": 782,
+   "withPrice": 1,
+   "pct": 0,
+   "sample": "$30"
+  },
   {
    "brand": "Loft",
    "group": "extension",
@@ -1599,15 +3075,31 @@
   {
    "brand": "CCC",
    "group": "browser",
-   "total": 594,
+   "total": 592,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
   },
   {
-   "brand": "Cotton on",
-   "group": "browser",
-   "total": 504,
+   "brand": "theupside",
+   "group": "?",
+   "total": 589,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "fatface",
+   "group": "extension",
+   "total": 544,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "stories",
+   "group": "?",
+   "total": 481,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1629,17 +3121,9 @@
    "sample": ""
   },
   {
-   "brand": "Sweaty betty",
-   "group": "browser",
-   "total": 359,
-   "withPrice": 0,
-   "pct": 0,
-   "sample": ""
-  },
-  {
    "brand": "Chico's",
    "group": "server",
-   "total": 346,
+   "total": 343,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1656,6 +3140,14 @@
    "brand": "Vince",
    "group": "server",
    "total": 340,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "joules",
+   "group": "extension",
+   "total": 311,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1695,7 +3187,7 @@
   {
    "brand": "WHBM",
    "group": "server",
-   "total": 278,
+   "total": 279,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1717,25 +3209,25 @@
    "sample": ""
   },
   {
-   "brand": "L.L bean",
-   "group": "server",
-   "total": 226,
+   "brand": "arket",
+   "group": "extension",
+   "total": 252,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
   },
   {
-   "brand": "Gerard darel",
-   "group": "browser",
-   "total": 225,
-   "withPrice": 1,
+   "brand": "abercrombie",
+   "group": "?",
+   "total": 246,
+   "withPrice": 0,
    "pct": 0,
-   "sample": "$485"
+   "sample": ""
   },
   {
-   "brand": "Boldest",
-   "group": "browser",
-   "total": 202,
+   "brand": "L.L bean",
+   "group": "server",
+   "total": 226,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1759,13 +3251,29 @@
   {
    "brand": "Rag & bone",
    "group": "server",
-   "total": 190,
+   "total": 188,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "shop",
+   "group": "?",
+   "total": 177,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
   },
   {
    "brand": "Free People",
+   "group": "extension",
+   "total": 170,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "sezane",
    "group": "extension",
    "total": 170,
    "withPrice": 0,
@@ -1791,7 +3299,15 @@
   {
    "brand": "Lucky Brand",
    "group": "browser",
-   "total": 155,
+   "total": 149,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "patagonia",
+   "group": "extension",
+   "total": 140,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1845,9 +3361,9 @@
    "sample": ""
   },
   {
-   "brand": "J.mclaughlin",
-   "group": "browser",
-   "total": 56,
+   "brand": "theory",
+   "group": "extension",
+   "total": 76,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1877,9 +3393,17 @@
    "sample": ""
   },
   {
-   "brand": "Carlhartt",
-   "group": "browser",
-   "total": 23,
+   "brand": "oysho",
+   "group": "extension",
+   "total": 19,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "landsend",
+   "group": "?",
+   "total": 17,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1896,6 +3420,38 @@
    "brand": "Oysho",
    "group": "extension",
    "total": 15,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "gap",
+   "group": "extension",
+   "total": 14,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "bananarepublic",
+   "group": "?",
+   "total": 8,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "garnethill",
+   "group": "?",
+   "total": 5,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "massimodutti",
+   "group": "?",
+   "total": 5,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1933,9 +3489,25 @@
    "sample": ""
   },
   {
+   "brand": "adidas",
+   "group": "?",
+   "total": 800,
+   "withPrice": 5,
+   "pct": 1,
+   "sample": "$80"
+  },
+  {
+   "brand": "anthropologie",
+   "group": "extension",
+   "total": 315,
+   "withPrice": 3,
+   "pct": 1,
+   "sample": "$100"
+  },
+  {
    "brand": "Gymshark",
    "group": "server",
-   "total": 253,
+   "total": 252,
    "withPrice": 2,
    "pct": 1,
    "sample": "$74"
@@ -1946,7 +3518,7 @@
    "total": 208,
    "withPrice": 3,
    "pct": 1,
-   "sample": "$200"
+   "sample": "$120"
   },
   {
    "brand": "Ann Taylor",
@@ -1957,44 +3529,28 @@
    "sample": "$10"
   },
   {
-   "brand": "Nike",
-   "group": "browser",
-   "total": 483,
-   "withPrice": 10,
+   "brand": "Dickies",
+   "group": "server",
+   "total": 304,
+   "withPrice": 6,
    "pct": 2,
-   "sample": "$47.00"
+   "sample": "$79.99"
+  },
+  {
+   "brand": "freepeople",
+   "group": "?",
+   "total": 276,
+   "withPrice": 7,
+   "pct": 3,
+   "sample": "$100"
   },
   {
    "brand": "Prana",
    "group": "server",
-   "total": 43,
-   "withPrice": 1,
-   "pct": 2,
-   "sample": "$25.60"
-  },
-  {
-   "brand": "Sessun",
-   "group": "server",
-   "total": 71,
+   "total": 50,
    "withPrice": 2,
-   "pct": 3,
-   "sample": "€116"
-  },
-  {
-   "brand": "vineyardvines",
-   "group": "server",
-   "total": 200,
-   "withPrice": 8,
    "pct": 4,
-   "sample": "$148.00"
-  },
-  {
-   "brand": "Me+Em",
-   "group": "browser",
-   "total": 498,
-   "withPrice": 27,
-   "pct": 5,
-   "sample": "$245.00"
+   "sample": "$25.60"
   },
   {
    "brand": "La Ligne",
@@ -2005,12 +3561,12 @@
    "sample": "$150"
   },
   {
-   "brand": "Buck Mason",
+   "brand": "vineyardvines",
    "group": "server",
-   "total": 139,
-   "withPrice": 8,
+   "total": 200,
+   "withPrice": 12,
    "pct": 6,
-   "sample": "$ 68"
+   "sample": "$148.00"
   },
   {
    "brand": "Madewell",
@@ -2021,44 +3577,68 @@
    "sample": "$100"
   },
   {
-   "brand": "Dickies",
+   "brand": "Buck Mason",
    "group": "server",
-   "total": 300,
-   "withPrice": 24,
-   "pct": 8,
-   "sample": "$39.99"
+   "total": 141,
+   "withPrice": 10,
+   "pct": 7,
+   "sample": "$ 68"
   },
   {
    "brand": "J.jill",
    "group": "server",
-   "total": 90,
+   "total": 89,
    "withPrice": 9,
    "pct": 10,
    "sample": "$79"
   },
   {
-   "brand": "Vuori",
-   "group": "server",
-   "total": 213,
-   "withPrice": 31,
-   "pct": 15,
-   "sample": "58"
+   "brand": "shop",
+   "group": "?",
+   "total": 54,
+   "withPrice": 6,
+   "pct": 11,
+   "sample": "$ 89.99"
   },
   {
-   "brand": "Eddie bauer",
+   "brand": "Sessun",
    "group": "server",
-   "total": 117,
-   "withPrice": 32,
-   "pct": 27,
-   "sample": "$17.97"
+   "total": 18,
+   "withPrice": 2,
+   "pct": 11,
+   "sample": "€116"
+  },
+  {
+   "brand": "Me+Em",
+   "group": "browser",
+   "total": 495,
+   "withPrice": 64,
+   "pct": 13,
+   "sample": "$115.00"
   },
   {
    "brand": "Bash",
    "group": "server",
-   "total": 67,
-   "withPrice": 20,
-   "pct": 30,
-   "sample": "€ 225"
+   "total": 117,
+   "withPrice": 17,
+   "pct": 15,
+   "sample": "€ 75"
+  },
+  {
+   "brand": "Vuori",
+   "group": "server",
+   "total": 210,
+   "withPrice": 36,
+   "pct": 17,
+   "sample": "58"
+  },
+  {
+   "brand": "Nike",
+   "group": "browser",
+   "total": 469,
+   "withPrice": 134,
+   "pct": 29,
+   "sample": "$70"
   },
   {
    "brand": "Wilson",
@@ -2077,6 +3657,22 @@
    "sample": "$58.00"
   },
   {
+   "brand": "oldnavy",
+   "group": "?",
+   "total": 13,
+   "withPrice": 5,
+   "pct": 38,
+   "sample": "$50"
+  },
+  {
+   "brand": "Eddie bauer",
+   "group": "server",
+   "total": 113,
+   "withPrice": 46,
+   "pct": 41,
+   "sample": "$17.97"
+  },
+  {
    "brand": "Ninety Percent",
    "group": "server",
    "total": 182,
@@ -2085,12 +3681,12 @@
    "sample": "$40.00"
   },
   {
-   "brand": "On",
-   "group": "browser",
-   "total": 144,
-   "withPrice": 67,
-   "pct": 47,
-   "sample": "$120.00"
+   "brand": "athleta",
+   "group": "extension",
+   "total": 8,
+   "withPrice": 4,
+   "pct": 50,
+   "sample": "$50"
   },
   {
    "brand": "LNA",
@@ -2109,6 +3705,14 @@
    "sample": "$88.00"
   },
   {
+   "brand": "On",
+   "group": "browser",
+   "total": 163,
+   "withPrice": 96,
+   "pct": 59,
+   "sample": "$55.00"
+  },
+  {
    "brand": "Outdoorvoices",
    "group": "server",
    "total": 128,
@@ -2125,6 +3729,14 @@
    "sample": "$109.00"
   },
   {
+   "brand": "J.mclaughlin",
+   "group": "browser",
+   "total": 55,
+   "withPrice": 37,
+   "pct": 67,
+   "sample": "$98.000.00"
+  },
+  {
    "brand": "Nylora",
    "group": "server",
    "total": 226,
@@ -2135,8 +3747,8 @@
   {
    "brand": "Whistles",
    "group": "server",
-   "total": 198,
-   "withPrice": 141,
+   "total": 195,
+   "withPrice": 138,
    "pct": 71,
    "sample": "$ 69.00"
   },
@@ -2151,24 +3763,48 @@
   {
    "brand": "Ulla Johnson",
    "group": "server",
-   "total": 303,
-   "withPrice": 223,
+   "total": 304,
+   "withPrice": 224,
    "pct": 74,
    "sample": "$490.00"
   },
   {
+   "brand": "Carlhartt",
+   "group": "browser",
+   "total": 23,
+   "withPrice": 17,
+   "pct": 74,
+   "sample": "$11.99"
+  },
+  {
+   "brand": "madewell",
+   "group": "extension",
+   "total": 33,
+   "withPrice": 25,
+   "pct": 76,
+   "sample": "₩256,335"
+  },
+  {
    "brand": "Beyond yoga",
    "group": "server",
-   "total": 227,
-   "withPrice": 174,
+   "total": 228,
+   "withPrice": 175,
    "pct": 77,
    "sample": "$54.00"
+  },
+  {
+   "brand": "thewhitecompany",
+   "group": "?",
+   "total": 82,
+   "withPrice": 66,
+   "pct": 80,
+   "sample": "£130.00"
   },
   {
    "brand": "Sanctuary",
    "group": "server",
    "total": 401,
-   "withPrice": 325,
+   "withPrice": 324,
    "pct": 81,
    "sample": "$49.00"
   },
@@ -2187,6 +3823,14 @@
    "withPrice": 286,
    "pct": 83,
    "sample": "$205.00"
+  },
+  {
+   "brand": "Gerard darel",
+   "group": "browser",
+   "total": 225,
+   "withPrice": 190,
+   "pct": 84,
+   "sample": "$99"
   },
   {
    "brand": "The white company",
@@ -2213,20 +3857,20 @@
    "sample": "$43.00"
   },
   {
+   "brand": "rouje",
+   "group": "server",
+   "total": 222,
+   "withPrice": 201,
+   "pct": 91,
+   "sample": "$100"
+  },
+  {
    "brand": "Nation LTD",
    "group": "server",
    "total": 192,
    "withPrice": 176,
    "pct": 92,
    "sample": "$98.00"
-  },
-  {
-   "brand": "rouje",
-   "group": "server",
-   "total": 310,
-   "withPrice": 288,
-   "pct": 93,
-   "sample": "$100.00"
   },
   {
    "brand": "Lilla P",
@@ -2240,7 +3884,7 @@
    "brand": "Cotton citizen",
    "group": "server",
    "total": 307,
-   "withPrice": 293,
+   "withPrice": 292,
    "pct": 95,
    "sample": "$85.00"
   },
@@ -2269,26 +3913,50 @@
    "sample": "$40.00"
   },
   {
+   "brand": "The Great",
+   "group": "server",
+   "total": 146,
+   "withPrice": 143,
+   "pct": 98,
+   "sample": "$155.00"
+  },
+  {
    "brand": "Frank & Eileen",
    "group": "server",
-   "total": 416,
-   "withPrice": 413,
+   "total": 421,
+   "withPrice": 418,
    "pct": 99,
    "sample": "$268.00"
   },
   {
    "brand": "Reformation",
    "group": "server",
-   "total": 382,
+   "total": 383,
    "withPrice": 379,
    "pct": 99,
    "sample": "$98.00"
   },
   {
+   "brand": "Phase eight",
+   "group": "server",
+   "total": 373,
+   "withPrice": 371,
+   "pct": 99,
+   "sample": "$ 105.00"
+  },
+  {
+   "brand": "Sweaty betty",
+   "group": "browser",
+   "total": 353,
+   "withPrice": 350,
+   "pct": 99,
+   "sample": "$ 298.00"
+  },
+  {
    "brand": "Michael Stars",
    "group": "server",
-   "total": 214,
-   "withPrice": 212,
+   "total": 208,
+   "withPrice": 206,
    "pct": 99,
    "sample": "$88.00"
   },
@@ -2309,28 +3977,20 @@
    "sample": "$115.00"
   },
   {
-   "brand": "The Great",
-   "group": "server",
-   "total": 136,
-   "withPrice": 134,
-   "pct": 99,
-   "sample": "$95"
-  },
-  {
-   "brand": "Greyson",
-   "group": "server",
-   "total": 67,
-   "withPrice": 66,
-   "pct": 99,
-   "sample": "$90.00"
-  },
-  {
    "brand": "Gestuz",
    "group": "browser",
-   "total": 672,
-   "withPrice": 672,
+   "total": 667,
+   "withPrice": 667,
    "pct": 100,
-   "sample": "$230.0032343638404244"
+   "sample": "$230.003"
+  },
+  {
+   "brand": "Cotton on",
+   "group": "browser",
+   "total": 505,
+   "withPrice": 505,
+   "pct": 100,
+   "sample": "$24.99"
   },
   {
    "brand": "Wrap",
@@ -2341,20 +4001,20 @@
    "sample": "$75"
   },
   {
-   "brand": "Evereve",
-   "group": "server",
-   "total": 454,
-   "withPrice": 454,
-   "pct": 100,
-   "sample": "$98.00"
-  },
-  {
    "brand": "Shopbop",
    "group": "browser",
-   "total": 454,
-   "withPrice": 454,
+   "total": 453,
+   "withPrice": 453,
    "pct": 100,
    "sample": "$135.00"
+  },
+  {
+   "brand": "Evereve",
+   "group": "server",
+   "total": 450,
+   "withPrice": 450,
+   "pct": 100,
+   "sample": "$98.00"
   },
   {
    "brand": "Zara",
@@ -2362,15 +4022,7 @@
    "total": 421,
    "withPrice": 421,
    "pct": 100,
-   "sample": "$35.90"
-  },
-  {
-   "brand": "Phase eight",
-   "group": "server",
-   "total": 400,
-   "withPrice": 400,
-   "pct": 100,
-   "sample": "$ 125.00"
+   "sample": "$39.90"
   },
   {
    "brand": "Splendid",
@@ -2391,18 +4043,10 @@
   {
    "brand": "Everlane",
    "group": "server",
-   "total": 378,
-   "withPrice": 378,
+   "total": 380,
+   "withPrice": 380,
    "pct": 100,
    "sample": "$38.00"
-  },
-  {
-   "brand": "Aritzia",
-   "group": "server",
-   "total": 370,
-   "withPrice": 370,
-   "pct": 100,
-   "sample": "$110"
   },
   {
    "brand": "Velvet",
@@ -2421,26 +4065,34 @@
    "sample": "$385.00"
   },
   {
+   "brand": "Aritzia",
+   "group": "server",
+   "total": 366,
+   "withPrice": 366,
+   "pct": 100,
+   "sample": "$110"
+  },
+  {
    "brand": "Mint velvet",
    "group": "server",
-   "total": 355,
+   "total": 354,
    "withPrice": 354,
    "pct": 100,
-   "sample": "$45.00"
+   "sample": "£79.00"
   },
   {
    "brand": "Jager",
    "group": "server",
-   "total": 350,
-   "withPrice": 349,
+   "total": 349,
+   "withPrice": 348,
    "pct": 100,
    "sample": "£79"
   },
   {
    "brand": "Hobbs",
    "group": "server",
-   "total": 349,
-   "withPrice": 349,
+   "total": 347,
+   "withPrice": 347,
    "pct": 100,
    "sample": "$ 185.00"
   },
@@ -2455,8 +4107,8 @@
   {
    "brand": "H&M",
    "group": "server",
-   "total": 327,
-   "withPrice": 327,
+   "total": 326,
+   "withPrice": 326,
    "pct": 100,
    "sample": "$24.99"
   },
@@ -2471,8 +4123,8 @@
   {
    "brand": "Z Supply",
    "group": "server",
-   "total": 293,
-   "withPrice": 293,
+   "total": 292,
+   "withPrice": 292,
    "pct": 100,
    "sample": "$58.00"
   },
@@ -2495,8 +4147,8 @@
   {
    "brand": "Veronica Beard",
    "group": "server",
-   "total": 241,
-   "withPrice": 241,
+   "total": 243,
+   "withPrice": 243,
    "pct": 100,
    "sample": "$398.00"
   },
@@ -2511,16 +4163,16 @@
   {
    "brand": "Boden",
    "group": "server",
-   "total": 225,
-   "withPrice": 224,
+   "total": 224,
+   "withPrice": 223,
    "pct": 100,
-   "sample": "$160.00"
+   "sample": "$190.00"
   },
   {
    "brand": "Jigsaw",
    "group": "server",
-   "total": 219,
-   "withPrice": 219,
+   "total": 218,
+   "withPrice": 218,
    "pct": 100,
    "sample": "$45.00"
   },
@@ -2549,20 +4201,28 @@
    "sample": "$89.95"
   },
   {
-   "brand": "J crew",
+   "brand": "Boldest",
    "group": "browser",
-   "total": 191,
-   "withPrice": 191,
+   "total": 201,
+   "withPrice": 200,
    "pct": 100,
-   "sample": "$28.99"
+   "sample": "89,000원"
   },
   {
    "brand": "Alo",
    "group": "server",
-   "total": 185,
-   "withPrice": 185,
+   "total": 191,
+   "withPrice": 191,
    "pct": 100,
    "sample": "$68.00"
+  },
+  {
+   "brand": "J crew",
+   "group": "browser",
+   "total": 190,
+   "withPrice": 190,
+   "pct": 100,
+   "sample": "$28.99"
   },
   {
    "brand": "Frame",
@@ -2575,8 +4235,8 @@
   {
    "brand": "Good American",
    "group": "server",
-   "total": 153,
-   "withPrice": 153,
+   "total": 147,
+   "withPrice": 147,
    "pct": 100,
    "sample": "$115400"
   },
@@ -2591,18 +4251,26 @@
   {
    "brand": "American Eagle",
    "group": "server",
-   "total": 131,
-   "withPrice": 131,
+   "total": 132,
+   "withPrice": 132,
    "pct": 100,
    "sample": "$13.96"
   },
   {
    "brand": "Aerie",
    "group": "server",
-   "total": 113,
-   "withPrice": 113,
+   "total": 114,
+   "withPrice": 114,
    "pct": 100,
    "sample": "$14.97"
+  },
+  {
+   "brand": "Club monaco",
+   "group": "server",
+   "total": 109,
+   "withPrice": 109,
+   "pct": 100,
+   "sample": "$59.00"
   },
   {
    "brand": "Splits59",
@@ -2613,22 +4281,6 @@
    "sample": "$78.00"
   },
   {
-   "brand": "Club monaco",
-   "group": "server",
-   "total": 108,
-   "withPrice": 108,
-   "pct": 100,
-   "sample": "$59.00"
-  },
-  {
-   "brand": "Oasis",
-   "group": "server",
-   "total": 106,
-   "withPrice": 106,
-   "pct": 100,
-   "sample": "£17.40"
-  },
-  {
    "brand": "Spanx",
    "group": "server",
    "total": 97,
@@ -2637,10 +4289,26 @@
    "sample": "$98.00"
   },
   {
+   "brand": "Greyson",
+   "group": "server",
+   "total": 66,
+   "withPrice": 66,
+   "pct": 100,
+   "sample": "$90.00"
+  },
+  {
+   "brand": "Oasis",
+   "group": "server",
+   "total": 63,
+   "withPrice": 63,
+   "pct": 100,
+   "sample": "£15.00"
+  },
+  {
    "brand": "Monsoon",
    "group": "server",
-   "total": 32,
-   "withPrice": 32,
+   "total": 31,
+   "withPrice": 31,
    "pct": 100,
    "sample": "72.00"
   }
