@@ -1,5 +1,5 @@
 {
- "when": "2026-08-02T20:38:52.774Z",
+ "when": "2026-08-02T20:59:29.068Z",
  "scanned": 37211,
  "flagged": 219,
  "report": [
@@ -2867,175 +2867,175 @@
   {
    "name": "&Other Stories",
    "items": 284,
-   "age": 20.286345,
+   "age": 20.62976,
    "missing": false
   },
   {
    "name": "Abercrombie & Fitch",
    "items": 46,
-   "age": 20.248635,
+   "age": 20.59205,
    "missing": false
   },
   {
    "name": "Addidas",
    "items": 600,
-   "age": 20.195720833333333,
+   "age": 20.539135833333333,
    "missing": false
   },
   {
    "name": "Ann Taylor",
    "items": 139,
-   "age": 20.1718975,
+   "age": 20.5153125,
    "missing": false
   },
   {
    "name": "Anthropologie",
    "items": 104,
-   "age": 20.060955833333335,
+   "age": 20.404370833333335,
    "missing": false
   },
   {
    "name": "Arket",
    "items": 254,
-   "age": 20.00565277777778,
+   "age": 20.349067777777776,
    "missing": false
   },
   {
    "name": "Athleta",
    "items": 1,
-   "age": 19.9660025,
+   "age": 20.3094175,
    "missing": false
   },
   {
    "name": "Banana Republic",
    "items": 1,
-   "age": 19.922708333333333,
+   "age": 20.266123333333333,
    "missing": false
   },
   {
    "name": "FP Movement",
    "items": 98,
-   "age": 19.84181583333333,
+   "age": 20.185230833333332,
    "missing": false
   },
   {
    "name": "Fatface",
    "items": 452,
-   "age": 19.79375027777778,
+   "age": 20.13716527777778,
    "missing": false
   },
   {
    "name": "Free People",
    "items": 170,
-   "age": 19.70833861111111,
+   "age": 20.05175361111111,
    "missing": false
   },
   {
    "name": "Gap",
    "items": 4,
-   "age": 19.6739225,
+   "age": 20.0173375,
    "missing": false
   },
   {
    "name": "Garnet hill",
    "items": 118,
-   "age": 19.62488611111111,
+   "age": 19.96830111111111,
    "missing": false
   },
   {
    "name": "Joules",
    "items": 299,
-   "age": 19.583425277777778,
+   "age": 19.926840277777778,
    "missing": false
   },
   {
    "name": "Lands end",
    "items": 87,
-   "age": 19.482536111111113,
+   "age": 19.82595111111111,
    "missing": false
   },
   {
    "name": "Loft",
    "items": 616,
-   "age": 19.43626861111111,
+   "age": 19.77968361111111,
    "missing": false
   },
   {
    "name": "Lululemon",
    "items": 114,
-   "age": 19.351676944444446,
+   "age": 19.695091944444446,
    "missing": false
   },
   {
    "name": "Madewell",
    "items": 16,
-   "age": 19.3187375,
+   "age": 19.6621525,
    "missing": false
   },
   {
    "name": "Mango",
    "items": 47,
-   "age": 19.288439444444446,
+   "age": 19.631854444444443,
    "missing": false
   },
   {
    "name": "Massimo Dutti",
    "items": 16,
-   "age": 19.23610638888889,
+   "age": 19.57952138888889,
    "missing": false
   },
   {
    "name": "Old Navy",
    "items": 3,
-   "age": 19.18215861111111,
+   "age": 19.52557361111111,
    "missing": false
   },
   {
    "name": "Oysho",
    "items": 15,
-   "age": 19.1214675,
+   "age": 19.4648825,
    "missing": false
   },
   {
    "name": "Paige",
    "items": 51,
-   "age": 19.08307388888889,
+   "age": 19.42648888888889,
    "missing": false
   },
   {
    "name": "Patagonia",
    "items": 202,
-   "age": 19.051749722222223,
+   "age": 19.395164722222223,
    "missing": false
   },
   {
    "name": "Sezane",
    "items": 167,
-   "age": 19.029934722222222,
+   "age": 19.373349722222223,
    "missing": false
   },
   {
    "name": "The upside",
    "items": 341,
-   "age": 19.002571944444444,
+   "age": 19.345986944444444,
    "missing": false
   },
   {
    "name": "The white company",
    "items": 78,
-   "age": 18.98600777777778,
+   "age": 19.32942277777778,
    "missing": false
   },
   {
    "name": "Theory",
    "items": 291,
-   "age": 18.89171138888889,
+   "age": 19.23512638888889,
    "missing": false
   },
   {
    "name": "Wilson",
    "items": 40,
-   "age": 18.86749222222222,
+   "age": 19.21090722222222,
    "missing": false
   }
  ],
@@ -4311,6 +4311,487 @@
    "withPrice": 31,
    "pct": 100,
    "sample": "72.00"
+  }
+ ],
+ "duplicateKeys": [
+  {
+   "host": "abercrombie.com",
+   "bare": {
+    "site": "abercrombie.com",
+    "brand": "abercrombie",
+    "count": 246,
+    "updated": 1785661544892,
+    "cats": {
+     "tops": 143,
+     "sweatshirts": 20,
+     "pants": 22,
+     "dresses": 51,
+     "shirts": 10
+    }
+   },
+   "proper": [
+    {
+     "site": "abercrombie.com.abercrombiefitch",
+     "brand": "Abercrombie & Fitch",
+     "count": 46
+    }
+   ]
+  },
+  {
+   "host": "adidas.com",
+   "bare": {
+    "site": "adidas.com",
+    "brand": "adidas",
+    "count": 800,
+    "updated": 1785661751803,
+    "cats": {
+     "tops": 175,
+     "pants": 344,
+     "sweatshirts": 136,
+     "dresses": 74,
+     "shirts": 71
+    }
+   },
+   "proper": [
+    {
+     "site": "adidas.com.addidas",
+     "brand": "Addidas",
+     "count": 600
+    }
+   ]
+  },
+  {
+   "host": "anntaylor.com",
+   "bare": {
+    "site": "anntaylor.com",
+    "brand": "anntaylor",
+    "count": 782,
+    "updated": 1785661874650,
+    "cats": {
+     "tops": 198,
+     "pants": 192,
+     "dresses": 173,
+     "shirts": 210,
+     "sweatshirts": 9
+    }
+   },
+   "proper": [
+    {
+     "site": "anntaylor.com.anntaylor",
+     "brand": "Ann Taylor",
+     "count": 139
+    }
+   ]
+  },
+  {
+   "host": "anthropologie.com",
+   "bare": {
+    "site": "anthropologie.com",
+    "brand": "anthropologie",
+    "count": 315,
+    "updated": 1785662244579,
+    "cats": {
+     "tops": 139,
+     "pants": 49,
+     "sweatshirts": 21,
+     "shirts": 58,
+     "dresses": 48
+    }
+   },
+   "proper": [
+    {
+     "site": "anthropologie.com.anthropologie",
+     "brand": "Anthropologie",
+     "count": 104
+    }
+   ]
+  },
+  {
+   "host": "arket.com",
+   "bare": {
+    "site": "arket.com",
+    "brand": "arket",
+    "count": 252,
+    "updated": 1785662373510,
+    "cats": {
+     "tops": 53,
+     "dresses": 23,
+     "shirts": 170,
+     "sweatshirts": 6
+    }
+   },
+   "proper": [
+    {
+     "site": "arket.com.arket",
+     "brand": "Arket",
+     "count": 254
+    }
+   ]
+  },
+  {
+   "host": "fatface.com",
+   "bare": {
+    "site": "fatface.com",
+    "brand": "fatface",
+    "count": 544,
+    "updated": 1785662836284,
+    "cats": {
+     "pants": 5,
+     "tops": 519,
+     "dresses": 11,
+     "shirts": 7,
+     "sweatshirts": 2
+    }
+   },
+   "proper": [
+    {
+     "site": "fatface.com.fatface",
+     "brand": "Fatface",
+     "count": 452
+    }
+   ]
+  },
+  {
+   "host": "freepeople.com",
+   "bare": {
+    "site": "freepeople.com",
+    "brand": "freepeople",
+    "count": 276,
+    "updated": 1785663122097,
+    "cats": {
+     "tops": 164,
+     "pants": 38,
+     "dresses": 34,
+     "shirts": 33,
+     "sweatshirts": 7
+    }
+   },
+   "proper": [
+    {
+     "site": "freepeople.com.fpmovement",
+     "brand": "FP Movement",
+     "count": 98
+    },
+    {
+     "site": "freepeople.com.freepeople",
+     "brand": "Free People",
+     "count": 170
+    }
+   ]
+  },
+  {
+   "host": "gap.com",
+   "bare": {
+    "site": "gap.com",
+    "brand": "gap",
+    "count": 14,
+    "updated": 1785663192308,
+    "cats": {
+     "shirts": 2,
+     "sweatshirts": 2,
+     "tops": 9,
+     "dresses": 1
+    }
+   },
+   "proper": [
+    {
+     "site": "gap.com.gap",
+     "brand": "Gap",
+     "count": 4
+    }
+   ]
+  },
+  {
+   "host": "garnethill.com",
+   "bare": {
+    "site": "garnethill.com",
+    "brand": "garnethill",
+    "count": 5,
+    "updated": 1785663293856,
+    "cats": {
+     "pants": 1,
+     "tops": 1,
+     "dresses": 1,
+     "sweatshirts": 1,
+     "shirts": 1
+    }
+   },
+   "proper": [
+    {
+     "site": "garnethill.com.garnethill",
+     "brand": "Garnet hill",
+     "count": 118
+    }
+   ]
+  },
+  {
+   "host": "joules.com",
+   "bare": {
+    "site": "joules.com",
+    "brand": "joules",
+    "count": 311,
+    "updated": 1785663454865,
+    "cats": {
+     "tops": 300,
+     "dresses": 8,
+     "shirts": 3
+    }
+   },
+   "proper": [
+    {
+     "site": "joules.com.joules",
+     "brand": "Joules",
+     "count": 299
+    }
+   ]
+  },
+  {
+   "host": "landsend.com",
+   "bare": {
+    "site": "landsend.com",
+    "brand": "landsend",
+    "count": 17,
+    "updated": 1785663542840,
+    "cats": {
+     "tops": 3,
+     "dresses": 4,
+     "shirts": 8,
+     "pants": 1,
+     "sweatshirts": 1
+    }
+   },
+   "proper": [
+    {
+     "site": "landsend.com.landsend",
+     "brand": "Lands end",
+     "count": 87
+    }
+   ]
+  },
+  {
+   "host": "loft.com",
+   "bare": {
+    "site": "loft.com",
+    "brand": "loft",
+    "count": 800,
+    "updated": 1785664313008,
+    "cats": {
+     "tops": 18,
+     "pants": 579,
+     "shirts": 8,
+     "sweatshirts": 28,
+     "dresses": 167
+    }
+   },
+   "proper": [
+    {
+     "site": "loft.com.loft",
+     "brand": "Loft",
+     "count": 616
+    }
+   ]
+  },
+  {
+   "host": "madewell.com",
+   "bare": {
+    "site": "madewell.com",
+    "brand": "madewell",
+    "count": 33,
+    "updated": 1785664611232,
+    "cats": {
+     "pants": 7,
+     "tops": 16,
+     "dresses": 4,
+     "shirts": 6
+    }
+   },
+   "proper": [
+    {
+     "site": "madewell.com.madewell",
+     "brand": "Madewell",
+     "count": 16
+    }
+   ]
+  },
+  {
+   "host": "massimodutti.com",
+   "bare": {
+    "site": "massimodutti.com",
+    "brand": "massimodutti",
+    "count": 5,
+    "updated": 1785664785275,
+    "cats": {
+     "tops": 2,
+     "dresses": 1,
+     "shirts": 2
+    }
+   },
+   "proper": [
+    {
+     "site": "massimodutti.com.massimodutti",
+     "brand": "Massimo Dutti",
+     "count": 16
+    }
+   ]
+  },
+  {
+   "host": "oysho.com",
+   "bare": {
+    "site": "oysho.com",
+    "brand": "oysho",
+    "count": 19,
+    "updated": 1785665037031,
+    "cats": {
+     "pants": 8,
+     "tops": 2,
+     "shirts": 8,
+     "sweatshirts": 1
+    }
+   },
+   "proper": [
+    {
+     "site": "oysho.com.oysho",
+     "brand": "Oysho",
+     "count": 15
+    }
+   ]
+  },
+  {
+   "host": "patagonia.com",
+   "bare": {
+    "site": "patagonia.com",
+    "brand": "patagonia",
+    "count": 140,
+    "updated": 1785665180397,
+    "cats": {
+     "pants": 85,
+     "tops": 40,
+     "dresses": 5,
+     "shirts": 10
+    }
+   },
+   "proper": [
+    {
+     "site": "patagonia.com.patagonia",
+     "brand": "Patagonia",
+     "count": 202
+    }
+   ]
+  },
+  {
+   "host": "sezane.com",
+   "bare": {
+    "site": "sezane.com",
+    "brand": "sezane",
+    "count": 170,
+    "updated": 1785665240399,
+    "cats": {
+     "tops": 48,
+     "dresses": 24,
+     "pants": 58,
+     "sweatshirts": 1,
+     "shirts": 39
+    }
+   },
+   "proper": [
+    {
+     "site": "sezane.com.sezane",
+     "brand": "Sezane",
+     "count": 167
+    }
+   ]
+  },
+  {
+   "host": "stories.com",
+   "bare": {
+    "site": "stories.com",
+    "brand": "stories",
+    "count": 481,
+    "updated": 1785661427233,
+    "cats": {
+     "tops": 122,
+     "pants": 82,
+     "sweatshirts": 28,
+     "dresses": 95,
+     "shirts": 154
+    }
+   },
+   "proper": [
+    {
+     "site": "stories.com.otherstories",
+     "brand": "&Other Stories",
+     "count": 284
+    }
+   ]
+  },
+  {
+   "host": "theory.com",
+   "bare": {
+    "site": "theory.com",
+    "brand": "theory",
+    "count": 76,
+    "updated": 1785665569416,
+    "cats": {
+     "tops": 20,
+     "dresses": 9,
+     "pants": 27,
+     "shirts": 10,
+     "sweatshirts": 10
+    }
+   },
+   "proper": [
+    {
+     "site": "theory.com.theory",
+     "brand": "Theory",
+     "count": 291
+    }
+   ]
+  },
+  {
+   "host": "theupside.com",
+   "bare": {
+    "site": "theupside.com",
+    "brand": "theupside",
+    "count": 589,
+    "updated": 1785665362600,
+    "cats": {
+     "tops": 248,
+     "dresses": 15,
+     "pants": 207,
+     "shirts": 33,
+     "sweatshirts": 86
+    }
+   },
+   "proper": [
+    {
+     "site": "theupside.com.theupside",
+     "brand": "The upside",
+     "count": 341
+    }
+   ]
+  },
+  {
+   "host": "thewhitecompany.com",
+   "bare": {
+    "site": "thewhitecompany.com",
+    "brand": "thewhitecompany",
+    "count": 82,
+    "updated": 1785665403319,
+    "cats": {
+     "tops": 30,
+     "dresses": 21,
+     "shirts": 13,
+     "pants": 9,
+     "sweatshirts": 9
+    }
+   },
+   "proper": [
+    {
+     "site": "thewhitecompany.com.thewhitecompany",
+     "brand": "The white company",
+     "count": 78
+    }
+   ]
   }
  ]
 }

@@ -1,3 +1,32 @@
+# ⚠ 중복 저장 키 21건 — 같은 브랜드가 두 벌 저장됨
+
+`<host>` 만으로 저장된 옛 키와 `<host>.<브랜드슬러그>` 새 키가 함께 있습니다.
+상품 수·점검 결과가 이중 계산되고, 미로 앱이 둘 중 아무거나 집을 수 있습니다.
+
+| 옛 키(삭제 대상) | 개수 | 정상 키 | 개수 |
+|---|---:|---|---:|
+| abercrombie.com | 246 | abercrombie.com.abercrombiefitch | 46 |
+| adidas.com | 800 | adidas.com.addidas | 600 |
+| anntaylor.com | 782 | anntaylor.com.anntaylor | 139 |
+| anthropologie.com | 315 | anthropologie.com.anthropologie | 104 |
+| arket.com | 252 | arket.com.arket | 254 |
+| fatface.com | 544 | fatface.com.fatface | 452 |
+| freepeople.com | 276 | freepeople.com.fpmovement | 98 |
+| gap.com | 14 | gap.com.gap | 4 |
+| garnethill.com | 5 | garnethill.com.garnethill | 118 |
+| joules.com | 311 | joules.com.joules | 299 |
+| landsend.com | 17 | landsend.com.landsend | 87 |
+| loft.com | 800 | loft.com.loft | 616 |
+| madewell.com | 33 | madewell.com.madewell | 16 |
+| massimodutti.com | 5 | massimodutti.com.massimodutti | 16 |
+| oysho.com | 19 | oysho.com.oysho | 15 |
+| patagonia.com | 140 | patagonia.com.patagonia | 202 |
+| sezane.com | 170 | sezane.com.sezane | 167 |
+| stories.com | 481 | stories.com.otherstories | 284 |
+| theory.com | 76 | theory.com.theory | 291 |
+| theupside.com | 589 | theupside.com.theupside | 341 |
+| thewhitecompany.com | 82 | thewhitecompany.com.thewhitecompany | 78 |
+
 # 크롬 확장 담당 브랜드 갱신 상태 (30개)
 
 **확장 실행 필요 1개** — 36시간 넘게 갱신되지 않았습니다.
@@ -7,10 +36,10 @@
 
 <details><summary>정상 29개</summary>
 
-- &Other Stories — 20시간 전 · 284개
-- Abercrombie & Fitch — 20시간 전 · 46개
-- Addidas — 20시간 전 · 600개
-- Ann Taylor — 20시간 전 · 139개
+- &Other Stories — 21시간 전 · 284개
+- Abercrombie & Fitch — 21시간 전 · 46개
+- Addidas — 21시간 전 · 600개
+- Ann Taylor — 21시간 전 · 139개
 - Anthropologie — 20시간 전 · 104개
 - Arket — 20시간 전 · 254개
 - Athleta — 20시간 전 · 1개
@@ -21,13 +50,13 @@
 - Gap — 20시간 전 · 4개
 - Garnet hill — 20시간 전 · 118개
 - Joules — 20시간 전 · 299개
-- Lands end — 19시간 전 · 87개
-- Loft — 19시간 전 · 616개
-- Lululemon — 19시간 전 · 114개
-- Madewell — 19시간 전 · 16개
-- Mango — 19시간 전 · 47개
-- Massimo Dutti — 19시간 전 · 16개
-- Old Navy — 19시간 전 · 3개
+- Lands end — 20시간 전 · 87개
+- Loft — 20시간 전 · 616개
+- Lululemon — 20시간 전 · 114개
+- Madewell — 20시간 전 · 16개
+- Mango — 20시간 전 · 47개
+- Massimo Dutti — 20시간 전 · 16개
+- Old Navy — 20시간 전 · 3개
 - Oysho — 19시간 전 · 15개
 - Paige — 19시간 전 · 51개
 - Patagonia — 19시간 전 · 202개
@@ -239,7 +268,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-02T20:38Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-02T20:59Z)
 
 - 카탈로그 159개 · 상품 37211개 검사 · **문제 항목 219개**
 - 문제가 있는 브랜드 41개
