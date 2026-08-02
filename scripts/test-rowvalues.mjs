@@ -11,7 +11,8 @@ import { dirname, join } from "node:path";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const src = readFileSync(join(ROOT, "index.html"), "utf8");
 
-const m = src.match(/const NEED = '확인 필요';[\s\S]*?\n      \}(?=\n\n      async function buildBasicXlsx)/);
+// 앞뒤 주석이 바뀌어도 깨지지 않도록 함수 본문의 끝(return vals)을 기준으로 자른다.
+const m = src.match(/const NEED = '확인 필요';[\s\S]*?return vals;\n\s*\}/);
 if (!m) { console.error("❌ rowValues 블록을 찾지 못함 — index.html 구조가 바뀌었는지 확인"); process.exit(1); }
 const rowValues = new Function(m[0] + "\n return rowValues;")();
 const NEED = "확인 필요";
