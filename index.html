@@ -367,7 +367,7 @@
         <!-- 사용법 팝오버 (ⓘ 아이콘) -->
         <div class="popover" id="helpModal" style="display:none">
           <div class="pop-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
-          <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 (브랜드·썸네일·상품명·URL).</div>
+          <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로. 브랜드·썸네일·URL·상품명·정가·할인가·사이즈·컬러·혼용률이 한 장에 나옵니다. 사이트에서 못 가져온 칸은 <b style="display:inline">확인 필요</b>로 표시됩니다.</div>
           <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
           <div class="help-item"><b>↺ 리셋</b>스캔 결과·상태를 지우고 처음으로 되돌립니다.</div>
         </div>
@@ -420,14 +420,13 @@
     function initPanel() {
       document.getElementById('app').style.display = 'flex';   // 세로 flex 레이아웃(리스트 스크롤용)
 
-      // 기타 도구 버튼은 UI에서 제거됨. 공유 함수(collectRows/analyzeAll/buildFabricXlsx)가
+      // 기타 도구 버튼은 UI에서 제거됨. 공유 함수(collectRows/analyzeAll/buildBasicXlsx)가
       // 참조하는 disabled/style/addEventListener만 무해하게 받아주는 스텁으로 대체(널 오류 방지).
       const _stubBtn = () => ({ disabled: false, style: {}, addEventListener() {} });
       const runBtn = _stubBtn();
       const xlsxBtn = _stubBtn();
       const csvBtn = _stubBtn();
       const fabricBtn = _stubBtn();
-      const fabricXlsxBtn = _stubBtn();
       const workerUrlEl = document.getElementById('workerUrl');
       const accessTokenEl = document.getElementById('accessToken');
       const statusEl = document.getElementById('status');
@@ -613,6 +612,9 @@
           await collectRows(selectedOnly);
           if (!rows.length) return;
           await enrichNames();   // URL로만 추정한 이름을 실제 페이지 제목(og:title)으로 보강
+          // 사이즈·컬러·혼용률은 목록이 아니라 상품 페이지에만 있다. 엑셀 하나로 내보내려면
+          // 여기서 이어서 분석해야 한다(예전에는 사용자가 별도 버튼을 눌러야 했다).
+          await analyzeAll();
           await buildBasicXlsx();
         } catch (e) {
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
@@ -1614,21 +1616,17 @@
       fabricBtn.addEventListener('click', analyzeAll);
       async function analyzeAll() {
         const workerUrl = (workerUrlEl.value || '').trim();
-        if (!workerUrl) {
-          showTab('settings');
-          statusEl.textContent = '먼저 아래 ⚙︎ 원단 분석 서버 설정에서 Worker URL을 입력하세요.';
-          return;
-        }
+        // 주소가 없으면 분석만 건너뛴다. 엑셀은 그대로 만들고 못 채운 칸은 '확인 필요'로 남는다.
+        if (!workerUrl) return { okc: 0, failc: 0, skipped: true };
         const token = (accessTokenEl.value || '').trim();
         const targets = rows.filter(r => r.link);
         if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
 
         fabricBtn.disabled = true; xlsxBtn.disabled = true; csvBtn.disabled = true;
-        fabricXlsxBtn.style.display = 'none';
 
         let done = 0, okc = 0, failc = 0;
         const update = () => {
-          statusEl.textContent = `원단 분석 중… ${done}/${targets.length} (성공 ${okc}, 실패 ${failc})`;
+          statusEl.textContent = `상품 정보 수집 중… ${done}/${targets.length} (성공 ${okc}, 실패 ${failc})`;
         };
         update();
 
@@ -1679,14 +1677,37 @@
         });
 
         fabricBtn.disabled = false; xlsxBtn.disabled = false; csvBtn.disabled = false;
-        fabricXlsxBtn.style.display = 'block';
-        statusEl.textContent = `원단 분석 완료 — 성공 ${okc} / 실패 ${failc}.`;
+        statusEl.textContent = `상품 정보 ${okc}건 확보 (실패 ${failc}) — 엑셀 만드는 중…`;
         return { okc, failc };
       }
 
-      // ── 5) 원단 포함 엑셀(.xlsx): 상품 시트 + 소재 통계/차트 ──────────
-      fabricXlsxBtn.addEventListener('click', buildFabricXlsx);
       // 📥 기본 추출: 브랜드 · 썸네일(보드 이미지) · URL 만. 브랜드순 정렬, 빈 행 없음.
+      // 엑셀 한 행의 값. 사이트에서 못 가져온 칸은 비우지 않고 '확인 필요'로 채운다 —
+      // 빈칸은 "값이 없는 상품"인지 "수집 실패"인지 구분이 안 돼서 사람이 판단을 못 한다.
+      const NEED = '확인 필요';
+      const ROW_COL = { brand: 'A', name: 'D', priceOrig: 'E', price: 'F', sizes: 'G', color: 'H', comp: 'I' };
+      function rowValues(r, brandGuess) {
+        const fb = r.fabric || {};
+        const listP = r.priceOrig || fb.price_original || '';
+        const nowP = r.price || fb.price || '';
+        const vals = {
+          brand: r.brand || brandGuess || '',
+          name: r.name || fb.product_name || '',
+          // 할인 상품이면 정가·할인가 둘 다. 할인이 아니면 정가에만 넣고 할인가는 '-'
+          // (할인가가 없는 게 정상이라 '확인 필요'로 볼 일이 아니다).
+          priceOrig: listP || nowP,
+          price: listP ? nowP : (nowP ? '-' : ''),
+          sizes: (fb.sizes || []).join(', '),
+          color: fb.color || '',
+          comp: (fb.composition || []).map((c) => `${c.material} ${c.percent}%`).join(' / ')
+            || (fb.materials || []).join(', '),
+        };
+        for (const k of Object.keys(ROW_COL)) {
+          if (!String(vals[k] || '').trim()) vals[k] = NEED;
+        }
+        return vals;
+      }
+
       async function buildBasicXlsx() {
         if (typeof ExcelJS === 'undefined') {
           statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';
@@ -1697,35 +1718,32 @@
         if (!items.length) { statusEl.textContent = '링크가 걸린 이미지가 없습니다.'; return; }
 
         const workbook = new ExcelJS.Workbook();
-        const ws = workbook.addWorksheet('링크이미지');
-        // 가격: Market Research로 담은 상품은 캐시에, 아니면 이미지 제목에서 뽑아둔 값.
+        const ws = workbook.addWorksheet('상품정보');
         ws.columns = [
           { header: '브랜드', key: 'brand', width: 18 },
           { header: '썸네일', key: 'img', width: 18 },
+          { header: 'URL', key: 'link', width: 46 },
           { header: '상품명', key: 'name', width: 34 },
           { header: '정가', key: 'priceOrig', width: 12 },
           { header: '할인가', key: 'price', width: 12 },
-          { header: '컬러', key: 'color', width: 16 },
           { header: '사이즈', key: 'sizes', width: 22 },
-          { header: 'URL', key: 'link', width: 56 },
+          { header: '컬러', key: 'color', width: 16 },
+          { header: '혼용률', key: 'comp', width: 30 },
         ];
         ws.getRow(1).font = { bold: true };
-        const urlCol = 'H';   // 브랜드·썸네일·상품명·정가·할인가·컬러·사이즈·URL
+        const urlCol = 'C';   // 브랜드·썸네일·URL·상품명·정가·할인가·사이즈·컬러·혼용률
+        const needCells = [];   // '확인 필요' 칸 위치 — 마지막에 한 번에 서식 적용
 
         let okThumb = 0, thumbFailDiag = '';
         for (let i = 0; i < items.length; i++) {
           const r = items[i], excelRow = i + 2;
           // 정가 = 할인 전 가격. 할인이 아니면 정가 칸에 그대로 두고 할인가는 비운다
           // (엑셀에서 정가 열만 봐도 모든 상품의 가격이 한 줄로 읽힌다).
-          const fb = r.fabric || {};
-          const listP = r.priceOrig || fb.price_original || '';
-          const nowP = r.price || fb.price || '';
-          const row = ws.addRow({
-            brand: r.brand || brandFromUrl(r.link), img: '', name: r.name || '',
-            priceOrig: listP || nowP, price: listP ? nowP : '',
-            color: fb.color || '', sizes: (fb.sizes || []).join(', '),
-            link: '',
-          });
+          const vals = rowValues(r, brandFromUrl(r.link));
+          for (const k of Object.keys(ROW_COL)) {
+            if (vals[k] === NEED) needCells.push(ROW_COL[k] + excelRow);
+          }
+          const row = ws.addRow({ ...vals, img: '', link: '' });
           row.height = 60;
           const c = ws.getCell(`${urlCol}${excelRow}`);   // URL 열
           c.value = { text: r.link, hyperlink: r.link };
@@ -1744,7 +1762,8 @@
             try { await putThumb(r.imageUrl); done = true; okThumb++; } catch (e) {}
           }
           if (!done) {
-            ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
+            ws.getCell(`B${excelRow}`).value = NEED;
+            needCells.push('B' + excelRow);
             if (!thumbFailDiag && r.imageUrl) {
               const probe = __proxy.url
                 ? __proxy.url.replace(/\/+$/, '') + '?img=' + encodeURIComponent(r.imageUrl) +
@@ -1756,122 +1775,33 @@
           statusEl.textContent = `추출 중… ${i + 1}/${items.length}`;
         }
 
-        const buf = await workbook.xlsx.writeBuffer();
-        downloadBlob(
-          new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
-          `miro_links_${stamp()}.xlsx`,
-        );
-        statusEl.innerHTML = `완료 · 총 <b>${items.length}</b> · 작업 <b>${okThumb}</b>`;
-        if (thumbFailDiag) {
-          summaryEl.style.display = 'block';
-          summaryEl.innerHTML =
-            `<div style="padding:8px;background:#fff4f4;border-radius:6px">` +
-            `<b>⚠ 썸네일 실패 원인</b><br>${escapeHtml(thumbFailDiag)}</div>`;
+        // '확인 필요' 칸은 한눈에 보이게 — 주황 글씨 + 연한 배경.
+        for (const addr of needCells) {
+          const cell = ws.getCell(addr);
+          cell.font = { color: { argb: 'FFB45309' }, italic: true };
+          cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF7ED' } };
         }
-      }
+        ws.autoFilter = { from: 'A1', to: 'I1' };
+        ws.views = [{ state: 'frozen', ySplit: 1 }];
 
-      async function buildFabricXlsx() {
-        if (typeof ExcelJS === 'undefined') {
-          statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';
-          return;
-        }
-        fabricXlsxBtn.disabled = true;
+        // 소재 통계 시트(도넛·막대) — 혼용률이 하나라도 있을 때만 붙인다.
         try {
-          // 링크 걸린 것만(빈 공백 제거) + 브랜드순 정렬
-          const items = rows.filter(r => r.link).slice()
-            .sort((a, b) => brandFromUrl(a.link).localeCompare(brandFromUrl(b.link)) ||
-                            a.link.localeCompare(b.link));
-          if (!items.length) {
-            statusEl.textContent = '링크가 걸린 사진이 없습니다.';
-            fabricXlsxBtn.disabled = false;
-            return;
-          }
-
-          const workbook = new ExcelJS.Workbook();
-          const ws = workbook.addWorksheet('원단정보');
-          ws.columns = [
-            { header: '브랜드', key: 'brand', width: 18 },
-            { header: '썸네일', key: 'img', width: 18 },
-            { header: '상품명', key: 'name', width: 30 },
-            { header: '정가', key: 'priceOrig', width: 12 },
-            { header: '할인가', key: 'price', width: 12 },
-            { header: '컬러', key: 'color', width: 16 },
-            { header: '사이즈', key: 'sizes', width: 22 },
-            { header: '소재', key: 'materials', width: 24 },
-            { header: '혼용률', key: 'comp', width: 30 },
-            { header: 'URL', key: 'link', width: 46 },
-            { header: '상태', key: 'status', width: 12 },
-          ];
-          ws.getRow(1).font = { bold: true };
-
-          let ok = 0, fail = 0;
-          let thumbFailDiag = '';   // 첫 썸네일 실패의 실제 원인(Worker 응답)
-          for (let i = 0; i < items.length; i++) {
-            const r = items[i];
-            const excelRow = i + 2;
-            const f = r.fabric || {};
-            const compStr = (f.composition || []).map(c => `${c.material} ${c.percent}%`).join(' / ');
-            const listP = r.priceOrig || f.price_original || '';
-            const nowP = r.price || f.price || '';
-            const row = ws.addRow({
-              brand: brandFromUrl(r.link), img: '', link: '',
-              name: f.product_name || r.name || '',
-              priceOrig: listP || nowP, price: listP ? nowP : '',
-              color: f.color || '', sizes: (f.sizes || []).join(', '),
-              comp: compStr, materials: (f.materials || []).join(', '),
-              status: shortReason(f),
-            });
-            row.height = 60;
-            // URL(하이퍼링크) = J열
-            const c = ws.getCell(`J${excelRow}`);
-            c.value = { text: r.link, hyperlink: r.link };
-            c.font = { color: { argb: 'FF4262FF' }, underline: true };
-            // 썸네일(B열) = 링크가 걸려있던 "미로 보드 이미지" (사이트 접속 불필요·항상 정확).
-            // 보드 이미지를 못 가져올 때만 상품 페이지 대표 이미지로 폴백. Worker 프록시로 CORS 우회.
-            const thumbCandidates = [r.imageUrl, f.image_url].filter(Boolean);
-            let thumbDone = false;
-            for (const src of thumbCandidates) {
-              try {
-                const { base64, w, h } = await toPng(src, 110);
-                const id = workbook.addImage({ base64, extension: 'png' });
-                ws.addImage(id, { tl: { col: 1.1, row: (excelRow - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
-                row.height = Math.max(row.height, h * 0.75 + 6);
-                thumbDone = true;
-                break;
-              } catch (e) { /* 다음 후보로 */ }
-            }
-            if (!thumbDone && thumbCandidates.length) {
-              ws.getCell(`B${excelRow}`).value = '(썸네일 실패)';
-              // 첫 실패는 원인을 직접 조회해 화면에 표시(보통 Worker의 MIRO_TOKEN 문제).
-              if (!thumbFailDiag && r.imageUrl) {
-              const probe = __proxy.url
-                ? __proxy.url.replace(/\/+$/, '') + '?img=' + encodeURIComponent(r.imageUrl) +
-                  (__proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '')
-                : r.imageUrl;
-              thumbFailDiag = await diagnoseThumb(probe);
-            }
-            }
-            if (f.status === 'ok' && (compStr || (f.materials || []).length)) ok++; else fail++;
-            statusEl.textContent = `엑셀 만드는 중… ${i + 1}/${items.length}`;
-          }
-
-          // 소재 통계 시트 + 시각화(도넛: 구성 비중, 막대: 등장 빈도)
           const stats = computeMaterialStats();
-          const ss = workbook.addWorksheet('소재통계');
-          ss.columns = [
-            { header: '소재', key: 'm', width: 18 },
-            { header: '총 비중(%)', key: 'share', width: 12 },
-            { header: '등장 상품수', key: 'count', width: 12 },
-            { header: '평균 혼용률(%)', key: 'avg', width: 14 },
-          ];
-          ss.getRow(1).font = { bold: true };
-          stats.forEach(s => ss.addRow({
-            m: s.material,
-            share: Math.round(s.share * 10) / 10,
-            count: s.count,
-            avg: s.avg != null ? Math.round(s.avg * 10) / 10 : '',
-          }));
-          try {
+          if (stats.length) {
+            const ss = workbook.addWorksheet('소재통계');
+            ss.columns = [
+              { header: '소재', key: 'm', width: 18 },
+              { header: '총 비중(%)', key: 'share', width: 12 },
+              { header: '등장 상품수', key: 'count', width: 12 },
+              { header: '평균 혼용률(%)', key: 'avg', width: 14 },
+            ];
+            ss.getRow(1).font = { bold: true };
+            stats.forEach((st) => ss.addRow({
+              m: st.material,
+              share: Math.round(st.share * 10) / 10,
+              count: st.count,
+              avg: st.avg != null ? Math.round(st.avg * 10) / 10 : '',
+            }));
             const donut = drawDonut(stats);
             if (donut) {
               const did = workbook.addImage({ base64: donut.base64, extension: 'png' });
@@ -1882,24 +1812,22 @@
               const bid = workbook.addImage({ base64: bar.base64, extension: 'png' });
               ss.addImage(bid, { tl: { col: 5, row: 17 }, ext: { width: bar.w, height: bar.h } });
             }
-          } catch (e) {}
-
-          const buf = await workbook.xlsx.writeBuffer();
-          downloadBlob(
-            new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
-            `miro_fabric_${stamp()}.xlsx`
-          );
-          statusEl.textContent = `완료! 원단 추출 성공 ${ok} / 실패 ${fail}.`;
-          if (thumbFailDiag) {
-            summaryEl.style.display = 'block';
-            summaryEl.innerHTML =
-              `<div style="padding:8px;background:#fff4f4;border-radius:6px">` +
-              `<b>⚠ 썸네일 실패 원인</b><br>${escapeHtml(thumbFailDiag)}</div>`;
           }
-        } catch (e) {
-          statusEl.textContent = '엑셀 생성 중 오류: ' + ((e && e.message) || e);
-        } finally {
-          fabricXlsxBtn.disabled = false;
+        } catch (e) {}
+
+        const buf = await workbook.xlsx.writeBuffer();
+        downloadBlob(
+          new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
+          `miro_products_${stamp()}.xlsx`,
+        );
+        statusEl.innerHTML = needCells.length
+          ? `완료 · 총 <b>${items.length}</b> · 확인 필요 <b>${needCells.length}</b>칸`
+          : `완료 · 총 <b>${items.length}</b> · 빠진 항목 없음`;
+        if (thumbFailDiag) {
+          summaryEl.style.display = 'block';
+          summaryEl.innerHTML =
+            `<div style="padding:8px;background:#fff4f4;border-radius:6px">` +
+            `<b>⚠ 썸네일 실패 원인</b><br>${escapeHtml(thumbFailDiag)}</div>`;
         }
       }
 
