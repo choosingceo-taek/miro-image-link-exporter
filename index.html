@@ -1624,7 +1624,7 @@
 
         fabricBtn.disabled = true; xlsxBtn.disabled = true; csvBtn.disabled = true;
 
-        let done = 0, okc = 0, failc = 0;
+        let done = 0, okc = 0, failc = 0, quotaHit = 0;
         const update = () => {
           statusEl.textContent = `상품 정보 수집 중… ${done}/${targets.length} (성공 ${okc}, 실패 ${failc})`;
         };
@@ -1634,7 +1634,8 @@
         const isQuota = note => /429|quota|resource_exhausted|rate.?limit/i.test(String(note || ''));
 
         // 무료 티어 한도를 지키려 동시 2개만 + 429(한도) 시 대기 후 자동 재시도.
-        await runPool(targets, 2, async (r) => {
+        // 대부분은 구조화 데이터로 끝나 AI 를 쓰지 않는다 — 동시 3개까지 올린다.
+        await runPool(targets, 3, async (r) => {
           let data = null;
           for (let attempt = 0; attempt < 4; attempt++) {
             try {
@@ -1647,9 +1648,13 @@
             } catch (e) {
               data = { status: 'error', note: String((e && e.message) || e) };
             }
-            if (isQuota(data && (data.note || data.error)) && attempt < 3) {
-              const wait = 15 * (attempt + 1);
-              statusEl.textContent = `무료 한도 대기 중… ${done}/${targets.length} (${wait}초 후 재시도)`;
+            if (isQuota(data && (data.note || data.error)) && attempt < 2) {
+              // 사이트가 구조화 데이터(schema.org)를 안 줘서 AI 보강이 필요한 상품만
+              // 여기로 온다. 무료 AI 한도는 분당 제한이라 잠깐 기다리면 풀린다.
+              quotaHit++;
+              const wait = 12 * (attempt + 1);
+              statusEl.textContent =
+                `${done}/${targets.length} 완료 · 일부 상품은 AI 보강이 필요해 잠시 대기 (${wait}초)`;
               await sleep(wait * 1000);
               continue;
             }
@@ -1671,13 +1676,16 @@
           // 목록에서 못 뽑은 값은 상품 페이지에서 찾은 것으로 채운다(덮어쓰지는 않는다).
           if (!r.price && r.fabric.price) r.price = r.fabric.price;
           if (!r.priceOrig && r.fabric.price_original) r.priceOrig = r.fabric.price_original;
-          if (r.fabric.status === 'ok' && (r.fabric.composition.length || r.fabric.materials.length)) okc++;
-          else failc++;
+          const f = r.fabric;
+          const gotSomething = f.composition.length || f.materials.length ||
+            f.price || f.color || f.sizes.length;
+          if (f.status !== 'blocked' && gotSomething) okc++; else failc++;
           done++; update(); renderPreview();
         });
 
         fabricBtn.disabled = false; xlsxBtn.disabled = false; csvBtn.disabled = false;
-        statusEl.textContent = `상품 정보 ${okc}건 확보 (실패 ${failc}) — 엑셀 만드는 중…`;
+        statusEl.textContent = `상품 정보 ${okc}건 확보 (실패 ${failc}) — 엑셀 만드는 중…` +
+          (quotaHit ? ` · AI 한도 대기 ${quotaHit}회` : '');
         return { okc, failc };
       }
 

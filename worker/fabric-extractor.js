@@ -308,9 +308,6 @@ export default {
     if (env.ACCESS_TOKEN && request.headers.get('x-access-token') !== env.ACCESS_TOKEN)
       return json({ error: 'unauthorized' }, 401, cors);
 
-    if (!env.GEMINI_API_KEY)
-      return json({ error: 'server is missing GEMINI_API_KEY secret' }, 500, cors);
-
     let body;
     try { body = await request.json(); }
     catch { return json({ error: 'invalid JSON body' }, 400, cors); }
@@ -319,7 +316,8 @@ export default {
     if (!url) return json({ error: 'missing "url"' }, 400, cors);
 
     try {
-      const result = await extractFabric(url, env.GEMINI_API_KEY);
+      // 키가 없어도 막지 않는다 — 구조화 데이터만으로 채울 수 있는 항목이 많다.
+      const result = await extractFabric(url, env.GEMINI_API_KEY || '');
       return json({ url, ...result }, 200, cors);
     } catch (e) {
       return json(
@@ -578,7 +576,36 @@ async function extractFabric(url, apiKey) {
     };
   }
 
-  // 2) 일반 텍스트 생성(무료 한도 넉넉)으로 원단 정보만 추출. URL 읽기 도구 미사용.
+  // 2) AI 를 부르기 전에 공짜로 얻을 수 있는 것부터 챙긴다.
+  //    Shopify JSON(구조화) → schema.org JSON-LD 순. 둘 다 정확한 값이라 AI 추측보다 낫고,
+  //    이걸로 다 채워지면 AI 호출 자체를 건너뛰어 무료 한도(429)를 쓰지 않는다.
+  const sp0 = page.shopify || {};
+  const ld = fromJsonLd(page.html);
+  const pre = {
+    product_name: ld.product_name || page.title || '',
+    price: sp0.price || ld.price || '',
+    price_original: sp0.priceOrig || ld.price_original || '',
+    color: sp0.color || ld.color || '',
+    sizes: (sp0.sizes && sp0.sizes.length ? sp0.sizes : ld.sizes) || [],
+    composition: ld.composition || [],
+    materials: ld.materials || [],
+  };
+  const complete = pre.price && pre.color && pre.sizes.length && pre.composition.length;
+  if (complete || !apiKey) {
+    return {
+      product_name: pre.product_name,
+      image_url: page.ogImage && /^https?:\/\//i.test(page.ogImage) ? page.ogImage : '',
+      composition: pre.composition, materials: pre.materials,
+      price: pre.price, price_original: pre.price_original,
+      color: pre.color, sizes: pre.sizes.slice(0, 30),
+      status: pre.composition.length ? 'ok' : 'no_data',
+      // 왜 AI 를 안 썼는지 남긴다 — 값이 비었을 때 원인을 찾기 쉽게.
+      note: complete ? '' : (apiKey ? '' : 'AI 키 없음 — 구조화 데이터만 사용'),
+      via: 'structured',
+    };
+  }
+
+  // 3) 남은 항목만 일반 텍스트 생성으로 보강. URL 읽기 도구 미사용.
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
   const userText =
     `Product URL: ${url}\n` +
@@ -609,12 +636,13 @@ async function extractFabric(url, apiKey) {
     .join('\n')).trim();
 
   const parsed = parseJson(text);
-  const sp = page.shopify || {};
   if (!parsed) {
     return {
-      product_name: page.title || '', image_url: page.ogImage || '', composition: [], materials: [],
-      price: sp.price || '', price_original: sp.priceOrig || '', color: sp.color || '', sizes: sp.sizes || [],
-      status: 'no_data', note: 'no parseable model output',
+      product_name: pre.product_name, image_url: page.ogImage || '',
+      composition: pre.composition, materials: pre.materials,
+      price: pre.price, price_original: pre.price_original,
+      color: pre.color, sizes: pre.sizes.slice(0, 30),
+      status: pre.composition.length ? 'ok' : 'no_data', note: 'no parseable model output',
     };
   }
 
@@ -622,19 +650,20 @@ async function extractFabric(url, apiKey) {
   return {
     product_name: parsed.product_name || '',
     image_url: modelImg || (page.ogImage && /^https?:\/\//i.test(page.ogImage) ? page.ogImage : ''),
-    composition: Array.isArray(parsed.composition)
+    composition: pre.composition.length ? pre.composition : (Array.isArray(parsed.composition)
       ? parsed.composition
           .filter((c) => c && c.material)
           .map((c) => ({ material: String(c.material), percent: Number(c.percent) }))
           .filter((c) => c.material && !Number.isNaN(c.percent))
-      : [],
-    materials: Array.isArray(parsed.materials) ? parsed.materials.map(String) : [],
-    // Shopify 가 구조화해 준 값이 있으면 그쪽이 정확하다 — AI 추측보다 우선.
-    price: (sp.price || String(parsed.price || '')).slice(0, 40),
-    price_original: (sp.priceOrig || String(parsed.price_original || '')).slice(0, 40),
-    color: (sp.color || String(parsed.color || '')).slice(0, 80),
-    sizes: (sp.sizes && sp.sizes.length
-      ? sp.sizes
+      : []),
+    materials: pre.materials.length ? pre.materials
+      : (Array.isArray(parsed.materials) ? parsed.materials.map(String) : []),
+    // 구조화 데이터(Shopify·JSON-LD)가 있으면 그쪽이 정확하다 — AI 추측보다 우선.
+    price: (pre.price || String(parsed.price || '')).slice(0, 40),
+    price_original: (pre.price_original || String(parsed.price_original || '')).slice(0, 40),
+    color: (pre.color || String(parsed.color || '')).slice(0, 80),
+    sizes: (pre.sizes.length
+      ? pre.sizes
       : Array.isArray(parsed.sizes) ? parsed.sizes.map((s) => String(s).trim()).filter(Boolean) : []
     ).slice(0, 30),
     status: parsed.status || 'ok',
@@ -787,7 +816,96 @@ async function fetchPageText(url) {
     .trim();
   if (text.length > 16000) text = text.slice(0, 16000);
 
-  return { ok: true, text, ogImage, title };
+  return { ok: true, text, ogImage, title, html: html.slice(0, 400000) };
+}
+
+// ── 구조화 데이터(JSON-LD Product)에서 먼저 뽑는다 ──────────────────────
+// 쇼핑몰 대부분은 검색엔진용으로 schema.org Product 를 심어 둔다. 거기에 가격·색·
+// 사이즈·소재가 이미 정확한 값으로 들어 있으므로, AI 를 부르기 전에 이것부터 읽는다.
+// AI 호출이 줄면 무료 한도(429)에 걸릴 일도 그만큼 줄고 응답도 빨라진다.
+function fromJsonLd(html) {
+  const out = { product_name: '', price: '', price_original: '', color: '', sizes: [], materials: [], composition: [] };
+  if (!html) return out;
+  const blocks = [];
+  const rx = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let m;
+  while ((m = rx.exec(html)) && blocks.length < 20) {
+    try { blocks.push(JSON.parse(m[1].trim())); } catch (e) {}
+  }
+  // @graph·배열·중첩을 평평하게 펴서 Product 노드를 찾는다.
+  const flat = [];
+  const walk = (n, d) => {
+    if (!n || d > 4) return;
+    if (Array.isArray(n)) { n.forEach((x) => walk(x, d + 1)); return; }
+    if (typeof n !== 'object') return;
+    flat.push(n);
+    if (n['@graph']) walk(n['@graph'], d + 1);
+  };
+  blocks.forEach((b) => walk(b, 0));
+  const isType = (n, t) => {
+    const v = n && n['@type'];
+    return Array.isArray(v) ? v.some((x) => String(x).toLowerCase() === t) : String(v || '').toLowerCase() === t;
+  };
+  const prod = flat.find((n) => isType(n, 'product'));
+  if (!prod) return out;
+
+  out.product_name = String(prod.name || '').trim().slice(0, 200);
+  if (prod.color) out.color = String(prod.color).trim().slice(0, 80);
+
+  // 가격: offers 는 단일 객체일 수도, 배열/AggregateOffer 일 수도 있다.
+  const offers = [];
+  const pushOffer = (o) => {
+    if (!o) return;
+    if (Array.isArray(o)) { o.forEach(pushOffer); return; }
+    if (typeof o !== 'object') return;
+    offers.push(o);
+    if (o.offers) pushOffer(o.offers);
+  };
+  pushOffer(prod.offers);
+  const cur = (o) => String(o.priceCurrency || (o.priceSpecification && o.priceSpecification.priceCurrency) || '').toUpperCase();
+  const amt = (o) => {
+    const raw = o.price != null ? o.price
+      : (o.lowPrice != null ? o.lowPrice
+      : (o.priceSpecification && o.priceSpecification.price));
+    const n = Number(String(raw == null ? '' : raw).replace(/[^\d.]/g, ''));
+    return Number.isFinite(n) && n > 0 ? n : NaN;
+  };
+  const SYM = { USD: '$', EUR: '\u20ac', GBP: '\u00a3', KRW: '\u20a9', JPY: '\u00a5' };
+  const nowVals = offers.map(amt).filter(Number.isFinite);
+  if (nowVals.length) {
+    const c = cur(offers.find((o) => Number.isFinite(amt(o))) || {});
+    const sym = SYM[c] || (c ? c + ' ' : '');
+    out.price = sym + String(Math.min(...nowVals));
+  }
+
+  // 사이즈: hasVariant / offers 의 size 필드에서 모은다.
+  const sizes = new Set();
+  const addSize = (v) => { const t = String(v == null ? '' : v).trim(); if (t && t.length <= 20) sizes.add(t); };
+  (Array.isArray(prod.hasVariant) ? prod.hasVariant : []).forEach((v) => v && addSize(v.size));
+  offers.forEach((o) => { if (o.itemOffered && o.itemOffered.size) addSize(o.itemOffered.size); if (o.size) addSize(o.size); });
+  if (prod.size) (Array.isArray(prod.size) ? prod.size : [prod.size]).forEach(addSize);
+  out.sizes = [...sizes].slice(0, 30);
+
+  // 소재: material 필드에 "60% Cotton, 40% Modal" 처럼 들어오는 경우가 많다.
+  const matRaw = [prod.material, prod.fabricType]
+    .flatMap((v) => (Array.isArray(v) ? v : [v]))
+    .filter(Boolean).map((v) => (typeof v === 'object' ? v.name || '' : String(v))).join(', ');
+  if (matRaw) {
+    const pairs = [...matRaw.matchAll(/(\d{1,3})\s*%\s*([A-Za-z\uAC00-\uD7A3][A-Za-z \uAC00-\uD7A3-]{1,24})|([A-Za-z\uAC00-\uD7A3][A-Za-z \uAC00-\uD7A3-]{1,24})\s*(\d{1,3})\s*%/g)];
+    for (const g of pairs) {
+      const pct = Number(g[1] || g[4]);
+      const name = String(g[2] || g[3] || '').trim();
+      if (name && Number.isFinite(pct)) out.composition.push({ material: titleCase(name), percent: pct });
+    }
+    out.materials = out.composition.length
+      ? out.composition.map((c) => c.material)
+      : matRaw.split(/[,/]/).map((t) => titleCase(t.trim())).filter(Boolean).slice(0, 8);
+  }
+  return out;
+}
+
+function titleCase(s) {
+  return String(s).toLowerCase().replace(/\b[a-z]/g, (c) => c.toUpperCase()).trim().slice(0, 40);
 }
 
 // 페이지 제목: og:title 우선, 없으면 <title>. (상품명 보강용 — 사이트 접속은 Worker가 대신)

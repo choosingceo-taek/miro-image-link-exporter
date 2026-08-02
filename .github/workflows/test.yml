@@ -19,6 +19,8 @@ jobs:
         run: node scripts/test-price.mjs
       - name: Run excel row tests
         run: node scripts/test-rowvalues.mjs
+      - name: Run structured-data (JSON-LD) tests
+        run: node scripts/test-jsonld.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
