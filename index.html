@@ -502,6 +502,7 @@
         if (!id || !rec || !rec.imageUrl) return;
         __imgCache[id] = {
           imageUrl: rec.imageUrl, name: rec.name || '', price: rec.price || '',
+          priceOrig: rec.priceOrig || '',
           brand: rec.brand || '', productUrl: rec.productUrl || '', category: rec.category || '',
         };
         try { localStorage.setItem('rackImgCache:' + __boardId, JSON.stringify(__imgCache)); } catch (e) {}
@@ -759,7 +760,7 @@
           importItems = hits.map((it, i) => ({
             id: 'g' + i, name: it.name || '', category: guessCat(it.productUrl, it.name),
             imageUrl: it.imageUrl, productUrl: it.productUrl, price: it.price || '',
-            brand: it.brand || '', selected: false,
+            priceOrig: it.priceOrig || '', brand: it.brand || '', selected: false,
           })).filter(it => it.imageUrl && it.productUrl);
           if (!importItems.length) { showNoResult(); return; }
           importStatusEl.textContent = '';
@@ -958,7 +959,7 @@
           importItems = (data.products || []).map(p => ({
             id: p.id, name: p.name || '', category: p.category || 'tops',
             imageUrl: p.imageUrl || '', productUrl: p.productUrl || '',
-            price: p.price || '', brand: p.brand || importBrand,
+            price: p.price || '', priceOrig: p.priceOrig || '', brand: p.brand || importBrand,
             selected: false,   // 시작은 전부 미선택 — 사용자가 직접 고른다
           })).filter(p => p.imageUrl && p.productUrl);
 
@@ -1344,7 +1345,7 @@
             return {
               id: 'c' + i, name: p.name || '', category: cat,
               imageUrl: p.imageUrl, productUrl: p.productUrl, price: p.price || '',
-              brand: data.brand || brand || '', selected: false,
+              priceOrig: p.priceOrig || '', brand: data.brand || brand || '', selected: false,
             };
           }).filter(p => p.imageUrl && p.productUrl);
           // 서버 검색과 동일하게 카테고리당 최대 100개만 표시(저장본은 수백 개일 수 있음).
@@ -1478,6 +1479,7 @@
               brand: rec.brand || (link ? brandFromUrl(link) : ''),
               // 가격: 우리가 넣은 상품이면 기억된 값 → 아니면 제목("… · $128")에서 추출.
               price: rec.price || parsed.price || '',
+              priceOrig: rec.priceOrig || '',
             };
           });
 
@@ -1662,11 +1664,15 @@
             composition: Array.isArray(data.composition) ? data.composition : [],
             materials: Array.isArray(data.materials) ? data.materials : [],
             price: data.price || '',
+            price_original: data.price_original || '',
             color: data.color || '',
+            sizes: Array.isArray(data.sizes) ? data.sizes : [],
             status: data.status || 'error',
             note: data.note || (data.error || ''),
           };
-          if (!r.price && r.fabric.price) r.price = r.fabric.price;   // 페이지에서 찾은 가격으로 보강
+          // 목록에서 못 뽑은 값은 상품 페이지에서 찾은 것으로 채운다(덮어쓰지는 않는다).
+          if (!r.price && r.fabric.price) r.price = r.fabric.price;
+          if (!r.priceOrig && r.fabric.price_original) r.priceOrig = r.fabric.price_original;
           if (r.fabric.status === 'ok' && (r.fabric.composition.length || r.fabric.materials.length)) okc++;
           else failc++;
           done++; update(); renderPreview();
@@ -1697,18 +1703,28 @@
           { header: '브랜드', key: 'brand', width: 18 },
           { header: '썸네일', key: 'img', width: 18 },
           { header: '상품명', key: 'name', width: 34 },
-          { header: '가격', key: 'price', width: 12 },
+          { header: '정가', key: 'priceOrig', width: 12 },
+          { header: '할인가', key: 'price', width: 12 },
+          { header: '컬러', key: 'color', width: 16 },
+          { header: '사이즈', key: 'sizes', width: 22 },
           { header: 'URL', key: 'link', width: 56 },
         ];
         ws.getRow(1).font = { bold: true };
-        const urlCol = 'E';   // 브랜드·썸네일·상품명·가격·URL
+        const urlCol = 'H';   // 브랜드·썸네일·상품명·정가·할인가·컬러·사이즈·URL
 
         let okThumb = 0, thumbFailDiag = '';
         for (let i = 0; i < items.length; i++) {
           const r = items[i], excelRow = i + 2;
+          // 정가 = 할인 전 가격. 할인이 아니면 정가 칸에 그대로 두고 할인가는 비운다
+          // (엑셀에서 정가 열만 봐도 모든 상품의 가격이 한 줄로 읽힌다).
+          const fb = r.fabric || {};
+          const listP = r.priceOrig || fb.price_original || '';
+          const nowP = r.price || fb.price || '';
           const row = ws.addRow({
             brand: r.brand || brandFromUrl(r.link), img: '', name: r.name || '',
-            price: r.price || '', link: '',
+            priceOrig: listP || nowP, price: listP ? nowP : '',
+            color: fb.color || '', sizes: (fb.sizes || []).join(', '),
+            link: '',
           });
           row.height = 60;
           const c = ws.getCell(`${urlCol}${excelRow}`);   // URL 열
@@ -1776,9 +1792,14 @@
           ws.columns = [
             { header: '브랜드', key: 'brand', width: 18 },
             { header: '썸네일', key: 'img', width: 18 },
-            { header: 'URL', key: 'link', width: 46 },
+            { header: '상품명', key: 'name', width: 30 },
+            { header: '정가', key: 'priceOrig', width: 12 },
+            { header: '할인가', key: 'price', width: 12 },
+            { header: '컬러', key: 'color', width: 16 },
+            { header: '사이즈', key: 'sizes', width: 22 },
             { header: '소재', key: 'materials', width: 24 },
             { header: '혼용률', key: 'comp', width: 30 },
+            { header: 'URL', key: 'link', width: 46 },
             { header: '상태', key: 'status', width: 12 },
           ];
           ws.getRow(1).font = { bold: true };
@@ -1790,14 +1811,19 @@
             const excelRow = i + 2;
             const f = r.fabric || {};
             const compStr = (f.composition || []).map(c => `${c.material} ${c.percent}%`).join(' / ');
+            const listP = r.priceOrig || f.price_original || '';
+            const nowP = r.price || f.price || '';
             const row = ws.addRow({
               brand: brandFromUrl(r.link), img: '', link: '',
+              name: f.product_name || r.name || '',
+              priceOrig: listP || nowP, price: listP ? nowP : '',
+              color: f.color || '', sizes: (f.sizes || []).join(', '),
               comp: compStr, materials: (f.materials || []).join(', '),
               status: shortReason(f),
             });
             row.height = 60;
-            // URL(하이퍼링크) = C열
-            const c = ws.getCell(`C${excelRow}`);
+            // URL(하이퍼링크) = J열
+            const c = ws.getCell(`J${excelRow}`);
             c.value = { text: r.link, hyperlink: r.link };
             c.font = { color: { argb: 'FF4262FF' }, underline: true };
             // 썸네일(B열) = 링크가 걸려있던 "미로 보드 이미지" (사이트 접속 불필요·항상 정확).

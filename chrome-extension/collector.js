@@ -76,6 +76,68 @@ async function pageCollector() {
   // 'Logo Tee' 같은 진짜 상품을 죽이지 않도록, 로고는 "이름이 로고로 끝나는 짧은 링크"만 막는다.
   const BANNER_NAME = /click to shop|shop the look|discover now|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|^.{0,24}\blogo\s*$/i;
 
+  // ── 가격 ────────────────────────────────────────────────────────────
+  // 통화가 앞에 붙는 표기($128, ₩89,000, USD 128)와 뒤에 붙는 표기(129,00 zł, 1 290 kr)를
+  // 모두 잡는다. 예전에는 [$€£₩¥]만 봐서 유럽·북유럽 사이트가 통째로 빈칸이 됐다.
+  const P_NUM = '\\d{1,3}(?:[.,\\u00a0\\u202f ]\\d{3})*(?:[.,]\\d{1,2})?|\\d+(?:[.,]\\d{1,2})?';
+  const P_PRE = '[$€£₩¥₹]|\\b(?:USD|EUR|GBP|KRW|JPY|CHF|PLN|SEK|NOK|DKK|AUD|CAD|NZD)\\b';
+  const P_POST = 'z\\u0142|K\\u010d|kr|Ft|lei|CHF|PLN|SEK|NOK|DKK|\\u20ac|\\u00a3|\\uc6d0';
+  const PRICE_RX = new RegExp(
+    '(?:' + P_PRE + ')\\s?(?:' + P_NUM + ')|(?:' + P_NUM + ')\\s?(?:' + P_POST + ')(?![a-z])', 'i');
+  const PRICE_RX_G = new RegExp(PRICE_RX.source, 'gi');
+  // 비교·정렬용 숫자. "1.299,00" 처럼 소수점과 천단위 구분이 뒤집힌 표기도 다룬다.
+  const priceNum = (s) => {
+    const d = String(s).replace(/[^\d.,]/g, '');
+    if (!d) return NaN;
+    const lastDot = d.lastIndexOf('.'), lastCom = d.lastIndexOf(',');
+    const dec = Math.max(lastDot, lastCom);
+    // 마지막 구분자 뒤가 1~2자리면 소수점, 아니면 천단위 구분자.
+    const isDec = dec >= 0 && d.length - dec - 1 <= 2 && d.length - dec - 1 >= 1;
+    const norm = isDec ? d.slice(0, dec).replace(/[.,]/g, '') + '.' + d.slice(dec + 1)
+                       : d.replace(/[.,]/g, '');
+    return Number(norm);
+  };
+  // 카드 텍스트에서 가격을 뽑는다. 할인 상품은 정가·할인가가 나란히 있으므로
+  // 서로 다른 금액이 둘 이상이면 큰 쪽을 정가, 작은 쪽을 할인가로 본다.
+  const pricesFrom = (text) => {
+    const hits = String(text || '').match(PRICE_RX_G) || [];
+    const uniq = [];
+    for (const h of hits) {
+      const t = h.replace(/\s+/g, ' ').trim();
+      const n = priceNum(t);
+      if (!Number.isFinite(n) || n <= 0) continue;
+      if (!uniq.some((u) => u.n === n)) uniq.push({ t, n });
+      if (uniq.length >= 4) break;
+    }
+    if (!uniq.length) return { price: '', priceOrig: '' };
+    if (uniq.length === 1) return { price: uniq[0].t, priceOrig: '' };
+    uniq.sort((a, z) => z.n - a.n);
+    return { price: uniq[uniq.length - 1].t, priceOrig: uniq[0].t };
+  };
+  // 상품 사진이 하나뿐인 동안만 위로 올라가며 가격을 찾는다.
+  // card 를 `closest(...,'div')` 로 잡으면 이미지만 감싼 래퍼에서 멈춰 가격이 형제로 빠진다.
+  // 사진이 둘 이상 들어오는 순간은 그리드로 올라선 것이라, 더 가면 이웃 상품 가격을 집는다.
+  const bigImgs = (el) => {
+    let n = 0;
+    for (const im of el.querySelectorAll('img')) {
+      const r = im.getBoundingClientRect();
+      if (Math.max(r.width, r.height) >= 60 || (im.naturalWidth || 0) >= 60) n++;
+      if (n > 1) break;
+    }
+    return n;
+  };
+  const priceOf = (card) => {
+    let el = card;
+    for (let i = 0; i < 5 && el; i++) {
+      const p = pricesFrom(el.textContent);
+      if (p.price) return p;
+      const up = el.parentElement;
+      if (!up || up === document.body || bigImgs(up) > 1) break;
+      el = up;
+    }
+    return { price: '', priceOrig: '' };
+  };
+
   // 하위 카테고리 타일 주소를 따로 모아 둔다.
   // 엑셀의 카테고리 URL이 상품 목록이 아니라 "허브 페이지"인 경우가 있다
   // (예: /fpmovement/workout-tops/ 는 casual-tops·performance-tops 타일만 보여준다).
@@ -131,11 +193,11 @@ async function pageCollector() {
         }
         return;
       }
-      const priceM = (card.textContent || '').match(/(?:[$€£₩¥]|\bUSD|\bEUR|\bKRW)\s?\d[\d.,]*/);
+      const pr = priceOf(card);
       items.push({
         name: name || decodeURIComponent(path.split('/').pop() || '').replace(/[-_]+/g, ' '),
         imageUrl: src, productUrl: href.origin + href.pathname,
-        price: priceM ? priceM[0].trim() : '', category: guessCategory(href.pathname, name),
+        price: pr.price, priceOrig: pr.priceOrig, category: guessCategory(href.pathname, name),
       });
     });
     return items;
