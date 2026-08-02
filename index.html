@@ -1436,7 +1436,10 @@
           if (cands.length) {
             // 이름 정확 일치 우선 → 그다음 최신 저장본.
             // (예전 확장이 남긴 호스트-only 키와 새 브랜드별 키가 함께 있을 때 새 쪽을 고른다)
+            // 키 슬러그가 브랜드와 맞는 것(<host>.<slug>)을 최우선 —
+            // 호스트만으로 저장된 옛 키는 최신이어도 뒤로 보낸다(두 벌이 남아 있을 때가 있다).
             cands.sort((a, b) =>
+              ((keySlug(b) === nBrand) - (keySlug(a) === nBrand)) ||
               ((norm(b.brand) === nBrand) - (norm(a.brand) === nBrand)) ||
               ((b.updated || 0) - (a.updated || 0)));
             return cands[0];

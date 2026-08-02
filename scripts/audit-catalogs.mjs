@@ -206,6 +206,38 @@ for (const r of report) {
   }
   md += `\n`;
 }
+// 같은 브랜드가 두 벌 저장되면 미로 앱이 둘 중 아무거나 집는다.
+// 저장 키는 <host>.<브랜드슬러그> 가 정상이고, <host> 만 있는 것은 옛 형식이다.
+// 둘 다 남아 있으면 상품 수·점검 결과가 이중 계산되므로 반드시 알린다.
+const byHost = new Map();
+for (const c of list) {
+  const site = String(c.site || "");
+  const host = site.split(".").slice(0, 2).join(".");   // example.com
+  if (!byHost.has(host)) byHost.set(host, []);
+  byHost.get(host).push(c);
+}
+const dupes = [];
+for (const [host, group] of byHost) {
+  if (group.length < 2) continue;
+  const bare = group.filter((c) => String(c.site) === host);
+  const proper = group.filter((c) => String(c.site) !== host);
+  if (bare.length && proper.length) {
+    dupes.push({ host, bare: bare[0], proper: proper.map((c) => ({ site: c.site, brand: c.brand, count: c.count })) });
+  }
+}
+let km = "";
+if (dupes.length) {
+  km = `# \u26a0 중복 저장 키 ${dupes.length}건 — 같은 브랜드가 두 벌 저장됨\n\n`;
+  km += `\`<host>\` 만으로 저장된 옛 키와 \`<host>.<브랜드슬러그>\` 새 키가 함께 있습니다.\n`;
+  km += `상품 수·점검 결과가 이중 계산되고, 미로 앱이 둘 중 아무거나 집을 수 있습니다.\n\n`;
+  km += `| 옛 키(삭제 대상) | 개수 | 정상 키 | 개수 |\n|---|---:|---|---:|\n`;
+  for (const d of dupes) {
+    const p = d.proper[0];
+    km += `| ${d.bare.site} | ${d.bare.count || 0} | ${p.site} | ${p.count || 0} |\n`;
+  }
+  km += `\n`;
+}
+
 // 확장 담당 브랜드는 사람이 크롬을 켜야만 갱신된다. 며칠 잊으면 미로 앱이 조용히
 // 옛날 상품을 보여주므로, 저장본의 갱신 시각을 여기서 같이 찍어 둔다.
 // (샌드박스에서는 Worker 로 직접 못 나가서, 이 리포트가 유일한 확인 경로다.)
@@ -277,7 +309,7 @@ if (partPrice.length) {
   pm += `\n`;
 }
 
-md = em + `\n---\n\n` + pm + `\n---\n\n` + dm + `\n---\n\n` + md;
+md = km + em + `\n---\n\n` + pm + `\n---\n\n` + dm + `\n---\n\n` + md;
 
 low.sort((a, z) => a.total - z.total);
 md += `# 수집량이 적은 브랜드 (${LOW_MARK}개 미만)\n\n`;
@@ -288,8 +320,9 @@ for (const r of low) {
   for (const sm of r.sample) md += `  - 표본: ${sm.name || "(무명)"} — ${sm.productUrl}\n`;
   md += `\n`;
 }
-writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows, priceCoverage: priceCov }, null, 1));
+writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows, priceCoverage: priceCov, duplicateKeys: dupes }, null, 1));
 writeFileSync(join(ROOT, "catalog-audit.md"), md);
 console.log(`\n검사 ${scanned}개 · 문제 ${flagged}개 · 브랜드 ${report.filter((r) => r.badCount).length}개`);
 console.log(`교체 필요 URL ${deadUrls.reduce((s, r) => s + r.dead.length, 0)}개 (브랜드 ${deadUrls.length}개)`);
+if (dupes.length) console.log(`\u26a0 중복 저장 키 ${dupes.length}건: ${dupes.map((d) => d.bare.site).join(", ")}`);
 console.log(`확장 담당 ${extRows.length}개 중 ${STALE_H}시간 초과 ${stale.length}개${stale.length ? ": " + stale.map((r) => r.name).join(", ") : ""}`);
