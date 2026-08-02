@@ -47,15 +47,31 @@ Respond with ONLY one JSON object — no markdown fences, no prose. Shape:
     { "material": string, "percent": number }   // e.g. {"material":"Cotton","percent":60}
   ],
   "materials": [string],         // distinct material names present, e.g. ["Cotton","Elastane"]
-  "price": string,               // price with currency symbol exactly as stated, e.g. "$128", "₩89,000"; "" if not stated
+  "price": string,               // the price the customer pays now, with currency symbol exactly as
+                                 // stated, e.g. "$128", "₩89,000". If discounted, this is the SALE
+                                 // price (the lower one). "" if not stated.
+  "price_original": string,      // the pre-discount / list / "was" price, same formatting.
+                                 // "" when the item is not on sale.
   "color": string,               // colorway of THIS product page, e.g. "Black", "Ivory / Navy"; "" if not stated
+  "sizes": [string],             // size options offered, in the order shown, e.g. ["XS","S","M","L"]
+                                 // or ["24","25","26"] or ["UK 8","UK 10"]. [] if the page shows none.
   "status": "ok" | "no_data" | "blocked",  // no_data = loaded but no composition; blocked = could not access
   "note": string                 // short reason when not "ok"; else ""
 }
 
 Rules:
+- Composition comes from wherever the page states fibre percentages — the words around it vary by
+  site ("Material", "Materials", "Composition", "Fabric", "Fabrication", "Fibre content",
+  "Shell", "Made of", "소재", "혼용률", "혼용율", "겉감"). Any place a fibre name sits next to a
+  percentage is composition. Take every fibre listed with a percent.
 - Normalize material names to English title case: Cotton, Polyester, Elastane, Modal, Nylon,
   Viscose, Wool, Silk, Linen, Cashmere, Acrylic, Lyocell, Spandex→Elastane, Polyamide→Nylon.
+- sizes: list only the sizes actually offered for this garment. Ignore sold-out markers, size
+  guides, model-height notes ("model wears S"), and shoe/accessory sizes when the item is apparel.
+  Keep the site's own labels — do not translate or convert them.
+- price / price_original: if the page shows two prices (struck-through and current), "price" is the
+  one the customer pays and "price_original" is the struck-through one. Never swap them. If only
+  one price is shown, leave "price_original" empty.
 - If the garment has multiple parts (shell / lining / trim), merge into one overall breakdown
   and mention that in "note".
 - percent must be a number (no "%" sign). If a material has no percent, still add it to
@@ -217,6 +233,7 @@ export default {
           imageUrl: String(p.imageUrl).slice(0, 1000),
           productUrl: String(p.productUrl).slice(0, 1000),
           price: String(p.price || '').slice(0, 40),
+          priceOrig: String(p.priceOrig || '').slice(0, 40),
         }));
       await env.RACK_CACHE.put('search:index', JSON.stringify({ updated: Date.now(), items }));
       return json({ ok: true, count: items.length }, 200, cors);
@@ -244,6 +261,8 @@ export default {
           imageUrl: String(p.imageUrl).slice(0, 1000),
           productUrl: String(p.productUrl).slice(0, 1000),
           price: String(p.price || '').slice(0, 40),
+          // 할인 상품이면 정가. 없으면 빈 문자열(정가=판매가).
+          priceOrig: String(p.priceOrig || '').slice(0, 40),
           category: String(p.category || 'tops').slice(0, 20),
           // src = 이 상품을 어느 카테고리 URL에서 긁었는지. 잘못 잡힌 항목의 출처 추적용.
           src: String(p.src || '').slice(0, 300),
@@ -552,7 +571,11 @@ async function extractFabric(url, apiKey) {
   // 1) Worker가 직접 페이지를 가져와 텍스트 + 대표이미지(og:image) 추출.
   const page = await fetchPageText(url);
   if (!page.ok) {
-    return { product_name: '', image_url: '', composition: [], materials: [], status: 'blocked', note: 'fetch ' + page.status };
+    return {
+      product_name: '', image_url: '', composition: [], materials: [],
+      price: '', price_original: '', color: '', sizes: [],
+      status: 'blocked', note: 'fetch ' + page.status,
+    };
   }
 
   // 2) 일반 텍스트 생성(무료 한도 넉넉)으로 원단 정보만 추출. URL 읽기 도구 미사용.
@@ -586,8 +609,13 @@ async function extractFabric(url, apiKey) {
     .join('\n')).trim();
 
   const parsed = parseJson(text);
+  const sp = page.shopify || {};
   if (!parsed) {
-    return { product_name: '', image_url: page.ogImage || '', composition: [], materials: [], status: 'no_data', note: 'no parseable model output' };
+    return {
+      product_name: page.title || '', image_url: page.ogImage || '', composition: [], materials: [],
+      price: sp.price || '', price_original: sp.priceOrig || '', color: sp.color || '', sizes: sp.sizes || [],
+      status: 'no_data', note: 'no parseable model output',
+    };
   }
 
   const modelImg = (parsed.image_url && /^https?:\/\//i.test(parsed.image_url)) ? parsed.image_url : '';
@@ -601,8 +629,14 @@ async function extractFabric(url, apiKey) {
           .filter((c) => c.material && !Number.isNaN(c.percent))
       : [],
     materials: Array.isArray(parsed.materials) ? parsed.materials.map(String) : [],
-    price: String(parsed.price || '').slice(0, 40),
-    color: String(parsed.color || '').slice(0, 80),
+    // Shopify 가 구조화해 준 값이 있으면 그쪽이 정확하다 — AI 추측보다 우선.
+    price: (sp.price || String(parsed.price || '')).slice(0, 40),
+    price_original: (sp.priceOrig || String(parsed.price_original || '')).slice(0, 40),
+    color: (sp.color || String(parsed.color || '')).slice(0, 80),
+    sizes: (sp.sizes && sp.sizes.length
+      ? sp.sizes
+      : Array.isArray(parsed.sizes) ? parsed.sizes.map((s) => String(s).trim()).filter(Boolean) : []
+    ).slice(0, 30),
     status: parsed.status || 'ok',
     note: parsed.note || '',
   };
@@ -635,10 +669,32 @@ async function fetchShopifyJson(url) {
   const body = String(p.body_html || '')
     .replace(/<[^>]+>/g, ' ').replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&')
     .replace(/\s+/g, ' ').trim();
+  // Shopify 는 사이즈·색·가격을 구조화해서 준다. AI가 본문에서 추측하는 것보다 정확하므로
+  // 여기서 뽑아 두고, 호출측이 AI 결과보다 우선해서 쓴다.
+  const optValues = (want) => {
+    const o = (Array.isArray(p.options) ? p.options : [])
+      .find((x) => new RegExp(want, 'i').test(String(x && x.name || '')));
+    return o && Array.isArray(o.values) ? o.values.map((v) => String(v).trim()).filter(Boolean) : [];
+  };
+  const sizes = optValues('^(size|사이즈)$').slice(0, 30);
+  const color = optValues('^(colou?r|색상|컬러)$').slice(0, 4).join(' / ');
+  const vs = Array.isArray(p.variants) ? p.variants : [];
+  const num = (v) => { const n = Number(v); return Number.isFinite(n) && n > 0 ? n : NaN; };
+  const now = vs.map((v) => num(v && v.price)).filter(Number.isFinite);
+  const was = vs.map((v) => num(v && v.compare_at_price)).filter(Number.isFinite);
+  const lowNow = now.length ? Math.min(...now) : NaN;
+  const highWas = was.length ? Math.max(...was) : NaN;
+  const money = (n) => (Number.isFinite(n) ? String(n) : '');
+  // compare_at_price 가 현재가보다 클 때만 할인으로 본다(같거나 작으면 세일이 아니다).
+  const onSale = Number.isFinite(lowNow) && Number.isFinite(highWas) && highWas > lowNow;
+
   let text = `${p.title || ''}. ${body} tags: ${p.tags || ''}`.trim();
   if (text.length > 16000) text = text.slice(0, 16000);
 
-  return { ok: true, text, ogImage: /^https?:\/\//i.test(img) ? img : '', title: String(p.title || '').trim() };
+  return {
+    ok: true, text, ogImage: /^https?:\/\//i.test(img) ? img : '', title: String(p.title || '').trim(),
+    shopify: { sizes, color, price: money(lowNow), priceOrig: onSale ? money(highWas) : '' },
+  };
 }
 
 // Shopify 컬렉션의 공개 상품 목록(JSON)을 가져와 최신순으로 정리.
