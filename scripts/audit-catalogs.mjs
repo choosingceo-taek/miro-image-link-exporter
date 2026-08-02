@@ -108,6 +108,7 @@ function why(it) {
 const report = [];
 const low = [];                 // 수집량이 비정상적으로 적은 브랜드
 const deadUrls = [];            // 상품을 한 개도 못 준 카테고리 URL(교체 대상)
+const priceCov = [];            // 브랜드별 가격 채움률(보드 스캐너 엑셀 '가격' 열의 근거)
 const LOW_MARK = Math.max(1, Number(process.env.LOW_MARK) || 60);
 let scanned = 0, flagged = 0;
 for (const c of list) {
@@ -143,6 +144,21 @@ for (const c of list) {
         });
       }
     }
+  }
+
+  // 가격은 목록 카드의 텍스트에서 통화기호로 뽑는다. 통화 표기가 다르거나(zł, kr)
+  // 가격을 이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 그러면 보드 스캐너
+  // 엑셀의 '가격' 열도 빈칸으로 나온다. 브랜드별 채움률을 남겨 어디가 안 되는지 본다.
+  {
+    const withPrice = items.filter((it) => String(it.price || "").trim()).length;
+    priceCov.push({
+      brand: d.brand || c.brand || c.site,
+      group: groupOf.get(String(d.brand || c.brand || "").toLowerCase()) || "?",
+      total: items.length,
+      withPrice,
+      pct: items.length ? Math.round((withPrice / items.length) * 100) : 0,
+      sample: (items.find((it) => String(it.price || "").trim()) || {}).price || "",
+    });
   }
 
   // 수집이 저조한 브랜드는 "어느 카테고리 URL이 몇 개를 줬는지"까지 남긴다.
@@ -242,7 +258,26 @@ for (const r of deadUrls) {
   for (const u of r.dead) dm += `- ${u}\n`;
   dm += `\n`;
 }
-md = em + `\n---\n\n` + dm + `\n---\n\n` + md;
+// 보드 스캐너 엑셀의 '가격' 열은 여기 값을 그대로 쓴다. 0%면 그 브랜드는 가격이 빈칸으로 나온다.
+priceCov.sort((a, z) => a.pct - z.pct || z.total - a.total);
+const noPrice = priceCov.filter((r) => r.total >= 5 && r.pct < 20);
+const partPrice = priceCov.filter((r) => r.total >= 5 && r.pct >= 20 && r.pct < 90);
+let pm = `# 가격 수집 상태 (보드 스캐너 엑셀 '가격' 열)\n\n`;
+pm += `목록 카드 텍스트에서 통화기호로 뽑습니다. 통화 표기가 다르거나(zł·kr 등) 가격을\n`;
+pm += `이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 엑셀 '가격' 열도 비게 됩니다.\n\n`;
+pm += `- 전체 ${priceCov.length}개 브랜드 · ❌ 거의 없음 ${noPrice.length}개 · ⚠ 일부만 ${partPrice.length}개\n\n`;
+if (noPrice.length) {
+  pm += `## ❌ 가격이 거의 안 잡히는 브랜드 (20% 미만)\n\n| 브랜드 | 그룹 | 가격있음/전체 |\n|---|---|---:|\n`;
+  for (const r of noPrice) pm += `| ${r.brand} | ${r.group} | ${r.withPrice}/${r.total} (${r.pct}%) |\n`;
+  pm += `\n`;
+}
+if (partPrice.length) {
+  pm += `## ⚠ 일부만 잡히는 브랜드 (20~90%)\n\n| 브랜드 | 그룹 | 가격있음/전체 | 예시 |\n|---|---|---:|---|\n`;
+  for (const r of partPrice) pm += `| ${r.brand} | ${r.group} | ${r.withPrice}/${r.total} (${r.pct}%) | ${r.sample} |\n`;
+  pm += `\n`;
+}
+
+md = em + `\n---\n\n` + pm + `\n---\n\n` + dm + `\n---\n\n` + md;
 
 low.sort((a, z) => a.total - z.total);
 md += `# 수집량이 적은 브랜드 (${LOW_MARK}개 미만)\n\n`;
@@ -253,7 +288,7 @@ for (const r of low) {
   for (const sm of r.sample) md += `  - 표본: ${sm.name || "(무명)"} — ${sm.productUrl}\n`;
   md += `\n`;
 }
-writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows }, null, 1));
+writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows, priceCoverage: priceCov }, null, 1));
 writeFileSync(join(ROOT, "catalog-audit.md"), md);
 console.log(`\n검사 ${scanned}개 · 문제 ${flagged}개 · 브랜드 ${report.filter((r) => r.badCount).length}개`);
 console.log(`교체 필요 URL ${deadUrls.reduce((s, r) => s + r.dead.length, 0)}개 (브랜드 ${deadUrls.length}개)`);
