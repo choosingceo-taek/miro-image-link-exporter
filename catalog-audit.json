@@ -1,19 +1,25 @@
 {
- "when": "2026-08-02T00:01:03.268Z",
- "scanned": 30784,
- "flagged": 75,
+ "when": "2026-08-02T02:07:05.925Z",
+ "scanned": 31204,
+ "flagged": 66,
  "report": [
   {
    "brand": "Ann Taylor",
    "site": "anntaylor.com.anntaylor",
    "group": "extension",
-   "total": 376,
-   "badCount": 27,
+   "total": 139,
+   "badCount": 22,
    "bySrc": [
     {
      "src": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/",
-     "count": 27,
+     "count": 22,
      "rows": [
+      {
+       "name": "points icon",
+       "productUrl": "https://www.anntaylor.com/stylerewards",
+       "category": "tops",
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
+      },
       {
        "name": "Shades of the Season",
        "productUrl": "https://www.anntaylor.com/cat5310001",
@@ -79,12 +85,6 @@
        "productUrl": "https://www.anntaylor.com/cat2680001",
        "category": "tops",
        "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "New Suiting",
-       "productUrl": "https://www.anntaylor.com/cata000013",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
       }
      ]
     }
@@ -94,12 +94,12 @@
    "brand": "The white company",
    "site": "thewhitecompany.com.thewhitecompany",
    "group": "extension",
-   "total": 82,
-   "badCount": 12,
+   "total": 78,
+   "badCount": 9,
    "bySrc": [
     {
      "src": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear",
-     "count": 12,
+     "count": 9,
      "rows": [
       {
        "name": "a bedroom with a bed, a table and a lamp",
@@ -146,24 +146,6 @@
       {
        "name": "the thread style",
        "productUrl": "https://www.thewhitecompany.com/uk/magazine/style",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "delivery information",
-       "productUrl": "https://www.thewhitecompany.com/uk/help/delivery",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "gift box servive",
-       "productUrl": "https://www.thewhitecompany.com/uk/help/gift-box-service",
-       "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
-      },
-      {
-       "name": "gift cards",
-       "productUrl": "https://www.thewhitecompany.com/uk/gift-cards",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
       },
@@ -238,12 +220,12 @@
    "brand": "Sezane",
    "site": "sezane.com.sezane",
    "group": "extension",
-   "total": 166,
-   "badCount": 5,
+   "total": 167,
+   "badCount": 6,
    "bySrc": [
     {
      "src": "https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres",
-     "count": 5,
+     "count": 6,
      "rows": [
       {
        "name": "Gift cards",
@@ -274,6 +256,12 @@
        "productUrl": "https://www.sezane.com/us-en/help",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
+      },
+      {
+       "name": "Download the Sézane App",
+       "productUrl": "https://sezane.onelink.me/TCiW/exn0jt1w",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
       }
      ]
     }
@@ -283,12 +271,12 @@
    "brand": "The upside",
    "site": "theupside.com.theupside",
    "group": "extension",
-   "total": 339,
-   "badCount": 5,
+   "total": 341,
+   "badCount": 3,
    "bySrc": [
     {
      "src": "https://www.theupside.com/shop/tops/",
-     "count": 5,
+     "count": 3,
      "rows": [
       {
        "name": "Header Submenu Image",
@@ -307,18 +295,33 @@
        "productUrl": "https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "Anthropologie",
+   "site": "anthropologie.com.anthropologie",
+   "group": "extension",
+   "total": 104,
+   "badCount": 2,
+   "bySrc": [
+    {
+     "src": "https://www.anthropologie.com/tees",
+     "count": 2,
+     "rows": [
+      {
+       "name": "free shipping for anthroperks members",
+       "productUrl": "https://www.anthropologie.com/help/anthro-loyalty",
+       "category": "tops",
+       "reason": "상품 페이지가 아닌 경로"
       },
       {
-       "name": "Instagram",
-       "productUrl": "https://www.instagram.com/the_upside/",
+       "name": "Teacher Appreciation",
+       "productUrl": "https://www.anthropologie.com/help/teacher-appreciation",
        "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "Facebook",
-       "productUrl": "https://www.facebook.com/TheUpsideSport/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
+       "reason": "상품 페이지가 아닌 경로"
       }
      ]
     }
@@ -328,19 +331,13 @@
    "brand": "Free People",
    "site": "freepeople.com.freepeople",
    "group": "extension",
-   "total": 124,
-   "badCount": 3,
+   "total": 170,
+   "badCount": 2,
    "bySrc": [
     {
      "src": "https://www.freepeople.com/tops/",
-     "count": 3,
+     "count": 2,
      "rows": [
-      {
-       "name": "FP Movement",
-       "productUrl": "https://www.freepeople.com/fpmovement/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
       {
        "name": "Download on the App Store",
        "productUrl": "https://itunes.apple.com/us/app/free-people/id659532790",
@@ -358,47 +355,41 @@
    ]
   },
   {
-   "brand": "Loft",
-   "site": "loft.com.loft",
+   "brand": "Theory",
+   "site": "theory.com.theory",
    "group": "extension",
-   "total": 603,
-   "badCount": 3,
+   "total": 291,
+   "badCount": 2,
    "bySrc": [
     {
-     "src": "https://www.loft.com/clothing/tees-tanks/cat2860023/",
-     "count": 3,
+     "src": "https://www.theory.com/women/t-shirts-and-tanks/",
+     "count": 2,
      "rows": [
       {
-       "name": "meganav-img-2",
-       "productUrl": "https://www.loft.com/style-report/",
+       "name": "Linen Shop",
+       "productUrl": "https://www.theory.com/the-linen-shop/",
        "category": "tops",
        "reason": "최상위 경로(랜딩 페이지로 보임)"
       },
       {
-       "name": "Follow Us",
-       "productUrl": "https://www.loft.com/loft-privacy/",
+       "name": "Download on the App Store",
+       "productUrl": "https://us-theory.onelink.me/VoRa/p47l071y",
        "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
-      },
-      {
-       "name": "Follow Us",
-       "productUrl": "https://www.loft.com/terms-of-use/",
-       "category": "tops",
-       "reason": "최상위 경로(랜딩 페이지로 보임)"
+       "reason": "배너 문구가 상품명"
       }
      ]
     }
    ]
   },
   {
-   "brand": "wilson",
-   "site": "wilson.com",
+   "brand": "Wilson",
+   "site": "wilson.com.wilson",
    "group": "extension",
-   "total": 50,
+   "total": 40,
    "badCount": 2,
    "bySrc": [
     {
-     "src": "(출처 불명)",
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops",
      "count": 2,
      "rows": [
       {
@@ -505,7 +496,7 @@
    "brand": "FP Movement",
    "site": "freepeople.com.fpmovement",
    "group": "extension",
-   "total": 78,
+   "total": 98,
    "badCount": 1,
    "bySrc": [
     {
@@ -523,21 +514,21 @@
    ]
   },
   {
-   "brand": "Madewell",
-   "site": "madewell.com.madewell",
+   "brand": "Loft",
+   "site": "loft.com.loft",
    "group": "extension",
-   "total": 28,
+   "total": 616,
    "badCount": 1,
    "bySrc": [
     {
-     "src": "https://www.madewell.com/kr/womens/clothing/tees/",
+     "src": "https://www.loft.com/clothing/tees-tanks/cat2860023/",
      "count": 1,
      "rows": [
       {
-       "name": "Icon",
-       "productUrl": "https://www.madewell.com/kr/store-locator",
+       "name": "meganav-img-2",
+       "productUrl": "https://www.loft.com/style-report/",
        "category": "tops",
-       "reason": "상품 페이지가 아닌 경로"
+       "reason": "최상위 경로(랜딩 페이지로 보임)"
       }
      ]
     }
@@ -568,7 +559,7 @@
    "brand": "Lululemon",
    "site": "shop.lululemon.com.lululemon",
    "group": "extension",
-   "total": 172,
+   "total": 114,
    "badCount": 1,
    "bySrc": [
     {
@@ -610,7 +601,7 @@
    "brand": "&Other Stories",
    "site": "stories.com.otherstories",
    "group": "extension",
-   "total": 341,
+   "total": 284,
    "badCount": 1,
    "bySrc": [
     {
@@ -672,174 +663,142 @@
  ],
  "low": [
   {
-   "brand": "Massimo Dutti",
-   "site": "massimodutti.com.massimodutti",
+   "brand": "Athleta",
+   "site": "athleta.gap.com.athleta",
    "group": "extension",
-   "total": 5,
+   "total": 1,
    "perSrc": [
     {
-     "src": "https://www.massimodutti.com/us/s/w-tops-n2889",
+     "src": "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts",
      "n": 0
     },
     {
-     "src": "https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012",
-     "n": 1
+     "src": "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A",
+     "n": 0
     },
     {
-     "src": "https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374",
-     "n": 1
+     "src": "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A",
+     "n": 0
     },
     {
-     "src": "https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376",
+     "src": "https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops",
      "n": 1
-    },
-    {
-     "src": "https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518",
-     "n": 2
     }
    ],
    "sample": [
     {
-     "name": "long-sleeve crew neck t-shirt set with beige trousers featuring front seams and side pockets.",
-     "productUrl": "https://www.massimodutti.com/us/100-cotton-long-sleeve-tshirt-l06244810"
-    },
-    {
-     "name": "Powered by Onetrust",
-     "productUrl": "https://www.onetrust.com/solutions/consent-and-preferences/"
-    },
-    {
-     "name": "Rust-colored long blouse set with a high neck, long sleeves, and tie belt, paired with wide-leg blue jeans and black sandals.",
-     "productUrl": "https://www.massimodutti.com/us/flowing-blouse-with-tie-detail-l05166542"
+     "name": "Breezy Scoop V-Neck Tee",
+     "productUrl": "https://athleta.gap.com/browse/product.do"
     }
    ]
   },
   {
-   "brand": "Garnet hill",
-   "site": "garnethill.com",
+   "brand": "Banana Republic",
+   "site": "bananarepublic.gap.com.bananarepublic",
    "group": "extension",
-   "total": 9,
+   "total": 1,
    "perSrc": [
     {
-     "src": "https://www.garnethill.com/clothing/categories/tops-tees/",
+     "src": "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136",
      "n": 0
     },
     {
-     "src": "https://www.garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__am__spBlouses?categoryId=191619",
+     "src": "https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136",
      "n": 0
     },
     {
-     "src": "https://www.garnethill.com/clothing/categories/dresses/",
+     "src": "https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136",
      "n": 0
     },
     {
-     "src": "https://www.garnethill.com/clothing/categories/pants/",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 9
+     "src": "https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136",
+     "n": 1
     }
    ],
    "sample": [
     {
-     "name": "Easy Linen Short-Sleeve Shirt",
-     "productUrl": "https://www.garnethill.com/easy-linen-short-sleeve-shirt/clothing/categories/729780?gtmPageName=Recently%20Viewed-UniversalPDPView&isRecentlyViewed=true"
-    },
-    {
-     "name": "Naomi Lightweight Twill Midi Dress - Blue Mini Floral",
-     "productUrl": "https://www.garnethill.com/naomi-lightweight-twill-midi-dress---blue-mini-floral/clothing/categories/dresses/736921?&defattrib=color&defattribvalue=BLUM&uniqueId=736921_color2&isNewProduct=true&hideNewTagFromPLP=false"
-    },
-    {
-     "name": "Ingrid Mixed-Media Knit Dress - Woodland Green",
-     "productUrl": "https://www.garnethill.com/ingrid-mixed-media-knit-dress---woodland-green/clothing/categories/dresses/737891?&defattrib=color&defattribvalue=WDLD&uniqueId=737891_color3&isNewProduct=true&hideNewTagFromPLP=false"
+     "name": "Ribbed Henley Tank",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do"
     }
    ]
   },
   {
-   "brand": "Anthropologie",
-   "site": "anthropologie.com",
+   "brand": "Old Navy",
+   "site": "oldnavy.gap.com.oldnavy",
    "group": "extension",
-   "total": 13,
+   "total": 3,
    "perSrc": [
     {
-     "src": "https://www.anthropologie.com/tees",
+     "src": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
      "n": 0
     },
     {
-     "src": "https://www.anthropologie.com/tops-sweatshirts",
+     "src": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
      "n": 0
     },
     {
-     "src": "https://www.anthropologie.com/tops",
+     "src": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
      "n": 0
     },
     {
-     "src": "https://www.anthropologie.com/dresses",
+     "src": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
      "n": 0
     },
     {
-     "src": "https://www.anthropologie.com/bottoms",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 13
+     "src": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
+     "n": 3
     }
    ],
    "sample": [
     {
-     "name": "Maeve Puff-Sleeve Sweatshirt Tee",
-     "productUrl": "https://www.anthropologie.com/shop/maeve-puff-sleeve-sweatshirt-tee?color=546&type=STANDARD"
+     "name": "Image of models wearing the Old Navy x Disney Haunted Harvest collection.",
+     "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-haunted-harvest"
     },
     {
-     "name": "Pilcro Niki Bubble Sweatshirt",
-     "productUrl": "https://www.anthropologie.com/shop/pilcro-niki-bubble-sweatshirt?color=001&type=STANDARD"
+     "name": "Image of a baby boy model wearing the Old Navy Little Navy collection.",
+     "productUrl": "https://oldnavy.gap.com/browse/baby/little-navy"
     },
     {
-     "name": "Maeve Short-Sleeve Bubble Sweatshirt",
-     "productUrl": "https://www.anthropologie.com/shop/maeve-short-sleeve-bubble-sweatshirt?color=040&type=STANDARD"
+     "name": "Vintage Crew-Neck T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do"
     }
    ]
   },
   {
-   "brand": "Lands end",
-   "site": "landsend.com.landsend",
+   "brand": "Gap",
+   "site": "gap.com.gap",
    "group": "extension",
-   "total": 16,
+   "total": 4,
    "perSrc": [
     {
-     "src": "https://www.landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0d-xec",
+     "src": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
      "n": 0
     },
     {
-     "src": "https://www.landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec",
+     "src": "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
      "n": 0
     },
     {
-     "src": "https://www.landsend.com/shop/womens-dresses/S-xfg-xez-y5c-xec",
+     "src": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS",
+     "n": 0
+    },
+    {
+     "src": "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136",
      "n": 4
-    },
-    {
-     "src": "https://www.landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec",
-     "n": 5
-    },
-    {
-     "src": "https://www.landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec",
-     "n": 7
     }
    ],
    "sample": [
     {
-     "name": "Woman wearing a striped tee shirt",
-     "productUrl": "https://www.landsend.com/shop/womens-tops-tees/S-xfe-xez-y5c-xh1-xec"
+     "name": "Visit the Uniform Shop image",
+     "productUrl": "https://www.gap.com/browse/girls/uniform-shop"
     },
     {
-     "name": "Woman wearing a red polka dot tank top",
-     "productUrl": "https://www.landsend.com/shop/womens-tank-top-tops-tees/S-xfe-xez-y5c-xh1-y05-xec"
+     "name": "Visit the Uniform Shop image",
+     "productUrl": "https://www.gap.com/browse/boys/uniform-shop"
     },
     {
-     "name": "Woman wearing a striped Polo shirt",
-     "productUrl": "https://www.landsend.com/shop/womens-polo-shirts-tops/S-xfe-xez-y5c-yqm-xec"
+     "name": "Victoria Beckham image",
+     "productUrl": "https://www.gap.com/browse/gapx/gap-victoria-beckham"
     }
    ]
   },
@@ -847,7 +806,7 @@
    "brand": "Oysho",
    "site": "oysho.com.oysho",
    "group": "extension",
-   "total": 16,
+   "total": 15,
    "perSrc": [
     {
      "src": "https://www.oysho.com/gb/womens-sports-tops-n5484",
@@ -859,7 +818,7 @@
     },
     {
      "src": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
-     "n": 4
+     "n": 3
     },
     {
      "src": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
@@ -882,6 +841,86 @@
     {
      "name": "womens long sleeve t shirts n4763",
      "productUrl": "https://www.oysho.com/gb/womens-long-sleeve-t-shirts-n4763"
+    }
+   ]
+  },
+  {
+   "brand": "Madewell",
+   "site": "madewell.com.madewell",
+   "group": "extension",
+   "total": 16,
+   "perSrc": [
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
+     "n": 0
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/dresses/",
+     "n": 0
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/pants/",
+     "n": 0
+    },
+    {
+     "src": "https://www.madewell.com/kr/womens/clothing/tees/",
+     "n": 16
+    }
+   ],
+   "sample": [
+    {
+     "name": "Women",
+     "productUrl": "https://www.madewell.com/womens/new/new-arrivals/"
+    },
+    {
+     "name": "Women",
+     "productUrl": "https://www.madewell.com/kr/womens/new/new-arrivals/"
+    },
+    {
+     "name": "Men",
+     "productUrl": "https://www.madewell.com/kr/mens/new/new-arrivals/"
+    }
+   ]
+  },
+  {
+   "brand": "Massimo Dutti",
+   "site": "massimodutti.com.massimodutti",
+   "group": "extension",
+   "total": 16,
+   "perSrc": [
+    {
+     "src": "https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518",
+     "n": 1
+    },
+    {
+     "src": "https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012",
+     "n": 1
+    },
+    {
+     "src": "https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374",
+     "n": 1
+    },
+    {
+     "src": "https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376",
+     "n": 1
+    },
+    {
+     "src": "https://www.massimodutti.com/us/s/w-tops-n2889",
+     "n": 12
+    }
+   ],
+   "sample": [
+    {
+     "name": "long-sleeve crew neck t-shirt set with beige trousers featuring front seams and side pockets.",
+     "productUrl": "https://www.massimodutti.com/us/100-cotton-long-sleeve-tshirt-l06244810"
+    },
+    {
+     "name": "Side view of black loafer with white sole.",
+     "productUrl": "https://www.massimodutti.com/us/split-leather-loafers-with-moc-toe-l12422650"
+    },
+    {
+     "name": "Front view of a long-sleeved, slim-fit white shirt with a classic collar and central button placket.",
+     "productUrl": "https://www.massimodutti.com/us/100-linen-slim-fit-shirt-l01927260"
     }
    ]
   },
@@ -928,44 +967,6 @@
    ]
   },
   {
-   "brand": "Madewell",
-   "site": "madewell.com.madewell",
-   "group": "extension",
-   "total": 28,
-   "perSrc": [
-    {
-     "src": "https://www.madewell.com/kr/womens/clothing/dresses/",
-     "n": 3
-    },
-    {
-     "src": "https://www.madewell.com/kr/womens/clothing/pants/",
-     "n": 5
-    },
-    {
-     "src": "https://www.madewell.com/kr/womens/clothing/tees/",
-     "n": 9
-    },
-    {
-     "src": "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
-     "n": 11
-    }
-   ],
-   "sample": [
-    {
-     "name": "The '90s Cropped Tee in Compact Cotton",
-     "productUrl": "https://www.madewell.com/kr/p/womens/clothing/tees/the-90s-cropped-tee-in-compact-cotton/OA990/"
-    },
-    {
-     "name": "The Relaxed Tee in Vintage Jersey",
-     "productUrl": "https://www.madewell.com/kr/p/womens/clothing/tees/the-relaxed-gym-tee-in-vintage-jersey/OA995/"
-    },
-    {
-     "name": "The Boxy Crop Tee in Allday Jersey",
-     "productUrl": "https://www.madewell.com/kr/p/womens/clothing/tees/the-boxy-crop-tee-in-allday-jersey/NZ387/"
-    }
-   ]
-  },
-  {
    "brand": "Monsoon",
    "site": "monsoonlondon.com.monsoon",
    "group": "server",
@@ -1008,220 +1009,48 @@
    ]
   },
   {
-   "brand": "Banana Republic",
-   "site": "bananarepublic.gap.com",
+   "brand": "Wilson",
+   "site": "wilson.com.wilson",
    "group": "extension",
-   "total": 36,
+   "total": 40,
    "perSrc": [
     {
-     "src": "https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136",
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
      "n": 0
     },
     {
-     "src": "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136",
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts",
      "n": 0
     },
     {
-     "src": "https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136",
-     "n": 0
+     "src": "https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings",
+     "n": 5
     },
     {
-     "src": "https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136",
-     "n": 0
+     "src": "https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits",
+     "n": 7
     },
     {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 36
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops",
+     "n": 9
+    },
+    {
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops",
+     "n": 19
     }
    ],
    "sample": [
     {
-     "name": "RIBBED HENLEY TANK $60.00 30% off applied at checkout",
-     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=899792032&vid=1&pcid=1055063&cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+"
+     "name": "summer 2026 gloves",
+     "productUrl": "https://www.wilson.com/en-us/baseball/baseball-gloves/new-arrivals/summer-2026-gloves"
     },
     {
-     "name": "VINTAGE COTTON RUCHED-SIDE T-SHIRT $70.00",
-     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180103022&vid=1&pcid=1055063&cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+"
+     "name": "summer 2026 gloves",
+     "productUrl": "https://www.wilson.com/en-us/fastpitch/fastpitch-softball-gloves/new-arrivals/summer-2026-gloves"
     },
     {
-     "name": "COTTON SLUB CREW-NECK T-SHIRT 30% off applied at checkout",
-     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=888812172&vid=1&pcid=1055063&cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+"
-    }
-   ]
-  },
-  {
-   "brand": "Gap",
-   "site": "gap.com",
-   "group": "extension",
-   "total": 36,
-   "perSrc": [
-    {
-     "src": "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136",
-     "n": 0
-    },
-    {
-     "src": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
-     "n": 0
-    },
-    {
-     "src": "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
-     "n": 0
-    },
-    {
-     "src": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 36
-    }
-   ],
-   "sample": [
-    {
-     "name": "Cotton Gauze Button-Down Shirt",
-     "productUrl": "https://www.gap.com/shop/womens-button-down-shirts"
-    },
-    {
-     "name": "Denim Zip Vest",
-     "productUrl": "https://www.gap.com/shop/womens-vest"
-    },
-    {
-     "name": "Linen-Blend Puff-Sleeve Crop Corset Top",
-     "productUrl": "https://www.gap.com/shop/womens-puff-sleeve-top-0aaz01c"
-    }
-   ]
-  },
-  {
-   "brand": "Athleta",
-   "site": "athleta.gap.com",
-   "group": "extension",
-   "total": 37,
-   "perSrc": [
-    {
-     "src": "https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops",
-     "n": 0
-    },
-    {
-     "src": "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts",
-     "n": 0
-    },
-    {
-     "src": "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A",
-     "n": 0
-    },
-    {
-     "src": "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 37
-    }
-   ],
-   "sample": [
-    {
-     "name": "Momentum Seamless Tank",
-     "productUrl": "https://athleta.gap.com/shop/camo-tank"
-    },
-    {
-     "name": "Form Knit Crew Sweatshirt",
-     "productUrl": "https://athleta.gap.com/shop/crewneck-sweatshirt"
-    },
-    {
-     "name": "Oasis Underwire Bikini Top A-C",
-     "productUrl": "https://athleta.gap.com/shop/crop-bikini-top"
-    }
-   ]
-  },
-  {
-   "brand": "Arket",
-   "site": "arket.com.arket",
-   "group": "extension",
-   "total": 38,
-   "perSrc": [
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/tops/",
-     "n": 0
-    },
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/tops/t-shirts/",
-     "n": 0
-    },
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/",
-     "n": 0
-    },
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/",
-     "n": 0
-    },
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/dresses/",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 38
-    }
-   ],
-   "sample": [
-    {
-     "name": "Signature Short-Sleeve T-Shirt-Grey-84",
-     "productUrl": "https://www.arket.com/en-ww/product/crew-neck-t-shirt-grey-melange-0630665075/"
-    },
-    {
-     "name": "Signature Short-Sleeve T-Shirt-Black-108",
-     "productUrl": "https://www.arket.com/en-ww/product/crew-neck-t-shirt-black-0630665001/"
-    },
-    {
-     "name": "Signature Short-Sleeve T-Shirt-Pink-19316",
-     "productUrl": "https://www.arket.com/en-ww/product/signature-short-sleeve-t-shirt-pink-0630665171/"
-    }
-   ]
-  },
-  {
-   "brand": "Old Navy",
-   "site": "oldnavy.gap.com",
-   "group": "extension",
-   "total": 38,
-   "perSrc": [
-    {
-     "src": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
-     "n": 0
-    },
-    {
-     "src": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
-     "n": 0
-    },
-    {
-     "src": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
-     "n": 0
-    },
-    {
-     "src": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
-     "n": 0
-    },
-    {
-     "src": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 38
-    }
-   ],
-   "sample": [
-    {
-     "name": "Seamed-Bodice Eyelet Tank Top",
-     "productUrl": "https://oldnavy.gap.com/shop/square-neck-tank-top-0aaz05c"
-    },
-    {
-     "name": "Long-Sleeve Chiffon Tie-Front Top",
-     "productUrl": "https://oldnavy.gap.com/shop/long-sleeve-blouse-0aaz03c"
-    },
-    {
-     "name": "First-Layer Cami Tank Top",
-     "productUrl": "https://oldnavy.gap.com/shop/basic-cami"
+     "name": "gst footballs",
+     "productUrl": "https://www.wilson.com/en-us/football/footballs/gst-footballs"
     }
    ]
   },
@@ -1268,38 +1097,80 @@
    ]
   },
   {
-   "brand": "Mango",
-   "site": "shop.mango.com",
+   "brand": "Abercrombie & Fitch",
+   "site": "abercrombie.com.abercrombiefitch",
    "group": "extension",
-   "total": 45,
+   "total": 46,
    "perSrc": [
     {
+     "src": "https://www.abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-left+nav",
+     "n": 5
+    },
+    {
+     "src": "https://www.abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+nav",
+     "n": 6
+    },
+    {
+     "src": "https://www.abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation-left+nav",
+     "n": 6
+    },
+    {
+     "src": "https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav",
+     "n": 8
+    },
+    {
+     "src": "https://www.abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+nav",
+     "n": 9
+    },
+    {
+     "src": "https://www.abercrombie.com/shop/wd/womens-dresses-and-jumpsuits",
+     "n": 12
+    }
+   ],
+   "sample": [
+    {
+     "name": "Essential Polished Body-Skimming Tee, Black view 1",
+     "productUrl": "https://www.abercrombie.com/shop/wd/p/essential-polished-body-skimming-tee-62050821"
+    },
+    {
+     "name": "Bra-Free Reversible Scoopneck Top, Black view 1",
+     "productUrl": "https://www.abercrombie.com/shop/wd/p/bra-free-reversible-scoopneck-top-63080321"
+    },
+    {
+     "name": "Seamless Fabric Tee Bodysuit, Cream view 1",
+     "productUrl": "https://www.abercrombie.com/shop/wd/p/snatched-seamless-tee-bodysuit-62828430"
+    }
+   ]
+  },
+  {
+   "brand": "Mango",
+   "site": "shop.mango.com.mango",
+   "group": "extension",
+   "total": 47,
+   "perSrc": [
+    {
+     "src": "https://shop.mango.com/us/en/c/women/knitwear/7e46863e",
+     "n": 7
+    },
+    {
      "src": "https://shop.mango.com/us/en/c/women/t-shirts/8e23bdfb",
-     "n": 0
+     "n": 8
     },
     {
      "src": "https://shop.mango.com/us/en/c/women/tops/227371cd",
-     "n": 0
-    },
-    {
-     "src": "https://shop.mango.com/us/en/c/women/knitwear/7e46863e",
-     "n": 0
+     "n": 8
     },
     {
      "src": "https://shop.mango.com/us/en/c/women/shirts---blouses/b8003173",
-     "n": 0
+     "n": 8
     },
     {
      "src": "https://shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705",
-     "n": 0
+     "n": 8
     },
     {
      "src": "https://shop.mango.com/us/en/c/women/pants/0bf28b3b",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 45
+     "n": 8
     }
    ],
    "sample": [
@@ -1318,190 +1189,44 @@
    ]
   },
   {
-   "brand": "Abercrombie & Fitch",
-   "site": "abercrombie.com.abercrombiefitch",
+   "brand": "Paige",
+   "site": "paige.com.paige",
    "group": "extension",
-   "total": 47,
+   "total": 51,
    "perSrc": [
     {
-     "src": "https://www.abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-left+nav",
-     "n": 5
-    },
-    {
-     "src": "https://www.abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+nav",
-     "n": 6
-    },
-    {
-     "src": "https://www.abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation-left+nav",
-     "n": 6
-    },
-    {
-     "src": "https://www.abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+nav",
+     "src": "https://paige.com/collection/women-sweaters-and-sweatshirts",
      "n": 8
     },
     {
-     "src": "https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav",
+     "src": "https://paige.com/collection/women-tees-and-tanks",
      "n": 10
     },
     {
-     "src": "https://www.abercrombie.com/shop/wd/womens-dresses-and-jumpsuits",
+     "src": "https://paige.com/collection/women-tops",
+     "n": 10
+    },
+    {
+     "src": "https://paige.com/collection/women-dresses",
+     "n": 11
+    },
+    {
+     "src": "https://paige.com/collection/women-pants",
      "n": 12
     }
    ],
    "sample": [
     {
-     "name": "Top category for ANF Kids categories",
-     "productUrl": "https://www.abercrombie.com/shop/wd/kids"
+     "name": "Haven Tee - Chocolate Brown image 1",
+     "productUrl": "https://paige.com/en-kr/products/women-haven-tee-chocolate-brown"
     },
     {
-     "name": "Essential Polished Body-Skimming Tee, Black view 1",
-     "productUrl": "https://www.abercrombie.com/shop/wd/p/essential-polished-body-skimming-tee-62050821"
+     "name": "Haven Tee - Navy image 1",
+     "productUrl": "https://paige.com/en-kr/products/women-haven-tee-navy"
     },
     {
-     "name": "Bra-Free Reversible Scoopneck Top, Black view 1",
-     "productUrl": "https://www.abercrombie.com/shop/wd/p/bra-free-reversible-scoopneck-top-63080321"
-    }
-   ]
-  },
-  {
-   "brand": "wilson",
-   "site": "wilson.com",
-   "group": "extension",
-   "total": 50,
-   "perSrc": [
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
-     "n": 0
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops",
-     "n": 0
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops",
-     "n": 0
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts",
-     "n": 0
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits",
-     "n": 0
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 50
-    }
-   ],
-   "sample": [
-    {
-     "name": "gloves",
-     "productUrl": "https://www.wilson.com/en-us/custom/gloves/"
-    },
-    {
-     "name": "summer 2026 gloves",
-     "productUrl": "https://www.wilson.com/en-us/baseball/baseball-gloves/new-arrivals/summer-2026-gloves"
-    },
-    {
-     "name": "basketballs",
-     "productUrl": "https://www.wilson.com/en-us/custom/basketballs"
-    }
-   ]
-  },
-  {
-   "brand": "paige",
-   "site": "paige.com",
-   "group": "extension",
-   "total": 51,
-   "perSrc": [
-    {
-     "src": "https://paige.com/collection/women-tees-and-tanks",
-     "n": 0
-    },
-    {
-     "src": "https://paige.com/collection/women-sweaters-and-sweatshirts",
-     "n": 0
-    },
-    {
-     "src": "https://paige.com/collection/women-tops",
-     "n": 0
-    },
-    {
-     "src": "https://paige.com/collection/women-dresses",
-     "n": 0
-    },
-    {
-     "src": "https://paige.com/collection/women-pants",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 51
-    }
-   ],
-   "sample": [
-    {
-     "name": "Quincy Jogger - Vintage Ivy Green image 1",
-     "productUrl": "https://paige.com/en-kr/products/women-quincy-jogger-vintage-ivy-green"
-    },
-    {
-     "name": "Delaney Pant - Fresco image 1",
-     "productUrl": "https://paige.com/en-kr/products/women-delaney-fresco"
-    },
-    {
-     "name": "Ari Wide Leg Pant - Vintage Forester Green image 1",
-     "productUrl": "https://paige.com/en-kr/products/women-ari-w-flap-patch-pockets-vintage-forester-green"
-    }
-   ]
-  },
-  {
-   "brand": "Theory",
-   "site": "theory.com",
-   "group": "extension",
-   "total": 51,
-   "perSrc": [
-    {
-     "src": "https://www.theory.com/women/t-shirts-and-tanks/",
-     "n": 0
-    },
-    {
-     "src": "https://www.theory.com/women/loungewear/",
-     "n": 0
-    },
-    {
-     "src": "https://www.theory.com/women/tops/",
-     "n": 0
-    },
-    {
-     "src": "https://www.theory.com/women/dresses/",
-     "n": 0
-    },
-    {
-     "src": "https://www.theory.com/women/pants/",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 51
-    }
-   ],
-   "sample": [
-    {
-     "name": "TINY TEE 2 | Theory",
-     "productUrl": "https://www.theory.com/women/t-shirts-and-tanks/tiny-tee-in-organic-slub-cotton/J0224509_001.html"
-    },
-    {
-     "name": "EASY TEE | Theory",
-     "productUrl": "https://www.theory.com/women/t-shirts-and-tanks/easy-tee-in-organic-cotton/K0324517_100.html"
-    },
-    {
-     "name": "SS WRAP TOP | Theory",
-     "productUrl": "https://www.theory.com/women/tops/short-sleeve-wrap-top-in-silk-georgette/L0502524_DAJ.html"
+     "name": "Dedra Tank - White image 1",
+     "productUrl": "https://paige.com/en-kr/products/women-dedra-tank-white"
     }
    ]
   },
@@ -1542,79 +1267,85 @@
      "productUrl": "https://www.jmclaughlin.com/products/sinclair-henley-stripe-bordeaux-rose"
     }
    ]
-  },
-  {
-   "brand": "Arket",
-   "site": "arket.com",
-   "group": "extension",
-   "total": 57,
-   "perSrc": [
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/tops/",
-     "n": 0
-    },
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/tops/t-shirts/",
-     "n": 0
-    },
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/",
-     "n": 0
-    },
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/",
-     "n": 0
-    },
-    {
-     "src": "https://www.arket.com/en-ww/women/clothing/dresses/",
-     "n": 0
-    },
-    {
-     "src": "(출처 없음 — 옛 수집분)",
-     "n": 57
-    }
-   ],
-   "sample": [
-    {
-     "name": "Signature Short-Sleeve T-Shirt-Grey-84",
-     "productUrl": "https://www.arket.com/en-ww/product/crew-neck-t-shirt-grey-melange-0630665075/"
-    },
-    {
-     "name": "Signature Short-Sleeve T-Shirt-Black-108",
-     "productUrl": "https://www.arket.com/en-ww/product/crew-neck-t-shirt-black-0630665001/"
-    },
-    {
-     "name": "Signature Short-Sleeve T-Shirt-Pink-19316",
-     "productUrl": "https://www.arket.com/en-ww/product/signature-short-sleeve-t-shirt-pink-0630665171/"
-    }
-   ]
   }
  ],
  "deadUrls": [
   {
-   "brand": "Lands end",
+   "brand": "Banana Republic",
+   "group": "extension",
+   "total": 1,
+   "dead": [
+    "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136",
+    "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136",
+    "https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136",
+    "https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136"
+   ]
+  },
+  {
+   "brand": "Old Navy",
+   "group": "extension",
+   "total": 3,
+   "dead": [
+    "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
+    "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
+    "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
+    "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136"
+   ]
+  },
+  {
+   "brand": "Athleta",
+   "group": "extension",
+   "total": 1,
+   "dead": [
+    "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts",
+    "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A",
+    "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A"
+   ]
+  },
+  {
+   "brand": "Gap",
+   "group": "extension",
+   "total": 4,
+   "dead": [
+    "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
+    "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
+    "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS"
+   ]
+  },
+  {
+   "brand": "Madewell",
    "group": "extension",
    "total": 16,
    "dead": [
-    "https://www.landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0d-xec",
-    "https://www.landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec"
+    "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
+    "https://www.madewell.com/kr/womens/clothing/dresses/",
+    "https://www.madewell.com/kr/womens/clothing/pants/"
    ]
   },
   {
    "brand": "Oysho",
    "group": "extension",
-   "total": 16,
+   "total": 15,
    "dead": [
     "https://www.oysho.com/gb/womens-sports-tops-n5484",
     "https://www.oysho.com/gb/dresses-jumpsuits-n4954"
    ]
   },
   {
-   "brand": "Addidas",
+   "brand": "Wilson",
    "group": "extension",
-   "total": 450,
+   "total": 40,
    "dead": [
-    "https://www.adidas.com/us/women-tops?sort=newest-to-oldest"
+    "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
+    "https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts"
+   ]
+  },
+  {
+   "brand": "Arket",
+   "group": "extension",
+   "total": 254,
+   "dead": [
+    "https://www.arket.com/en-ww/women/clothing/tops/t-shirts/"
    ]
   },
   {
@@ -1628,7 +1359,7 @@
   {
    "brand": "Joules",
    "group": "extension",
-   "total": 305,
+   "total": 299,
    "dead": [
     "https://www.joules.com/shop/womens/clothing/shirts-and-blouses"
    ]
@@ -1642,25 +1373,25 @@
    ]
   },
   {
-   "brand": "Massimo Dutti",
-   "group": "extension",
-   "total": 5,
-   "dead": [
-    "https://www.massimodutti.com/us/s/w-tops-n2889"
-   ]
-  },
-  {
    "brand": "Lululemon",
    "group": "extension",
-   "total": 172,
+   "total": 114,
    "dead": [
     "https://shop.lululemon.com/c/women-sweatpants/n1m8w7"
    ]
   },
   {
+   "brand": "&Other Stories",
+   "group": "extension",
+   "total": 284,
+   "dead": [
+    "https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/"
+   ]
+  },
+  {
    "brand": "The white company",
    "group": "extension",
-   "total": 82,
+   "total": 78,
    "dead": [
     "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts"
    ]
@@ -1674,177 +1405,177 @@
    "missing": true
   },
   {
-   "name": "Banana Republic",
-   "items": 36,
-   "age": 16.98240388888889,
+   "name": "&Other Stories",
+   "items": 284,
+   "age": 1.7566647222222223,
    "missing": false
   },
   {
-   "name": "Mango",
-   "items": 45,
-   "age": 16.947924166666667,
+   "name": "Abercrombie & Fitch",
+   "items": 46,
+   "age": 1.7189547222222221,
+   "missing": false
+  },
+  {
+   "name": "Addidas",
+   "items": 600,
+   "age": 1.6660405555555555,
+   "missing": false
+  },
+  {
+   "name": "Ann Taylor",
+   "items": 139,
+   "age": 1.6422172222222222,
    "missing": false
   },
   {
    "name": "Anthropologie",
-   "items": 13,
-   "age": 16.91434027777778,
-   "missing": false
-  },
-  {
-   "name": "Gap",
-   "items": 36,
-   "age": 16.8685575,
-   "missing": false
-  },
-  {
-   "name": "Old Navy",
-   "items": 38,
-   "age": 16.81525138888889,
-   "missing": false
-  },
-  {
-   "name": "Athleta",
-   "items": 37,
-   "age": 16.73832888888889,
-   "missing": false
-  },
-  {
-   "name": "Garnet hill",
-   "items": 9,
-   "age": 16.635316666666668,
-   "missing": false
-  },
-  {
-   "name": "Theory",
-   "items": 51,
-   "age": 16.494297777777778,
-   "missing": false
-  },
-  {
-   "name": "Patagonia",
-   "items": 165,
-   "age": 16.421531388888887,
+   "items": 104,
+   "age": 1.5312755555555555,
    "missing": false
   },
   {
    "name": "Arket",
-   "items": 38,
-   "age": 15.867068055555556,
+   "items": 254,
+   "age": 1.4759725,
+   "missing": false
+  },
+  {
+   "name": "Athleta",
+   "items": 1,
+   "age": 1.4363222222222223,
+   "missing": false
+  },
+  {
+   "name": "Banana Republic",
+   "items": 1,
+   "age": 1.3930280555555556,
+   "missing": false
+  },
+  {
+   "name": "FP Movement",
+   "items": 98,
+   "age": 1.3121355555555556,
+   "missing": false
+  },
+  {
+   "name": "Fatface",
+   "items": 452,
+   "age": 1.26407,
+   "missing": false
+  },
+  {
+   "name": "Free People",
+   "items": 170,
+   "age": 1.1786583333333334,
+   "missing": false
+  },
+  {
+   "name": "Gap",
+   "items": 4,
+   "age": 1.1442422222222222,
+   "missing": false
+  },
+  {
+   "name": "Garnet hill",
+   "items": 118,
+   "age": 1.0952058333333334,
+   "missing": false
+  },
+  {
+   "name": "Joules",
+   "items": 299,
+   "age": 1.053745,
+   "missing": false
+  },
+  {
+   "name": "Lands end",
+   "items": 87,
+   "age": 0.9528558333333333,
+   "missing": false
+  },
+  {
+   "name": "Loft",
+   "items": 616,
+   "age": 0.9065883333333333,
+   "missing": false
+  },
+  {
+   "name": "Lululemon",
+   "items": 114,
+   "age": 0.8219966666666667,
+   "missing": false
+  },
+  {
+   "name": "Madewell",
+   "items": 16,
+   "age": 0.7890572222222222,
+   "missing": false
+  },
+  {
+   "name": "Mango",
+   "items": 47,
+   "age": 0.7587591666666667,
+   "missing": false
+  },
+  {
+   "name": "Massimo Dutti",
+   "items": 16,
+   "age": 0.7064261111111111,
+   "missing": false
+  },
+  {
+   "name": "Old Navy",
+   "items": 3,
+   "age": 0.6524783333333334,
+   "missing": false
+  },
+  {
+   "name": "Oysho",
+   "items": 15,
+   "age": 0.5917872222222222,
    "missing": false
   },
   {
    "name": "Paige",
    "items": 51,
-   "age": 13.754116666666667,
+   "age": 0.5533936111111111,
    "missing": false
   },
   {
-   "name": "Wilson",
-   "items": 50,
-   "age": 13.602858055555556,
-   "missing": false
-  },
-  {
-   "name": "Abercrombie & Fitch",
-   "items": 47,
-   "age": 10.957287222222222,
-   "missing": false
-  },
-  {
-   "name": "Addidas",
-   "items": 450,
-   "age": 10.915640833333333,
-   "missing": false
-  },
-  {
-   "name": "Ann Taylor",
-   "items": 376,
-   "age": 10.876244166666666,
-   "missing": false
-  },
-  {
-   "name": "FP Movement",
-   "items": 78,
-   "age": 10.728749722222222,
-   "missing": false
-  },
-  {
-   "name": "Fatface",
-   "items": 460,
-   "age": 10.675899444444445,
-   "missing": false
-  },
-  {
-   "name": "Free People",
-   "items": 124,
-   "age": 10.545977777777777,
-   "missing": false
-  },
-  {
-   "name": "Joules",
-   "items": 305,
-   "age": 10.504800277777777,
-   "missing": false
-  },
-  {
-   "name": "Lands end",
-   "items": 16,
-   "age": 10.469111388888889,
-   "missing": false
-  },
-  {
-   "name": "Loft",
-   "items": 603,
-   "age": 10.388995277777777,
-   "missing": false
-  },
-  {
-   "name": "Lululemon",
-   "items": 172,
-   "age": 10.30407861111111,
-   "missing": false
-  },
-  {
-   "name": "Madewell",
-   "items": 28,
-   "age": 10.267455555555555,
-   "missing": false
-  },
-  {
-   "name": "Massimo Dutti",
-   "items": 5,
-   "age": 10.21323138888889,
-   "missing": false
-  },
-  {
-   "name": "Oysho",
-   "items": 16,
-   "age": 10.141435,
+   "name": "Patagonia",
+   "items": 202,
+   "age": 0.5220694444444445,
    "missing": false
   },
   {
    "name": "Sezane",
-   "items": 166,
-   "age": 10.094424722222222,
+   "items": 167,
+   "age": 0.5002544444444444,
    "missing": false
   },
   {
    "name": "The upside",
-   "items": 339,
-   "age": 10.067203611111111,
+   "items": 341,
+   "age": 0.47289166666666665,
    "missing": false
   },
   {
    "name": "The white company",
-   "items": 82,
-   "age": 10.05050138888889,
+   "items": 78,
+   "age": 0.4563275,
    "missing": false
   },
   {
-   "name": "&Other Stories",
-   "items": 341,
-   "age": 0.03610138888888889,
+   "name": "Theory",
+   "items": 291,
+   "age": 0.36203111111111114,
+   "missing": false
+  },
+  {
+   "name": "Wilson",
+   "items": 40,
+   "age": 0.33781194444444446,
    "missing": false
   }
  ],
@@ -1860,7 +1591,15 @@
   {
    "brand": "Loft",
    "group": "extension",
-   "total": 603,
+   "total": 616,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "Addidas",
+   "group": "extension",
+   "total": 600,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1884,15 +1623,7 @@
   {
    "brand": "Fatface",
    "group": "extension",
-   "total": 460,
-   "withPrice": 0,
-   "pct": 0,
-   "sample": ""
-  },
-  {
-   "brand": "Addidas",
-   "group": "extension",
-   "total": 450,
+   "total": 452,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1904,14 +1635,6 @@
    "withPrice": 0,
    "pct": 0,
    "sample": ""
-  },
-  {
-   "brand": "Ann Taylor",
-   "group": "extension",
-   "total": 376,
-   "withPrice": 1,
-   "pct": 0,
-   "sample": "$30"
   },
   {
    "brand": "Sweaty betty",
@@ -1930,7 +1653,7 @@
    "sample": ""
   },
   {
-   "brand": "&Other Stories",
+   "brand": "The upside",
    "group": "extension",
    "total": 341,
    "withPrice": 0,
@@ -1946,17 +1669,25 @@
    "sample": ""
   },
   {
-   "brand": "The upside",
+   "brand": "Joules",
    "group": "extension",
-   "total": 339,
+   "total": 299,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
   },
   {
-   "brand": "Joules",
+   "brand": "Theory",
    "group": "extension",
-   "total": 305,
+   "total": 291,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "&Other Stories",
+   "group": "extension",
+   "total": 284,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1986,6 +1717,14 @@
    "sample": "528.00"
   },
   {
+   "brand": "Arket",
+   "group": "extension",
+   "total": 254,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
    "brand": "L.L bean",
    "group": "server",
    "total": 226,
@@ -2004,6 +1743,14 @@
   {
    "brand": "Boldest",
    "group": "browser",
+   "total": 202,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "Patagonia",
+   "group": "extension",
    "total": 202,
    "withPrice": 0,
    "pct": 0,
@@ -2034,9 +1781,9 @@
    "sample": ""
   },
   {
-   "brand": "Lululemon",
+   "brand": "Free People",
    "group": "extension",
-   "total": 172,
+   "total": 170,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -2052,15 +1799,7 @@
   {
    "brand": "Sezane",
    "group": "extension",
-   "total": 166,
-   "withPrice": 0,
-   "pct": 0,
-   "sample": ""
-  },
-  {
-   "brand": "Patagonia",
-   "group": "extension",
-   "total": 165,
+   "total": 167,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -2074,9 +1813,33 @@
    "sample": ""
   },
   {
-   "brand": "Free People",
+   "brand": "Garnet hill",
    "group": "extension",
-   "total": 124,
+   "total": 118,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "Lululemon",
+   "group": "extension",
+   "total": 114,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "Anthropologie",
+   "group": "extension",
+   "total": 104,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "FP Movement",
+   "group": "extension",
+   "total": 98,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -2090,17 +1853,9 @@
    "sample": ""
   },
   {
-   "brand": "FP Movement",
+   "brand": "Lands end",
    "group": "extension",
-   "total": 78,
-   "withPrice": 0,
-   "pct": 0,
-   "sample": ""
-  },
-  {
-   "brand": "Arket",
-   "group": "extension",
-   "total": 57,
+   "total": 87,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -2114,25 +1869,9 @@
    "sample": ""
   },
   {
-   "brand": "paige",
+   "brand": "Paige",
    "group": "extension",
    "total": 51,
-   "withPrice": 0,
-   "pct": 0,
-   "sample": ""
-  },
-  {
-   "brand": "Theory",
-   "group": "extension",
-   "total": 51,
-   "withPrice": 0,
-   "pct": 0,
-   "sample": ""
-  },
-  {
-   "brand": "Abercrombie & Fitch",
-   "group": "extension",
-   "total": 47,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -2140,15 +1879,15 @@
   {
    "brand": "Mango",
    "group": "extension",
-   "total": 45,
+   "total": 47,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
   },
   {
-   "brand": "Arket",
+   "brand": "Abercrombie & Fitch",
    "group": "extension",
-   "total": 38,
+   "total": 46,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -2162,7 +1901,7 @@
    "sample": ""
   },
   {
-   "brand": "Lands end",
+   "brand": "Massimo Dutti",
    "group": "extension",
    "total": 16,
    "withPrice": 0,
@@ -2172,15 +1911,39 @@
   {
    "brand": "Oysho",
    "group": "extension",
-   "total": 16,
+   "total": 15,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
   },
   {
-   "brand": "Massimo Dutti",
+   "brand": "Gap",
    "group": "extension",
-   "total": 5,
+   "total": 4,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "Old Navy",
+   "group": "extension",
+   "total": 3,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "Athleta",
+   "group": "extension",
+   "total": 1,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "Banana Republic",
+   "group": "extension",
+   "total": 1,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -2200,6 +1963,14 @@
    "withPrice": 3,
    "pct": 1,
    "sample": "$200"
+  },
+  {
+   "brand": "Ann Taylor",
+   "group": "extension",
+   "total": 139,
+   "withPrice": 2,
+   "pct": 1,
+   "sample": "$10"
   },
   {
    "brand": "Nike",
@@ -2250,6 +2021,14 @@
    "sample": "$ 68"
   },
   {
+   "brand": "Madewell",
+   "group": "extension",
+   "total": 16,
+   "withPrice": 1,
+   "pct": 6,
+   "sample": "$100"
+  },
+  {
    "brand": "Dickies",
    "group": "server",
    "total": 300,
@@ -2274,14 +2053,6 @@
    "sample": "58"
   },
   {
-   "brand": "wilson",
-   "group": "extension",
-   "total": 50,
-   "withPrice": 12,
-   "pct": 24,
-   "sample": "$158.00"
-  },
-  {
    "brand": "Eddie bauer",
    "group": "server",
    "total": 117,
@@ -2296,6 +2067,14 @@
    "withPrice": 20,
    "pct": 30,
    "sample": "€ 225"
+  },
+  {
+   "brand": "Wilson",
+   "group": "extension",
+   "total": 40,
+   "withPrice": 12,
+   "pct": 30,
+   "sample": "$128.00"
   },
   {
    "brand": "Marine Layer",
@@ -2410,14 +2189,6 @@
    "sample": "$120.00"
   },
   {
-   "brand": "The white company",
-   "group": "extension",
-   "total": 82,
-   "withPrice": 67,
-   "pct": 82,
-   "sample": "£190.00"
-  },
-  {
    "brand": "Xirena",
    "group": "server",
    "total": 343,
@@ -2426,20 +2197,20 @@
    "sample": "$205.00"
   },
   {
+   "brand": "The white company",
+   "group": "extension",
+   "total": 78,
+   "withPrice": 67,
+   "pct": 86,
+   "sample": "£190.00"
+  },
+  {
    "brand": "Draper James",
    "group": "server",
    "total": 165,
    "withPrice": 146,
    "pct": 88,
    "sample": "$128.00"
-  },
-  {
-   "brand": "Madewell",
-   "group": "extension",
-   "total": 28,
-   "withPrice": 25,
-   "pct": 89,
-   "sample": "₩89,804"
   },
   {
    "brand": "Thread & supply",
@@ -2866,60 +2637,12 @@
    "sample": "$98.00"
   },
   {
-   "brand": "Old Navy",
-   "group": "extension",
-   "total": 38,
-   "withPrice": 38,
-   "pct": 100,
-   "sample": "12.49"
-  },
-  {
-   "brand": "Athleta",
-   "group": "extension",
-   "total": 37,
-   "withPrice": 37,
-   "pct": 100,
-   "sample": "29.4"
-  },
-  {
-   "brand": "Banana Republic",
-   "group": "extension",
-   "total": 36,
-   "withPrice": 36,
-   "pct": 100,
-   "sample": "$60.00"
-  },
-  {
-   "brand": "Gap",
-   "group": "extension",
-   "total": 36,
-   "withPrice": 36,
-   "pct": 100,
-   "sample": "54.99"
-  },
-  {
    "brand": "Monsoon",
    "group": "server",
    "total": 32,
    "withPrice": 32,
    "pct": 100,
    "sample": "72.00"
-  },
-  {
-   "brand": "Anthropologie",
-   "group": "extension",
-   "total": 13,
-   "withPrice": 13,
-   "pct": 100,
-   "sample": "$78.00"
-  },
-  {
-   "brand": "Garnet hill",
-   "group": "extension",
-   "total": 9,
-   "withPrice": 9,
-   "pct": 100,
-   "sample": "$3"
   }
  ]
 }

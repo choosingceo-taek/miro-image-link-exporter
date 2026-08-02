@@ -7,35 +7,35 @@
 
 <details><summary>정상 29개</summary>
 
-- Banana Republic — 17시간 전 · 36개
-- Mango — 17시간 전 · 45개
-- Anthropologie — 17시간 전 · 13개
-- Gap — 17시간 전 · 36개
-- Old Navy — 17시간 전 · 38개
-- Athleta — 17시간 전 · 37개
-- Garnet hill — 17시간 전 · 9개
-- Theory — 16시간 전 · 51개
-- Patagonia — 16시간 전 · 165개
-- Arket — 16시간 전 · 38개
-- Paige — 14시간 전 · 51개
-- Wilson — 14시간 전 · 50개
-- Abercrombie & Fitch — 11시간 전 · 47개
-- Addidas — 11시간 전 · 450개
-- Ann Taylor — 11시간 전 · 376개
-- FP Movement — 11시간 전 · 78개
-- Fatface — 11시간 전 · 460개
-- Free People — 11시간 전 · 124개
-- Joules — 11시간 전 · 305개
-- Lands end — 10시간 전 · 16개
-- Loft — 10시간 전 · 603개
-- Lululemon — 10시간 전 · 172개
-- Madewell — 10시간 전 · 28개
-- Massimo Dutti — 10시간 전 · 5개
-- Oysho — 10시간 전 · 16개
-- Sezane — 10시간 전 · 166개
-- The upside — 10시간 전 · 339개
-- The white company — 10시간 전 · 82개
-- &Other Stories — 0시간 전 · 341개
+- &Other Stories — 2시간 전 · 284개
+- Abercrombie & Fitch — 2시간 전 · 46개
+- Addidas — 2시간 전 · 600개
+- Ann Taylor — 2시간 전 · 139개
+- Anthropologie — 2시간 전 · 104개
+- Arket — 1시간 전 · 254개
+- Athleta — 1시간 전 · 1개
+- Banana Republic — 1시간 전 · 1개
+- FP Movement — 1시간 전 · 98개
+- Fatface — 1시간 전 · 452개
+- Free People — 1시간 전 · 170개
+- Gap — 1시간 전 · 4개
+- Garnet hill — 1시간 전 · 118개
+- Joules — 1시간 전 · 299개
+- Lands end — 1시간 전 · 87개
+- Loft — 1시간 전 · 616개
+- Lululemon — 1시간 전 · 114개
+- Madewell — 1시간 전 · 16개
+- Mango — 1시간 전 · 47개
+- Massimo Dutti — 1시간 전 · 16개
+- Old Navy — 1시간 전 · 3개
+- Oysho — 1시간 전 · 15개
+- Paige — 1시간 전 · 51개
+- Patagonia — 1시간 전 · 202개
+- Sezane — 1시간 전 · 167개
+- The upside — 0시간 전 · 341개
+- The white company — 0시간 전 · 78개
+- Theory — 0시간 전 · 291개
+- Wilson — 0시간 전 · 40개
 
 </details>
 
@@ -47,62 +47,64 @@
 목록 카드 텍스트에서 통화기호로 뽑습니다. 통화 표기가 다르거나(zł·kr 등) 가격을
 이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 엑셀 '가격' 열도 비게 됩니다.
 
-- 전체 134개 브랜드 · ❌ 거의 없음 53개 · ⚠ 일부만 21개
+- 전체 133개 브랜드 · ❌ 거의 없음 55개 · ⚠ 일부만 20개
 
 ## ❌ 가격이 거의 안 잡히는 브랜드 (20% 미만)
 
 | 브랜드 | 그룹 | 가격있음/전체 |
 |---|---|---:|
 | CCC | browser | 0/619 (0%) |
-| Loft | extension | 0/603 (0%) |
+| Loft | extension | 0/616 (0%) |
+| Addidas | extension | 0/600 (0%) |
 | Cotton on | browser | 0/504 (0%) |
 | Me+Em | browser | 0/498 (0%) |
-| Fatface | extension | 0/460 (0%) |
-| Addidas | extension | 0/450 (0%) |
+| Fatface | extension | 0/452 (0%) |
 | Whitestuff | server | 0/419 (0%) |
-| Ann Taylor | extension | 1/376 (0%) |
 | Sweaty betty | browser | 0/359 (0%) |
 | Chico's | server | 0/346 (0%) |
-| &Other Stories | extension | 0/341 (0%) |
+| The upside | extension | 0/341 (0%) |
 | Vince | server | 0/340 (0%) |
-| The upside | extension | 0/339 (0%) |
-| Joules | extension | 0/305 (0%) |
+| Joules | extension | 0/299 (0%) |
+| Theory | extension | 0/291 (0%) |
+| &Other Stories | extension | 0/284 (0%) |
 | Seasalt cornwall | server | 0/280 (0%) |
 | WHBM | server | 0/278 (0%) |
 | Eileen fisher | server | 1/266 (0%) |
+| Arket | extension | 0/254 (0%) |
 | L.L bean | server | 0/226 (0%) |
 | Gerard darel | browser | 1/225 (0%) |
 | Boldest | browser | 0/202 (0%) |
+| Patagonia | extension | 0/202 (0%) |
 | Varley | server | 0/199 (0%) |
 | J crew | browser | 0/193 (0%) |
 | Rag & bone | server | 0/190 (0%) |
-| Lululemon | extension | 0/172 (0%) |
+| Free People | extension | 0/170 (0%) |
 | Barbour | browser | 0/168 (0%) |
-| Sezane | extension | 0/166 (0%) |
-| Patagonia | extension | 0/165 (0%) |
+| Sezane | extension | 0/167 (0%) |
 | Lucky Brand | browser | 0/155 (0%) |
-| Free People | extension | 0/124 (0%) |
+| Garnet hill | extension | 0/118 (0%) |
+| Lululemon | extension | 0/114 (0%) |
+| Anthropologie | extension | 0/104 (0%) |
+| FP Movement | extension | 0/98 (0%) |
 | Vanessa bruno | server | 0/90 (0%) |
-| FP Movement | extension | 0/78 (0%) |
-| Arket | extension | 0/57 (0%) |
+| Lands end | extension | 0/87 (0%) |
 | J.mclaughlin | browser | 0/56 (0%) |
-| paige | extension | 0/51 (0%) |
-| Theory | extension | 0/51 (0%) |
-| Abercrombie & Fitch | extension | 0/47 (0%) |
-| Mango | extension | 0/45 (0%) |
-| Arket | extension | 0/38 (0%) |
+| Paige | extension | 0/51 (0%) |
+| Mango | extension | 0/47 (0%) |
+| Abercrombie & Fitch | extension | 0/46 (0%) |
 | Carlhartt | browser | 0/23 (0%) |
-| Lands end | extension | 0/16 (0%) |
-| Oysho | extension | 0/16 (0%) |
-| Massimo Dutti | extension | 0/5 (0%) |
+| Massimo Dutti | extension | 0/16 (0%) |
+| Oysho | extension | 0/15 (0%) |
 | Gymshark | server | 2/253 (1%) |
 | Leset | browser | 3/208 (1%) |
+| Ann Taylor | extension | 2/139 (1%) |
 | Nike | browser | 10/483 (2%) |
 | Prana | server | 1/43 (2%) |
 | Sessun | server | 2/71 (3%) |
 | vineyardvines | server | 8/200 (4%) |
 | La Ligne | server | 20/364 (5%) |
 | Buck Mason | server | 8/139 (6%) |
+| Madewell | extension | 1/16 (6%) |
 | Dickies | server | 24/300 (8%) |
 | J.jill | server | 9/90 (10%) |
 | Vuori | server | 31/213 (15%) |
@@ -111,9 +113,9 @@
 
 | 브랜드 | 그룹 | 가격있음/전체 | 예시 |
 |---|---|---:|---|
-| wilson | extension | 12/50 (24%) | $158.00 |
 | Eddie bauer | server | 32/117 (27%) | $17.97 |
 | Bash | server | 20/67 (30%) | € 225 |
+| Wilson | extension | 12/40 (30%) | $128.00 |
 | Marine Layer | server | 65/183 (36%) | $58.00 |
 | Ninety Percent | server | 80/182 (44%) | $40.00 |
 | On | browser | 67/144 (47%) | $120.00 |
@@ -128,10 +130,9 @@
 | Beyond yoga | server | 174/227 (77%) | $54.00 |
 | Sanctuary | server | 325/401 (81%) | $49.00 |
 | ALC | server | 322/393 (82%) | $120.00 |
-| The white company | extension | 67/82 (82%) | £190.00 |
 | Xirena | server | 286/343 (83%) | $205.00 |
+| The white company | extension | 67/78 (86%) | £190.00 |
 | Draper James | server | 146/165 (88%) | $128.00 |
-| Madewell | extension | 25/28 (89%) | ₩89,804 |
 
 
 ---
@@ -141,27 +142,59 @@
 상품을 **한 개도** 주지 못한 주소입니다. 브랜드 사이트에서 개편·삭제됐을 가능성이 큽니다.
 대체 주소를 찾으면 `카테고리 URL 수정` 워크플로로 갈아끼우세요.
 
-- 대상 9개 브랜드 · URL 11개
+- 대상 14개 브랜드 · URL 28개
 
-## Lands end (extension) — 현재 16개 저장
+## Banana Republic (extension) — 현재 1개 저장
 
-- https://www.landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0d-xec
-- https://www.landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec
+- https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136
+- https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136
+- https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136
+- https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136
 
-## Oysho (extension) — 현재 16개 저장
+## Old Navy (extension) — 현재 3개 저장
+
+- https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136
+- https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click
+- https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits
+- https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136
+
+## Athleta (extension) — 현재 1개 저장
+
+- https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts
+- https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A
+- https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A
+
+## Gap (extension) — 현재 4개 저장
+
+- https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136
+- https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136
+- https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS
+
+## Madewell (extension) — 현재 16개 저장
+
+- https://www.madewell.com/kr/womens/clothing/tops-shirts/
+- https://www.madewell.com/kr/womens/clothing/dresses/
+- https://www.madewell.com/kr/womens/clothing/pants/
+
+## Oysho (extension) — 현재 15개 저장
 
 - https://www.oysho.com/gb/womens-sports-tops-n5484
 - https://www.oysho.com/gb/dresses-jumpsuits-n4954
 
-## Addidas (extension) — 현재 450개 저장
+## Wilson (extension) — 현재 40개 저장
 
-- https://www.adidas.com/us/women-tops?sort=newest-to-oldest
+- https://www.wilson.com/en-us/sportswear/women/tops/tanks
+- https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts
+
+## Arket (extension) — 현재 254개 저장
+
+- https://www.arket.com/en-ww/women/clothing/tops/t-shirts/
 
 ## Carlhartt (browser) — 현재 23개 저장
 
 - https://www.carhartt.com/c/womens-sweatpants
 
-## Joules (extension) — 현재 305개 저장
+## Joules (extension) — 현재 299개 저장
 
 - https://www.joules.com/shop/womens/clothing/shirts-and-blouses
 
@@ -169,31 +202,32 @@
 
 - https://leset.com/collections/t-shirts
 
-## Massimo Dutti (extension) — 현재 5개 저장
-
-- https://www.massimodutti.com/us/s/w-tops-n2889
-
-## Lululemon (extension) — 현재 172개 저장
+## Lululemon (extension) — 현재 114개 저장
 
 - https://shop.lululemon.com/c/women-sweatpants/n1m8w7
 
-## The white company (extension) — 현재 82개 저장
+## &Other Stories (extension) — 현재 284개 저장
+
+- https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/
+
+## The white company (extension) — 현재 78개 저장
 
 - https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts
 
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-02T00:01Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-02T02:07Z)
 
-- 카탈로그 134개 · 상품 30784개 검사 · **문제 항목 75개**
-- 문제가 있는 브랜드 20개
+- 카탈로그 133개 · 상품 31204개 검사 · **문제 항목 66개**
+- 문제가 있는 브랜드 21개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
 
-## Ann Taylor — 27/376개 (extension)
+## Ann Taylor — 22/139개 (extension)
 
-- **27개** · https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/
+- **22개** · https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · points icon — https://www.anntaylor.com/stylerewards
   - [최상위 경로(랜딩 페이지로 보임)] tops · Shades of the Season — https://www.anntaylor.com/cat5310001
   - [최상위 경로(랜딩 페이지로 보임)] tops · Trends to Try — https://www.anntaylor.com/cata7000090
   - [최상위 경로(랜딩 페이지로 보임)] tops · Work Tops — https://www.anntaylor.com/cat1410003
@@ -205,11 +239,10 @@
   - [최상위 경로(랜딩 페이지로 보임)] dresses · Everyday Dresses — https://www.anntaylor.com/cata000012
   - [최상위 경로(랜딩 페이지로 보임)] dresses · RSVP-Ready Dresses — https://www.anntaylor.com/cata7000085
   - [최상위 경로(랜딩 페이지로 보임)] tops · Suit Jackets — https://www.anntaylor.com/cat2680001
-  - [최상위 경로(랜딩 페이지로 보임)] tops · New Suiting — https://www.anntaylor.com/cata000013
 
-## The white company — 12/82개 (extension)
+## The white company — 9/78개 (extension)
 
-- **12개** · https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear
+- **9개** · https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear
   - [상품 페이지가 아닌 경로] tops · a bedroom with a bed, a table and a lamp — https://www.thewhitecompany.com/uk/magazine/sleep
   - [상품 페이지가 아닌 경로] dresses · a woman in a white dress standing under a tree with a table and chairs — https://www.thewhitecompany.com/uk/magazine/home
   - [상품 페이지가 아닌 경로] tops · two women in white and beige outfits standing next to each other — https://www.thewhitecompany.com/uk/magazine/style/lookbook
@@ -218,9 +251,6 @@
   - [상품 페이지가 아닌 경로] tops · three children carrying a surfboard on the beach — https://www.thewhitecompany.com/uk/magazine/little-ones
   - [상품 페이지가 아닌 경로] tops · a candle and a vase of flowers sit on a table — https://www.thewhitecompany.com/uk/magazine/gifts
   - [상품 페이지가 아닌 경로] tops · the thread style — https://www.thewhitecompany.com/uk/magazine/style
-  - [상품 페이지가 아닌 경로] tops · delivery information — https://www.thewhitecompany.com/uk/help/delivery
-  - [상품 페이지가 아닌 경로] tops · gift box servive — https://www.thewhitecompany.com/uk/help/gift-box-service
-  - [상품 페이지가 아닌 경로] tops · gift cards — https://www.thewhitecompany.com/uk/gift-cards
   - [상품 페이지가 아닌 경로] tops · mobile app — https://www.thewhitecompany.com/help/mobile-app
 
 ## Sanctuary — 6/401개 (server)
@@ -234,41 +264,44 @@
 - **1개** · https://www.sanctuaryclothing.com/collections/dress
   - [배너 문구가 상품명] dresses · More The Better Halter Dress Navy Blazer — https://www.sanctuaryclothing.com/collections/dress/products/more-the-better-halter-dress-navy-blazer
 
-## Sezane — 5/166개 (extension)
+## Sezane — 6/167개 (extension)
 
-- **5개** · https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres
+- **6개** · https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres
   - [상품 페이지가 아닌 경로] tops · Gift cards — https://www.sezane.com/us-en/gift-cards
   - [배너 문구가 상품명] tops · NEW IN — https://www.sezane.com/us-en/new-in
   - [배너 문구가 상품명] tops · New in — https://www.sezane.com/us-en/petit-sezane/enfant/kids-petit-sezane
   - [상품 페이지가 아닌 경로] tops · GIFT CARDS — https://www.sezane.com/us-en/octobre-editions/gift-cards
   - [상품 페이지가 아닌 경로] tops · FAQ — https://www.sezane.com/us-en/help
+  - [배너 문구가 상품명] tops · Download the Sézane App — https://sezane.onelink.me/TCiW/exn0jt1w
 
-## The upside — 5/339개 (extension)
+## The upside — 3/341개 (extension)
 
-- **5개** · https://www.theupside.com/shop/tops/
+- **3개** · https://www.theupside.com/shop/tops/
   - [최상위 경로(랜딩 페이지로 보임)] tops · Header Submenu Image — https://www.theupside.com/tanks-tees/
   - [상품 페이지가 아닌 경로] tops · Meet Eddie Nelson, the Founder of Bred Breathwork — https://www.theupside.com/journal/
   - [상품 페이지가 아닌 경로] tops · International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method — https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Instagram — https://www.instagram.com/the_upside/
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Facebook — https://www.facebook.com/TheUpsideSport/
 
-## Free People — 3/124개 (extension)
+## Anthropologie — 2/104개 (extension)
 
-- **3개** · https://www.freepeople.com/tops/
-  - [최상위 경로(랜딩 페이지로 보임)] tops · FP Movement — https://www.freepeople.com/fpmovement/
+- **2개** · https://www.anthropologie.com/tees
+  - [상품 페이지가 아닌 경로] tops · free shipping for anthroperks members — https://www.anthropologie.com/help/anthro-loyalty
+  - [상품 페이지가 아닌 경로] tops · Teacher Appreciation — https://www.anthropologie.com/help/teacher-appreciation
+
+## Free People — 2/170개 (extension)
+
+- **2개** · https://www.freepeople.com/tops/
   - [배너 문구가 상품명] tops · Download on the App Store — https://itunes.apple.com/us/app/free-people/id659532790
   - [최상위 경로(랜딩 페이지로 보임)] tops · Learn About Care FP — https://www.freepeople.com/care-fp/
 
-## Loft — 3/603개 (extension)
+## Theory — 2/291개 (extension)
 
-- **3개** · https://www.loft.com/clothing/tees-tanks/cat2860023/
-  - [최상위 경로(랜딩 페이지로 보임)] tops · meganav-img-2 — https://www.loft.com/style-report/
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Follow Us — https://www.loft.com/loft-privacy/
-  - [최상위 경로(랜딩 페이지로 보임)] tops · Follow Us — https://www.loft.com/terms-of-use/
+- **2개** · https://www.theory.com/women/t-shirts-and-tanks/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · Linen Shop — https://www.theory.com/the-linen-shop/
+  - [배너 문구가 상품명] tops · Download on the App Store — https://us-theory.onelink.me/VoRa/p47l071y
 
-## wilson — 2/50개 (extension)
+## Wilson — 2/40개 (extension)
 
-- **2개** · (출처 불명)
+- **2개** · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops
   - [배너 문구가 상품명] tops · new arrivals — https://www.wilson.com/en-us/sportswear/women/new-arrivals
   - [배너 문구가 상품명] tops · new arrivals — https://www.wilson.com/en-us/sportswear/men/new-arrivals
 
@@ -292,22 +325,22 @@
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] sweatshirts · Gift Card — https://fahertybrand.com/products/copy-of-faherty-e-gift-card-good-vibes-for-all
 
-## FP Movement — 1/78개 (extension)
+## FP Movement — 1/98개 (extension)
 
 - **1개** · https://www.freepeople.com/fpmovement/workout-tops/
   - [배너 문구가 상품명] tops · Download on the App Store — https://itunes.apple.com/us/app/free-people/id659532790
 
-## Madewell — 1/28개 (extension)
+## Loft — 1/616개 (extension)
 
-- **1개** · https://www.madewell.com/kr/womens/clothing/tees/
-  - [상품 페이지가 아닌 경로] tops · Icon — https://www.madewell.com/kr/store-locator
+- **1개** · https://www.loft.com/clothing/tees-tanks/cat2860023/
+  - [최상위 경로(랜딩 페이지로 보임)] tops · meganav-img-2 — https://www.loft.com/style-report/
 
 ## Mint velvet — 1/355개 (server)
 
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] sweatshirts · Gift Cards — https://mintvelvet.com/products/mv-gift-card
 
-## Lululemon — 1/172개 (extension)
+## Lululemon — 1/114개 (extension)
 
 - **1개** · https://shop.lululemon.com/c/women-dresses/n1mk31
   - [배너 문구가 상품명] dresses · Bestsellers — https://shop.lululemon.com/c/women-bestsellers-dresses/n13fpxz6o10znskl
@@ -317,7 +350,7 @@
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] pants · Splendid x @Cellajaneblog Interlock Pant — https://splendid.com/products/splendid-x-cellajaneblog-interlock-pant-in-truffle
 
-## &Other Stories — 1/341개 (extension)
+## &Other Stories — 1/284개 (extension)
 
 - **1개** · https://www.stories.com/en-us/clothing/tops/
   - [상품 페이지가 아닌 경로] tops · gift card — https://www.stories.com/en-us/customer-service/gift-card/
@@ -336,61 +369,74 @@
 
 카테고리 URL별로 몇 개를 줬는지 — 0개인 URL이 원인이다.
 
-## Massimo Dutti — 5개 (extension)
+## Athleta — 1개 (extension)
 
--    0개 · https://www.massimodutti.com/us/s/w-tops-n2889
--    1개 · https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012
--    1개 · https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374
--    1개 · https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376
--    2개 · https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518
-  - 표본: long-sleeve crew neck t-shirt set with beige trousers featuring front seams and side pockets. — https://www.massimodutti.com/us/100-cotton-long-sleeve-tshirt-l06244810
-  - 표본: Powered by Onetrust — https://www.onetrust.com/solutions/consent-and-preferences/
-  - 표본: Rust-colored long blouse set with a high neck, long sleeves, and tie belt, paired with wide-leg blue jeans and black sandals. — https://www.massimodutti.com/us/flowing-blouse-with-tie-detail-l05166542
+-    0개 · https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts
+-    0개 · https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A
+-    0개 · https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A
+-    1개 · https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops
+  - 표본: Breezy Scoop V-Neck Tee — https://athleta.gap.com/browse/product.do
 
-## Garnet hill — 9개 (extension)
+## Banana Republic — 1개 (extension)
 
--    0개 · https://www.garnethill.com/clothing/categories/tops-tees/
--    0개 · https://www.garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__am__spBlouses?categoryId=191619
--    0개 · https://www.garnethill.com/clothing/categories/dresses/
--    0개 · https://www.garnethill.com/clothing/categories/pants/
--    9개 · (출처 없음 — 옛 수집분)
-  - 표본: Easy Linen Short-Sleeve Shirt — https://www.garnethill.com/easy-linen-short-sleeve-shirt/clothing/categories/729780?gtmPageName=Recently%20Viewed-UniversalPDPView&isRecentlyViewed=true
-  - 표본: Naomi Lightweight Twill Midi Dress - Blue Mini Floral — https://www.garnethill.com/naomi-lightweight-twill-midi-dress---blue-mini-floral/clothing/categories/dresses/736921?&defattrib=color&defattribvalue=BLUM&uniqueId=736921_color2&isNewProduct=true&hideNewTagFromPLP=false
-  - 표본: Ingrid Mixed-Media Knit Dress - Woodland Green — https://www.garnethill.com/ingrid-mixed-media-knit-dress---woodland-green/clothing/categories/dresses/737891?&defattrib=color&defattribvalue=WDLD&uniqueId=737891_color3&isNewProduct=true&hideNewTagFromPLP=false
+-    0개 · https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136
+-    0개 · https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136
+-    0개 · https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136
+-    1개 · https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136
+  - 표본: Ribbed Henley Tank — https://bananarepublic.gap.com/browse/product.do
 
-## Anthropologie — 13개 (extension)
+## Old Navy — 3개 (extension)
 
--    0개 · https://www.anthropologie.com/tees
--    0개 · https://www.anthropologie.com/tops-sweatshirts
--    0개 · https://www.anthropologie.com/tops
--    0개 · https://www.anthropologie.com/dresses
--    0개 · https://www.anthropologie.com/bottoms
--   13개 · (출처 없음 — 옛 수집분)
-  - 표본: Maeve Puff-Sleeve Sweatshirt Tee — https://www.anthropologie.com/shop/maeve-puff-sleeve-sweatshirt-tee?color=546&type=STANDARD
-  - 표본: Pilcro Niki Bubble Sweatshirt — https://www.anthropologie.com/shop/pilcro-niki-bubble-sweatshirt?color=001&type=STANDARD
-  - 표본: Maeve Short-Sleeve Bubble Sweatshirt — https://www.anthropologie.com/shop/maeve-short-sleeve-bubble-sweatshirt?color=040&type=STANDARD
+-    0개 · https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136
+-    0개 · https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click
+-    0개 · https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits
+-    0개 · https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136
+-    3개 · https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136
+  - 표본: Image of models wearing the Old Navy x Disney Haunted Harvest collection. — https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-haunted-harvest
+  - 표본: Image of a baby boy model wearing the Old Navy Little Navy collection. — https://oldnavy.gap.com/browse/baby/little-navy
+  - 표본: Vintage Crew-Neck T-Shirt — https://oldnavy.gap.com/browse/product.do
 
-## Lands end — 16개 (extension)
+## Gap — 4개 (extension)
 
--    0개 · https://www.landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0d-xec
--    0개 · https://www.landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec
--    4개 · https://www.landsend.com/shop/womens-dresses/S-xfg-xez-y5c-xec
--    5개 · https://www.landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec
--    7개 · https://www.landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec
-  - 표본: Woman wearing a striped tee shirt — https://www.landsend.com/shop/womens-tops-tees/S-xfe-xez-y5c-xh1-xec
-  - 표본: Woman wearing a red polka dot tank top — https://www.landsend.com/shop/womens-tank-top-tops-tees/S-xfe-xez-y5c-xh1-y05-xec
-  - 표본: Woman wearing a striped Polo shirt — https://www.landsend.com/shop/womens-polo-shirts-tops/S-xfe-xez-y5c-yqm-xec
+-    0개 · https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136
+-    0개 · https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136
+-    0개 · https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS
+-    4개 · https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136
+  - 표본: Visit the Uniform Shop image — https://www.gap.com/browse/girls/uniform-shop
+  - 표본: Visit the Uniform Shop image — https://www.gap.com/browse/boys/uniform-shop
+  - 표본: Victoria Beckham image — https://www.gap.com/browse/gapx/gap-victoria-beckham
 
-## Oysho — 16개 (extension)
+## Oysho — 15개 (extension)
 
 -    0개 · https://www.oysho.com/gb/womens-sports-tops-n5484
 -    0개 · https://www.oysho.com/gb/dresses-jumpsuits-n4954
--    4개 · https://www.oysho.com/gb/womens-sports-t-shirts-n4764
+-    3개 · https://www.oysho.com/gb/womens-sports-t-shirts-n4764
 -    5개 · https://www.oysho.com/gb/womens-sweatshirts-n4922
 -    7개 · https://www.oysho.com/gb/womens-pants-n4813
   - 표본: womens sports tank tops n4770 — https://www.oysho.com/gb/womens-sports-tank-tops-n4770
   - 표본: short sleeve womens t shirts n4766 — https://www.oysho.com/gb/short-sleeve-womens-t-shirts-n4766
   - 표본: womens long sleeve t shirts n4763 — https://www.oysho.com/gb/womens-long-sleeve-t-shirts-n4763
+
+## Madewell — 16개 (extension)
+
+-    0개 · https://www.madewell.com/kr/womens/clothing/tops-shirts/
+-    0개 · https://www.madewell.com/kr/womens/clothing/dresses/
+-    0개 · https://www.madewell.com/kr/womens/clothing/pants/
+-   16개 · https://www.madewell.com/kr/womens/clothing/tees/
+  - 표본: Women — https://www.madewell.com/womens/new/new-arrivals/
+  - 표본: Women — https://www.madewell.com/kr/womens/new/new-arrivals/
+  - 표본: Men — https://www.madewell.com/kr/mens/new/new-arrivals/
+
+## Massimo Dutti — 16개 (extension)
+
+-    1개 · https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518
+-    1개 · https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012
+-    1개 · https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374
+-    1개 · https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376
+-   12개 · https://www.massimodutti.com/us/s/w-tops-n2889
+  - 표본: long-sleeve crew neck t-shirt set with beige trousers featuring front seams and side pockets. — https://www.massimodutti.com/us/100-cotton-long-sleeve-tshirt-l06244810
+  - 표본: Side view of black loafer with white sole. — https://www.massimodutti.com/us/split-leather-loafers-with-moc-toe-l12422650
+  - 표본: Front view of a long-sleeved, slim-fit white shirt with a classic collar and central button placket. — https://www.massimodutti.com/us/100-linen-slim-fit-shirt-l01927260
 
 ## Carlhartt — 23개 (browser)
 
@@ -403,16 +449,6 @@
   - 표본: womens force sun defender relaxed t shirt — https://www.carhartt.com/product/106830/womens-force-sun-defender-relaxed-t-shirt
   - 표본: womens iconic k87 pocket t shirt — https://www.carhartt.com/product/103067/womens-iconic-k87-pocket-t-shirt
 
-## Madewell — 28개 (extension)
-
--    3개 · https://www.madewell.com/kr/womens/clothing/dresses/
--    5개 · https://www.madewell.com/kr/womens/clothing/pants/
--    9개 · https://www.madewell.com/kr/womens/clothing/tees/
--   11개 · https://www.madewell.com/kr/womens/clothing/tops-shirts/
-  - 표본: The '90s Cropped Tee in Compact Cotton — https://www.madewell.com/kr/p/womens/clothing/tees/the-90s-cropped-tee-in-compact-cotton/OA990/
-  - 표본: The Relaxed Tee in Vintage Jersey — https://www.madewell.com/kr/p/womens/clothing/tees/the-relaxed-gym-tee-in-vintage-jersey/OA995/
-  - 표본: The Boxy Crop Tee in Allday Jersey — https://www.madewell.com/kr/p/womens/clothing/tees/the-boxy-crop-tee-in-allday-jersey/NZ387/
-
 ## Monsoon — 32개 (server)
 
 -    0개 · https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/
@@ -424,62 +460,17 @@
   - 표본: Laila Embellished Print Blouse Ivory — https://www.monsoonlondon.com/ie/laila-embellished-print-blouse-ivory-10062310016.html
   - 표본: Lucy Linen Blend Tank Top Black — https://www.monsoonlondon.com/ie/lucy-linen-blend-tank-top-black-10063000001.html
 
-## Banana Republic — 36개 (extension)
+## Wilson — 40개 (extension)
 
--    0개 · https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136
--    0개 · https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136
--    0개 · https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136
--    0개 · https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136
--   36개 · (출처 없음 — 옛 수집분)
-  - 표본: RIBBED HENLEY TANK $60.00 30% off applied at checkout — https://bananarepublic.gap.com/browse/product.do?pid=899792032&vid=1&pcid=1055063&cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+
-  - 표본: VINTAGE COTTON RUCHED-SIDE T-SHIRT $70.00 — https://bananarepublic.gap.com/browse/product.do?pid=1180103022&vid=1&pcid=1055063&cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+
-  - 표본: COTTON SLUB CREW-NECK T-SHIRT 30% off applied at checkout — https://bananarepublic.gap.com/browse/product.do?pid=888812172&vid=1&pcid=1055063&cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+
-
-## Gap — 36개 (extension)
-
--    0개 · https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136
--    0개 · https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136
--    0개 · https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136
--    0개 · https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS
--   36개 · (출처 없음 — 옛 수집분)
-  - 표본: Cotton Gauze Button-Down Shirt — https://www.gap.com/shop/womens-button-down-shirts
-  - 표본: Denim Zip Vest — https://www.gap.com/shop/womens-vest
-  - 표본: Linen-Blend Puff-Sleeve Crop Corset Top — https://www.gap.com/shop/womens-puff-sleeve-top-0aaz01c
-
-## Athleta — 37개 (extension)
-
--    0개 · https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops
--    0개 · https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts
--    0개 · https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A
--    0개 · https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A
--   37개 · (출처 없음 — 옛 수집분)
-  - 표본: Momentum Seamless Tank — https://athleta.gap.com/shop/camo-tank
-  - 표본: Form Knit Crew Sweatshirt — https://athleta.gap.com/shop/crewneck-sweatshirt
-  - 표본: Oasis Underwire Bikini Top A-C — https://athleta.gap.com/shop/crop-bikini-top
-
-## Arket — 38개 (extension)
-
--    0개 · https://www.arket.com/en-ww/women/clothing/tops/
--    0개 · https://www.arket.com/en-ww/women/clothing/tops/t-shirts/
--    0개 · https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/
--    0개 · https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/
--    0개 · https://www.arket.com/en-ww/women/clothing/dresses/
--   38개 · (출처 없음 — 옛 수집분)
-  - 표본: Signature Short-Sleeve T-Shirt-Grey-84 — https://www.arket.com/en-ww/product/crew-neck-t-shirt-grey-melange-0630665075/
-  - 표본: Signature Short-Sleeve T-Shirt-Black-108 — https://www.arket.com/en-ww/product/crew-neck-t-shirt-black-0630665001/
-  - 표본: Signature Short-Sleeve T-Shirt-Pink-19316 — https://www.arket.com/en-ww/product/signature-short-sleeve-t-shirt-pink-0630665171/
-
-## Old Navy — 38개 (extension)
-
--    0개 · https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136
--    0개 · https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136
--    0개 · https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click
--    0개 · https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits
--    0개 · https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136
--   38개 · (출처 없음 — 옛 수집분)
-  - 표본: Seamed-Bodice Eyelet Tank Top — https://oldnavy.gap.com/shop/square-neck-tank-top-0aaz05c
-  - 표본: Long-Sleeve Chiffon Tie-Front Top — https://oldnavy.gap.com/shop/long-sleeve-blouse-0aaz03c
-  - 표본: First-Layer Cami Tank Top — https://oldnavy.gap.com/shop/basic-cami
+-    0개 · https://www.wilson.com/en-us/sportswear/women/tops/tanks
+-    0개 · https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts
+-    5개 · https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings
+-    7개 · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits
+-    9개 · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops
+-   19개 · https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops
+  - 표본: summer 2026 gloves — https://www.wilson.com/en-us/baseball/baseball-gloves/new-arrivals/summer-2026-gloves
+  - 표본: summer 2026 gloves — https://www.wilson.com/en-us/fastpitch/fastpitch-softball-gloves/new-arrivals/summer-2026-gloves
+  - 표본: gst footballs — https://www.wilson.com/en-us/football/footballs/gst-footballs
 
 ## Prana — 43개 (server)
 
@@ -492,67 +483,40 @@
   - 표본: Moonvale Short Sleeve Top — https://www.prana.com/p/moonvale-short-sleeve-top/2162831.html?dwvar_2162831_color=Stone
   - 표본: Mountain Maven Denim Shirt — https://www.prana.com/p/mountain-maven-denim-shirt/2163521.html?dwvar_2163521_color=Blue%20Denim
 
-## Mango — 45개 (extension)
-
--    0개 · https://shop.mango.com/us/en/c/women/t-shirts/8e23bdfb
--    0개 · https://shop.mango.com/us/en/c/women/tops/227371cd
--    0개 · https://shop.mango.com/us/en/c/women/knitwear/7e46863e
--    0개 · https://shop.mango.com/us/en/c/women/shirts---blouses/b8003173
--    0개 · https://shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705
--    0개 · https://shop.mango.com/us/en/c/women/pants/0bf28b3b
--   45개 · (출처 없음 — 옛 수집분)
-  - 표본: 100% cotton round neck t-shirt - General plane, Pastel Pink. Ref: 37091331-00. — https://shop.mango.com/us/en/p/women/t-shirts/basics/100-cotton-round-neck-t-shirt/37091331/81/00
-  - 표본: Lace boat-neck t-shirt - General plane, Off White. Ref: 37072530-00. — https://shop.mango.com/us/en/p/women/t-shirts/short-sleeve/lace-boat-neck-t-shirt/37072530/02/00
-  - 표본: 100% cotton round neck t-shirt - Details of the article 1, Black. Ref: 37091331-00. — https://shop.mango.com/us/en/p/women/t-shirts/basics/100-cotton-round-neck-t-shirt/37091331/99/00
-
-## Abercrombie & Fitch — 47개 (extension)
+## Abercrombie & Fitch — 46개 (extension)
 
 -    5개 · https://www.abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-left+nav
 -    6개 · https://www.abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+nav
 -    6개 · https://www.abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation-left+nav
--    8개 · https://www.abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+nav
--   10개 · https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav
+-    8개 · https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav
+-    9개 · https://www.abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+nav
 -   12개 · https://www.abercrombie.com/shop/wd/womens-dresses-and-jumpsuits
-  - 표본: Top category for ANF Kids categories — https://www.abercrombie.com/shop/wd/kids
   - 표본: Essential Polished Body-Skimming Tee, Black view 1 — https://www.abercrombie.com/shop/wd/p/essential-polished-body-skimming-tee-62050821
   - 표본: Bra-Free Reversible Scoopneck Top, Black view 1 — https://www.abercrombie.com/shop/wd/p/bra-free-reversible-scoopneck-top-63080321
+  - 표본: Seamless Fabric Tee Bodysuit, Cream view 1 — https://www.abercrombie.com/shop/wd/p/snatched-seamless-tee-bodysuit-62828430
 
-## wilson — 50개 (extension)
+## Mango — 47개 (extension)
 
--    0개 · https://www.wilson.com/en-us/sportswear/women/tops/tanks
--    0개 · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops
--    0개 · https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops
--    0개 · https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts
--    0개 · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits
--    0개 · https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings
--   50개 · (출처 없음 — 옛 수집분)
-  - 표본: gloves — https://www.wilson.com/en-us/custom/gloves/
-  - 표본: summer 2026 gloves — https://www.wilson.com/en-us/baseball/baseball-gloves/new-arrivals/summer-2026-gloves
-  - 표본: basketballs — https://www.wilson.com/en-us/custom/basketballs
+-    7개 · https://shop.mango.com/us/en/c/women/knitwear/7e46863e
+-    8개 · https://shop.mango.com/us/en/c/women/t-shirts/8e23bdfb
+-    8개 · https://shop.mango.com/us/en/c/women/tops/227371cd
+-    8개 · https://shop.mango.com/us/en/c/women/shirts---blouses/b8003173
+-    8개 · https://shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705
+-    8개 · https://shop.mango.com/us/en/c/women/pants/0bf28b3b
+  - 표본: 100% cotton round neck t-shirt - General plane, Pastel Pink. Ref: 37091331-00. — https://shop.mango.com/us/en/p/women/t-shirts/basics/100-cotton-round-neck-t-shirt/37091331/81/00
+  - 표본: Lace boat-neck t-shirt - General plane, Off White. Ref: 37072530-00. — https://shop.mango.com/us/en/p/women/t-shirts/short-sleeve/lace-boat-neck-t-shirt/37072530/02/00
+  - 표본: 100% cotton round neck t-shirt - Details of the article 1, Black. Ref: 37091331-00. — https://shop.mango.com/us/en/p/women/t-shirts/basics/100-cotton-round-neck-t-shirt/37091331/99/00
 
-## paige — 51개 (extension)
+## Paige — 51개 (extension)
 
--    0개 · https://paige.com/collection/women-tees-and-tanks
--    0개 · https://paige.com/collection/women-sweaters-and-sweatshirts
--    0개 · https://paige.com/collection/women-tops
--    0개 · https://paige.com/collection/women-dresses
--    0개 · https://paige.com/collection/women-pants
--   51개 · (출처 없음 — 옛 수집분)
-  - 표본: Quincy Jogger - Vintage Ivy Green image 1 — https://paige.com/en-kr/products/women-quincy-jogger-vintage-ivy-green
-  - 표본: Delaney Pant - Fresco image 1 — https://paige.com/en-kr/products/women-delaney-fresco
-  - 표본: Ari Wide Leg Pant - Vintage Forester Green image 1 — https://paige.com/en-kr/products/women-ari-w-flap-patch-pockets-vintage-forester-green
-
-## Theory — 51개 (extension)
-
--    0개 · https://www.theory.com/women/t-shirts-and-tanks/
--    0개 · https://www.theory.com/women/loungewear/
--    0개 · https://www.theory.com/women/tops/
--    0개 · https://www.theory.com/women/dresses/
--    0개 · https://www.theory.com/women/pants/
--   51개 · (출처 없음 — 옛 수집분)
-  - 표본: TINY TEE 2 | Theory — https://www.theory.com/women/t-shirts-and-tanks/tiny-tee-in-organic-slub-cotton/J0224509_001.html
-  - 표본: EASY TEE | Theory — https://www.theory.com/women/t-shirts-and-tanks/easy-tee-in-organic-cotton/K0324517_100.html
-  - 표본: SS WRAP TOP | Theory — https://www.theory.com/women/tops/short-sleeve-wrap-top-in-silk-georgette/L0502524_DAJ.html
+-    8개 · https://paige.com/collection/women-sweaters-and-sweatshirts
+-   10개 · https://paige.com/collection/women-tees-and-tanks
+-   10개 · https://paige.com/collection/women-tops
+-   11개 · https://paige.com/collection/women-dresses
+-   12개 · https://paige.com/collection/women-pants
+  - 표본: Haven Tee - Chocolate Brown image 1 — https://paige.com/en-kr/products/women-haven-tee-chocolate-brown
+  - 표본: Haven Tee - Navy image 1 — https://paige.com/en-kr/products/women-haven-tee-navy
+  - 표본: Dedra Tank - White image 1 — https://paige.com/en-kr/products/women-dedra-tank-white
 
 ## J.mclaughlin — 56개 (browser)
 
@@ -563,16 +527,4 @@
   - 표본: Woman smiling on a beach wearing a Sinclair Henley in Stripe by J.McLaughlin, styled with a yellow sweater draped over shoulders and beige pants, embo — https://www.jmclaughlin.com/products/sinclair-henley-stripe-ivory-mirage-blue
   - 표본: Model wearing a Sinclair Henley in Stripe with a navy sweater draped over shoulders paired with dark blue jeans and a brown belt, showcasing J.McLaugh — https://www.jmclaughlin.com/products/sinclair-henley-stripe-parchment-bordeaux
   - 표본: Woman wearing a Sinclair Henley in Stripe by J.McLaughlin, featuring a classic long-sleeve striped shirt paired with casual blue pants, reflecting tim — https://www.jmclaughlin.com/products/sinclair-henley-stripe-bordeaux-rose
-
-## Arket — 57개 (extension)
-
--    0개 · https://www.arket.com/en-ww/women/clothing/tops/
--    0개 · https://www.arket.com/en-ww/women/clothing/tops/t-shirts/
--    0개 · https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/
--    0개 · https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/
--    0개 · https://www.arket.com/en-ww/women/clothing/dresses/
--   57개 · (출처 없음 — 옛 수집분)
-  - 표본: Signature Short-Sleeve T-Shirt-Grey-84 — https://www.arket.com/en-ww/product/crew-neck-t-shirt-grey-melange-0630665075/
-  - 표본: Signature Short-Sleeve T-Shirt-Black-108 — https://www.arket.com/en-ww/product/crew-neck-t-shirt-black-0630665001/
-  - 표본: Signature Short-Sleeve T-Shirt-Pink-19316 — https://www.arket.com/en-ww/product/signature-short-sleeve-t-shirt-pink-0630665171/
 
