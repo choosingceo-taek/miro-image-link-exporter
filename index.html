@@ -628,6 +628,7 @@
 
       // ── 상품명 보강: URL 추정 이름을 Worker의 무료 og:title 조회로 교체 ──
       const __titleCache = {};   // link → 정제된 제목 (같은 세션 내 재조회 방지)
+      const __fabricCache = {};   // 상품URL → 분석결과(세션 내 재조회 방지)
       function cleanTitle(t, brand) {
         let s = String(t || '').replace(/\s+/g, ' ').trim();
         // "상품명 | 브랜드", "상품명 – 브랜드" 꼬리 제거
@@ -1634,16 +1635,30 @@
         const isQuota = note => /429|quota|resource_exhausted|rate.?limit/i.test(String(note || ''));
 
         // 무료 티어 한도를 지키려 동시 2개만 + 429(한도) 시 대기 후 자동 재시도.
-        // 대부분은 구조화 데이터로 끝나 AI 를 쓰지 않는다 — 동시 3개까지 올린다.
-        await runPool(targets, 3, async (r) => {
+        // 대부분은 구조화 데이터로 끝나 AI 를 쓰지 않는다 — 동시 6개까지 올린다.
+        // (AI 를 쓰는 것만 429 로 잠시 밀리고, 나머지는 그동안 계속 진행된다.)
+        await runPool(targets, 6, async (r) => {
+          // 같은 세션에서 이미 읽은 URL 은 다시 묻지 않는다.
+          const cached = __fabricCache[r.link];
+          if (cached) {
+            r.fabric = cached;
+            if (!r.price && cached.price) r.price = cached.price;
+            if (!r.priceOrig && cached.price_original) r.priceOrig = cached.price_original;
+            okc++; done++; update(); renderPreview();
+            return;
+          }
           let data = null;
-          for (let attempt = 0; attempt < 4; attempt++) {
+          for (let attempt = 0; attempt < 3; attempt++) {
             try {
               const headers = { 'Content-Type': 'application/json' };
               if (token) headers['x-access-token'] = token;
+              // 한 사이트가 응답을 끌면 그 자리가 통째로 막힌다 — 25초에서 포기하고 넘어간다.
+              const ctl = new AbortController();
+              const timer = setTimeout(() => ctl.abort(), 25000);
               const resp = await fetch(workerUrl, {
-                method: 'POST', headers, body: JSON.stringify({ url: r.link }),
+                method: 'POST', headers, body: JSON.stringify({ url: r.link }), signal: ctl.signal,
               });
+              clearTimeout(timer);
               data = await resp.json();
             } catch (e) {
               data = { status: 'error', note: String((e && e.message) || e) };
@@ -1677,6 +1692,7 @@
           if (!r.price && r.fabric.price) r.price = r.fabric.price;
           if (!r.priceOrig && r.fabric.price_original) r.priceOrig = r.fabric.price_original;
           const f = r.fabric;
+          __fabricCache[r.link] = f;
           const gotSomething = f.composition.length || f.materials.length ||
             f.price || f.color || f.sizes.length;
           if (f.status !== 'blocked' && gotSomething) okc++; else failc++;
