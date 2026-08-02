@@ -12,10 +12,10 @@
 - Addidas — 2시간 전 · 600개
 - Ann Taylor — 2시간 전 · 139개
 - Anthropologie — 2시간 전 · 104개
-- Arket — 1시간 전 · 254개
-- Athleta — 1시간 전 · 1개
-- Banana Republic — 1시간 전 · 1개
-- FP Movement — 1시간 전 · 98개
+- Arket — 2시간 전 · 254개
+- Athleta — 2시간 전 · 1개
+- Banana Republic — 2시간 전 · 1개
+- FP Movement — 2시간 전 · 98개
 - Fatface — 1시간 전 · 452개
 - Free People — 1시간 전 · 170개
 - Gap — 1시간 전 · 4개
@@ -32,10 +32,10 @@
 - Paige — 1시간 전 · 51개
 - Patagonia — 1시간 전 · 202개
 - Sezane — 1시간 전 · 167개
-- The upside — 0시간 전 · 341개
-- The white company — 0시간 전 · 78개
-- Theory — 0시간 전 · 291개
-- Wilson — 0시간 전 · 40개
+- The upside — 1시간 전 · 341개
+- The white company — 1시간 전 · 78개
+- Theory — 1시간 전 · 291개
+- Wilson — 1시간 전 · 40개
 
 </details>
 
@@ -47,17 +47,16 @@
 목록 카드 텍스트에서 통화기호로 뽑습니다. 통화 표기가 다르거나(zł·kr 등) 가격을
 이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 엑셀 '가격' 열도 비게 됩니다.
 
-- 전체 133개 브랜드 · ❌ 거의 없음 55개 · ⚠ 일부만 20개
+- 전체 133개 브랜드 · ❌ 거의 없음 54개 · ⚠ 일부만 20개
 
 ## ❌ 가격이 거의 안 잡히는 브랜드 (20% 미만)
 
 | 브랜드 | 그룹 | 가격있음/전체 |
 |---|---|---:|
-| CCC | browser | 0/619 (0%) |
 | Loft | extension | 0/616 (0%) |
 | Addidas | extension | 0/600 (0%) |
+| CCC | browser | 0/594 (0%) |
 | Cotton on | browser | 0/504 (0%) |
-| Me+Em | browser | 0/498 (0%) |
 | Fatface | extension | 0/452 (0%) |
 | Whitestuff | server | 0/419 (0%) |
 | Sweaty betty | browser | 0/359 (0%) |
@@ -76,7 +75,6 @@
 | Boldest | browser | 0/202 (0%) |
 | Patagonia | extension | 0/202 (0%) |
 | Varley | server | 0/199 (0%) |
-| J crew | browser | 0/193 (0%) |
 | Rag & bone | server | 0/190 (0%) |
 | Free People | extension | 0/170 (0%) |
 | Barbour | browser | 0/168 (0%) |
@@ -102,6 +100,7 @@
 | Prana | server | 1/43 (2%) |
 | Sessun | server | 2/71 (3%) |
 | vineyardvines | server | 8/200 (4%) |
+| Me+Em | browser | 27/498 (5%) |
 | La Ligne | server | 20/364 (5%) |
 | Buck Mason | server | 8/139 (6%) |
 | Madewell | extension | 1/16 (6%) |
@@ -217,9 +216,9 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-02T02:07Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-02T02:19Z)
 
-- 카탈로그 133개 · 상품 31204개 검사 · **문제 항목 66개**
+- 카탈로그 133개 · 상품 31177개 검사 · **문제 항목 66개**
 - 문제가 있는 브랜드 21개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
