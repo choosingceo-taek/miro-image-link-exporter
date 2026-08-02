@@ -7,37 +7,131 @@
 
 <details><summary>정상 29개</summary>
 
-- Banana Republic — 14시간 전 · 36개
-- Mango — 14시간 전 · 45개
-- Anthropologie — 14시간 전 · 13개
-- Gap — 13시간 전 · 36개
-- Old Navy — 13시간 전 · 38개
-- Athleta — 13시간 전 · 37개
-- Garnet hill — 13시간 전 · 9개
-- Theory — 13시간 전 · 51개
-- Patagonia — 13시간 전 · 165개
-- Arket — 12시간 전 · 38개
-- Paige — 10시간 전 · 51개
-- Wilson — 10시간 전 · 50개
-- Abercrombie & Fitch — 8시간 전 · 47개
-- Addidas — 8시간 전 · 450개
-- Ann Taylor — 7시간 전 · 376개
-- FP Movement — 7시간 전 · 78개
-- Fatface — 7시간 전 · 460개
-- Free People — 7시간 전 · 124개
-- Joules — 7시간 전 · 305개
-- Lands end — 7시간 전 · 16개
-- Loft — 7시간 전 · 603개
-- Lululemon — 7시간 전 · 172개
-- Madewell — 7시간 전 · 28개
-- Massimo Dutti — 7시간 전 · 5개
-- Oysho — 7시간 전 · 16개
-- Sezane — 7시간 전 · 166개
-- The upside — 7시간 전 · 339개
-- The white company — 7시간 전 · 82개
-- &Other Stories — 5시간 전 · 400개
+- Banana Republic — 17시간 전 · 36개
+- Mango — 17시간 전 · 45개
+- Anthropologie — 17시간 전 · 13개
+- Gap — 17시간 전 · 36개
+- Old Navy — 17시간 전 · 38개
+- Athleta — 17시간 전 · 37개
+- Garnet hill — 17시간 전 · 9개
+- Theory — 16시간 전 · 51개
+- Patagonia — 16시간 전 · 165개
+- Arket — 16시간 전 · 38개
+- Paige — 14시간 전 · 51개
+- Wilson — 14시간 전 · 50개
+- Abercrombie & Fitch — 11시간 전 · 47개
+- Addidas — 11시간 전 · 450개
+- Ann Taylor — 11시간 전 · 376개
+- FP Movement — 11시간 전 · 78개
+- Fatface — 11시간 전 · 460개
+- Free People — 11시간 전 · 124개
+- Joules — 11시간 전 · 305개
+- Lands end — 10시간 전 · 16개
+- Loft — 10시간 전 · 603개
+- Lululemon — 10시간 전 · 172개
+- Madewell — 10시간 전 · 28개
+- Massimo Dutti — 10시간 전 · 5개
+- Oysho — 10시간 전 · 16개
+- Sezane — 10시간 전 · 166개
+- The upside — 10시간 전 · 339개
+- The white company — 10시간 전 · 82개
+- &Other Stories — 0시간 전 · 341개
 
 </details>
+
+
+---
+
+# 가격 수집 상태 (보드 스캐너 엑셀 '가격' 열)
+
+목록 카드 텍스트에서 통화기호로 뽑습니다. 통화 표기가 다르거나(zł·kr 등) 가격을
+이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 엑셀 '가격' 열도 비게 됩니다.
+
+- 전체 134개 브랜드 · ❌ 거의 없음 53개 · ⚠ 일부만 21개
+
+## ❌ 가격이 거의 안 잡히는 브랜드 (20% 미만)
+
+| 브랜드 | 그룹 | 가격있음/전체 |
+|---|---|---:|
+| CCC | browser | 0/619 (0%) |
+| Loft | extension | 0/603 (0%) |
+| Cotton on | browser | 0/504 (0%) |
+| Me+Em | browser | 0/498 (0%) |
+| Fatface | extension | 0/460 (0%) |
+| Addidas | extension | 0/450 (0%) |
+| Whitestuff | server | 0/419 (0%) |
+| Ann Taylor | extension | 1/376 (0%) |
+| Sweaty betty | browser | 0/359 (0%) |
+| Chico's | server | 0/346 (0%) |
+| &Other Stories | extension | 0/341 (0%) |
+| Vince | server | 0/340 (0%) |
+| The upside | extension | 0/339 (0%) |
+| Joules | extension | 0/305 (0%) |
+| Seasalt cornwall | server | 0/280 (0%) |
+| WHBM | server | 0/278 (0%) |
+| Eileen fisher | server | 1/266 (0%) |
+| L.L bean | server | 0/226 (0%) |
+| Gerard darel | browser | 1/225 (0%) |
+| Boldest | browser | 0/202 (0%) |
+| Varley | server | 0/199 (0%) |
+| J crew | browser | 0/193 (0%) |
+| Rag & bone | server | 0/190 (0%) |
+| Lululemon | extension | 0/172 (0%) |
+| Barbour | browser | 0/168 (0%) |
+| Sezane | extension | 0/166 (0%) |
+| Patagonia | extension | 0/165 (0%) |
+| Lucky Brand | browser | 0/155 (0%) |
+| Free People | extension | 0/124 (0%) |
+| Vanessa bruno | server | 0/90 (0%) |
+| FP Movement | extension | 0/78 (0%) |
+| Arket | extension | 0/57 (0%) |
+| J.mclaughlin | browser | 0/56 (0%) |
+| paige | extension | 0/51 (0%) |
+| Theory | extension | 0/51 (0%) |
+| Abercrombie & Fitch | extension | 0/47 (0%) |
+| Mango | extension | 0/45 (0%) |
+| Arket | extension | 0/38 (0%) |
+| Carlhartt | browser | 0/23 (0%) |
+| Lands end | extension | 0/16 (0%) |
+| Oysho | extension | 0/16 (0%) |
+| Massimo Dutti | extension | 0/5 (0%) |
+| Gymshark | server | 2/253 (1%) |
+| Leset | browser | 3/208 (1%) |
+| Nike | browser | 10/483 (2%) |
+| Prana | server | 1/43 (2%) |
+| Sessun | server | 2/71 (3%) |
+| vineyardvines | server | 8/200 (4%) |
+| La Ligne | server | 20/364 (5%) |
+| Buck Mason | server | 8/139 (6%) |
+| Dickies | server | 24/300 (8%) |
+| J.jill | server | 9/90 (10%) |
+| Vuori | server | 31/213 (15%) |
+
+## ⚠ 일부만 잡히는 브랜드 (20~90%)
+
+| 브랜드 | 그룹 | 가격있음/전체 | 예시 |
+|---|---|---:|---|
+| wilson | extension | 12/50 (24%) | $158.00 |
+| Eddie bauer | server | 32/117 (27%) | $17.97 |
+| Bash | server | 20/67 (30%) | € 225 |
+| Marine Layer | server | 65/183 (36%) | $58.00 |
+| Ninety Percent | server | 80/182 (44%) | $40.00 |
+| On | browser | 67/144 (47%) | $120.00 |
+| LNA | server | 106/204 (52%) | $68.00 |
+| Addison bay | server | 80/150 (53%) | $88.00 |
+| Outdoorvoices | server | 83/128 (65%) | $34.00 |
+| Bellerose | server | 204/307 (66%) | $109.00 |
+| Nylora | server | 155/226 (69%) | $108.00 |
+| Whistles | server | 141/198 (71%) | $ 69.00 |
+| Stateside | server | 232/323 (72%) | $72.00 |
+| Ulla Johnson | server | 223/303 (74%) | $490.00 |
+| Beyond yoga | server | 174/227 (77%) | $54.00 |
+| Sanctuary | server | 325/401 (81%) | $49.00 |
+| ALC | server | 322/393 (82%) | $120.00 |
+| The white company | extension | 67/82 (82%) | £190.00 |
+| Xirena | server | 286/343 (83%) | $205.00 |
+| Draper James | server | 146/165 (88%) | $128.00 |
+| Madewell | extension | 25/28 (89%) | ₩89,804 |
 
 
 ---
@@ -90,9 +184,9 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-01T20:36Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-02T00:01Z)
 
-- 카탈로그 134개 · 상품 30843개 검사 · **문제 항목 75개**
+- 카탈로그 134개 · 상품 30784개 검사 · **문제 항목 75개**
 - 문제가 있는 브랜드 20개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
@@ -223,9 +317,9 @@
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] pants · Splendid x @Cellajaneblog Interlock Pant — https://splendid.com/products/splendid-x-cellajaneblog-interlock-pant-in-truffle
 
-## &Other Stories — 1/400개 (extension)
+## &Other Stories — 1/341개 (extension)
 
-- **1개** · https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/
+- **1개** · https://www.stories.com/en-us/clothing/tops/
   - [상품 페이지가 아닌 경로] tops · gift card — https://www.stories.com/en-us/customer-service/gift-card/
 
 ## Sundry — 1/286개 (server)
