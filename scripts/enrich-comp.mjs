@@ -177,7 +177,7 @@ for (const c of list) {
   const items = cat.items || [];
   // 네 항목(혼용률·컬러·사이즈·가격) 중 하나라도 비어 있으면 읽는다.
   const full = (p) => p.comp && p.color && p.sizes && p.price;
-  const have = items.filter(full).length;
+  const have = items.filter((p) => p.comp).length;   // 리포트 지표는 혼용률 기준(전날과 비교)
   const todo = items.filter((p) => !full(p)).slice(0, Math.min(PER_BRAND, budget));
   if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, patched: 0 }); continue; }
 
@@ -190,27 +190,50 @@ for (const c of list) {
   });
   budget -= todo.length;
 
+  // 저장은 100건씩 나눠 보낸다 — 대형 페이로드에서 Worker 가 500(리소스 초과)을 냈다.
+  // 실패한 조각은 2초 뒤 한 번 재시도한다.
   let patched = 0;
-  if (Object.keys(comps).length) {
-    try {
-      const resp = await fetch(WORKER + "/?store=comps" + tok, {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ site: c.site, comps }),
-        signal: AbortSignal.timeout(30000),
-      });
-      const text = await resp.text();
-      let r = {};
-      try { r = JSON.parse(text); } catch (e) {}
-      patched = r.patched || 0;
-      // 뽑은 게 있는데 하나도 저장되지 않았다면 원인을 응답 그대로 남긴다.
-      // (첫 대량 실행에서 +0 이 무더기로 나왔는데 로그가 없어 원인을 못 좁혔다)
-      if (!patched) {
-        console.log(`  !! ${c.site}: 추출 ${Object.keys(comps).length}건인데 저장 0 — HTTP ${resp.status} ${text.slice(0, 300)}`);
+  const keys = Object.keys(comps);
+  for (let off = 0; off < keys.length; off += 100) {
+    const part = {};
+    for (const k of keys.slice(off, off + 100)) part[k] = comps[k];
+    let done = false;
+    for (let attempt = 0; attempt < 2 && !done; attempt++) {
+      try {
+        const resp = await fetch(WORKER + "/?store=comps" + tok, {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ site: c.site, comps: part }),
+          signal: AbortSignal.timeout(30000),
+        });
+        const text = await resp.text();
+        let r = null;
+        try { r = JSON.parse(text); } catch (e) {}
+        if (r && r.ok) { patched += r.patched || 0; done = true; break; }
+        if (attempt === 1) console.log(`  !! ${c.site} 조각 ${off / 100}: HTTP ${resp.status} ${text.slice(0, 160)}`);
+      } catch (e) {
+        if (attempt === 1) console.log(`  !! ${c.site} 조각 ${off / 100}: ${String(e.message || e)}`);
       }
-    } catch (e) { rows.push({ brand: cat.brand || c.site, error: "store: " + String(e.message || e) }); continue; }
+      await new Promise((r2) => setTimeout(r2, 2000));
+    }
   }
-  rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have: have + patched, patched, stat });
-  console.log(`  ${c.site}: +${patched} (경로 ${JSON.stringify(stat)})`);
+  // 저장 후 실제로 박혔는지 다시 읽어 확인한다 — 응답의 patched 만 믿지 않는다.
+  let verify = null;
+  if (keys.length) {
+    try {
+      const re = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json());
+      const reItems = re.items || [];
+      verify = reItems.filter((p) => p.comp).length;
+      // 하나도 안 박혔다면 키 불일치인지 확인 — 첫 추출 키가 재조회 목록에 존재하는가.
+      if (patched === 0 && verify === 0) {
+        const k0 = keys[0];
+        const found = reItems.some((p) => p.productUrl === k0);
+        console.log(`  !! ${c.site}: 검증 0 — 첫 키 ${found ? "카탈로그에 존재(값 문제)" : "카탈로그에 없음(키 불일치)"}: ${k0.slice(0, 120)}`);
+      }
+    } catch (e) {}
+  }
+  const haveNow = verify != null ? verify : have + patched;
+  rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, patched, stat });
+  console.log(`  ${c.site}: +${patched} 검증 ${verify == null ? "-" : verify} (경로 ${JSON.stringify(stat)})`);
 }
 
 // ── 검색 인덱스 재구축 — 전 브랜드 카탈로그에서. comp 가 인덱스로 흘러야
