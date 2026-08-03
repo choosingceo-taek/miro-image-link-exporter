@@ -75,20 +75,26 @@ async function compOf(url, stat) {
       if (c) { stat.shopify++; return c; }
     } catch (e) {}
   }
-  // ② 페이지 직접 → JSON-LD → 본문
+  // ② 페이지 직접 → JSON-LD → 본문.
+  //    여기서 못 찾아도 ③ 으로 내려간다 — Shopify 설명문에 혼용률이 없을 뿐,
+  //    상품 페이지 본문에는 적혀 있는 경우가 흔하다(첫 실행의 최대 누락 원인).
   let html = "";
   try { html = await get(url); } catch (e) { stat.blocked++; }
   if (html) {
     const c = compOfJsonLd(html) ||
       compFromText(html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " "));
     if (c) { stat.page++; return c; }
-    stat.noData++; return "";
   }
-  // ③ 봇 차단이면 리더 프록시 — adidas 처럼 데이터센터 IP를 통째로 막는 곳도 여기로는 열린다
+  // ③ Worker 우회 — GitHub Actions IP 는 많은 쇼핑몰에서 403 이지만 Cloudflare IP 는
+  //    통과하는 경우가 많다. 첫 실행에서 blocked 와 fail 이 똑같이 나온 것(=리더 프록시도
+  //    전부 실패)이 이 경로를 만든 이유다. Worker 안에서 Shopify JSON → 직접 → 리더까지
+  //    다시 시도하므로, 여기가 마지막 방어선이다.
   try {
-    const md = await get("https://r.jina.ai/" + url, "text/plain", 25000);
-    const c = compFromText(md);
-    if (c) { stat.reader++; return c; }
+    const r = await fetch(WORKER + "/?comp=" + encodeURIComponent(url) + tok, {
+      signal: AbortSignal.timeout(30000),
+    });
+    const j = await r.json();
+    if (j && j.comp) { stat.worker++; return j.comp; }
     stat.noData++;
   } catch (e) { stat.fail++; }
   return "";
@@ -102,7 +108,25 @@ async function pool(items, n, fn) {
 }
 
 const ls = await fetch(WORKER + "/?catalogs=1" + tok).then((r) => r.json());
-const list = (ls.list || []).sort((a, z) => (a.site < z.site ? -1 : 1));
+let list = (ls.list || []).sort((a, z) => (a.site < z.site ? -1 : 1));
+// 같은 호스트에 옛 키(<host>)와 새 키(<host>.<slug>)가 함께 있으면 같은 상품을 두 번 읽게 된다.
+// 예산 낭비라 새 키만 남긴다(옛 키는 어차피 미로 앱이 쓰지 않는다).
+{
+  const hosts = new Map();
+  for (const c of list) {
+    const host = String(c.site || "").split(".").slice(0, 2).join(".");
+    if (!hosts.has(host)) hosts.set(host, []);
+    hosts.get(host).push(c);
+  }
+  const skip = new Set();
+  for (const [host, g] of hosts) {
+    if (g.length > 1 && g.some((c) => c.site !== host)) {
+      for (const c of g) if (c.site === host) skip.add(c.site);
+    }
+  }
+  if (skip.size) console.log(`중복 옛 키 ${skip.size}개 건너뜀: ${[...skip].join(", ")}`);
+  list = list.filter((c) => !skip.has(c.site));
+}
 console.log(`카탈로그 ${list.length}개 — comp 없는 상품을 채운다 (브랜드당 ${PER_BRAND}, 전체 ${TOTAL})`);
 
 let budget = TOTAL;
@@ -117,7 +141,7 @@ for (const c of list) {
   const todo = items.filter((p) => !p.comp).slice(0, Math.min(PER_BRAND, budget));
   if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, patched: 0 }); continue; }
 
-  const stat = { shopify: 0, page: 0, reader: 0, noData: 0, blocked: 0, fail: 0 };
+  const stat = { shopify: 0, page: 0, worker: 0, noData: 0, blocked: 0, fail: 0 };
   const comps = {};
   await pool(todo, 6, async (p) => {
     const comp = await compOf(p.productUrl, stat);
