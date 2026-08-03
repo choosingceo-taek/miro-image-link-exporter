@@ -46,6 +46,15 @@ const CASES = [
     {},
     { brand: NEED, name: NEED, category: NEED, priceOrig: NEED, price: NEED, color: NEED }],
 
+  ["야간 보강이 채운 혼용률은 그대로 실린다",
+    { brand: "Bellerose", name: "Sweatshirt", category: "sweatshirts", price: "\u20ac120",
+      comp: "Cotton 100%" },
+    { comp: "Cotton 100%" }],
+
+  ["혼용률이 아직 안 채워졌으면 확인 필요",
+    { brand: "Gap", name: "Black Tee", category: "tops", price: "$20" },
+    { comp: NEED }],
+
   ["URL 슬러그의 색도 읽는다",
     { brand: "Bassike", name: "Crushed Cotton Barrel Pant", category: "pants", price: "$240",
       link: "https://bassike.com/products/barrel-pant-ecru" },
