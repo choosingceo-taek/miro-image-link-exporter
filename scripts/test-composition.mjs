@@ -47,13 +47,30 @@ const CASES = [
   ["", ""],
 ];
 
+// 확장(background.js)의 복사본 — 자립형 파일이라 복사가 불가피하다.
+// 규칙이 어긋나면 확장 담당 브랜드만 다른 혼용률이 나오므로 여기서 함께 검사한다.
+const extSrc = readFileSync(join(ROOT, "chrome-extension/background.js"), "utf8");
+const em = (() => {
+  const i = extSrc.indexOf("const FIBRES = {");
+  const j = extSrc.indexOf("// 브랜드 저장 후", i);
+  if (i < 0 || j < 0) { console.error("❌ background.js 의 혼용률 블록을 찾지 못함"); process.exit(1); }
+  return extSrc.slice(i, j);
+})();
+const extComp = new Function(em + "\n return compFromText;")();
+
 let bad = 0;
 for (const [text, want] of CASES) {
   const got = asStr(compFromText(text));
   if (got !== want) {
     bad++;
-    console.error(`❌ ${JSON.stringify(text.slice(0, 60))}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got)}`);
+    console.error(`❌ worker · ${JSON.stringify(text.slice(0, 60))}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got)}`);
+  }
+  // 확장 복사본은 문자열을 돌려준다 — 같은 문자열이어야 한다.
+  const got2 = extComp(text);
+  if (got2 !== want) {
+    bad++;
+    console.error(`❌ 확장 · ${JSON.stringify(text.slice(0, 60))}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got2)}`);
   }
 }
-if (bad) { console.error(`\n혼용률 추출 ${bad}/${CASES.length} 실패`); process.exit(1); }
-console.log(`✅ 혼용률 추출 ${CASES.length}건 통과`);
+if (bad) { console.error(`\n혼용률 추출 ${bad}건 실패`); process.exit(1); }
+console.log(`✅ 혼용률 추출 ${CASES.length}건 통과 (worker·확장 두 구현 일치)`);

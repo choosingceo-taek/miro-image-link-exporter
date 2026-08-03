@@ -192,6 +192,92 @@ function asGroups(input) {
   return [...byHost.values()];
 }
 
+// ── 혼용률 추출 — worker/fabric-extractor.js 의 compFromText 와 같은 규칙.
+// 확장은 단일 파일로 자립해야 해서 복사본을 두되, scripts/test-composition.mjs 가
+// 두 파일의 FIBRES·정규식이 어긋나면 CI에서 실패시킨다.
+const FIBRES = {
+  cotton: 'Cotton', 'organic cotton': 'Cotton', polyester: 'Polyester',
+  'recycled polyester': 'Polyester', elastane: 'Elastane', spandex: 'Elastane',
+  lycra: 'Elastane', modal: 'Modal', nylon: 'Nylon', polyamide: 'Nylon',
+  viscose: 'Viscose', rayon: 'Viscose', wool: 'Wool', 'merino wool': 'Wool', merino: 'Wool',
+  silk: 'Silk', linen: 'Linen', flax: 'Linen', cashmere: 'Cashmere', acrylic: 'Acrylic',
+  lyocell: 'Lyocell', tencel: 'Lyocell', hemp: 'Hemp', ramie: 'Ramie', jute: 'Jute',
+  alpaca: 'Alpaca', mohair: 'Mohair', angora: 'Angora', bamboo: 'Bamboo', cupro: 'Cupro',
+  acetate: 'Acetate', triacetate: 'Triacetate', polyurethane: 'Polyurethane', leather: 'Leather',
+  폴리에스테르: 'Polyester', 나일론: 'Nylon', 스판덱스: 'Elastane', 레이온: 'Viscose',
+  모달: 'Modal', 리넨: 'Linen', 실크: 'Silk', 캐시미어: 'Cashmere', 아크릴: 'Acrylic',
+  비스코스: 'Viscose', 텐셀: 'Lyocell', 라이오셀: 'Lyocell',
+};
+const FIBRE_ALT = Object.keys(FIBRES)
+  .sort((a, z) => z.length - a.length)
+  .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+  .join('|');
+const COMP_RX = new RegExp(
+  '(\\d{1,3})\\s*%\\s*(?:of\\s+)?(' + FIBRE_ALT + ')(?![A-Za-z])' +
+  '|(?<![A-Za-z])(' + FIBRE_ALT + ')\\s*[::]?\\s*(\\d{1,3})\\s*%', 'gi');
+function compFromText(text) {
+  const out = [];
+  const seen = new Set();
+  for (const m of String(text || '').slice(0, 16000).matchAll(COMP_RX)) {
+    const pct = Number(m[1] || m[4]);
+    const key = String(m[2] || m[3] || '').toLowerCase().trim();
+    const material = FIBRES[key];
+    if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
+    if (seen.has(material)) continue;
+    seen.add(material);
+    out.push(material + ' ' + pct + '%');
+    if (out.length >= 8) break;
+  }
+  const total = out.reduce((n, c) => n + Number(c.match(/(\d+)%/)[1]), 0);
+  if (!out.length || total > 210) return '';
+  return out.join(' / ');
+}
+
+// 브랜드 저장 후: 혼용률이 빈 상품의 페이지를 서비스워커 fetch 로 읽어 채운다.
+// 확장은 실사용 PC(주거용 IP)라 서버가 못 여는 봇 차단 사이트도 열린다 — 이 브랜드들의
+// 혼용률은 여기서만 나온다. 탭을 열지 않고 fetch 만 하므로 페이지당 1~2초.
+// 한 번 채운 값은 Worker 가 계속 승계하므로 매일 조금씩 하면 결국 다 찬다.
+const COMP_PER_RUN = 80;
+async function enrichComps(g, cfg) {
+  const tok = cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '';
+  let cat;
+  try { cat = await (await fetch(cfg.worker + '/?catalog=' + encodeURIComponent(g.site) + tok)).json(); }
+  catch (e) { return 0; }
+  const todo = (cat.items || []).filter((p) => p && !p.comp && p.productUrl).slice(0, COMP_PER_RUN);
+  if (!todo.length) return 0;
+  state.current = g.brand + ' · 혼용률 채우는 중 (' + todo.length + '개)';
+  const comps = {};
+  for (const p of todo) {
+    if (!state.running) break;
+    try {
+      // Shopify 상품은 공개 JSON 이 훨씬 싸다.
+      const m = p.productUrl.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
+      let text = '';
+      if (m) {
+        try {
+          const j = await (await fetch(m[1] + '/products/' + m[2] + '.json')).json();
+          text = String((j && j.product && j.product.body_html) || '').replace(/<[^>]+>/g, ' ');
+        } catch (e) {}
+      }
+      if (!text || !compFromText(text)) {
+        const html = await (await fetch(p.productUrl, { credentials: 'omit' })).text();
+        text = html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ');
+      }
+      const c = compFromText(text);
+      if (c) comps[p.productUrl] = c;
+    } catch (e) {}
+    await sleep(600);   // 사이트 부담·차단 방지 텀
+  }
+  if (!Object.keys(comps).length) return 0;
+  try {
+    const r = await (await fetch(cfg.worker + '/?store=comps' + tok, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ site: g.site, comps }),
+    })).json();
+    return r.patched || 0;
+  } catch (e) { return 0; }
+}
+
 async function collect(input) {
   if (state.running) return;
   const cfg = await getCfg();
@@ -295,6 +381,10 @@ async function collect(input) {
         const d = await resp.json().catch(() => ({}));
         if (d.ok) okCount++; else failCount++;
         state.items += d.ok ? items.length : 0;
+        if (d.ok) {
+          const patched = await enrichComps(g, cfg);
+          if (patched) pushLog({ url: g.site, ok: true, count: patched, msg: `${g.brand} · 혼용률 ${patched}개 채움` });
+        }
         pushLog({
           url: g.site, ok: !!d.ok, count: d.ok ? d.count : 0,
           msg: d.ok ? `${g.brand} · ${items.length}개 저장` : `${g.brand} 전송실패 ` + (d.error || resp.status),

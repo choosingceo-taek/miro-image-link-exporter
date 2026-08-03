@@ -360,7 +360,7 @@
         <!-- 사용법 팝오버 (ⓘ 아이콘) -->
         <div class="popover" id="helpModal" style="display:none">
           <div class="pop-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
-          <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 — 브랜드·썸네일·URL·상품명·카테고리·정가·할인가·컬러. 보드와 저장된 상품 정보만 쓰므로 <b style="display:inline">몇 초</b>면 끝납니다. 못 가져온 칸은 <b style="display:inline">확인 필요</b>로 표시됩니다.</div>
+          <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 — 브랜드·썸네일·URL·상품명·카테고리·정가·할인가·컬러·혼용률. 혼용률은 매일 새벽 미리 수집해 두므로 스캔은 <b style="display:inline">몇 초</b>면 끝납니다. 못 가져온 칸은 <b style="display:inline">확인 필요</b>로 표시됩니다.</div>
           <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
           <div class="help-item"><b>↺ 리셋</b>스캔 결과·상태를 지우고 처음으로 되돌립니다.</div>
         </div>
@@ -493,7 +493,7 @@
         if (!id || !rec || !rec.imageUrl) return;
         __imgCache[id] = {
           imageUrl: rec.imageUrl, name: rec.name || '', price: rec.price || '',
-          priceOrig: rec.priceOrig || '',
+          priceOrig: rec.priceOrig || '', comp: rec.comp || '',
           brand: rec.brand || '', productUrl: rec.productUrl || '', category: rec.category || '',
         };
         try { localStorage.setItem('rackImgCache:' + __boardId, JSON.stringify(__imgCache)); } catch (e) {}
@@ -637,8 +637,43 @@
           return (x.hostname.replace(/^www\./, '') + x.pathname.replace(/\/+$/, '')).toLowerCase();
         } catch (e) { return ''; }
       };
+      async function fillFromCatalogs() {
+        const miss = rows.filter((r) => r.link && !r.comp);
+        if (!miss.length || !__proxy.url) return;
+        const base = __proxy.url.replace(/\/+$/, '');
+        const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
+        let listData;
+        try { listData = await (await fetch(base + '/?catalogs=1' + tok)).json(); } catch (e) { return; }
+        const cats = (listData && listData.list) || [];
+        // 보드의 상품 호스트 → 그 호스트의 카탈로그 키들
+        const byHost = new Map();
+        for (const r of miss) {
+          try { byHost.set(new URL(r.link).hostname.replace(/^www\./, '').toLowerCase(), true); } catch (e) {}
+        }
+        let filled = 0;
+        for (const host of byHost.keys()) {
+          const sites = cats.filter((c) => String(c.site || '').toLowerCase().startsWith(host)).slice(0, 3);
+          for (const c of sites) {
+            let cat;
+            try { cat = await (await fetch(base + '/?catalog=' + encodeURIComponent(c.site) + tok)).json(); }
+            catch (e) { continue; }
+            const map = new Map();
+            for (const it of cat.items || []) if (it.comp) map.set(urlKey(it.productUrl), it);
+            for (const r of miss) {
+              const it = map.get(urlKey(r.link));
+              if (!it) continue;
+              if (!r.comp) { r.comp = it.comp; filled++; }
+              if (!r.price && it.price) r.price = it.price;
+              if (!r.priceOrig && it.priceOrig) r.priceOrig = it.priceOrig;
+              if ((!r.name || r.nameFromUrl) && it.name) { r.name = it.name; r.nameFromUrl = false; }
+            }
+          }
+        }
+        if (filled) statusEl.textContent = `혼용률 ${filled}건을 저장 카탈로그에서 보강`;
+      }
+
       async function fillFromIndex() {
-        const want = rows.filter((r) => r.link && (!r.name || r.nameFromUrl || !r.price));
+        const want = rows.filter((r) => r.link && (!r.name || r.nameFromUrl || !r.price || !r.comp));
         if (!want.length || !__proxy.url) return;
         let idx;
         try { idx = await ensureIndex(); } catch (e) { return; }
@@ -656,6 +691,7 @@
           if (!r.name || r.nameFromUrl) { if (it.name) { r.name = it.name; r.nameFromUrl = false; } }
           if (!r.price && it.price) r.price = it.price;
           if (!r.priceOrig && it.priceOrig) r.priceOrig = it.priceOrig;
+          if (!r.comp && it.comp) r.comp = it.comp;
           if (!r.brand && it.brand) r.brand = it.brand;
         }
         if (hit) statusEl.textContent = `저장된 상품 정보에서 ${hit}건 보강`;
@@ -784,7 +820,7 @@
           importItems = hits.map((it, i) => ({
             id: 'g' + i, name: it.name || '', category: guessCat(it.productUrl, it.name),
             imageUrl: it.imageUrl, productUrl: it.productUrl, price: it.price || '',
-            priceOrig: it.priceOrig || '', brand: it.brand || '', selected: false,
+            priceOrig: it.priceOrig || '', comp: it.comp || '', brand: it.brand || '', selected: false,
           })).filter(it => it.imageUrl && it.productUrl);
           if (!importItems.length) { showNoResult(); return; }
           importStatusEl.textContent = '';
@@ -983,7 +1019,8 @@
           importItems = (data.products || []).map(p => ({
             id: p.id, name: p.name || '', category: p.category || 'tops',
             imageUrl: p.imageUrl || '', productUrl: p.productUrl || '',
-            price: p.price || '', priceOrig: p.priceOrig || '', brand: p.brand || importBrand,
+            price: p.price || '', priceOrig: p.priceOrig || '', comp: p.comp || '',
+            brand: p.brand || importBrand,
             selected: false,   // 시작은 전부 미선택 — 사용자가 직접 고른다
           })).filter(p => p.imageUrl && p.productUrl);
 
@@ -1369,7 +1406,8 @@
             return {
               id: 'c' + i, name: p.name || '', category: cat,
               imageUrl: p.imageUrl, productUrl: p.productUrl, price: p.price || '',
-              priceOrig: p.priceOrig || '', brand: data.brand || brand || '', selected: false,
+              priceOrig: p.priceOrig || '', comp: p.comp || '',
+              brand: data.brand || brand || '', selected: false,
             };
           }).filter(p => p.imageUrl && p.productUrl);
           // 서버 검색과 동일하게 카테고리당 최대 100개만 표시(저장본은 수백 개일 수 있음).
@@ -1510,10 +1548,12 @@
               // 가격: 우리가 넣은 상품이면 기억된 값 → 아니면 제목("… · $128")에서 추출.
               price: rec.price || parsed.price || '',
               priceOrig: rec.priceOrig || '',
+              comp: rec.comp || '',
             };
           });
 
-          await fillFromIndex();   // 저장된 상품 인덱스에서 이름·가격을 되찾는다(사이트 접속 없음)
+          await fillFromIndex();   // 저장된 상품 인덱스에서 이름·가격·혼용률을 되찾는다(사이트 접속 없음)
+          await fillFromCatalogs();   // 인덱스 상한(브랜드당 150개) 밖 상품은 브랜드 카탈로그에서
 
           const withLink = rows.filter(r => r.link).length;
 
@@ -1672,7 +1712,7 @@
 
       const NEED = '확인 필요';
       // 빠른 모드(A~G)와 상세 모드(A~I)의 열 위치. 빠른 모드에서 쓰지 않는 키는 무시된다.
-      const ROW_COL = { brand: 'A', name: 'D', category: 'E', priceOrig: 'F', price: 'G', color: 'H' };
+      const ROW_COL = { brand: 'A', name: 'D', category: 'E', priceOrig: 'F', price: 'G', color: 'H', comp: 'I' };
       function rowValues(r, brandGuess) {
         const listP = r.priceOrig || '';
         const nowP = r.price || '';
@@ -1685,6 +1725,8 @@
           priceOrig: listP || nowP,
           price: listP ? nowP : (nowP ? '-' : ''),
           color: colorFromText(r.name, r.link),
+          // 혼용률은 야간 보강이 카탈로그·인덱스에 미리 채워 둔 값 — 스캔 때 접속 없음.
+          comp: r.comp || '',
         };
         for (const k of Object.keys(ROW_COL)) {
           if (!String(vals[k] || '').trim()) vals[k] = NEED;
@@ -1715,10 +1757,11 @@
           { header: '정가', key: 'priceOrig', width: 12 },
           { header: '할인가', key: 'price', width: 12 },
           { header: '컬러', key: 'color', width: 14 },
+          { header: '혼용률', key: 'comp', width: 28 },
         ];
         ws.getRow(1).font = { bold: true };
         const urlCol = 'C';
-        const lastCol = 'H';
+        const lastCol = 'I';
         const needCells = [];   // '확인 필요' 칸 위치 — 마지막에 한 번에 서식 적용
 
         let okThumb = 0, thumbFailDiag = '';

@@ -234,9 +234,47 @@ export default {
           productUrl: String(p.productUrl).slice(0, 1000),
           price: String(p.price || '').slice(0, 40),
           priceOrig: String(p.priceOrig || '').slice(0, 40),
+          comp: String(p.comp || '').slice(0, 160),
         }));
       await env.RACK_CACHE.put('search:index', JSON.stringify({ updated: Date.now(), items }));
       return json({ ok: true, count: items.length }, 200, cors);
+    }
+
+    // 혼용률 패치 (POST ?store=comps) — 야간 보강·확장이 {site, comps:{상품URL:혼용률}} 를 보낸다.
+    // 카탈로그 본문(items)은 건드리지 않고 comp 만 끼워 넣으므로, 수집과 경합해도
+    // 상품이 사라질 일이 없다. KV 쓰기는 브랜드당 1회(무료 한도 1,000/일 안).
+    if (reqUrl.searchParams.get('store') === 'comps') {
+      const tokOk = !env.ACCESS_TOKEN ||
+        request.headers.get('x-access-token') === env.ACCESS_TOKEN ||
+        reqUrl.searchParams.get('token') === env.ACCESS_TOKEN;
+      if (!tokOk) return json({ error: 'unauthorized' }, 401, cors);
+      if (!env.RACK_CACHE) return json({ error: 'RACK_CACHE KV not configured' }, 500, cors);
+      let body;
+      try { body = await request.json(); }
+      catch { return json({ error: 'invalid JSON body' }, 400, cors); }
+      const site = String(body.site || '').toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 80);
+      const comps = body.comps && typeof body.comps === 'object' ? body.comps : null;
+      if (!site || !comps) return json({ error: 'missing site/comps' }, 400, cors);
+      const raw = await env.RACK_CACHE.get('catalog:' + site);
+      if (!raw) return json({ error: 'no such catalog', site }, 404, cors);
+      let rec;
+      try { rec = JSON.parse(raw); } catch (e) { return json({ error: 'corrupt catalog' }, 500, cors); }
+      let patched = 0;
+      for (const p of rec.items || []) {
+        const c = comps[p.productUrl];
+        if (c && !p.comp) { p.comp = String(c).slice(0, 160); patched++; }
+      }
+      if (patched) {
+        const cats = {};
+        for (const p of rec.items || []) cats[p.category] = (cats[p.category] || 0) + 1;
+        // updated 는 건드리지 않는다 — 갱신 시각은 "상품이 언제 수집됐나"의 신호라서,
+        // 혼용률 보강이 그걸 덮으면 확장 실행 필요 판정이 어긋난다.
+        await env.RACK_CACHE.put('catalog:' + site, JSON.stringify(rec), {
+          metadata: { brand: rec.brand || '', count: (rec.items || []).length, updated: rec.updated || 0, cats },
+        });
+      }
+      const missing = (rec.items || []).filter(p => !p.comp).length;
+      return json({ ok: true, site, patched, missing }, 200, cors);
     }
 
     // 카탈로그 저장 (POST ?store=catalog) — 유저스크립트가 쇼핑몰 페이지에서 전송.
@@ -266,6 +304,8 @@ export default {
           category: String(p.category || 'tops').slice(0, 20),
           // src = 이 상품을 어느 카테고리 URL에서 긁었는지. 잘못 잡힌 항목의 출처 추적용.
           src: String(p.src || '').slice(0, 300),
+          // comp = 혼용률("Cotton 60% / Modal 40%"). 수집기·야간 보강이 채운다.
+          comp: String(p.comp || '').slice(0, 160),
         }));
       if (!items.length) return json({ error: 'no valid items' }, 400, cors);
 
@@ -274,16 +314,21 @@ export default {
       // ?store=catalog&replace=1 이면 새로 덮어씀(신상 갱신용).
       const replace = reqUrl.searchParams.get('replace') === '1';
       let merged = items;
-      if (!replace) {
+      {
         let prev = null;
         try { prev = await env.RACK_CACHE.get('catalog:' + site); } catch (e) {}
-        if (prev) {
-          try {
-            const old = JSON.parse(prev);
-            const seen = new Set(items.map(p => p.productUrl));
-            const keptOld = (Array.isArray(old.items) ? old.items : []).filter(p => p && !seen.has(p.productUrl));
-            merged = items.concat(keptOld).slice(0, 800);   // 새 항목 우선, 총 800개 상한
-          } catch (e) {}
+        let oldItems = [];
+        if (prev) { try { oldItems = JSON.parse(prev).items || []; } catch (e) {} }
+        // 혼용률은 한 번 뽑으면 바뀌지 않는 값인데, 매일 오는 수집분에는 없다.
+        // replace 로 통째로 갈아끼울 때도 같은 상품URL의 기존 comp 는 반드시 승계한다 —
+        // 안 그러면 야간 수집이 돌 때마다 보강해 둔 혼용률이 전부 지워진다.
+        const oldComp = new Map();
+        for (const p of oldItems) if (p && p.comp) oldComp.set(p.productUrl, p.comp);
+        for (const p of merged) if (!p.comp && oldComp.has(p.productUrl)) p.comp = oldComp.get(p.productUrl);
+        if (!replace && oldItems.length) {
+          const seen = new Set(items.map(p => p.productUrl));
+          const keptOld = oldItems.filter(p => p && !seen.has(p.productUrl));
+          merged = items.concat(keptOld).slice(0, 800);   // 새 항목 우선, 총 800개 상한
         }
       }
       const record = { site, brand: String(body.brand || '').slice(0, 80), updated: Date.now(), items: merged };

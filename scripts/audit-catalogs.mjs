@@ -109,6 +109,7 @@ const report = [];
 const low = [];                 // 수집량이 비정상적으로 적은 브랜드
 const deadUrls = [];            // 상품을 한 개도 못 준 카테고리 URL(교체 대상)
 const priceCov = [];            // 브랜드별 가격 채움률(보드 스캐너 엑셀 '가격' 열의 근거)
+const compCov = [];             // 브랜드별 혼용률 채움률(야간 보강 진행도)
 const LOW_MARK = Math.max(1, Number(process.env.LOW_MARK) || 60);
 let scanned = 0, flagged = 0;
 for (const c of list) {
@@ -151,6 +152,13 @@ for (const c of list) {
   // 엑셀의 '가격' 열도 빈칸으로 나온다. 브랜드별 채움률을 남겨 어디가 안 되는지 본다.
   {
     const withPrice = items.filter((it) => String(it.price || "").trim()).length;
+    const withComp = items.filter((it) => String(it.comp || "").trim()).length;
+    compCov.push({
+      brand: d.brand || c.brand || c.site,
+      group: groupOf.get(String(d.brand || c.brand || "").toLowerCase()) || "?",
+      total: items.length, withComp,
+      pct: items.length ? Math.round((withComp / items.length) * 100) : 0,
+    });
     priceCov.push({
       brand: d.brand || c.brand || c.site,
       group: groupOf.get(String(d.brand || c.brand || "").toLowerCase()) || "?",
@@ -309,7 +317,21 @@ if (partPrice.length) {
   pm += `\n`;
 }
 
-md = km + em + `\n---\n\n` + pm + `\n---\n\n` + dm + `\n---\n\n` + md;
+// 혼용률 백필 진행도 — "다 되어야 한다"가 목표라 100% 미만 브랜드를 전부 보여준다.
+compCov.sort((a, z) => a.pct - z.pct || z.total - a.total);
+const compAll = compCov.reduce((s2, r) => s2 + r.total, 0);
+const compHave = compCov.reduce((s2, r) => s2 + r.withComp, 0);
+const compGaps = compCov.filter((r) => r.total >= 5 && r.pct < 100);
+let cm = `# 혼용률 채움 상태 (보드 스캐너 엑셀 '혼용률' 열)\n\n`;
+cm += `야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.\n\n`;
+cm += `- 전체 ${compHave}/${compAll}개 (${compAll ? Math.round((compHave / compAll) * 100) : 0}%) · 미완 브랜드 ${compGaps.length}개\n\n`;
+if (compGaps.length) {
+  cm += `<details><summary>브랜드별 진행도</summary>\n\n| 브랜드 | 그룹 | 보유/전체 |\n|---|---|---:|\n`;
+  for (const r of compGaps) cm += `| ${r.brand} | ${r.group} | ${r.withComp}/${r.total} (${r.pct}%) |\n`;
+  cm += `\n</details>\n\n`;
+}
+
+md = km + em + `\n---\n\n` + cm + `\n---\n\n` + pm + `\n---\n\n` + dm + `\n---\n\n` + md;
 
 low.sort((a, z) => a.total - z.total);
 md += `# 수집량이 적은 브랜드 (${LOW_MARK}개 미만)\n\n`;
@@ -320,7 +342,7 @@ for (const r of low) {
   for (const sm of r.sample) md += `  - 표본: ${sm.name || "(무명)"} — ${sm.productUrl}\n`;
   md += `\n`;
 }
-writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows, priceCoverage: priceCov, duplicateKeys: dupes }, null, 1));
+writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows, priceCoverage: priceCov, compCoverage: compCov, duplicateKeys: dupes }, null, 1));
 writeFileSync(join(ROOT, "catalog-audit.md"), md);
 console.log(`\n검사 ${scanned}개 · 문제 ${flagged}개 · 브랜드 ${report.filter((r) => r.badCount).length}개`);
 console.log(`교체 필요 URL ${deadUrls.reduce((s, r) => s + r.dead.length, 0)}개 (브랜드 ${deadUrls.length}개)`);
