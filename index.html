@@ -32,8 +32,6 @@
     #run { background: #4262ff; color: #fff; }
     #downloadXlsx { background: #16a34a; color: #fff; margin-top: 8px; display: none; }
     #downloadCsv { background: #eef0f5; color: #333; margin-top: 6px; display: none; }
-    #analyzeFabric { background: #7c3aed; color: #fff; margin-top: 10px; display: none; }
-    #downloadFabricXlsx { background: #0d9488; color: #fff; margin-top: 6px; display: none; }
     /* (구 디자인의 #basicExport/#basicExportSel ID 규칙 제거 —
         ID 우선순위가 .scan 클래스를 덮어써 padding·margin(9px)·배경이 어긋났음) */
     .settings button { margin-top: 8px; }
@@ -100,11 +98,6 @@
     .imp-actions .ib:hover { background: var(--card2); }
     .imp-actions .ib:disabled { opacity: .4; }
     .imp-actions .ib svg { width: 16px; height: 16px; display: block; }
-    .fbadge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 6px; margin-left: 4px; vertical-align: middle; }
-    .fbadge.ok { background: #e7f6ec; color: #16794a; }
-    .fbadge.warn { background: #fff4e5; color: #a15c00; }
-    .fbadge.err { background: #fdeaea; color: #b42318; }
-    .comp { font-weight: 600; }
     #status { font-size: 12px; margin: 14px 0 4px; min-height: 16px; color: var(--muted); }
     .summary {
       display: none; margin-top: 12px; font-size: 12px;
@@ -150,8 +143,6 @@
     .scan .ic { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; flex: 0 0 26px; color: var(--text); }
     .scan.working .ic { color: #fff; }
     .scan .ic svg { width: 26px; height: 26px; display: block; }
-    .scan.detail { border-style: dashed; opacity: .78; }
-    .scan.detail .lab { font-size: 10.5px; letter-spacing: .6px; text-transform: none; }
     .scan .lab { font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; line-height: 1.15; white-space: nowrap; }
     .scan #selCount { font-size: 11px; color: var(--accent); font-weight: 700; }
     /* 작업 중(활성): 검정 채움 + 은은한 흐름 애니메이션 */
@@ -353,7 +344,6 @@
       <div class="scan-row">
         <button id="basicExport" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 2.5 7.5 12 12.5l9.5-5L12 2.5Z"/><path d="M2.5 12 12 17l9.5-5"/><path d="M2.5 16.5 12 21.5l9.5-5"/></svg></span><span class="lab">Scan All</span></button>
         <button id="basicExportSel" class="scan"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="2.5" stroke-dasharray="3.6 3"/></svg></span><span class="lab">Scan Selected</span></button>
-        <button id="detailExport" class="scan detail"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h10"/></svg></span><span class="lab">+ 사이즈·혼용률</span></button>
       </div>
 
       <!-- 스캔 결과 검색바 -->
@@ -370,8 +360,7 @@
         <!-- 사용법 팝오버 (ⓘ 아이콘) -->
         <div class="popover" id="helpModal" style="display:none">
           <div class="pop-head"><span>사용법</span><button class="x" id="helpClose" aria-label="닫기">✕</button></div>
-          <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 — 브랜드·썸네일·URL·상품명·카테고리·정가·할인가·컬러. 보드와 저장된 상품 정보만 쓰므로 <b style="display:inline">몇 초</b>면 끝납니다.</div>
-          <div class="help-item"><b>+ 사이즈·혼용률</b>사이즈와 혼용률은 <b style="display:inline">상품 페이지에만</b> 있어서 상품 수만큼 쇼핑몰에 접속해야 합니다 — 50개에 1~3분. 컬러도 이때 더 정확해집니다. 못 가져온 칸은 <b style="display:inline">확인 필요</b>로 표시됩니다.</div>
+          <div class="help-item"><b>📥 Scan All</b>보드의 링크된 이미지를 <b style="display:inline">전부</b> 엑셀로 — 브랜드·썸네일·URL·상품명·카테고리·정가·할인가·컬러. 보드와 저장된 상품 정보만 쓰므로 <b style="display:inline">몇 초</b>면 끝납니다. 못 가져온 칸은 <b style="display:inline">확인 필요</b>로 표시됩니다.</div>
           <div class="help-item"><b>🖱 Scan Selected</b>보드에서 <b style="display:inline">클릭·Shift+클릭·마우스 박스 드래그</b>로 선택한 이미지만 엑셀로. 선택하면 개수가 표시됩니다.</div>
           <div class="help-item"><b>↺ 리셋</b>스캔 결과·상태를 지우고 처음으로 되돌립니다.</div>
         </div>
@@ -424,13 +413,12 @@
     function initPanel() {
       document.getElementById('app').style.display = 'flex';   // 세로 flex 레이아웃(리스트 스크롤용)
 
-      // 기타 도구 버튼은 UI에서 제거됨. 공유 함수(collectRows/analyzeAll/buildBasicXlsx)가
+      // 기타 도구 버튼은 UI에서 제거됨. 공유 함수(collectRows/buildBasicXlsx)가
       // 참조하는 disabled/style/addEventListener만 무해하게 받아주는 스텁으로 대체(널 오류 방지).
       const _stubBtn = () => ({ disabled: false, style: {}, addEventListener() {} });
       const runBtn = _stubBtn();
       const xlsxBtn = _stubBtn();
       const csvBtn = _stubBtn();
-      const fabricBtn = _stubBtn();
       const workerUrlEl = document.getElementById('workerUrl');
       const accessTokenEl = document.getElementById('accessToken');
       const statusEl = document.getElementById('status');
@@ -603,41 +591,32 @@
       // ── 📥 기본 추출: 브랜드·썸네일·상품명·URL (완전 무료). 전체 / 선택한 것만 두 모드. ──
       const basicBtn = document.getElementById('basicExport');
       const basicSelBtn = document.getElementById('basicExportSel');
-      const detailBtn = document.getElementById('detailExport');
-      async function runBasicExport(selectedOnly, detailed) {
+      async function runBasicExport(selectedOnly) {
         if (!(workerUrlEl.value || '').trim()) {
           showTab('settings');
           statusEl.textContent = '썸네일을 엑셀에 넣으려면 ⚙ 설정에 ② 추출 Worker 주소가 필요합니다 (최초 1회).';
           return;
         }
-        const activeBtn = detailed ? detailBtn : (selectedOnly ? basicSelBtn : basicBtn);
+        const activeBtn = selectedOnly ? basicSelBtn : basicBtn;
         basicBtn.disabled = true; basicSelBtn.disabled = true; heroBtn.disabled = true;
-        detailBtn.disabled = true;
         activeBtn.classList.add('working');   // 작업 중: 그라데이션 흐름 애니메이션
         try {
           await collectRows(selectedOnly);
           if (!rows.length) return;
           await enrichNames();   // URL로만 추정한 이름을 실제 페이지 제목(og:title)으로 보강
-          // 정가·할인가·사이즈·컬러·혼용률은 상품 페이지에만 있어서, 넣으려면 상품 수만큼
-          // 쇼핑몰에 접속해야 한다(50개에 1~3분). 기본은 보드에 이미 있는 값만 써서 몇 초에
-          // 끝내고, 그 항목들이 필요할 때만 '상세 정보 포함'으로 따로 뽑는다.
-          if (detailed) await analyzeAll();
-          await buildBasicXlsx(detailed);
+          await buildBasicXlsx();
         } catch (e) {
           statusEl.textContent = '오류: ' + ((e && e.message) || e);
         } finally {
           activeBtn.classList.remove('working');
           basicBtn.disabled = false; basicSelBtn.disabled = false; heroBtn.disabled = false;
-          detailBtn.disabled = false;
         }
       }
-      basicBtn.addEventListener('click', () => runBasicExport(false, false));
-      basicSelBtn.addEventListener('click', () => runBasicExport(true, false));
-      detailBtn.addEventListener('click', () => runBasicExport(false, true));
+      basicBtn.addEventListener('click', () => runBasicExport(false));
+      basicSelBtn.addEventListener('click', () => runBasicExport(true));
 
       // ── 상품명 보강: URL 추정 이름을 Worker의 무료 og:title 조회로 교체 ──
       const __titleCache = {};   // link → 정제된 제목 (같은 세션 내 재조회 방지)
-      const __fabricCache = {};   // 상품URL → 분석결과(세션 내 재조회 방지)
       function cleanTitle(t, brand) {
         let s = String(t || '').replace(/\s+/g, ' ').trim();
         // "상품명 | 브랜드", "상품명 – 브랜드" 꼬리 제거
@@ -1555,7 +1534,6 @@
           if (rows.length) {
             xlsxBtn.style.display = 'block';
             csvBtn.style.display = 'block';
-            if (withLink) fabricBtn.style.display = 'block';
           } else {
             statusEl.textContent = '이 보드에서 이미지를 찾지 못했습니다.';
           }
@@ -1663,103 +1641,6 @@
         );
       });
 
-      // ── 4) 원단 정보 분석 (링크된 상품 페이지 → Claude web_fetch) ──────
-      fabricBtn.addEventListener('click', analyzeAll);
-      async function analyzeAll() {
-        const workerUrl = (workerUrlEl.value || '').trim();
-        // 주소가 없으면 분석만 건너뛴다. 엑셀은 그대로 만들고 못 채운 칸은 '확인 필요'로 남는다.
-        if (!workerUrl) return { okc: 0, failc: 0, skipped: true };
-        const token = (accessTokenEl.value || '').trim();
-        const targets = rows.filter(r => r.link);
-        if (!targets.length) { statusEl.textContent = '링크가 걸린 사진이 없습니다.'; return; }
-
-        fabricBtn.disabled = true; xlsxBtn.disabled = true; csvBtn.disabled = true;
-
-        let done = 0, okc = 0, failc = 0, quotaHit = 0;
-        // 한도에 걸린 뒤로는 AI 를 건너뛴다(Worker 에 noai=1). 구조화 데이터·본문에서
-        // 뽑히는 항목은 그대로 채워지고, 스캔이 멈추지 않는다.
-        let aiOff = false;
-        const update = () => {
-          statusEl.textContent = `상품 정보 수집 중… ${done}/${targets.length} (성공 ${okc}, 실패 ${failc})`;
-        };
-        update();
-
-        const sleep = ms => new Promise(res => setTimeout(res, ms));
-        const isQuota = note => /429|quota|resource_exhausted|rate.?limit/i.test(String(note || ''));
-
-        // 무료 티어 한도를 지키려 동시 2개만 + 429(한도) 시 대기 후 자동 재시도.
-        // 대부분은 구조화 데이터로 끝나 AI 를 쓰지 않는다 — 동시 6개까지 올린다.
-        // (AI 를 쓰는 것만 429 로 잠시 밀리고, 나머지는 그동안 계속 진행된다.)
-        await runPool(targets, 6, async (r) => {
-          // 같은 세션에서 이미 읽은 URL 은 다시 묻지 않는다.
-          const cached = __fabricCache[r.link];
-          if (cached) {
-            r.fabric = cached;
-            if (!r.price && cached.price) r.price = cached.price;
-            if (!r.priceOrig && cached.price_original) r.priceOrig = cached.price_original;
-            okc++; done++; update(); renderPreview();
-            return;
-          }
-          let data = null;
-          for (let attempt = 0; attempt < 3; attempt++) {
-            try {
-              const headers = { 'Content-Type': 'application/json' };
-              if (token) headers['x-access-token'] = token;
-              // 한 사이트가 응답을 끌면 그 자리가 통째로 막힌다 — 25초에서 포기하고 넘어간다.
-              const ctl = new AbortController();
-              const timer = setTimeout(() => ctl.abort(), 25000);
-              const ep = workerUrl + (aiOff ? (workerUrl.includes('?') ? '&' : '?') + 'noai=1' : '');
-              const resp = await fetch(ep, {
-                method: 'POST', headers, body: JSON.stringify({ url: r.link }), signal: ctl.signal,
-              });
-              clearTimeout(timer);
-              data = await resp.json();
-            } catch (e) {
-              data = { status: 'error', note: String((e && e.message) || e) };
-            }
-            if (isQuota(data && (data.note || data.error))) {
-              // AI 무료 한도에 걸렸다. 한 번만 짧게 기다려 보고, 그래도 막히면
-              // 이번 실행에서는 AI 를 포기한다 — 상품마다 12초씩 기다리면
-              // 이미 다 채워진 상품까지 인질이 된다. 못 채운 칸은 '확인 필요'로 남는다.
-              quotaHit++;
-              if (aiOff || attempt >= 1) { aiOff = true; break; }
-              statusEl.textContent =
-                `${done}/${targets.length} 완료 · AI 보강 한도 — 10초 대기 후 재시도`;
-              await sleep(10000);
-              continue;
-            }
-            break;
-          }
-          data = data || {};
-          r.fabric = {
-            product_name: data.product_name || '',
-            image_url: data.image_url || '',
-            composition: Array.isArray(data.composition) ? data.composition : [],
-            materials: Array.isArray(data.materials) ? data.materials : [],
-            price: data.price || '',
-            price_original: data.price_original || '',
-            color: data.color || '',
-            sizes: Array.isArray(data.sizes) ? data.sizes : [],
-            status: data.status || 'error',
-            note: data.note || (data.error || ''),
-          };
-          // 목록에서 못 뽑은 값은 상품 페이지에서 찾은 것으로 채운다(덮어쓰지는 않는다).
-          if (!r.price && r.fabric.price) r.price = r.fabric.price;
-          if (!r.priceOrig && r.fabric.price_original) r.priceOrig = r.fabric.price_original;
-          const f = r.fabric;
-          __fabricCache[r.link] = f;
-          const gotSomething = f.composition.length || f.materials.length ||
-            f.price || f.color || f.sizes.length;
-          if (f.status !== 'blocked' && gotSomething) okc++; else failc++;
-          done++; update(); renderPreview();
-        });
-
-        fabricBtn.disabled = false; xlsxBtn.disabled = false; csvBtn.disabled = false;
-        statusEl.textContent = `상품 정보 ${okc}건 확보 (실패 ${failc}) — 엑셀 만드는 중…` +
-          (aiOff ? ' · AI 한도 소진으로 일부 항목은 확인 필요' : '');
-        return { okc, failc };
-      }
-
       // 📥 기본 추출: 브랜드 · 썸네일(보드 이미지) · URL 만. 브랜드순 정렬, 빈 행 없음.
       // 엑셀 한 행의 값. 사이트에서 못 가져온 칸은 비우지 않고 '확인 필요'로 채운다 —
       // 빈칸은 "값이 없는 상품"인지 "수집 실패"인지 구분이 안 돼서 사람이 판단을 못 한다.
@@ -1791,25 +1672,19 @@
 
       const NEED = '확인 필요';
       // 빠른 모드(A~G)와 상세 모드(A~I)의 열 위치. 빠른 모드에서 쓰지 않는 키는 무시된다.
-      const ROW_COL = { brand: 'A', name: 'D', category: 'E', priceOrig: 'F', price: 'G', color: 'H', sizes: 'I', comp: 'J' };
-      const FAST_KEYS = ['brand', 'name', 'category', 'priceOrig', 'price', 'color'];
+      const ROW_COL = { brand: 'A', name: 'D', category: 'E', priceOrig: 'F', price: 'G', color: 'H' };
       function rowValues(r, brandGuess) {
-        const fb = r.fabric || {};
-        const listP = r.priceOrig || fb.price_original || '';
-        const nowP = r.price || fb.price || '';
+        const listP = r.priceOrig || '';
+        const nowP = r.price || '';
         const vals = {
           brand: r.brand || brandGuess || '',
-          name: r.name || fb.product_name || '',
+          name: r.name || '',
           category: r.category || '',
           // 할인 상품이면 정가·할인가 둘 다. 할인이 아니면 정가에만 넣고 할인가는 '-'
           // (할인가가 없는 게 정상이라 '확인 필요'로 볼 일이 아니다).
           priceOrig: listP || nowP,
           price: listP ? nowP : (nowP ? '-' : ''),
-          // 색은 상품 페이지(fb.color)가 가장 정확하지만, 없으면 이름·URL 에서 읽는다.
-          color: fb.color || colorFromText(r.name, r.link),
-          sizes: (fb.sizes || []).join(', '),
-          comp: (fb.composition || []).map((c) => `${c.material} ${c.percent}%`).join(' / ')
-            || (fb.materials || []).join(', '),
+          color: colorFromText(r.name, r.link),
         };
         for (const k of Object.keys(ROW_COL)) {
           if (!String(vals[k] || '').trim()) vals[k] = NEED;
@@ -1817,9 +1692,10 @@
         return vals;
       }
 
-      // detailed=false(기본): 보드에 이미 있는 값만 쓴다 — 사이트 접속 0회, 몇 초면 끝.
-      // detailed=true: 정가·할인가·사이즈·컬러·혼용률까지. 상품 수만큼 사이트에 접속해야 해서 느리다.
-      async function buildBasicXlsx(detailed) {
+      // 보드와 저장된 상품 인덱스에 이미 있는 값만 쓴다 — 쇼핑몰 접속 0회, 몇 초면 끝난다.
+      // 사이즈·혼용률은 상품 페이지에만 있어 넣지 않는다. 수십 개를 뽑을 때
+      // 상품마다 사이트를 여는 비용이 감당이 안 된다.
+      async function buildBasicXlsx() {
         if (typeof ExcelJS === 'undefined') {
           statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';
           return;
@@ -1830,8 +1706,7 @@
 
         const workbook = new ExcelJS.Workbook();
         const ws = workbook.addWorksheet('상품정보');
-        // 빠른 모드에서도 보드·저장 인덱스에 이미 있는 값은 전부 낸다(사이트 접속 0회).
-        const FAST_COLS = [
+        ws.columns = [
           { header: '브랜드', key: 'brand', width: 18 },
           { header: '썸네일', key: 'img', width: 18 },
           { header: 'URL', key: 'link', width: 46 },
@@ -1841,16 +1716,9 @@
           { header: '할인가', key: 'price', width: 12 },
           { header: '컬러', key: 'color', width: 14 },
         ];
-        // 사이즈·혼용률은 상품 페이지에만 있어 상세 모드에서만 붙는다.
-        ws.columns = detailed
-          ? FAST_COLS.concat([
-              { header: '사이즈', key: 'sizes', width: 22 },
-              { header: '혼용률', key: 'comp', width: 30 },
-            ])
-          : FAST_COLS;
         ws.getRow(1).font = { bold: true };
         const urlCol = 'C';
-        const lastCol = detailed ? 'J' : 'H';
+        const lastCol = 'H';
         const needCells = [];   // '확인 필요' 칸 위치 — 마지막에 한 번에 서식 적용
 
         let okThumb = 0, thumbFailDiag = '';
@@ -1858,9 +1726,7 @@
           const r = items[i], excelRow = i + 2;
           // 정가 = 할인 전 가격. 할인이 아니면 정가 칸에 그대로 두고 할인가는 비운다
           // (엑셀에서 정가 열만 봐도 모든 상품의 가격이 한 줄로 읽힌다).
-          const all = rowValues(r, brandFromUrl(r.link));
-          const vals = detailed ? all
-            : Object.fromEntries(FAST_KEYS.map((k) => [k, all[k]]));
+          const vals = rowValues(r, brandFromUrl(r.link));
           for (const k of Object.keys(vals)) {
             if (vals[k] === NEED) needCells.push(ROW_COL[k] + excelRow);
           }
@@ -1905,42 +1771,10 @@
         ws.autoFilter = { from: 'A1', to: lastCol + '1' };
         ws.views = [{ state: 'frozen', ySplit: 1 }];
 
-        // 소재 통계 시트(도넛·막대) — 상세 모드에서 혼용률이 하나라도 있을 때만.
-        try {
-          if (!detailed) throw 0;
-          const stats = computeMaterialStats();
-          if (stats.length) {
-            const ss = workbook.addWorksheet('소재통계');
-            ss.columns = [
-              { header: '소재', key: 'm', width: 18 },
-              { header: '총 비중(%)', key: 'share', width: 12 },
-              { header: '등장 상품수', key: 'count', width: 12 },
-              { header: '평균 혼용률(%)', key: 'avg', width: 14 },
-            ];
-            ss.getRow(1).font = { bold: true };
-            stats.forEach((st) => ss.addRow({
-              m: st.material,
-              share: Math.round(st.share * 10) / 10,
-              count: st.count,
-              avg: st.avg != null ? Math.round(st.avg * 10) / 10 : '',
-            }));
-            const donut = drawDonut(stats);
-            if (donut) {
-              const did = workbook.addImage({ base64: donut.base64, extension: 'png' });
-              ss.addImage(did, { tl: { col: 5, row: 1 }, ext: { width: donut.w, height: donut.h } });
-            }
-            const bar = drawBarChart(stats.slice(0, 10));
-            if (bar) {
-              const bid = workbook.addImage({ base64: bar.base64, extension: 'png' });
-              ss.addImage(bid, { tl: { col: 5, row: 17 }, ext: { width: bar.w, height: bar.h } });
-            }
-          }
-        } catch (e) {}
-
         const buf = await workbook.xlsx.writeBuffer();
         downloadBlob(
           new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }),
-          detailed ? `miro_products_${stamp()}.xlsx` : `miro_links_${stamp()}.xlsx`,
+          `miro_links_${stamp()}.xlsx`,
         );
         statusEl.innerHTML = needCells.length
           ? `완료 · 총 <b>${items.length}</b> · 확인 필요 <b>${needCells.length}</b>칸`
@@ -2055,150 +1889,8 @@
         table.style.display = (list.length || q) ? 'grid' : 'none';
       }
 
-      function fabricCellHtml(f) {
-        if (!f) return '<span class="muted">-</span>';
-        const comp = (f.composition || []).map(c => `${escapeHtml(c.material)} ${c.percent}%`).join(' / ');
-        const mats = (f.materials || []).map(escapeHtml).join(', ');
-        let badge = '';
-        if (f.status === 'no_data') badge = '<span class="fbadge warn">정보없음</span>';
-        else if (f.status === 'blocked') badge = '<span class="fbadge warn">접근차단</span>';
-        else if (f.status && f.status !== 'ok') badge = '<span class="fbadge err">실패</span>';
-        const main = comp
-          ? `<span class="comp">${comp}</span>`
-          : (mats ? escapeHtml(mats) : '<span class="muted">-</span>');
-        const note = f.note ? `<div class="muted" style="font-size:10px">${escapeHtml(f.note)}</div>` : '';
-        return main + badge + note;
-      }
 
-      function statusLabel(s) {
-        if (s === 'ok') return '추출됨';
-        if (s === 'no_data') return '정보없음';
-        if (s === 'blocked') return '접근차단';
-        return s ? '실패' : '';
-      }
 
-      // 상태/실패사유를 3단어 이내 한글로 요약.
-      function shortReason(f) {
-        f = f || {};
-        const s = f.status;
-        const hasData = (f.composition && f.composition.length) || (f.materials && f.materials.length);
-        if (s === 'ok') return hasData ? '추출됨' : '정보없음';
-        if (s === 'skipped') return '미분석';
-        if (s === 'no_data') return '정보없음';
-        if (s === 'blocked') return '접근차단';
-        const note = String(f.note || '').toLowerCase();
-        if (note.includes('429') || note.includes('quota') || note.includes('resource_exhausted')) return '한도초과';
-        if (note.includes('api_key') || note.includes('secret')) return '서버설정오류';
-        if (note.includes('402') || note.includes('credit') || note.includes('billing')) return '결제필요';
-        if (note.includes('401') || note.includes('unauthorized')) return '인증오류';
-        if (note.includes('timeout') || note.includes('시간')) return '시간초과';
-        if (note.includes('fetch') || note.includes('network') || note.includes('502') || note.includes('503')) return '네트워크오류';
-        return '실패';
-      }
-
-      // material -> {count(등장 상품수), avg(평균 혼용률), share(전체 구성 비중)}
-      function computeMaterialStats() {
-        const map = new Map();
-        let totalPercent = 0;
-        rows.forEach(r => {
-          const f = r.fabric;
-          if (!f) return;
-          const comp = f.composition || [];
-          const seen = new Set();
-          comp.forEach(c => {
-            if (!c || !c.material) return;
-            const m = c.material;
-            seen.add(m);
-            const e = map.get(m) || { count: 0, sum: 0, n: 0 };
-            if (typeof c.percent === 'number' && !Number.isNaN(c.percent)) {
-              e.sum += c.percent; e.n++; totalPercent += c.percent;
-            }
-            map.set(m, e);
-          });
-          const mats = seen.size ? seen : new Set((f.materials || []).filter(Boolean));
-          mats.forEach(m => {
-            const e = map.get(m) || { count: 0, sum: 0, n: 0 };
-            e.count++;
-            map.set(m, e);
-          });
-        });
-        const arr = [...map.entries()].map(([material, e]) => ({
-          material, count: e.count, avg: e.n ? e.sum / e.n : null,
-          share: totalPercent ? (e.sum / totalPercent) * 100 : 0,
-        }));
-        // 전체 구성 비중(원단 데이터의 핵심) 우선 정렬
-        arr.sort((a, b) => b.share - a.share || b.count - a.count);
-        return arr;
-      }
-
-      // 도넛 차트: 전체 상품의 원단 구성 비중(혼용률 가중) — 원단 데이터에 가장 직관적인 시각자료.
-      function drawDonut(items) {
-        const data = (items || []).filter(i => i.share > 0);
-        if (!data.length) return null;
-        const palette = ['#7c3aed', '#2563eb', '#0d9488', '#16a34a', '#d97706',
-                         '#dc2626', '#db2777', '#0891b2', '#65a30d', '#9333ea'];
-        const top = data.slice(0, 8);
-        const rest = data.slice(8).reduce((s, i) => s + i.share, 0);
-        if (rest > 0.05) top.push({ material: '기타', share: rest });
-
-        const W = 470, H = 300, cx = 145, cy = 160, rO = 108, rI = 58;
-        const canvas = document.createElement('canvas');
-        canvas.width = W; canvas.height = H;
-        const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, H);
-        ctx.fillStyle = '#1a1a2e'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'left';
-        ctx.fillText('원단 구성 비중 (전체 상품 기준)', 12, 24);
-
-        const total = top.reduce((s, i) => s + i.share, 0) || 1;
-        let a0 = -Math.PI / 2;
-        top.forEach((it, idx) => {
-          const a1 = a0 + (it.share / total) * Math.PI * 2;
-          ctx.beginPath(); ctx.moveTo(cx, cy);
-          ctx.arc(cx, cy, rO, a0, a1); ctx.closePath();
-          ctx.fillStyle = palette[idx % palette.length]; ctx.fill();
-          a0 = a1;
-        });
-        ctx.beginPath(); ctx.arc(cx, cy, rI, 0, Math.PI * 2); ctx.fillStyle = '#fff'; ctx.fill();
-
-        // 범례 (오른쪽)
-        ctx.font = '12px sans-serif'; ctx.textAlign = 'left';
-        let ly = 56;
-        top.forEach((it, idx) => {
-          ctx.fillStyle = palette[idx % palette.length];
-          ctx.fillRect(290, ly - 10, 13, 13);
-          ctx.fillStyle = '#333';
-          ctx.fillText(`${it.material}  ${Math.round(it.share * 10) / 10}%`, 310, ly + 1);
-          ly += 22;
-        });
-        return { base64: canvas.toDataURL('image/png').split(',')[1], w: W, h: H };
-      }
-
-      function drawBarChart(items) {
-        if (!items || !items.length) return null;
-        const W = 440, barH = 22, gap = 10, padL = 120, padR = 44, padT = 34, padB = 12;
-        const H = padT + padB + items.length * (barH + gap);
-        const canvas = document.createElement('canvas');
-        canvas.width = W; canvas.height = H;
-        const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, H);
-        ctx.fillStyle = '#1a1a2e'; ctx.font = 'bold 13px sans-serif';
-        ctx.textAlign = 'left';
-        ctx.fillText('소재별 등장 상품수', padL, 20);
-        const max = Math.max.apply(null, items.map(i => i.count).concat([1]));
-        ctx.font = '12px sans-serif';
-        items.forEach((it, idx) => {
-          const y = padT + idx * (barH + gap);
-          const w = Math.round((W - padL - padR) * (it.count / max));
-          ctx.fillStyle = '#7c3aed'; ctx.fillRect(padL, y, w, barH);
-          ctx.fillStyle = '#333'; ctx.textAlign = 'right';
-          ctx.fillText(it.material, padL - 8, y + barH - 6);
-          ctx.fillStyle = '#111'; ctx.textAlign = 'left';
-          ctx.fillText(String(it.count), padL + w + 6, y + barH - 6);
-        });
-        return { base64: canvas.toDataURL('image/png').split(',')[1], w: W, h: H };
-      }
-
-      // 동시 실행 풀
       async function runPool(items, size, fn) {
         let i = 0;
         const n = Math.min(size, items.length);

@@ -19,61 +19,37 @@ const fns = new Function(m[0] + "\n return { rowValues, colorFromText };")();
 const { rowValues, colorFromText } = fns;
 const NEED = "확인 필요";
 
-const F = (o) => ({ fabric: o });
 const CASES = [
   ["전부 채워진 정상가 상품",
-    { brand: "Sezane", name: "Linen Shirt", price: "$128",
-      ...F({ sizes: ["S", "M"], color: "Ivory", composition: [{ material: "Linen", percent: 100 }] }) },
-    { brand: "Sezane", name: "Linen Shirt", priceOrig: "$128", price: "-",
-      sizes: "S, M", color: "Ivory", comp: "Linen 100%" }],
+    { brand: "Sezane", name: "Linen Shirt - Ivory", category: "shirts", price: "$128" },
+    { brand: "Sezane", name: "Linen Shirt - Ivory", category: "shirts",
+      priceOrig: "$128", price: "-", color: "Ivory" }],
 
   ["할인 상품 — 정가·할인가 둘 다",
-    { brand: "Loft", name: "Dress", price: "$89", priceOrig: "$128",
-      ...F({ sizes: ["XS"], color: "Navy", composition: [{ material: "Cotton", percent: 95 }, { material: "Elastane", percent: 5 }] }) },
-    { brand: "Loft", name: "Dress", priceOrig: "$128", price: "$89",
-      sizes: "XS", color: "Navy", comp: "Cotton 95% / Elastane 5%" }],
+    { brand: "Loft", name: "Navy Dress", category: "dresses", price: "$89", priceOrig: "$128" },
+    { brand: "Loft", name: "Navy Dress", category: "dresses",
+      priceOrig: "$128", price: "$89", color: "Navy" }],
 
   ["가격을 전혀 못 가져옴 → 정가·할인가 모두 확인 필요",
-    { brand: "Gap", name: "Tee", ...F({ sizes: ["M"], color: "Black", materials: ["Cotton"] }) },
-    { brand: "Gap", name: "Tee", priceOrig: NEED, price: NEED,
-      sizes: "M", color: "Black", comp: "Cotton" }],
+    { brand: "Gap", name: "Black Tee", category: "tops" },
+    { brand: "Gap", name: "Black Tee", priceOrig: NEED, price: NEED, color: "Black" }],
 
-  ["사이즈·컬러·혼용률을 못 가져옴",
-    { brand: "Arket", name: "Coat", price: "€199", ...F({}) },
-    { brand: "Arket", name: "Coat", priceOrig: "€199", price: "-",
-      sizes: NEED, color: NEED, comp: NEED }],
-
-  ["분석 자체가 안 돌아 fabric 이 없음",
-    { name: "Wool Jumper", price: "£95" },
-    { brand: NEED, name: "Wool Jumper", priceOrig: "£95", price: "-",
-      sizes: NEED, color: NEED, comp: NEED }],
-
-  ["혼용률에 퍼센트가 없으면 소재명만이라도 넣는다",
-    { brand: "Vince", name: "Cardigan", price: "$250", ...F({ materials: ["Wool", "Cashmere"] }) },
-    { brand: "Vince", name: "Cardigan", priceOrig: "$250", price: "-",
-      sizes: NEED, color: NEED, comp: "Wool, Cashmere" }],
-
-  ["아무것도 없음 → 전 항목 확인 필요",
-    {},
-    { brand: NEED, name: NEED, priceOrig: NEED, price: NEED, sizes: NEED, color: NEED, comp: NEED }],
-
-  ["빠른 모드: 보드·인덱스 값만으로 채워지는 항목",
-    { brand: "Bellerose", name: "Fuego cotton sweatshirt - Ecarlate", category: "sweatshirts", price: "€120" },
-    { brand: "Bellerose", name: "Fuego cotton sweatshirt - Ecarlate", category: "sweatshirts",
-      priceOrig: "€120", price: "-", color: NEED, sizes: NEED, comp: NEED }],
+  ["색이 이름·URL 어디에도 없으면 확인 필요",
+    { brand: "Arket", name: "Barrel Leg Trouser", category: "pants", price: "\u20ac199" },
+    { priceOrig: "\u20ac199", price: "-", color: NEED }],
 
   ["카테고리가 없으면 확인 필요",
     { brand: "X", name: "Thing", price: "$1" },
     { category: NEED }],
 
-  ["상품 페이지 색이 있으면 이름 추측보다 우선",
-    { brand: "Y", name: "Olive Cotton Blouse", price: "$1", ...F({ color: "Dark Moss" }) },
-    { color: "Dark Moss" }],
+  ["아무것도 없음 → 전 항목 확인 필요",
+    {},
+    { brand: NEED, name: NEED, category: NEED, priceOrig: NEED, price: NEED, color: NEED }],
 
-  ["목록에서 못 뽑은 값을 상품 페이지 분석이 채운다",
-    { ...F({ product_name: "Silk Cami", price: "$78", price_original: "$110", color: "Sand", sizes: ["S"] }) },
-    { brand: NEED, name: "Silk Cami", priceOrig: "$110", price: "$78",
-      sizes: "S", color: "Sand", comp: NEED }],
+  ["URL 슬러그의 색도 읽는다",
+    { brand: "Bassike", name: "Crushed Cotton Barrel Pant", category: "pants", price: "$240",
+      link: "https://bassike.com/products/barrel-pant-ecru" },
+    { color: "Ecru", priceOrig: "$240", price: "-" }],
 ];
 
 let bad = 0;
