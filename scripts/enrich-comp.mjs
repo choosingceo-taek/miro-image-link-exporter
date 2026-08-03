@@ -193,12 +193,20 @@ for (const c of list) {
   let patched = 0;
   if (Object.keys(comps).length) {
     try {
-      const r = await fetch(WORKER + "/?store=comps" + tok, {
+      const resp = await fetch(WORKER + "/?store=comps" + tok, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ site: c.site, comps }),
         signal: AbortSignal.timeout(30000),
-      }).then((x) => x.json());
+      });
+      const text = await resp.text();
+      let r = {};
+      try { r = JSON.parse(text); } catch (e) {}
       patched = r.patched || 0;
+      // 뽑은 게 있는데 하나도 저장되지 않았다면 원인을 응답 그대로 남긴다.
+      // (첫 대량 실행에서 +0 이 무더기로 나왔는데 로그가 없어 원인을 못 좁혔다)
+      if (!patched) {
+        console.log(`  !! ${c.site}: 추출 ${Object.keys(comps).length}건인데 저장 0 — HTTP ${resp.status} ${text.slice(0, 300)}`);
+      }
     } catch (e) { rows.push({ brand: cat.brand || c.site, error: "store: " + String(e.message || e) }); continue; }
   }
   rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have: have + patched, patched, stat });
@@ -214,15 +222,25 @@ try {
     try {
       const cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json());
       for (const it of (cat.items || []).slice(0, 150)) {
-        if (it && it.imageUrl && it.productUrl) idx.push({ ...it, brand: cat.brand || c.brand || c.site });
+        if (!it || !it.imageUrl || !it.productUrl) continue;
+        // {...it} 로 넘기면 src(카테고리 URL, 최대 300자)까지 실려 31k 건에서
+        // KV 값 상한(25MB)을 넘긴다 — 검색·스캔에 필요한 필드만 싣는다.
+        idx.push({
+          name: it.name || "", brand: cat.brand || c.brand || c.site,
+          category: it.category || "", imageUrl: it.imageUrl, productUrl: it.productUrl,
+          price: it.price || "", priceOrig: it.priceOrig || "",
+          comp: it.comp || "", color: it.color || "", sizes: it.sizes || "",
+        });
       }
     } catch (e) {}
   }
-  const ir = await fetch(WORKER + "/?store=index" + tok, {
+  const resp = await fetch(WORKER + "/?store=index" + tok, {
     method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items: idx }), signal: AbortSignal.timeout(60000),
-  }).then((r) => r.json());
-  indexCount = ir.count || 0;
+    body: JSON.stringify({ items: idx }), signal: AbortSignal.timeout(120000),
+  });
+  const text = await resp.text();
+  try { indexCount = JSON.parse(text).count || 0; }
+  catch (e) { console.log(`index rebuild failed: HTTP ${resp.status} ${text.slice(0, 200)}`); }
 } catch (e) { console.log("index rebuild failed:", String(e.message || e)); }
 
 const done = rows.filter((r) => !r.error);
