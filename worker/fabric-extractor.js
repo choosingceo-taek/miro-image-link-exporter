@@ -127,6 +127,21 @@ export default {
         }, 200, cors);
       }
 
+      // 혼용률 한 건 (GET ?comp=<상품URL>) — 야간 보강 배치의 우회로.
+      // GitHub Actions IP 는 많은 쇼핑몰에서 403 인데 Cloudflare IP 는 통과하는 경우가 많다.
+      // 여기서는 이미 있는 fetchPageText(Shopify JSON → 직접 → 리더 프록시)를 그대로 쓴다.
+      const compUrl = reqUrl.searchParams.get('comp');
+      if (compUrl) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        const page = await fetchPageText(compUrl);
+        if (!page.ok) return json({ url: compUrl, comp: '', status: 'blocked', note: String(page.status) }, 200, cors);
+        const ld = fromJsonLd(page.html || '');
+        const comp = (ld.composition && ld.composition.length)
+          ? ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / ')
+          : compFromText(page.text);
+        return json({ url: compUrl, comp, status: comp ? 'ok' : 'no_data', via: page.via || 'page' }, 200, cors);
+      }
+
       // 전체 상품 검색 인덱스 (GET ?index=1) — 야간 프리페치가 만들어 둔 것을 반환.
       if (reqUrl.searchParams.get('index')) {
         if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
