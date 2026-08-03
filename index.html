@@ -646,7 +646,6 @@
         let listData;
         try { listData = await (await fetch(base + '/?catalogs=1' + tok)).json(); } catch (e) { return; }
         const cats = (listData && listData.list) || [];
-        // 보드의 상품 호스트 → 그 호스트의 카탈로그 키들
         const byHost = new Map();
         for (const r of miss) {
           try { byHost.set(new URL(r.link).hostname.replace(/^www\./, '').toLowerCase(), true); } catch (e) {}
@@ -655,26 +654,25 @@
         for (const host of byHost.keys()) {
           const sites = cats.filter((c) => String(c.site || '').toLowerCase().startsWith(host)).slice(0, 3);
           for (const c of sites) {
-            let cat;
-            try { cat = await (await fetch(base + '/?catalog=' + encodeURIComponent(c.site) + tok)).json(); }
+            // 야간 보강이 채워 둔 오버레이(상품URL → 혼용률·컬러·사이즈·가격).
+            // 카탈로그 본문보다 훨씬 작아서 브랜드당 한 번의 가벼운 요청이면 된다.
+            let om;
+            try { om = await (await fetch(base + '/?comps=' + encodeURIComponent(c.site) + tok)).json(); }
             catch (e) { continue; }
             const map = new Map();
-            for (const it of cat.items || []) {
-              if (it.comp || it.color || it.sizes) map.set(urlKey(it.productUrl), it);
-            }
+            for (const [u, o] of Object.entries(om || {})) if (o) map.set(urlKey(u), o);
             for (const r of miss) {
-              const it = map.get(urlKey(r.link));
-              if (!it) continue;
-              if (!r.comp && it.comp) { r.comp = it.comp; filled++; }
-              if (!r.color && it.color) r.color = it.color;
-              if (!r.sizes && it.sizes) r.sizes = it.sizes;
-              if (!r.price && it.price) r.price = it.price;
-              if (!r.priceOrig && it.priceOrig) r.priceOrig = it.priceOrig;
-              if ((!r.name || r.nameFromUrl) && it.name) { r.name = it.name; r.nameFromUrl = false; }
+              const o = map.get(urlKey(r.link));
+              if (!o) continue;
+              if (!r.comp && o.comp) { r.comp = o.comp; filled++; }
+              if (!r.color && o.color) r.color = o.color;
+              if (!r.sizes && o.sizes) r.sizes = o.sizes;
+              if (!r.price && o.price) r.price = o.price;
+              if (!r.priceOrig && o.priceOrig) r.priceOrig = o.priceOrig;
             }
           }
         }
-        if (filled) statusEl.textContent = `혼용률 ${filled}건을 저장 카탈로그에서 보강`;
+        if (filled) statusEl.textContent = `상품 정보 ${filled}건을 야간 수집분에서 보강`;
       }
 
       async function fillFromIndex() {
@@ -1724,7 +1722,10 @@
       const NEED = '확인 필요';
       // 빠른 모드(A~G)와 상세 모드(A~I)의 열 위치. 빠른 모드에서 쓰지 않는 키는 무시된다.
       const ROW_COL = { brand: 'A', name: 'D', category: 'E', priceOrig: 'F', price: 'G', color: 'H', sizes: 'I', comp: 'J' };
+      // 예전 저장 사고로 '[object Object]' 가 값으로 남은 상품이 있다 — 빈 값으로 취급한다.
+      const cleanVal = (v) => { const t = String(v || '').trim(); return t === '[object Object]' ? '' : t; };
       function rowValues(r, brandGuess) {
+        r = { ...r, comp: cleanVal(r.comp), color: cleanVal(r.color), sizes: cleanVal(r.sizes) };
         const listP = r.priceOrig || '';
         const nowP = r.price || '';
         const vals = {

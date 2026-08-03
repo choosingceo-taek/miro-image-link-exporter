@@ -215,6 +215,15 @@ export default {
         }));
         return json({ ok: true, list }, 200, cors);
       }
+      // 혼용률 오버레이 조회 (GET ?comps=<site>) — 패널·배치가 카탈로그와 합쳐 쓴다.
+      const compsSite = reqUrl.searchParams.get('comps');
+      if (compsSite) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        if (!env.RACK_CACHE) return json({ map: {} }, 200, cors);
+        const raw = await env.RACK_CACHE.get('comp:' + compsSite.toLowerCase());
+        return new Response(raw || '{}', { status: 200, headers: { 'Content-Type': 'application/json', ...cors } });
+      }
+
       const catalogSite = reqUrl.searchParams.get('catalog');
       if (catalogSite) {
         if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
@@ -285,51 +294,40 @@ export default {
       if (!tokOk) return json({ error: 'unauthorized' }, 401, cors);
       if (!env.RACK_CACHE) return json({ error: 'RACK_CACHE KV not configured' }, 500, cors);
       try {
-      let body;
-      try { body = await request.json(); }
-      catch { return json({ error: 'invalid JSON body' }, 400, cors); }
-      const site = String(body.site || '').toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 80);
-      const comps = body.comps && typeof body.comps === 'object' ? body.comps : null;
-      if (!site || !comps) return json({ error: 'missing site/comps' }, 400, cors);
-      const raw = await env.RACK_CACHE.get('catalog:' + site);
-      if (!raw) return json({ error: 'no such catalog', site }, 404, cors);
-      let rec;
-      try { rec = JSON.parse(raw); } catch (e) { return json({ error: 'corrupt catalog' }, 500, cors); }
-      // 값이 문자열이면 혼용률 하나(옛 형식), 객체면 네 항목을 한 번에 채운다.
-      // 빈 칸만 채운다 — 이미 있는 값을 덮지 않아 수집기와 경합해도 안전하다.
-      let patched = 0;
-      const put = (p, k, v, max) => {
-        const t = String(v == null ? '' : v).trim().slice(0, max);
-        if (!t || p[k]) return 0;
-        p[k] = t; return 1;
-      };
-      for (const p of rec.items || []) {
-        const v = comps[p.productUrl];
-        if (!v) continue;
-        let n = 0;
-        if (typeof v === 'string') n += put(p, 'comp', v, 160);
-        else {
-          n += put(p, 'comp', v.comp, 160);
-          n += put(p, 'color', v.color, 80);
-          n += put(p, 'sizes', v.sizes, 200);
-          n += put(p, 'price', v.price, 40);
-          n += put(p, 'priceOrig', v.priceOrig, 40);
+        let body;
+        try { body = await request.json(); }
+        catch { return json({ error: 'invalid JSON body' }, 400, cors); }
+        const site = String(body.site || '').toLowerCase().replace(/[^a-z0-9.-]/g, '').slice(0, 80);
+        const comps = body.comps && typeof body.comps === 'object' ? body.comps : null;
+        if (!site || !comps) return json({ error: 'missing site/comps' }, 400, cors);
+        // 카탈로그 본문에 끼워 넣지 않고 별도 키(comp:<site>)에 쌓는다.
+        // 카탈로그(수백 KB)를 매번 파싱·재직렬화하다 무료 플랜 CPU 한도에 걸려
+        // 저장 전체가 500 으로 죽었다 — 오버레이는 작아서 그 문제가 없고,
+        // 수집기의 카탈로그 저장과 경합하지도 않는다.
+        let overlay = {};
+        try { overlay = (await env.RACK_CACHE.get('comp:' + site, 'json')) || {}; } catch (e) {}
+        const clean = (v, max) => {
+          const t = String(v == null ? '' : v).trim().slice(0, max);
+          return t === '[object Object]' ? '' : t;
+        };
+        let patched = 0;
+        for (const [url, v] of Object.entries(comps)) {
+          const key = String(url).slice(0, 1000);
+          const cur = overlay[key] || {};
+          const inc = typeof v === 'string' ? { comp: v } : (v || {});
+          let n = 0;
+          for (const [k, max] of [['comp', 160], ['color', 80], ['sizes', 200], ['price', 40], ['priceOrig', 40]]) {
+            const t = clean(inc[k], max);
+            if (t && !cur[k]) { cur[k] = t; n++; }
+          }
+          if (n) { overlay[key] = cur; patched++; }
         }
-        if (n) patched++;
-      }
-      if (patched) {
-        const cats = {};
-        for (const p of rec.items || []) cats[p.category] = (cats[p.category] || 0) + 1;
-        // updated 는 건드리지 않는다 — 갱신 시각은 "상품이 언제 수집됐나"의 신호라서,
-        // 혼용률 보강이 그걸 덮으면 확장 실행 필요 판정이 어긋난다.
-        await env.RACK_CACHE.put('catalog:' + site, JSON.stringify(rec), {
-          metadata: { brand: rec.brand || '', count: (rec.items || []).length, updated: rec.updated || 0, cats },
-        });
-      }
-      const missing = (rec.items || []).filter(p => !p.comp).length;
-      return json({ ok: true, site, patched, missing }, 200, cors);
+        // 오버레이 상한: 상품 1000개까지(브랜드 카탈로그 상한 800보다 넉넉하게).
+        const keys = Object.keys(overlay);
+        if (keys.length > 1000) for (const k of keys.slice(0, keys.length - 1000)) delete overlay[k];
+        if (patched) await env.RACK_CACHE.put('comp:' + site, JSON.stringify(overlay));
+        return json({ ok: true, site, patched, stored: Object.keys(overlay).length }, 200, cors);
       } catch (e) {
-        // 예외를 삼키지 않고 JSON 으로 — Cloudflare HTML 500 은 원인을 알 수 없다.
         return json({ error: 'store=comps: ' + String((e && e.message) || e) }, 200, cors);
       }
     }
@@ -372,27 +370,20 @@ export default {
       // 기본은 "누적(병합)": 이 사이트의 기존 카탈로그에 상품URL 기준 중복 제거하며 합침.
       // (카테고리 페이지를 하나씩 수집하면 브랜드 카탈로그가 채워짐 — Render 브랜드와 동일 경험)
       // ?store=catalog&replace=1 이면 새로 덮어씀(신상 갱신용).
+      // 혼용률·컬러·사이즈는 별도 오버레이(comp:<site>)에 있으므로 여기서 승계할 필요가 없다.
+      // (예전에 여기서 옛 카탈로그를 파싱해 승계했더니 CPU 한도로 저장 전체가 죽었다)
       const replace = reqUrl.searchParams.get('replace') === '1';
       let merged = items;
-      {
+      if (!replace) {
         let prev = null;
         try { prev = await env.RACK_CACHE.get('catalog:' + site); } catch (e) {}
-        let oldItems = [];
-        if (prev) { try { oldItems = JSON.parse(prev).items || []; } catch (e) {} }
-        // 혼용률·컬러·사이즈는 목록 수집분에 없고 야간 보강이 채운 값이다.
-        // replace 로 통째로 갈아끼울 때도 같은 상품URL의 기존 값은 반드시 승계한다 —
-        // 안 그러면 매일 수집이 돌 때마다 보강해 둔 것이 전부 지워진다.
-        const keep = new Map();
-        for (const p of oldItems) if (p) keep.set(p.productUrl, p);
-        for (const p of merged) {
-          const o = keep.get(p.productUrl);
-          if (!o) continue;
-          for (const k of ['comp', 'color', 'sizes']) if (!p[k] && o[k]) p[k] = o[k];
-        }
-        if (!replace && oldItems.length) {
-          const seen = new Set(items.map(p => p.productUrl));
-          const keptOld = oldItems.filter(p => p && !seen.has(p.productUrl));
-          merged = items.concat(keptOld).slice(0, 800);   // 새 항목 우선, 총 800개 상한
+        if (prev) {
+          try {
+            const old = JSON.parse(prev);
+            const seen = new Set(items.map(p => p.productUrl));
+            const keptOld = (Array.isArray(old.items) ? old.items : []).filter(p => p && !seen.has(p.productUrl));
+            merged = items.concat(keptOld).slice(0, 800);   // 새 항목 우선, 총 800개 상한
+          } catch (e) {}
         }
       }
       const record = { site, brand: String(body.brand || '').slice(0, 80), updated: Date.now(), items: merged };

@@ -175,9 +175,12 @@ for (const c of list) {
   try { cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json()); }
   catch (e) { rows.push({ brand: c.brand || c.site, error: String(e.message || e) }); continue; }
   const items = cat.items || [];
-  // 네 항목(혼용률·컬러·사이즈·가격) 중 하나라도 비어 있으면 읽는다.
-  const full = (p) => p.comp && p.color && p.sizes && p.price;
-  const have = items.filter((p) => p.comp).length;   // 리포트 지표는 혼용률 기준(전날과 비교)
+  // 채움 상태는 오버레이(comp:<site>) 기준 — 카탈로그 item 필드는 더 이상 쓰지 않는다.
+  let overlay = {};
+  try { overlay = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json()) || {}; } catch (e) {}
+  const ov = (p) => overlay[p.productUrl] || {};
+  const full = (p) => { const o = ov(p); return o.comp && o.color && o.sizes && o.price; };
+  const have = items.filter((p) => ov(p).comp).length;   // 리포트 지표는 혼용률 기준
   const todo = items.filter((p) => !full(p)).slice(0, Math.min(PER_BRAND, budget));
   if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, patched: 0 }); continue; }
 
@@ -220,14 +223,10 @@ for (const c of list) {
   let verify = null;
   if (keys.length) {
     try {
-      const re = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json());
-      const reItems = re.items || [];
-      verify = reItems.filter((p) => p.comp).length;
-      // 하나도 안 박혔다면 키 불일치인지 확인 — 첫 추출 키가 재조회 목록에 존재하는가.
+      const re = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json());
+      verify = Object.values(re || {}).filter((o) => o && o.comp).length;
       if (patched === 0 && verify === 0) {
-        const k0 = keys[0];
-        const found = reItems.some((p) => p.productUrl === k0);
-        console.log(`  !! ${c.site}: 검증 0 — 첫 키 ${found ? "카탈로그에 존재(값 문제)" : "카탈로그에 없음(키 불일치)"}: ${k0.slice(0, 120)}`);
+        console.log(`  !! ${c.site}: 저장 후에도 오버레이 비어 있음 — 첫 키 ${keys[0].slice(0, 120)}`);
       }
     } catch (e) {}
   }
@@ -244,15 +243,17 @@ try {
   for (const c of list) {
     try {
       const cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json());
+      let om = {};
+      try { om = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json()) || {}; } catch (e) {}
       for (const it of (cat.items || []).slice(0, 150)) {
         if (!it || !it.imageUrl || !it.productUrl) continue;
-        // {...it} 로 넘기면 src(카테고리 URL, 최대 300자)까지 실려 31k 건에서
-        // KV 값 상한(25MB)을 넘긴다 — 검색·스캔에 필요한 필드만 싣는다.
+        const o = om[it.productUrl] || {};
+        // 검색·스캔에 필요한 필드만 싣는다(src 를 실었더니 KV 값 상한을 넘겼다).
         idx.push({
           name: it.name || "", brand: cat.brand || c.brand || c.site,
           category: it.category || "", imageUrl: it.imageUrl, productUrl: it.productUrl,
-          price: it.price || "", priceOrig: it.priceOrig || "",
-          comp: it.comp || "", color: it.color || "", sizes: it.sizes || "",
+          price: o.price || it.price || "", priceOrig: o.priceOrig || it.priceOrig || "",
+          comp: o.comp || "", color: o.color || "", sizes: o.sizes || "",
         });
       }
     } catch (e) {}
