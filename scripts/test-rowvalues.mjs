@@ -46,10 +46,18 @@ const CASES = [
     {},
     { brand: NEED, name: NEED, category: NEED, priceOrig: NEED, price: NEED, color: NEED }],
 
-  ["야간 보강이 채운 혼용률은 그대로 실린다",
+  ["야간 보강이 채운 혼용률·컬러·사이즈는 그대로 실린다",
     { brand: "Bellerose", name: "Sweatshirt", category: "sweatshirts", price: "\u20ac120",
-      comp: "Cotton 100%" },
-    { comp: "Cotton 100%" }],
+      comp: "Cotton 100%", color: "Ecarlate", sizes: "XS, S, M, L" },
+    { comp: "Cotton 100%", color: "Ecarlate", sizes: "XS, S, M, L" }],
+
+  ["저장 컬러가 이름의 색상어보다 우선",
+    { brand: "X", name: "Navy Dress", category: "dresses", price: "$1", color: "Deep Ocean" },
+    { color: "Deep Ocean" }],
+
+  ["사이즈가 안 채워졌으면 확인 필요",
+    { brand: "X", name: "Thing", category: "tops", price: "$1" },
+    { sizes: NEED }],
 
   ["혼용률이 아직 안 채워졌으면 확인 필요",
     { brand: "Gap", name: "Black Tee", category: "tops", price: "$20" },

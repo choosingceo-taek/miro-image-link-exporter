@@ -134,12 +134,26 @@ export default {
       if (compUrl) {
         if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
         const page = await fetchPageText(compUrl);
-        if (!page.ok) return json({ url: compUrl, comp: '', status: 'blocked', note: String(page.status) }, 200, cors);
+        if (!page.ok) {
+          return json({ url: compUrl, comp: '', color: '', sizes: '', price: '', priceOrig: '',
+            status: 'blocked', note: String(page.status) }, 200, cors);
+        }
         const ld = fromJsonLd(page.html || '');
+        const sp = page.shopify || {};
         const comp = (ld.composition && ld.composition.length)
           ? ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / ')
           : compFromText(page.text);
-        return json({ url: compUrl, comp, status: comp ? 'ok' : 'no_data', via: page.via || 'page' }, 200, cors);
+        const sizes = (sp.sizes && sp.sizes.length ? sp.sizes : (ld.sizes || [])).slice(0, 30).join(', ');
+        const out = {
+          url: compUrl, comp,
+          color: sp.color || ld.color || '',
+          sizes,
+          price: sp.price || ld.price || '',
+          priceOrig: sp.priceOrig || ld.price_original || '',
+          via: page.via || 'page',
+        };
+        out.status = (comp || out.color || out.sizes || out.price) ? 'ok' : 'no_data';
+        return json(out, 200, cors);
       }
 
       // 전체 상품 검색 인덱스 (GET ?index=1) — 야간 프리페치가 만들어 둔 것을 반환.
@@ -250,6 +264,8 @@ export default {
           price: String(p.price || '').slice(0, 40),
           priceOrig: String(p.priceOrig || '').slice(0, 40),
           comp: String(p.comp || '').slice(0, 160),
+          color: String(p.color || '').slice(0, 80),
+          sizes: String(p.sizes || '').slice(0, 200),
         }));
       await env.RACK_CACHE.put('search:index', JSON.stringify({ updated: Date.now(), items }));
       return json({ ok: true, count: items.length }, 200, cors);
@@ -274,10 +290,27 @@ export default {
       if (!raw) return json({ error: 'no such catalog', site }, 404, cors);
       let rec;
       try { rec = JSON.parse(raw); } catch (e) { return json({ error: 'corrupt catalog' }, 500, cors); }
+      // 값이 문자열이면 혼용률 하나(옛 형식), 객체면 네 항목을 한 번에 채운다.
+      // 빈 칸만 채운다 — 이미 있는 값을 덮지 않아 수집기와 경합해도 안전하다.
       let patched = 0;
+      const put = (p, k, v, max) => {
+        const t = String(v == null ? '' : v).trim().slice(0, max);
+        if (!t || p[k]) return 0;
+        p[k] = t; return 1;
+      };
       for (const p of rec.items || []) {
-        const c = comps[p.productUrl];
-        if (c && !p.comp) { p.comp = String(c).slice(0, 160); patched++; }
+        const v = comps[p.productUrl];
+        if (!v) continue;
+        let n = 0;
+        if (typeof v === 'string') n += put(p, 'comp', v, 160);
+        else {
+          n += put(p, 'comp', v.comp, 160);
+          n += put(p, 'color', v.color, 80);
+          n += put(p, 'sizes', v.sizes, 200);
+          n += put(p, 'price', v.price, 40);
+          n += put(p, 'priceOrig', v.priceOrig, 40);
+        }
+        if (n) patched++;
       }
       if (patched) {
         const cats = {};
@@ -319,8 +352,10 @@ export default {
           category: String(p.category || 'tops').slice(0, 20),
           // src = 이 상품을 어느 카테고리 URL에서 긁었는지. 잘못 잡힌 항목의 출처 추적용.
           src: String(p.src || '').slice(0, 300),
-          // comp = 혼용률("Cotton 60% / Modal 40%"). 수집기·야간 보강이 채운다.
+          // comp/color/sizes = 혼용률·컬러웨이·사이즈. 수집기·야간 보강이 채운다.
           comp: String(p.comp || '').slice(0, 160),
+          color: String(p.color || '').slice(0, 80),
+          sizes: String(p.sizes || '').slice(0, 200),
         }));
       if (!items.length) return json({ error: 'no valid items' }, 400, cors);
 
@@ -334,12 +369,16 @@ export default {
         try { prev = await env.RACK_CACHE.get('catalog:' + site); } catch (e) {}
         let oldItems = [];
         if (prev) { try { oldItems = JSON.parse(prev).items || []; } catch (e) {} }
-        // 혼용률은 한 번 뽑으면 바뀌지 않는 값인데, 매일 오는 수집분에는 없다.
-        // replace 로 통째로 갈아끼울 때도 같은 상품URL의 기존 comp 는 반드시 승계한다 —
-        // 안 그러면 야간 수집이 돌 때마다 보강해 둔 혼용률이 전부 지워진다.
-        const oldComp = new Map();
-        for (const p of oldItems) if (p && p.comp) oldComp.set(p.productUrl, p.comp);
-        for (const p of merged) if (!p.comp && oldComp.has(p.productUrl)) p.comp = oldComp.get(p.productUrl);
+        // 혼용률·컬러·사이즈는 목록 수집분에 없고 야간 보강이 채운 값이다.
+        // replace 로 통째로 갈아끼울 때도 같은 상품URL의 기존 값은 반드시 승계한다 —
+        // 안 그러면 매일 수집이 돌 때마다 보강해 둔 것이 전부 지워진다.
+        const keep = new Map();
+        for (const p of oldItems) if (p) keep.set(p.productUrl, p);
+        for (const p of merged) {
+          const o = keep.get(p.productUrl);
+          if (!o) continue;
+          for (const k of ['comp', 'color', 'sizes']) if (!p[k] && o[k]) p[k] = o[k];
+        }
         if (!replace && oldItems.length) {
           const seen = new Set(items.map(p => p.productUrl));
           const keptOld = oldItems.filter(p => p && !seen.has(p.productUrl));

@@ -233,7 +233,61 @@ function compFromText(text) {
   return out.join(' / ');
 }
 
-// 브랜드 저장 후: 혼용률이 빈 상품의 페이지를 서비스워커 fetch 로 읽어 채운다.
+// 상품 페이지 HTML 의 schema.org Product 에서 컬러·사이즈·가격을 뽑는다.
+// worker 의 fromJsonLd 축약판 — 확장은 자립형이라 복사가 불가피하다.
+function jsonLdBits(html) {
+  const out = { color: '', sizes: '', price: '', priceOrig: '' };
+  const rx = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let m;
+  const flat = [];
+  const walk = (n, d) => {
+    if (!n || d > 4) return;
+    if (Array.isArray(n)) { n.forEach((x) => walk(x, d + 1)); return; }
+    if (typeof n !== 'object') return;
+    flat.push(n);
+    if (n['@graph']) walk(n['@graph'], d + 1);
+  };
+  while ((m = rx.exec(html)) && flat.length < 200) {
+    try { walk(JSON.parse(m[1].trim()), 0); } catch (e) {}
+  }
+  const isProd = (n) => {
+    const v = n && n['@type'];
+    return Array.isArray(v) ? v.some((x) => String(x).toLowerCase() === 'product')
+                            : String(v || '').toLowerCase() === 'product';
+  };
+  const prod = flat.find(isProd);
+  if (!prod) return out;
+  if (prod.color) out.color = String(prod.color).trim().slice(0, 80);
+  const offers = [];
+  const push = (o) => {
+    if (!o) return;
+    if (Array.isArray(o)) { o.forEach(push); return; }
+    if (typeof o !== 'object') return;
+    offers.push(o);
+    if (o.offers) push(o.offers);
+  };
+  push(prod.offers);
+  const amt = (o) => {
+    const raw = o.price != null ? o.price : o.lowPrice;
+    const n = Number(String(raw == null ? '' : raw).replace(/[^\d.]/g, ''));
+    return Number.isFinite(n) && n > 0 ? n : NaN;
+  };
+  const SYM = { USD: '$', EUR: '\u20ac', GBP: '\u00a3', KRW: '\u20a9', JPY: '\u00a5' };
+  const vals = offers.map(amt).filter(Number.isFinite);
+  if (vals.length) {
+    const cur = String((offers.find((o) => Number.isFinite(amt(o))) || {}).priceCurrency || '').toUpperCase();
+    out.price = (SYM[cur] || (cur ? cur + ' ' : '')) + String(Math.min(...vals));
+  }
+  const sizes = new Set();
+  const addSize = (v) => { const t = String(v == null ? '' : v).trim(); if (t && t.length <= 20) sizes.add(t); };
+  (Array.isArray(prod.hasVariant) ? prod.hasVariant : []).forEach((v) => v && addSize(v.size));
+  offers.forEach((o) => { if (o.itemOffered && o.itemOffered.size) addSize(o.itemOffered.size); if (o.size) addSize(o.size); });
+  if (prod.size) (Array.isArray(prod.size) ? prod.size : [prod.size]).forEach(addSize);
+  out.sizes = [...sizes].slice(0, 30).join(', ');
+  return out;
+}
+
+// 브랜드 저장 후: 네 항목(혼용률·컬러·사이즈·가격)이 빈 상품의 페이지를 서비스워커 fetch 로 읽어 채운다.
 // 확장은 실사용 PC(주거용 IP)라 서버가 못 여는 봇 차단 사이트도 열린다 — 이 브랜드들의
 // 혼용률은 여기서만 나온다. 탭을 열지 않고 fetch 만 하므로 페이지당 1~2초.
 // 한 번 채운 값은 Worker 가 계속 승계하므로 매일 조금씩 하면 결국 다 찬다.
@@ -247,28 +301,54 @@ async function enrichComps(g, cfg) {
   let cat;
   try { cat = await (await fetch(cfg.worker + '/?catalog=' + encodeURIComponent(g.site) + tok)).json(); }
   catch (e) { return 0; }
-  const todo = (cat.items || []).filter((p) => p && !p.comp && p.productUrl).slice(0, COMP_PER_RUN);
+  const full = (p) => p.comp && p.color && p.sizes && p.price;
+  const todo = (cat.items || []).filter((p) => p && !full(p) && p.productUrl).slice(0, COMP_PER_RUN);
   if (!todo.length) return 0;
   const comps = {};
   let done = 0;
   const one = async (p) => {
     if (!state.running) return;
     try {
-      // Shopify 상품은 공개 JSON 이 훨씬 싸다.
+      const got = { comp: '', color: '', sizes: '', price: '', priceOrig: '' };
+      // Shopify 상품은 공개 JSON 이 훨씬 싸고 사이즈·컬러·가격이 구조화돼 있다.
       const m = p.productUrl.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
-      let text = '';
       if (m) {
         try {
           const j = await (await fetch(m[1] + '/products/' + m[2] + '.json')).json();
-          text = String((j && j.product && j.product.body_html) || '').replace(/<[^>]+>/g, ' ');
+          const pr = j && j.product;
+          if (pr) {
+            got.comp = compFromText(String(pr.body_html || '').replace(/<[^>]+>/g, ' '));
+            const opt = (want) => {
+              const o = (pr.options || []).find((x) => new RegExp(want, 'i').test(String((x && x.name) || '')));
+              return o && Array.isArray(o.values) ? o.values.map((v) => String(v).trim()).filter(Boolean) : [];
+            };
+            got.color = opt('^(colou?r|색상|컬러)$').slice(0, 4).join(' / ');
+            got.sizes = opt('^(size|사이즈)$').slice(0, 30).join(', ');
+            const vs = Array.isArray(pr.variants) ? pr.variants : [];
+            const num = (v) => { const n = Number(v); return Number.isFinite(n) && n > 0 ? n : NaN; };
+            const now = vs.map((v) => num(v && v.price)).filter(Number.isFinite);
+            const was = vs.map((v) => num(v && v.compare_at_price)).filter(Number.isFinite);
+            const lo = now.length ? Math.min(...now) : NaN;
+            const hi = was.length ? Math.max(...was) : NaN;
+            if (Number.isFinite(lo)) got.price = '$' + lo;
+            if (Number.isFinite(hi) && Number.isFinite(lo) && hi > lo) got.priceOrig = '$' + hi;
+          }
         } catch (e) {}
       }
-      if (!text || !compFromText(text)) {
+      // 부족한 항목은 페이지 HTML(JSON-LD + 본문)에서 보강.
+      if (!got.comp || !got.sizes || !got.color || !got.price) {
         const html = await (await fetch(p.productUrl, { credentials: 'omit' })).text();
-        text = html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ');
+        const bits = jsonLdBits(html);
+        if (!got.color) got.color = bits.color;
+        if (!got.sizes) got.sizes = bits.sizes;
+        if (!got.price) got.price = bits.price;
+        if (!got.priceOrig) got.priceOrig = bits.priceOrig;
+        if (!got.comp) {
+          got.comp = compFromText(
+            html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' '));
+        }
       }
-      const c = compFromText(text);
-      if (c) comps[p.productUrl] = c;
+      if (got.comp || got.color || got.sizes || got.price) comps[p.productUrl] = got;
     } catch (e) {}
     done++;
     if (done % 5 === 0 || done === todo.length) {

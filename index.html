@@ -494,6 +494,7 @@
         __imgCache[id] = {
           imageUrl: rec.imageUrl, name: rec.name || '', price: rec.price || '',
           priceOrig: rec.priceOrig || '', comp: rec.comp || '',
+          color: rec.color || '', sizes: rec.sizes || '',
           brand: rec.brand || '', productUrl: rec.productUrl || '', category: rec.category || '',
         };
         try { localStorage.setItem('rackImgCache:' + __boardId, JSON.stringify(__imgCache)); } catch (e) {}
@@ -638,7 +639,7 @@
         } catch (e) { return ''; }
       };
       async function fillFromCatalogs() {
-        const miss = rows.filter((r) => r.link && !r.comp);
+        const miss = rows.filter((r) => r.link && (!r.comp || !r.sizes || !r.color));
         if (!miss.length || !__proxy.url) return;
         const base = __proxy.url.replace(/\/+$/, '');
         const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
@@ -658,11 +659,15 @@
             try { cat = await (await fetch(base + '/?catalog=' + encodeURIComponent(c.site) + tok)).json(); }
             catch (e) { continue; }
             const map = new Map();
-            for (const it of cat.items || []) if (it.comp) map.set(urlKey(it.productUrl), it);
+            for (const it of cat.items || []) {
+              if (it.comp || it.color || it.sizes) map.set(urlKey(it.productUrl), it);
+            }
             for (const r of miss) {
               const it = map.get(urlKey(r.link));
               if (!it) continue;
-              if (!r.comp) { r.comp = it.comp; filled++; }
+              if (!r.comp && it.comp) { r.comp = it.comp; filled++; }
+              if (!r.color && it.color) r.color = it.color;
+              if (!r.sizes && it.sizes) r.sizes = it.sizes;
               if (!r.price && it.price) r.price = it.price;
               if (!r.priceOrig && it.priceOrig) r.priceOrig = it.priceOrig;
               if ((!r.name || r.nameFromUrl) && it.name) { r.name = it.name; r.nameFromUrl = false; }
@@ -673,7 +678,8 @@
       }
 
       async function fillFromIndex() {
-        const want = rows.filter((r) => r.link && (!r.name || r.nameFromUrl || !r.price || !r.comp));
+        const want = rows.filter((r) =>
+          r.link && (!r.name || r.nameFromUrl || !r.price || !r.comp || !r.color || !r.sizes));
         if (!want.length || !__proxy.url) return;
         let idx;
         try { idx = await ensureIndex(); } catch (e) { return; }
@@ -692,6 +698,8 @@
           if (!r.price && it.price) r.price = it.price;
           if (!r.priceOrig && it.priceOrig) r.priceOrig = it.priceOrig;
           if (!r.comp && it.comp) r.comp = it.comp;
+          if (!r.color && it.color) r.color = it.color;
+          if (!r.sizes && it.sizes) r.sizes = it.sizes;
           if (!r.brand && it.brand) r.brand = it.brand;
         }
         if (hit) statusEl.textContent = `저장된 상품 정보에서 ${hit}건 보강`;
@@ -820,7 +828,8 @@
           importItems = hits.map((it, i) => ({
             id: 'g' + i, name: it.name || '', category: guessCat(it.productUrl, it.name),
             imageUrl: it.imageUrl, productUrl: it.productUrl, price: it.price || '',
-            priceOrig: it.priceOrig || '', comp: it.comp || '', brand: it.brand || '', selected: false,
+            priceOrig: it.priceOrig || '', comp: it.comp || '',
+            color: it.color || '', sizes: it.sizes || '', brand: it.brand || '', selected: false,
           })).filter(it => it.imageUrl && it.productUrl);
           if (!importItems.length) { showNoResult(); return; }
           importStatusEl.textContent = '';
@@ -1020,7 +1029,7 @@
             id: p.id, name: p.name || '', category: p.category || 'tops',
             imageUrl: p.imageUrl || '', productUrl: p.productUrl || '',
             price: p.price || '', priceOrig: p.priceOrig || '', comp: p.comp || '',
-            brand: p.brand || importBrand,
+            color: p.color || '', sizes: p.sizes || '', brand: p.brand || importBrand,
             selected: false,   // 시작은 전부 미선택 — 사용자가 직접 고른다
           })).filter(p => p.imageUrl && p.productUrl);
 
@@ -1407,6 +1416,7 @@
               id: 'c' + i, name: p.name || '', category: cat,
               imageUrl: p.imageUrl, productUrl: p.productUrl, price: p.price || '',
               priceOrig: p.priceOrig || '', comp: p.comp || '',
+              color: p.color || '', sizes: p.sizes || '',
               brand: data.brand || brand || '', selected: false,
             };
           }).filter(p => p.imageUrl && p.productUrl);
@@ -1549,6 +1559,7 @@
               price: rec.price || parsed.price || '',
               priceOrig: rec.priceOrig || '',
               comp: rec.comp || '',
+              color: rec.color || '', sizes: rec.sizes || '',
             };
           });
 
@@ -1712,7 +1723,7 @@
 
       const NEED = '확인 필요';
       // 빠른 모드(A~G)와 상세 모드(A~I)의 열 위치. 빠른 모드에서 쓰지 않는 키는 무시된다.
-      const ROW_COL = { brand: 'A', name: 'D', category: 'E', priceOrig: 'F', price: 'G', color: 'H', comp: 'I' };
+      const ROW_COL = { brand: 'A', name: 'D', category: 'E', priceOrig: 'F', price: 'G', color: 'H', sizes: 'I', comp: 'J' };
       function rowValues(r, brandGuess) {
         const listP = r.priceOrig || '';
         const nowP = r.price || '';
@@ -1724,8 +1735,10 @@
           // (할인가가 없는 게 정상이라 '확인 필요'로 볼 일이 아니다).
           priceOrig: listP || nowP,
           price: listP ? nowP : (nowP ? '-' : ''),
-          color: colorFromText(r.name, r.link),
-          // 혼용률은 야간 보강이 카탈로그·인덱스에 미리 채워 둔 값 — 스캔 때 접속 없음.
+          // 컬러·사이즈·혼용률은 야간 보강이 미리 채운 저장값 — 스캔 때 접속 없음.
+          // 컬러는 저장값이 없으면 상품명·URL 의 색상어로 보조.
+          color: r.color || colorFromText(r.name, r.link),
+          sizes: r.sizes || '',
           comp: r.comp || '',
         };
         for (const k of Object.keys(ROW_COL)) {
@@ -1757,11 +1770,12 @@
           { header: '정가', key: 'priceOrig', width: 12 },
           { header: '할인가', key: 'price', width: 12 },
           { header: '컬러', key: 'color', width: 14 },
+          { header: '사이즈', key: 'sizes', width: 20 },
           { header: '혼용률', key: 'comp', width: 28 },
         ];
         ws.getRow(1).font = { bold: true };
         const urlCol = 'C';
-        const lastCol = 'I';
+        const lastCol = 'J';
         const needCells = [];   // '확인 필요' 칸 위치 — 마지막에 한 번에 서식 적용
 
         let okThumb = 0, thumbFailDiag = '';

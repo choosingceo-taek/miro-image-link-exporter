@@ -45,7 +45,7 @@ const fromJsonLd = new Function(
   slice("function titleCase(s) {", "// 페이지 제목") + "\n return fromJsonLd;",
 )();
 
-const compOfJsonLd = (html) => {
+const _unusedCompOfJsonLd = (html) => {
   try {
     const ld = fromJsonLd(html);
     if (ld.composition && ld.composition.length) {
@@ -65,41 +65,77 @@ async function get(url, accept, timeoutMs = 20000) {
   return r.text();
 }
 
-// 한 상품의 혼용률. 실패는 "" — 이유는 세어서 리포트로.
-async function compOf(url, stat) {
-  // ① Shopify JSON — 가장 싸고 정확
+const has = (o) => o && (o.comp || o.color || o.sizes || o.price);
+
+// 한 상품의 네 항목(혼용률·컬러·사이즈·가격). 실패는 null — 이유는 세어서 리포트로.
+async function enrichOf(url, stat) {
+  // ① Shopify JSON — 가장 싸고 정확. variants/options 에 사이즈·컬러·가격이 구조화돼 있다.
   const m = url.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
   if (m) {
     try {
       const j = JSON.parse(await get(`${m[1]}/products/${m[2]}.json`, "application/json", 12000));
-      const body = String(j?.product?.body_html || "").replace(/<[^>]+>/g, " ");
-      const c = compFromText(body);
-      if (c) { stat.shopify++; return c; }
+      const pr = j && j.product;
+      if (pr) {
+        const opt = (want) => {
+          const o = (pr.options || []).find((x) => new RegExp(want, "i").test(String((x && x.name) || "")));
+          return o && Array.isArray(o.values) ? o.values.map((v) => String(v).trim()).filter(Boolean) : [];
+        };
+        const vs = Array.isArray(pr.variants) ? pr.variants : [];
+        const num = (v) => { const n = Number(v); return Number.isFinite(n) && n > 0 ? n : NaN; };
+        const now = vs.map((v) => num(v && v.price)).filter(Number.isFinite);
+        const was = vs.map((v) => num(v && v.compare_at_price)).filter(Number.isFinite);
+        const lowNow = now.length ? Math.min(...now) : NaN;
+        const highWas = was.length ? Math.max(...was) : NaN;
+        const out = {
+          comp: compFromText(String(pr.body_html || "").replace(/<[^>]+>/g, " ")),
+          color: opt("^(colou?r|색상|컬러)$").slice(0, 4).join(" / "),
+          sizes: opt("^(size|사이즈)$").slice(0, 30).join(", "),
+          price: Number.isFinite(lowNow) ? "$" + lowNow : "",
+          priceOrig: Number.isFinite(highWas) && Number.isFinite(lowNow) && highWas > lowNow ? "$" + highWas : "",
+        };
+        // 혼용률까지 나왔으면 여기서 끝. 아니면 아래 경로로 내려가 보강한다.
+        if (out.comp) { stat.shopify++; return out; }
+        if (has(out)) { stat.shopify++; var partial = out; }
+      }
     } catch (e) {}
   }
   // ② 페이지 직접 → JSON-LD → 본문.
-  //    여기서 못 찾아도 ③ 으로 내려간다 — Shopify 설명문에 혼용률이 없을 뿐,
-  //    상품 페이지 본문에는 적혀 있는 경우가 흔하다(첫 실행의 최대 누락 원인).
   let html = "";
   try { html = await get(url); } catch (e) { stat.blocked++; }
   if (html) {
-    const c = compOfJsonLd(html) ||
-      compFromText(html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " "));
-    if (c) { stat.page++; return c; }
+    let ld = {};
+    try { ld = fromJsonLd(html); } catch (e) {}
+    const text = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ");
+    const out = {
+      comp: (ld.composition && ld.composition.length)
+        ? ld.composition.map((c) => `${c.material} ${c.percent}%`).join(" / ")
+        : compFromText(text),
+      color: ld.color || "",
+      sizes: (ld.sizes || []).slice(0, 30).join(", "),
+      price: ld.price || "",
+      priceOrig: ld.price_original || "",
+    };
+    if (has(out)) { stat.page++; return merge(out, typeof partial === "undefined" ? null : partial); }
   }
   // ③ Worker 우회 — GitHub Actions IP 는 많은 쇼핑몰에서 403 이지만 Cloudflare IP 는
-  //    통과하는 경우가 많다. 첫 실행에서 blocked 와 fail 이 똑같이 나온 것(=리더 프록시도
-  //    전부 실패)이 이 경로를 만든 이유다. Worker 안에서 Shopify JSON → 직접 → 리더까지
-  //    다시 시도하므로, 여기가 마지막 방어선이다.
+  //    통과하는 경우가 많다. Worker 안에서 Shopify JSON → 직접 → 리더까지 다시 시도한다.
   try {
     const r = await fetch(WORKER + "/?comp=" + encodeURIComponent(url) + tok, {
       signal: AbortSignal.timeout(20000),
     });
     const j = await r.json();
-    if (j && j.comp) { stat.worker++; return j.comp; }
+    if (has(j)) { stat.worker++; return merge(j, typeof partial === "undefined" ? null : partial); }
     stat.noData++;
   } catch (e) { stat.fail++; }
-  return "";
+  return typeof partial === "undefined" ? null : partial;
+}
+
+// 앞 경로에서 얻은 값을 잃지 않게 합친다(먼저 찾은 쪽 우선).
+function merge(a, b) {
+  if (!b) return a;
+  const out = { ...b };
+  for (const k of ["comp", "color", "sizes", "price", "priceOrig"]) if (!out[k] && a[k]) out[k] = a[k];
+  return out;
 }
 
 async function pool(items, n, fn) {
@@ -139,16 +175,18 @@ for (const c of list) {
   try { cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json()); }
   catch (e) { rows.push({ brand: c.brand || c.site, error: String(e.message || e) }); continue; }
   const items = cat.items || [];
-  const have = items.filter((p) => p.comp).length;
-  const todo = items.filter((p) => !p.comp).slice(0, Math.min(PER_BRAND, budget));
+  // 네 항목(혼용률·컬러·사이즈·가격) 중 하나라도 비어 있으면 읽는다.
+  const full = (p) => p.comp && p.color && p.sizes && p.price;
+  const have = items.filter(full).length;
+  const todo = items.filter((p) => !full(p)).slice(0, Math.min(PER_BRAND, budget));
   if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, patched: 0 }); continue; }
 
   const stat = { shopify: 0, page: 0, worker: 0, noData: 0, blocked: 0, fail: 0 };
   const comps = {};
   // Worker 우회가 붙어 차단 상품은 왕복이 하나 더 는다 — 동시 처리를 올려 상쇄한다.
   await pool(todo, 10, async (p) => {
-    const comp = await compOf(p.productUrl, stat);
-    if (comp) comps[p.productUrl] = comp;
+    const got = await enrichOf(p.productUrl, stat);
+    if (has(got)) comps[p.productUrl] = got;
   });
   budget -= todo.length;
 
