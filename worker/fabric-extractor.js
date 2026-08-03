@@ -267,7 +267,11 @@ export default {
           color: String(p.color || '').slice(0, 80),
           sizes: String(p.sizes || '').slice(0, 200),
         }));
-      await env.RACK_CACHE.put('search:index', JSON.stringify({ updated: Date.now(), items }));
+      try {
+        await env.RACK_CACHE.put('search:index', JSON.stringify({ updated: Date.now(), items }));
+      } catch (e) {
+        return json({ error: 'store=index: ' + String((e && e.message) || e) }, 200, cors);
+      }
       return json({ ok: true, count: items.length }, 200, cors);
     }
 
@@ -280,6 +284,7 @@ export default {
         reqUrl.searchParams.get('token') === env.ACCESS_TOKEN;
       if (!tokOk) return json({ error: 'unauthorized' }, 401, cors);
       if (!env.RACK_CACHE) return json({ error: 'RACK_CACHE KV not configured' }, 500, cors);
+      try {
       let body;
       try { body = await request.json(); }
       catch { return json({ error: 'invalid JSON body' }, 400, cors); }
@@ -323,6 +328,10 @@ export default {
       }
       const missing = (rec.items || []).filter(p => !p.comp).length;
       return json({ ok: true, site, patched, missing }, 200, cors);
+      } catch (e) {
+        // 예외를 삼키지 않고 JSON 으로 — Cloudflare HTML 500 은 원인을 알 수 없다.
+        return json({ error: 'store=comps: ' + String((e && e.message) || e) }, 200, cors);
+      }
     }
 
     // 카탈로그 저장 (POST ?store=catalog) — 유저스크립트가 쇼핑몰 페이지에서 전송.
@@ -334,6 +343,7 @@ export default {
       if (!tokOk) return json({ error: 'unauthorized' }, 401, cors);
       if (!env.RACK_CACHE)
         return json({ error: 'RACK_CACHE KV not configured — worker/README.md의 KV 설정을 하세요' }, 500, cors);
+      try {
       let body;
       try { body = await request.json(); }
       catch { return json({ error: 'invalid JSON body' }, 400, cors); }
@@ -402,6 +412,9 @@ export default {
         try { await env.RACK_CACHE.delete('catalog:' + legacy); } catch (e) {}
       }
       return json({ ok: true, site, count: merged.length, added: items.length }, 200, cors);
+      } catch (e) {
+        return json({ error: 'store=catalog: ' + String((e && e.message) || e) }, 200, cors);
+      }
     }
 
     if (env.ACCESS_TOKEN && request.headers.get('x-access-token') !== env.ACCESS_TOKEN)
