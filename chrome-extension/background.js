@@ -237,7 +237,11 @@ function compFromText(text) {
 // 확장은 실사용 PC(주거용 IP)라 서버가 못 여는 봇 차단 사이트도 열린다 — 이 브랜드들의
 // 혼용률은 여기서만 나온다. 탭을 열지 않고 fetch 만 하므로 페이지당 1~2초.
 // 한 번 채운 값은 Worker 가 계속 승계하므로 매일 조금씩 하면 결국 다 찬다.
-const COMP_PER_RUN = 80;
+// 실행당 브랜드 상한. 1.7.0 은 80이라 다 채우는 데 며칠이 걸렸다 —
+// 한 번 실행으로 끝내려고 상한을 사실상 없애고(브랜드 저장 상한과 같은 값)
+// 순차 처리를 4개 동시로 바꿨다. 대신 실행 시간이 브랜드당 몇 분씩 늘어난다.
+const COMP_PER_RUN = MAX_PER_BRAND;
+const COMP_CONCURRENCY = 4;
 async function enrichComps(g, cfg) {
   const tok = cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '';
   let cat;
@@ -245,10 +249,10 @@ async function enrichComps(g, cfg) {
   catch (e) { return 0; }
   const todo = (cat.items || []).filter((p) => p && !p.comp && p.productUrl).slice(0, COMP_PER_RUN);
   if (!todo.length) return 0;
-  state.current = g.brand + ' · 혼용률 채우는 중 (' + todo.length + '개)';
   const comps = {};
-  for (const p of todo) {
-    if (!state.running) break;
+  let done = 0;
+  const one = async (p) => {
+    if (!state.running) return;
     try {
       // Shopify 상품은 공개 JSON 이 훨씬 싸다.
       const m = p.productUrl.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
@@ -266,8 +270,18 @@ async function enrichComps(g, cfg) {
       const c = compFromText(text);
       if (c) comps[p.productUrl] = c;
     } catch (e) {}
-    await sleep(600);   // 사이트 부담·차단 방지 텀
-  }
+    done++;
+    if (done % 5 === 0 || done === todo.length) {
+      state.current = g.brand + ' · 혼용률 ' + done + '/' + todo.length;
+    }
+    await sleep(400);   // 사이트 부담·차단 방지 텀
+  };
+  // 4개씩 동시에. 순차로 하면 상품 수천 개에 몇 시간이 걸린다.
+  state.current = g.brand + ' · 혼용률 0/' + todo.length;
+  let idx = 0;
+  await Promise.all(Array.from({ length: Math.min(COMP_CONCURRENCY, todo.length) }, async () => {
+    while (idx < todo.length && state.running) { const k = idx++; await one(todo[k]); }
+  }));
   if (!Object.keys(comps).length) return 0;
   try {
     const r = await (await fetch(cfg.worker + '/?store=comps' + tok, {
