@@ -12,7 +12,9 @@
 // 봇 차단(확장 담당) 브랜드는 직접 접속이 403이라 리더 프록시(r.jina.ai)로 우회한다.
 // 그래도 안 되는 상품은 남겨 두면 확장 1.7 이 실사용 PC에서 채운다(이중 안전망).
 //
-// env: WORKER_URL, WORKER_TOKEN, PER_BRAND(브랜드당 상한, 기본 150), TOTAL(전체 상한, 기본 3000)
+// env: WORKER_URL, WORKER_TOKEN, PER_BRAND(브랜드당 상한, 기본 800), TOTAL(전체 상한, 기본 40000)
+// 예약 실행은 workflow_dispatch inputs 가 비어 있어 이 기본값이 그대로 쓰인다 —
+// 작게 잡으면 매일 조금씩만 채우다 끝나지 않는다. 하룻밤에 전부 도는 값으로 둔다.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -21,8 +23,8 @@ import { dirname, join } from "node:path";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
-const PER_BRAND = Math.max(1, Number(process.env.PER_BRAND) || 150);
-const TOTAL = Math.max(1, Number(process.env.TOTAL) || 3000);
+const PER_BRAND = Math.max(1, Number(process.env.PER_BRAND) || 800);
+const TOTAL = Math.max(1, Number(process.env.TOTAL) || 40000);
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const tok = "&token=" + encodeURIComponent(TOKEN);
 
@@ -91,7 +93,7 @@ async function compOf(url, stat) {
   //    다시 시도하므로, 여기가 마지막 방어선이다.
   try {
     const r = await fetch(WORKER + "/?comp=" + encodeURIComponent(url) + tok, {
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(20000),
     });
     const j = await r.json();
     if (j && j.comp) { stat.worker++; return j.comp; }
@@ -143,7 +145,8 @@ for (const c of list) {
 
   const stat = { shopify: 0, page: 0, worker: 0, noData: 0, blocked: 0, fail: 0 };
   const comps = {};
-  await pool(todo, 6, async (p) => {
+  // Worker 우회가 붙어 차단 상품은 왕복이 하나 더 는다 — 동시 처리를 올려 상쇄한다.
+  await pool(todo, 10, async (p) => {
     const comp = await compOf(p.productUrl, stat);
     if (comp) comps[p.productUrl] = comp;
   });
