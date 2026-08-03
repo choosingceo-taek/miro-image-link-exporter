@@ -193,13 +193,14 @@ for (const c of list) {
   });
   budget -= todo.length;
 
-  // 저장은 100건씩 나눠 보낸다 — 대형 페이로드에서 Worker 가 500(리소스 초과)을 냈다.
-  // 실패한 조각은 2초 뒤 한 번 재시도한다.
+  // 저장은 브랜드당 1회 — KV 무료 한도가 하루 쓰기 1,000회라, 100건 조각(브랜드당
+  // 최대 8회 × 130브랜드)로는 백필 한 번에 한도를 넘긴다. 어제 그걸로 하루를 날렸다.
+  // 오버레이는 작아서(수백 KB) 한 번에 보내도 Worker 부담이 없다.
   let patched = 0;
   const keys = Object.keys(comps);
-  for (let off = 0; off < keys.length; off += 100) {
+  for (let off = 0; off < keys.length; off += 1000) {
     const part = {};
-    for (const k of keys.slice(off, off + 100)) part[k] = comps[k];
+    for (const k of keys.slice(off, off + 1000)) part[k] = comps[k];
     let done = false;
     for (let attempt = 0; attempt < 2 && !done; attempt++) {
       try {
