@@ -13,11 +13,11 @@ on:
       per_brand:
         description: "브랜드당 상한"
         required: false
-        default: "150"
+        default: "800"
       total:
         description: "전체 상한"
         required: false
-        default: "3000"
+        default: "40000"
 
 permissions:
   contents: write
@@ -29,7 +29,7 @@ concurrency:
 jobs:
   enrich:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 330
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
