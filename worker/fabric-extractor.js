@@ -146,7 +146,8 @@ export default {
         const sizes = (sp.sizes && sp.sizes.length ? sp.sizes : (ld.sizes || [])).slice(0, 30).join(', ');
         const out = {
           url: compUrl, comp,
-          color: sp.color || ld.color || '',
+          // 우선순위: Shopify 옵션 → JSON-LD → 페이지의 색상 선택 옵션.
+          color: sp.color || ld.color || colorFromHtml(page.html || ''),
           sizes,
           price: sp.price || ld.price || '',
           priceOrig: sp.priceOrig || ld.price_original || '',
@@ -1079,6 +1080,50 @@ function compFromText(text) {
   const total = out.reduce((n, c) => n + c.percent, 0);
   if (!out.length || total > 210) return [];
   return out;
+}
+
+// ── 컬러웨이: 상품 페이지의 "색상 선택 옵션"에서 읽는다 ─────────────────
+// 색은 상품명에 없는 경우가 많고("한정판: Olive Tree", "코어"), 사전에 없는
+// 고유 이름이 흔하다. 그래서 색상 단어를 추측하지 않고 옵션 표기를 그대로 가져온다.
+// 사이트마다 마크업이 달라 흔한 형태를 순서대로 훑고, 못 찾으면 빈 값을 준다.
+const COLOR_JUNK = /^(?:select|choose|color|colour|색상|컬러|선택|기타|\d+|#[0-9a-f]{3,8}|[\s:：·,\/-]+)$/i;
+function cleanColor(v) {
+  const t = String(v || '')
+    .replace(/&amp;/gi, '&').replace(/&#0?39;|&apos;/gi, "'").replace(/&quot;/gi, '"')
+    .replace(/^\s*(?:색상|컬러|colou?r)\s*[::]\s*/i, '')     // "Color: Olive" → "Olive"
+    .replace(/^\s*한정판\s*[::]\s*/, '')                      // "한정판: Olive Tree" → "Olive Tree"
+    .replace(/\s*\(전체 보기\)\s*$/, '')
+    .replace(/\s+/g, ' ').trim();
+  if (!t || t.length > 40 || COLOR_JUNK.test(t)) return '';
+  return t;
+}
+function colorFromHtml(html) {
+  const h = String(html || '');
+  if (!h) return '';
+  const pats = [
+    // 페이지에 심어 둔 JSON — 가장 신뢰도가 높다.
+    /"selected(?:Color|Colour)"\s*:\s*"([^"]{1,40})"/i,
+    /"color(?:Name|_name)"\s*:\s*"([^"]{1,40})"/i,
+    /"colou?r"\s*:\s*"([^"]{1,40})"/i,
+    // 선택된 스와치의 접근성 라벨
+    /aria-label="\s*(?:색상|컬러|colou?r)\s*[::]?\s*([^"]{1,40})"/i,
+    /data-(?:color|colour|color-name)="([^"]{1,40})"/i,
+    // 선택 상자의 선택된 항목
+    /<option[^>]+selected[^>]*>([^<]{1,40})<\/option>/i,
+  ];
+  for (const re of pats) {
+    const m = h.match(re);
+    if (m) { const c = cleanColor(m[1]); if (c) return c; }
+  }
+  // 색상 선택 영역(select/fieldset)의 첫 옵션 — 위 방법이 다 실패했을 때만.
+  const box = h.match(/<(select|fieldset)[^>]*(?:name|id|class|data-option-name)="[^"]*(?:colou?r|색상|컬러)[^"]*"[\s\S]{0,4000}?<\/\1>/i);
+  if (box) {
+    for (const m of box[0].matchAll(/<option[^>]*>([^<]{1,40})<\/option>|aria-label="([^"]{1,40})"/gi)) {
+      const c = cleanColor(m[1] || m[2]);
+      if (c) return c;
+    }
+  }
+  return '';
 }
 
 function titleCase(s) {

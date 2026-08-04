@@ -42,6 +42,9 @@ const CASES = [
   // ── 합이 터무니없으면 통째로 버린다(겉감·안감·트림이 뒤섞인 페이지) ──
   ["100% Cotton 100% Polyester 100% Wool", ""],
 
+  // 실제 화면(FABRICATION 섹션) — 섬유가 아닌 소재 표현은 무시하고 %만 잡는다
+  ["FABRICATION 매우 부드러운 플리스 패브릭 폴리에스테르 100%", "Polyester 100%"],
+
   // ── 혼용률이 없는 페이지 ──
   ["A soft everyday tee in a relaxed fit.", ""],
   ["", ""],
