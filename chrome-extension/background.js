@@ -554,10 +554,12 @@ async function collect(input) {
   let okCount = 0, failCount = 0;
   // 표시 모드: 전용 창 하나를 만들어 거기서 탭을 돌린다(사용자 작업창을 건드리지 않음).
   // 숨은 탭은 크롬이 타이머를 늦춰(throttling) 레이지 로딩·봇 챌린지 통과율이 떨어진다.
-  // 창부터 띄우지 않는다 — 일하는 중이면 자리를 비울 때까지 조용히 기다린다.
-  state.running = true;   // waitAway 가 중단 여부를 보므로 먼저 세운다
-  state.current = '시작 대기';
+  // 상태를 먼저 새로 세운다. 기다리는 동안 팝업이 폴링하는데, 지난 실행의 진행률과
+  // 로그가 남아 있으면 이번 수집이 벌써 절반쯤 돈 것처럼 보인다.
+  // running 을 여기서 켜는 이유는 waitAway·중지 버튼이 이 값을 보기 때문이다.
+  state = { running: true, done: 0, total: totalUrls, current: '시작 대기', log: [], startedAt: Date.now(), items: 0 };
   keepAlive(true);
+  // 창부터 띄우지 않는다 — 일하는 중이면 자리를 비울 때까지 조용히 기다린다.
   await waitAway('');
   if (!state.running) { keepAlive(false); return; }
   let winId = null;
@@ -570,7 +572,9 @@ async function collect(input) {
       winId = w.id;
     } catch (e) {}
   }
-  state = { running: true, done: 0, total: totalUrls, current: '', log: [], startedAt: Date.now(), items: 0 };
+  // 실제 수집이 시작되는 지점 — 기다린 시간은 소요 시간에 넣지 않는다.
+  state.startedAt = Date.now();
+  state.current = '';
   for (const g of groups) {
     if (!state.running) break;
     // 한 브랜드의 모든 카테고리 URL을 먼저 모은 뒤, 브랜드 단위로 한 번만 저장한다.
