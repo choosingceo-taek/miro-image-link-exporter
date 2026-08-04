@@ -1756,8 +1756,14 @@
       // 채워진 브랜드(American Eagle 132/132)를 뽑을 때도 다른 브랜드가 비었다는
       // 이유로 계속 빈 칸으로 나간다. 기준은 같게 두고 적용 대상만 바꾼다:
       // 지금 이 엑셀에 실리는 상품들이 95% 를 넘기면 그 파일에는 열을 붙인다.
-      // 'auto' 대신 true/false 를 넣으면 사람이 강제할 수 있다.
-      const SHOW_FABRIC_COLUMNS = 'auto';
+      // 지금은 false — 아직 엑셀에 내보내지 않는다. 채움률이 브랜드마다 크게
+      // 달라서, 열어 두면 같은 표 안에서 어떤 브랜드는 값이 차고 어떤 브랜드는
+      // '확인 필요'로 나간다. 쓰는 쪽에서는 그게 빈 열보다 더 헷갈린다.
+      //
+      // 'auto' 로 바꾸면 아래 fabricReady 가 그 파일에 실리는 상품만 보고
+      // 95% 를 넘길 때만 열을 붙인다(브랜드별로 준비된 것부터 열림).
+      // true 로 두면 채움률과 무관하게 항상 붙는다.
+      const SHOW_FABRIC_COLUMNS = false;
       const FABRIC_GATE = 0.95;
       function fabricReady(items) {
         if (SHOW_FABRIC_COLUMNS !== 'auto') return !!SHOW_FABRIC_COLUMNS;

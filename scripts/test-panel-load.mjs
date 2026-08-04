@@ -66,16 +66,32 @@ let colLabel = "";
   const j2 = html.indexOf("function rowValues");
   if (i2 < 0 || j2 < 0) { console.error("❌ 엑셀 열 선언부를 찾지 못함"); process.exit(1); }
   const decl = html.slice(i2, j2);
-  let api;
-  try {
-    api = new Function(
+  // 스위치 값을 바꿔 끼워 두 가지를 따로 본다.
+  //   as-is  : 지금 설정대로 열이 나오는지 (지금은 닫혀 있어야 한다)
+  //   'auto' : 95% 기준 로직 자체가 멀쩡한지 (다시 열 때 깨져 있으면 안 된다)
+  const build = (override) => {
+    const src = override === null ? decl
+      : decl.replace(/const SHOW_FABRIC_COLUMNS = [^;]+;/, `const SHOW_FABRIC_COLUMNS = ${override};`);
+    return new Function(
       "const cleanVal = (v) => { const t = String(v || '').trim(); return t.includes('[object Object]') ? '' : t; };\n" +
-      decl +
-      "\n return { colsFor, rowColFor, fabricReady, FABRIC_GATE };",
+      src +
+      "\n return { colsFor, rowColFor, fabricReady, FABRIC_GATE, SHOW_FABRIC_COLUMNS };",
     )();
-  } catch (e) {
+  };
+  let api, auto;
+  try { api = build(null); auto = build("'auto'"); }
+  catch (e) {
     console.error("❌ 엑셀 열 선언부 실행 실패:", String((e && e.message) || e));
     process.exit(1);
+  }
+  // 지금 설정에서 실제로 열이 어떻게 나가는지. 값이 아무리 차 있어도 닫혀 있어야 한다.
+  const full20 = Array.from({ length: 20 }, () => ({ comp: "Cotton 100%", color: "White" }));
+  const nowOpen = api.fabricReady(full20);
+  if (api.SHOW_FABRIC_COLUMNS === false && nowOpen) {
+    console.error("❌ 스위치가 false 인데 열이 열린다"); process.exit(1);
+  }
+  if (api.SHOW_FABRIC_COLUMNS === true && !nowOpen) {
+    console.error("❌ 스위치가 true 인데 열이 안 열린다"); process.exit(1);
   }
 
   const BASE = ["브랜드", "썸네일", "URL", "상품명"];
@@ -116,11 +132,13 @@ let colLabel = "";
   ];
   let gateBad = 0;
   for (const [label, items, want] of gateCases) {
-    const got = api.fabricReady(items);
+    const got = auto.fabricReady(items);
     if (got !== want) { console.error(`❌ 열 판정 · ${label}: 기대 ${want} 실제 ${got}`); gateBad++; }
   }
   if (gateBad) { console.error(`\n열 판정 ${gateBad}건 실패`); process.exit(1); }
-  colLabel = `열 4↔6개 전환 · 개방 기준 ${Math.round(api.FABRIC_GATE * 100)}% ${gateCases.length}건`;
+  const state = api.SHOW_FABRIC_COLUMNS === false ? "지금 닫힘"
+    : api.SHOW_FABRIC_COLUMNS === true ? "지금 항상 열림" : "지금 자동";
+  colLabel = `열 4↔6개 전환(${state}) · 개방 기준 ${Math.round(auto.FABRIC_GATE * 100)}% ${gateCases.length}건`;
 }
 
 if (bad) { console.error(`\n패널 로드 실패 ${bad}건 — 미로 앱에서 같은 오류가 화면에 뜬다`); process.exit(1); }
