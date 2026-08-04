@@ -1690,57 +1690,17 @@
         );
       });
 
-      // 📥 기본 추출: 브랜드 · 썸네일(보드 이미지) · URL 만. 브랜드순 정렬, 빈 행 없음.
       // 엑셀 한 행의 값. 사이트에서 못 가져온 칸은 비우지 않고 '확인 필요'로 채운다 —
       // 빈칸은 "값이 없는 상품"인지 "수집 실패"인지 구분이 안 돼서 사람이 판단을 못 한다.
-      // 상품명·URL 슬러그에 색이 적혀 있는 경우가 많다("… - Olive Cotton Satin",
-      // "…-light-pink"). 사이트에 들어가지 않고 여기서 읽는다.
-      // 사전에 있는 색만 인정한다 — 아무 단어나 색으로 넘기면 엑셀이 더 헷갈려진다.
-      const COLOR_WORDS = [
-        'black', 'white', 'ivory', 'cream', 'ecru', 'beige', 'sand', 'camel', 'tan', 'taupe',
-        'brown', 'chocolate', 'khaki', 'olive', 'army', 'sage', 'mint', 'emerald', 'forest',
-        'green', 'teal', 'aqua', 'turquoise', 'sky', 'denim', 'indigo', 'navy', 'cobalt', 'blue',
-        'lilac', 'lavender', 'purple', 'plum', 'burgundy', 'wine', 'maroon', 'red', 'scarlet',
-        'crimson', 'rust', 'terracotta', 'orange', 'peach', 'coral', 'blush', 'rose', 'pink',
-        'fuchsia', 'magenta', 'yellow', 'mustard', 'gold', 'silver', 'grey', 'gray', 'charcoal',
-        'slate', 'stone', 'oat', 'oatmeal', 'natural', 'nude', 'chestnut', 'espresso', 'bone',
-      ];
-      const COLOR_MODS = ['light', 'dark', 'pale', 'deep', 'bright', 'soft', 'washed', 'faded', 'hot', 'off'];
-      const COLOR_RX = new RegExp(
-        '\\b(?:(' + COLOR_MODS.join('|') + ')[\\s-]+)?(' + COLOR_WORDS.join('|') + ')\\b', 'i');
-      function colorFromText(name, url) {
-        // 이름에 색이 있으면 그것을 먼저 쓴다. 이름은 사람이 읽는 표기라 더 정확하다.
-        for (const src of [String(name || ''), decodeURIComponent(String(url || '')).replace(/[-_/]+/g, ' ')]) {
-          const m = src.match(COLOR_RX);
-          if (!m) continue;
-          const t = (m[1] ? m[1] + ' ' : '') + m[2];
-          return t.toLowerCase().replace(/\b[a-z]/g, (c) => c.toUpperCase());
-        }
-        return '';
-      }
-
-      const NEED = '확인 필요';
-      // 빠른 모드(A~G)와 상세 모드(A~I)의 열 위치. 빠른 모드에서 쓰지 않는 키는 무시된다.
-      const ROW_COL = { brand: 'A', name: 'D', category: 'E', priceOrig: 'F', price: 'G', color: 'H', sizes: 'I', comp: 'J' };
-      // 예전 저장 사고로 '[object Object]' 가 값으로 남은 상품이 있다 — 빈 값으로 취급한다.
+      // 예전 저장 사고로 '[object Object]' 가 값으로 남은 상품이 있다 — 빈 값으로 본다.
       const cleanVal = (v) => { const t = String(v || '').trim(); return t === '[object Object]' ? '' : t; };
+      const ROW_COL = { brand: 'A', name: 'D', comp: 'E' };
       function rowValues(r, brandGuess) {
-        r = { ...r, comp: cleanVal(r.comp), color: cleanVal(r.color), sizes: cleanVal(r.sizes) };
-        const listP = r.priceOrig || '';
-        const nowP = r.price || '';
         const vals = {
           brand: r.brand || brandGuess || '',
           name: r.name || '',
-          category: r.category || '',
-          // 할인 상품이면 정가·할인가 둘 다. 할인이 아니면 정가에만 넣고 할인가는 '-'
-          // (할인가가 없는 게 정상이라 '확인 필요'로 볼 일이 아니다).
-          priceOrig: listP || nowP,
-          price: listP ? nowP : (nowP ? '-' : ''),
-          // 컬러·사이즈·혼용률은 야간 보강이 미리 채운 저장값 — 스캔 때 접속 없음.
-          // 컬러는 저장값이 없으면 상품명·URL 의 색상어로 보조.
-          color: r.color || colorFromText(r.name, r.link),
-          sizes: r.sizes || '',
-          comp: r.comp || '',
+          // 원단정보(혼용률)는 야간 보강이 미리 채워 둔 값 — 스캔 때 사이트 접속 없음.
+          comp: cleanVal(r.comp),
         };
         for (const k of Object.keys(ROW_COL)) {
           if (!String(vals[k] || '').trim()) vals[k] = NEED;
@@ -1749,8 +1709,7 @@
       }
 
       // 보드와 저장된 상품 인덱스에 이미 있는 값만 쓴다 — 쇼핑몰 접속 0회, 몇 초면 끝난다.
-      // 사이즈·혼용률은 상품 페이지에만 있어 넣지 않는다. 수십 개를 뽑을 때
-      // 상품마다 사이트를 여는 비용이 감당이 안 된다.
+      // 혼용률도 야간 보강이 미리 채워 둔 저장값을 붙이기만 한다.
       async function buildBasicXlsx() {
         if (typeof ExcelJS === 'undefined') {
           statusEl.textContent = '엑셀 라이브러리를 불러오지 못했습니다. 새로고침 후 다시 시도하세요.';
@@ -1762,21 +1721,18 @@
 
         const workbook = new ExcelJS.Workbook();
         const ws = workbook.addWorksheet('상품정보');
+        // 지금 우선순위는 이 다섯 가지다. 나머지(카테고리·가격·컬러·사이즈)는
+        // 데이터는 계속 쌓이지만 열로 내보내지 않는다 — 필요해지면 다시 붙이면 된다.
         ws.columns = [
           { header: '브랜드', key: 'brand', width: 18 },
           { header: '썸네일', key: 'img', width: 18 },
-          { header: 'URL', key: 'link', width: 46 },
-          { header: '상품명', key: 'name', width: 34 },
-          { header: '카테고리', key: 'category', width: 12 },
-          { header: '정가', key: 'priceOrig', width: 12 },
-          { header: '할인가', key: 'price', width: 12 },
-          { header: '컬러', key: 'color', width: 14 },
-          { header: '사이즈', key: 'sizes', width: 20 },
-          { header: '혼용률', key: 'comp', width: 28 },
+          { header: 'URL', key: 'link', width: 50 },
+          { header: '상품명', key: 'name', width: 38 },
+          { header: '혼용률', key: 'comp', width: 30 },
         ];
         ws.getRow(1).font = { bold: true };
         const urlCol = 'C';
-        const lastCol = 'J';
+        const lastCol = 'E';
         const needCells = [];   // '확인 필요' 칸 위치 — 마지막에 한 번에 서식 적용
 
         let okThumb = 0, thumbFailDiag = '';
