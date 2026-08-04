@@ -226,12 +226,16 @@ for (const c of list) {
     try {
       const re = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json());
       verify = Object.values(re || {}).filter((o) => o && o.comp).length;
+      // 쓰기 직후 읽기는 KV 지연으로 0 이 나올 수 있다 — 쓴 것도 없을 때만 문제로 본다.
       if (patched === 0 && verify === 0) {
         console.log(`  !! ${c.site}: 저장 후에도 오버레이 비어 있음 — 첫 키 ${keys[0].slice(0, 120)}`);
       }
     } catch (e) {}
   }
-  const haveNow = verify != null ? verify : have + patched;
+  // KV 는 최종 일관성 저장소라 방금 쓴 값이 즉시 읽히지 않을 수 있다(수십 초 지연).
+  // 실측: ae.com.americaneagle 은 '+3 검증 3', addisonbay 는 '+3 검증 0' — 같은 코드다.
+  // 검증값을 그대로 쓰면 실제로 저장된 것을 안 됐다고 보고하게 되므로 큰 값을 쓴다.
+  const haveNow = Math.max(verify == null ? 0 : verify, have + patched);
   rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, patched, stat });
   console.log(`  ${c.site}: +${patched} 검증 ${verify == null ? "-" : verify} (경로 ${JSON.stringify(stat)})`);
 }
