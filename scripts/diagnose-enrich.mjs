@@ -44,13 +44,21 @@ const { validComp } = new Function(
 const asComp = (v) => (Array.isArray(v) ? v.map((c) => `${c.material} ${c.percent}%`).join(" / ") : String(v || "").trim());
 
 // 본문에 혼용률 '재료'가 보이는지 — 규칙 누락과 정보 없음을 가르는 잣대.
-// 섬유 이름과 퍼센트가 가까이 붙어 있으면, 사람 눈에는 보이는데 우리가 못 뽑은 것이다.
-const FIBRE_WORDS = /(cotton|polyester|elastane|spandex|nylon|polyamide|wool|silk|linen|viscose|rayon|modal|lyocell|tencel|cashmere|acrylic|면|폴리에스터|나일론|울|실크|린넨|비스코스|레이온|모달)/i;
+//
+// 섬유 이름과 퍼센트가 **붙어 있어야** 한다. "페이지 어딘가에 % 가 있고 어딘가에
+// 섬유 이름이 있다"로 판정하면, 상단 판촉 배너("20% Off Your First Order")와
+// 한참 아래 소재 안내 문구가 따로 걸려서 없는 혼용률을 있다고 센다 — 첫 진단이
+// 그 탓에 '규칙 누락'을 부풀려 셌다.
+//
+// 대신 worker 의 COMP_RX 보다는 넓게 잡는다. 똑같이 잡으면 정의상 어긋날 일이
+// 없어져서 진단이 아무것도 못 찾는다. 섬유 이름을 더 많이 알고, 사이 문자도
+// 너그럽게 둔다("Cotton – 60%", "Cotton / Polyester 60/40" 같은 표기).
+const FIBRE_WORDS = "cotton|polyester|elastane|spandex|nylon|polyamide|wool|silk|linen|flax|viscose|rayon|modal|lyocell|tencel|cashmere|acrylic|acetate|triacetate|cupro|ramie|hemp|bamboo|mohair|alpaca|leather|down|feather" +
+  "|면|코튼|폴리에스터|폴리에스테르|나일론|울|양모|실크|견|린넨|마|비스코스|레이온|모달|텐셀|아크릴|캐시미어|스판덱스|폴리우레탄";
+const NEAR_RX = new RegExp(
+  `(?:\\d{1,3}\\s*%[^%]{0,20}?(?:${FIBRE_WORDS}))|(?:(?:${FIBRE_WORDS})[^%]{0,20}?\\d{1,3}\\s*%)`, "i");
 function looksLikeHasComp(text) {
-  const t = String(text || "");
-  // "60% Cotton" 또는 "Cotton 60%" 가 한 줄 안에 있는지.
-  return /\d{1,3}\s*%[^.\n]{0,30}/.test(t) && FIBRE_WORDS.test(t) &&
-    (/\d{1,3}\s*%\s*[A-Za-z가-힣]{3,}/.test(t) || /[A-Za-z가-힣]{3,}\s*\d{1,3}\s*%/.test(t));
+  return NEAR_RX.test(String(text || ""));
 }
 
 async function getText(url, accept, ms = 20000) {
@@ -94,9 +102,10 @@ const stripTags = (h) => String(h || "")
 // 사람이 읽고 판단할 수 있게, 퍼센트가 나오는 곳 주변만 잘라 보여 준다.
 function snippet(t) {
   const s = String(t || "");
-  const i = s.search(/[A-Za-z가-힣]{3,}\s*\d{1,3}\s*%|\d{1,3}\s*%\s*[A-Za-z가-힣]{3,}/);
+  // 판정에 쓴 것과 같은 자리를 보여 준다 — 다른 자리를 보여 주면 오해를 부른다.
+  const i = s.search(NEAR_RX);
   if (i < 0) return "";
-  return s.slice(Math.max(0, i - 60), i + 120).replace(/\s+/g, " ").trim();
+  return s.slice(Math.max(0, i - 60), i + 140).replace(/\s+/g, " ").trim();
 }
 
 async function pool(items, n, fn) {
