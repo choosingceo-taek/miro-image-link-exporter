@@ -28,6 +28,11 @@ const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
 const FIELDS = (process.env.NEED_FIELDS || "comp,color").split(",").map((s2) => s2.trim()).filter(Boolean);
 // 못 찾은 상품을 며칠 뒤에 다시 시도할지. 사이트가 정보를 안 적으면 아무리 읽어도 안 나온다.
 const RETRY_DAYS = Math.max(1, Number(process.env.RETRY_DAYS) || 5);
+// 재시도 창을 무시하고 빈 항목을 전부 다시 읽는다. 평소엔 켜지 않는다 — 사이트가
+// 안 적는 값을 매번 다시 읽게 되기 때문이다. 다만 추출 규칙이 좋아졌거나 예전에
+// 일시적으로 실패한 뒤에는, 창에 갇힌 상품이 전부 '시도 안 함' 상태로 굳는다.
+// (진단 표본 112개 중 58개가 "지금 읽으면 나온다"였다 — 그게 이 스위치의 이유다)
+const RETRY_ALL = process.env.RETRY_ALL === "1";
 const PER_BRAND = Math.max(1, Number(process.env.PER_BRAND) || 800);
 const TOTAL = Math.max(1, Number(process.env.TOTAL) || 40000);
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
@@ -242,6 +247,7 @@ for (const c of list) {
     // 값이 들어 있는데 옳지 않으면(쓰레기·절반만 뽑힘) 시도 시각과 무관하게 다시 읽는다.
     // 안 그러면 잘못 저장된 값이 재시도 기간(RETRY_DAYS) 내내 자리를 차지한다.
     if (FIELDS.some((k) => valOf(o, k) && !okOf(o, k))) return false;
+    if (RETRY_ALL) return false;          // 창을 무시하고 다시 읽는다
     return o.t && now - o.t < RETRY_MS;   // 최근 시도 → 이번엔 넘긴다
   };
   // 엑셀에 나가는 두 항목을 따로 센다 — 합쳐 보면 어느 쪽이 비었는지 알 수 없다.
