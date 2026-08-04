@@ -32,6 +32,37 @@ for (const r of rows) {
     (missing.length ? `  ⚠ 없음: ${missing.join(", ")}` : "  ✅ 5개 모두"),
   );
 }
+// 앱은 브랜드 목록(Render brands.json)의 이름으로 저장 키를 찾는다. 이름이 한 글자라도
+// 다르면 못 찾고, 같은 호스트에 브랜드가 둘이면(ae.com = American Eagle + Aerie)
+// 호스트 폴백도 포기하도록 돼 있어 상품이 통째로 안 나온다. 둘을 나란히 찍어 확인한다.
+if (want.length) {
+  const RENDER = (process.env.RENDER_URL || "https://market-research-uzs2.onrender.com").replace(/\/+$/, "");
+  const norm = (x) => String(x || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  let brands = [];
+  try { brands = await fetch(`${RENDER}/brands.json`).then((r) => r.json()); } catch (e) {
+    console.log(`\n(브랜드 목록을 못 받았다: ${String((e && e.message) || e)})`);
+  }
+  const hit = (Array.isArray(brands) ? brands : []).filter((b) =>
+    want.some((w) => String(b.name || "").toLowerCase().includes(w) || String(b.url || "").toLowerCase().includes(w)));
+  if (hit.length) {
+    console.log(`\n앱 브랜드 목록에 등록된 이름 ↔ 저장 키 대조`);
+    const keys = (ls.list || []);
+    for (const b of hit) {
+      const nb = norm(b.name);
+      const exact = keys.find((c) => norm(c.brand) === nb || norm(String(c.site).split(".").pop()) === nb);
+      let host = "";
+      try { host = new URL(b.url).hostname.replace(/^www\./, ""); } catch (e) {}
+      const sameHost = keys.filter((c) => norm(c.site).startsWith(norm(host)));
+      console.log(`  "${b.name}" (${host})`);
+      console.log(`    정확 일치 키: ${exact ? exact.site : "❌ 없음"}`);
+      console.log(`    같은 호스트 키 ${sameHost.length}개: ${sameHost.map((c) => `${c.site}("${c.brand}")`).join(", ") || "없음"}`);
+      if (!exact && sameHost.length !== 1) {
+        console.log(`    ⚠ 앱이 이 브랜드를 못 찾는다 — 이름 불일치 + 같은 호스트에 키가 ${sameHost.length}개라 폴백도 포기한다`);
+      }
+    }
+  }
+}
+
 if (want.length && !rows.length) {
   console.log(`\n⚠ "${want.join(", ")}" 로 걸리는 저장 키가 없다 — 카탈로그가 아예 없거나 브랜드명이 다르다.`);
   console.log(`전체 저장 키 ${(ls.list || []).length}개 중 비슷한 이름:`);
