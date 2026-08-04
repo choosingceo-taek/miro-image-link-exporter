@@ -1,0 +1,25 @@
+name: Brand categories
+
+# 브랜드별 카테고리 분포를 즉시 확인한다(읽기 전용, 몇 초).
+on:
+  workflow_dispatch:
+    inputs:
+      brands:
+        description: "쉼표로 구분한 브랜드(비우면 상품 100개 이상 전체)"
+        required: false
+        default: ""
+
+jobs:
+  cats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Show category spread
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+        run: node scripts/brand-categories.mjs
