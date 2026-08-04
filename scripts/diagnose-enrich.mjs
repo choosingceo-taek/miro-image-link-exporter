@@ -16,7 +16,7 @@
 // 읽기만 한다 — 저장은 하지 않는다.
 // env: WORKER_URL, WORKER_TOKEN, BRANDS(쉼표, 비우면 채움률 낮은 순 상위), TOP(기본 12), SAMPLE(브랜드당, 기본 8)
 
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -131,6 +131,7 @@ const targets = scored.filter((r) => r.missing.length).slice(0, want.length ? sc
 console.log(`혼용률이 빈 상품을 브랜드당 ${SAMPLE}개씩 다시 읽어 원인을 가른다 (브랜드 ${targets.length}개)\n`);
 
 const totals = { "규칙 누락": 0, "차단": 0, "정보 없음": 0, "성공": 0 };
+const perBrand = [];   // 리포트용 — 브랜드마다 어느 원인이 몇 개였는지
 for (const t of targets) {
   const pick = t.missing.slice(0, SAMPLE);
   const res = [];
@@ -142,6 +143,7 @@ for (const t of targets) {
     totals[k] = (totals[k] || 0) + 1;
   }
   const pct = Math.round((1 - t.missing.length / t.total) * 100);
+  perBrand.push({ brand: t.brand, site: t.site, pct, missing: t.missing.length, total: t.total, n: pick.length, by });
   console.log(`${t.brand} (${t.site}) — 채움 ${pct}% · 빈 상품 ${t.missing.length}/${t.total} · 표본 ${pick.length}`);
   console.log(`   ${Object.entries(by).map(([k, v]) => `${k} ${v}`).join(" · ")}`);
   // 규칙 누락이면 실제 본문을 보여 준다 — 이걸 보고 추출 규칙을 고친다.
@@ -154,6 +156,48 @@ for (const t of targets) {
 
 console.log("── 합계 ──");
 for (const [k, v] of Object.entries(totals)) if (v) console.log(`  ${k}: ${v}`);
+// ── 리포트 파일 ─────────────────────────────────────────────────
+// 원인별로 손댈 곳이 다르므로, 브랜드를 원인으로 묶어서 낸다. 특히 '차단'이
+// 대부분인 브랜드는 서버가 아무리 돌아도 안 채워진다 — 확장 담당으로 옮겨야 한다.
+const share = (r, k) => (r.n ? (r.by[k] || 0) / r.n : 0);
+const blockedBrands = perBrand.filter((r) => share(r, "차단") >= 0.5);
+const gapBrands = perBrand.filter((r) => share(r, "규칙 누락") >= 0.5);
+const waitingBrands = perBrand.filter((r) => share(r, "성공") >= 0.5);
+const noneBrands = perBrand.filter((r) => share(r, "정보 없음") >= 0.5);
+
+let md = `# 혼용률 미채움 원인 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+md += `브랜드 ${perBrand.length}개 · 표본 ${Object.values(totals).reduce((a, b) => a + b, 0)}개\n\n`;
+md += `| 원인 | 표본 | 손댈 곳 |\n|---|---:|---|\n`;
+md += `| 성공 | ${totals["성공"] || 0} | 재시도 창에 갇혀 있을 뿐 — RETRY_ALL=1 로 한 번 돌리면 채워진다 |\n`;
+md += `| 차단 | ${totals["차단"] || 0} | 서버 IP 로는 못 읽는다 — 확장(가정용 IP) 담당으로 옮겨야 한다 |\n`;
+md += `| 규칙 누락 | ${totals["규칙 누락"] || 0} | 페이지에 값이 있는데 못 뽑았다 — 추출 규칙을 고친다 |\n`;
+md += `| 정보 없음 | ${totals["정보 없음"] || 0} | 사이트가 안 적는다 — 더 할 수 있는 게 없다 |\n\n`;
+
+if (blockedBrands.length) {
+  md += `## ⛔ 확장 담당으로 옮겨야 하는 브랜드 (${blockedBrands.length})\n\n`;
+  md += `표본의 절반 이상이 '차단'이다. 서버 프리페치가 아무리 돌아도 이 브랜드의\n`;
+  md += `혼용률은 안 채워진다. Render 저장소의 \`public/blocked-brands.json\` 의\n`;
+  md += `\`brands\` 에 넣으면 확장이 05:00 에 수집·보강한다.\n\n`;
+  md += `| 브랜드 | 저장 키 | 빈 상품 | 표본 차단 |\n|---|---|---:|---:|\n`;
+  for (const r of blockedBrands) md += `| ${r.brand} | ${r.site} | ${r.missing}/${r.total} | ${r.by["차단"] || 0}/${r.n} |\n`;
+  md += `\n`;
+}
+if (gapBrands.length) {
+  md += `## 🔧 추출 규칙을 고쳐야 하는 브랜드 (${gapBrands.length})\n\n`;
+  md += `| 브랜드 | 저장 키 | 빈 상품 | 표본 규칙누락 |\n|---|---|---:|---:|\n`;
+  for (const r of gapBrands) md += `| ${r.brand} | ${r.site} | ${r.missing}/${r.total} | ${r.by["규칙 누락"] || 0}/${r.n} |\n`;
+  md += `\n`;
+}
+if (waitingBrands.length) {
+  md += `## ⏳ 다시 읽기만 하면 채워지는 브랜드 (${waitingBrands.length})\n\n`;
+  md += waitingBrands.map((r) => `${r.brand}(${r.missing})`).join(" · ") + `\n\n`;
+}
+if (noneBrands.length) {
+  md += `## — 사이트가 혼용률을 안 적는 브랜드 (${noneBrands.length})\n\n`;
+  md += noneBrands.map((r) => r.brand).join(" · ") + `\n\n`;
+}
+writeFileSync(join(ROOT, "enrich-diagnosis.md"), md);
+
 console.log(`
 읽는 법:
   성공      = 지금 읽으면 나온다. 재시도 창(RETRY_DAYS) 때문에 안 채워지고 있을 뿐이다.
