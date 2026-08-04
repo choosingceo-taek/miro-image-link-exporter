@@ -166,13 +166,21 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // 수집 창이 남아 있으면 안 되고, 브라우저를 닫아 강제로 끊기면 그 브랜드는
 // 반쪽만 저장된다. 그래서 마감 시각을 넘기면 스스로, 깨끗이 멈춘다.
 // (브랜드 하나를 다 끝낸 지점에서 멈추므로 저장이 잘리지 않는다)
-const DEADLINE_HOUR = 7;
+const DEADLINE_HOUR = 7, DEADLINE_MIN = 30;
 function deadlineFrom(now) {
   const at = new Date(now);
-  at.setHours(DEADLINE_HOUR, 0, 0, 0);
+  at.setHours(DEADLINE_HOUR, DEADLINE_MIN, 0, 0);
   if (at.getTime() <= now) at.setDate(at.getDate() + 1);
   return at.getTime();
 }
+const hhmm = (t) => {
+  const d = new Date(t);
+  return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+};
+const dur = (ms) => {
+  const m = Math.round(ms / 60000);
+  return m >= 60 ? `${Math.floor(m / 60)}시간 ${m % 60}분` : `${m}분`;
+};
 
 // ── 자리를 비웠을 때만 수집 ─────────────────────────────────────────
 // 수집은 실제 크롬 창을 몇 시간 동안 돌린다. 사용자가 일하는 중에 겹치면 화면도
@@ -604,7 +612,9 @@ async function collect(input) {
     // 여기서부터 이어서 한다(위 순환).
     if (Date.now() >= stopAt) {
       stopped = groups.length - groups.indexOf(g);
-      pushLog({ url: '', ok: true, count: 0, msg: `아침 ${DEADLINE_HOUR}시 — 여기서 멈춤. 남은 ${stopped}개 브랜드는 내일 밤 이어서` });
+      pushLog({ url: '', ok: true, count: 0,
+        msg: `${hhmm(stopAt)} 마감 — 여기서 멈춤. 남은 ${stopped}개 브랜드는 내일 밤 이어서 ` +
+          `(한 바퀴를 다 돌려면 예약 시각을 더 이르게)` });
       break;
     }
     // 한 브랜드의 모든 카테고리 URL을 먼저 모은 뒤, 브랜드 단위로 한 번만 저장한다.
@@ -724,9 +734,19 @@ async function collect(input) {
   state.running = false;
   state.current = '';
   // 팝업이 "마지막 실행" 요약을 보여줄 수 있도록 저장(서비스워커가 잠들어도 유지).
+  const tookMs = Date.now() - state.startedAt;
   await chrome.storage.local.set({
-    lastRun: { when: Date.now(), ok: okCount, fail: failCount, total: groups.length, urls: totalUrls, stopped },
+    lastRun: {
+      when: Date.now(), ok: okCount, fail: failCount, total: groups.length, urls: totalUrls, stopped,
+      // 실측 소요 시간과 완주 여부. 다음 밤에 시간이 모자랄지 추측하지 않고
+      // 지난밤 기록으로 판단하기 위한 값이다.
+      tookMs, full: stopped === 0, deadline: hhmm(stopAt),
+    },
   });
+  pushLog({ url: '', ok: stopped === 0, count: 0,
+    msg: stopped === 0
+      ? `한 바퀴 완료 — 브랜드 ${groups.length}개 · ${dur(tookMs)} 걸림`
+      : `${groups.length - stopped}/${groups.length}개까지 · ${dur(tookMs)} 걸림 · 남은 ${stopped}개는 내일 밤` });
 }
 
 // 임의의 페이지 URL → 그 페이지가 속한 브랜드와 저장 키.

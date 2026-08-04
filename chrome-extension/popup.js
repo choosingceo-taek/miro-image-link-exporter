@@ -115,10 +115,17 @@ function renderSched(s) {
   else if (!s.schedOn) parts.push('자동 수집 꺼짐');
   if (s.lastRun) {
     const r = s.lastRun;
+    // 소요 시간과 완주 여부를 함께 보여 준다 — "한 바퀴가 밤 사이에 끝나나"를
+    // 추측하지 않고 지난밤 기록으로 판단할 수 있어야 한다.
+    const took = r.tookMs
+      ? (r.tookMs >= 3600000 ? `${Math.floor(r.tookMs / 3600000)}시간 ${Math.round(r.tookMs % 3600000 / 60000)}분` : `${Math.round(r.tookMs / 60000)}분`)
+      : '';
     parts.push(r.error
       ? `지난 실행 ${fmtWhen(r.when)} — 오류: ${r.error}`
       : `지난 실행 ${fmtWhen(r.when)} — 브랜드 성공 ${r.ok}/${r.total}` +
-        (r.urls ? ` (카테고리 ${r.urls}개)` : ''));
+        (r.urls ? ` (카테고리 ${r.urls}개)` : '') +
+        (took ? ` · ${took} 걸림` : '') +
+        (r.stopped ? ` · ⚠ ${r.deadline || '마감'} 에 ${r.stopped}개 남기고 멈춤 — 예약을 더 이르게` : r.full ? ' · 한 바퀴 완료' : ''));
   }
   $('schedInfo').textContent = parts.join(' · ');
 }
