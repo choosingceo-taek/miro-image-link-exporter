@@ -31,6 +31,18 @@ on:
         description: "1 이면 재시도 창을 무시하고 빈 항목을 전부 다시 읽는다"
         required: false
         default: ""
+      brand_pool:
+        description: "동시에 처리할 브랜드 수 (기본 5)"
+        required: false
+        default: ""
+      page_pool:
+        description: "브랜드 안에서 동시에 읽을 상품 수 (기본 8 — 같은 사이트로 몰리므로 과하면 429)"
+        required: false
+        default: ""
+      timeout_min:
+        description: "이 실행의 제한 시간(분, 기본 110)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -42,7 +54,9 @@ concurrency:
 jobs:
   enrich:
     runs-on: ubuntu-latest
-    timeout-minutes: 110   # 2시간 주기보다 짧게 — 다음 회차와 겹치지 않게
+    # 기본 110분 — 2시간 주기보다 짧게 잡아 다음 회차와 겹치지 않게 한다.
+    # 아침까지 길게 돌려야 할 때만 timeout_min 으로 늘린다.
+    timeout-minutes: ${{ fromJSON(github.event.inputs.timeout_min || '110') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -61,8 +75,8 @@ jobs:
           RETRY_ALL: ${{ github.event.inputs.retry_all || (github.event.schedule == '30 20 * * *' && '1' || '') }}
           # 브랜드 5개를 동시에, 각 브랜드 안에서 8개씩 = 전체 40개 동시.
           # 한 사이트로 가는 동시 요청은 8개라 예전(10개)보다 오히려 정중하다.
-          BRAND_POOL: ${{ vars.BRAND_POOL || '5' }}
-          PAGE_POOL: ${{ vars.PAGE_POOL || '8' }}
+          BRAND_POOL: ${{ github.event.inputs.brand_pool || vars.BRAND_POOL || '5' }}
+          PAGE_POOL: ${{ github.event.inputs.page_pool || vars.PAGE_POOL || '8' }}
         run: node scripts/enrich-comp.mjs
       - name: Commit report
         if: always()
