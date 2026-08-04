@@ -110,6 +110,7 @@ const low = [];                 // 수집량이 비정상적으로 적은 브랜
 const deadUrls = [];            // 상품을 한 개도 못 준 카테고리 URL(교체 대상)
 const priceCov = [];            // 브랜드별 가격 채움률(보드 스캐너 엑셀 '가격' 열의 근거)
 const compCov = [];             // 브랜드별 혼용률 채움률(야간 보강 진행도)
+const fieldCov = [];            // 브랜드별 4항목(가격·컬러·사이즈·혼용률) 채움률
 const LOW_MARK = Math.max(1, Number(process.env.LOW_MARK) || 60);
 let scanned = 0, flagged = 0;
 for (const c of list) {
@@ -150,9 +151,21 @@ for (const c of list) {
   // 가격은 목록 카드의 텍스트에서 통화기호로 뽑는다. 통화 표기가 다르거나(zł, kr)
   // 가격을 이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 그러면 보드 스캐너
   // 엑셀의 '가격' 열도 빈칸으로 나온다. 브랜드별 채움률을 남겨 어디가 안 되는지 본다.
+  // 혼용률·컬러·사이즈는 오버레이(comp:<site>)에, 가격은 카탈로그에 있다.
+  // 엑셀 열마다 실제로 몇 %가 채워지는지 그대로 센다.
+  let ov = {};
+  try { ov = await getJson(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, 1) || {}; } catch (e) {}
   {
-    const withPrice = items.filter((it) => String(it.price || "").trim()).length;
-    const withComp = items.filter((it) => String(it.comp || "").trim()).length;
+    const g = (it, k) => String((ov[it.productUrl] || {})[k] || it[k] || "").trim();
+    const withPrice = items.filter((it) => g(it, "price")).length;
+    const withComp = items.filter((it) => g(it, "comp")).length;
+    const withColor = items.filter((it) => g(it, "color")).length;
+    const withSizes = items.filter((it) => g(it, "sizes")).length;
+    fieldCov.push({
+      brand: d.brand || c.brand || c.site,
+      group: groupOf.get(String(d.brand || c.brand || "").toLowerCase()) || "?",
+      total: items.length, price: withPrice, color: withColor, sizes: withSizes, comp: withComp,
+    });
     compCov.push({
       brand: d.brand || c.brand || c.site,
       group: groupOf.get(String(d.brand || c.brand || "").toLowerCase()) || "?",
@@ -331,7 +344,38 @@ if (compGaps.length) {
   cm += `\n</details>\n\n`;
 }
 
-md = km + em + `\n---\n\n` + cm + `\n---\n\n` + pm + `\n---\n\n` + dm + `\n---\n\n` + md;
+// ── 엑셀 4항목 채움률 — 시연·업무에서 실제로 보이는 값 ──────────────────
+const pctOf = (n, t) => (t ? Math.round((n / t) * 100) : 0);
+const sum = (k) => fieldCov.reduce((a, r) => a + r[k], 0);
+const totAll = fieldCov.reduce((a, r) => a + r.total, 0);
+fieldCov.sort((a, z) => z.total - a.total);
+const SAFE = (r) => r.total >= 10 && pctOf(r.price, r.total) >= 80 && pctOf(r.comp, r.total) >= 80;
+const safe = fieldCov.filter(SAFE);
+let fm = `# 엑셀 4항목 채움률 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+fm += `보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.\n\n`;
+fm += `| 항목 | 채움 | 비율 |\n|---|---:|---:|\n`;
+for (const [label, k] of [["가격", "price"], ["컬러", "color"], ["사이즈", "sizes"], ["혼용률", "comp"]]) {
+  fm += `| ${label} | ${sum(k)}/${totAll} | ${pctOf(sum(k), totAll)}% |\n`;
+}
+fm += `\n**가격·혼용률 모두 80% 이상인 브랜드 ${safe.length}개** (시연에 안전)\n\n`;
+if (safe.length) {
+  fm += `| 브랜드 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |\n|---|---:|---:|---:|---:|---:|\n`;
+  for (const r of safe.slice(0, 40)) {
+    fm += `| ${r.brand} | ${r.total} | ${pctOf(r.price, r.total)}% | ${pctOf(r.color, r.total)}% | ${pctOf(r.sizes, r.total)}% | ${pctOf(r.comp, r.total)}% |\n`;
+  }
+  fm += `\n`;
+}
+const weak = fieldCov.filter((r) => r.total >= 10 && !SAFE(r));
+if (weak.length) {
+  fm += `<details><summary>아직 부족한 브랜드 ${weak.length}개</summary>\n\n`;
+  fm += `| 브랜드 | 그룹 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |\n|---|---|---:|---:|---:|---:|---:|\n`;
+  for (const r of weak) {
+    fm += `| ${r.brand} | ${r.group} | ${r.total} | ${pctOf(r.price, r.total)}% | ${pctOf(r.color, r.total)}% | ${pctOf(r.sizes, r.total)}% | ${pctOf(r.comp, r.total)}% |\n`;
+  }
+  fm += `\n</details>\n\n`;
+}
+
+md = fm + `\n---\n\n` + km + em + `\n---\n\n` + cm + `\n---\n\n` + pm + `\n---\n\n` + dm + `\n---\n\n` + md;
 
 low.sort((a, z) => a.total - z.total);
 md += `# 수집량이 적은 브랜드 (${LOW_MARK}개 미만)\n\n`;
@@ -342,7 +386,7 @@ for (const r of low) {
   for (const sm of r.sample) md += `  - 표본: ${sm.name || "(무명)"} — ${sm.productUrl}\n`;
   md += `\n`;
 }
-writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows, priceCoverage: priceCov, compCoverage: compCov, duplicateKeys: dupes }, null, 1));
+writeFileSync(join(ROOT, "catalog-audit.json"), JSON.stringify({ when: new Date().toISOString(), scanned, flagged, report, low, deadUrls, extension: extRows, priceCoverage: priceCov, compCoverage: compCov, fieldCoverage: fieldCov, duplicateKeys: dupes }, null, 1));
 writeFileSync(join(ROOT, "catalog-audit.md"), md);
 console.log(`\n검사 ${scanned}개 · 문제 ${flagged}개 · 브랜드 ${report.filter((r) => r.badCount).length}개`);
 console.log(`교체 필요 URL ${deadUrls.reduce((s, r) => s + r.dead.length, 0)}개 (브랜드 ${deadUrls.length}개)`);
