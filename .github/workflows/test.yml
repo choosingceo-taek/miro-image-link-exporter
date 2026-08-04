@@ -31,6 +31,8 @@ jobs:
         run: node scripts/test-panel-load.mjs
       - name: Run overlay merge test
         run: node scripts/test-overlay-merge.mjs
+      - name: Run settings wiring test
+        run: node scripts/test-settings-wiring.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js

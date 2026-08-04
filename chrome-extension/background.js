@@ -765,6 +765,9 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         schedHour: Math.min(Math.max(Number(msg.schedHour) || 0, 0), 23),
         schedMin: Math.min(Math.max(Number(msg.schedMin) || 0, 0), 59),
         visible: msg.visible !== false,
+        // 체크박스를 끄면 실제로 꺼져야 한다. 여기서 빠뜨리면 팝업이 보내도
+        // 저장이 안 돼, 껐다가 팝업을 다시 열면 도로 켜져 있다(그랬다).
+        idleOnly: msg.idleOnly !== false,
         maxPages: Math.min(Math.max(Number(msg.maxPages) || 20, 1), 100),
       });
       await applySchedule();
