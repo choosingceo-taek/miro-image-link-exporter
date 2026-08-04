@@ -14,10 +14,11 @@ const src = readFileSync(join(ROOT, "index.html"), "utf8");
 // 색 추출기부터 rowValues 끝(return vals)까지 한 덩어리로 떼어 온다.
 // 앞뒤 주석이 바뀌어도 깨지지 않도록 코드 자체를 기준으로 잡는다.
 // rowValues 블록만 떼어 온다. 앞뒤 주석이 바뀌어도 깨지지 않도록 코드를 기준으로 잡는다.
-const m = src.match(/const cleanVal = [\s\S]*?return vals;\n\s*\}/);
+const m = src.match(/const NEED = '확인 필요';[\s\S]*?return vals;\n\s*\}/);
 if (!m) { console.error("❌ rowValues 블록을 찾지 못함 — index.html 구조가 바뀌었는지 확인"); process.exit(1); }
+// NEED 도 실제 코드에서 함께 떼어 온다 — 주입하면 선언 누락(NEED is not defined)을 못 잡는다.
 const NEED = "확인 필요";
-const rowValues = new Function("NEED", m[0] + "\n return rowValues;")(NEED);
+const rowValues = new Function(m[0] + "\n return rowValues;")();
 
 // 엑셀 5열: 브랜드 · 썸네일 · URL · 상품명 · 혼용률.
 // 썸네일과 URL 은 보드 값을 그대로 쓰므로 rowValues 가 만드는 것은 세 가지다.
