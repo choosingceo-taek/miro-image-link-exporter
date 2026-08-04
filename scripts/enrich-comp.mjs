@@ -23,6 +23,10 @@ import { dirname, join } from "node:path";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
+// 채울 목표 항목. 상품 페이지를 한 번 열면 넷 다 나오므로 함께 두는 편이 효율적이다.
+const FIELDS = (process.env.NEED_FIELDS || "comp,color").split(",").map((s2) => s2.trim()).filter(Boolean);
+// 못 찾은 상품을 며칠 뒤에 다시 시도할지. 사이트가 정보를 안 적으면 아무리 읽어도 안 나온다.
+const RETRY_DAYS = Math.max(1, Number(process.env.RETRY_DAYS) || 5);
 const PER_BRAND = Math.max(1, Number(process.env.PER_BRAND) || 800);
 const TOTAL = Math.max(1, Number(process.env.TOTAL) || 40000);
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
@@ -169,7 +173,7 @@ let list = (ls.list || []).sort((a, z) => (a.site < z.site ? -1 : 1));
   if (skip.size) console.log(`중복 옛 키 ${skip.size}개 건너뜀: ${[...skip].join(", ")}`);
   list = list.filter((c) => !skip.has(c.site));
 }
-console.log(`카탈로그 ${list.length}개 — comp 없는 상품을 채운다 (브랜드당 ${PER_BRAND}, 전체 ${TOTAL})`);
+console.log(`카탈로그 ${list.length}개 — [${FIELDS.join(",")}] 채운다 (브랜드당 ${PER_BRAND}, 전체 ${TOTAL}, 재시도 ${RETRY_DAYS}일)`);
 
 let budget = TOTAL;
 const rows = [];
@@ -183,10 +187,18 @@ for (const c of list) {
   let overlay = {};
   try { overlay = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json()) || {}; } catch (e) {}
   const ov = (p) => overlay[p.productUrl] || {};
-  // 목표는 원단정보(혼용률)다. 컬러·사이즈·가격은 읽는 김에 같이 담지만,
-  // 혼용률이 이미 있으면 다시 읽지 않는다 — 이것 때문에 이미 끝난 상품을
-  // 계속 재방문하느라 백필이 몇 배로 길어졌다.
-  const full = (p) => Boolean(ov(p).comp);
+  // 목표 항목(NEED_FIELDS)이 다 찼거나, 최근에 이미 시도해 봤으면 건너뛴다.
+  //
+  // "시도했으면 건너뛴다"가 핵심이다. 목표를 comp+color 로 두면, 혼용률은 있는데
+  // 색을 안 적는 사이트의 상품을 매 실행마다 영원히 다시 읽게 된다 — 예산이 그쪽으로
+  // 다 새고 정작 빈 상품에 손이 못 간다. 실제로 4항목 목표였을 때 45분에 +429 였다.
+  const now = Date.now();
+  const RETRY_MS = RETRY_DAYS * 24 * 3600 * 1000;
+  const full = (p) => {
+    const o = ov(p);
+    if (FIELDS.every((k) => o[k])) return true;
+    return o.t && now - o.t < RETRY_MS;   // 최근 시도 → 이번엔 넘긴다
+  };
   const have = items.filter((p) => ov(p).comp).length;   // 리포트 지표는 혼용률 기준
   const todo = items.filter((p) => !full(p)).slice(0, Math.min(PER_BRAND, budget));
   if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, patched: 0 }); continue; }
@@ -196,7 +208,8 @@ for (const c of list) {
   // Worker 우회가 붙어 차단 상품은 왕복이 하나 더 는다 — 동시 처리를 올려 상쇄한다.
   await pool(todo, 10, async (p) => {
     const got = await enrichOf(p.productUrl, stat);
-    if (has(got)) comps[p.productUrl] = got;
+    // 빈 결과도 넣는다 — 저장 단계에서 '시도 시각'만 찍혀 다음 실행이 건너뛴다.
+    comps[p.productUrl] = has(got) ? got : {};
   });
   budget -= todo.length;
 
@@ -220,7 +233,10 @@ for (const c of list) {
         const t = clean(inc[k], max);
         if (t && !cur[k]) { cur[k] = t; n++; }
       }
-      if (n) { merged[url] = cur; patched++; }
+      // 값을 못 찾았어도 "시도했음"은 남긴다 — 안 남기면 같은 상품을 매번 다시 읽는다.
+      cur.t = now;
+      merged[url] = cur;
+      if (n) patched++;
     }
     // 상품 상한(브랜드 카탈로그 800)보다 넉넉하게 1000개까지만 남긴다.
     const mk = Object.keys(merged);
