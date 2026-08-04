@@ -41,6 +41,9 @@ const RETRY_DAYS = Math.max(1, Number(process.env.RETRY_DAYS) || 5);
 // (진단 표본 112개 중 58개가 "지금 읽으면 나온다"였다 — 그게 이 스위치의 이유다)
 const RETRY_ALL = process.env.RETRY_ALL === "1";
 const PER_BRAND = Math.max(1, Number(process.env.PER_BRAND) || 800);
+// 한 브랜드 안에서 동시에 읽을 상품 페이지 수. 전부 같은 사이트로 가므로
+// 여기를 무작정 올리면 429 를 부른다 — 전체 속도는 BRAND_POOL 로 올린다.
+const PAGE_POOL = Math.max(1, Number(process.env.PAGE_POOL) || 8);
 const TOTAL = Math.max(1, Number(process.env.TOTAL) || 40000);
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const tok = "&token=" + encodeURIComponent(TOKEN);
@@ -209,11 +212,44 @@ console.log(`카탈로그 ${list.length}개 — [${FIELDS.join(",")}] 채운다 
 
 let budget = TOTAL;
 const rows = [];
-for (const c of list) {
-  if (budget <= 0) break;
+// 같은 브랜드가 1차·2차 두 번 처리되므로 결과를 한 줄로 합친다.
+const rowBySite = new Map();
+const addRow = (r) => {
+  const prev = rowBySite.get(r.site);
+  if (!prev) { rowBySite.set(r.site, r); rows.push(r); return; }
+  if (r.error && !prev.error) prev.error = r.error;
+  prev.total = r.total != null ? r.total : prev.total;
+  prev.have = Math.max(prev.have || 0, r.have || 0);
+  prev.haveColor = Math.max(prev.haveColor || 0, r.haveColor || 0);
+  prev.patched = (prev.patched || 0) + (r.patched || 0);
+  prev.addComp = (prev.addComp || 0) + (r.addComp || 0);
+  prev.addColor = (prev.addColor || 0) + (r.addColor || 0);
+  if (r.stat) {
+    prev.stat = prev.stat || {};
+    for (const k of Object.keys(r.stat)) prev.stat[k] = (prev.stat[k] || 0) + r.stat[k];
+  }
+};
+
+// ── 신상 우선 ──────────────────────────────────────────────────────
+// 매일 밤 수집이 2천 개 넘는 신상을 들여오는데, 신상은 혼용률이 빈 채로 들어온다.
+// 브랜드 순서대로 한 번만 훑으면 앞쪽 브랜드의 '예전에 실패한' 상품에 예산을 다
+// 쓰고 뒤쪽 브랜드의 신상은 손도 못 댄다 — 그러면 어제 되던 브랜드가 오늘 나빠진다.
+//
+// 그래서 두 바퀴를 돈다.
+//   1차: 시도 기록(t)이 아예 없는 상품 = 오늘 새로 들어온 것. 성공률이 가장 높다.
+//   2차: 예전에 시도했다가 못 채운 상품. 남은 예산으로 본다.
+// 1차를 전 브랜드에 걸쳐 먼저 끝내야 '신상 우선'이 성립한다.
+const PHASE_NEW = 1, PHASE_OLD = 2;
+// 1차에서 읽은 상품은 오버레이에 '시도 시각'이 찍힌다. 2차는 오버레이를 다시
+// 읽으므로 그 상품들이 '신상이 아님'으로 분류돼 도로 걸린다 — RETRY_ALL 이 켜져
+// 있으면 재시도 창도 안 막아 준다. 이번 실행에서 이미 읽은 것은 여기서 뺀다.
+const triedThisRun = new Set();
+
+async function processBrand(c, phase) {
+  if (budget <= 0) return;
   let cat;
   try { cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json()); }
-  catch (e) { rows.push({ brand: c.brand || c.site, error: String(e.message || e) }); continue; }
+  catch (e) { addRow({ brand: c.brand || c.site, site: c.site, error: String(e.message || e) }); return; }
   const items = cat.items || [];
   // 채움 상태는 오버레이(comp:<site>) 기준 — 카탈로그 item 필드는 더 이상 쓰지 않는다.
   //
@@ -229,11 +265,11 @@ for (const c of list) {
       if (j && typeof j === "object" && !Array.isArray(j) && !j.error) overlay = j;
       else throw new Error("오버레이 형식이 아님");
     } catch (e) {
-      if (attempt === 2) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, error: "오버레이 읽기 실패: " + String(e.message || e) }); }
+      if (attempt === 2) { addRow({ brand: cat.brand || c.site, site: c.site, total: items.length, error: "오버레이 읽기 실패: " + String(e.message || e) }); }
       else await new Promise((r2) => setTimeout(r2, 2000));
     }
   }
-  if (overlay === null) continue;
+  if (overlay === null) return;
   const ov = (p) => overlay[p.productUrl] || {};
   // 객체·배열이 통째로 String() 돼 들어간 흔적은 값이 아니다.
   // '[object Object]' 하나일 수도, 배열이라 쉼표로 여럿일 수도 있다.
@@ -260,13 +296,21 @@ for (const c of list) {
   // 엑셀에 나가는 두 항목을 따로 센다 — 합쳐 보면 어느 쪽이 비었는지 알 수 없다.
   const have = items.filter((p) => okOf(ov(p), "comp")).length;
   const haveColor = items.filter((p) => okOf(ov(p), "color")).length;
-  const todo = items.filter((p) => !full(p)).slice(0, Math.min(PER_BRAND, budget));
-  if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, haveColor, patched: 0 }); continue; }
+  // 1차에는 시도 기록이 없는 상품(=오늘 새로 들어온 것)만, 2차에는 나머지.
+  const isNew = (p) => !ov(p).t;
+  const want = items.filter((p) =>
+    !triedThisRun.has(p.productUrl) && !full(p) && (phase === PHASE_NEW ? isNew(p) : !isNew(p)));
+  const todo = want.slice(0, Math.min(PER_BRAND, budget));
+  if (!todo.length) {
+    addRow({ brand: cat.brand || c.site, site: c.site, total: items.length, have, haveColor, patched: 0 });
+    return;
+  }
 
   const stat = { shopify: 0, page: 0, worker: 0, noData: 0, blocked: 0, fail: 0 };
   const comps = {};
   // Worker 우회가 붙어 차단 상품은 왕복이 하나 더 는다 — 동시 처리를 올려 상쇄한다.
-  await pool(todo, 10, async (p) => {
+  for (const p of todo) triedThisRun.add(p.productUrl);
+  await pool(todo, PAGE_POOL, async (p) => {
     const got = await enrichOf(p.productUrl, stat);
     // 빈 결과도 넣는다 — 저장 단계에서 '시도 시각'만 찍혀 다음 실행이 건너뛴다.
     comps[p.productUrl] = has(got) ? got : {};
@@ -350,9 +394,21 @@ for (const c of list) {
   // 검증값을 그대로 쓰면 실제로 저장된 것을 안 됐다고 보고하게 되므로 큰 값을 쓴다.
   const haveNow = Math.max(verify == null ? 0 : verify, have + addComp);
   const colorNow = Math.max(verifyColor == null ? 0 : verifyColor, haveColor + addColor);
-  rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, haveColor: colorNow, patched, addComp, addColor, stat });
+  addRow({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, haveColor: colorNow, patched, addComp, addColor, stat });
   console.log(`  ${c.site}: 혼용률 +${addComp} 컬러 +${addColor} (읽음 ${todo.length}, 경로 ${JSON.stringify(stat)})`);
 }
+
+// ── 브랜드를 동시에 여러 개 ────────────────────────────────────────
+// 예전에는 브랜드를 하나씩 처리하며 그 안에서 10개를 동시에 읽었다. 10개가 전부
+// 같은 사이트로 몰려 429(요청 과다)를 부르면서도 전체 속도는 못 냈다(Leset 이 그랬다).
+// 브랜드를 나눠 돌리면 한 사이트로 가는 동시 요청은 PAGE_POOL 로 줄고 전체 동시
+// 요청은 BRAND_POOL 배로 는다 — 사이트에는 더 정중하고 전체로는 더 빠르다.
+const BRAND_POOL = Math.max(1, Number(process.env.BRAND_POOL) || 5);
+for (const phase of [PHASE_NEW, PHASE_OLD]) {
+  console.log(`\n── ${phase === PHASE_NEW ? "1차 신상" : "2차 재시도"} ── 남은 예산 ${budget}`);
+  await pool(list, BRAND_POOL, (c) => processBrand(c, phase));
+}
+
 
 // ── 검색 인덱스 재구축 — 전 브랜드 카탈로그에서. comp 가 인덱스로 흘러야
 //    보드 스캐너가 접속 없이 붙일 수 있다. 브랜드당 150개(프리페치와 동일 상한).
