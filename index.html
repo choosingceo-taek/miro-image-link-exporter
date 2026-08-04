@@ -977,6 +977,18 @@
             await loadCatalog(savedCat.site, savedCat.brand);
             return;
           }
+          // 저장본이 오래됐고 차단 표시도 없으면 아래에서 실시간 수집을 시도한다.
+          // 그 사이 화면을 비워 두지 않는다 — 저장본을 먼저 깔아 두고, 실시간 결과가
+          // 오면 그때 갈아끼운다. 서버가 못 긁는 브랜드가 차단 목록에서 빠져 있으면
+          // (ae.com 이 그랬다) 성공할 수 없는 요청을 90초 기다리는 동안 사용자는
+          // 빈 화면만 보고 "상품 정보가 안 나온다"고 판단하게 된다.
+          if (savedCat) {
+            try {
+              await loadCatalog(savedCat.site, savedCat.brand);
+              importStatusEl.innerHTML =
+                `<span style="font-size:12px;color:#888">저장된 ${importItems.length}개를 먼저 보여 드립니다 · 최신 상품 확인 중…</span>`;
+            } catch (e2) {}
+          }
         } catch (e) {}
 
         // ②-a 차단 브랜드(서버 수집 불가)인데 저장본도 없으면 → 90초 헛기다림 없이 즉시 안내.
