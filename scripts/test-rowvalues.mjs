@@ -23,29 +23,25 @@ const rowValues = new Function(m[0] + "\n return rowValues;")();
 // 엑셀 5열: 브랜드 · 썸네일 · URL · 상품명 · 혼용률.
 // 썸네일과 URL 은 보드 값을 그대로 쓰므로 rowValues 가 만드는 것은 세 가지다.
 const CASES = [
-  ["전부 채워진 상품",
-    { brand: "Shopbop", name: "Linen Shirt", comp: "Linen 100%" },
-    { brand: "Shopbop", name: "Linen Shirt", comp: "Linen 100%" }],
-
-  ["혼용률이 아직 안 채워졌으면 확인 필요",
-    { brand: "Gap", name: "Black Tee" },
-    { brand: "Gap", name: "Black Tee", comp: NEED }],
+  ["브랜드·상품명이 있으면 그대로",
+    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt" },
+    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt" }],
 
   ["브랜드가 없으면 도메인 추정값을 쓴다",
-    { name: "Tee", comp: "Cotton 100%" },
-    { brand: "freepeople", name: "Tee", comp: "Cotton 100%" }],
+    { name: "Tee" },
+    { brand: "freepeople", name: "Tee" }],
+
+  ["상품명을 못 가져왔으면 확인 필요",
+    { brand: "Gap" },
+    { brand: "Gap", name: NEED }],
 
   ["아무것도 없음 → 전 항목 확인 필요",
     {},
-    { brand: NEED, name: NEED, comp: NEED }],
+    { brand: NEED, name: NEED }],
 
-  ["예전 저장 사고로 남은 '[object Object]' 는 값으로 보지 않는다",
-    { brand: "Wrap", name: "Dress", comp: "[object Object]" },
-    { brand: "Wrap", name: "Dress", comp: NEED }],
-
-  ["가격·컬러·사이즈는 열에서 빠졌으므로 결과에 없다",
-    { brand: "Vince", name: "Coat", comp: "Wool 80% / Nylon 20%", price: "$100", color: "Navy", sizes: "S, M" },
-    { brand: "Vince", name: "Coat", comp: "Wool 80% / Nylon 20%" }],
+  ["혼용률·가격·컬러·사이즈는 열에서 빠졌으므로 결과에 없다",
+    { brand: "Arket", name: "Rib T-shirt", comp: "Cotton 100%", price: "$40", color: "White", sizes: "S, M" },
+    { brand: "Arket", name: "Rib T-shirt" }],
 ];
 
 let bad = 0;
