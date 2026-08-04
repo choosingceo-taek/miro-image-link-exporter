@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 야간 혼용률 보강 — 저장된 카탈로그에서 comp(혼용률) 없는 상품의 페이지를 읽어 채운다.
+// 야간 보강 — 저장된 카탈로그에서 엑셀 항목(혼용률·컬러웨이)이 빈 상품의 페이지를 읽어 채운다.
 //
 // 왜 밤에 하나: 혼용률은 상품 페이지에만 있는데, 스캔하는 순간에 읽으면 상품 수만큼
 // 사용자가 기다린다. 혼용률은 한 번 뽑으면 바뀌지 않는 값이므로 여기서 미리 채워 두면
@@ -12,7 +12,8 @@
 // 봇 차단(확장 담당) 브랜드는 직접 접속이 403이라 리더 프록시(r.jina.ai)로 우회한다.
 // 그래도 안 되는 상품은 남겨 두면 확장 1.7 이 실사용 PC에서 채운다(이중 안전망).
 //
-// env: WORKER_URL, WORKER_TOKEN, PER_BRAND(브랜드당 상한, 기본 800), TOTAL(전체 상한, 기본 40000)
+// env: WORKER_URL, WORKER_TOKEN, PER_BRAND(브랜드당 상한, 기본 800), TOTAL(전체 상한, 기본 40000),
+//      NEED_FIELDS(목표 항목, 기본 comp,color), RETRY_DAYS(빈손 재시도 간격, 기본 5)
 // 예약 실행은 workflow_dispatch inputs 가 비어 있어 이 기본값이 그대로 쓰인다 —
 // 작게 잡으면 매일 조금씩만 채우다 끝나지 않는다. 하룻밤에 전부 도는 값으로 둔다.
 
@@ -203,6 +204,8 @@ for (const c of list) {
   }
   if (overlay === null) continue;
   const ov = (p) => overlay[p.productUrl] || {};
+  // 예전 확장(≤1.7.3)이 객체를 통째로 String() 해 넣은 '[object Object]' 는 값이 아니다.
+  const valOf = (o, k) => { const t = String((o && o[k]) || "").trim(); return t === "[object Object]" ? "" : t; };
   // 목표 항목(NEED_FIELDS)이 다 찼거나, 최근에 이미 시도해 봤으면 건너뛴다.
   //
   // "시도했으면 건너뛴다"가 핵심이다. 목표를 comp+color 로 두면, 혼용률은 있는데
@@ -212,12 +215,14 @@ for (const c of list) {
   const RETRY_MS = RETRY_DAYS * 24 * 3600 * 1000;
   const full = (p) => {
     const o = ov(p);
-    if (FIELDS.every((k) => o[k])) return true;
+    if (FIELDS.every((k) => valOf(o, k))) return true;
     return o.t && now - o.t < RETRY_MS;   // 최근 시도 → 이번엔 넘긴다
   };
-  const have = items.filter((p) => ov(p).comp).length;   // 리포트 지표는 혼용률 기준
+  // 엑셀에 나가는 두 항목을 따로 센다 — 합쳐 보면 어느 쪽이 비었는지 알 수 없다.
+  const have = items.filter((p) => valOf(ov(p), "comp")).length;
+  const haveColor = items.filter((p) => valOf(ov(p), "color")).length;
   const todo = items.filter((p) => !full(p)).slice(0, Math.min(PER_BRAND, budget));
-  if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, patched: 0 }); continue; }
+  if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, haveColor, patched: 0 }); continue; }
 
   const stat = { shopify: 0, page: 0, worker: 0, noData: 0, blocked: 0, fail: 0 };
   const comps = {};
@@ -233,7 +238,7 @@ for (const c of list) {
   // Worker 가 병합하면(기존 오버레이 파싱 + 항목별 정리 + 재직렬화) 항목 400개쯤에서
   // 무료 플랜 CPU 10ms 를 넘겨 저장 전에 죽는다 — Vince(340) 성공, Whitestuff(419)
   // 실패로 실측됐다. 여기서 병합하면 Worker 는 파싱 없이 쓰기만 하므로 크기와 무관하다.
-  let patched = 0;
+  let patched = 0, addComp = 0, addColor = 0;
   const keys = Object.keys(comps);
   if (keys.length) {
     const merged = { ...overlay };
@@ -247,7 +252,13 @@ for (const c of list) {
       let n = 0;
       for (const [k, max] of [["comp", 160], ["color", 80], ["sizes", 200], ["price", 40], ["priceOrig", 40]]) {
         const t = clean(inc[k], max);
-        if (t && !cur[k]) { cur[k] = t; n++; }
+        if (t && !valOf(cur, k)) {
+          cur[k] = t; n++;
+          if (k === "comp") addComp++;
+          if (k === "color") addColor++;
+        } else if (cur[k] && !valOf(cur, k)) {
+          delete cur[k];   // 예전 확장이 넣은 '[object Object]' 정리
+        }
       }
       // 값을 못 찾았어도 "시도했음"은 남긴다 — 안 남기면 같은 상품을 매번 다시 읽는다.
       cur.t = now;
@@ -279,11 +290,13 @@ for (const c of list) {
   }
 
   // 저장 후 실제로 박혔는지 다시 읽어 확인한다 — 응답의 patched 만 믿지 않는다.
-  let verify = null;
+  let verify = null, verifyColor = null;
   if (keys.length) {
     try {
       const re = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json());
-      verify = Object.values(re || {}).filter((o) => o && o.comp).length;
+      const vs2 = Object.values(re || {});
+      verify = vs2.filter((o) => valOf(o, "comp")).length;
+      verifyColor = vs2.filter((o) => valOf(o, "color")).length;
       // 쓰기 직후 읽기는 KV 지연으로 0 이 나올 수 있다 — 쓴 것도 없을 때만 문제로 본다.
       if (patched === 0 && verify === 0) {
         console.log(`  !! ${c.site}: 저장 후에도 오버레이 비어 있음 — 첫 키 ${keys[0].slice(0, 120)}`);
@@ -293,9 +306,10 @@ for (const c of list) {
   // KV 는 최종 일관성 저장소라 방금 쓴 값이 즉시 읽히지 않을 수 있다(수십 초 지연).
   // 실측: ae.com.americaneagle 은 '+3 검증 3', addisonbay 는 '+3 검증 0' — 같은 코드다.
   // 검증값을 그대로 쓰면 실제로 저장된 것을 안 됐다고 보고하게 되므로 큰 값을 쓴다.
-  const haveNow = Math.max(verify == null ? 0 : verify, have + patched);
-  rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, patched, stat });
-  console.log(`  ${c.site}: +${patched} 검증 ${verify == null ? "-" : verify} (경로 ${JSON.stringify(stat)})`);
+  const haveNow = Math.max(verify == null ? 0 : verify, have + addComp);
+  const colorNow = Math.max(verifyColor == null ? 0 : verifyColor, haveColor + addColor);
+  rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, haveColor: colorNow, patched, addComp, addColor, stat });
+  console.log(`  ${c.site}: 혼용률 +${addComp} 컬러 +${addColor} (읽음 ${todo.length}, 경로 ${JSON.stringify(stat)})`);
 }
 
 // ── 검색 인덱스 재구축 — 전 브랜드 카탈로그에서. comp 가 인덱스로 흘러야
@@ -333,17 +347,38 @@ try {
 const done = rows.filter((r) => !r.error);
 const totalItems = done.reduce((s, r) => s + (r.total || 0), 0);
 const totalHave = done.reduce((s, r) => s + (r.have || 0), 0);
-const totalPatched = done.reduce((s, r) => s + (r.patched || 0), 0);
-let md = `# 혼용률 보강 결과 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
-md += `- 상품 ${totalItems}개 중 혼용률 보유 ${totalHave}개 (${totalItems ? Math.round((totalHave / totalItems) * 100) : 0}%) · 오늘 +${totalPatched}\n`;
-md += `- 검색 인덱스 재구축: ${indexCount}개 (comp 포함)\n\n`;
-md += `백필은 브랜드당 ${PER_BRAND}개·하루 ${TOTAL}개 상한으로 며칠에 나눠 채운다. 채워진 값은 다시 읽지 않는다.\n\n`;
-const gaps = done.filter((r) => r.total && r.have < r.total).sort((a, z) => (a.have / a.total) - (z.have / z.total));
+const totalColor = done.reduce((s, r) => s + (r.haveColor || 0), 0);
+const totalComp = done.reduce((s, r) => s + (r.addComp || 0), 0);
+const totalColorAdd = done.reduce((s, r) => s + (r.addColor || 0), 0);
+const pct = (n) => (totalItems ? Math.round((n / totalItems) * 100) : 0);
+let md = `# 엑셀 항목 보강 결과 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+md += `목표 항목: ${FIELDS.join(", ")} · 상품 ${totalItems}개\n\n`;
+md += `| 항목 | 보유 | 채움률 | 이번 실행 |\n|---|---:|---:|---:|\n`;
+md += `| 혼용률 | ${totalHave} | ${pct(totalHave)}% | +${totalComp} |\n`;
+md += `| 컬러웨이 | ${totalColor} | ${pct(totalColor)}% | +${totalColorAdd} |\n\n`;
+md += `- 검색 인덱스 재구축: ${indexCount}개\n\n`;
+md += `백필은 브랜드당 ${PER_BRAND}개·한 회차 ${TOTAL}개 상한이다. 목표 항목이 다 찬 상품과\n`;
+md += `${RETRY_DAYS}일 안에 시도해 본 상품은 건너뛴다 — 사이트가 안 적는 값을 영원히 다시 읽지 않기 위해서다.\n\n`;
+// 경로 이름을 그대로 쓰면 오해를 부른다 — shopify/page/worker 는 '성공한 경로'이고
+// noData/blocked/fail 만 실패다. 예전 리포트의 'page=505' 를 '505개 실패'로 읽었다.
+const PATH_LABEL = {
+  shopify: "쇼피JSON", page: "페이지", worker: "우회",
+  noData: "정보없음", blocked: "직접차단", fail: "오류",
+};
+const pathStr = (st) => {
+  if (!st) return "";
+  const ok = ["shopify", "page", "worker"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
+  const ng = ["noData", "blocked", "fail"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
+  return [ok.length ? "성공 " + ok.join("·") : "", ng.length ? "실패 " + ng.join("·") : ""].filter(Boolean).join(" / ");
+};
+const gaps = done.filter((r) => r.total).sort((a, z) => (a.have / a.total) - (z.have / z.total));
 if (gaps.length) {
-  md += `## 아직 비어 있는 브랜드 (${gaps.length})\n\n| 브랜드 | 보유/전체 | 오늘 추가 | 실패 경로 |\n|---|---:|---:|---|\n`;
+  md += `## 브랜드별 채움률 (${gaps.length}) — 낮은 순\n\n`;
+  md += `| 브랜드 | 혼용률 | 컬러웨이 | 이번 실행 | 경로 |\n|---|---:|---:|---:|---|\n`;
   for (const r of gaps) {
-    const st = r.stat ? Object.entries(r.stat).filter(([, v]) => v).map(([k, v]) => `${k}=${v}`).join(" ") : "";
-    md += `| ${r.brand} | ${r.have}/${r.total} | +${r.patched} | ${st} |\n`;
+    const cp = Math.round((r.have / r.total) * 100);
+    const cl = Math.round(((r.haveColor || 0) / r.total) * 100);
+    md += `| ${r.brand} | ${r.have}/${r.total} (${cp}%) | ${r.haveColor || 0}/${r.total} (${cl}%) | 혼용률 +${r.addComp || 0} 컬러 +${r.addColor || 0} | ${pathStr(r.stat)} |\n`;
   }
   md += `\n`;
 }
@@ -353,4 +388,4 @@ if (errs.length) {
   for (const r of errs) md += `- ${r.brand}: ${r.error}\n`;
 }
 writeFileSync(join(ROOT, "enrich-comp-report.md"), md);
-console.log(`\n혼용률 ${totalHave}/${totalItems} (+${totalPatched}) · 인덱스 ${indexCount}`);
+console.log(`\n혼용률 ${totalHave}/${totalItems} (${pct(totalHave)}%, +${totalComp}) · 컬러 ${totalColor}/${totalItems} (${pct(totalColor)}%, +${totalColorAdd}) · 인덱스 ${indexCount}`);

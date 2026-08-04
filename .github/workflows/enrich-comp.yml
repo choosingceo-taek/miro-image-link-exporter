@@ -1,6 +1,6 @@
 name: Enrich compositions
 
-# 저장된 카탈로그의 혼용률(comp)을 밤새 미리 채운다 — 보드 스캐너가 스캔 순간에
+# 저장된 카탈로그의 혼용률·컬러웨이를 미리 채운다 — 보드 스캐너가 스캔 순간에
 # 상품 페이지를 읽지 않아도 되게. 점검(Catalog audit)이 끝난 뒤 이어서 돈다.
 on:
   workflow_run:
@@ -58,7 +58,7 @@ jobs:
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           git add -A -- enrich-comp-report.md || true
-          git commit -m "enrich-comp: nightly composition backfill" || echo "no changes"
+          git commit -m "enrich-comp: 혼용률·컬러 보강 리포트" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} \
               && git push origin HEAD:${{ github.ref_name }} && exit 0

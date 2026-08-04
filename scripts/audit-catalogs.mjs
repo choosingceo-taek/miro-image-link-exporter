@@ -156,7 +156,12 @@ for (const c of list) {
   let ov = {};
   try { ov = await getJson(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, 1) || {}; } catch (e) {}
   {
-    const g = (it, k) => String((ov[it.productUrl] || {})[k] || it[k] || "").trim();
+    // 예전 확장(≤1.7.3)이 수집 결과 객체를 통째로 String() 해 넣은 '[object Object]' 는
+    // 값이 아니다. 이걸 세면 채움률이 실제보다 높게 나와 문제를 못 본다.
+    const g = (it, k) => {
+      const t = String((ov[it.productUrl] || {})[k] || it[k] || "").trim();
+      return t === "[object Object]" ? "" : t;
+    };
     const withPrice = items.filter((it) => g(it, "price")).length;
     const withComp = items.filter((it) => g(it, "comp")).length;
     const withColor = items.filter((it) => g(it, "color")).length;
