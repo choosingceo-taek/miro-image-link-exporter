@@ -288,6 +288,34 @@ export default {
     // 혼용률 패치 (POST ?store=comps) — 야간 보강·확장이 {site, comps:{상품URL:혼용률}} 를 보낸다.
     // 카탈로그 본문(items)은 건드리지 않고 comp 만 끼워 넣으므로, 수집과 경합해도
     // 상품이 사라질 일이 없다. KV 쓰기는 브랜드당 1회(무료 한도 1,000/일 안).
+    // 오버레이 통째 저장 (POST ?store=overlay) — 병합은 클라이언트가 하고,
+    // Worker 는 받은 본문을 그대로 KV 에 넣기만 한다.
+    //
+    // 왜: 무료 플랜은 요청당 CPU 10ms 다. store=comps 는 기존 오버레이를
+    // JSON.parse → 항목마다 정규식 정리 → JSON.stringify 를 했는데, 항목이
+    // 400개를 넘어가면 이 CPU 한도를 넘겨 put 전에 죽었다. 실측으로 갈렸다 —
+    // Vince(340) 저장 성공, Whitestuff(419)·Gestuz(667) 실패.
+    // 여기서는 파싱을 아예 하지 않아 크기와 무관하게 안전하다.
+    if (reqUrl.searchParams.get('store') === 'overlay') {
+      const tokOk = !env.ACCESS_TOKEN ||
+        request.headers.get('x-access-token') === env.ACCESS_TOKEN ||
+        reqUrl.searchParams.get('token') === env.ACCESS_TOKEN;
+      if (!tokOk) return json({ error: 'unauthorized' }, 401, cors);
+      if (!env.RACK_CACHE) return json({ error: 'RACK_CACHE KV not configured' }, 500, cors);
+      const site = String(reqUrl.searchParams.get('site') || '').toLowerCase()
+        .replace(/[^a-z0-9.-]/g, '').slice(0, 80);
+      if (!site) return json({ error: 'missing site' }, 400, cors);
+      const text = await request.text();
+      if (!text || text[0] !== '{') return json({ error: 'body must be a JSON object' }, 400, cors);
+      if (text.length > 8 * 1024 * 1024) return json({ error: 'overlay too large' }, 413, cors);
+      try {
+        await env.RACK_CACHE.put('comp:' + site, text);
+      } catch (e) {
+        return json({ error: 'store=overlay: ' + String((e && e.message) || e) }, 200, cors);
+      }
+      return json({ ok: true, site, bytes: text.length }, 200, cors);
+    }
+
     if (reqUrl.searchParams.get('store') === 'comps') {
       const tokOk = !env.ACCESS_TOKEN ||
         request.headers.get('x-access-token') === env.ACCESS_TOKEN ||

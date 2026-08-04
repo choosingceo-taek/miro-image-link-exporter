@@ -363,12 +363,25 @@ async function enrichComps(g, cfg) {
     while (idx < todo.length && state.running) { const k = idx++; await one(todo[k]); }
   }));
   if (!Object.keys(comps).length) return 0;
+  // 병합은 여기서 하고 Worker 에는 완성본을 통째로 넘긴다 — Worker 가 병합하면
+  // 항목이 많을 때 무료 플랜 CPU 한도(10ms)를 넘겨 저장 전에 죽는다.
+  let overlay = {};
+  try { overlay = await (await fetch(cfg.worker + '/?comps=' + encodeURIComponent(g.site) + tok)).json() || {}; }
+  catch (e) {}
+  const merged = { ...overlay };
+  let patched = 0;
+  for (const [url, comp] of Object.entries(comps)) {
+    const cur = { ...(merged[url] || {}) };
+    if (comp && !cur.comp) { cur.comp = String(comp).slice(0, 160); merged[url] = cur; patched++; }
+  }
+  const mk = Object.keys(merged);
+  if (mk.length > 1000) for (const k of mk.slice(0, mk.length - 1000)) delete merged[k];
   try {
-    const r = await (await fetch(cfg.worker + '/?store=comps' + tok, {
+    const r = await (await fetch(cfg.worker + '/?store=overlay&site=' + encodeURIComponent(g.site) + tok, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ site: g.site, comps }),
+      body: JSON.stringify(merged),
     })).json();
-    return r.patched || 0;
+    return r.ok ? patched : 0;
   } catch (e) { return 0; }
 }
 
