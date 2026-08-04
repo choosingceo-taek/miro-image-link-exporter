@@ -183,7 +183,10 @@ for (const c of list) {
   let overlay = {};
   try { overlay = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json()) || {}; } catch (e) {}
   const ov = (p) => overlay[p.productUrl] || {};
-  const full = (p) => { const o = ov(p); return o.comp && o.color && o.sizes && o.price; };
+  // 목표는 원단정보(혼용률)다. 컬러·사이즈·가격은 읽는 김에 같이 담지만,
+  // 혼용률이 이미 있으면 다시 읽지 않는다 — 이것 때문에 이미 끝난 상품을
+  // 계속 재방문하느라 백필이 몇 배로 길어졌다.
+  const full = (p) => Boolean(ov(p).comp);
   const have = items.filter((p) => ov(p).comp).length;   // 리포트 지표는 혼용률 기준
   const todo = items.filter((p) => !full(p)).slice(0, Math.min(PER_BRAND, budget));
   if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, patched: 0 }); continue; }
