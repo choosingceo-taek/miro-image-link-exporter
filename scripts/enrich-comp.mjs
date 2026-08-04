@@ -53,6 +53,13 @@ const compFromHtml = new Function(
 const asComp = (v) => (Array.isArray(v)
   ? v.map((c) => `${c.material} ${c.percent}%`).join(" / ")
   : String(v || "").trim());
+// 엑셀 열을 여는 기준은 "채워졌나"가 아니라 "옳은가"다 — 판정도 worker 와 한 벌.
+const { validComp, validColor } = new Function(
+  slice("const COMP_ITEM_RX", "// ── 페이지 HTML 전체에서 혼용률") +
+  "\n return { validComp, validColor };",
+)();
+// 엑셀 열을 여는 기준선과 최종 목표.
+const GATE = 95, GOAL = 99;
 // fromJsonLd 는 titleCase 를 쓰므로 두 블록을 이어 붙인다.
 const colorFromHtml = new Function(
   slice("const COLOR_JUNK", "function titleCase") + "\n return colorFromHtml;",
@@ -219,6 +226,9 @@ for (const c of list) {
   // 객체·배열이 통째로 String() 돼 들어간 흔적은 값이 아니다.
   // '[object Object]' 하나일 수도, 배열이라 쉼표로 여럿일 수도 있다.
   const valOf = (o, k) => { const t = String((o && o[k]) || "").trim(); return t.includes("[object Object]") ? "" : t; };
+  // '있다'가 아니라 '옳다'로 센다 — 절반만 뽑힌 혼용률("Cotton 60%")이나
+  // 안내 문구가 들어간 컬러("Select")는 채운 것으로 치지 않는다.
+  const okOf = (o, k) => (k === "comp" ? validComp(valOf(o, k)) : k === "color" ? validColor(valOf(o, k)) : !!valOf(o, k));
   // 목표 항목(NEED_FIELDS)이 다 찼거나, 최근에 이미 시도해 봤으면 건너뛴다.
   //
   // "시도했으면 건너뛴다"가 핵심이다. 목표를 comp+color 로 두면, 혼용률은 있는데
@@ -228,15 +238,15 @@ for (const c of list) {
   const RETRY_MS = RETRY_DAYS * 24 * 3600 * 1000;
   const full = (p) => {
     const o = ov(p);
-    if (FIELDS.every((k) => valOf(o, k))) return true;
-    // 쓰레기 값('[object Object]')이 박힌 상품은 시도 시각과 무관하게 다시 읽는다.
+    if (FIELDS.every((k) => okOf(o, k))) return true;
+    // 값이 들어 있는데 옳지 않으면(쓰레기·절반만 뽑힘) 시도 시각과 무관하게 다시 읽는다.
     // 안 그러면 잘못 저장된 값이 재시도 기간(RETRY_DAYS) 내내 자리를 차지한다.
-    if (FIELDS.some((k) => o[k] && !valOf(o, k))) return false;
+    if (FIELDS.some((k) => valOf(o, k) && !okOf(o, k))) return false;
     return o.t && now - o.t < RETRY_MS;   // 최근 시도 → 이번엔 넘긴다
   };
   // 엑셀에 나가는 두 항목을 따로 센다 — 합쳐 보면 어느 쪽이 비었는지 알 수 없다.
-  const have = items.filter((p) => valOf(ov(p), "comp")).length;
-  const haveColor = items.filter((p) => valOf(ov(p), "color")).length;
+  const have = items.filter((p) => okOf(ov(p), "comp")).length;
+  const haveColor = items.filter((p) => okOf(ov(p), "color")).length;
   const todo = items.filter((p) => !full(p)).slice(0, Math.min(PER_BRAND, budget));
   if (!todo.length) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, have, haveColor, patched: 0 }); continue; }
 
@@ -268,12 +278,15 @@ for (const c of list) {
       let n = 0;
       for (const [k, max] of [["comp", 160], ["color", 80], ["sizes", 200], ["price", 40], ["priceOrig", 40]]) {
         const t = clean(inc[k], max);
-        if (t && !valOf(cur, k)) {
+        // 옳지 않은 값은 아예 저장하지 않는다. 저장해 두면 다음 실행이 "값은 있는데
+        // 옳지 않다"고 보고 재시도 기간을 무시한 채 영원히 다시 읽는다.
+        const good = k === "comp" ? validComp(t) : k === "color" ? validColor(t) : !!t;
+        if (good && !okOf(cur, k)) {
           cur[k] = t; n++;
           if (k === "comp") addComp++;
           if (k === "color") addColor++;
-        } else if (cur[k] && !valOf(cur, k)) {
-          delete cur[k];   // 예전 확장이 넣은 '[object Object]' 정리
+        } else if (cur[k] && !okOf(cur, k)) {
+          delete cur[k];   // 예전에 잘못 저장된 값 정리('[object Object]', 절반만 뽑힌 혼용률)
         }
       }
       // 값을 못 찾았어도 "시도했음"은 남긴다 — 안 남기면 같은 상품을 매번 다시 읽는다.
@@ -311,8 +324,8 @@ for (const c of list) {
     try {
       const re = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json());
       const vs2 = Object.values(re || {});
-      verify = vs2.filter((o) => valOf(o, "comp")).length;
-      verifyColor = vs2.filter((o) => valOf(o, "color")).length;
+      verify = vs2.filter((o) => validComp(valOf(o, "comp"))).length;
+      verifyColor = vs2.filter((o) => validColor(valOf(o, "color"))).length;
       // 쓰기 직후 읽기는 KV 지연으로 0 이 나올 수 있다 — 쓴 것도 없을 때만 문제로 본다.
       if (patched === 0 && verify === 0) {
         console.log(`  !! ${c.site}: 저장 후에도 오버레이 비어 있음 — 첫 키 ${keys[0].slice(0, 120)}`);
@@ -367,11 +380,28 @@ const totalColor = done.reduce((s, r) => s + (r.haveColor || 0), 0);
 const totalComp = done.reduce((s, r) => s + (r.addComp || 0), 0);
 const totalColorAdd = done.reduce((s, r) => s + (r.addColor || 0), 0);
 const pct = (n) => (totalItems ? Math.round((n / totalItems) * 100) : 0);
+const compPct = pct(totalHave), colorPct = pct(totalColor);
+const worst = Math.min(compPct, colorPct);
+const need = (p2) => Math.max(0, Math.ceil((p2 / 100) * totalItems) - Math.min(totalHave, totalColor));
+
 let md = `# 엑셀 항목 보강 결과 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+// ── 엑셀 열 개방 기준 ──────────────────────────────────────────────
+// 절반만 찬 표는 쓸 수 없다는 판단으로, 두 항목이 모두 GATE% 를 넘을 때만
+// 보드 스캐너 엑셀에 열을 연다(index.html 의 SHOW_FABRIC_COLUMNS).
+// 여기서 세는 것은 "채워졌나"가 아니라 "옳은가"다 — 절반만 뽑힌 혼용률
+// ("Cotton 60%")이나 안내 문구가 들어간 컬러("Select")는 세지 않는다.
+md += `## 엑셀 열 개방 판정 (기준 ${GATE}% · 목표 ${GOAL}%)\n\n`;
+md += worst >= GATE
+  ? `**열어도 됩니다** — 혼용률 ${compPct}% · 컬러웨이 ${colorPct}%, 둘 다 ${GATE}% 이상.\n` +
+    `index.html 의 \`SHOW_FABRIC_COLUMNS\` 를 true 로 바꾸면 열이 열립니다.\n` +
+    (worst >= GOAL ? `목표 ${GOAL}% 도 넘었습니다.\n\n` : `목표 ${GOAL}% 까지 ${need(GOAL)}개 남았습니다.\n\n`)
+  : `**아직입니다** — 혼용률 ${compPct}% · 컬러웨이 ${colorPct}%.\n` +
+    `기준 ${GATE}% 까지 ${need(GATE)}개, 목표 ${GOAL}% 까지 ${need(GOAL)}개 더 채워야 합니다.\n\n`;
+
 md += `목표 항목: ${FIELDS.join(", ")} · 상품 ${totalItems}개\n\n`;
-md += `| 항목 | 보유 | 채움률 | 이번 실행 |\n|---|---:|---:|---:|\n`;
-md += `| 혼용률 | ${totalHave} | ${pct(totalHave)}% | +${totalComp} |\n`;
-md += `| 컬러웨이 | ${totalColor} | ${pct(totalColor)}% | +${totalColorAdd} |\n\n`;
+md += `| 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |\n|---|---:|---:|---:|\n`;
+md += `| 혼용률 | ${totalHave} | ${compPct}% | +${totalComp} |\n`;
+md += `| 컬러웨이 | ${totalColor} | ${colorPct}% | +${totalColorAdd} |\n\n`;
 md += `- 검색 인덱스 재구축: ${indexCount}개\n\n`;
 md += `백필은 브랜드당 ${PER_BRAND}개·한 회차 ${TOTAL}개 상한이다. 목표 항목이 다 찬 상품과\n`;
 md += `${RETRY_DAYS}일 안에 시도해 본 상품은 건너뛴다 — 사이트가 안 적는 값을 영원히 다시 읽지 않기 위해서다.\n\n`;
@@ -404,4 +434,5 @@ if (errs.length) {
   for (const r of errs) md += `- ${r.brand}: ${r.error}\n`;
 }
 writeFileSync(join(ROOT, "enrich-comp-report.md"), md);
-console.log(`\n혼용률 ${totalHave}/${totalItems} (${pct(totalHave)}%, +${totalComp}) · 컬러 ${totalColor}/${totalItems} (${pct(totalColor)}%, +${totalColorAdd}) · 인덱스 ${indexCount}`);
+console.log(`\n혼용률 ${totalHave}/${totalItems} (${compPct}%, +${totalComp}) · 컬러 ${totalColor}/${totalItems} (${colorPct}%, +${totalColorAdd}) · 인덱스 ${indexCount}`);
+console.log(worst >= GATE ? `엑셀 열 개방 기준 ${GATE}% 충족 — SHOW_FABRIC_COLUMNS 를 켤 수 있다` : `엑셀 열 개방 기준 ${GATE}% 미달 — ${need(GATE)}개 부족`);

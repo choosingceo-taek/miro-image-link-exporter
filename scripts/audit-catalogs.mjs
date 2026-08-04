@@ -7,12 +7,22 @@
 //
 // env: WORKER_URL, WORKER_TOKEN, RENDER_URL, LIMIT(브랜드당 표시 개수, 기본 12)
 
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
+
+// 값이 옳은지 판정하는 규칙은 worker 에 한 벌만 둔다 — 여기서 따로 세면
+// 백필 리포트와 점검 리포트의 채움률이 서로 다르게 나온다.
+const { validComp, validColor } = (() => {
+  const src = readFileSync(join(dirname(fileURLToPath(import.meta.url)), "..", "worker/fabric-extractor.js"), "utf8");
+  const i = src.indexOf("const COMP_ITEM_RX");
+  const j = src.indexOf("// ── 페이지 HTML 전체에서 혼용률");
+  if (i < 0 || j < 0) throw new Error("worker 의 값 판정 블록을 찾지 못함");
+  return new Function(src.slice(i, j) + "\n return { validComp, validColor };")();
+})();
 const RENDER = (process.env.RENDER_URL || "https://market-research-uzs2.onrender.com").replace(/\/+$/, "");
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
 const LIMIT = Math.max(1, Number(process.env.LIMIT) || 12);
@@ -162,9 +172,10 @@ for (const c of list) {
       const t = String((ov[it.productUrl] || {})[k] || it[k] || "").trim();
       return t.includes("[object Object]") ? "" : t;
     };
+    // 혼용률·컬러는 '있다'가 아니라 '옳다'로 센다 — 엑셀 열 개방 기준과 같은 잣대.
     const withPrice = items.filter((it) => g(it, "price")).length;
-    const withComp = items.filter((it) => g(it, "comp")).length;
-    const withColor = items.filter((it) => g(it, "color")).length;
+    const withComp = items.filter((it) => validComp(g(it, "comp"))).length;
+    const withColor = items.filter((it) => validColor(g(it, "color"))).length;
     const withSizes = items.filter((it) => g(it, "sizes")).length;
     fieldCov.push({
       brand: d.brand || c.brand || c.site,

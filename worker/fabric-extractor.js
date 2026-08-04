@@ -1114,6 +1114,38 @@ function compFromText(text) {
   return out;
 }
 
+// ── 값이 "쓸 수 있는" 값인지 ────────────────────────────────────────────
+// 엑셀 열을 여는 기준(95%)은 "채워졌나"가 아니라 "옳은가"여야 한다. 채움률만
+// 세면 '[object Object]' 도, "Cotton 60%" 처럼 절반만 뽑힌 것도 채운 것으로
+// 잡혀서, 기준선을 넘겨 놓고 정작 표는 못 쓰는 상태가 된다.
+//
+// 혼용률이 옳다 = 모든 항목이 "섬유 NN%" 꼴이고, 합이 한 겹(100% 안팎)이거나
+// 겉감+안감 두 겹(200% 안팎)이다. 60% 하나만 있으면 나머지를 놓친 것이므로 버린다.
+const COMP_ITEM_RX = /^[A-Za-z][A-Za-z ]{1,24} (\d{1,3})%$/;
+function validComp(s) {
+  const t = String(s || '').trim();
+  if (!t || t.includes('[object Object]')) return false;
+  const parts = t.split(' / ');
+  if (parts.length > 8) return false;
+  let total = 0;
+  for (const p of parts) {
+    const m = p.match(COMP_ITEM_RX);
+    if (!m) return false;
+    const n = Number(m[1]);
+    if (!(n > 0 && n <= 100)) return false;
+    total += n;
+  }
+  return (total >= 95 && total <= 105) || (total >= 190 && total <= 210);
+}
+// 컬러가 옳다 = 사람이 읽는 색 이름이다. 안내 문구("Select")·색상코드(#fff)·
+// 숫자만 있는 값은 엑셀에 실리면 오히려 헷갈린다.
+const COLOR_BAD_RX = /^(?:select|choose|colou?r|색상|컬러|선택|기타|없음|n\/a|none|null|undefined|\d+|#[0-9a-f]{3,8})$/i;
+function validColor(s) {
+  const t = String(s || '').trim();
+  if (!t || t.length > 40 || t.includes('[object Object]')) return false;
+  return !COLOR_BAD_RX.test(t);
+}
+
 // ── 페이지 HTML 전체에서 혼용률 ────────────────────────────────────────
 // compFromText 만 쓰면 두 가지를 놓친다.
 //
