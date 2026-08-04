@@ -413,6 +413,8 @@ async function enrichComps(g, cfg) {
     const o = overlay[p.productUrl];
     if (!o) return false;
     if (val(o, 'comp') && val(o, 'color')) return true;
+    // 쓰레기 값이 박힌 상품은 시도 시각과 무관하게 다시 읽는다.
+    if (['comp', 'color'].some((k) => o[k] && !val(o, k))) return false;
     // 값이 없어도 최근에 시도했으면 넘긴다 — 안 그러면 컬러를 안 적는 사이트의
     // 상품을 매번 다시 읽느라 정작 손 안 댄 상품까지 차례가 안 온다.
     return o.t && now - o.t < RETRY_MS;

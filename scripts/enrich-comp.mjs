@@ -229,6 +229,9 @@ for (const c of list) {
   const full = (p) => {
     const o = ov(p);
     if (FIELDS.every((k) => valOf(o, k))) return true;
+    // 쓰레기 값('[object Object]')이 박힌 상품은 시도 시각과 무관하게 다시 읽는다.
+    // 안 그러면 잘못 저장된 값이 재시도 기간(RETRY_DAYS) 내내 자리를 차지한다.
+    if (FIELDS.some((k) => o[k] && !valOf(o, k))) return false;
     return o.t && now - o.t < RETRY_MS;   // 최근 시도 → 이번엔 넘긴다
   };
   // 엑셀에 나가는 두 항목을 따로 센다 — 합쳐 보면 어느 쪽이 비었는지 알 수 없다.
