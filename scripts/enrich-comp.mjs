@@ -40,6 +40,9 @@ const compFromText = new Function(
   slice("const FIBRES = {", "function titleCase") + "\n return compFromText;",
 )();
 // fromJsonLd 는 titleCase 를 쓰므로 두 블록을 이어 붙인다.
+const colorFromHtml = new Function(
+  slice("const COLOR_JUNK", "function titleCase") + "\n return colorFromHtml;",
+)();
 const fromJsonLd = new Function(
   slice("function fromJsonLd(html) {", "const FIBRES = {") +
   slice("function titleCase(s) {", "// 페이지 제목") + "\n return fromJsonLd;",
@@ -110,7 +113,8 @@ async function enrichOf(url, stat) {
       comp: (ld.composition && ld.composition.length)
         ? ld.composition.map((c) => `${c.material} ${c.percent}%`).join(" / ")
         : compFromText(text),
-      color: ld.color || "",
+      // 색은 JSON-LD 에 없는 경우가 더 많다 — 페이지의 색상 선택 옵션에서도 읽는다.
+      color: ld.color || colorFromHtml(html),
       sizes: (ld.sizes || []).slice(0, 30).join(", "),
       price: ld.price || "",
       priceOrig: ld.price_original || "",
