@@ -56,42 +56,42 @@ blocks.forEach((code, i) => {
   }
 });
 
-// 엑셀 열 구성 — SHOW_FABRIC_COLUMNS 스위치가 정한다.
-// 컬러웨이·혼용률은 모든 브랜드에서 값이 채워질 때까지 열에서 뺀 상태다.
-// 여기서는 두 가지를 확인한다: ① 지금 스위치대로 열이 나오는지
-// ② 스위치를 켰을 때 여섯 열이 되는지 — 켜는 순간 깨지면 의미가 없다.
+// 엑셀 열 구성 — 컬러웨이·혼용률 열을 열지 말지는 그 파일에 실리는 상품들이 정한다.
+// 여기서 확인하는 것: ① 열 목록이 두 상태 모두 온전한지 ② 열 문자가 순서대로
+// 붙는지(어긋나면 '확인 필요' 서식이 엉뚱한 칸에 간다) ③ 95% 기준이 실제로 그
+// 기준대로 동작하는지 — 켜는 순간 깨지면 열어 봐야 의미가 없다.
 let colLabel = "";
 {
-  const i2 = html.indexOf("const SHOW_FABRIC_COLUMNS");
+  const i2 = html.indexOf("const COMP_ITEM_RX");
   const j2 = html.indexOf("function rowValues");
   if (i2 < 0 || j2 < 0) { console.error("❌ 엑셀 열 선언부를 찾지 못함"); process.exit(1); }
   const decl = html.slice(i2, j2);
-  const build = (on) => new Function(
-    decl.replace(/const SHOW_FABRIC_COLUMNS = (?:true|false);/, `const SHOW_FABRIC_COLUMNS = ${on};`) +
-    "\n return { cols: XLSX_COLS.map((c) => c.header), rowCol: ROW_COL };",
-  )();
+  let api;
+  try {
+    api = new Function(
+      "const cleanVal = (v) => { const t = String(v || '').trim(); return t.includes('[object Object]') ? '' : t; };\n" +
+      decl +
+      "\n return { colsFor, rowColFor, fabricReady, FABRIC_GATE };",
+    )();
+  } catch (e) {
+    console.error("❌ 엑셀 열 선언부 실행 실패:", String((e && e.message) || e));
+    process.exit(1);
+  }
 
-  const on = /const SHOW_FABRIC_COLUMNS = true;/.test(decl);
   const BASE = ["브랜드", "썸네일", "URL", "상품명"];
   const FULL = BASE.concat(["컬러웨이", "혼용률"]);
-
-  const now = build(on);
-  const want = on ? FULL : BASE;
-  if (JSON.stringify(now.cols) !== JSON.stringify(want)) {
-    console.error(`❌ 지금 열 구성이 스위치와 다름\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(now.cols)}`);
-    process.exit(1);
+  const headers = (on) => api.colsFor(on).map((c) => c.header);
+  for (const [on, want] of [[false, BASE], [true, FULL]]) {
+    if (JSON.stringify(headers(on)) !== JSON.stringify(want)) {
+      console.error(`❌ 열 구성이 다름(열 ${on ? "열림" : "닫힘"})\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(headers(on))}`);
+      process.exit(1);
+    }
   }
   // URL 은 항상 C 열이어야 한다(하이퍼링크를 C 에 박는다).
-  if (now.cols[2] !== "URL") { console.error("❌ URL 이 C 열이 아님 — 하이퍼링크가 엉뚱한 칸에 박힌다"); process.exit(1); }
-
-  const flipped = build(!on);
-  const wantFlipped = on ? BASE : FULL;
-  if (JSON.stringify(flipped.cols) !== JSON.stringify(wantFlipped)) {
-    console.error(`❌ 스위치를 반대로 놓으면 깨짐\n   기대 ${JSON.stringify(wantFlipped)}\n   실제 ${JSON.stringify(flipped.cols)}`);
-    process.exit(1);
+  if (headers(true)[2] !== "URL" || headers(false)[2] !== "URL") {
+    console.error("❌ URL 이 C 열이 아님 — 하이퍼링크가 엉뚱한 칸에 박힌다"); process.exit(1);
   }
-  // 열 문자가 순서대로 붙는지 — 어긋나면 '확인 필요' 서식이 엉뚱한 칸에 간다.
-  const full = build(true).rowCol;
+  const full = api.rowColFor(api.colsFor(true));
   const wantCol = { brand: "A", name: "D", color: "E", comp: "F" };
   for (const k of Object.keys(wantCol)) {
     if (full[k] !== wantCol[k]) {
@@ -99,7 +99,28 @@ let colLabel = "";
       process.exit(1);
     }
   }
-  colLabel = on ? "열 6개(컬러웨이·혼용률 포함)" : "열 4개(컬러웨이·혼용률은 스위치 off)";
+
+  // 95% 기준이 실제로 그렇게 동작하는지. 20개 중 1개까지는 비어도 열린다(95%),
+  // 2개가 비면 닫힌다(90%). 값이 '있는' 게 아니라 '옳은' 것만 센다.
+  const ok = { comp: "Cotton 100%", color: "White" };
+  const mk = (n, f) => Array.from({ length: n }, (_, k) => (f && f(k)) || { ...ok });
+  const gateCases = [
+    ["전부 옳으면 열린다", mk(20), true],
+    ["20개 중 1개 빔(95%) — 열린다", mk(20, (k) => (k === 0 ? {} : null)), true],
+    ["20개 중 2개 빔(90%) — 닫힌다", mk(20, (k) => (k < 2 ? {} : null)), false],
+    ["혼용률만 차고 컬러가 비면 닫힌다", mk(20, () => ({ comp: "Cotton 100%" })), false],
+    ["절반만 뽑힌 혼용률은 옳지 않다", mk(20, () => ({ comp: "Cotton 60%", color: "White" })), false],
+    ["안내 문구 컬러는 옳지 않다", mk(20, () => ({ comp: "Cotton 100%", color: "Select" })), false],
+    ["'[object Object]' 는 값이 아니다", mk(20, () => ({ comp: "[object Object]", color: "[object Object]" })), false],
+    ["상품이 없으면 닫힌다", [], false],
+  ];
+  let gateBad = 0;
+  for (const [label, items, want] of gateCases) {
+    const got = api.fabricReady(items);
+    if (got !== want) { console.error(`❌ 열 판정 · ${label}: 기대 ${want} 실제 ${got}`); gateBad++; }
+  }
+  if (gateBad) { console.error(`\n열 판정 ${gateBad}건 실패`); process.exit(1); }
+  colLabel = `열 4↔6개 전환 · 개방 기준 ${Math.round(api.FABRIC_GATE * 100)}% ${gateCases.length}건`;
 }
 
 if (bad) { console.error(`\n패널 로드 실패 ${bad}건 — 미로 앱에서 같은 오류가 화면에 뜬다`); process.exit(1); }

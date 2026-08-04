@@ -17,6 +17,16 @@ const { validComp, validColor } = new Function(
   src.slice(i, j) + "\n return { validComp, validColor };",
 )();
 
+// 패널(index.html)은 같은 판정기를 복사해 갖고 있다 — 엑셀 열을 열지 말지를
+// 브라우저에서 그 자리에 판단해야 하기 때문이다. 두 벌이 어긋나면 Worker 가
+// "옳다"고 센 값을 패널은 버리게 되고(또는 그 반대), 기준선 자체가 무의미해진다.
+// 그래서 같은 표로 두 구현을 함께 돌린다.
+const panelSrc = readFileSync(join(ROOT, "index.html"), "utf8");
+const pi = panelSrc.indexOf("const COMP_ITEM_RX");
+const pj = panelSrc.indexOf("// ── 컬러웨이·혼용률 열 스위치");
+if (pi < 0 || pj < 0) { console.error("❌ 패널의 판정 블록을 찾지 못함 — index.html 구조 확인"); process.exit(1); }
+const panel = new Function(panelSrc.slice(pi, pj) + "\n return { validComp, validColor };")();
+
 const COMP = [
   // ── 옳은 값 ──
   ["한 가지 섬유 100%", "Cotton 100%", true],
@@ -58,13 +68,16 @@ const COLOR = [
 ];
 
 let bad = 0;
-for (const [label, v, want] of COMP) {
-  const got = validComp(v);
-  if (got !== want) { bad++; console.error(`❌ 혼용률 · ${label}: ${JSON.stringify(v)} → 기대 ${want} 실제 ${got}`); }
-}
-for (const [label, v, want] of COLOR) {
-  const got = validColor(v);
-  if (got !== want) { bad++; console.error(`❌ 컬러 · ${label}: ${JSON.stringify(v)} → 기대 ${want} 실제 ${got}`); }
+const IMPLS = [["worker", { validComp, validColor }], ["패널", panel]];
+for (const [who, impl] of IMPLS) {
+  for (const [label, v, want] of COMP) {
+    const got = impl.validComp(v);
+    if (got !== want) { bad++; console.error(`❌ [${who}] 혼용률 · ${label}: ${JSON.stringify(v)} → 기대 ${want} 실제 ${got}`); }
+  }
+  for (const [label, v, want] of COLOR) {
+    const got = impl.validColor(v);
+    if (got !== want) { bad++; console.error(`❌ [${who}] 컬러 · ${label}: ${JSON.stringify(v)} → 기대 ${want} 실제 ${got}`); }
+  }
 }
 if (bad) { console.error(`\n값 판정 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 값 판정 통과 — 혼용률 ${COMP.length}건 · 컬러 ${COLOR.length}건`);
+console.log(`✅ 값 판정 통과 — 혼용률 ${COMP.length}건 · 컬러 ${COLOR.length}건 (worker·패널 두 구현 일치)`);

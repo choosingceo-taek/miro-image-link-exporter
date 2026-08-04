@@ -20,53 +20,63 @@ if (!m) { console.error("❌ rowValues 블록을 찾지 못함 — index.html �
 const NEED = "확인 필요";
 const rowValues = new Function(m[0] + "\n return rowValues;")();
 
-// 열 구성은 SHOW_FABRIC_COLUMNS 스위치가 정한다. 썸네일·URL 은 보드 값을
-// 그대로 쓰므로 rowValues 가 만드는 것은 브랜드·상품명(+스위치가 켜져 있으면
-// 컬러웨이·혼용률)이다. 기대값도 스위치를 읽어서 만든다.
-const ON = /const SHOW_FABRIC_COLUMNS = true;/.test(src);
-const opt = (o) => (ON ? o : {});
+// 썸네일·URL 은 보드 값을 그대로 쓰므로 rowValues 가 만드는 것은 브랜드·상품명
+// (+컬러웨이·혼용률 열이 열렸을 때 그 둘)이다. 열이 열렸는지는 이제 그 파일에
+// 실리는 상품들이 정하므로(fabricReady), 테스트는 두 경우를 다 돌린다.
+const ROW_COL_BASE = { brand: "A", name: "D" };
+const ROW_COL_FULL = { brand: "A", name: "D", color: "E", comp: "F" };
+const run = (r, brand, on) => rowValues(r, brand, on ? ROW_COL_FULL : ROW_COL_BASE, on);
+// [설명, 입력, 열이 닫혔을 때 기대, 열이 열렸을 때 기대]
 const CASES = [
   ["브랜드·상품명이 있으면 그대로",
     { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt", color: "Optic White", comp: "Modal 90% / Silk 10%" },
-    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt",
-      ...opt({ color: "Optic White", comp: "Modal 90% / Silk 10%" }) }],
+    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt", color: undefined, comp: undefined },
+    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt", color: "Optic White", comp: "Modal 90% / Silk 10%" }],
 
   ["브랜드가 없으면 도메인 추정값을 쓴다",
     { name: "Tee", color: "Black", comp: "Cotton 100%" },
+    { brand: "freepeople", name: "Tee" },
     { brand: "freepeople", name: "Tee" }],
 
   ["상품명을 못 가져왔으면 확인 필요",
     { brand: "Gap", color: "Navy", comp: "Cotton 100%" },
+    { brand: "Gap", name: NEED },
     { brand: "Gap", name: NEED }],
 
   ["아무것도 없음 → 전 항목 확인 필요",
     {},
-    { brand: NEED, name: NEED, ...opt({ color: NEED, comp: NEED }) }],
+    { brand: NEED, name: NEED, color: undefined, comp: undefined },
+    { brand: NEED, name: NEED, color: NEED, comp: NEED }],
 
-  ["스위치가 꺼져 있으면 컬러·혼용률은 결과에 없다",
+  ["열이 닫혀 있으면 컬러·혼용률은 결과에 없다",
     { brand: "Arket", name: "Rib T-shirt", color: "White", comp: "Cotton 100%" },
-    ON ? { color: "White", comp: "Cotton 100%" } : { color: undefined, comp: undefined }],
+    { color: undefined, comp: undefined },
+    { color: "White", comp: "Cotton 100%" }],
 
   ["옛 저장 사고로 남은 '[object Object]' 는 값이 아니다",
     { brand: "Arket", name: "Rib T-shirt", color: "[object Object]", comp: "[object Object],[object Object]" },
-    ON ? { color: NEED, comp: NEED } : { color: undefined, comp: undefined }],
+    { color: undefined, comp: undefined },
+    { color: NEED, comp: NEED }],
 
   ["가격·사이즈는 열에 없으므로 결과에 없다",
     { brand: "Arket", name: "Rib T-shirt", price: "$40", sizes: "S, M" },
+    { brand: "Arket", name: "Rib T-shirt", price: undefined, sizes: undefined },
     { brand: "Arket", name: "Rib T-shirt", price: undefined, sizes: undefined }],
 ];
 
-
 let bad = 0;
-for (const [label, input, want] of CASES) {
-  const got = rowValues(input, label.includes("도메인 추정값") ? "freepeople" : "");
-  for (const k of Object.keys(want)) {
-    if (got[k] !== want[k]) {
-      bad++;
-      console.error(`❌ ${label} · ${k}\n   기대 ${JSON.stringify(want[k])}\n   실제 ${JSON.stringify(got[k])}`);
+for (const [label, input, wantOff, wantOn] of CASES) {
+  const brand = label.includes("도메인 추정값") ? "freepeople" : "";
+  for (const [on, want] of [[false, wantOff], [true, wantOn]]) {
+    const got = run(input, brand, on);
+    for (const k of Object.keys(want)) {
+      if (got[k] !== want[k]) {
+        bad++;
+        console.error(`❌ ${label} · ${k} (열 ${on ? "열림" : "닫힘"})\n   기대 ${JSON.stringify(want[k])}\n   실제 ${JSON.stringify(got[k])}`);
+      }
     }
   }
 }
 
 if (bad) { console.error(`\n행 값 계산 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 엑셀 행 값 ${CASES.length}건 통과 (컬러·혼용률 스위치 ${ON ? "on" : "off"})`);
+console.log(`✅ 엑셀 행 값 ${CASES.length}건 통과 (열 닫힘·열림 양쪽)`);
