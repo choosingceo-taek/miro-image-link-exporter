@@ -161,6 +161,19 @@ if (!state.running) keepAlive(false);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// ── 아침 마감 ──────────────────────────────────────────────────────
+// 수집은 사람이 자리를 비운 사이에 끝나 있어야 한다. 출근해서 쓰기 시작할 때
+// 수집 창이 남아 있으면 안 되고, 브라우저를 닫아 강제로 끊기면 그 브랜드는
+// 반쪽만 저장된다. 그래서 마감 시각을 넘기면 스스로, 깨끗이 멈춘다.
+// (브랜드 하나를 다 끝낸 지점에서 멈추므로 저장이 잘리지 않는다)
+const DEADLINE_HOUR = 7;
+function deadlineFrom(now) {
+  const at = new Date(now);
+  at.setHours(DEADLINE_HOUR, 0, 0, 0);
+  if (at.getTime() <= now) at.setDate(at.getDate() + 1);
+  return at.getTime();
+}
+
 // ── 자리를 비웠을 때만 수집 ─────────────────────────────────────────
 // 수집은 실제 크롬 창을 몇 시간 동안 돌린다. 사용자가 일하는 중에 겹치면 화면도
 // 네트워크도 나눠 쓰게 되고, 무엇보다 쇼핑몰이 그 사람 IP 를 막으면 정작 본인이
@@ -549,7 +562,16 @@ async function collect(input) {
   if (state.running) return;
   const cfg = await getCfg();
   const { visible, maxPages } = await getSched();
-  const groups = asGroups(input);
+  let groups = asGroups(input);
+  // 지난밤 어디까지 했는지 기억했다가 그다음 브랜드부터 시작한다.
+  // 늘 목록 처음부터 하면, 아침까지 시간이 모자랄 때 뒤쪽 브랜드는 영영
+  // 수집되지 않는다 — 매일 밤 같은 앞부분만 다시 긁게 된다.
+  try {
+    const { lastSite } = await chrome.storage.local.get(['lastSite']);
+    const i = groups.findIndex((g) => g.site === lastSite);
+    if (i >= 0 && groups.length > 1) groups = groups.slice(i + 1).concat(groups.slice(0, i + 1));
+  } catch (e) {}
+  const stopAt = deadlineFrom(Date.now());
   const totalUrls = groups.reduce((s, g) => s + g.urls.length, 0);
   let okCount = 0, failCount = 0;
   // 표시 모드: 전용 창 하나를 만들어 거기서 탭을 돌린다(사용자 작업창을 건드리지 않음).
@@ -575,8 +597,16 @@ async function collect(input) {
   // 실제 수집이 시작되는 지점 — 기다린 시간은 소요 시간에 넣지 않는다.
   state.startedAt = Date.now();
   state.current = '';
+  let stopped = 0;
   for (const g of groups) {
     if (!state.running) break;
+    // 마감을 넘겼으면 다음 브랜드로 넘어가지 않는다. 남은 브랜드는 내일 밤
+    // 여기서부터 이어서 한다(위 순환).
+    if (Date.now() >= stopAt) {
+      stopped = groups.length - groups.indexOf(g);
+      pushLog({ url: '', ok: true, count: 0, msg: `아침 ${DEADLINE_HOUR}시 — 여기서 멈춤. 남은 ${stopped}개 브랜드는 내일 밤 이어서` });
+      break;
+    }
     // 한 브랜드의 모든 카테고리 URL을 먼저 모은 뒤, 브랜드 단위로 한 번만 저장한다.
     const brandItems = new Map();
     // 카테고리 URL 자체가 상품으로 잡히는 것을 막는다(목록 상단의 하위 카테고리 타일).
@@ -686,6 +716,8 @@ async function collect(input) {
       failCount++;
       pushLog({ url: g.site, ok: false, count: 0, msg: `${g.brand} · 수집 0개(저장 안 함 — 이전 저장본 유지)` });
     }
+    // 이 브랜드는 끝났다. 중간에 멈춰도 내일 밤 그다음부터 이어갈 수 있게 남긴다.
+    try { await chrome.storage.local.set({ lastSite: g.site }); } catch (e) {}
   }
   if (winId) { try { await chrome.windows.remove(winId); } catch (e) {} }
   keepAlive(false);
@@ -693,7 +725,7 @@ async function collect(input) {
   state.current = '';
   // 팝업이 "마지막 실행" 요약을 보여줄 수 있도록 저장(서비스워커가 잠들어도 유지).
   await chrome.storage.local.set({
-    lastRun: { when: Date.now(), ok: okCount, fail: failCount, total: groups.length, urls: totalUrls },
+    lastRun: { when: Date.now(), ok: okCount, fail: failCount, total: groups.length, urls: totalUrls, stopped },
   });
 }
 
