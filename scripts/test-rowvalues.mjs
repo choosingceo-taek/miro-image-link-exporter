@@ -20,12 +20,16 @@ if (!m) { console.error("❌ rowValues 블록을 찾지 못함 — index.html �
 const NEED = "확인 필요";
 const rowValues = new Function(m[0] + "\n return rowValues;")();
 
-// 엑셀 6열: 브랜드 · 썸네일 · URL · 상품명 · 컬러웨이 · 혼용률.
-// 썸네일과 URL 은 보드 값을 그대로 쓰므로 rowValues 가 만드는 것은 네 가지다.
+// 열 구성은 SHOW_FABRIC_COLUMNS 스위치가 정한다. 썸네일·URL 은 보드 값을
+// 그대로 쓰므로 rowValues 가 만드는 것은 브랜드·상품명(+스위치가 켜져 있으면
+// 컬러웨이·혼용률)이다. 기대값도 스위치를 읽어서 만든다.
+const ON = /const SHOW_FABRIC_COLUMNS = true;/.test(src);
+const opt = (o) => (ON ? o : {});
 const CASES = [
-  ["브랜드·상품명·컬러·혼용률이 있으면 그대로",
+  ["브랜드·상품명이 있으면 그대로",
     { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt", color: "Optic White", comp: "Modal 90% / Silk 10%" },
-    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt", color: "Optic White", comp: "Modal 90% / Silk 10%" }],
+    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt",
+      ...opt({ color: "Optic White", comp: "Modal 90% / Silk 10%" }) }],
 
   ["브랜드가 없으면 도메인 추정값을 쓴다",
     { name: "Tee", color: "Black", comp: "Cotton 100%" },
@@ -37,20 +41,21 @@ const CASES = [
 
   ["아무것도 없음 → 전 항목 확인 필요",
     {},
-    { brand: NEED, name: NEED, color: NEED, comp: NEED }],
+    { brand: NEED, name: NEED, ...opt({ color: NEED, comp: NEED }) }],
 
-  ["야간 수집이 컬러·혼용률을 못 채웠으면 확인 필요",
-    { brand: "Arket", name: "Rib T-shirt" },
-    { brand: "Arket", name: "Rib T-shirt", color: NEED, comp: NEED }],
+  ["스위치가 꺼져 있으면 컬러·혼용률은 결과에 없다",
+    { brand: "Arket", name: "Rib T-shirt", color: "White", comp: "Cotton 100%" },
+    ON ? { color: "White", comp: "Cotton 100%" } : { color: undefined, comp: undefined }],
 
   ["옛 저장 사고로 남은 '[object Object]' 는 값이 아니다",
-    { brand: "Arket", name: "Rib T-shirt", color: "[object Object]", comp: "[object Object]" },
-    { color: NEED, comp: NEED }],
+    { brand: "Arket", name: "Rib T-shirt", color: "[object Object]", comp: "[object Object],[object Object]" },
+    ON ? { color: NEED, comp: NEED } : { color: undefined, comp: undefined }],
 
-  ["가격·사이즈는 열에서 빠졌으므로 결과에 없다",
+  ["가격·사이즈는 열에 없으므로 결과에 없다",
     { brand: "Arket", name: "Rib T-shirt", price: "$40", sizes: "S, M" },
-    { brand: "Arket", name: "Rib T-shirt" }],
+    { brand: "Arket", name: "Rib T-shirt", price: undefined, sizes: undefined }],
 ];
+
 
 let bad = 0;
 for (const [label, input, want] of CASES) {
@@ -64,4 +69,4 @@ for (const [label, input, want] of CASES) {
 }
 
 if (bad) { console.error(`\n행 값 계산 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 엑셀 행 값 ${CASES.length}건 통과`);
+console.log(`✅ 엑셀 행 값 ${CASES.length}건 통과 (컬러·혼용률 스위치 ${ON ? "on" : "off"})`);
