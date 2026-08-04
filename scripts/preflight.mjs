@@ -155,6 +155,37 @@ console.log(`     05:00  크롬 확장          — blocked.brands ${(blocked.br
 console.log("     05:30  혼용률·컬러 보강   — 저장된 카탈로그의 빈 항목");
 console.log("     06:00  커버리지 점검      — 담당 없는 브랜드 찾기");
 
+// ── 리포트 파일 ─────────────────────────────────────────────────
+// 이 숫자가 "지금 뽑으면 어떻게 나오나"의 단일 기준이다.
+// 보강 리포트(enrich-comp-report.md)의 같은 항목은 방금 쓴 값을 낙관적으로 센다 —
+// KV 가 최종 일관성이라 쓴 직후에는 안 읽히는 일이 있어 일부러 그렇게 뒀다.
+// 여기서는 한참 뒤 안정된 상태를 읽으므로, 두 숫자가 다르면 이쪽이 맞다.
+if (!ONE) {
+  const all = ready.concat(notReady).sort((a, z) => (z.comp + z.color) - (a.comp + a.color));
+  let md = `# 사전 점검 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+  md += fail ? `**막힌 곳 ${fail}건 — 이대로면 아침에 문제가 생긴다**\n\n`
+    : warn ? `사슬은 이어져 있다 · 주의 ${warn}건\n\n`
+      : `사슬이 전부 이어져 있다 — 브랜드 검색 → 보드 → 엑셀\n\n`;
+  md += `## 지금 뽑으면 컬러웨이·혼용률이 붙는 브랜드: ${ready.length}/${all.length}개\n\n`;
+  md += `상품 ${ready.reduce((n, r) => n + r.n, 0)}개. 이 숫자가 기준이다 —\n`;
+  md += `보강 리포트의 같은 항목은 방금 쓴 값을 낙관적으로 세므로 더 크게 나올 수 있다.\n\n`;
+  if (ready.length) md += ready.map((r) => r.brand).sort().join(" · ") + `\n\n`;
+  if (unmatched.length) {
+    md += `## ⚠ 앱이 저장본을 못 찾는 브랜드 (${unmatched.length})\n\n`;
+    md += `앱에서 "검색 결과 확인이 필요합니다"로 보인다.\n\n`;
+    md += unmatched.map((b) => `- ${b.name}`).join("\n") + `\n\n`;
+  }
+  md += `## 브랜드별 (엑셀 열이 열리는 순)\n\n`;
+  md += `| 브랜드 | 엑셀 | 혼용률 | 컬러웨이 | 상품 |\n|---|:-:|---:|---:|---:|\n`;
+  for (const r of all) {
+    md += `| ${r.brand} | ${r.comp >= GATE && r.color >= GATE ? "✅" : "—"} | ${pct(r.comp)} | ${pct(r.color)} | ${r.n} |\n`;
+  }
+  const { writeFileSync } = await import("node:fs");
+  const { fileURLToPath } = await import("node:url");
+  const { dirname, join } = await import("node:path");
+  writeFileSync(join(dirname(fileURLToPath(import.meta.url)), "..", "preflight.md"), md);
+}
+
 console.log("\n" + "─".repeat(60));
 if (fail) {
   console.log(`❌ 막힌 곳 ${fail}건 — 내일 아침 이대로면 문제가 생긴다`);

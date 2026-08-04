@@ -12,6 +12,9 @@ on:
         required: false
         default: ""
 
+permissions:
+  contents: write
+
 jobs:
   preflight:
     runs-on: ubuntu-latest
@@ -26,3 +29,16 @@ jobs:
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
           BRAND: ${{ github.event.inputs.brand }}
         run: node scripts/preflight.mjs
+      - name: Commit preflight report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- preflight.md || true
+          git commit -m "preflight: 아침 사전 점검" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} \
+              && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::preflight push failed after retries"

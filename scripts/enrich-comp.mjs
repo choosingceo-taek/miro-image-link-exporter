@@ -402,6 +402,8 @@ let md = `# 엑셀 항목 보강 결과 (${new Date().toISOString().slice(0, 16)
 const ready = done.filter((r) => r.total && (r.have / r.total) >= GATE / 100 && ((r.haveColor || 0) / r.total) >= GATE / 100);
 const readyItems = ready.reduce((n, r) => n + r.total, 0);
 md += `## 엑셀 열 개방 판정 (기준 ${GATE}% · 목표 ${GOAL}%)\n\n`;
+md += `> 이 숫자는 **방금 쓴 값을 낙관적으로** 센 것이다 — KV 가 최종 일관성이라 쓴 직후에는\n`;
+md += `> 안 읽히는 일이 있어 일부러 그렇게 뒀다. 안정된 뒤의 실제 숫자는 \`preflight.md\` 를 본다.\n\n`;
 md += `**지금 두 열이 다 채워져 나오는 브랜드: ${ready.length}/${done.filter((r) => r.total).length}개** ` +
   `(상품 ${readyItems}/${totalItems}개)\n\n` +
   `패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.\n` +
