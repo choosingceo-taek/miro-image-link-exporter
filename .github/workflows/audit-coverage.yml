@@ -1,0 +1,29 @@
+name: Coverage audit
+
+# "앱에 뜨는데 아무도 안 긁는 브랜드"를 찾는다. 담당은 blocked-brands.json 이 나누는데,
+# 거기서 빠지면 서버가 못 긁는 브랜드를 아무도 안 맡게 되고 저장본이 조용히 늙는다.
+# 읽기 전용이라 몇 초면 끝난다. 확장 수집(05:00)·점검(05:00) 뒤에 돌려 그날 상태를 본다.
+on:
+  schedule:
+    - cron: "0 21 * * *"   # UTC 21:00 = KST 06:00 — 그날 수집이 다 끝난 뒤
+  workflow_dispatch:
+    inputs:
+      stale_hours:
+        description: "며칠(시간) 넘게 안 갱신되면 구멍으로 볼지"
+        required: false
+        default: "48"
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Audit brand coverage
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          STALE_HOURS: ${{ github.event.inputs.stale_hours }}
+        run: node scripts/audit-coverage.mjs
