@@ -30,9 +30,10 @@ async function getCfg() {
 // 대상 = 서버가 못 긁는 브랜드(blocked-brands.json)의 카테고리 URL 전부.
 // 목록을 서버에서 받아오므로 브랜드가 바뀌어도 확장을 다시 배포할 필요가 없음.
 async function getSched() {
-  const s = await chrome.storage.local.get(['schedOn', 'schedHour', 'schedMin', 'visible', 'maxPages', 'lastRun']);
+  const s = await chrome.storage.local.get(['schedOn', 'schedHour', 'schedMin', 'visible', 'maxPages', 'lastRun', 'idleOnly']);
   return {
     schedOn: !!s.schedOn,
+    idleOnly: s.idleOnly !== false,   // 기본 true — 자리를 비웠을 때만 수집
     schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 8,   // 기본 08:00
     schedMin: Number.isInteger(s.schedMin) ? s.schedMin : 0,      // 분 단위까지 지정 가능
     visible: s.visible !== false,   // 기본 true — 숨은 탭은 크롬이 타이머를 늦춰 수집률이 떨어짐
@@ -156,6 +157,38 @@ chrome.runtime.onStartup.addListener(() => { applySchedule(); maybeCatchUp(); })
 if (!state.running) keepAlive(false);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// ── 자리를 비웠을 때만 수집 ─────────────────────────────────────────
+// 수집은 실제 크롬 창을 몇 시간 동안 돌린다. 사용자가 일하는 중에 겹치면 화면도
+// 네트워크도 나눠 쓰게 되고, 무엇보다 쇼핑몰이 그 사람 IP 를 막으면 정작 본인이
+// 그 사이트를 못 쓴다. 그래서 자리를 비운 동안에만 돌리고, 돌아오면 하던 지점에서
+// 멈췄다가 다시 비우면 이어서 한다 — 그만두는 게 아니라 미루는 것이다.
+const IDLE_SECONDS = 300;   // 5분 — 크롬이 허용하는 최소값은 15초
+try { chrome.idle.setDetectionInterval(IDLE_SECONDS); } catch (e) {}
+
+function queryIdle() {
+  return new Promise((resolve) => {
+    try { chrome.idle.queryState(IDLE_SECONDS, resolve); }
+    catch (e) { resolve('idle'); }   // 권한이 없으면 수집을 막지 않는다
+  });
+}
+
+// 자리에 있으면 비울 때까지 기다린다. label 은 팝업에 이유를 보여주기 위한 것.
+async function waitAway(label) {
+  const { idleOnly } = await getSched();
+  if (!idleOnly) return;
+  let waited = 0;
+  while (state.running) {
+    if ((await queryIdle()) !== 'active') {
+      if (waited) state.current = (label ? label + ' · ' : '') + '수집 재개';
+      return;
+    }
+    state.current = (label ? label + ' · ' : '') +
+      '사용자 자리 있음 — 대기 중' + (waited >= 60 ? ` (${Math.round(waited / 60)}분)` : '');
+    await sleep(15000);
+    waited += 15;
+  }
+}
 
 function waitForComplete(tabId, timeout) {
   return new Promise((resolve) => {
@@ -425,6 +458,8 @@ async function enrichComps(g, cfg) {
   let done = 0;
   const one = async (p) => {
     if (!state.running) return;
+    await waitAway(g.brand);   // 상품 페이지 읽기도 자리를 비운 동안에만
+    if (!state.running) return;
     try {
       const got = { comp: '', color: '', sizes: '', price: '', priceOrig: '' };
       // Shopify 상품은 공개 JSON 이 훨씬 싸고 사이즈·컬러·가격이 구조화돼 있다.
@@ -516,15 +551,23 @@ async function collect(input) {
   let okCount = 0, failCount = 0;
   // 표시 모드: 전용 창 하나를 만들어 거기서 탭을 돌린다(사용자 작업창을 건드리지 않음).
   // 숨은 탭은 크롬이 타이머를 늦춰(throttling) 레이지 로딩·봇 챌린지 통과율이 떨어진다.
+  // 창부터 띄우지 않는다 — 일하는 중이면 자리를 비울 때까지 조용히 기다린다.
+  state.running = true;   // waitAway 가 중단 여부를 보므로 먼저 세운다
+  state.current = '시작 대기';
+  keepAlive(true);
+  await waitAway('');
+  if (!state.running) { keepAlive(false); return; }
   let winId = null;
   if (visible) {
     try {
-      const w = await chrome.windows.create({ url: 'about:blank', focused: true, width: 1280, height: 900 });
+      // focused: false — 수집 창이 사용자가 하던 일을 가로채지 않게 뒤에서 뜬다.
+      // (최소화하면 크롬이 탭을 가려진 것으로 보고 타이머를 늦춰 수집률이 떨어진다.
+      //  그래서 '뒤에 떠 있는 창'까지가 한계다.)
+      const w = await chrome.windows.create({ url: 'about:blank', focused: false, width: 1280, height: 900 });
       winId = w.id;
     } catch (e) {}
   }
   state = { running: true, done: 0, total: totalUrls, current: '', log: [], startedAt: Date.now(), items: 0 };
-  keepAlive(true);
   for (const g of groups) {
     if (!state.running) break;
     // 한 브랜드의 모든 카테고리 URL을 먼저 모은 뒤, 브랜드 단위로 한 번만 저장한다.
@@ -533,6 +576,8 @@ async function collect(input) {
     const normUrl = (u) => String(u || '').split('?')[0].replace(/\/+$/, '');
     const listing = new Set(g.urls.map(normUrl));
     for (const url of g.urls) {
+      if (!state.running) break;
+      await waitAway(g.brand);
       if (!state.running) break;
       state.current = g.brand + ' · ' + url;
       let tab = null;
@@ -549,6 +594,8 @@ async function collect(input) {
         let pageUrl = queue.shift(), pages = 0;
         while (pageUrl && pages < maxPages && byUrl.size < PER_CATEGORY) {
           if (pages > 0) {
+            await waitAway(g.brand);   // 페이지를 넘기기 직전마다 자리 확인
+            if (!state.running) break;
             await chrome.tabs.update(tab.id, { url: pageUrl });
           }
           await waitForComplete(tab.id, 45000);
@@ -616,7 +663,13 @@ async function collect(input) {
         }
         pushLog({
           url: g.site, ok: !!d.ok, count: d.ok ? d.count : 0,
-          msg: d.ok ? `${g.brand} · ${items.length}개 저장` : `${g.brand} 전송실패 ` + (d.error || resp.status),
+          msg: d.ok
+            ? (d.guarded
+              // 수집량이 절반 아래로 떨어져 Worker 가 갈아끼우기를 막았다.
+              // 오늘 못 본 상품을 지우지 않은 것이므로 실패가 아니라 보호다.
+              ? `${g.brand} · 수집 ${d.guarded.got}개(이전 ${d.guarded.kept}개) — 급감이라 덮어쓰지 않고 병합, 총 ${d.count}개`
+              : `${g.brand} · ${items.length}개 저장`)
+            : `${g.brand} 전송실패 ` + (d.error || resp.status),
         });
       } catch (e) {
         failCount++;

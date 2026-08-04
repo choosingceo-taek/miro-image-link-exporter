@@ -108,6 +108,7 @@ function renderSched(s) {
   $('schedOn').checked = !!s.schedOn;
   $('schedTime').value = `${pad2(s.schedHour)}:${pad2(s.schedMin || 0)}`;
   $('schedVisible').checked = s.visible !== false;
+  $('idleOnly').checked = s.idleOnly !== false;
   $('maxPages').value = String(s.maxPages || 20);
   const parts = [];
   if (s.schedOn && s.nextRun) parts.push(`다음 실행 ${fmtWhen(s.nextRun)}`);
@@ -129,6 +130,7 @@ async function saveSched() {
     schedHour: Number(h),
     schedMin: Number(m),
     visible: $('schedVisible').checked,
+    idleOnly: $('idleOnly').checked,
     maxPages: Number($('maxPages').value),
   });
   const s = await send({ type: 'getSched' });
@@ -141,7 +143,7 @@ try {
   $('verInfo').textContent = `버전 ${m.version}`;
 } catch (e) {}
 
-['schedOn', 'schedTime', 'schedVisible', 'maxPages'].forEach((id) => $(id).addEventListener('change', saveSched));
+['schedOn', 'schedTime', 'schedVisible', 'idleOnly', 'maxPages'].forEach((id) => $(id).addEventListener('change', saveSched));
 $('runNow').addEventListener('click', async () => {
   $('runNow').disabled = true;
   $('schedInfo').textContent = '대상 목록을 불러오는 중…';

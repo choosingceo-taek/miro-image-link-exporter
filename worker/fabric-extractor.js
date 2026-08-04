@@ -404,16 +404,23 @@ export default {
       // (예전에 여기서 옛 카탈로그를 파싱해 승계했더니 CPU 한도로 저장 전체가 죽었다)
       const replace = reqUrl.searchParams.get('replace') === '1';
       let merged = items;
-      if (!replace) {
+      let guarded = null;   // 수집량이 급감해 갈아끼우기를 막았을 때의 기록
+      {
         let prev = null;
         try { prev = await env.RACK_CACHE.get('catalog:' + site); } catch (e) {}
-        if (prev) {
-          try {
-            const old = JSON.parse(prev);
-            const seen = new Set(items.map(p => p.productUrl));
-            const keptOld = (Array.isArray(old.items) ? old.items : []).filter(p => p && !seen.has(p.productUrl));
-            merged = items.concat(keptOld).slice(0, 800);   // 새 항목 우선, 총 800개 상한
-          } catch (e) {}
+        let oldItems = [];
+        if (prev) { try { oldItems = JSON.parse(prev).items || []; } catch (e) {} }
+        // replace=1 은 브랜드 카탈로그를 통째로 갈아끼운다. 그런데 그날 카테고리
+        // 하나가 차단되면 300개짜리 브랜드가 120개로 줄어든 채 저장되고, 미로 앱
+        // 사용자는 그 순간부터 줄어든 목록을 보게 된다 — 비어 보이진 않지만 조용히
+        // 축소된다. 수집이 절반 아래로 떨어지면 갈아끼우지 않고 병합으로 돌린다.
+        // (품절 상품 정리는 정상적으로 수집된 날 replace 가 알아서 해 준다)
+        const shrank = replace && oldItems.length >= 20 && items.length < oldItems.length * 0.5;
+        if (shrank) guarded = { kept: oldItems.length, got: items.length };
+        if ((!replace || shrank) && oldItems.length) {
+          const seen = new Set(items.map(p => p.productUrl));
+          const keptOld = oldItems.filter(p => p && !seen.has(p.productUrl));
+          merged = items.concat(keptOld).slice(0, 800);   // 새 항목 우선, 총 800개 상한
         }
       }
       const record = { site, brand: String(body.brand || '').slice(0, 80), updated: Date.now(), items: merged };
@@ -432,7 +439,7 @@ export default {
       if (legacy && legacy !== site && site.startsWith(legacy + '.')) {
         try { await env.RACK_CACHE.delete('catalog:' + legacy); } catch (e) {}
       }
-      return json({ ok: true, site, count: merged.length, added: items.length }, 200, cors);
+      return json({ ok: true, site, count: merged.length, added: items.length, guarded }, 200, cors);
       } catch (e) {
         return json({ error: 'store=catalog: ' + String((e && e.message) || e) }, 200, cors);
       }
