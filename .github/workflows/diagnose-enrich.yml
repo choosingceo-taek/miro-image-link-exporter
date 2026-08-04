@@ -1,0 +1,37 @@
+name: Diagnose enrich
+
+# 혼용률이 왜 안 채워지는지 원인을 가른다(규칙 누락 / 차단 / 정보 없음).
+# 야간 보강은 실패에 '시도 시각'만 찍고 넘어가서 원인이 리포트에서 사라진다.
+# 읽기만 하고 저장은 하지 않는다.
+on:
+  workflow_dispatch:
+    inputs:
+      brands:
+        description: "쉼표로 구분한 브랜드(비우면 채움률 낮은 순 상위)"
+        required: false
+        default: ""
+      top:
+        description: "브랜드 몇 개를 볼지 (brands 를 비웠을 때)"
+        required: false
+        default: "12"
+      sample:
+        description: "브랜드당 표본 상품 수"
+        required: false
+        default: "8"
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Diagnose why compositions are missing
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          TOP: ${{ github.event.inputs.top }}
+          SAMPLE: ${{ github.event.inputs.sample }}
+        run: node scripts/diagnose-enrich.mjs
