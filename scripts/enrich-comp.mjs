@@ -390,13 +390,22 @@ let md = `# 엑셀 항목 보강 결과 (${new Date().toISOString().slice(0, 16)
 // 보드 스캐너 엑셀에 열을 연다(index.html 의 SHOW_FABRIC_COLUMNS).
 // 여기서 세는 것은 "채워졌나"가 아니라 "옳은가"다 — 절반만 뽑힌 혼용률
 // ("Cotton 60%")이나 안내 문구가 들어간 컬러("Select")는 세지 않는다.
+// 열림 여부는 이제 브랜드마다 따로 정해진다 — 패널이 그 파일에 실리는 상품만 보고
+// 판단하기 때문이다(index.html 의 fabricReady). 그래서 전체 평균보다 "몇 개 브랜드가
+// 지금 온전히 뽑히나"가 실제로 쓰는 사람에게 의미 있는 숫자다.
+const ready = done.filter((r) => r.total && (r.have / r.total) >= GATE / 100 && ((r.haveColor || 0) / r.total) >= GATE / 100);
+const readyItems = ready.reduce((n, r) => n + r.total, 0);
 md += `## 엑셀 열 개방 판정 (기준 ${GATE}% · 목표 ${GOAL}%)\n\n`;
+md += `**지금 두 열이 다 채워져 나오는 브랜드: ${ready.length}/${done.filter((r) => r.total).length}개** ` +
+  `(상품 ${readyItems}/${totalItems}개)\n\n` +
+  `패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.\n` +
+  (ready.length ? `\n${ready.map((r) => r.brand).sort().join(" · ")}\n\n` : `\n`);
 md += worst >= GATE
-  ? `**열어도 됩니다** — 혼용률 ${compPct}% · 컬러웨이 ${colorPct}%, 둘 다 ${GATE}% 이상.\n` +
-    `index.html 의 \`SHOW_FABRIC_COLUMNS\` 를 true 로 바꾸면 열이 열립니다.\n` +
+  ? `전체 평균도 기준을 넘었습니다 — 혼용률 ${compPct}% · 컬러웨이 ${colorPct}%.\n` +
     (worst >= GOAL ? `목표 ${GOAL}% 도 넘었습니다.\n\n` : `목표 ${GOAL}% 까지 ${need(GOAL)}개 남았습니다.\n\n`)
-  : `**아직입니다** — 혼용률 ${compPct}% · 컬러웨이 ${colorPct}%.\n` +
-    `기준 ${GATE}% 까지 ${need(GATE)}개, 목표 ${GOAL}% 까지 ${need(GOAL)}개 더 채워야 합니다.\n\n`;
+  : `전체 평균은 아직입니다 — 혼용률 ${compPct}% · 컬러웨이 ${colorPct}%.\n` +
+    `기준 ${GATE}% 까지 ${need(GATE)}개, 목표 ${GOAL}% 까지 ${need(GOAL)}개 더 채워야 합니다.\n` +
+    `(전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)\n\n`;
 
 md += `목표 항목: ${FIELDS.join(", ")} · 상품 ${totalItems}개\n\n`;
 md += `| 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |\n|---|---:|---:|---:|\n`;
@@ -420,11 +429,13 @@ const pathStr = (st) => {
 const gaps = done.filter((r) => r.total).sort((a, z) => (a.have / a.total) - (z.have / z.total));
 if (gaps.length) {
   md += `## 브랜드별 채움률 (${gaps.length}) — 낮은 순\n\n`;
-  md += `| 브랜드 | 혼용률 | 컬러웨이 | 이번 실행 | 경로 |\n|---|---:|---:|---:|---|\n`;
+  md += `| 브랜드 | 엑셀 | 혼용률 | 컬러웨이 | 이번 실행 | 경로 |\n|---|:-:|---:|---:|---:|---|\n`;
   for (const r of gaps) {
     const cp = Math.round((r.have / r.total) * 100);
     const cl = Math.round(((r.haveColor || 0) / r.total) * 100);
-    md += `| ${r.brand} | ${r.have}/${r.total} (${cp}%) | ${r.haveColor || 0}/${r.total} (${cl}%) | 혼용률 +${r.addComp || 0} 컬러 +${r.addColor || 0} | ${pathStr(r.stat)} |\n`;
+    // 이 브랜드를 지금 뽑으면 두 열이 붙는지 — 패널의 판정과 같은 기준.
+    const open = cp >= GATE && cl >= GATE ? "✅" : "—";
+    md += `| ${r.brand} | ${open} | ${r.have}/${r.total} (${cp}%) | ${r.haveColor || 0}/${r.total} (${cl}%) | 혼용률 +${r.addComp || 0} 컬러 +${r.addColor || 0} | ${pathStr(r.stat)} |\n`;
   }
   md += `\n`;
 }
@@ -435,4 +446,4 @@ if (errs.length) {
 }
 writeFileSync(join(ROOT, "enrich-comp-report.md"), md);
 console.log(`\n혼용률 ${totalHave}/${totalItems} (${compPct}%, +${totalComp}) · 컬러 ${totalColor}/${totalItems} (${colorPct}%, +${totalColorAdd}) · 인덱스 ${indexCount}`);
-console.log(worst >= GATE ? `엑셀 열 개방 기준 ${GATE}% 충족 — SHOW_FABRIC_COLUMNS 를 켤 수 있다` : `엑셀 열 개방 기준 ${GATE}% 미달 — ${need(GATE)}개 부족`);
+console.log(`컬러웨이·혼용률이 다 붙는 브랜드 ${ready.length}/${done.filter((r) => r.total).length}개 · 전체 평균 혼용률 ${compPct}% 컬러 ${colorPct}%`);
