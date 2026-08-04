@@ -16,6 +16,14 @@ const j = src.indexOf("function titleCase");
 if (i < 0 || j < 0) { console.error("❌ colorFromHtml 블록을 찾지 못함"); process.exit(1); }
 const colorFromHtml = new Function(src.slice(i, j) + "\n return colorFromHtml;")();
 
+// 확장(background.js)의 복사본 — 자립형 파일이라 복사가 불가피하다.
+// 규칙이 어긋나면 확장 담당 브랜드만 다른 컬러가 나오므로 여기서 함께 검사한다.
+const extSrc = readFileSync(join(ROOT, "chrome-extension/background.js"), "utf8");
+const ei = extSrc.indexOf("const COLOR_JUNK");
+const ej = extSrc.indexOf("// 브랜드 저장 후", ei);
+if (ei < 0 || ej < 0) { console.error("❌ background.js 의 컬러 블록을 찾지 못함"); process.exit(1); }
+const extColor = new Function(extSrc.slice(ei, ej) + "\n return colorFromHtml;")();
+
 const CASES = [
   // ── 실제 화면에서 확인된 형태 ──
   ["한정판 라벨", '<div aria-label="색상: 한정판: Olive Tree (전체 보기)"></div>', "Olive Tree"],
@@ -49,8 +57,13 @@ for (const [label, html, want] of CASES) {
   const got = colorFromHtml(html);
   if (got !== want) {
     bad++;
-    console.error(`❌ ${label}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got)}`);
+    console.error(`❌ worker · ${label}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got)}`);
+  }
+  const got2 = extColor(html);
+  if (got2 !== want) {
+    bad++;
+    console.error(`❌ 확장 · ${label}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got2)}`);
   }
 }
-if (bad) { console.error(`\n컬러 추출 ${bad}/${CASES.length} 실패`); process.exit(1); }
-console.log(`✅ 컬러 추출 ${CASES.length}건 통과`);
+if (bad) { console.error(`\n컬러 추출 ${bad}건 실패`); process.exit(1); }
+console.log(`✅ 컬러 추출 ${CASES.length}건 통과 (worker·확장 두 구현 일치)`);

@@ -287,6 +287,53 @@ function jsonLdBits(html) {
   return out;
 }
 
+// ── 컬러웨이 추출 — worker/fabric-extractor.js 의 colorFromHtml 복사본.
+// 확장은 단일 파일로 자립해야 해서 복사하되, scripts/test-color.mjs 가
+// 두 구현이 어긋나면 CI에서 실패시킨다.
+// ── 컬러웨이: 상품 페이지의 "색상 선택 옵션"에서 읽는다 ─────────────────
+// 색은 상품명에 없는 경우가 많고("한정판: Olive Tree", "코어"), 사전에 없는
+// 고유 이름이 흔하다. 그래서 색상 단어를 추측하지 않고 옵션 표기를 그대로 가져온다.
+// 사이트마다 마크업이 달라 흔한 형태를 순서대로 훑고, 못 찾으면 빈 값을 준다.
+const COLOR_JUNK = /^(?:select|choose|color|colour|색상|컬러|선택|기타|\d+|#[0-9a-f]{3,8}|[\s:：·,\/-]+)$/i;
+function cleanColor(v) {
+  const t = String(v || '')
+    .replace(/&amp;/gi, '&').replace(/&#0?39;|&apos;/gi, "'").replace(/&quot;/gi, '"')
+    .replace(/^\s*(?:색상|컬러|colou?r)\s*[::]\s*/i, '')     // "Color: Olive" → "Olive"
+    .replace(/^\s*한정판\s*[::]\s*/, '')                      // "한정판: Olive Tree" → "Olive Tree"
+    .replace(/\s*\(전체 보기\)\s*$/, '')
+    .replace(/\s+/g, ' ').trim();
+  if (!t || t.length > 40 || COLOR_JUNK.test(t)) return '';
+  return t;
+}
+function colorFromHtml(html) {
+  const h = String(html || '');
+  if (!h) return '';
+  const pats = [
+    // 페이지에 심어 둔 JSON — 가장 신뢰도가 높다.
+    /"selected(?:Color|Colour)"\s*:\s*"([^"]{1,40})"/i,
+    /"color(?:Name|_name)"\s*:\s*"([^"]{1,40})"/i,
+    /"colou?r"\s*:\s*"([^"]{1,40})"/i,
+    // 선택된 스와치의 접근성 라벨
+    /aria-label="\s*(?:색상|컬러|colou?r)\s*[::]?\s*([^"]{1,40})"/i,
+    /data-(?:color|colour|color-name)="([^"]{1,40})"/i,
+    // 선택 상자의 선택된 항목
+    /<option[^>]+selected[^>]*>([^<]{1,40})<\/option>/i,
+  ];
+  for (const re of pats) {
+    const m = h.match(re);
+    if (m) { const c = cleanColor(m[1]); if (c) return c; }
+  }
+  // 색상 선택 영역(select/fieldset)의 첫 옵션 — 위 방법이 다 실패했을 때만.
+  const box = h.match(/<(select|fieldset)[^>]*(?:name|id|class|data-option-name)="[^"]*(?:colou?r|색상|컬러)[^"]*"[\s\S]{0,4000}?<\/\1>/i);
+  if (box) {
+    for (const m of box[0].matchAll(/<option[^>]*>([^<]{1,40})<\/option>|aria-label="([^"]{1,40})"/gi)) {
+      const c = cleanColor(m[1] || m[2]);
+      if (c) return c;
+    }
+  }
+  return '';
+}
+
 // 브랜드 저장 후: 네 항목(혼용률·컬러·사이즈·가격)이 빈 상품의 페이지를 서비스워커 fetch 로 읽어 채운다.
 // 확장은 실사용 PC(주거용 IP)라 서버가 못 여는 봇 차단 사이트도 열린다 — 이 브랜드들의
 // 혼용률은 여기서만 나온다. 탭을 열지 않고 fetch 만 하므로 페이지당 1~2초.
@@ -301,8 +348,23 @@ async function enrichComps(g, cfg) {
   let cat;
   try { cat = await (await fetch(cfg.worker + '/?catalog=' + encodeURIComponent(g.site) + tok)).json(); }
   catch (e) { return 0; }
-  const full = (p) => p.comp && p.color && p.sizes && p.price;
-  const todo = (cat.items || []).filter((p) => p && !full(p) && p.productUrl).slice(0, COMP_PER_RUN);
+  // 채움 상태는 오버레이(comp:<site>) 기준이다 — 카탈로그 item 필드에는 더 이상
+  // 혼용률·컬러가 실리지 않아, 그걸 보면 매 실행마다 전 상품을 다시 읽게 된다.
+  let overlay = {};
+  try { overlay = await (await fetch(cfg.worker + '/?comps=' + encodeURIComponent(g.site) + tok)).json() || {}; }
+  catch (e) {}
+  const now = Date.now();
+  const RETRY_MS = 5 * 24 * 3600 * 1000;   // 값이 없던 상품은 5일 뒤에 다시 본다
+  const val = (o, k) => { const t = String((o && o[k]) || '').trim(); return t === '[object Object]' ? '' : t; };
+  const full = (p) => {
+    const o = overlay[p.productUrl];
+    if (!o) return false;
+    if (val(o, 'comp') && val(o, 'color')) return true;
+    // 값이 없어도 최근에 시도했으면 넘긴다 — 안 그러면 컬러를 안 적는 사이트의
+    // 상품을 매번 다시 읽느라 정작 손 안 댄 상품까지 차례가 안 온다.
+    return o.t && now - o.t < RETRY_MS;
+  };
+  const todo = (cat.items || []).filter((p) => p && p.productUrl && !full(p)).slice(0, COMP_PER_RUN);
   if (!todo.length) return 0;
   const comps = {};
   let done = 0;
@@ -326,9 +388,9 @@ async function enrichComps(g, cfg) {
             got.sizes = opt('^(size|사이즈)$').slice(0, 30).join(', ');
             const vs = Array.isArray(pr.variants) ? pr.variants : [];
             const num = (v) => { const n = Number(v); return Number.isFinite(n) && n > 0 ? n : NaN; };
-            const now = vs.map((v) => num(v && v.price)).filter(Number.isFinite);
+            const cur = vs.map((v) => num(v && v.price)).filter(Number.isFinite);
             const was = vs.map((v) => num(v && v.compare_at_price)).filter(Number.isFinite);
-            const lo = now.length ? Math.min(...now) : NaN;
+            const lo = cur.length ? Math.min(...cur) : NaN;
             const hi = was.length ? Math.max(...was) : NaN;
             if (Number.isFinite(lo)) got.price = '$' + lo;
             if (Number.isFinite(hi) && Number.isFinite(lo) && hi > lo) got.priceOrig = '$' + hi;
@@ -339,7 +401,7 @@ async function enrichComps(g, cfg) {
       if (!got.comp || !got.sizes || !got.color || !got.price) {
         const html = await (await fetch(p.productUrl, { credentials: 'omit' })).text();
         const bits = jsonLdBits(html);
-        if (!got.color) got.color = bits.color;
+        if (!got.color) got.color = bits.color || colorFromHtml(html);
         if (!got.sizes) got.sizes = bits.sizes;
         if (!got.price) got.price = bits.price;
         if (!got.priceOrig) got.priceOrig = bits.priceOrig;
@@ -348,16 +410,17 @@ async function enrichComps(g, cfg) {
             html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' '));
         }
       }
-      if (got.comp || got.color || got.sizes || got.price) comps[p.productUrl] = got;
+      // 빈손이어도 넣는다 — 저장 단계에서 시도 시각만 찍혀 다음 실행이 건너뛴다.
+      comps[p.productUrl] = got;
     } catch (e) {}
     done++;
     if (done % 5 === 0 || done === todo.length) {
-      state.current = g.brand + ' · 혼용률 ' + done + '/' + todo.length;
+      state.current = g.brand + ' · 혼용률·컬러 ' + done + '/' + todo.length;
     }
     await sleep(400);   // 사이트 부담·차단 방지 텀
   };
   // 4개씩 동시에. 순차로 하면 상품 수천 개에 몇 시간이 걸린다.
-  state.current = g.brand + ' · 혼용률 0/' + todo.length;
+  state.current = g.brand + ' · 혼용률·컬러 0/' + todo.length;
   let idx = 0;
   await Promise.all(Array.from({ length: Math.min(COMP_CONCURRENCY, todo.length) }, async () => {
     while (idx < todo.length && state.running) { const k = idx++; await one(todo[k]); }
@@ -365,14 +428,21 @@ async function enrichComps(g, cfg) {
   if (!Object.keys(comps).length) return 0;
   // 병합은 여기서 하고 Worker 에는 완성본을 통째로 넘긴다 — Worker 가 병합하면
   // 항목이 많을 때 무료 플랜 CPU 한도(10ms)를 넘겨 저장 전에 죽는다.
-  let overlay = {};
-  try { overlay = await (await fetch(cfg.worker + '/?comps=' + encodeURIComponent(g.site) + tok)).json() || {}; }
-  catch (e) {}
   const merged = { ...overlay };
   let patched = 0;
-  for (const [url, comp] of Object.entries(comps)) {
+  for (const [url, got] of Object.entries(comps)) {
     const cur = { ...(merged[url] || {}) };
-    if (comp && !cur.comp) { cur.comp = String(comp).slice(0, 160); merged[url] = cur; patched++; }
+    let n = 0;
+    // 항목별로 옮긴다. 예전엔 객체 전체를 String() 해서 comp 칸에
+    // '[object Object]' 가 들어가고 컬러·사이즈·가격은 통째로 버려졌다.
+    for (const [k, max] of [['comp', 160], ['color', 80], ['sizes', 200], ['price', 40], ['priceOrig', 40]]) {
+      const t = String((got && got[k]) || '').trim().slice(0, max);
+      if (t && t !== '[object Object]' && !val(cur, k)) { cur[k] = t; n++; }
+      else if (cur[k] && !val(cur, k)) delete cur[k];   // 예전에 저장된 쓰레기 값 정리
+    }
+    cur.t = now;
+    merged[url] = cur;
+    if (n) patched++;
   }
   const mk = Object.keys(merged);
   if (mk.length > 1000) for (const k of mk.slice(0, mk.length - 1000)) delete merged[k];
