@@ -44,6 +44,15 @@ function slice(startMark, endMark) {
 const compFromText = new Function(
   slice("const FIBRES = {", "function titleCase") + "\n return compFromText;",
 )();
+// 본문 16000자 밖·페이지 JSON 안까지 보는 판(compWindow 포함).
+const compFromHtml = new Function(
+  slice("const FIBRES = {", "function titleCase") + "\n return compFromHtml;",
+)();
+// compFromText/compFromHtml 은 [{material,percent}] 를 돌려준다. 그대로 저장하면
+// String() 이 걸려 '[object Object],[object Object]' 가 들어간다 — 반드시 여기서 문자열로.
+const asComp = (v) => (Array.isArray(v)
+  ? v.map((c) => `${c.material} ${c.percent}%`).join(" / ")
+  : String(v || "").trim());
 // fromJsonLd 는 titleCase 를 쓰므로 두 블록을 이어 붙인다.
 const colorFromHtml = new Function(
   slice("const COLOR_JUNK", "function titleCase") + "\n return colorFromHtml;",
@@ -73,7 +82,10 @@ async function get(url, accept, timeoutMs = 20000) {
   return r.text();
 }
 
-const has = (o) => o && (o.comp || o.color || o.sizes || o.price);
+// 빈 배열([])도 truthy 라 그대로 쓰면 "아무것도 못 찾았는데 성공"으로 판정된다.
+// 그 탓에 Shopify 상품은 첫 경로에서 곧장 반환돼 페이지·우회 경로를 아예 안 탔다.
+const val = (v) => (Array.isArray(v) ? v.length > 0 : !!String(v || "").trim());
+const has = (o) => !!o && (val(o.comp) || val(o.color) || val(o.sizes) || val(o.price));
 
 // 한 상품의 네 항목(혼용률·컬러·사이즈·가격). 실패는 null — 이유는 세어서 리포트로.
 async function enrichOf(url, stat) {
@@ -95,7 +107,7 @@ async function enrichOf(url, stat) {
         const lowNow = now.length ? Math.min(...now) : NaN;
         const highWas = was.length ? Math.max(...was) : NaN;
         const out = {
-          comp: compFromText(String(pr.body_html || "").replace(/<[^>]+>/g, " ")),
+          comp: asComp(compFromText(String(pr.body_html || "").replace(/<[^>]+>/g, " "))),
           color: opt("^(colou?r|색상|컬러)$").slice(0, 4).join(" / "),
           sizes: opt("^(size|사이즈)$").slice(0, 30).join(", "),
           price: Number.isFinite(lowNow) ? "$" + lowNow : "",
@@ -116,8 +128,8 @@ async function enrichOf(url, stat) {
     const text = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ");
     const out = {
       comp: (ld.composition && ld.composition.length)
-        ? ld.composition.map((c) => `${c.material} ${c.percent}%`).join(" / ")
-        : compFromText(text),
+        ? asComp(ld.composition)
+        : (asComp(compFromHtml(html)) || asComp(compFromText(text))),
       // 색은 JSON-LD 에 없는 경우가 더 많다 — 페이지의 색상 선택 옵션에서도 읽는다.
       color: ld.color || colorFromHtml(html),
       sizes: (ld.sizes || []).slice(0, 30).join(", "),
@@ -204,8 +216,9 @@ for (const c of list) {
   }
   if (overlay === null) continue;
   const ov = (p) => overlay[p.productUrl] || {};
-  // 예전 확장(≤1.7.3)이 객체를 통째로 String() 해 넣은 '[object Object]' 는 값이 아니다.
-  const valOf = (o, k) => { const t = String((o && o[k]) || "").trim(); return t === "[object Object]" ? "" : t; };
+  // 객체·배열이 통째로 String() 돼 들어간 흔적은 값이 아니다.
+  // '[object Object]' 하나일 수도, 배열이라 쉼표로 여럿일 수도 있다.
+  const valOf = (o, k) => { const t = String((o && o[k]) || "").trim(); return t.includes("[object Object]") ? "" : t; };
   // 목표 항목(NEED_FIELDS)이 다 찼거나, 최근에 이미 시도해 봤으면 건너뛴다.
   //
   // "시도했으면 건너뛴다"가 핵심이다. 목표를 comp+color 로 두면, 혼용률은 있는데
@@ -244,7 +257,7 @@ for (const c of list) {
     const merged = { ...overlay };
     const clean = (v, max) => {
       const t = String(v == null ? "" : v).trim().slice(0, max);
-      return t === "[object Object]" ? "" : t;
+      return t.includes("[object Object]") ? "" : t;
     };
     for (const [url, v] of Object.entries(comps)) {
       const cur = { ...(merged[url] || {}) };

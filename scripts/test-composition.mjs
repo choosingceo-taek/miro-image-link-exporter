@@ -61,7 +61,61 @@ const em = (() => {
 })();
 const extComp = new Function(em + "\n return compFromText;")();
 
+// ── compFromHtml: 페이지 HTML 전체에서 뽑기 ──────────────────────────
+// 본문 16000자 밖에 있는 소재와, 스크립트(페이지 JSON) 안에만 있는 소재를 잡는다.
+const hi = src.indexOf("function compWindow(s) {");
+const hj = src.indexOf("const COLOR_JUNK");
+if (hi < 0 || hj < 0) { console.error("❌ compFromHtml 블록을 찾지 못함"); process.exit(1); }
+const compFromHtml = new Function(
+  src.slice(i, j) + src.slice(hi, hj) + "\n return compFromHtml;",
+)();
+
+const pad = "<p>" + "메뉴 배너 안내 ".repeat(4000) + "</p>";
+const HTML_CASES = [
+  ["본문에 그대로 있으면 잡는다",
+    "<div>Composition: 60% Cotton, 40% Modal</div>", "Cotton 60% / Modal 40%"],
+
+  // compFromText 는 앞 16000자만 본다 — 메뉴가 길면 소재가 그 뒤로 밀린다.
+  ["앞 16000자 밖에 있어도 잡는다",
+    pad + "<div>Fabric: 95% Cotton, 5% Elastane</div>", "Cotton 95% / Elastane 5%"],
+
+  // 아코디언 내용이 페이지 JSON 에만 담긴 형태(Next.js·Shopify 하이드레이션).
+  ["스크립트 안 JSON 에만 있어도 잡는다",
+    '<script id="__NEXT_DATA__">{"desc":"\\u003cp\\u003e100% Linen\\u003c/p\\u003e"}</script>',
+    "Linen 100%"],
+  ["이스케이프된 따옴표·슬래시를 되돌린다",
+    '<script>{"body_html":"\\"Shell\\": 70% Wool, 30% Nylon"}</script>', "Wool 70% / Nylon 30%"],
+
+  // 본문에 있으면 스크립트는 보지 않는다 — 추천 상품의 소재를 집으면 안 된다.
+  ["본문이 우선, 스크립트는 안 본다",
+    '<div>100% Cotton</div><script>{"d":"100% Wool"}</script>', "Cotton 100%"],
+
+  // 스크립트 경로는 여러 상품이 섞이기 쉬워 합이 105%를 넘으면 통째로 버린다.
+  ["스크립트에 여러 상품이 섞이면 버린다",
+    '<script>{"a":"100% Cotton","b":"100% Wool"}</script>', ""],
+  ["스크립트 한 상품의 구성은 남긴다",
+    '<script>{"a":"80% Cotton, 20% Polyester"}</script>', "Cotton 80% / Polyester 20%"],
+
+  ["할인 문구는 여전히 무시한다", "<div>Extra 20% OFF everything</div>", ""],
+  ["소재가 없는 페이지", "<div>A soft everyday tee.</div>", ""],
+  ["빈 입력", "", ""],
+];
+
 let bad = 0;
+const extCompHtml = new Function(em + "\n return compFromHtml;")();
+for (const [label, html, want] of HTML_CASES) {
+  const got = asStr(compFromHtml(html));
+  if (got !== want) {
+    bad++;
+    console.error(`❌ worker compFromHtml · ${label}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got)}`);
+  }
+  const got2 = extCompHtml(html);
+  if (got2 !== want) {
+    bad++;
+    console.error(`❌ 확장 compFromHtml · ${label}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got2)}`);
+  }
+}
+
 for (const [text, want] of CASES) {
   const got = asStr(compFromText(text));
   if (got !== want) {
@@ -75,5 +129,23 @@ for (const [text, want] of CASES) {
     console.error(`❌ 확장 · ${JSON.stringify(text.slice(0, 60))}\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(got2)}`);
   }
 }
+// ── 회귀 방지: 배열을 그대로 저장하지 않는지 ─────────────────────────
+// compFromText/compFromHtml 은 [{material,percent}] 를 돌려준다. 백필이 이걸
+// 문자열로 바꾸지 않고 저장하면 엑셀 혼용률 칸에 '[object Object],[object Object]'
+// 가 들어간다. 실제로 그렇게 저장돼 있었고, 채움률까지 그만큼 부풀려 보였다.
+{
+  const enrich = readFileSync(join(ROOT, "scripts/enrich-comp.mjs"), "utf8");
+  const lines = enrich.split("\n");
+  for (let n = 0; n < lines.length; n++) {
+    if (!/\bcomp:/.test(lines[n])) continue;
+    // 삼항 연산자로 여러 줄에 걸치므로 뒤 두 줄까지 같은 식으로 본다.
+    const stmt = lines.slice(n, n + 3).join(" ");
+    if (!/compFromText|compFromHtml|ld\.composition/.test(stmt)) continue;
+    if (stmt.includes("asComp(")) continue;
+    bad++;
+    console.error(`❌ enrich-comp: 배열을 문자열로 바꾸지 않았다 — asComp() 로 감쌀 것\n   ${lines[n].trim()}`);
+  }
+}
+
 if (bad) { console.error(`\n혼용률 추출 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 혼용률 추출 ${CASES.length}건 통과 (worker·확장 두 구현 일치)`);
+console.log(`✅ 혼용률 추출 ${CASES.length}건 통과 (worker·확장 두 구현 일치) · HTML 전체 ${HTML_CASES.length}건 통과`);

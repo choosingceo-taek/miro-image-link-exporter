@@ -160,7 +160,7 @@ for (const c of list) {
     // 값이 아니다. 이걸 세면 채움률이 실제보다 높게 나와 문제를 못 본다.
     const g = (it, k) => {
       const t = String((ov[it.productUrl] || {})[k] || it[k] || "").trim();
-      return t === "[object Object]" ? "" : t;
+      return t.includes("[object Object]") ? "" : t;
     };
     const withPrice = items.filter((it) => g(it, "price")).length;
     const withComp = items.filter((it) => g(it, "comp")).length;

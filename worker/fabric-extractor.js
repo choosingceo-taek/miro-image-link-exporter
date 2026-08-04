@@ -140,9 +140,10 @@ export default {
         }
         const ld = fromJsonLd(page.html || '');
         const sp = page.shopify || {};
-        const comp = (ld.composition && ld.composition.length)
-          ? ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / ')
-          : compFromText(page.text);
+        const fromHtml = compFromHtml(page.html || '');
+        const compList = (ld.composition && ld.composition.length) ? ld.composition
+          : (fromHtml.length ? fromHtml : compFromText(page.text));
+        const comp = compList.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
         const sizes = (sp.sizes && sp.sizes.length ? sp.sizes : (ld.sizes || [])).slice(0, 30).join(', ');
         const out = {
           url: compUrl, comp,
@@ -737,7 +738,10 @@ async function extractFabric(url, apiKey) {
   //    이걸로 다 채워지면 AI 호출 자체를 건너뛰어 무료 한도(429)를 쓰지 않는다.
   const sp0 = page.shopify || {};
   const ld = fromJsonLd(page.html);
-  const textComp = (ld.composition && ld.composition.length) ? ld.composition : compFromText(page.text);
+  // 본문 16000자 밖·페이지 JSON 안에 있는 소재까지 본다(compFromHtml).
+  const htmlComp = compFromHtml(page.html || '');
+  const textComp = (ld.composition && ld.composition.length) ? ld.composition
+    : (htmlComp.length ? htmlComp : compFromText(page.text));
   const pre = {
     product_name: ld.product_name || page.title || '',
     price: sp0.price || ld.price || '',
@@ -1108,6 +1112,54 @@ function compFromText(text) {
   const total = out.reduce((n, c) => n + c.percent, 0);
   if (!out.length || total > 210) return [];
   return out;
+}
+
+// ── 페이지 HTML 전체에서 혼용률 ────────────────────────────────────────
+// compFromText 만 쓰면 두 가지를 놓친다.
+//
+// ① 앞 16000자만 본다. 상품 페이지는 메뉴·배너가 길어서 소재 설명이 그 뒤로
+//    밀리는 일이 흔하다 — 페이지에 버젓이 적혀 있는데 못 읽는다. 그래서 먼저
+//    "퍼센트+섬유" 가 처음 나오는 곳을 찾아 그 주변만 잘라서 넘긴다.
+//
+// ② 스크립트를 통째로 지우고 본다. 요즘 사이트는 소재 설명을 아코디언에 넣고
+//    내용은 페이지 JSON(__NEXT_DATA__, Shopify 하이드레이션 등)에만 담아 둔다.
+//    본문에서 못 찾았을 때만 스크립트 안을 본다 — 추천 상품 블록에 다른 상품의
+//    소재가 섞여 있을 수 있어서, 이 경로는 합이 105%를 넘으면 통째로 버린다.
+function compWindow(s) {
+  const rx = new RegExp(COMP_RX.source, 'gi');
+  const m = rx.exec(s);
+  if (!m) return '';
+  const at = Math.max(0, m.index - 200);
+  return s.slice(at, at + 4000);
+}
+function compFromHtml(html) {
+  const h = String(html || '');
+  if (!h) return [];
+  const visible = h
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ');
+  const shown = compFromText(compWindow(visible) || visible);
+  if (shown.length) return shown;
+
+  let scripts = '';
+  for (const m of h.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/gi)) {
+    scripts += ' ' + m[1];
+    if (scripts.length > 800000) break;
+  }
+  if (!scripts) return [];
+  // JSON 안에서는 \u003c, \", \/ 로 이스케이프돼 있다. 되돌리지 않으면 태그가
+  // 안 벗겨지고 "95% Cotton" 이 끊겨 보인다.
+  const unesc = scripts
+    .replace(/\\u003c/gi, '<').replace(/\\u003e/gi, '>').replace(/\\u0026/gi, '&')
+    .replace(/\\"/g, '"').replace(/\\\//g, '/').replace(/\\[nrt]/g, ' ')
+    .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const win = compWindow(unesc);
+  if (!win) return [];
+  const out = compFromText(win);
+  const total = out.reduce((n, c) => n + c.percent, 0);
+  return total > 105 ? [] : out;   // 여러 상품이 섞였을 가능성 — 버린다
 }
 
 // ── 컬러웨이: 상품 페이지의 "색상 선택 옵션"에서 읽는다 ─────────────────

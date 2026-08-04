@@ -233,6 +233,47 @@ function compFromText(text) {
   return out.join(' / ');
 }
 
+// ── 페이지 HTML 전체에서 혼용률 — worker 의 compFromHtml 과 같은 규칙.
+// ① compFromText 는 앞 16000자만 본다. 메뉴·배너가 길면 소재가 그 뒤로 밀려
+//    페이지에 적혀 있는데도 못 읽는다 → 퍼센트+섬유 주변만 잘라서 넘긴다.
+// ② 소재 설명이 페이지 JSON 안에만 있는 사이트가 많다. 본문에서 못 찾았을 때만
+//    스크립트를 보고, 여러 상품이 섞였을 수 있어 합이 105%를 넘으면 버린다.
+function compWindow(s) {
+  const rx = new RegExp(COMP_RX.source, 'gi');
+  const m = rx.exec(s);
+  if (!m) return '';
+  const at = Math.max(0, m.index - 200);
+  return s.slice(at, at + 4000);
+}
+function compFromHtml(html) {
+  const h = String(html || '');
+  if (!h) return '';
+  const visible = h
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ');
+  const shown = compFromText(compWindow(visible) || visible);
+  if (shown) return shown;
+
+  let scripts = '';
+  for (const m of h.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/gi)) {
+    scripts += ' ' + m[1];
+    if (scripts.length > 800000) break;
+  }
+  if (!scripts) return '';
+  const unesc = scripts
+    .replace(/\\u003c/gi, '<').replace(/\\u003e/gi, '>').replace(/\\u0026/gi, '&')
+    .replace(/\\"/g, '"').replace(/\\\//g, '/').replace(/\\[nrt]/g, ' ')
+    .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const win = compWindow(unesc);
+  if (!win) return '';
+  const out = compFromText(win);
+  if (!out) return '';
+  const total = out.split(' / ').reduce((n, c) => n + Number((c.match(/(\d+)%/) || [0, 0])[1]), 0);
+  return total > 105 ? '' : out;
+}
+
 // 상품 페이지 HTML 의 schema.org Product 에서 컬러·사이즈·가격을 뽑는다.
 // worker 의 fromJsonLd 축약판 — 확장은 자립형이라 복사가 불가피하다.
 function jsonLdBits(html) {
@@ -367,7 +408,7 @@ async function enrichComps(g, cfg) {
   if (overlay === null) return 0;
   const now = Date.now();
   const RETRY_MS = 5 * 24 * 3600 * 1000;   // 값이 없던 상품은 5일 뒤에 다시 본다
-  const val = (o, k) => { const t = String((o && o[k]) || '').trim(); return t === '[object Object]' ? '' : t; };
+  const val = (o, k) => { const t = String((o && o[k]) || '').trim(); return t.includes('[object Object]') ? '' : t; };
   const full = (p) => {
     const o = overlay[p.productUrl];
     if (!o) return false;
@@ -417,10 +458,7 @@ async function enrichComps(g, cfg) {
         if (!got.sizes) got.sizes = bits.sizes;
         if (!got.price) got.price = bits.price;
         if (!got.priceOrig) got.priceOrig = bits.priceOrig;
-        if (!got.comp) {
-          got.comp = compFromText(
-            html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' '));
-        }
+        if (!got.comp) got.comp = compFromHtml(html);
       }
       // 빈손이어도 넣는다 — 저장 단계에서 시도 시각만 찍혀 다음 실행이 건너뛴다.
       comps[p.productUrl] = got;
@@ -449,7 +487,7 @@ async function enrichComps(g, cfg) {
     // '[object Object]' 가 들어가고 컬러·사이즈·가격은 통째로 버려졌다.
     for (const [k, max] of [['comp', 160], ['color', 80], ['sizes', 200], ['price', 40], ['priceOrig', 40]]) {
       const t = String((got && got[k]) || '').trim().slice(0, max);
-      if (t && t !== '[object Object]' && !val(cur, k)) { cur[k] = t; n++; }
+      if (t && !t.includes('[object Object]') && !val(cur, k)) { cur[k] = t; n++; }
       else if (cur[k] && !val(cur, k)) delete cur[k];   // 예전에 저장된 쓰레기 값 정리
     }
     cur.t = now;
