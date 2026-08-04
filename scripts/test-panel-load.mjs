@@ -58,7 +58,7 @@ blocks.forEach((code, i) => {
 
 // 엑셀 열 구성이 의도한 것과 같은지 확인한다 — 열을 바꿀 때 여기도 같이 고치게 된다.
 {
-  const want = ["브랜드", "썸네일", "URL", "상품명"];
+  const want = ["브랜드", "썸네일", "URL", "상품명", "컬러웨이", "혼용률"];
   // ws.columns 는 여러 곳에 있다(레거시 CSV 시트 포함) — 브랜드 열이 있는 것이 보드 스캐너다.
   const block = [...html.matchAll(/ws\.columns = \[[\s\S]*?\];/g)]
     .map((m) => m[0]).find((b) => b.includes("'브랜드'"));
@@ -72,4 +72,4 @@ blocks.forEach((code, i) => {
 if (bad) { console.error(`\n패널 로드 실패 ${bad}건 — 미로 앱에서 같은 오류가 화면에 뜬다`); process.exit(1); }
 // 함수 안쪽(initPanel 스코프)의 미선언 참조는 여기서 안 잡힌다 —
 // 그건 scripts/test-rowvalues.mjs 가 블록을 통째로 떼어 실행하며 검사한다.
-console.log(`✅ 패널 로드 통과 · 엑셀 열 4개(브랜드·썸네일·URL·상품명) 확인`);
+console.log(`✅ 패널 로드 통과 · 엑셀 열 6개(브랜드·썸네일·URL·상품명·컬러웨이·혼용률) 확인`);

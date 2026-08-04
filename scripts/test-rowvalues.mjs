@@ -20,27 +20,35 @@ if (!m) { console.error("❌ rowValues 블록을 찾지 못함 — index.html �
 const NEED = "확인 필요";
 const rowValues = new Function(m[0] + "\n return rowValues;")();
 
-// 엑셀 5열: 브랜드 · 썸네일 · URL · 상품명 · 혼용률.
-// 썸네일과 URL 은 보드 값을 그대로 쓰므로 rowValues 가 만드는 것은 세 가지다.
+// 엑셀 6열: 브랜드 · 썸네일 · URL · 상품명 · 컬러웨이 · 혼용률.
+// 썸네일과 URL 은 보드 값을 그대로 쓰므로 rowValues 가 만드는 것은 네 가지다.
 const CASES = [
-  ["브랜드·상품명이 있으면 그대로",
-    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt" },
-    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt" }],
+  ["브랜드·상품명·컬러·혼용률이 있으면 그대로",
+    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt", color: "Optic White", comp: "Modal 90% / Silk 10%" },
+    { brand: "Vince", name: "Modal-Silk Relaxed T-Shirt", color: "Optic White", comp: "Modal 90% / Silk 10%" }],
 
   ["브랜드가 없으면 도메인 추정값을 쓴다",
-    { name: "Tee" },
+    { name: "Tee", color: "Black", comp: "Cotton 100%" },
     { brand: "freepeople", name: "Tee" }],
 
   ["상품명을 못 가져왔으면 확인 필요",
-    { brand: "Gap" },
+    { brand: "Gap", color: "Navy", comp: "Cotton 100%" },
     { brand: "Gap", name: NEED }],
 
   ["아무것도 없음 → 전 항목 확인 필요",
     {},
-    { brand: NEED, name: NEED }],
+    { brand: NEED, name: NEED, color: NEED, comp: NEED }],
 
-  ["혼용률·가격·컬러·사이즈는 열에서 빠졌으므로 결과에 없다",
-    { brand: "Arket", name: "Rib T-shirt", comp: "Cotton 100%", price: "$40", color: "White", sizes: "S, M" },
+  ["야간 수집이 컬러·혼용률을 못 채웠으면 확인 필요",
+    { brand: "Arket", name: "Rib T-shirt" },
+    { brand: "Arket", name: "Rib T-shirt", color: NEED, comp: NEED }],
+
+  ["옛 저장 사고로 남은 '[object Object]' 는 값이 아니다",
+    { brand: "Arket", name: "Rib T-shirt", color: "[object Object]", comp: "[object Object]" },
+    { color: NEED, comp: NEED }],
+
+  ["가격·사이즈는 열에서 빠졌으므로 결과에 없다",
+    { brand: "Arket", name: "Rib T-shirt", price: "$40", sizes: "S, M" },
     { brand: "Arket", name: "Rib T-shirt" }],
 ];
 
