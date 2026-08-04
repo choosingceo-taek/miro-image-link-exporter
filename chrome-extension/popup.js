@@ -137,11 +137,45 @@ async function saveSched() {
   renderSched(s);
   return r;
 }
-// 설치된 버전 표시(팝업에서 바로 최신 여부를 확인할 수 있게).
-try {
-  const m = chrome.runtime.getManifest();
-  $('verInfo').textContent = `버전 ${m.version}`;
-} catch (e) {}
+// ── 설치된 버전 · 최신 버전 확인 ──────────────────────────────────
+// 확장은 스토어가 아니라 '압축해제된 확장 프로그램'으로 깔려 있어서 자동 갱신이
+// 안 된다. 그래서 낡은 채로 몇 주씩 도는 일이 실제로 생긴다 — 고쳐 둔 문제가
+// 그 PC 에서만 계속 재현된다. 저장소의 manifest 를 읽어 새 버전이 있으면 알린다.
+// (수집이 도는 중에는 네트워크를 건드리지 않는다 — 팝업을 열 때만 한 번)
+const LATEST_MANIFEST =
+  'https://raw.githubusercontent.com/choosingceo-taek/miro-image-link-exporter/main/chrome-extension/manifest.json';
+
+// "1.7.10" 이 "1.7.9" 보다 높다 — 문자열 비교로는 반대로 나온다.
+function verCmp(a, b) {
+  const pa = String(a).split('.').map(Number), pb = String(b).split('.').map(Number);
+  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+    const x = pa[i] || 0, y = pb[i] || 0;
+    if (x !== y) return x > y ? 1 : -1;
+  }
+  return 0;
+}
+
+(async () => {
+  let mine = '';
+  try { mine = chrome.runtime.getManifest().version; } catch (e) { return; }
+  const el = $('verInfo');
+  el.textContent = `버전 ${mine}`;
+  let latest = '';
+  try {
+    const r = await fetch(LATEST_MANIFEST, { cache: 'no-store' });
+    if (r.ok) latest = String((await r.json()).version || '');
+  } catch (e) { return; }   // 인터넷이 없거나 막혔으면 조용히 넘어간다
+  if (!latest || verCmp(latest, mine) <= 0) {
+    el.textContent = `버전 ${mine} · 최신`;
+    return;
+  }
+  el.innerHTML =
+    `<b style="color:#b42318">새 버전 ${latest} 있음</b> (설치본 ${mine})<br>` +
+    `<a href="https://github.com/choosingceo-taek/miro-image-link-exporter/tree/main/chrome-extension" ` +
+    `target="_blank" style="color:#111">최신 파일 받기</a> → ` +
+    `<b>chrome://extensions</b> 에서 이 확장의 <b>새로고침 ⟳</b>`;
+  el.style.color = '#111';
+})();
 
 ['schedOn', 'schedTime', 'schedVisible', 'idleOnly', 'maxPages'].forEach((id) => $(id).addEventListener('change', saveSched));
 $('runNow').addEventListener('click', async () => {

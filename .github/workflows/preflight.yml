@@ -1,0 +1,28 @@
+name: Preflight
+
+# "지금 미로 앱을 열어서 브랜드를 고르고, 보드에 끌어다 놓고, 엑셀로 뽑으면
+# 제대로 나오나?" 를 사슬 전체로 한 번에 확인한다. 읽기 전용.
+on:
+  schedule:
+    - cron: "0 22 * * *"   # UTC 22:00 = KST 07:00 — 아침에 쓰기 직전
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: "한 브랜드만 깊게 볼 때 (비우면 전체)"
+        required: false
+        default: ""
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Preflight check
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRAND: ${{ github.event.inputs.brand }}
+        run: node scripts/preflight.mjs
