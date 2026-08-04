@@ -25,6 +25,8 @@ jobs:
         run: node scripts/test-composition.mjs
       - name: Run colorway extraction tests
         run: node scripts/test-color.mjs
+      - name: Run panel load test
+        run: node scripts/test-panel-load.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
