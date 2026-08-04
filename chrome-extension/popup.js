@@ -123,7 +123,7 @@ function renderSched(s) {
   $('schedInfo').textContent = parts.join(' · ');
 }
 async function saveSched() {
-  const [h, m] = String($('schedTime').value || '08:00').split(':');
+  const [h, m] = String($('schedTime').value || '05:00').split(':');
   const r = await send({
     type: 'setSched',
     schedOn: $('schedOn').checked,

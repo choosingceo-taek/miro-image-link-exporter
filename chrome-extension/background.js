@@ -34,7 +34,10 @@ async function getSched() {
   return {
     schedOn: !!s.schedOn,
     idleOnly: s.idleOnly !== false,   // 기본 true — 자리를 비웠을 때만 수집
-    schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 8,   // 기본 08:00
+    // 기본 05:00 — 서버 프리페치(03:00)·헤드리스(03:30)가 끝난 뒤에 이어서 돈다.
+    // 확장이 맡은 브랜드는 서버가 못 긁는 곳이라 순서가 겹칠 일은 없지만,
+    // 05:00 이면 사람이 자리에 없을 시간이라 '자리 비울 때만 수집'과도 맞는다.
+    schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 5,
     schedMin: Number.isInteger(s.schedMin) ? s.schedMin : 0,      // 분 단위까지 지정 가능
     visible: s.visible !== false,   // 기본 true — 숨은 탭은 크롬이 타이머를 늦춰 수집률이 떨어짐
     maxPages: Number.isInteger(s.maxPages) ? s.maxPages : 20,     // 카테고리당 최대 페이지 수

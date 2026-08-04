@@ -29,6 +29,8 @@ jobs:
         run: node scripts/test-valid.mjs
       - name: Run panel load test
         run: node scripts/test-panel-load.mjs
+      - name: Run overlay merge test
+        run: node scripts/test-overlay-merge.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
