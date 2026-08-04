@@ -1417,16 +1417,31 @@
         try {
           const base = __proxy.url.replace(/\/+$/, '');
           const tok = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
-          const resp = await fetch(base + '/?catalog=' + encodeURIComponent(site) + tok);
+          // 카탈로그 본문과 오버레이를 함께 받는다. 혼용률·컬러웨이·사이즈는 야간 보강이
+          // 오버레이(comp:<site>)에 쌓는다 — 카탈로그 item 에는 안 들어간다. 예전엔 여기서
+          // 카탈로그만 읽어서, 오버레이가 100% 차 있어도 브랜드 목록에서 뽑은 엑셀의
+          // 혼용률·컬러웨이 칸이 통째로 비었다(보드 스캐너 쪽만 오버레이를 읽고 있었다).
+          const [resp, om] = await Promise.all([
+            fetch(base + '/?catalog=' + encodeURIComponent(site) + tok),
+            fetch(base + '/?comps=' + encodeURIComponent(site) + tok)
+              .then((r) => r.json()).catch(() => ({})),
+          ]);
           if (!resp.ok) { showNoResult(); return; }
           const data = await resp.json();
+          // 상품URL 표기가 조금씩 달라도 맞도록 보드 스캐너와 같은 urlKey 로 맞춘다.
+          const ov = new Map();
+          for (const [u, o] of Object.entries(om || {})) if (o) ov.set(urlKey(u), o);
           importItems = (data.items || []).map((p, i) => {
             const cat = guessCat(p.productUrl, p.name);   // 저장된 category 대신 재분류(오분류 교정)
+            const o = ov.get(urlKey(p.productUrl)) || {};
             return {
               id: 'c' + i, name: p.name || '', category: cat,
-              imageUrl: p.imageUrl, productUrl: p.productUrl, price: p.price || '',
-              priceOrig: p.priceOrig || '', comp: p.comp || '',
-              color: p.color || '', sizes: p.sizes || '',
+              imageUrl: p.imageUrl, productUrl: p.productUrl,
+              price: p.price || o.price || '',
+              priceOrig: p.priceOrig || o.priceOrig || '',
+              comp: p.comp || o.comp || '',
+              color: p.color || o.color || '',
+              sizes: p.sizes || o.sizes || '',
               brand: data.brand || brand || '', selected: false,
             };
           }).filter(p => p.imageUrl && p.productUrl);
