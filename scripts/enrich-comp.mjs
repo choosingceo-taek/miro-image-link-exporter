@@ -193,33 +193,52 @@ for (const c of list) {
   });
   budget -= todo.length;
 
-  // 저장은 브랜드당 1회 — KV 무료 한도가 하루 쓰기 1,000회라, 100건 조각(브랜드당
-  // 최대 8회 × 130브랜드)로는 백필 한 번에 한도를 넘긴다. 어제 그걸로 하루를 날렸다.
-  // 오버레이는 작아서(수백 KB) 한 번에 보내도 Worker 부담이 없다.
+  // 저장: 병합을 여기서 하고 Worker 에는 완성된 오버레이를 통째로 넘긴다.
+  // Worker 가 병합하면(기존 오버레이 파싱 + 항목별 정리 + 재직렬화) 항목 400개쯤에서
+  // 무료 플랜 CPU 10ms 를 넘겨 저장 전에 죽는다 — Vince(340) 성공, Whitestuff(419)
+  // 실패로 실측됐다. 여기서 병합하면 Worker 는 파싱 없이 쓰기만 하므로 크기와 무관하다.
   let patched = 0;
   const keys = Object.keys(comps);
-  for (let off = 0; off < keys.length; off += 1000) {
-    const part = {};
-    for (const k of keys.slice(off, off + 1000)) part[k] = comps[k];
-    let done = false;
-    for (let attempt = 0; attempt < 2 && !done; attempt++) {
+  if (keys.length) {
+    const merged = { ...overlay };
+    const clean = (v, max) => {
+      const t = String(v == null ? "" : v).trim().slice(0, max);
+      return t === "[object Object]" ? "" : t;
+    };
+    for (const [url, v] of Object.entries(comps)) {
+      const cur = { ...(merged[url] || {}) };
+      const inc = typeof v === "string" ? { comp: v } : (v || {});
+      let n = 0;
+      for (const [k, max] of [["comp", 160], ["color", 80], ["sizes", 200], ["price", 40], ["priceOrig", 40]]) {
+        const t = clean(inc[k], max);
+        if (t && !cur[k]) { cur[k] = t; n++; }
+      }
+      if (n) { merged[url] = cur; patched++; }
+    }
+    // 상품 상한(브랜드 카탈로그 800)보다 넉넉하게 1000개까지만 남긴다.
+    const mk = Object.keys(merged);
+    if (mk.length > 1000) for (const k of mk.slice(0, mk.length - 1000)) delete merged[k];
+
+    let ok = false;
+    for (let attempt = 0; attempt < 3 && !ok; attempt++) {
       try {
-        const resp = await fetch(WORKER + "/?store=comps" + tok, {
+        const resp = await fetch(`${WORKER}/?store=overlay&site=${encodeURIComponent(c.site)}${tok}`, {
           method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ site: c.site, comps: part }),
-          signal: AbortSignal.timeout(30000),
+          body: JSON.stringify(merged), signal: AbortSignal.timeout(45000),
         });
         const text = await resp.text();
         let r = null;
         try { r = JSON.parse(text); } catch (e) {}
-        if (r && r.ok) { patched += r.patched || 0; done = true; break; }
-        if (attempt === 1) console.log(`  !! ${c.site} 조각 ${off / 100}: HTTP ${resp.status} ${text.slice(0, 160)}`);
+        if (r && r.ok) { ok = true; break; }
+        if (attempt === 2) console.log(`  !! ${c.site} 저장 실패: HTTP ${resp.status} ${text.slice(0, 160)}`);
       } catch (e) {
-        if (attempt === 1) console.log(`  !! ${c.site} 조각 ${off / 100}: ${String(e.message || e)}`);
+        if (attempt === 2) console.log(`  !! ${c.site} 저장 오류: ${String(e.message || e)}`);
       }
       await new Promise((r2) => setTimeout(r2, 2000));
     }
+    if (!ok) patched = 0;
   }
+
   // 저장 후 실제로 박혔는지 다시 읽어 확인한다 — 응답의 patched 만 믿지 않는다.
   let verify = null;
   if (keys.length) {
