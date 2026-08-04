@@ -350,9 +350,21 @@ async function enrichComps(g, cfg) {
   catch (e) { return 0; }
   // 채움 상태는 오버레이(comp:<site>) 기준이다 — 카탈로그 item 필드에는 더 이상
   // 혼용률·컬러가 실리지 않아, 그걸 보면 매 실행마다 전 상품을 다시 읽게 된다.
-  let overlay = {};
-  try { overlay = await (await fetch(cfg.worker + '/?comps=' + encodeURIComponent(g.site) + tok)).json() || {}; }
-  catch (e) {}
+  //
+  // 읽기에 실패하면 이 브랜드는 통째로 건너뛴다. 예전엔 빈 객체로 넘어갔는데,
+  // 저장 단계가 그 빈 객체를 기준으로 병합해 통째로 덮어썼다 — 읽기 한 번 실패에
+  // 브랜드의 누적 수집분이 전부 날아갔다.
+  let overlay = null;
+  for (let attempt = 0; attempt < 3 && overlay === null; attempt++) {
+    try {
+      const r = await fetch(cfg.worker + '/?comps=' + encodeURIComponent(g.site) + tok);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const j = await r.json();
+      if (j && typeof j === 'object' && !Array.isArray(j) && !j.error) overlay = j;
+      else throw new Error('bad overlay');
+    } catch (e) { if (attempt < 2) await sleep(2000); }
+  }
+  if (overlay === null) return 0;
   const now = Date.now();
   const RETRY_MS = 5 * 24 * 3600 * 1000;   // 값이 없던 상품은 5일 뒤에 다시 본다
   const val = (o, k) => { const t = String((o && o[k]) || '').trim(); return t === '[object Object]' ? '' : t; };

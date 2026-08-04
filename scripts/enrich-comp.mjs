@@ -184,8 +184,24 @@ for (const c of list) {
   catch (e) { rows.push({ brand: c.brand || c.site, error: String(e.message || e) }); continue; }
   const items = cat.items || [];
   // 채움 상태는 오버레이(comp:<site>) 기준 — 카탈로그 item 필드는 더 이상 쓰지 않는다.
-  let overlay = {};
-  try { overlay = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json()) || {}; } catch (e) {}
+  //
+  // 읽기에 실패하면 이 브랜드는 통째로 건너뛴다. 예전엔 빈 객체로 넘어갔는데,
+  // 저장 단계가 그 빈 객체를 기준으로 병합해 통째로 덮어썼다 — 읽기 한 번 실패에
+  // 브랜드의 누적 수집분이 전부 날아갔다(Cotton on 98% → 0%).
+  let overlay = null;
+  for (let attempt = 0; attempt < 3 && overlay === null; attempt++) {
+    try {
+      const r = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      const j = await r.json();
+      if (j && typeof j === "object" && !Array.isArray(j) && !j.error) overlay = j;
+      else throw new Error("오버레이 형식이 아님");
+    } catch (e) {
+      if (attempt === 2) { rows.push({ brand: cat.brand || c.site, site: c.site, total: items.length, error: "오버레이 읽기 실패: " + String(e.message || e) }); }
+      else await new Promise((r2) => setTimeout(r2, 2000));
+    }
+  }
+  if (overlay === null) continue;
   const ov = (p) => overlay[p.productUrl] || {};
   // 목표 항목(NEED_FIELDS)이 다 찼거나, 최근에 이미 시도해 봤으면 건너뛴다.
   //
