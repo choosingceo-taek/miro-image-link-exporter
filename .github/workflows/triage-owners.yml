@@ -1,0 +1,43 @@
+name: Triage owners
+
+# 어느 브랜드를 서버가 맡고 어느 브랜드를 확장이 맡아야 하는지 다시 나눈다.
+# 기준은 "상품 페이지를 서버 IP 로 읽을 수 있나" — 목록 페이지가 긁히는 것과는 다른 문제다.
+# 읽기만 하고 저장은 하지 않는다.
+on:
+  workflow_dispatch:
+    inputs:
+      sample:
+        description: "브랜드당 표본 상품 수 (기본 4)"
+        required: false
+        default: "4"
+
+permissions:
+  contents: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Triage brand owners
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          SAMPLE: ${{ github.event.inputs.sample }}
+        run: node scripts/triage-owners.mjs
+      - name: Commit triage
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- triage-owners.md || true
+          git commit -m "triage: 담당 재분류" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} \
+              && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::triage push failed after retries"
