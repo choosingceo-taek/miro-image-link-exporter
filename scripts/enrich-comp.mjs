@@ -40,6 +40,8 @@ const RETRY_DAYS = Math.max(1, Number(process.env.RETRY_DAYS) || 5);
 // 일시적으로 실패한 뒤에는, 창에 갇힌 상품이 전부 '시도 안 함' 상태로 굳는다.
 // (진단 표본 112개 중 58개가 "지금 읽으면 나온다"였다 — 그게 이 스위치의 이유다)
 const RETRY_ALL = process.env.RETRY_ALL === "1";
+// 성과 없는 브랜드를 한 실행에 몇 개까지만 다시 볼지. 0 이면 제한하지 않는다.
+const BARREN_CAP = Math.max(0, Number(process.env.BARREN_CAP ?? 30));
 const PER_BRAND = Math.max(1, Number(process.env.PER_BRAND) || 800);
 // 한 브랜드 안에서 동시에 읽을 상품 페이지 수. 전부 같은 사이트로 가므로
 // 여기를 무작정 올리면 429 를 부른다 — 전체 속도는 BRAND_POOL 로 올린다.
@@ -300,7 +302,22 @@ async function processBrand(c, phase) {
   const isNew = (p) => !ov(p).t;
   const want = items.filter((p) =>
     !triedThisRun.has(p.productUrl) && !full(p) && (phase === PHASE_NEW ? isNew(p) : !isNew(p)));
-  const todo = want.slice(0, Math.min(PER_BRAND, budget));
+  // 성과 없는 브랜드는 조금씩만 본다.
+  // 충분히 열어 봤는데 값이 거의 안 나온 브랜드는 사이트가 소재를 안 적는 쪽이다.
+  // Loft 는 579개를 열어 4% 였다 — 매일 밤 579개를 다시 여는 것은 그 시간을
+  // 실제로 채워지는 브랜드에서 빼앗는 일이다.
+  //
+  // 그렇다고 목록에서 빼거나 영영 포기하지는 않는다. 사이트가 표기를 추가하면
+  // 따라가야 하기 때문이다. 매 실행 BARREN_CAP 개씩만 다시 보고, 값이 나오기
+  // 시작하면 비율이 올라가면서 이 제한이 저절로 풀린다.
+  // (신상 1차에는 걸지 않는다 — 새로 들어온 상품은 판단할 근거가 아직 없다)
+  const tried = items.filter((p) => ov(p).t).length;
+  const barren = phase !== PHASE_NEW && tried >= 60 && have / Math.max(tried, 1) < 0.05;
+  const cap = barren && BARREN_CAP ? Math.min(BARREN_CAP, PER_BRAND) : PER_BRAND;
+  const todo = want.slice(0, Math.min(cap, budget));
+  if (barren && want.length > todo.length) {
+    console.log(`  ${c.site}: 성과 낮음(${have}/${tried}) — 이번엔 ${todo.length}/${want.length}개만`);
+  }
   if (!todo.length) {
     addRow({ brand: cat.brand || c.site, site: c.site, total: items.length, have, haveColor, patched: 0 });
     return;
