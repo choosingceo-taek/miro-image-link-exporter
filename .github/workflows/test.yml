@@ -33,6 +33,8 @@ jobs:
         run: node scripts/test-overlay-merge.mjs
       - name: Run settings wiring test
         run: node scripts/test-settings-wiring.mjs
+      - name: Run non-product filter test
+        run: node scripts/test-nonproduct.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js

@@ -75,6 +75,21 @@ async function pageCollector() {
   // 로고·브레드크럼이 이미지와 함께 있어서, 그냥 두면 상품인 척 섞여 들어온다.
   // 'Logo Tee' 같은 진짜 상품을 죽이지 않도록, 로고는 "이름이 로고로 끝나는 짧은 링크"만 막는다.
   const BANNER_NAME = /click to shop|shop the look|discover now|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|^.{0,24}\blogo\s*$/i;
+  // 상품 페이지가 아닌 경로. 점검(scripts/audit-catalogs.mjs)이 사후에 잡아내는 것과
+  // 같은 목록이다 — 잡아낼 수 있으면 애초에 담지 않는 게 맞다. 실제로 The white
+  // company 는 /magazine/ 아래 기사 9개가 상품으로 들어가 있었다.
+  // 한 '조각' 전체가 일치할 때만 막는다 — "help-me-tee" 같은 상품명은 살아남는다.
+  const NON_PRODUCT_SEGMENTS = [
+    'account', 'login', 'signin', 'register', 'cart', 'bag', 'basket', 'checkout', 'wishlist',
+    'gift-?cards?', 'e-?gift', 'size-?(?:guide|chart)', 'help', 'faq', 'contact',
+    'customer-?(?:service|care)', 'store-?locator', 'find-a-stores?', 'our-stores?',
+    'blogs?', 'journal', 'magazine', 'press', 'about(?:-us)?', 'careers?', 'jobs?',
+    'returns?', 'shipping', 'delivery', 'terms', 'privacy', 'cookies?', 'legal',
+    'sitemap', 'search', 'newsletter', 'subscribe', 'sustainability', 'lookbook',
+    'campaigns?', 'editorial', 'inspiration', 'guides?', 'how-to', 'klarna', 'afterpay',
+    'loyalty', 'rewards', 'affiliates?',
+  ];
+  const NON_PRODUCT_PATH = new RegExp('/(?:' + NON_PRODUCT_SEGMENTS.join('|') + ')(?:/|$)', 'i');
 
   // ── 가격 ────────────────────────────────────────────────────────────
   // 통화가 앞에 붙는 표기($128, ₩89,000, USD 128)와 뒤에 붙는 표기(129,00 zł, 1 290 kr)를
@@ -145,7 +160,8 @@ async function pageCollector() {
   const subCats = new Set();
 
   // 0개로 끝났을 때 "왜 다 걸러졌는지" 세어 둔다. 추측 대신 숫자로 원인을 좁힌다.
-  const rej = { total: 0, noImage: 0, tinyImage: 0, shortPath: 0, samePage: 0, banner: 0, dup: 0 };
+  const rej = { total: 0, noImage: 0, tinyImage: 0, shortPath: 0, samePage: 0, banner: 0, dup: 0,
+    nonProduct: 0, landing: 0 };
 
   const harvest = () => {
     const here = location.pathname.replace(/\/+$/, '');
@@ -173,6 +189,7 @@ async function pageCollector() {
       }
       const path = href.pathname.replace(/\/+$/, '');
       if (path.length < 8) { rej.shortPath++; return; }
+      if (NON_PRODUCT_PATH.test(path)) { rej.nonProduct++; return; }
       if (path === here) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
       if (here.startsWith(path + '/')) { rej.samePage++; return; }   // 상위 카테고리(브레드크럼)
       const key = href.origin + path;
@@ -194,6 +211,14 @@ async function pageCollector() {
         return;
       }
       const pr = priceOf(card);
+      // 조각 하나짜리 짧은 경로는 하위 카테고리 타일일 때가 많다
+      // (Ann Taylor 의 /cat5310001, /cata7000090 — 22개가 상품으로 들어가 있었다).
+      // 다만 그런 모양의 진짜 상품 URL 도 있어서, 가격이 없을 때만 버린다 —
+      // 상품 카드에는 대개 가격이 붙고 카테고리 타일에는 안 붙는다.
+      if (!pr.price && path.split('/').filter(Boolean).length <= 1 && path.length < 16) {
+        rej.landing++;
+        return;
+      }
       items.push({
         name: name || decodeURIComponent(path.split('/').pop() || '').replace(/[-_]+/g, ' '),
         imageUrl: src, productUrl: href.origin + href.pathname,
