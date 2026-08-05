@@ -1103,15 +1103,17 @@ const FIBRE_ALT = Object.keys(FIBRES)
 // \b 는 한글에 걸리지 않는다(한글은 \w 가 아니라 '폴리에스테르' 앞뒤에 경계가 없다).
 // 그래서 경계 대신 "라틴 문자와 붙어 있지 않을 것" 으로 판정한다.
 // 퍼센트와 섬유 이름 사이에 수식어가 끼는 표기가 흔하다:
-//   "100% Peruvian pima cotton"  "90% LENZING™ ECOVERO™ Viscose"
-//   "100% Supima Cotton"         "29% Organically Grown Cotton"
-// 예전에는 % 바로 뒤에 섬유 이름이 와야만 잡아서 이런 상품이 통째로 빠졌다.
-// 수식어를 최대 세 낱말까지 건너뛰되, 쉼표·마침표를 넘지는 않는다(\s+ 만 허용).
-// 낱말을 따로 잡아 두었다가 판촉 문구("20% off cotton tees")를 걸러낸다.
-const MOD_RX = "((?:[A-Za-z\u2122\u00ae'\u2019-]{2,20}\\s+){0,3}?)";
+//   "100% Peruvian pima cotton"  "90% LENZING™ ECOVERO™ Viscose"  "29% Organically Grown Cotton"
+// 반대 방향도 마찬가지다 — "Silk (mulberry) 5%" 처럼 괄호나 낱말이 끼면 놓친다.
+// 이걸 놓치면 더 나쁘다: "Cotton 95%, Silk (mulberry) 5%" 에서 실크만 빠져
+// "Cotton 95%" 가 되는데, 95% 는 유효 범위라 틀린 값이 그대로 저장된다.
+//
+// 그룹 번호로 읽으면 규칙을 손볼 때마다 어긋난다(실제로 한 번 어긋났다) — 이름을 붙인다.
+const MOD_FWD = "(?<modf>(?:[A-Za-z\u2122\u00ae'\u2019-]{2,20}\\s+){0,4}?)";
+const MOD_REV = "(?<modr>(?:\\s*\\([^)]{1,24}\\))?(?:\\s+[A-Za-z\u2122\u00ae'\u2019-]{2,20}){0,2})";
 const COMP_RX = new RegExp(
-  '(\\d{1,3})\\s*%\\s*(?:of\\s+)?' + MOD_RX + '(' + FIBRE_ALT + ')(?![A-Za-z])' +
-  '|(?<![A-Za-z])(' + FIBRE_ALT + ')\\s*[::]?\\s*(\\d{1,3})\\s*%', 'gi');
+  '(?<pctf>\\d{1,3})\\s*%\\s*(?:of\\s+)?' + MOD_FWD + '(?<fibf>' + FIBRE_ALT + ')(?![A-Za-z])' +
+  '|(?<![A-Za-z])(?<fibr>' + FIBRE_ALT + ')' + MOD_REV + '\\s*[::]?\\s*(?<pctr>\\d{1,3})\\s*%', 'gi');
 // 수식어 자리에 이런 말이 오면 소재 설명이 아니라 판촉·안내 문구다.
 const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|shipping|free|new|all|shop|more|less|min|max|use)\b/i;
 
@@ -1125,9 +1127,10 @@ function compFromText(text) {
   let cur = [], total = 0, seen = new Set();
   const flush = () => { if (cur.length) groups.push(cur); cur = []; total = 0; seen = new Set(); };
   for (const m of String(text || '').slice(0, 16000).matchAll(COMP_RX)) {
-    const pct = Number(m[1] || m[5]);
-    const mods = String(m[2] || '');
-    const key = String(m[3] || m[4] || '').toLowerCase().trim();
+    const g = m.groups;
+    const pct = Number(g.pctf || g.pctr);
+    const mods = String(g.modf || g.modr || '');
+    const key = String(g.fibf || g.fibr || '').toLowerCase().trim();
     const material = FIBRES[key];
     if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
     // "20% off cotton tees" 같은 판촉 문구를 소재로 읽지 않는다.

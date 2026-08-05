@@ -45,6 +45,14 @@ const CASES = [
     "Viscose 90% / Elastane 10%"],
   ["Reformation — Made from 67% TENCEL\u2122 Lyocell, 29% Organically Grown Cotton, and 4% Elastane",
     "Lyocell 67% / Cotton 29% / Elastane 4%"],
+  // Massimo Dutti — 섬유 이름과 퍼센트 사이에 괄호가 낀다. 이걸 놓치면 실크가
+  // 빠진 채 "Cotton 95%" 만 남는데, 95% 는 유효 범위라 틀린 값이 그대로 저장된다.
+  ["COMPOSITION OUTER LAYER Cotton 95%, Silk (mulberry) 5%", "Cotton 95% / Silk 5%"],
+  // 인증 표기처럼 낱말이 길게 붙어도 잡는다.
+  ["95% OCS CERTIFIED ORGANICALLY GROWN COTTON", "Cotton 95%"],
+  // 역방향에도 판촉 문구 방어가 걸려야 한다.
+  ["Cotton tees are 20% off", ""],
+
   // 목화 품종명이 섬유 이름 자리에 그대로 오는 표기.
   ["Evereve — Material: 48% Pima, 48% Modal, 4% Spandex Jersey",
     "Cotton 48% / Modal 48% / Elastane 4%"],
