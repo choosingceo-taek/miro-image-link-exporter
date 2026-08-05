@@ -274,6 +274,10 @@ const FIBRES = {
   lyocell: 'Lyocell', tencel: 'Lyocell', hemp: 'Hemp', ramie: 'Ramie', jute: 'Jute',
   alpaca: 'Alpaca', mohair: 'Mohair', angora: 'Angora', bamboo: 'Bamboo', cupro: 'Cupro',
   acetate: 'Acetate', triacetate: 'Triacetate', polyurethane: 'Polyurethane', leather: 'Leather',
+  // 목화 품종명이 섬유 이름 자리에 그대로 오는 경우 — Evereve 는 "48% Pima" 로만 적는다.
+  pima: 'Cotton', supima: 'Cotton',
+  // 상표명이 섬유 이름을 대신하는 경우.
+  ecovero: 'Viscose', micromodal: 'Modal', 'micro modal': 'Modal', 'sea cell': 'Lyocell',
   폴리에스테르: 'Polyester', 나일론: 'Nylon', 스판덱스: 'Elastane', 레이온: 'Viscose',
   모달: 'Modal', 리넨: 'Linen', 실크: 'Silk', 캐시미어: 'Cashmere', 아크릴: 'Acrylic',
   비스코스: 'Viscose', 텐셀: 'Lyocell', 라이오셀: 'Lyocell',
@@ -282,17 +286,26 @@ const FIBRE_ALT = Object.keys(FIBRES)
   .sort((a, z) => z.length - a.length)
   .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
   .join('|');
+// 퍼센트와 섬유 이름 사이에 수식어가 끼는 표기가 흔하다:
+//   "100% Peruvian pima cotton"  "90% LENZING™ ECOVERO™ Viscose"  "29% Organically Grown Cotton"
+// 수식어를 최대 세 낱말까지 건너뛰되 쉼표·마침표는 넘지 않는다(\s+ 만 허용).
+const MOD_RX = "((?:[A-Za-z\u2122\u00ae'\u2019-]{2,20}\\s+){0,3}?)";
 const COMP_RX = new RegExp(
-  '(\\d{1,3})\\s*%\\s*(?:of\\s+)?(' + FIBRE_ALT + ')(?![A-Za-z])' +
+  '(\\d{1,3})\\s*%\\s*(?:of\\s+)?' + MOD_RX + '(' + FIBRE_ALT + ')(?![A-Za-z])' +
   '|(?<![A-Za-z])(' + FIBRE_ALT + ')\\s*[::]?\\s*(\\d{1,3})\\s*%', 'gi');
+// 수식어 자리에 이런 말이 오면 소재 설명이 아니라 판촉·안내 문구다.
+const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|shipping|free|new|all|shop|more|less|min|max|use)\b/i;
 function compFromText(text) {
   const out = [];
   const seen = new Set();
   for (const m of String(text || '').slice(0, 16000).matchAll(COMP_RX)) {
-    const pct = Number(m[1] || m[4]);
-    const key = String(m[2] || m[3] || '').toLowerCase().trim();
+    const pct = Number(m[1] || m[5]);
+    const mods = String(m[2] || '');
+    const key = String(m[3] || m[4] || '').toLowerCase().trim();
     const material = FIBRES[key];
     if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
+    // "20% off cotton tees" 같은 판촉 문구를 소재로 읽지 않는다.
+    if (mods && MOD_BAD_RX.test(mods)) continue;
     if (seen.has(material)) continue;
     seen.add(material);
     out.push(material + ' ' + pct + '%');

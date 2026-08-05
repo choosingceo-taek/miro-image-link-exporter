@@ -2,6 +2,14 @@
 
 버전은 `chrome://extensions` 카드에 표시됩니다. 여기 적힌 것보다 낮으면 최신이 아닙니다.
 
+## 1.7.13 (2026-08-05)
+- **퍼센트와 섬유 이름 사이에 수식어가 끼면 못 잡던 문제.** `100% Peruvian pima
+  cotton`, `90% LENZING™ ECOVERO™ Viscose`, `29% Organically Grown Cotton` 같은
+  표기를 통째로 놓치고 있었습니다. 최대 세 낱말까지 건너뛰고 섬유 이름을 찾습니다.
+  `20% off cotton tees` 같은 판촉 문구는 그대로 걸러냅니다.
+- **섬유 이름 보강** — Pima·Supima(목화 품종), ECOVERO·MicroModal·SeaCell(상표명).
+  Evereve 는 `48% Pima` 로만 적어서 조성이 절반만 잡혔습니다.
+
 ## 1.7.12 (2026-08-05)
 밤새 돌리고 아침 6시에 멈추는 것을 전제로 바꿨습니다.
 

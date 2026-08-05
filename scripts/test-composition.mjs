@@ -29,7 +29,22 @@ const CASES = [
   ["Shell: 100% Recycled Polyester", "Polyester 100%"],
   ["55% Linen / 45% Tencel", "Linen 55% / Lyocell 45%"],
 
+  // ── 실제로 못 뽑던 본문 (2026-08-05 진단에서 나온 그대로) ──
+  // 퍼센트와 섬유 이름 사이에 수식어가 끼면 예전에는 통째로 놓쳤다.
+  ["Goldie — 100% Peruvian pima cotton Premium double-faced pima", "Cotton 100%"],
+  ["Stateside — Our 100% Supima Cotton Slub Jersey is a lightweight knit", "Cotton 100%"],
+  ["Everlane — Materials: 90% LENZING\u2122 ECOVERO\u2122 Viscose, 10% Elastane",
+    "Viscose 90% / Elastane 10%"],
+  ["Reformation — Made from 67% TENCEL\u2122 Lyocell, 29% Organically Grown Cotton, and 4% Elastane",
+    "Lyocell 67% / Cotton 29% / Elastane 4%"],
+  // 목화 품종명이 섬유 이름 자리에 그대로 오는 표기.
+  ["Evereve — Material: 48% Pima, 48% Modal, 4% Spandex Jersey",
+    "Cotton 48% / Modal 48% / Elastane 4%"],
   // ── 섬유가 아닌 퍼센트는 무시해야 한다 ──
+  // 수식어를 허용하면 "20% off cotton" 을 소재로 읽을 위험이 생긴다. 그래서
+  // 수식어 자리에 판촉 낱말이 오면 버린다 — 아래 세 건이 그 경계를 지킨다.
+  ["20% off cotton tees this week only", ""],
+  ["Save 15% on all linen shirts", ""],
   ["Extra 20% OFF everything today", ""],
   ["100% satisfaction guaranteed. Free returns.", ""],
   ["Save 30% on your first order", ""],
