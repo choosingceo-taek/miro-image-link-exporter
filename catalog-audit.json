@@ -1,5 +1,5 @@
 {
- "when": "2026-08-05T21:14:51.072Z",
+ "when": "2026-08-05T23:27:44.507Z",
  "scanned": 32770,
  "flagged": 75,
  "report": [
@@ -1502,211 +1502,217 @@
   {
    "name": "American Eagle",
    "items": 132,
-   "age": 74.33359194444445,
+   "age": 76.54843527777778,
    "missing": false
   },
   {
    "name": "Aerie",
    "items": 114,
-   "age": 74.30170805555555,
+   "age": 76.51655138888889,
+   "missing": false
+  },
+  {
+   "name": "Seasalt cornwall",
+   "items": 280,
+   "age": 76.30132083333334,
    "missing": false
   },
   {
    "name": "H&M",
    "items": 739,
-   "age": 4.736914166666667,
+   "age": 6.9517575,
    "missing": false
   },
   {
    "name": "Paige",
    "items": 54,
-   "age": 4.696775555555556,
+   "age": 6.9116188888888885,
    "missing": false
   },
   {
    "name": "Wilson",
    "items": 41,
-   "age": 4.6725352777777776,
+   "age": 6.887378611111111,
    "missing": false
   },
   {
    "name": "&Other Stories",
    "items": 436,
-   "age": 4.605699444444444,
+   "age": 6.820542777777778,
    "missing": false
   },
   {
    "name": "Abercrombie & Fitch",
    "items": 228,
-   "age": 4.560701944444444,
+   "age": 6.775545277777778,
    "missing": false
   },
   {
    "name": "Addidas",
    "items": 420,
-   "age": 4.528024444444444,
+   "age": 6.742867777777778,
    "missing": false
   },
   {
    "name": "Ann Taylor",
    "items": 390,
-   "age": 4.499841388888889,
+   "age": 6.714684722222223,
    "missing": false
   },
   {
    "name": "Anthropologie",
    "items": 191,
-   "age": 4.410100277777778,
+   "age": 6.624943611111111,
    "missing": false
   },
   {
    "name": "Aritzia",
    "items": 475,
-   "age": 4.372029722222222,
+   "age": 6.5868730555555555,
    "missing": false
   },
   {
    "name": "Arket",
    "items": 251,
-   "age": 4.33243,
+   "age": 6.547273333333333,
    "missing": false
   },
   {
    "name": "Athleta",
    "items": 2,
-   "age": 4.292069722222222,
+   "age": 6.506913055555556,
    "missing": false
   },
   {
    "name": "Banana Republic",
    "items": 1,
-   "age": 4.249365277777778,
+   "age": 6.464208611111111,
    "missing": false
   },
   {
    "name": "Eileen fisher",
    "items": 360,
-   "age": 4.204125555555556,
+   "age": 6.418968888888889,
    "missing": false
   },
   {
    "name": "Fatface",
    "items": 542,
-   "age": 4.161931666666667,
+   "age": 6.376775,
    "missing": false
   },
   {
    "name": "FP Movement",
    "items": 105,
-   "age": 4.06917,
+   "age": 6.284013333333333,
    "missing": false
   },
   {
    "name": "Free People",
    "items": 178,
-   "age": 3.9769988888888888,
+   "age": 6.191842222222222,
    "missing": false
   },
   {
    "name": "Gap",
    "items": 4,
-   "age": 3.939696111111111,
+   "age": 6.154539444444445,
    "missing": false
   },
   {
    "name": "Garnet hill",
    "items": 118,
-   "age": 3.889088611111111,
+   "age": 6.103931944444445,
    "missing": false
   },
   {
    "name": "Joules",
    "items": 309,
-   "age": 3.84377,
+   "age": 6.058613333333334,
    "missing": false
   },
   {
    "name": "L.L bean",
    "items": 322,
-   "age": 3.7670536111111113,
+   "age": 5.981896944444444,
    "missing": false
   },
   {
    "name": "Lands end",
    "items": 92,
-   "age": 3.6549230555555554,
+   "age": 5.8697663888888885,
    "missing": false
   },
   {
    "name": "Loft",
    "items": 607,
-   "age": 3.597936388888889,
+   "age": 5.812779722222222,
    "missing": false
   },
   {
    "name": "Lululemon",
    "items": 114,
-   "age": 3.5119897222222223,
+   "age": 5.726833055555556,
    "missing": false
   },
   {
    "name": "Madewell",
    "items": 16,
-   "age": 3.477802222222222,
+   "age": 5.692645555555556,
    "missing": false
   },
   {
    "name": "Mango",
    "items": 48,
-   "age": 3.44706,
+   "age": 5.661903333333333,
    "missing": false
   },
   {
    "name": "Massimo Dutti",
    "items": 11,
-   "age": 3.397631111111111,
+   "age": 5.6124744444444445,
    "missing": false
   },
   {
    "name": "Old Navy",
    "items": 4,
-   "age": 3.366403611111111,
+   "age": 5.581246944444445,
    "missing": false
   },
   {
    "name": "Oysho",
    "items": 16,
-   "age": 3.3051080555555554,
+   "age": 5.519951388888889,
    "missing": false
   },
   {
    "name": "Patagonia",
    "items": 202,
-   "age": 3.272796111111111,
+   "age": 5.4876394444444445,
    "missing": false
   },
   {
    "name": "Sezane",
    "items": 167,
-   "age": 3.251004722222222,
+   "age": 5.465848055555556,
    "missing": false
   },
   {
    "name": "The upside",
    "items": 344,
-   "age": 3.2229025,
+   "age": 5.4377458333333335,
    "missing": false
   },
   {
    "name": "The white company",
    "items": 78,
-   "age": 3.2055416666666665,
+   "age": 5.420385,
    "missing": false
   },
   {
    "name": "Theory",
    "items": 320,
-   "age": 3.0870525,
+   "age": 5.301895833333333,
    "missing": false
   }
  ],
@@ -1859,8 +1865,8 @@
    "brand": "Theory",
    "group": "extension",
    "total": 320,
-   "withPrice": 27,
-   "pct": 8,
+   "withPrice": 28,
+   "pct": 9,
    "sample": "$225.00"
   },
   {
@@ -1977,7 +1983,7 @@
   },
   {
    "brand": "Seasalt cornwall",
-   "group": "server",
+   "group": "extension",
    "total": 280,
    "withPrice": 216,
    "pct": 77,
@@ -2970,14 +2976,14 @@
    "brand": "Boldest",
    "group": "browser",
    "total": 200,
-   "withComp": 23,
-   "pct": 12
+   "withComp": 25,
+   "pct": 13
   },
   {
    "brand": "Eileen fisher",
    "group": "extension",
    "total": 360,
-   "withComp": 75,
+   "withComp": 76,
    "pct": 21
   },
   {
@@ -3005,15 +3011,8 @@
    "brand": "rouje",
    "group": "server",
    "total": 299,
-   "withComp": 123,
+   "withComp": 124,
    "pct": 41
-  },
-  {
-   "brand": "Everlane",
-   "group": "server",
-   "total": 381,
-   "withComp": 168,
-   "pct": 44
   },
   {
    "brand": "Abercrombie & Fitch",
@@ -3023,8 +3022,15 @@
    "pct": 44
   },
   {
-   "brand": "Seasalt cornwall",
+   "brand": "Everlane",
    "group": "server",
+   "total": 381,
+   "withComp": 173,
+   "pct": 45
+  },
+  {
+   "brand": "Seasalt cornwall",
+   "group": "extension",
    "total": 280,
    "withComp": 128,
    "pct": 46
@@ -3042,13 +3048,6 @@
    "total": 390,
    "withComp": 194,
    "pct": 50
-  },
-  {
-   "brand": "Dickies",
-   "group": "server",
-   "total": 165,
-   "withComp": 88,
-   "pct": 53
   },
   {
    "brand": "L.L bean",
@@ -3075,15 +3074,22 @@
    "brand": "&Other Stories",
    "group": "extension",
    "total": 436,
-   "withComp": 274,
+   "withComp": 276,
    "pct": 63
   },
   {
    "brand": "Stateside",
    "group": "server",
    "total": 322,
-   "withComp": 207,
-   "pct": 64
+   "withComp": 216,
+   "pct": 67
+  },
+  {
+   "brand": "Dickies",
+   "group": "server",
+   "total": 165,
+   "withComp": 120,
+   "pct": 73
   },
   {
    "brand": "Oasis",
@@ -3121,13 +3127,6 @@
    "pct": 85
   },
   {
-   "brand": "Leset",
-   "group": "browser",
-   "total": 301,
-   "withComp": 257,
-   "pct": 85
-  },
-  {
    "brand": "Poetry",
    "group": "browser",
    "total": 378,
@@ -3135,10 +3134,10 @@
    "pct": 86
   },
   {
-   "brand": "Theory",
-   "group": "extension",
-   "total": 320,
-   "withComp": 274,
+   "brand": "Leset",
+   "group": "browser",
+   "total": 301,
+   "withComp": 258,
    "pct": 86
   },
   {
@@ -3198,13 +3197,6 @@
    "pct": 91
   },
   {
-   "brand": "Monsoon",
-   "group": "server",
-   "total": 34,
-   "withComp": 31,
-   "pct": 91
-  },
-  {
    "brand": "Wrap",
    "group": "browser",
    "total": 469,
@@ -3233,20 +3225,6 @@
    "pct": 92
   },
   {
-   "brand": "Bassike",
-   "group": "server",
-   "total": 322,
-   "withComp": 295,
-   "pct": 92
-  },
-  {
-   "brand": "Vuori",
-   "group": "server",
-   "total": 217,
-   "withComp": 200,
-   "pct": 92
-  },
-  {
    "brand": "Alo",
    "group": "server",
    "total": 182,
@@ -3268,6 +3246,13 @@
    "pct": 93
   },
   {
+   "brand": "Vuori",
+   "group": "server",
+   "total": 217,
+   "withComp": 202,
+   "pct": 93
+  },
+  {
    "brand": "Michael Stars",
    "group": "server",
    "total": 208,
@@ -3286,13 +3271,6 @@
    "group": "server",
    "total": 149,
    "withComp": 138,
-   "pct": 93
-  },
-  {
-   "brand": "Eddie bauer",
-   "group": "server",
-   "total": 122,
-   "withComp": 114,
    "pct": 93
   },
   {
@@ -3345,10 +3323,17 @@
    "pct": 94
   },
   {
+   "brand": "Monsoon",
+   "group": "server",
+   "total": 34,
+   "withComp": 32,
+   "pct": 94
+  },
+  {
    "brand": "Sweaty betty",
    "group": "browser",
    "total": 345,
-   "withComp": 327,
+   "withComp": 329,
    "pct": 95
   },
   {
@@ -3366,17 +3351,17 @@
    "pct": 95
   },
   {
+   "brand": "Theory",
+   "group": "extension",
+   "total": 320,
+   "withComp": 305,
+   "pct": 95
+  },
+  {
    "brand": "Faherty",
    "group": "server",
    "total": 195,
    "withComp": 185,
-   "pct": 95
-  },
-  {
-   "brand": "The Great",
-   "group": "server",
-   "total": 153,
-   "withComp": 145,
    "pct": 95
   },
   {
@@ -3422,6 +3407,13 @@
    "pct": 96
   },
   {
+   "brand": "The Great",
+   "group": "server",
+   "total": 153,
+   "withComp": 147,
+   "pct": 96
+  },
+  {
    "brand": "On",
    "group": "browser",
    "total": 143,
@@ -3450,24 +3442,17 @@
    "pct": 97
   },
   {
-   "brand": "Frank & Eileen",
-   "group": "server",
-   "total": 420,
-   "withComp": 409,
-   "pct": 97
-  },
-  {
-   "brand": "Xirena",
-   "group": "server",
-   "total": 407,
-   "withComp": 393,
-   "pct": 97
-  },
-  {
    "brand": "Sanctuary",
    "group": "server",
    "total": 378,
    "withComp": 367,
+   "pct": 97
+  },
+  {
+   "brand": "Bassike",
+   "group": "server",
+   "total": 322,
+   "withComp": 313,
    "pct": 97
   },
   {
@@ -3513,6 +3498,13 @@
    "pct": 97
   },
   {
+   "brand": "Eddie bauer",
+   "group": "server",
+   "total": 122,
+   "withComp": 118,
+   "pct": 97
+  },
+  {
    "brand": "Evereve",
    "group": "server",
    "total": 458,
@@ -3524,13 +3516,6 @@
    "group": "server",
    "total": 370,
    "withComp": 364,
-   "pct": 98
-  },
-  {
-   "brand": "Jager",
-   "group": "server",
-   "total": 368,
-   "withComp": 360,
    "pct": 98
   },
   {
@@ -3560,6 +3545,13 @@
    "total": 169,
    "withComp": 165,
    "pct": 98
+  },
+  {
+   "brand": "Jager",
+   "group": "server",
+   "total": 368,
+   "withComp": 363,
+   "pct": 99
   },
   {
    "brand": "La Ligne",
@@ -3593,7 +3585,7 @@
    "brand": "Veronica Beard",
    "group": "server",
    "total": 238,
-   "withComp": 235,
+   "withComp": 236,
    "pct": 99
   },
   {
@@ -3657,6 +3649,20 @@
    "group": "browser",
    "total": 458,
    "withComp": 456,
+   "pct": 100
+  },
+  {
+   "brand": "Frank & Eileen",
+   "group": "server",
+   "total": 420,
+   "withComp": 418,
+   "pct": 100
+  },
+  {
+   "brand": "Xirena",
+   "group": "server",
+   "total": 407,
+   "withComp": 407,
    "pct": 100
   },
   {
@@ -3834,7 +3840,7 @@
    "price": 426,
    "color": 163,
    "sizes": 0,
-   "comp": 274
+   "comp": 276
   },
   {
    "brand": "Zara",
@@ -3861,7 +3867,7 @@
    "price": 419,
    "color": 419,
    "sizes": 419,
-   "comp": 409
+   "comp": 418
   },
   {
    "brand": "Xirena",
@@ -3870,14 +3876,14 @@
    "price": 407,
    "color": 403,
    "sizes": 407,
-   "comp": 393
+   "comp": 407
   },
   {
    "brand": "Splendid",
    "group": "server",
    "total": 399,
    "price": 399,
-   "color": 356,
+   "color": 357,
    "sizes": 399,
    "comp": 30
   },
@@ -3915,7 +3921,7 @@
    "price": 381,
    "color": 0,
    "sizes": 380,
-   "comp": 168
+   "comp": 173
   },
   {
    "brand": "Poetry",
@@ -3967,9 +3973,9 @@
    "group": "server",
    "total": 368,
    "price": 368,
-   "color": 247,
+   "color": 252,
    "sizes": 0,
-   "comp": 360
+   "comp": 363
   },
   {
    "brand": "La Ligne",
@@ -3987,7 +3993,7 @@
    "price": 122,
    "color": 0,
    "sizes": 0,
-   "comp": 75
+   "comp": 76
   },
   {
    "brand": "Hobbs",
@@ -4023,7 +4029,7 @@
    "price": 343,
    "color": 345,
    "sizes": 0,
-   "comp": 327
+   "comp": 329
   },
   {
    "brand": "The upside",
@@ -4077,7 +4083,7 @@
    "price": 322,
    "color": 0,
    "sizes": 318,
-   "comp": 295
+   "comp": 313
   },
   {
    "brand": "L.L bean",
@@ -4093,18 +4099,18 @@
    "group": "server",
    "total": 322,
    "price": 322,
-   "color": 235,
+   "color": 246,
    "sizes": 302,
-   "comp": 207
+   "comp": 216
   },
   {
    "brand": "Theory",
    "group": "extension",
    "total": 320,
-   "price": 27,
-   "color": 282,
-   "sizes": 21,
-   "comp": 274
+   "price": 28,
+   "color": 306,
+   "sizes": 22,
+   "comp": 305
   },
   {
    "brand": "Ulla Johnson",
@@ -4120,7 +4126,7 @@
    "group": "server",
    "total": 312,
    "price": 312,
-   "color": 73,
+   "color": 74,
    "sizes": 311,
    "comp": 263
   },
@@ -4158,16 +4164,16 @@
    "price": 301,
    "color": 296,
    "sizes": 292,
-   "comp": 257
+   "comp": 258
   },
   {
    "brand": "rouje",
    "group": "server",
    "total": 299,
    "price": 296,
-   "color": 225,
+   "color": 227,
    "sizes": 0,
-   "comp": 123
+   "comp": 124
   },
   {
    "brand": "Boden",
@@ -4198,7 +4204,7 @@
   },
   {
    "brand": "Seasalt cornwall",
-   "group": "server",
+   "group": "extension",
    "total": 280,
    "price": 216,
    "color": 279,
@@ -4248,7 +4254,7 @@
    "price": 238,
    "color": 238,
    "sizes": 238,
-   "comp": 235
+   "comp": 236
   },
   {
    "brand": "Abercrombie & Fitch",
@@ -4311,7 +4317,7 @@
    "price": 34,
    "color": 217,
    "sizes": 0,
-   "comp": 200
+   "comp": 202
   },
   {
    "brand": "Damson Madder",
@@ -4383,7 +4389,7 @@
    "price": 199,
    "color": 200,
    "sizes": 0,
-   "comp": 23
+   "comp": 25
   },
   {
    "brand": "Faherty",
@@ -4535,8 +4541,8 @@
    "total": 165,
    "price": 165,
    "color": 165,
-   "sizes": 162,
-   "comp": 88
+   "sizes": 163,
+   "comp": 120
   },
   {
    "brand": "Draper James",
@@ -4572,7 +4578,7 @@
    "price": 153,
    "color": 144,
    "sizes": 144,
-   "comp": 145
+   "comp": 147
   },
   {
    "brand": "Addison bay",
@@ -4653,7 +4659,7 @@
    "price": 122,
    "color": 109,
    "sizes": 118,
-   "comp": 114
+   "comp": 118
   },
   {
    "brand": "Garnet hill",
@@ -4824,7 +4830,7 @@
    "price": 34,
    "color": 3,
    "sizes": 0,
-   "comp": 31
+   "comp": 32
   },
   {
    "brand": "Prana",
