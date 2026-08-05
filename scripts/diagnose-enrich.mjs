@@ -152,7 +152,11 @@ for (const t of targets) {
     totals[k] = (totals[k] || 0) + 1;
   }
   const pct = Math.round((1 - t.missing.length / t.total) * 100);
-  perBrand.push({ brand: t.brand, site: t.site, pct, missing: t.missing.length, total: t.total, n: pick.length, by });
+  // 못 뽑은 본문을 함께 남긴다 — 이걸 봐야 규칙을 고칠 수 있고,
+  // 판정이 판촉 배너 같은 것을 잘못 짚은 건 아닌지도 사람이 확인할 수 있다.
+  const gaps = res.filter((r) => !r.ok && r.why === "규칙 누락" && r.sample).slice(0, 2)
+    .map((r) => ({ where: r.where, sample: r.sample }));
+  perBrand.push({ brand: t.brand, site: t.site, pct, missing: t.missing.length, total: t.total, n: pick.length, by, gaps });
   console.log(`${t.brand} (${t.site}) — 채움 ${pct}% · 빈 상품 ${t.missing.length}/${t.total} · 표본 ${pick.length}`);
   console.log(`   ${Object.entries(by).map(([k, v]) => `${k} ${v}`).join(" · ")}`);
   // 규칙 누락이면 실제 본문을 보여 준다 — 이걸 보고 추출 규칙을 고친다.
@@ -195,7 +199,13 @@ if (gapBrands.length) {
   md += `## 🔧 추출 규칙을 고쳐야 하는 브랜드 (${gapBrands.length})\n\n`;
   md += `| 브랜드 | 저장 키 | 빈 상품 | 표본 규칙누락 |\n|---|---|---:|---:|\n`;
   for (const r of gapBrands) md += `| ${r.brand} | ${r.site} | ${r.missing}/${r.total} | ${r.by["규칙 누락"] || 0}/${r.n} |\n`;
-  md += `\n`;
+  md += `\n### 못 뽑은 본문\n\n`;
+  for (const r of gapBrands) {
+    if (!r.gaps || !r.gaps.length) continue;
+    md += `**${r.brand}**\n`;
+    for (const g of r.gaps) md += `- (${g.where}) \`…${g.sample.replace(/`/g, "'")}…\`\n`;
+    md += `\n`;
+  }
 }
 if (waitingBrands.length) {
   md += `## ⏳ 다시 읽기만 하면 채워지는 브랜드 (${waitingBrands.length})\n\n`;
