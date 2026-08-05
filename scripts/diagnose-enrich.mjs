@@ -41,7 +41,18 @@ const compFromHtml = new Function(slice("const FIBRES = {", "function titleCase"
 const { validComp } = new Function(
   slice("const COMP_ITEM_RX", "// ── 페이지 HTML 전체에서 혼용률") + "\n return { validComp };",
 )();
-const asComp = (v) => (Array.isArray(v) ? v.map((c) => `${c.material} ${c.percent}%`).join(" / ") : String(v || "").trim());
+// 한 옷에 원단이 둘이면 항목에 line 번호가 달려 온다 — 줄로 나눠 담는다.
+// (enrich-comp.mjs 와 같은 규칙. 줄 번호를 무시하고 " / " 로 합치면 두 줄짜리가
+//  한 줄 200% 가 되어 판정에서 탈락한다)
+const asComp = (v) => {
+  if (!Array.isArray(v)) return String(v || "").trim();
+  const lines = [];
+  for (const c of v) {
+    const n = c.line || 0;
+    (lines[n] = lines[n] || []).push(`${c.material} ${c.percent}%`);
+  }
+  return lines.filter(Boolean).map((l) => l.join(" / ")).join("\n");
+};
 
 // 본문에 혼용률 '재료'가 보이는지 — 규칙 누락과 정보 없음을 가르는 잣대.
 //

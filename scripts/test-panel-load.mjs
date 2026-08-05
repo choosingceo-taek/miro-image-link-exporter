@@ -71,11 +71,12 @@ let colLabel = "";
   //   'auto' : 95% 기준 로직 자체가 멀쩡한지 (다시 열 때 깨져 있으면 안 된다)
   const build = (override) => {
     const src = override === null ? decl
-      : decl.replace(/const SHOW_FABRIC_COLUMNS = [^;]+;/, `const SHOW_FABRIC_COLUMNS = ${override};`);
+      : decl.replace(/const SHOW_COMP_COLUMN = [^;]+;/, `const SHOW_COMP_COLUMN = ${override};`)
+        .replace(/const SHOW_COLOR_COLUMN = [^;]+;/, `const SHOW_COLOR_COLUMN = ${override};`);
     return new Function(
       "const cleanVal = (v) => { const t = String(v || '').trim(); return t.includes('[object Object]') ? '' : t; };\n" +
       src +
-      "\n return { colsFor, rowColFor, fabricReady, FABRIC_GATE, SHOW_FABRIC_COLUMNS };",
+      "\n return { colsFor, rowColFor, compReady, colorReady, FABRIC_GATE, SHOW_COMP_COLUMN, SHOW_COLOR_COLUMN };",
     )();
   };
   let api, auto;
@@ -86,17 +87,18 @@ let colLabel = "";
   }
   // 지금 설정에서 실제로 열이 어떻게 나가는지. 값이 아무리 차 있어도 닫혀 있어야 한다.
   const full20 = Array.from({ length: 20 }, () => ({ comp: "Cotton 100%", color: "White" }));
-  const nowOpen = api.fabricReady(full20);
-  if (api.SHOW_FABRIC_COLUMNS === false && nowOpen) {
-    console.error("❌ 스위치가 false 인데 열이 열린다"); process.exit(1);
-  }
-  if (api.SHOW_FABRIC_COLUMNS === true && !nowOpen) {
-    console.error("❌ 스위치가 true 인데 열이 안 열린다"); process.exit(1);
+  for (const [name, sw, fn] of [
+    ["혼용률", api.SHOW_COMP_COLUMN, api.compReady],
+    ["컬러웨이", api.SHOW_COLOR_COLUMN, api.colorReady],
+  ]) {
+    const open = fn(full20);
+    if (sw === false && open) { console.error(`❌ ${name} 스위치가 false 인데 열린다`); process.exit(1); }
+    if (sw === true && !open) { console.error(`❌ ${name} 스위치가 true 인데 안 열린다`); process.exit(1); }
   }
 
   const BASE = ["브랜드", "썸네일", "URL", "상품명"];
   const FULL = BASE.concat(["컬러웨이", "혼용률"]);
-  const headers = (on) => api.colsFor(on).map((c) => c.header);
+  const headers = (on) => api.colsFor(on, on).map((c) => c.header);
   for (const [on, want] of [[false, BASE], [true, FULL]]) {
     if (JSON.stringify(headers(on)) !== JSON.stringify(want)) {
       console.error(`❌ 열 구성이 다름(열 ${on ? "열림" : "닫힘"})\n   기대 ${JSON.stringify(want)}\n   실제 ${JSON.stringify(headers(on))}`);
@@ -107,7 +109,7 @@ let colLabel = "";
   if (headers(true)[2] !== "URL" || headers(false)[2] !== "URL") {
     console.error("❌ URL 이 C 열이 아님 — 하이퍼링크가 엉뚱한 칸에 박힌다"); process.exit(1);
   }
-  const full = api.rowColFor(api.colsFor(true));
+  const full = api.rowColFor(api.colsFor(true, true));
   const wantCol = { brand: "A", name: "D", color: "E", comp: "F" };
   for (const k of Object.keys(wantCol)) {
     if (full[k] !== wantCol[k]) {
@@ -132,12 +134,12 @@ let colLabel = "";
   ];
   let gateBad = 0;
   for (const [label, items, want] of gateCases) {
-    const got = auto.fabricReady(items);
+    const got = auto.compReady(items) && auto.colorReady(items);
     if (got !== want) { console.error(`❌ 열 판정 · ${label}: 기대 ${want} 실제 ${got}`); gateBad++; }
   }
   if (gateBad) { console.error(`\n열 판정 ${gateBad}건 실패`); process.exit(1); }
-  const state = api.SHOW_FABRIC_COLUMNS === false ? "지금 닫힘"
-    : api.SHOW_FABRIC_COLUMNS === true ? "지금 항상 열림" : "지금 자동";
+  const st = (v) => (v === false ? "닫힘" : v === true ? "항상 열림" : "자동");
+  const state = `혼용률 ${st(api.SHOW_COMP_COLUMN)} · 컬러웨이 ${st(api.SHOW_COLOR_COLUMN)}`;
   colLabel = `열 4↔6개 전환(${state}) · 개방 기준 ${Math.round(auto.FABRIC_GATE * 100)}% ${gateCases.length}건`;
 }
 

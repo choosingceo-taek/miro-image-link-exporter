@@ -28,17 +28,25 @@ const COMP_ITEM_RX = /^[A-Za-z][A-Za-z ]{1,24} (\d{1,3})%$/;
 function validComp(s) {
   const t = String(s || "").trim();
   if (!t || t.includes("[object Object]")) return false;
-  const parts = t.split(" / ");
-  if (parts.length > 8) return false;
-  let total = 0;
-  for (const p of parts) {
-    const m = p.match(COMP_ITEM_RX);
-    if (!m) return false;
-    const n = Number(m[1]);
-    if (!(n > 0 && n <= 100)) return false;
-    total += n;
+  // 원단이 두 가지면 줄이 나뉜다("Cotton 100%\nPolyester 100%"). 줄마다 따로 본다.
+  const lines = t.split("\n").map((x) => x.trim()).filter(Boolean);
+  if (!lines.length || lines.length > 2) return false;
+  for (const line of lines) {
+    const parts = line.split(" / ");
+    if (parts.length > 8) return false;
+    let total = 0;
+    for (const p of parts) {
+      const m = p.match(COMP_ITEM_RX);
+      if (!m) return false;
+      const n = Number(m[1]);
+      if (!(n > 0 && n <= 100)) return false;
+      total += n;
+    }
+    // 190~210 은 겉감+안감이 한 줄에 담긴 예전 저장분 — 한 줄일 때만 인정한다.
+    const ok = (total >= 95 && total <= 105) || (lines.length === 1 && total >= 190 && total <= 210);
+    if (!ok) return false;
   }
-  return (total >= 95 && total <= 105) || (total >= 190 && total <= 210);
+  return true;
 }
 const COLOR_BAD_RX = /^(?:select|choose|colou?r|색상|컬러|선택|기타|없음|n\/a|none|null|undefined|\d+|#[0-9a-f]{3,8})$/i;
 function validColor(s) {

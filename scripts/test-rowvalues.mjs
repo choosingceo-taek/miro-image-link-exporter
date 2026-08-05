@@ -25,7 +25,8 @@ const rowValues = new Function(m[0] + "\n return rowValues;")();
 // 실리는 상품들이 정하므로(fabricReady), 테스트는 두 경우를 다 돌린다.
 const ROW_COL_BASE = { brand: "A", name: "D" };
 const ROW_COL_FULL = { brand: "A", name: "D", color: "E", comp: "F" };
-const run = (r, brand, on) => rowValues(r, brand, on ? ROW_COL_FULL : ROW_COL_BASE, on);
+// 컬러웨이·혼용률 열은 각자 따로 열린다. 여기서는 둘 다 닫힘 / 둘 다 열림을 본다.
+const run = (r, brand, on) => rowValues(r, brand, on ? ROW_COL_FULL : ROW_COL_BASE, on, on);
 // [설명, 입력, 열이 닫혔을 때 기대, 열이 열렸을 때 기대]
 const CASES = [
   ["브랜드·상품명이 있으면 그대로",
