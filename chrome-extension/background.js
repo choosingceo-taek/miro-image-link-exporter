@@ -109,6 +109,20 @@ async function buildTargets() {
     const b = byName.get(name.toLowerCase());
     groups.push({ brand: name, site: siteKeyOf(name, (b && b.url) || urls[0]), urls });
   }
+
+  // 오래 안 본 브랜드부터. 하룻밤에 전부 못 돌 수도 있는데, 그때 목록 순서대로
+  // 하면 뒤쪽 브랜드가 계속 밀린다 — 앞쪽만 매일 새로 긁고 뒤쪽은 몇 주씩 낡는다.
+  // 저장본의 갱신 시각을 받아 가장 낡은 것부터 돌면, 며칠에 걸쳐서라도 모든
+  // 브랜드가 고르게 갱신된다("2~3일 안에 한 바퀴"가 이렇게 지켜진다).
+  // 목록을 못 받으면 원래 순서를 쓴다 — 순서가 최적이 아닐 뿐 수집은 된다.
+  try {
+    const ls = await getJson(
+      cfg.worker + '/?catalogs=1' + (cfg.token ? '&token=' + encodeURIComponent(cfg.token) : ''), 2);
+    const updated = new Map();
+    for (const c of (ls && ls.list) || []) updated.set(String(c.site || ''), c.updated || 0);
+    // 저장본이 없는 브랜드(한 번도 수집 안 됨)는 0 이라 가장 먼저 온다.
+    groups.sort((x, y) => (updated.get(x.site) || 0) - (updated.get(y.site) || 0));
+  } catch (e) {}
   return groups;
 }
 
@@ -571,14 +585,9 @@ async function collect(input) {
   const cfg = await getCfg();
   const { visible, maxPages } = await getSched();
   let groups = asGroups(input);
-  // 지난밤 어디까지 했는지 기억했다가 그다음 브랜드부터 시작한다.
-  // 늘 목록 처음부터 하면, 아침까지 시간이 모자랄 때 뒤쪽 브랜드는 영영
-  // 수집되지 않는다 — 매일 밤 같은 앞부분만 다시 긁게 된다.
-  try {
-    const { lastSite } = await chrome.storage.local.get(['lastSite']);
-    const i = groups.findIndex((g) => g.site === lastSite);
-    if (i >= 0 && groups.length > 1) groups = groups.slice(i + 1).concat(groups.slice(0, i + 1));
-  } catch (e) {}
+  // 순서는 buildTargets 가 '오래 안 본 브랜드부터'로 정해 온다. 그래서 아침에
+  // 시간이 모자라 남기고 멈춰도, 다음 밤에는 그 남은 브랜드가 가장 낡아 있어
+  // 자연히 맨 앞으로 온다 — 따로 위치를 기억할 필요가 없다.
   const stopAt = deadlineFrom(Date.now());
   const totalUrls = groups.reduce((s, g) => s + g.urls.length, 0);
   let okCount = 0, failCount = 0;
@@ -726,8 +735,6 @@ async function collect(input) {
       failCount++;
       pushLog({ url: g.site, ok: false, count: 0, msg: `${g.brand} · 수집 0개(저장 안 함 — 이전 저장본 유지)` });
     }
-    // 이 브랜드는 끝났다. 중간에 멈춰도 내일 밤 그다음부터 이어갈 수 있게 남긴다.
-    try { await chrome.storage.local.set({ lastSite: g.site }); } catch (e) {}
   }
   if (winId) { try { await chrome.windows.remove(winId); } catch (e) {} }
   keepAlive(false);
