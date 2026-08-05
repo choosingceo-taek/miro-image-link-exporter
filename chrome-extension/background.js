@@ -34,10 +34,9 @@ async function getSched() {
   return {
     schedOn: !!s.schedOn,
     idleOnly: s.idleOnly !== false,   // 기본 true — 자리를 비웠을 때만 수집
-    // 기본 05:00 — 서버 프리페치(03:00)·헤드리스(03:30)가 끝난 뒤에 이어서 돈다.
-    // 확장이 맡은 브랜드는 서버가 못 긁는 곳이라 순서가 겹칠 일은 없지만,
-    // 05:00 이면 사람이 자리에 없을 시간이라 '자리 비울 때만 수집'과도 맞는다.
-    schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 5,
+    // 기본 23:00 — 마감 06:00 까지 일곱 시간을 확보한다. 자리를 비워야 시작하므로
+    // 일찍 잡아도 방해되지 않는다(퇴근·취침하는 순간 시작한다).
+    schedHour: Number.isInteger(s.schedHour) ? s.schedHour : 23,
     schedMin: Number.isInteger(s.schedMin) ? s.schedMin : 0,      // 분 단위까지 지정 가능
     visible: s.visible !== false,   // 기본 true — 숨은 탭은 크롬이 타이머를 늦춰 수집률이 떨어짐
     maxPages: Number.isInteger(s.maxPages) ? s.maxPages : 20,     // 카테고리당 최대 페이지 수
@@ -180,7 +179,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // 수집 창이 남아 있으면 안 되고, 브라우저를 닫아 강제로 끊기면 그 브랜드는
 // 반쪽만 저장된다. 그래서 마감 시각을 넘기면 스스로, 깨끗이 멈춘다.
 // (브랜드 하나를 다 끝낸 지점에서 멈추므로 저장이 잘리지 않는다)
-const DEADLINE_HOUR = 7, DEADLINE_MIN = 30;
+const DEADLINE_HOUR = 6, DEADLINE_MIN = 0;
 function deadlineFrom(now) {
   const at = new Date(now);
   at.setHours(DEADLINE_HOUR, DEADLINE_MIN, 0, 0);
@@ -622,17 +621,32 @@ async function collect(input) {
     if (Date.now() >= stopAt) {
       stopped = groups.length - groups.indexOf(g);
       pushLog({ url: '', ok: true, count: 0,
-        msg: `${hhmm(stopAt)} 마감 — 여기서 멈춤. 남은 ${stopped}개 브랜드는 내일 밤 이어서 ` +
-          `(한 바퀴를 다 돌려면 예약 시각을 더 이르게)` });
+        msg: `${hhmm(stopAt)} 마감 — 남은 ${stopped}개 브랜드는 내일 밤 이어서(오래된 순)` });
       break;
     }
     // 한 브랜드의 모든 카테고리 URL을 먼저 모은 뒤, 브랜드 단위로 한 번만 저장한다.
     const brandItems = new Map();
+    // 지난밤 이 브랜드를 하다 멈췄으면, 끝낸 카테고리는 건너뛰고 그다음부터 한다.
+    // (브랜드 하나가 카테고리 열 개짜리면 통째로 다시 하는 건 밤 하나를 버리는 일이다)
+    let doneUrls = new Set();
+    try {
+      const { progress } = await chrome.storage.local.get(['progress']);
+      if (progress && progress.site === g.site) doneUrls = new Set(progress.doneUrls || []);
+    } catch (e) {}
+    if (doneUrls.size) {
+      pushLog({ url: g.site, ok: true, count: 0,
+        msg: `${g.brand} · 지난밤 ${doneUrls.size}개 카테고리까지 했음 — 그다음부터` });
+    }
+    let brandStopped = false;
     // 카테고리 URL 자체가 상품으로 잡히는 것을 막는다(목록 상단의 하위 카테고리 타일).
     const normUrl = (u) => String(u || '').split('?')[0].replace(/\/+$/, '');
     const listing = new Set(g.urls.map(normUrl));
     for (const url of g.urls) {
       if (!state.running) break;
+      if (doneUrls.has(url)) continue;   // 지난밤에 끝낸 카테고리
+      // 카테고리 하나를 시작하기 전에 마감을 본다. 시작해 놓고 중간에 끊기면
+      // 그 카테고리는 반쪽만 긁힌 채 저장된다.
+      if (Date.now() >= stopAt) { brandStopped = true; break; }
       await waitAway(g.brand);
       if (!state.running) break;
       state.current = g.brand + ' · ' + url;
@@ -692,18 +706,24 @@ async function collect(input) {
         if (tab) { try { await chrome.tabs.remove(tab.id); } catch (e) {} }
         state.done++;
       }
+      doneUrls.add(url);   // 이 카테고리는 끝났다 — 중간에 멈춰도 다시 하지 않는다
       await sleep(1500);   // 사이트 부담·차단 방지 텀
     }
 
-    // 브랜드 단위 저장 — replace=1로 어제 수집본을 통째로 교체(오래된 품절 상품 누적 방지).
+    // 브랜드 단위 저장.
+    // 카테고리를 다 돌았으면 replace=1 로 통째로 교체한다(품절 상품 누적 방지).
+    // 마감에 걸려 일부만 돌았으면 절대 교체하면 안 된다 — 안 본 카테고리의 상품이
+    // 전부 사라진다. 그때는 병합으로 넣어 오늘 본 만큼만 더한다.
     const items = [...brandItems.values()].slice(0, MAX_PER_BRAND);
+    const partial = brandStopped;
     if (items.length) {
       try {
         // legacy=<호스트>: 예전 버전이 호스트만으로 저장해 둔 옛 키를 함께 지운다
         // (안 지우면 Free People/FP Movement가 섞인 옛 데이터가 검색에 먼저 걸림).
         const legacy = g.site.slice(0, g.site.lastIndexOf('.'));
         const resp = await fetch(
-          cfg.worker + '/?store=catalog&replace=1&legacy=' + encodeURIComponent(legacy) +
+          cfg.worker + '/?store=catalog' + (partial ? '' : '&replace=1') +
+            '&legacy=' + encodeURIComponent(legacy) +
             (cfg.token ? '&token=' + encodeURIComponent(cfg.token) : ''),
           {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -724,16 +744,32 @@ async function collect(input) {
               // 수집량이 절반 아래로 떨어져 Worker 가 갈아끼우기를 막았다.
               // 오늘 못 본 상품을 지우지 않은 것이므로 실패가 아니라 보호다.
               ? `${g.brand} · 수집 ${d.guarded.got}개(이전 ${d.guarded.kept}개) — 급감이라 덮어쓰지 않고 병합, 총 ${d.count}개`
-              : `${g.brand} · ${items.length}개 저장`)
+              : (partial
+                ? `${g.brand} · ${items.length}개 부분 저장(카테고리 ${doneUrls.size}/${g.urls.length}) — 나머지는 내일 밤`
+                : `${g.brand} · ${items.length}개 저장`))
             : `${g.brand} 전송실패 ` + (d.error || resp.status),
         });
       } catch (e) {
         failCount++;
         pushLog({ url: g.site, ok: false, count: 0, msg: `${g.brand} 전송오류: ` + String((e && e.message) || e) });
       }
-    } else {
+    } else if (!partial) {
       failCount++;
       pushLog({ url: g.site, ok: false, count: 0, msg: `${g.brand} · 수집 0개(저장 안 함 — 이전 저장본 유지)` });
+    }
+
+    // 어디까지 했는지 남긴다. 다 돌았으면 지워서 내일은 처음부터 하게 한다.
+    try {
+      if (partial) await chrome.storage.local.set({ progress: { site: g.site, doneUrls: [...doneUrls] } });
+      else await chrome.storage.local.remove('progress');
+    } catch (e) {}
+
+    if (partial) {
+      stopped = groups.length - groups.indexOf(g);
+      pushLog({ url: '', ok: true, count: 0,
+        msg: `${hhmm(stopAt)} 마감 — ${g.brand} 카테고리 ${doneUrls.size}/${g.urls.length} 까지. ` +
+          `남은 ${stopped}개 브랜드는 내일 밤 이어서` });
+      break;
     }
   }
   if (winId) { try { await chrome.windows.remove(winId); } catch (e) {} }
