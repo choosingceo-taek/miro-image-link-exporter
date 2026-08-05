@@ -54,6 +54,19 @@ const CASES = [
     { color: undefined, comp: undefined },
     { color: "White", comp: "Cotton 100%" }],
 
+  // 사이트가 소재를 아예 안 적는 상품 — '확인 필요'가 아니라 '정보 없음'.
+  // 아무리 확인해도 나올 것이 없는 칸을 사람이 계속 들여다보게 하면 안 된다.
+  ["사이트가 소재를 안 적으면 '정보 없음'",
+    { brand: "Loft", name: "Rib Tee", compNone: true },
+    { comp: undefined },
+    { brand: "Loft", name: "Rib Tee", comp: "정보 없음" }],
+
+  // 값이 있으면 compNone 이 남아 있어도 값이 이긴다.
+  ["값이 있으면 그 값을 쓴다",
+    { brand: "Loft", name: "Rib Tee", comp: "Cotton 100%", compNone: true },
+    { comp: undefined },
+    { comp: "Cotton 100%" }],
+
   ["옛 저장 사고로 남은 '[object Object]' 는 값이 아니다",
     { brand: "Arket", name: "Rib T-shirt", color: "[object Object]", comp: "[object Object],[object Object]" },
     { color: undefined, comp: undefined },

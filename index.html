@@ -1440,6 +1440,8 @@
               price: p.price || o.price || '',
               priceOrig: p.priceOrig || o.priceOrig || '',
               comp: p.comp || o.comp || '',
+              // 사이트가 소재를 아예 안 적는 상품 — 엑셀에서 '확인 필요'와 구분한다.
+              compNone: !!(o.none && !(p.comp || o.comp)),
               color: p.color || o.color || '',
               sizes: p.sizes || o.sizes || '',
               brand: data.brand || brand || '', selected: false,
@@ -1720,6 +1722,9 @@
       // 엑셀 한 행의 값. 사이트에서 못 가져온 칸은 비우지 않고 '확인 필요'로 채운다 —
       // 빈칸은 "값이 없는 상품"인지 "수집 실패"인지 구분이 안 돼서 사람이 판단을 못 한다.
       const NEED = '확인 필요';
+      // 사이트가 그 정보를 아예 싣지 않는 경우. '확인 필요'와 달리 사람이 더
+      // 확인해도 나올 것이 없다는 뜻이라, 서식도 회색으로 따로 준다.
+      const NO_INFO = '정보 없음';
       // 예전 저장 사고로 '[object Object]' 가 값으로 남은 상품이 있다 — 빈 값으로 본다.
       const cleanVal = (v) => { const t = String(v || '').trim(); return t.includes('[object Object]') ? '' : t; };
 
@@ -1810,7 +1815,11 @@
         if (showColor) vals.color = cleanVal(r.color);
         if (showComp) vals.comp = cleanVal(r.comp);
         for (const k of Object.keys(rowCol)) {
-          if (!String(vals[k] || '').trim()) vals[k] = NEED;
+          if (String(vals[k] || '').trim()) continue;
+          // '확인 필요'는 "아직 못 구했다 — 사람이 확인해 달라"는 뜻이다. 사이트가
+          // 소재를 아예 안 적는 상품까지 그렇게 적으면, 아무리 확인해도 나오지 않는
+          // 칸을 계속 들여다보게 된다. 그건 '정보 없음'으로 적어 구분한다.
+          vals[k] = (k === 'comp' && r.compNone) ? NO_INFO : NEED;
         }
         return vals;
       }
@@ -1837,6 +1846,7 @@
         const urlCol = 'C';
         const lastCol = colLetter(XLSX_COLS.length - 1);
         const needCells = [];   // '확인 필요' 칸 위치 — 마지막에 한 번에 서식 적용
+        const noInfoCells = [];  // '정보 없음' 칸 — 사이트가 아예 안 싣는 값
 
         let okThumb = 0, thumbFailDiag = '';
         for (let i = 0; i < items.length; i++) {
@@ -1846,6 +1856,8 @@
           const vals = rowValues(r, brandFromUrl(r.link), ROW_COL, showColor, showComp);
           for (const k of Object.keys(vals)) {
             if (vals[k] === NEED) needCells.push(ROW_COL[k] + excelRow);
+            // '정보 없음'은 사람이 손볼 것이 아니므로 '확인 필요' 개수에 넣지 않는다.
+            else if (vals[k] === NO_INFO) noInfoCells.push(ROW_COL[k] + excelRow);
           }
           const row = ws.addRow({ ...vals, img: '', link: '' });
           row.height = 60;
@@ -1890,6 +1902,11 @@
           cell.font = { color: { argb: 'FFB45309' }, italic: true };
           cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF7ED' } };
         }
+        // '정보 없음'은 회색 — 눈에 띄게 할 이유가 없다. 손볼 수 있는 칸이 아니다.
+        for (const addr of noInfoCells) {
+          const cell = ws.getCell(addr);
+          cell.font = { color: { argb: 'FF9CA3AF' }, italic: true };
+        }
         ws.autoFilter = { from: 'A1', to: lastCol + '1' };
         ws.views = [{ state: 'frozen', ySplit: 1 }];
 
@@ -1899,8 +1916,10 @@
           `miro_links_${stamp()}.xlsx`,
         );
         statusEl.innerHTML = needCells.length
-          ? `완료 · 총 <b>${items.length}</b> · 확인 필요 <b>${needCells.length}</b>칸`
-          : `완료 · 총 <b>${items.length}</b> · 빠진 항목 없음`;
+          ? `완료 · 총 <b>${items.length}</b> · 확인 필요 <b>${needCells.length}</b>칸` +
+            (noInfoCells.length ? ` · 사이트 미표기 ${noInfoCells.length}칸` : '')
+          : `완료 · 총 <b>${items.length}</b> · 빠진 항목 없음` +
+            (noInfoCells.length ? ` (사이트 미표기 ${noInfoCells.length}칸 제외)` : '');
         if (thumbFailDiag) {
           summaryEl.style.display = 'block';
           summaryEl.innerHTML =

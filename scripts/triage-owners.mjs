@@ -126,9 +126,12 @@ await pool(list, 6, async (c) => {
 
   const pick = missing.slice(0, SAMPLE);
   const by = {};
+  // 어느 상품을 보고 그렇게 판정했는지 남긴다 — 사람이 직접 열어 확인할 수 있어야 한다.
+  const seen = [];
   await pool(pick, 3, async (p) => {
     const k = await probe(p.productUrl).catch(() => "차단");
     by[k] = (by[k] || 0) + 1;
+    seen.push({ k, url: p.productUrl });
   });
   const share = (k) => (by[k] || 0) / pick.length;
   // 판정 — 표본의 과반으로 정한다.
@@ -137,7 +140,7 @@ await pool(list, 6, async (c) => {
       : share("정보없음") >= 0.5 ? "정보 없음"
         : share("규칙누락") >= 0.5 ? "규칙 보완"
           : "서버 가능";
-  rows.push({ name, site: c.site, owner, filled, n: items.length, missing: missing.length, verdict, by });
+  rows.push({ name, site: c.site, owner, filled, n: items.length, missing: missing.length, verdict, by, seen });
 });
 
 const pct = (x) => Math.round(x * 100) + "%";
@@ -169,8 +172,23 @@ if (toSrv.length) {
   md += `## ↩ 확장 → 서버 (${toSrv.length})\n\n서버 IP 로 잘 읽힌다. 확장이 붙들고 있으면 밤 시간만 쓴다 — 확장 목록에서 빼면\n`;
   md += `그 시간이 정말 확장이 필요한 브랜드로 간다.\n\n` + table(toSrv);
 }
+// 혼용률을 아예 안 적는 브랜드는 담당과 무관하게 전부 낸다 — 엑셀에 '정보 없음'으로
+// 표시할 대상이고, 사람이 직접 열어 확인할 수 있게 상품 URL 도 붙인다.
+const noneAll = group("정보 없음");
+if (noneAll.length) {
+  md += `## — 사이트가 혼용률을 안 적는 브랜드 (${noneAll.length})\n\n`;
+  md += `표본을 열어 봤는데 페이지 어디에도 소재 표기가 없었다. 아무리 다시 읽어도 안 나온다.\n`;
+  md += `엑셀에서는 '확인 필요' 가 아니라 '정보 없음' 으로 나가야 하는 대상이다.\n\n`;
+  md += `| 브랜드 | 담당 | 채움 | 빈 상품 | 확인한 상품 URL |\n|---|---|---:|---:|---|\n`;
+  for (const r of noneAll) {
+    const u = (r.seen || []).filter((x) => x.k === "정보없음").slice(0, 2).map((x) => x.url);
+    md += `| ${r.name} | ${r.owner} | ${pct(r.filled)} | ${r.missing} | ${u.join("<br>") || "-"} |\n`;
+  }
+  md += `\n`;
+}
 if (noPoint.length) {
-  md += `## — 확장 시간을 쓸 이유가 없는 브랜드 (${noPoint.length})\n\n사이트가 혼용률을 안 적는다. 확장이 상품 페이지를 열어도 나올 게 없다.\n\n` + table(noPoint);
+  md += `### 그중 확장이 시간을 쓰고 있는 브랜드 (${noPoint.length})\n\n`;
+  md += `수집은 계속해야 하지만(빼면 상품이 낡는다) 혼용률 찾기에는 시간을 덜 써야 한다.\n\n` + table(noPoint);
 }
 if (fixRule.length) {
   md += `## 🔧 규칙 보완 (${fixRule.length})\n\n페이지에 값이 있는데 못 뽑는다. 담당을 옮길 문제가 아니라 추출 규칙 문제다.\n\n` + table(fixRule);

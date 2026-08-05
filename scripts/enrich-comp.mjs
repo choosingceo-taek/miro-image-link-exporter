@@ -152,7 +152,8 @@ async function enrichOf(url, stat) {
   }
   // ② 페이지 직접 → JSON-LD → 본문.
   let html = "";
-  try { html = await get(url); } catch (e) { stat.blocked++; }
+  let readOk = false;
+  try { html = await get(url); readOk = true; } catch (e) { stat.blocked++; }
   if (html) {
     let ld = {};
     try { ld = fromJsonLd(html); } catch (e) {}
@@ -179,7 +180,11 @@ async function enrichOf(url, stat) {
     if (has(j)) { stat.worker++; return merge(j, typeof partial === "undefined" ? null : partial); }
     stat.noData++;
   } catch (e) { stat.fail++; }
-  return typeof partial === "undefined" ? null : partial;
+  // 페이지는 멀쩡히 읽었는데 소재 표기가 없었다면 그건 '아직 못 구한 것'이 아니라
+  // '사이트가 안 적는 것'이다. 엑셀에서 '확인 필요'와 다르게 보여 줘야 하므로
+  // 그 사실을 남긴다 — 차단이면 readOk 가 false 라 표시하지 않는다.
+  if (typeof partial === "undefined") return readOk ? { none: true } : null;
+  return partial;
 }
 
 // 앞 경로에서 얻은 값을 잃지 않게 합친다(먼저 찾은 쪽 우선).
@@ -337,7 +342,8 @@ async function processBrand(c, phase) {
   await pool(todo, PAGE_POOL, async (p) => {
     const got = await enrichOf(p.productUrl, stat);
     // 빈 결과도 넣는다 — 저장 단계에서 '시도 시각'만 찍혀 다음 실행이 건너뛴다.
-    comps[p.productUrl] = has(got) ? got : {};
+    // 페이지를 읽었는데 소재가 없었으면 none 을 함께 남긴다(엑셀에서 '정보 없음').
+    comps[p.productUrl] = has(got) ? got : (got && got.none ? { none: 1 } : {});
   });
   budget -= todo.length;
 
@@ -372,6 +378,11 @@ async function processBrand(c, phase) {
       }
       // 값을 못 찾았어도 "시도했음"은 남긴다 — 안 남기면 같은 상품을 매번 다시 읽는다.
       cur.t = now;
+      // 페이지는 읽었는데 소재 표기가 없었다 = 사이트가 안 적는다.
+      // 엑셀에서 '확인 필요'(아직 못 구함)와 다르게 '정보 없음'으로 보여 주기 위한 표시다.
+      // 값을 찾았으면 지운다 — 사이트가 나중에 표기를 추가했을 수 있다.
+      if (inc.none && !cur.comp) cur.none = 1;
+      else if (cur.comp) delete cur.none;
       merged[url] = cur;
       if (n) patched++;
     }
