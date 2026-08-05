@@ -51,8 +51,15 @@ const CASES = [
   // 할인 문구와 실제 혼용률이 섞여 있어도 혼용률만 집는다
   ["20% OFF · Composition: 80% Wool, 20% Nylon", "Wool 80% / Nylon 20%"],
 
-  // ── 같은 섬유가 반복돼도 한 번만 ──
+  // ── 같은 섬유가 다시 나오면 거기서 한 벌이 끝난 것으로 본다 ──
+  // 건너뛰고 계속 읽으면 다음 사양의 항목을 끌어와 없는 조성을 만든다.
   ["100% Cotton. Care: machine wash. 100% Cotton lining.", "Cotton 100%"],
+  // Dickies — 색상별 사양이 이어진다. 예전에는 Cotton 100 + Polyester 10 = 110% 라는
+  // 없는 조성을 만들어 통째로 버려졌다. 이제 먼저 적힌 본체 사양을 남긴다.
+  ["6.75 oz. 100% Cotton Jersey, Heavyweight Heather Gray: 90% Cotton/10% Polyester Imported",
+    "Cotton 100%"],
+  // 겉감·안감이 각각 100% 인 표기는 그대로 살린다(둘 다 남아야 한다).
+  ["Shell: 100% Cotton. Lining: 100% Polyester", "Cotton 100% / Polyester 100%"],
 
   // ── 합이 터무니없으면 통째로 버린다(겉감·안감·트림이 뒤섞인 페이지) ──
   ["100% Cotton 100% Polyester 100% Wool", ""],

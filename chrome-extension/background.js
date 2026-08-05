@@ -306,7 +306,11 @@ function compFromText(text) {
     if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
     // "20% off cotton tees" 같은 판촉 문구를 소재로 읽지 않는다.
     if (mods && MOD_BAD_RX.test(mods)) continue;
-    if (seen.has(material)) continue;
+    // 같은 섬유가 다시 나오면 거기서 한 벌이 끝난 것으로 본다.
+    // 건너뛰고 계속 읽으면 다음 사양의 항목을 이 사양에 끌어온다 — Dickies 는
+    // "100% Cotton Jersey, Heather Gray: 90% Cotton/10% Polyester" 에서
+    // Cotton 100 + Polyester 10 = 110% 라는 없는 조성을 만들어 통째로 버려졌다.
+    if (seen.has(material)) break;
     seen.add(material);
     out.push(material + ' ' + pct + '%');
     if (out.length >= 8) break;

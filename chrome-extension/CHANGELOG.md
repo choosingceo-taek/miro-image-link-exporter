@@ -2,6 +2,14 @@
 
 버전은 `chrome://extensions` 카드에 표시됩니다. 여기 적힌 것보다 낮으면 최신이 아닙니다.
 
+## 1.7.14 (2026-08-05)
+- **색상별 사양이 이어지는 페이지에서 없는 조성을 만들던 문제.** Dickies 는
+  `100% Cotton Jersey, Heather Gray: 90% Cotton/10% Polyester` 처럼 적는데,
+  같은 섬유(Cotton)를 건너뛰고 계속 읽다가 다음 사양의 Polyester 10% 를 끌어와
+  `Cotton 100% + Polyester 10% = 110%` 라는 없는 조성을 만들고 통째로 버렸습니다.
+  이제 같은 섬유가 다시 나오면 한 벌이 끝난 것으로 보고 멈춥니다.
+  겉감·안감이 각각 100% 인 표기는 그대로 살립니다.
+
 ## 1.7.13 (2026-08-05)
 - **퍼센트와 섬유 이름 사이에 수식어가 끼면 못 잡던 문제.** `100% Peruvian pima
   cotton`, `90% LENZING™ ECOVERO™ Viscose`, `29% Organically Grown Cotton` 같은
