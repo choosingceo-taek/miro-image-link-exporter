@@ -211,7 +211,8 @@ function queryIdle() {
 }
 
 // 자리에 있으면 비울 때까지 기다린다. label 은 팝업에 이유를 보여주기 위한 것.
-async function waitAway(label) {
+async function waitAway(label, manual) {
+  if (manual) return;   // 직접 누른 실행은 기다리지 않는다
   const { idleOnly } = await getSched();
   if (!idleOnly) return;
   let waited = 0;
@@ -492,7 +493,7 @@ function colorFromHtml(html) {
 // 순차 처리를 4개 동시로 바꿨다. 대신 실행 시간이 브랜드당 몇 분씩 늘어난다.
 const COMP_PER_RUN = MAX_PER_BRAND;
 const COMP_CONCURRENCY = 4;
-async function enrichComps(g, cfg) {
+async function enrichComps(g, cfg, manual) {
   const tok = cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '';
   let cat;
   try { cat = await (await fetch(cfg.worker + '/?catalog=' + encodeURIComponent(g.site) + tok)).json(); }
@@ -533,7 +534,7 @@ async function enrichComps(g, cfg) {
   let done = 0;
   const one = async (p) => {
     if (!state.running) return;
-    await waitAway(g.brand);   // 상품 페이지 읽기도 자리를 비운 동안에만
+    await waitAway(g.brand, manual);   // 상품 페이지 읽기도 자리를 비운 동안에만
     if (!state.running) return;
     try {
       const got = { comp: '', color: '', sizes: '', price: '', priceOrig: '' };
@@ -617,7 +618,11 @@ async function enrichComps(g, cfg) {
   } catch (e) { return 0; }
 }
 
-async function collect(input) {
+// manual = 사람이 팝업에서 직접 누른 실행. 버튼 이름이 "지금 전체 실행"인데
+// 자리를 비울 때까지 아무 일도 안 일어나면 고장으로 보인다 — 실제로 그렇게 보였다.
+// 직접 누른 것은 그 자체가 "지금 해라"는 뜻이므로 자리 확인을 건너뛴다.
+// 예약 실행은 그대로 자리를 비운 뒤에만 돈다.
+async function collect(input, manual) {
   if (state.running) return;
   const cfg = await getCfg();
   const { visible, maxPages } = await getSched();
@@ -636,7 +641,7 @@ async function collect(input) {
   state = { running: true, done: 0, total: totalUrls, current: '시작 대기', log: [], startedAt: Date.now(), items: 0 };
   keepAlive(true);
   // 창부터 띄우지 않는다 — 일하는 중이면 자리를 비울 때까지 조용히 기다린다.
-  await waitAway('');
+  await waitAway('', manual);
   if (!state.running) { keepAlive(false); return; }
   let winId = null;
   if (visible) {
@@ -685,7 +690,7 @@ async function collect(input) {
       // 카테고리 하나를 시작하기 전에 마감을 본다. 시작해 놓고 중간에 끊기면
       // 그 카테고리는 반쪽만 긁힌 채 저장된다.
       if (Date.now() >= stopAt) { brandStopped = true; break; }
-      await waitAway(g.brand);
+      await waitAway(g.brand, manual);
       if (!state.running) break;
       state.current = g.brand + ' · ' + url;
       let tab = null;
@@ -702,7 +707,7 @@ async function collect(input) {
         let pageUrl = queue.shift(), pages = 0;
         while (pageUrl && pages < maxPages && byUrl.size < PER_CATEGORY) {
           if (pages > 0) {
-            await waitAway(g.brand);   // 페이지를 넘기기 직전마다 자리 확인
+            await waitAway(g.brand, manual);   // 페이지를 넘기기 직전마다 자리 확인
             if (!state.running) break;
             await chrome.tabs.update(tab.id, { url: pageUrl });
           }
@@ -772,7 +777,7 @@ async function collect(input) {
         if (d.ok) okCount++; else failCount++;
         state.items += d.ok ? items.length : 0;
         if (d.ok) {
-          const patched = await enrichComps(g, cfg);
+          const patched = await enrichComps(g, cfg, manual);
           if (patched) pushLog({ url: g.site, ok: true, count: patched, msg: `${g.brand} · 혼용률 ${patched}개 채움` });
         }
         pushLog({
@@ -914,7 +919,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       try {
         const groups = await buildTargets();
         if (!groups.length) { reply({ ok: false, msg: '대상 URL을 받지 못했습니다.' }); return; }
-        collect(groups);   // 기다리지 않고 시작 — 진행상황은 state 폴링으로.
+        collect(groups, true);   // 사람이 직접 누른 것 — 자리 확인 없이 바로 시작.
         reply({ ok: true, total: groups.reduce((s, g) => s + g.urls.length, 0), brands: groups.length });
       } catch (e) {
         reply({ ok: false, msg: '목록 로드 실패: ' + String((e && e.message) || e) });
@@ -922,7 +927,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
     })();
     return true;
   }
-  if (msg.type === 'start') { collect(msg.urls || []); reply({ ok: true }); return; }
+  if (msg.type === 'start') { collect(msg.urls || [], true); reply({ ok: true }); return; }
   if (msg.type === 'stop') { state.running = false; keepAlive(false); reply({ ok: true }); return; }
   if (msg.type === 'state') { reply(state); return; }
   if (msg.type === 'getCfg') { getCfg().then(reply); return true; }

@@ -45,7 +45,7 @@
       <input type="checkbox" id="schedVisible" style="width:auto"> 전용 창을 열어 수집(권장 — 숨은 탭은 수집률이 떨어짐)
     </label>
     <label style="display:flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:11px;color:#666;cursor:pointer;margin-top:6px">
-      <input type="checkbox" id="idleOnly" style="width:auto"> PC를 안 쓸 때만 수집(권장 — 5분간 안 만지면 시작, 쓰기 시작하면 멈췄다가 이어서 함)
+      <input type="checkbox" id="idleOnly" style="width:auto"> PC를 안 쓸 때만 수집(<b>예약 실행에만</b> 적용 — 5분간 안 만지면 시작, 쓰기 시작하면 멈췄다가 이어서 함)
     </label>
     <label style="display:flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-size:11px;color:#666;margin-top:6px">
       카테고리당 최대 페이지
@@ -67,6 +67,7 @@
       <div id="runNow2" style="font-size:10.5px;color:#999;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
     </div>
 
+    <p class="hint" style="margin-top:2px"><b>지금 전체 실행</b>은 자리를 비우길 기다리지 않고 바로 시작합니다(창이 곧 뜹니다). 위 체크는 <b>예약 실행</b>에만 적용됩니다.</p>
     <div id="schedInfo" class="hint"></div>
     <!-- 버전을 여기 띄워 둔다 — chrome://extensions 를 열지 않아도 최신인지 바로 확인 가능 -->
     <div id="verInfo" class="hint" style="margin-top:6px;color:#999"></div>
