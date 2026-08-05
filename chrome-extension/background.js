@@ -217,11 +217,14 @@ async function waitAway(label) {
   let waited = 0;
   while (state.running) {
     if ((await queryIdle()) !== 'active') {
-      if (waited) state.current = (label ? label + ' · ' : '') + '수집 재개';
+      if (waited) state.current = (label ? label + ' · ' : '') + '자리 비움 확인 — 수집 시작';
       return;
     }
+    // "자리 있음" 은 '자리가 비어 있다'로도 읽힌다 — 실제로 그렇게 읽혔다.
+    // 지금 상태와 무엇을 하면 시작되는지를 그대로 적는다.
     state.current = (label ? label + ' · ' : '') +
-      '사용자 자리 있음 — 대기 중' + (waited >= 60 ? ` (${Math.round(waited / 60)}분)` : '');
+      'PC 사용 중이라 대기' + (waited >= 60 ? ` (${Math.round(waited / 60)}분째)` : '') +
+      ' — 5분간 안 만지면 시작';
     await sleep(15000);
     waited += 15;
   }
