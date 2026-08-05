@@ -296,8 +296,12 @@ const COMP_RX = new RegExp(
 // 수식어 자리에 이런 말이 오면 소재 설명이 아니라 판촉·안내 문구다.
 const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|shipping|free|new|all|shop|more|less|min|max|use)\b/i;
 function compFromText(text) {
-  const out = [];
-  const seen = new Set();
+  // 한 옷에 원단이 두 가지인 경우가 있다 — 겉감/안감, 몸판/배색, 색상별 사양.
+  // 한 줄로 더하면 200% 나 110% 가 되어 없는 조성이 되고, 하나만 남기면 나머지
+  // 원단을 잃는다. 한 벌이 100% 에 차면 줄을 바꿔 이어 담는다(worker 와 같은 규칙).
+  const groups = [];
+  let cur = [], total = 0, seen = new Set();
+  const flush = () => { if (cur.length) groups.push(cur); cur = []; total = 0; seen = new Set(); };
   for (const m of String(text || '').slice(0, 16000).matchAll(COMP_RX)) {
     const pct = Number(m[1] || m[5]);
     const mods = String(m[2] || '');
@@ -306,19 +310,29 @@ function compFromText(text) {
     if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
     // "20% off cotton tees" 같은 판촉 문구를 소재로 읽지 않는다.
     if (mods && MOD_BAD_RX.test(mods)) continue;
-    // 같은 섬유가 다시 나오면 거기서 한 벌이 끝난 것으로 본다.
-    // 건너뛰고 계속 읽으면 다음 사양의 항목을 이 사양에 끌어온다 — Dickies 는
-    // "100% Cotton Jersey, Heather Gray: 90% Cotton/10% Polyester" 에서
-    // Cotton 100 + Polyester 10 = 110% 라는 없는 조성을 만들어 통째로 버려졌다.
-    if (seen.has(material)) break;
+    if (cur.length && (seen.has(material) || total + pct > 105)) flush();
+    cur.push(material + ' ' + pct + '%');
+    total += pct;
     seen.add(material);
-    out.push(material + ' ' + pct + '%');
-    if (out.length >= 8) break;
+    if (cur.length >= 8) flush();
+    if (groups.length >= 4) break;
   }
-  const total = out.reduce((n, c) => n + Number(c.match(/(\d+)%/)[1]), 0);
-  if (!out.length || total > 210) return '';
-  return out.join(' / ');
+  flush();
+  if (!groups.length) return '';
+  const sum = (g) => g.reduce((n, c) => n + Number(c.match(/(\d+)%/)[1]), 0);
+  const whole = groups.filter((g) => sum(g) >= 95 && sum(g) <= 105);
+  const uniq = [];
+  const seenLine = new Set();
+  for (const g of whole) {
+    const k = g.join(' / ');
+    if (seenLine.has(k)) continue;
+    seenLine.add(k);
+    uniq.push(g);
+  }
+  if (!uniq.length || uniq.length > 2) return '';
+  return uniq.map((g) => g.join(' / ')).join('\n');
 }
+
 
 // ── 페이지 HTML 전체에서 혼용률 — worker 의 compFromHtml 과 같은 규칙.
 // ① compFromText 는 앞 16000자만 본다. 메뉴·배너가 길면 소재가 그 뒤로 밀려
@@ -357,6 +371,10 @@ function compFromHtml(html) {
   if (!win) return '';
   const out = compFromText(win);
   if (!out) return '';
+  // 스크립트 경로는 여러 상품이 섞이기 쉽다. 줄이 나뉘어 있으면(원단 두 가지)
+  // 그건 한 상품의 표기가 아니라 다른 상품이 섞인 것으로 본다 — 본문과 달리
+  // 여기서는 어느 상품의 것인지 확인할 방법이 없다.
+  if (out.includes('\n')) return '';
   const total = out.split(' / ').reduce((n, c) => n + Number((c.match(/(\d+)%/) || [0, 0])[1]), 0);
   return total > 105 ? '' : out;
 }

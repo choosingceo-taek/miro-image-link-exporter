@@ -16,7 +16,15 @@ const j = src.indexOf("\n}", src.indexOf("function compFromText(text) {")) + 2;
 if (i < 0 || j < 2) { console.error("❌ compFromText 블록을 찾지 못함"); process.exit(1); }
 const compFromText = new Function(src.slice(i, j) + "\n return compFromText;")();
 
-const asStr = (c) => c.map((x) => `${x.material} ${x.percent}%`).join(" / ");
+// 원단이 둘이면 항목에 line 번호가 달려 온다 — 줄로 나눠 합친다(enrich 의 asComp 와 같다).
+const asStr = (v) => {
+  const lines = [];
+  for (const c of v) {
+    const n = c.line || 0;
+    (lines[n] = lines[n] || []).push(`${c.material} ${c.percent}%`);
+  }
+  return lines.filter(Boolean).map((l) => l.join(" / ")).join("\n");
+};
 
 const CASES = [
   // ── 정상적으로 잡혀야 하는 표기들 ──
@@ -57,9 +65,9 @@ const CASES = [
   // Dickies — 색상별 사양이 이어진다. 예전에는 Cotton 100 + Polyester 10 = 110% 라는
   // 없는 조성을 만들어 통째로 버려졌다. 이제 먼저 적힌 본체 사양을 남긴다.
   ["6.75 oz. 100% Cotton Jersey, Heavyweight Heather Gray: 90% Cotton/10% Polyester Imported",
-    "Cotton 100%"],
-  // 겉감·안감이 각각 100% 인 표기는 그대로 살린다(둘 다 남아야 한다).
-  ["Shell: 100% Cotton. Lining: 100% Polyester", "Cotton 100% / Polyester 100%"],
+    "Cotton 100%\nCotton 90% / Polyester 10%"],
+  // 겉감·안감이 각각 100% 인 표기는 줄을 나눠 둘 다 남긴다.
+  ["Shell: 100% Cotton. Lining: 100% Polyester", "Cotton 100%\nPolyester 100%"],
 
   // ── 합이 터무니없으면 통째로 버린다(겉감·안감·트림이 뒤섞인 페이지) ──
   ["100% Cotton 100% Polyester 100% Wool", ""],

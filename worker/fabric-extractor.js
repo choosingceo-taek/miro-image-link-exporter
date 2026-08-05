@@ -1116,8 +1116,14 @@ const COMP_RX = new RegExp(
 const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|shipping|free|new|all|shop|more|less|min|max|use)\b/i;
 
 function compFromText(text) {
-  const out = [];
-  const seen = new Set();
+  // 한 옷에 원단이 두 가지인 경우가 있다 — 겉감/안감, 몸판/배색, 색상별 사양.
+  //   "Shell: 100% Cotton. Lining: 100% Polyester"
+  //   "100% Cotton Jersey, Heather Gray: 90% Cotton/10% Polyester"
+  // 한 줄로 더하면 200% 나 110% 가 되어 없는 조성이 되고, 하나만 남기면 나머지
+  // 원단을 잃는다. 그래서 한 벌이 100% 에 차면 줄을 바꿔 이어 담는다.
+  const groups = [];
+  let cur = [], total = 0, seen = new Set();
+  const flush = () => { if (cur.length) groups.push(cur); cur = []; total = 0; seen = new Set(); };
   for (const m of String(text || '').slice(0, 16000).matchAll(COMP_RX)) {
     const pct = Number(m[1] || m[5]);
     const mods = String(m[2] || '');
@@ -1126,23 +1132,38 @@ function compFromText(text) {
     if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
     // "20% off cotton tees" 같은 판촉 문구를 소재로 읽지 않는다.
     if (mods && MOD_BAD_RX.test(mods)) continue;
-    // 같은 섬유가 다시 나오면 거기서 한 벌이 끝난 것으로 본다.
-    // 건너뛰고 계속 읽으면 다음 사양의 항목을 이 사양에 끌어온다 — Dickies 는
-    // "100% Cotton Jersey, Heather Gray: 90% Cotton/10% Polyester" 에서
-    // Cotton 100 + Polyester 10 = 110% 라는 없는 조성을 만들어 통째로 버려졌다.
-    if (seen.has(material)) break;
+    // 같은 섬유가 다시 나오거나 합이 100 을 넘기려 하면 한 벌이 끝난 것이다.
+    if (cur.length && (seen.has(material) || total + pct > 105)) flush();
+    cur.push({ material, percent: pct });
+    total += pct;
     seen.add(material);
-    out.push({ material, percent: pct });
-    if (out.length >= 8) break;
+    if (cur.length >= 8) flush();
+    if (groups.length >= 4) break;   // 그만큼 나오면 여러 상품이 섞인 페이지다
   }
-  // 합이 터무니없으면(겉감·안감이 뒤섞였거나 여러 상품이 섞였거나) 버린다.
-  // 한 페이지에 조성이 여러 벌 적힌 경우 먼저 나온 것을 고르고 싶어지지만,
-  // 그건 다른 상품의 조성을 이 상품에 붙일 위험이 있어 하지 않는다
-  // (scripts/test-composition.mjs 가 그 판단을 지킨다).
-  const total = out.reduce((n, c) => n + c.percent, 0);
-  if (!out.length || total > 210) return [];
-  return out;
+  flush();
+  if (!groups.length) return [];
+
+  const asLine = (g) => g.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
+  // 온전한 한 벌(합 95~105)만 남긴다. 어중간한 조각은 다른 상품에서 새어 든 것이다.
+  const whole = groups.filter((g) => {
+    const t = g.reduce((n, c) => n + c.percent, 0);
+    return t >= 95 && t <= 105;
+  });
+  // 같은 줄이 반복되면 한 번만 ("100% Cotton ... 100% Cotton lining").
+  const uniq = [];
+  const seenLine = new Set();
+  for (const g of whole) {
+    const k = asLine(g);
+    if (seenLine.has(k)) continue;
+    seenLine.add(k);
+    uniq.push(g);
+  }
+  // 서로 다른 조성이 셋 이상이면 한 옷의 원단이 아니라 여러 상품이 섞인 것이다.
+  if (!uniq.length || uniq.length > 2) return [];
+  // 줄 번호를 달아 돌려준다 — 문자열로 바꿀 때 이 번호로 줄을 나눈다.
+  return uniq.flatMap((g, n) => g.map((c) => ({ ...c, line: n })));
 }
+
 
 // ── 값이 "쓸 수 있는" 값인지 ────────────────────────────────────────────
 // 엑셀 열을 여는 기준(95%)은 "채워졌나"가 아니라 "옳은가"여야 한다. 채움률만
@@ -1155,17 +1176,25 @@ const COMP_ITEM_RX = /^[A-Za-z][A-Za-z ]{1,24} (\d{1,3})%$/;
 function validComp(s) {
   const t = String(s || '').trim();
   if (!t || t.includes('[object Object]')) return false;
-  const parts = t.split(' / ');
-  if (parts.length > 8) return false;
-  let total = 0;
-  for (const p of parts) {
-    const m = p.match(COMP_ITEM_RX);
-    if (!m) return false;
-    const n = Number(m[1]);
-    if (!(n > 0 && n <= 100)) return false;
-    total += n;
+  // 원단이 두 가지면 줄이 나뉜다("Cotton 100%\nPolyester 100%"). 줄마다 따로 본다.
+  const lines = t.split('\n').map((x) => x.trim()).filter(Boolean);
+  if (!lines.length || lines.length > 2) return false;
+  for (const line of lines) {
+    const parts = line.split(' / ');
+    if (parts.length > 8) return false;
+    let total = 0;
+    for (const p of parts) {
+      const m = p.match(COMP_ITEM_RX);
+      if (!m) return false;
+      const n = Number(m[1]);
+      if (!(n > 0 && n <= 100)) return false;
+      total += n;
+    }
+    // 190~210 은 겉감+안감이 한 줄에 담긴 예전 저장분 — 그대로 인정한다.
+    const ok = (total >= 95 && total <= 105) || (lines.length === 1 && total >= 190 && total <= 210);
+    if (!ok) return false;
   }
-  return (total >= 95 && total <= 105) || (total >= 190 && total <= 210);
+  return true;
 }
 // 컬러가 옳다 = 사람이 읽는 색 이름이다. 안내 문구("Select")·색상코드(#fff)·
 // 숫자만 있는 값은 엑셀에 실리면 오히려 헷갈린다.
@@ -1220,6 +1249,10 @@ function compFromHtml(html) {
   const win = compWindow(unesc);
   if (!win) return [];
   const out = compFromText(win);
+  // 스크립트 경로는 여러 상품이 섞이기 쉽다. 줄이 나뉘어 있으면(원단 두 가지)
+  // 그건 한 상품의 표기가 아니라 다른 상품이 섞인 것으로 본다 — 본문과 달리
+  // 여기서는 어느 상품의 것인지 확인할 방법이 없다.
+  if (out.some((c) => (c.line || 0) > 0)) return [];
   const total = out.reduce((n, c) => n + c.percent, 0);
   return total > 105 ? [] : out;   // 여러 상품이 섞였을 가능성 — 버린다
 }

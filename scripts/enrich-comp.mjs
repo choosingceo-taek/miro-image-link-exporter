@@ -67,9 +67,16 @@ const compFromHtml = new Function(
 )();
 // compFromText/compFromHtml 은 [{material,percent}] 를 돌려준다. 그대로 저장하면
 // String() 이 걸려 '[object Object],[object Object]' 가 들어간다 — 반드시 여기서 문자열로.
-const asComp = (v) => (Array.isArray(v)
-  ? v.map((c) => `${c.material} ${c.percent}%`).join(" / ")
-  : String(v || "").trim());
+// 한 옷에 원단이 둘이면 항목에 line 번호가 달려 온다 — 줄로 나눠 담는다.
+const asComp = (v) => {
+  if (!Array.isArray(v)) return String(v || "").trim();
+  const lines = [];
+  for (const c of v) {
+    const n = c.line || 0;
+    (lines[n] = lines[n] || []).push(`${c.material} ${c.percent}%`);
+  }
+  return lines.filter(Boolean).map((l) => l.join(" / ")).join("\n");
+};
 // 엑셀 열을 여는 기준은 "채워졌나"가 아니라 "옳은가"다 — 판정도 worker 와 한 벌.
 const { validComp, validColor } = new Function(
   slice("const COMP_ITEM_RX", "// ── 페이지 HTML 전체에서 혼용률") +
