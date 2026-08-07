@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RACK — 상품 리서치</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+  <script src="shared/product-core.js"></script>
+  <style>
+    :root {
+      --bg: #f6f6f4; --panel: #fff; --line: #e4e2dd; --ink: #1c1a17; --dim: #7a756c;
+      --accent: #2f6df6; --accent-soft: #eaf0fe; --warn: #b45309; --warn-bg: #fff7ed;
+      --radius: 10px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614; --panel: #201f1c; --line: #33312c; --ink: #ece9e3; --dim: #918b81;
+        --accent: #6d97ff; --accent-soft: #22304d; --warn: #e0a05a; --warn-bg: #2c2318;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, select { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+
+    header {
+      display: flex; align-items: center; gap: 12px; padding: 12px 18px;
+      background: var(--panel); border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 20;
+    }
+    .logo { font-weight: 700; letter-spacing: .04em; font-size: 15px; }
+    .logo small { font-weight: 500; color: var(--dim); letter-spacing: 0; margin-left: 7px; }
+    header .sp { flex: 1; }
+    .ghost {
+      background: transparent; border: 1px solid var(--line); border-radius: 8px;
+      padding: 6px 12px; color: var(--dim);
+    }
+    .ghost:hover { color: var(--ink); border-color: var(--dim); }
+
+    .wrap { display: grid; grid-template-columns: 268px 1fr; gap: 0; align-items: start; }
+    @media (max-width: 820px) { .wrap { grid-template-columns: 1fr; } aside { position: static !important; height: auto !important; } }
+
+    aside {
+      background: var(--panel); border-right: 1px solid var(--line);
+      position: sticky; top: 53px; height: calc(100vh - 53px);
+      display: flex; flex-direction: column;
+    }
+    aside .find { padding: 12px; border-bottom: 1px solid var(--line); }
+    aside input[type=search] {
+      width: 100%; padding: 8px 11px; border: 1px solid var(--line);
+      border-radius: 8px; background: var(--bg);
+    }
+    .brands { overflow-y: auto; flex: 1; padding: 6px; }
+    .brand {
+      display: flex; align-items: baseline; gap: 8px; width: 100%; text-align: left;
+      padding: 8px 10px; border: 0; border-radius: 8px; background: transparent;
+    }
+    .brand:hover { background: var(--bg); }
+    .brand.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+    .brand .nm { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .brand .ct { font-size: 11px; color: var(--dim); font-variant-numeric: tabular-nums; }
+    .brand.stale .ct { color: var(--warn); }
+
+    main { padding: 16px 18px 80px; min-width: 0; }
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+    .tab {
+      padding: 6px 13px; border: 1px solid var(--line); border-radius: 999px;
+      background: var(--panel); font-size: 13px;
+    }
+    .tab.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .tab:disabled { opacity: .38; cursor: default; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(178px, 1fr)); gap: 14px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; position: relative; display: flex; flex-direction: column;
+    }
+    .card.sel { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+    .card .ph { aspect-ratio: 3 / 4; background: var(--bg); overflow: hidden; }
+    .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card .meta { padding: 9px 10px 11px; display: flex; flex-direction: column; gap: 3px; }
+    .card .nm { font-size: 12.5px; line-height: 1.35; max-height: 2.7em; overflow: hidden; }
+    .card .pr { font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums; }
+    .card .cp {
+      font-size: 11px; line-height: 1.4; color: var(--accent);
+      background: var(--accent-soft); border-radius: 5px; padding: 3px 6px; margin-top: 2px;
+      white-space: pre-line;
+    }
+    .card .cp.none { color: var(--dim); background: transparent; padding-left: 0; font-style: italic; }
+    .card .chk {
+      position: absolute; top: 8px; left: 8px; width: 19px; height: 19px;
+      accent-color: var(--accent); cursor: pointer; z-index: 2;
+    }
+    .card a.open {
+      position: absolute; top: 8px; right: 8px; z-index: 2; text-decoration: none;
+      background: rgba(0,0,0,.55); color: #fff; border-radius: 6px;
+      font-size: 11px; padding: 2px 7px; opacity: 0; transition: opacity .12s;
+    }
+    .card:hover a.open { opacity: 1; }
+
+    .bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      background: var(--panel); border-top: 1px solid var(--line);
+      padding: 11px 18px; display: flex; align-items: center; gap: 12px;
+    }
+    .bar .sp { flex: 1; }
+    .go {
+      background: var(--accent); color: #fff; border: 0; border-radius: 8px;
+      padding: 9px 20px; font-weight: 600;
+    }
+    .go:disabled { opacity: .45; }
+    .msg { color: var(--dim); font-size: 13px; }
+    .msg b { color: var(--ink); }
+    .empty { color: var(--dim); padding: 44px 0; text-align: center; }
+
+    dialog {
+      border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel);
+      color: var(--ink); padding: 18px; max-width: 440px; width: calc(100% - 32px);
+    }
+    dialog::backdrop { background: rgba(0,0,0,.45); }
+    dialog label { display: block; margin: 12px 0 4px; font-size: 12px; color: var(--dim); }
+    dialog input { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); }
+    dialog .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">RACK<small>상품 리서치 · 엑셀 추출</small></div>
+    <div class="sp"></div>
+    <button class="ghost" id="cfgBtn">⚙ 설정</button>
+  </header>
+
+  <div class="wrap">
+    <aside>
+      <div class="find"><input type="search" id="brandFind" placeholder="브랜드 검색" autocomplete="off"></div>
+      <div class="brands" id="brandList"><div class="empty">불러오는 중…</div></div>
+    </aside>
+
+    <main>
+      <div class="tabs" id="tabs"></div>
+      <div class="grid" id="grid"></div>
+      <div class="empty" id="hint">왼쪽에서 브랜드를 고르세요.</div>
+    </main>
+  </div>
+
+  <div class="bar">
+    <button class="ghost" id="selAll">전체 선택</button>
+    <button class="ghost" id="selNone">선택 해제</button>
+    <span class="msg" id="msg"></span>
+    <div class="sp"></div>
+    <button class="go" id="xlsx" disabled>엑셀 추출</button>
+  </div>
+
+  <dialog id="cfg">
+    <b>연결 설정</b>
+    <label for="cfgWorker">추출 Worker 주소</label>
+    <input id="cfgWorker" placeholder="https://….workers.dev">
+    <label for="cfgToken">Access token</label>
+    <input id="cfgToken" placeholder="비어 있으면 토큰 없이 요청">
+    <div class="row">
+      <button class="ghost" id="cfgCancel">취소</button>
+      <button class="go" id="cfgSave">저장</button>
+    </div>
+  </dialog>
+
+<script>
+(() => {
+  'use strict';
+  const C = window.RackCore;
+  const $ = (id) => document.getElementById(id);
+
+  // 미로 패널과 같은 기본값. 사용자가 ⚙ 에서 바꾸면 localStorage 에 남는다.
+  const DEF_WORKER = 'https://fabric-extractor.hs-fabric-linker.workers.dev';
+  const DEF_TOKEN = 'hsfabriclinker';
+  let cfg = {
+    worker: (localStorage.getItem('fabricWorkerUrl') || DEF_WORKER).replace(/\/+$/, ''),
+    token: localStorage.getItem('fabricAccessToken') ?? DEF_TOKEN,
+  };
+  const tok = () => (cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '');
+  const api = (qs) => fetch(cfg.worker + '/?' + qs + tok()).then((r) => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  });
+
+  const CATS = [
+    ['all', '전체'], ['tops', '탑'], ['shirts', '셔츠'],
+    ['sweatshirts', '스웨트·니트'], ['pants', '팬츠·스커트'], ['dresses', '원피스'],
+  ];
+
+  let brands = [];        // {site, brand, count, updated}
+  let items = [];         // 지금 브랜드의 상품 전부
+  let cat = 'all';
+  let site = '';
+  const picked = new Set();   // 선택한 상품의 productUrl — 카테고리를 옮겨도 유지된다
+
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+  const ago = (ms) => {
+    if (!ms) return '';
+    const h = Math.floor((Date.now() - ms) / 3600000);
+    if (h < 1) return '방금';
+    if (h < 48) return h + '시간';
+    return Math.floor(h / 24) + '일';
+  };
+
+  // ── 브랜드 목록 ────────────────────────────────────────────────
+  async function loadBrands() {
+    let data;
+    try { data = await api('catalogs=1'); }
+    catch (e) {
+      $('brandList').innerHTML =
+        `<div class="empty">브랜드를 못 불러왔습니다.<br><small>${esc(e.message)}</small><br>` +
+        `<small>⚙ 설정에서 Worker 주소와 토큰을 확인하세요.</small></div>`;
+      return;
+    }
+    brands = ((data && data.list) || [])
+      .filter((c) => c && c.site && (c.count || 0) > 0)
+      .sort((a, b) => String(a.brand || a.site).localeCompare(String(b.brand || b.site)));
+    drawBrands();
+  }
+
+  function drawBrands() {
+    const q = $('brandFind').value.trim().toLowerCase();
+    const show = q ? brands.filter((b) => String(b.brand || b.site).toLowerCase().includes(q)) : brands;
+    if (!show.length) { $('brandList').innerHTML = '<div class="empty">없음</div>'; return; }
+    $('brandList').innerHTML = show.map((b) => {
+      // 36시간 넘게 갱신 안 된 브랜드는 표시해 둔다 — 확장이 돌지 않았다는 뜻이다.
+      const stale = b.updated && Date.now() - b.updated > 36 * 3600000;
+      return `<button class="brand${b.site === site ? ' on' : ''}${stale ? ' stale' : ''}" data-site="${esc(b.site)}">` +
+        `<span class="nm">${esc(b.brand || b.site)}</span>` +
+        `<span class="ct">${b.count}${b.updated ? ' · ' + ago(b.updated) : ''}</span></button>`;
+    }).join('');
+  }
+
+  $('brandFind').addEventListener('input', drawBrands);
+  $('brandList').addEventListener('click', (e) => {
+    const el = e.target.closest('.brand');
+    if (el) openBrand(el.dataset.site);
+  });
+
+  // ── 상품 불러오기 ──────────────────────────────────────────────
+  async function openBrand(s) {
+    site = s;
+    picked.clear();
+    const rec = brands.find((b) => b.site === s) || {};
+    $('hint').textContent = '불러오는 중…';
+    $('hint').style.display = '';
+    $('grid').innerHTML = '';
+    $('tabs').innerHTML = '';
+    drawBrands();
+    try {
+      // 상품 목록과 혼용률 오버레이를 동시에 받아 합친다. 오버레이가 없어도
+      // 목록은 보여야 하므로 실패는 빈 객체로 흘린다.
+      const [cat0, ov] = await Promise.all([
+        api('catalog=' + encodeURIComponent(s)),
+        api('comps=' + encodeURIComponent(s)).catch(() => ({})),
+      ]);
+      items = C.mergeOverlay(cat0.items || [], ov, cat0.brand || rec.brand || '');
+      // 저장된 category 를 그대로 믿지 않는다 — 목록 페이지에 다른 종류가 섞인다.
+      items.forEach((p) => { p.cat = C.guessCat(p.productUrl, p.name); });
+    } catch (e) {
+      $('hint').innerHTML = `상품을 못 불러왔습니다.<br><small>${esc(e.message)}</small>`;
+      items = [];
+      return;
+    }
+    cat = 'all';
+    draw();
+  }
+
+  const inCat = (p) => cat === 'all' || p.cat === cat;
+
+  function draw() {
+    const n = {};
+    items.forEach((p) => { n[p.cat] = (n[p.cat] || 0) + 1; });
+    $('tabs').innerHTML = CATS.map(([k, label]) => {
+      const c = k === 'all' ? items.length : (n[k] || 0);
+      return `<button class="tab${k === cat ? ' on' : ''}" data-cat="${k}"${c ? '' : ' disabled'}>` +
+        `${esc(label)} ${c}</button>`;
+    }).join('');
+
+    const show = items.filter(inCat);
+    $('hint').style.display = show.length ? 'none' : '';
+    if (!show.length) $('hint').textContent = '이 카테고리에 상품이 없습니다.';
+
+    // 미로 패널은 카테고리당 100개만 보여 준다(패널이 좁아서). 여기는 전부 보인다.
+    $('grid').innerHTML = show.map((p) => {
+      const on = picked.has(p.productUrl);
+      const c = C.cleanVal(p.comp);
+      const cp = C.validComp(c)
+        ? `<div class="cp">${esc(c)}</div>`
+        : (p.compNone ? `<div class="cp none">${esc(C.NO_INFO)}</div>` : '');
+      return `<div class="card${on ? ' sel' : ''}" data-u="${esc(p.productUrl)}">` +
+        `<input type="checkbox" class="chk"${on ? ' checked' : ''} aria-label="선택">` +
+        `<a class="open" href="${esc(p.productUrl)}" target="_blank" rel="noopener">열기</a>` +
+        `<div class="ph"><img src="${esc(p.imageUrl)}" alt="" loading="lazy"></div>` +
+        `<div class="meta"><div class="nm">${esc(p.name) || '(이름 없음)'}</div>` +
+        (p.price ? `<div class="pr">${esc(p.price)}</div>` : '') + cp + `</div></div>`;
+    }).join('');
+    tally();
+  }
+
+  $('tabs').addEventListener('click', (e) => {
+    const t = e.target.closest('.tab');
+    if (t && !t.disabled) { cat = t.dataset.cat; draw(); }
+  });
+
+  // 카드 어디를 눌러도 선택된다. '열기' 링크만 예외.
+  $('grid').addEventListener('click', (e) => {
+    if (e.target.closest('a.open')) return;
+    const card = e.target.closest('.card');
+    if (!card) return;
+    const u = card.dataset.u;
+    if (picked.has(u)) picked.delete(u); else picked.add(u);
+    card.classList.toggle('sel', picked.has(u));
+    const box = card.querySelector('.chk');
+    if (box) box.checked = picked.has(u);
+    tally();
+  });
+
+  $('selAll').addEventListener('click', () => {
+    items.filter(inCat).forEach((p) => picked.add(p.productUrl));
+    draw();
+  });
+  $('selNone').addEventListener('click', () => { picked.clear(); draw(); });
+
+  // 선택한 것 중 몇 개에 혼용률이 붙어 나올지 미리 알려 준다 — 뽑고 나서
+  // 빈 칸을 발견하는 것보다 낫다.
+  function tally() {
+    const sel = items.filter((p) => picked.has(p.productUrl));
+    $('xlsx').disabled = !sel.length;
+    if (!sel.length) { $('msg').textContent = ''; return; }
+    const ok = sel.filter((p) => C.validComp(C.cleanVal(p.comp))).length;
+    const none = sel.filter((p) => p.compNone && !C.validComp(C.cleanVal(p.comp))).length;
+    const pct = Math.round((ok / sel.length) * 100);
+    $('msg').innerHTML = `선택 <b>${sel.length}</b> · 혼용률 <b>${ok}</b> (${pct}%)` +
+      (none ? ` · 사이트 미표기 ${none}` : '') +
+      (C.compReady(sel) ? '' : ` — <span style="color:var(--warn)">95% 미만이라 혼용률 열이 닫힙니다</span>`);
+  }
+
+  // ── 엑셀 ───────────────────────────────────────────────────────
+  async function toPng(url, maxSize) {
+    const tryOne = async (u) => {
+      const resp = await fetch(u, { mode: 'cors' });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const blob = await resp.blob();
+      const obj = URL.createObjectURL(blob);
+      try {
+        const img = await new Promise((res, rej) => {
+          const im = new Image();
+          im.onload = () => res(im); im.onerror = () => rej(new Error('이미지 로드 실패'));
+          im.src = obj;                       // blob: URL 이라 canvas 가 오염되지 않는다
+        });
+        const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
+        const w = Math.max(1, Math.round(img.width * scale));
+        const h = Math.max(1, Math.round(img.height * scale));
+        const cv = document.createElement('canvas');
+        cv.width = w; cv.height = h;
+        cv.getContext('2d').drawImage(img, 0, 0, w, h);
+        return { base64: cv.toDataURL('image/png').split(',')[1], w, h };
+      } finally { URL.revokeObjectURL(obj); }
+    };
+    // 상품 사이트 CDN 은 대개 CORS 를 안 준다 → 실패하면 Worker 프록시로 돌아간다.
+    try { return await tryOne(url); }
+    catch (e) {
+      return await tryOne(cfg.worker + '/?img=' + encodeURIComponent(url) + tok());
+    }
+  }
+
+  $('xlsx').addEventListener('click', async () => {
+    if (typeof ExcelJS === 'undefined') {
+      $('msg').textContent = '엑셀 라이브러리를 못 불러왔습니다. 새로고침 후 다시 시도하세요.';
+      return;
+    }
+    const sel = items.filter((p) => picked.has(p.productUrl));
+    if (!sel.length) return;
+    $('xlsx').disabled = true;
+
+    // 이 파일에 실리는 상품들만 보고 열을 정한다 — 브랜드 전체 평균이 아니다.
+    const showColor = C.colorReady(sel), showComp = C.compReady(sel);
+    const cols = C.colsFor(showColor, showComp);
+    const rowCol = C.rowColFor(cols);
+
+    const wb = new ExcelJS.Workbook();
+    const ws = wb.addWorksheet('상품정보');
+    ws.columns = cols;
+    ws.getRow(1).font = { bold: true };
+    const need = [], noInfo = [];
+    let thumbFail = 0;
+
+    for (let i = 0; i < sel.length; i++) {
+      const p = sel[i], n = i + 2;
+      const vals = C.rowValues(p, p.brand, rowCol, showColor, showComp);
+      for (const k of Object.keys(vals)) {
+        if (vals[k] === C.NEED) need.push(rowCol[k] + n);
+        else if (vals[k] === C.NO_INFO) noInfo.push(rowCol[k] + n);
+      }
+      const row = ws.addRow({ ...vals, img: '', link: '' });
+      row.height = 60;
+      // 상품명·혼용률은 길어질 수 있어 줄바꿈해 둔다.
+      for (const k of Object.keys(rowCol)) {
+        if (k === 'brand') continue;
+        ws.getCell(`${rowCol[k]}${n}`).alignment = { wrapText: true, vertical: 'middle' };
+      }
+      const c = ws.getCell('C' + n);
+      c.value = { text: p.productUrl, hyperlink: p.productUrl };
+      c.font = { color: { argb: 'FF4262FF' }, underline: true };
+
+      try {
+        const { base64, w, h } = await toPng(p.imageUrl, 110);
+        const id = wb.addImage({ base64, extension: 'png' });
+        ws.addImage(id, { tl: { col: 1.1, row: (n - 1) + 0.1 }, ext: { width: w, height: h }, editAs: 'oneCell' });
+        row.height = Math.max(row.height, h * 0.75 + 6);
+      } catch (e) {
+        ws.getCell('B' + n).value = C.NEED;
+        need.push('B' + n);
+        thumbFail++;
+      }
+      $('msg').textContent = `추출 중… ${i + 1}/${sel.length}`;
+    }
+
+    // '확인 필요'는 한눈에 보이게 — 주황 글씨 + 연한 배경.
+    for (const a of need) {
+      const cell = ws.getCell(a);
+      cell.font = { color: { argb: 'FFB45309' }, italic: true };
+      cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF7ED' } };
+    }
+    // '정보 없음'은 회색 — 사람이 손볼 수 있는 칸이 아니다.
+    for (const a of noInfo) ws.getCell(a).font = { color: { argb: 'FF9CA3AF' }, italic: true };
+
+    ws.autoFilter = { from: 'A1', to: C.colLetter(cols.length - 1) + '1' };
+    ws.views = [{ state: 'frozen', ySplit: 1 }];
+
+    const buf = await wb.xlsx.writeBuffer();
+    const brandSlug = (sel[0].brand || site || 'rack').replace(/[^\w가-힣]+/g, '_').slice(0, 30);
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([buf],
+      { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
+    a.download = `${brandSlug}_${new Date().toISOString().slice(0, 10)}.xlsx`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+
+    $('msg').innerHTML = `완료 · 총 <b>${sel.length}</b>` +
+      (need.length ? ` · 확인 필요 ${need.length}칸` : ' · 빠진 항목 없음') +
+      (noInfo.length ? ` · 사이트 미표기 ${noInfo.length}칸` : '') +
+      (thumbFail ? ` · 썸네일 실패 ${thumbFail}` : '');
+    $('xlsx').disabled = false;
+  });
+
+  // ── 설정 ───────────────────────────────────────────────────────
+  $('cfgBtn').addEventListener('click', () => {
+    $('cfgWorker').value = cfg.worker;
+    $('cfgToken').value = cfg.token;
+    $('cfg').showModal();
+  });
+  $('cfgCancel').addEventListener('click', () => $('cfg').close());
+  $('cfgSave').addEventListener('click', () => {
+    cfg.worker = $('cfgWorker').value.trim().replace(/\/+$/, '');
+    cfg.token = $('cfgToken').value.trim();
+    localStorage.setItem('fabricWorkerUrl', cfg.worker);
+    localStorage.setItem('fabricAccessToken', cfg.token);
+    $('cfg').close();
+    site = ''; items = []; picked.clear();
+    $('grid').innerHTML = ''; $('tabs').innerHTML = '';
+    $('hint').style.display = ''; $('hint').textContent = '왼쪽에서 브랜드를 고르세요.';
+    tally();
+    loadBrands();
+  });
+
+  loadBrands();
+})();
+</script>
+</body>
+</html>

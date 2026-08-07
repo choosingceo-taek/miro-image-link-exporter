@@ -20,13 +20,24 @@ if (!m) { console.error("❌ rowValues 블록을 찾지 못함 — index.html �
 const NEED = "확인 필요";
 const rowValues = new Function(m[0] + "\n return rowValues;")();
 
+// 독립 앱(app.html)은 shared/product-core.js 의 rowValues 를 쓴다. 두 벌이
+// 어긋나면 같은 상품이 미로 엑셀과 앱 엑셀에서 다르게 나온다 — 그때는
+// 어느 쪽이 맞는지 사람이 판단할 수 없게 된다. 같은 표로 함께 돌린다.
+const core = {};
+new Function("globalThis", readFileSync(join(ROOT, "shared/product-core.js"), "utf8"))(core);
+const sharedRowValues = core.RackCore && core.RackCore.rowValues;
+if (typeof sharedRowValues !== "function") {
+  console.error("❌ shared/product-core.js 가 RackCore.rowValues 를 내보내지 않음");
+  process.exit(1);
+}
+
 // 썸네일·URL 은 보드 값을 그대로 쓰므로 rowValues 가 만드는 것은 브랜드·상품명
 // (+컬러웨이·혼용률 열이 열렸을 때 그 둘)이다. 열이 열렸는지는 이제 그 파일에
 // 실리는 상품들이 정하므로(fabricReady), 테스트는 두 경우를 다 돌린다.
 const ROW_COL_BASE = { brand: "A", name: "D" };
 const ROW_COL_FULL = { brand: "A", name: "D", color: "E", comp: "F" };
 // 컬러웨이·혼용률 열은 각자 따로 열린다. 여기서는 둘 다 닫힘 / 둘 다 열림을 본다.
-const run = (r, brand, on) => rowValues(r, brand, on ? ROW_COL_FULL : ROW_COL_BASE, on, on);
+const run = (fn, r, brand, on) => fn(r, brand, on ? ROW_COL_FULL : ROW_COL_BASE, on, on);
 // [설명, 입력, 열이 닫혔을 때 기대, 열이 열렸을 때 기대]
 const CASES = [
   ["브랜드·상품명이 있으면 그대로",
@@ -79,18 +90,20 @@ const CASES = [
 ];
 
 let bad = 0;
-for (const [label, input, wantOff, wantOn] of CASES) {
-  const brand = label.includes("도메인 추정값") ? "freepeople" : "";
-  for (const [on, want] of [[false, wantOff], [true, wantOn]]) {
-    const got = run(input, brand, on);
-    for (const k of Object.keys(want)) {
-      if (got[k] !== want[k]) {
-        bad++;
-        console.error(`❌ ${label} · ${k} (열 ${on ? "열림" : "닫힘"})\n   기대 ${JSON.stringify(want[k])}\n   실제 ${JSON.stringify(got[k])}`);
+for (const [who, fn] of [["패널", rowValues], ["공유(앱)", sharedRowValues]]) {
+  for (const [label, input, wantOff, wantOn] of CASES) {
+    const brand = label.includes("도메인 추정값") ? "freepeople" : "";
+    for (const [on, want] of [[false, wantOff], [true, wantOn]]) {
+      const got = run(fn, input, brand, on);
+      for (const k of Object.keys(want)) {
+        if (got[k] !== want[k]) {
+          bad++;
+          console.error(`❌ [${who}] ${label} · ${k} (열 ${on ? "열림" : "닫힘"})\n   기대 ${JSON.stringify(want[k])}\n   실제 ${JSON.stringify(got[k])}`);
+        }
       }
     }
   }
 }
 
 if (bad) { console.error(`\n행 값 계산 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 엑셀 행 값 ${CASES.length}건 통과 (열 닫힘·열림 양쪽)`);
+console.log(`✅ 엑셀 행 값 ${CASES.length}건 통과 (열 닫힘·열림 양쪽 · 패널·공유 두 구현 일치)`);
