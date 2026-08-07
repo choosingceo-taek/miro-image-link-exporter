@@ -506,12 +506,36 @@
         const s = String(u || '').trim();
         return /^http:\/\//i.test(s) ? s.replace(/^http:\/\//i, 'https://') : s;
       }
-      // 캐시가 없는 이미지는 제목("브랜드 · 이름 · $가격")에서 이름/가격을 최대한 뽑음.
+      // 혼용률은 원단이 둘이면 줄이 나뉜다. 보드 캡션은 한 줄이므로 ' | ' 로 잇고,
+      // 다시 읽을 때 되돌린다.
+      const compToTitle = (s) => String(s || '').split('\n').map(x => x.trim()).filter(Boolean).join(' | ');
+      const compFromTitle = (s) => String(s || '').split('|').map(x => x.trim()).filter(Boolean).join('\n');
+
+      // 보드에 놓을 이미지의 캡션. "브랜드 · 이름 · $가격 · Cotton 95% / Elastane 5%".
+      // 혼용률은 validComp 를 통과할 때만 붙인다 — 반쪽짜리("Cotton 60%")가 캡션에
+      // 박히면 보드에서 일일이 지워야 한다. 캡션에 넣어 두면 localStorage 캐시가 없는
+      // 다른 PC에서 스캔해도 혼용률이 그대로 살아난다(아래 parseTitle 이 되읽는다).
+      function boardTitle(it) {
+        const parts = [];
+        if (it.brand) parts.push(it.brand);
+        if (it.name) parts.push(it.name);
+        if (it.price) parts.push(it.price);
+        const c = cleanVal(it.comp);
+        if (validComp(c)) parts.push(compToTitle(c));
+        return parts.join(' · ');
+      }
+
+      // 캐시가 없는 이미지는 제목("브랜드 · 이름 · $가격 · 혼용률")에서 최대한 뽑음.
       function parseTitle(t) {
         const parts = (t || '').split('·').map(s => s.trim()).filter(Boolean);
-        let price = '', names = [];
-        parts.forEach(p => { if (/[$€£₩]\s?\d/.test(p)) price = p; else names.push(p); });
-        return { name: names.length > 1 ? names.slice(1).join(' · ') : (names[0] || ''), price };
+        let price = '', comp = '', names = [];
+        parts.forEach(p => {
+          if (/[$€£₩]\s?\d/.test(p)) { price = p; return; }
+          const c = compFromTitle(p);
+          if (validComp(c)) { comp = c; return; }   // 혼용률 조각은 이름이 아니다
+          names.push(p);
+        });
+        return { name: names.length > 1 ? names.slice(1).join(' · ') : (names[0] || ''), price, comp };
       }
 
       // ── 상품 사진을 보드로 드래그앤드롭 → 그 위치에 이미지+링크 생성 ──
@@ -528,7 +552,7 @@
           } else if (dragged) {
             batch = [dragged];
           } else {
-            batch = [{ imageUrl: target.dataset.full || target.src, productUrl: target.dataset.link || '', name: target.dataset.title || '', brand: '' }];
+            batch = [{ imageUrl: target.dataset.full || target.src, productUrl: target.dataset.link || '', name: target.dataset.title || '', brand: '', comp: target.dataset.comp || '' }];
           }
           // 이미지 크기 = 현재 보드 화면 폭의 약 10% (줌 상태와 무관하게 보기 좋은 크기)
           let W = 240;
@@ -540,7 +564,7 @@
               // 첫 이미지(끌어놓은 것)의 중심이 커서(x,y)에 오도록. 나머지는 그 옆/아래로.
               const img = await createBoardImage(it, {
                 x: x + col * (W + gapX), y: y + row * gapY, width: W,
-                title: `${it.brand ? it.brand + ' · ' : ''}${it.name || ''}${it.price ? ' · ' + it.price : ''}`,
+                title: boardTitle(it),
               });
               if (it.productUrl) { img.linkedTo = httpsUrl(it.productUrl); await img.sync(); }
               cacheImg(img.id, it);   // 엑셀용으로 이미지URL·이름·가격·브랜드 기억
@@ -1108,7 +1132,8 @@
           const nm = (it.name || '').trim();
           card.innerHTML =
             `<img class="miro-draggable" draggable="true" src="${escapeHtml(it.imageUrl)}" alt="" loading="lazy"` +
-            ` data-full="${escapeHtml(it.imageUrl)}" data-link="${escapeHtml(it.productUrl)}" data-title="${escapeHtml((it.brand ? it.brand + ' · ' : '') + it.name)}">` +
+            ` data-full="${escapeHtml(it.imageUrl)}" data-link="${escapeHtml(it.productUrl)}" data-title="${escapeHtml((it.brand ? it.brand + ' · ' : '') + it.name)}"` +
+            ` data-comp="${escapeHtml(cleanVal(it.comp))}">` +
             `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
             `<div class="cap"><div class="b">${escapeHtml(bd)}</div><div class="n">${escapeHtml(nm) || '(제목 없음)'}</div>` +
             (it.price ? `<div class="p">${escapeHtml(it.price)}</div>` : '') + `</div>`;
@@ -1266,7 +1291,7 @@
             try {
               const col = i % cols, row = Math.floor(i / cols);
               const img = await createBoardImage(it, {
-                title: `${it.brand ? it.brand + ' · ' : ''}${it.name}${it.price ? ' · ' + it.price : ''}`,
+                title: boardTitle(it),
                 x: startX + col * (cellW + gap) + cellW / 2,
                 y: startY + row * (cellW * 1.5 + gap) + cellW / 2,
                 width: cellW,
@@ -1585,7 +1610,8 @@
               // 가격: 우리가 넣은 상품이면 기억된 값 → 아니면 제목("… · $128")에서 추출.
               price: rec.price || parsed.price || '',
               priceOrig: rec.priceOrig || '',
-              comp: rec.comp || '',
+              // 캐시가 없어도 캡션에 박아 둔 혼용률로 되살린다(다른 PC에서 스캔할 때).
+              comp: rec.comp || parsed.comp || '',
               color: rec.color || '', sizes: rec.sizes || '',
             };
           });

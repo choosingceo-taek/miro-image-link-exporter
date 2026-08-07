@@ -35,6 +35,8 @@ jobs:
         run: node scripts/test-settings-wiring.mjs
       - name: Run non-product filter test
         run: node scripts/test-nonproduct.mjs
+      - name: Run board caption round-trip test
+        run: node scripts/test-board-title.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
