@@ -1,26 +1,26 @@
-# 엑셀 항목 보강 결과 (2026-08-08T20:20Z)
+# 엑셀 항목 보강 결과 (2026-08-08T20:35Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
 > 이 숫자는 **방금 쓴 값을 낙관적으로** 센 것이다 — KV 가 최종 일관성이라 쓴 직후에는
 > 안 읽히는 일이 있어 일부러 그렇게 뒀다. 안정된 뒤의 실제 숫자는 `preflight.md` 를 본다.
 
-**지금 두 열이 다 채워져 나오는 브랜드: 33/133개** (상품 9525/32906개)
+**지금 두 열이 다 채워져 나오는 브랜드: 32/133개** (상품 9156/32906개)
 
 패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.
 
-ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Frank & Eileen · Gymshark · Jager · James Perse · LNA · La Ligne · Marine Layer · Me+Em · Nation LTD · Ninety Percent · On · Sanctuary · Shopbop · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
+ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Frank & Eileen · Gymshark · James Perse · LNA · La Ligne · Marine Layer · Me+Em · Nation LTD · Ninety Percent · On · Sanctuary · Shopbop · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 64%.
-기준 95% 까지 10134개, 목표 99% 까지 11450개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 72% · 컬러웨이 62%.
+기준 95% 까지 10762개, 목표 99% 까지 12078개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 32906개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 24269 | 74% | +2 |
-| 컬러웨이 | 21127 | 64% | +2 |
+| 혼용률 | 23645 | 72% | +0 |
+| 컬러웨이 | 20499 | 62% | +0 |
 
 - 검색 인덱스 재구축: 17339개
 
@@ -144,6 +144,7 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 | Citizens of Humanity | ✅ | 196/199 (98%) | 199/199 (100%) | 혼용률 +0 컬러 +0 |  |
 | vineyardvines | ✅ | 199/202 (99%) | 202/202 (100%) | 혼용률 +0 컬러 +0 |  |
 | ALC | ✅ | 344/349 (99%) | 349/349 (100%) | 혼용률 +0 컬러 +0 |  |
+| Jager | — | 364/369 (99%) | 242/369 (66%) | 혼용률 +0 컬러 +0 |  |
 | Gerard darel | — | 222/225 (99%) | 0/225 (0%) | 혼용률 +0 컬러 +0 |  |
 | Veronica Beard | ✅ | 230/233 (99%) | 233/233 (100%) | 혼용률 +0 컬러 +0 |  |
 | Rag & bone | — | 180/182 (99%) | 0/182 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -163,5 +164,4 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 | Old Navy | — | 4/4 (100%) | 0/4 (0%) | 혼용률 +0 컬러 +0 |  |
 | The Great | ✅ | 126/126 (100%) | 126/126 (100%) | 혼용률 +0 컬러 +0 |  |
 | Xirena | ✅ | 341/341 (100%) | 341/341 (100%) | 혼용률 +0 컬러 +0 |  |
-| Jager | ✅ | 988/369 (268%) | 870/369 (236%) | 혼용률 +2 컬러 +2 | 성공 페이지 2 |
 
