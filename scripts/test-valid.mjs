@@ -27,6 +27,29 @@ const pj = panelSrc.indexOf("// ── 컬러웨이·혼용률 열 스위치");
 if (pi < 0 || pj < 0) { console.error("❌ 패널의 판정 블록을 찾지 못함 — index.html 구조 확인"); process.exit(1); }
 const panel = new Function(panelSrc.slice(pi, pj) + "\n return { validComp, validColor };")();
 
+// 독립 앱(app.html)은 복사본을 갖지 않고 shared/product-core.js 를 읽어 쓴다.
+// 그래도 여기서 함께 돌린다 — 공유 파일이 Worker 와 어긋나는 순간을 잡아야 하고,
+// 앱이 그 파일을 정말로 쓰고 있는지도 확인해야 한다(아래 검사).
+const core = {};
+new Function("globalThis", readFileSync(join(ROOT, "shared/product-core.js"), "utf8"))(core);
+const shared = core.RackCore || {};
+if (typeof shared.validComp !== "function" || typeof shared.validColor !== "function") {
+  console.error("❌ shared/product-core.js 가 RackCore.validComp/validColor 를 내보내지 않음");
+  process.exit(1);
+}
+
+// 앱이 공유 파일을 안 읽고 자기 사본을 들고 있으면, 위 대조가 통과해도 실제
+// 화면은 다르게 동작한다. 그 상태를 막는다.
+const app = readFileSync(join(ROOT, "app.html"), "utf8");
+if (!app.includes("shared/product-core.js")) {
+  console.error("❌ app.html 이 shared/product-core.js 를 불러오지 않는다");
+  process.exit(1);
+}
+if (/function\s+validComp\b/.test(app)) {
+  console.error("❌ app.html 이 validComp 사본을 갖고 있다 — 공유 파일을 쓰도록 고칠 것");
+  process.exit(1);
+}
+
 const COMP = [
   // ── 옳은 값 ──
   ["한 가지 섬유 100%", "Cotton 100%", true],
@@ -68,7 +91,7 @@ const COLOR = [
 ];
 
 let bad = 0;
-const IMPLS = [["worker", { validComp, validColor }], ["패널", panel]];
+const IMPLS = [["worker", { validComp, validColor }], ["패널", panel], ["공유(앱)", shared]];
 for (const [who, impl] of IMPLS) {
   for (const [label, v, want] of COMP) {
     const got = impl.validComp(v);
@@ -80,4 +103,4 @@ for (const [who, impl] of IMPLS) {
   }
 }
 if (bad) { console.error(`\n값 판정 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 값 판정 통과 — 혼용률 ${COMP.length}건 · 컬러 ${COLOR.length}건 (worker·패널 두 구현 일치)`);
+console.log(`✅ 값 판정 통과 — 혼용률 ${COMP.length}건 · 컬러 ${COLOR.length}건 (worker·패널·공유 세 구현 일치)`);

@@ -29,6 +29,10 @@ const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-li
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
 const STORE = process.env.STORE === "1";
 const MAX_PAGES = Math.max(1, Number(process.env.MAX_PAGES) || 8);
+// 페이지 이동 대기. 늦은 사이트는 이 시간을 넘겨도 차단이 아니라 그냥 느린 것이라,
+// 아래에서 'commit' 으로 한 번 더 시도한 뒤 SLOW_SETTLE_MS 만큼 쉬어 준다.
+const NAV_MS = Math.max(10_000, Number(process.env.NAV_MS) || 60_000);
+const SLOW_SETTLE_MS = Math.max(1_000, Number(process.env.SLOW_SETTLE_MS) || 9_000);
 const HEADFUL = process.env.HEADFUL === "1";
 const only = (process.env.BRANDS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
 // browser = 헤드리스로 수집 가능한 그룹(기본, 매일 자동) · extension = 크롬 확장 담당 그룹(재조사용) · all = 둘 다
@@ -146,8 +150,19 @@ for (const g of targets) {
       let hubFollowed = 0;
       let pageUrl = queue.shift(), pages = 0;
       while (pageUrl && pages < MAX_PAGES && byUrl.size < PER_CATEGORY) {
-        const resp = await page.goto(pageUrl, { waitUntil: "domcontentloaded", timeout: 60_000 });
-        await page.waitForTimeout(2500);
+        // domcontentloaded 를 60초 안에 못 받는 사이트가 있다(Eileen fisher·Lululemon).
+        // 차단이 아니라 문서가 늦게 끝나는 것이라, 한 번 더 기회를 준다: 'commit' 은
+        // 응답 헤더가 오는 순간 돌아오므로 하위 리소스를 기다리지 않는다. 그 뒤
+        // 넉넉히 쉬어 주면 목록은 대개 그려져 있다.
+        let resp;
+        try {
+          resp = await page.goto(pageUrl, { waitUntil: "domcontentloaded", timeout: NAV_MS });
+          await page.waitForTimeout(2500);
+        } catch (e) {
+          if (!/Timeout/i.test(String((e && e.message) || e))) throw e;
+          resp = await page.goto(pageUrl, { waitUntil: "commit", timeout: NAV_MS });
+          await page.waitForTimeout(SLOW_SETTLE_MS);
+        }
         if (pages === 0) {
           const sig = blockSignal(
             resp ? resp.status() : 0,

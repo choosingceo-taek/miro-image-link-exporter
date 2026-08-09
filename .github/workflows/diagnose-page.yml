@@ -1,0 +1,78 @@
+name: Diagnose stuck pages
+
+# 상품이 0개로 나오는 목록 페이지를 진짜 크롬으로 열어 구조를 뜯어본다.
+#
+# 야간 수집 리포트는 "링크 259개 중 230개가 이미지 없음"까지만 알려 준다.
+# 왜 이미지가 안 붙는지(지연 로딩·CSS 배경·shadow DOM·차단)를 모르면 선택자를
+# 어디서 고쳐야 할지 정할 수 없어서, 며칠째 같은 브랜드가 0개로 남았다.
+#
+# 헤드리스 수집(03:30) 뒤에 돌려 그날 막힌 페이지의 원인을 리포트에 남긴다.
+on:
+  schedule:
+    - cron: "0 19 * * *"   # UTC 19:00 = KST 04:00 — 헤드리스 수집(03:30) 직후
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "쉼표로 구분한 URL (비우면 아래 기본 목록)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: diagnose-page
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Playwright Chromium
+        run: |
+          npm init -y >/dev/null
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+      - name: Diagnose
+        env:
+          # 며칠째 막혀 있는 세 페이지.
+          #  · Carhartt 여성 팬츠 — 링크는 잡히는데 이미지가 안 붙어 전부 탈락
+          #  · American Eagle / Aerie — 확장이 매일 시도하는데도 저장이 안 됨.
+          #    여기서 차단으로 나오면 "선택자 문제 아님"이 확정된다.
+          #  · Apiece Apart — 한 번도 수집된 적이 없다.
+          # 주소는 category-links.json 에 있는 실제 값이다(브랜드당 대표 1개).
+          URLS: ${{ github.event.inputs.urls || 'https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017,https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030,https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031,https://www.apieceapart.com/shop/tops' }}
+        run: node scripts/diagnose-page.mjs
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnose-page
+          path: diagnose-page.md
+          if-no-files-found: ignore
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          rm -f package.json package-lock.json
+          git add -A -- diagnose-page.md || true
+          git commit -m "diagnose: stuck listing pages" || echo "no changes"
+          # 리포트는 매번 통째로 새로 쓰이므로, 충돌하면 이번 실행 결과를 채택한다.
+          for i in 1 2 3; do
+            if git pull --rebase --autostash -X ours origin ${{ github.ref_name }}; then
+              git push origin HEAD:${{ github.ref_name }} && exit 0
+            else
+              git rebase --abort || true
+              git fetch origin ${{ github.ref_name }}
+              git reset --soft origin/${{ github.ref_name }}
+              git add -A -- diagnose-page.md
+              git commit -m "diagnose: stuck listing pages" || true
+            fi
+            sleep 5
+          done

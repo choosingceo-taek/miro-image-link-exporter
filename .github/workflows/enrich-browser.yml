@@ -1,0 +1,90 @@
+name: Enrich compositions (real Chrome)
+
+# 평 fetch 로는 차단되는 브랜드의 혼용률을 진짜 크롬으로 읽는다.
+#
+# 야간 보강(enrich-comp.mjs)은 fetch 로 상품 페이지를 읽어서, 봇을 막는
+# 사이트는 통째로 0% 로 남았다. 진단 표본에서 Joules 10/10, Patagonia 10/10 이
+# '직접차단'이었다 — 두 브랜드만 519개다. Worker 우회(Cloudflare IP)도 같은
+# 이유로 안 뚫린다.
+#
+# 헤드리스 크롬은 같은 데이터센터 IP 로도 19개 브랜드를 매일 긁고 있다.
+# 그 통로를 혼용률에도 쓰는 것이 이 워크플로다.
+on:
+  schedule:
+    - cron: "0 21 * * *"   # UTC 21:00 = KST 06:00 — 야간 수집이 다 끝난 뒤
+  workflow_dispatch:
+    inputs:
+      brands:
+        description: "쉼표로 구분한 브랜드(비우면 혼용률 낮은 순 자동 선택)"
+        required: false
+        default: ""
+      top:
+        description: "브랜드 수 상한"
+        required: false
+        default: "6"
+      per_brand:
+        description: "브랜드당 상품 수"
+        required: false
+        default: "120"
+      store:
+        description: "1이면 저장(기본 1) · 0이면 결과만"
+        required: false
+        default: "1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: enrich-browser
+  cancel-in-progress: false
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Playwright Chromium
+        run: |
+          npm init -y >/dev/null
+          npm i --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+      - name: Enrich
+        env:
+          BRANDS: ${{ github.event.inputs.brands }}
+          TOP: ${{ github.event.inputs.top || '6' }}
+          PER_BRAND: ${{ github.event.inputs.per_brand || '120' }}
+          STORE: ${{ github.event.inputs.store || '1' }}
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+        run: node scripts/enrich-comp-browser.mjs
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrich-browser-report
+          path: enrich-browser-report.md
+          if-no-files-found: ignore
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          rm -f package.json package-lock.json
+          git add -A -- enrich-browser-report.md || true
+          git commit -m "enrich-browser: real-chrome composition pass" || echo "no changes"
+          # 리포트는 매번 통째로 새로 쓰이므로, 충돌하면 이번 실행 결과를 채택한다.
+          for i in 1 2 3; do
+            if git pull --rebase --autostash -X ours origin ${{ github.ref_name }}; then
+              git push origin HEAD:${{ github.ref_name }} && exit 0
+            else
+              git rebase --abort || true
+              git fetch origin ${{ github.ref_name }}
+              git reset --soft origin/${{ github.ref_name }}
+              git add -A -- enrich-browser-report.md
+              git commit -m "enrich-browser: real-chrome composition pass" || true
+            fi
+            sleep 5
+          done

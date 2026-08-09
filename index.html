@@ -506,12 +506,36 @@
         const s = String(u || '').trim();
         return /^http:\/\//i.test(s) ? s.replace(/^http:\/\//i, 'https://') : s;
       }
-      // 캐시가 없는 이미지는 제목("브랜드 · 이름 · $가격")에서 이름/가격을 최대한 뽑음.
+      // 혼용률은 원단이 둘이면 줄이 나뉜다. 보드 캡션은 한 줄이므로 ' | ' 로 잇고,
+      // 다시 읽을 때 되돌린다.
+      const compToTitle = (s) => String(s || '').split('\n').map(x => x.trim()).filter(Boolean).join(' | ');
+      const compFromTitle = (s) => String(s || '').split('|').map(x => x.trim()).filter(Boolean).join('\n');
+
+      // 보드에 놓을 이미지의 캡션. "브랜드 · 이름 · $가격 · Cotton 95% / Elastane 5%".
+      // 혼용률은 validComp 를 통과할 때만 붙인다 — 반쪽짜리("Cotton 60%")가 캡션에
+      // 박히면 보드에서 일일이 지워야 한다. 캡션에 넣어 두면 localStorage 캐시가 없는
+      // 다른 PC에서 스캔해도 혼용률이 그대로 살아난다(아래 parseTitle 이 되읽는다).
+      function boardTitle(it) {
+        const parts = [];
+        if (it.brand) parts.push(it.brand);
+        if (it.name) parts.push(it.name);
+        if (it.price) parts.push(it.price);
+        const c = cleanVal(it.comp);
+        if (validComp(c)) parts.push(compToTitle(c));
+        return parts.join(' · ');
+      }
+
+      // 캐시가 없는 이미지는 제목("브랜드 · 이름 · $가격 · 혼용률")에서 최대한 뽑음.
       function parseTitle(t) {
         const parts = (t || '').split('·').map(s => s.trim()).filter(Boolean);
-        let price = '', names = [];
-        parts.forEach(p => { if (/[$€£₩]\s?\d/.test(p)) price = p; else names.push(p); });
-        return { name: names.length > 1 ? names.slice(1).join(' · ') : (names[0] || ''), price };
+        let price = '', comp = '', names = [];
+        parts.forEach(p => {
+          if (/[$€£₩]\s?\d/.test(p)) { price = p; return; }
+          const c = compFromTitle(p);
+          if (validComp(c)) { comp = c; return; }   // 혼용률 조각은 이름이 아니다
+          names.push(p);
+        });
+        return { name: names.length > 1 ? names.slice(1).join(' · ') : (names[0] || ''), price, comp };
       }
 
       // ── 상품 사진을 보드로 드래그앤드롭 → 그 위치에 이미지+링크 생성 ──
@@ -528,7 +552,7 @@
           } else if (dragged) {
             batch = [dragged];
           } else {
-            batch = [{ imageUrl: target.dataset.full || target.src, productUrl: target.dataset.link || '', name: target.dataset.title || '', brand: '' }];
+            batch = [{ imageUrl: target.dataset.full || target.src, productUrl: target.dataset.link || '', name: target.dataset.title || '', brand: '', comp: target.dataset.comp || '' }];
           }
           // 이미지 크기 = 현재 보드 화면 폭의 약 10% (줌 상태와 무관하게 보기 좋은 크기)
           let W = 240;
@@ -540,7 +564,7 @@
               // 첫 이미지(끌어놓은 것)의 중심이 커서(x,y)에 오도록. 나머지는 그 옆/아래로.
               const img = await createBoardImage(it, {
                 x: x + col * (W + gapX), y: y + row * gapY, width: W,
-                title: `${it.brand ? it.brand + ' · ' : ''}${it.name || ''}${it.price ? ' · ' + it.price : ''}`,
+                title: boardTitle(it),
               });
               if (it.productUrl) { img.linkedTo = httpsUrl(it.productUrl); await img.sync(); }
               cacheImg(img.id, it);   // 엑셀용으로 이미지URL·이름·가격·브랜드 기억
@@ -574,7 +598,7 @@
       if (renderUrlEl) renderUrlEl.addEventListener('change', () => {
         try { localStorage.setItem('importRenderUrl', renderUrlEl.value.trim()); } catch (e) {}
         syncProxy();
-        loadBrandList();
+        loadBrandList(true);   // 주소를 바꿨으면 캐시·TTL 무시하고 다시 받는다
       });
       workerUrlEl.addEventListener('change', () => {
         try { localStorage.setItem('fabricWorkerUrl', workerUrlEl.value.trim()); } catch (e) {}
@@ -857,18 +881,141 @@
       });
 
       // 브랜드 목록을 서버에서 받아 선택박스에 채움.
-      async function loadBrandList() {
-        if (!__render) return;
+      // 브랜드 목록은 세 군데에서 온다. 한 군데만 믿으면 안 되기 때문이다.
+      //
+      // 예전에는 Render 의 /api/brands 한 번만 불렀다. Render 무료 플랜은 놀면
+      // 잠들고 깨는 데 1분 가까이 걸리는데, 그동안 요청은 502 를 뱉거나 그냥
+      // 늘어진다. 재시도도 없어서 목록이 빈 채로 끝났고, 미로에서 앱을 열면
+      // 브랜드를 고를 수 없었다 — 새로고침하면 그 사이 Render 가 깨어 있어서
+      // 됐다. "새로고침해야만 선택된다"의 정체가 이것이다.
+      //
+      //   ① localStorage 캐시  — 즉시. 두 번째 열기부터는 기다림이 아예 없다.
+      //   ② Worker(?catalogs=1) — Cloudflare 라 잠들지 않는다. 몇백 ms.
+      //   ③ Render(/api/brands) — 느릴 수 있으나 카테고리·차단여부를 갖고 있다.
+      //
+      // 뒤에 오는 것이 앞의 것을 덮어쓰지 않고 '채워 넣는다'. 그래서 ③ 이 끝내
+      // 실패해도 ①②로 고르는 데는 지장이 없다.
+      const BRANDS_CACHE_KEY = 'importBrandsCache';
+      let __brandsLoading = false;
+
+      // 이름(소문자) 기준으로 합친다. 값이 있는 필드만 덮어쓴다 —
+      // Worker 에는 categories 가 없어서, 그대로 덮으면 Render 가 준 걸 지운다.
+      function mergeBrands(base, extra) {
+        const by = new Map();
+        for (const b of base || []) if (b && b.name) by.set(b.name.toLowerCase(), { ...b });
+        for (const b of extra || []) {
+          if (!b || !b.name) continue;
+          const k = b.name.toLowerCase();
+          const cur = by.get(k) || {};
+          for (const [f, v] of Object.entries(b)) {
+            if (v === undefined || v === null || v === '') continue;
+            if (Array.isArray(v) && !v.length) continue;
+            cur[f] = v;
+          }
+          cur.name = cur.name || b.name;
+          by.set(k, cur);
+        }
+        return [...by.values()].sort((a, z) => a.name.localeCompare(z.name));
+      }
+
+      function paintBrands() { fillBrandPicker(); fillCatPicker(); }
+
+      // 목록이 아직 없을 때 무슨 일이 벌어지는지 보여 준다. 빈 ALL 만 떠 있으면
+      // 사용자는 "고장났다"고 읽는다.
+      function brandPickerNote(text) {
+        if (!pickBrandEl || importBrands.length) return;
+        pickBrandEl.innerHTML = '<option value="">ALL</option>' +
+          `<option value="" disabled>${escapeHtml(text)}</option>`;
+      }
+
+      const withTimeout = async (url, ms) => {
+        const ac = new AbortController();
+        const t = setTimeout(() => ac.abort(), ms);
         try {
-          const resp = await fetch(__render + '/api/brands');
-          const data = await resp.json();
-          importBrands = (data.brands || []).filter(b => b && b.name && b.url);
-          fillBrandPicker();
-        } catch (e) {
-          if (pickBrandEl && !importBrands.length) {
-            pickBrandEl.innerHTML = '<option value="">ALL</option>';
+          const r = await fetch(url, { signal: ac.signal });
+          if (!r.ok) throw new Error('HTTP ' + r.status);   // 502 를 JSON 으로 읽다 죽지 않게
+          return await r.json();
+        } finally { clearTimeout(t); }
+      };
+
+      // Worker 저장본 → 브랜드 목록. site 는 "<호스트>.<브랜드슬러그>" 라
+      // 마지막 점 앞까지가 호스트다(확장의 저장 키와 같은 규칙).
+      async function brandsFromWorker() {
+        if (!__proxy.url) return [];
+        const base = __proxy.url.replace(/\/+$/, '');
+        const tk = __proxy.token ? '&token=' + encodeURIComponent(__proxy.token) : '';
+        const data = await withTimeout(base + '/?catalogs=1' + tk, 12000);
+        return ((data && data.list) || [])
+          .filter(c => c && c.site && c.brand && (c.count || 0) > 0)
+          .map(c => ({
+            name: c.brand,
+            url: 'https://' + c.site.slice(0, c.site.lastIndexOf('.')),
+            count: c.count, updated: c.updated,
+          }));
+      }
+
+      // Render 는 깨는 데 시간이 걸린다. 콜드스타트를 견딜 만큼만 재시도한다.
+      async function brandsFromRender() {
+        if (!__render) return [];
+        const waits = [0, 4000, 10000, 25000];
+        for (let i = 0; i < waits.length; i++) {
+          if (waits[i]) await new Promise(r => setTimeout(r, waits[i]));
+          try {
+            const data = await withTimeout(__render + '/api/brands', 20000);
+            const list = (data.brands || []).filter(b => b && b.name && b.url);
+            if (list.length) return list;
+          } catch (e) {
+            brandPickerNote(i < waits.length - 1
+              ? '카테고리 정보 불러오는 중…' : '카테고리 정보 없음 (브랜드는 사용 가능)');
           }
         }
+        return [];
+      }
+
+      let __brandsAt = 0;                     // 마지막으로 다 불러온 시각
+      const BRANDS_TTL = 10 * 60 * 1000;
+
+      async function loadBrandList(force) {
+        if (__brandsLoading) return;          // 탭을 오갈 때마다 겹쳐 부르지 않는다
+        // 탭을 오가면 switchPane 이 매번 부른다. 목록은 하루 단위로나 바뀌므로
+        // 방금 받아 왔으면 그냥 둔다 — 안 그러면 탭 전환마다 Render 를 깨운다.
+        if (!force && importBrands.length && Date.now() - __brandsAt < BRANDS_TTL) return;
+        __brandsLoading = true;
+        try {
+          // ① 캐시 — 두 번째 열기부터는 여기서 이미 고를 수 있다.
+          if (!importBrands.length) {
+            try {
+              const c = JSON.parse(localStorage.getItem(BRANDS_CACHE_KEY) || 'null');
+              if (c && Array.isArray(c.brands) && c.brands.length) {
+                importBrands = c.brands;
+                paintBrands();
+              }
+            } catch (e) {}
+          }
+          brandPickerNote('브랜드 목록 불러오는 중…');
+
+          // ② Worker — 잠들지 않으므로 첫 열기에서도 여기서 대개 끝난다.
+          try {
+            const w = await brandsFromWorker();
+            if (w.length) { importBrands = mergeBrands(importBrands, w); paintBrands(); }
+          } catch (e) {}
+
+          // ③ Render — 카테고리·차단여부 보강. 늦게 와도 화면은 이미 쓸 수 있다.
+          try {
+            const r = await brandsFromRender();
+            if (r.length) { importBrands = mergeBrands(importBrands, r); paintBrands(); }
+          } catch (e) {}
+
+          if (importBrands.length) {
+            __brandsAt = Date.now();
+            try {
+              localStorage.setItem(BRANDS_CACHE_KEY,
+                JSON.stringify({ at: Date.now(), brands: importBrands }));
+            } catch (e) {}
+          } else {
+            brandPickerNote('브랜드 목록을 못 불러왔습니다 — ⚙ 설정 확인');
+          }
+        } finally { __brandsLoading = false; }
       }
 
       // ── 검색바 아래 브랜드·카테고리 선택 UI ──
@@ -1108,7 +1255,8 @@
           const nm = (it.name || '').trim();
           card.innerHTML =
             `<img class="miro-draggable" draggable="true" src="${escapeHtml(it.imageUrl)}" alt="" loading="lazy"` +
-            ` data-full="${escapeHtml(it.imageUrl)}" data-link="${escapeHtml(it.productUrl)}" data-title="${escapeHtml((it.brand ? it.brand + ' · ' : '') + it.name)}">` +
+            ` data-full="${escapeHtml(it.imageUrl)}" data-link="${escapeHtml(it.productUrl)}" data-title="${escapeHtml((it.brand ? it.brand + ' · ' : '') + it.name)}"` +
+            ` data-comp="${escapeHtml(cleanVal(it.comp))}">` +
             `<input type="checkbox" class="chk" ${it.selected ? 'checked' : ''}>` +
             `<div class="cap"><div class="b">${escapeHtml(bd)}</div><div class="n">${escapeHtml(nm) || '(제목 없음)'}</div>` +
             (it.price ? `<div class="p">${escapeHtml(it.price)}</div>` : '') + `</div>`;
@@ -1266,7 +1414,7 @@
             try {
               const col = i % cols, row = Math.floor(i / cols);
               const img = await createBoardImage(it, {
-                title: `${it.brand ? it.brand + ' · ' : ''}${it.name}${it.price ? ' · ' + it.price : ''}`,
+                title: boardTitle(it),
                 x: startX + col * (cellW + gap) + cellW / 2,
                 y: startY + row * (cellW * 1.5 + gap) + cellW / 2,
                 width: cellW,
@@ -1585,7 +1733,8 @@
               // 가격: 우리가 넣은 상품이면 기억된 값 → 아니면 제목("… · $128")에서 추출.
               price: rec.price || parsed.price || '',
               priceOrig: rec.priceOrig || '',
-              comp: rec.comp || '',
+              // 캐시가 없어도 캡션에 박아 둔 혼용률로 되살린다(다른 PC에서 스캔할 때).
+              comp: rec.comp || parsed.comp || '',
               color: rec.color || '', sizes: rec.sizes || '',
             };
           });

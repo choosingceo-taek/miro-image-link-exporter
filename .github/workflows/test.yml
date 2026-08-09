@@ -35,6 +35,12 @@ jobs:
         run: node scripts/test-settings-wiring.mjs
       - name: Run non-product filter test
         run: node scripts/test-nonproduct.mjs
+      - name: Run board caption round-trip test
+        run: node scripts/test-board-title.mjs
+      - name: Run standalone app data-flow test
+        run: node scripts/test-app-flow.mjs
+      - name: Run brand list resilience test
+        run: node scripts/test-brandlist.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
@@ -43,3 +49,4 @@ jobs:
           node --check scripts/browser-collect.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js
+          node --check shared/product-core.js
