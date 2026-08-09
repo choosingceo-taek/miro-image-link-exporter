@@ -1,15 +1,15 @@
-# 엑셀 4항목 채움률 (2026-08-09T04:56Z)
+# 엑셀 4항목 채움률 (2026-08-09T05:01Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 27739/32839 | 84% |
-| 컬러 | 20511/32839 | 62% |
-| 사이즈 | 14255/32839 | 43% |
-| 혼용률 | 23667/32839 | 72% |
+| 가격 | 27564/32896 | 84% |
+| 컬러 | 20449/32896 | 62% |
+| 사이즈 | 14255/32896 | 43% |
+| 혼용률 | 23605/32896 | 72% |
 
-**가격·혼용률 모두 80% 이상인 브랜드 76개** (시연에 안전)
+**가격·혼용률 모두 80% 이상인 브랜드 75개** (시연에 안전)
 
 | 브랜드 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |
 |---|---:|---:|---:|---:|---:|
@@ -54,7 +54,7 @@
 | English factory | 228 | 100% | 93% | 100% | 94% |
 | Nylora | 226 | 100% | 22% | 100% | 96% |
 
-<details><summary>아직 부족한 브랜드 53개</summary>
+<details><summary>아직 부족한 브랜드 54개</summary>
 
 | 브랜드 | 그룹 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |
 |---|---|---:|---:|---:|---:|---:|
@@ -88,6 +88,7 @@
 | Boldest | browser | 201 | 100% | 100% | 0% | 15% |
 | Coldwatercreek | browser | 200 | 100% | 2% | 0% | 41% |
 | Bash | server | 190 | 22% | 99% | 0% | 94% |
+| American Eagle | browser | 180 | 39% | 39% | 0% | 39% |
 | Barbour | browser | 178 | 0% | 0% | 0% | 97% |
 | J crew | browser | 178 | 100% | 0% | 0% | 3% |
 | Free People | extension | 173 | 77% | 0% | 0% | 2% |
@@ -95,8 +96,8 @@
 | Lucky Brand | browser | 170 | 0% | 0% | 0% | 0% |
 | Sezane | extension | 164 | 2% | 4% | 0% | 1% |
 | Buck Mason | server | 135 | 100% | 99% | 100% | 4% |
+| Aerie | browser | 123 | 0% | 0% | 0% | 0% |
 | Garnet hill | extension | 117 | 41% | 0% | 0% | 0% |
-| Aerie | extension | 114 | 100% | 0% | 0% | 0% |
 | Lands end | extension | 104 | 0% | 0% | 0% | 86% |
 | FP Movement | extension | 93 | 98% | 0% | 0% | 2% |
 | J.jill | server | 92 | 8% | 0% | 0% | 89% |
@@ -117,17 +118,15 @@
 
 ---
 
-# 크롬 확장 담당 브랜드 갱신 상태 (37개)
+# 크롬 확장 담당 브랜드 갱신 상태 (34개)
 
-**확장 실행 필요 4개** — 36시간 넘게 갱신되지 않았습니다.
+**확장 실행 필요 2개** — 36시간 넘게 갱신되지 않았습니다.
 개인/회사 PC 크롬에서 `RACK 상품 수집기` 팝업의 전체 수집을 한 번 돌리세요.
 
 - ⛔ Apiece Apart — 저장본 없음(한 번도 수집 안 됨)
-- ⚠ American Eagle — 154시간 전 · 132개
-- ⚠ Aerie — 154시간 전 · 114개
 - ⚠ Seasalt cornwall — 38시간 전 · 301개
 
-<details><summary>정상 33개</summary>
+<details><summary>정상 32개</summary>
 
 - Gap — 14시간 전 · 4개
 - Garnet hill — 14시간 전 · 117개
@@ -135,7 +134,7 @@
 - L.L bean — 14시간 전 · 322개
 - Lands end — 14시간 전 · 104개
 - Loft — 14시간 전 · 610개
-- Lululemon — 13시간 전 · 91개
+- Lululemon — 14시간 전 · 91개
 - Madewell — 13시간 전 · 16개
 - Mango — 13시간 전 · 55개
 - Massimo Dutti — 13시간 전 · 16개
@@ -143,7 +142,6 @@
 - Oysho — 13시간 전 · 16개
 - Patagonia — 13시간 전 · 208개
 - Sezane — 13시간 전 · 164개
-- The upside — 13시간 전 · 343개
 - The white company — 13시간 전 · 64개
 - Theory — 13시간 전 · 269개
 - Addidas — 3시간 전 · 420개
@@ -153,7 +151,7 @@
 - &Other Stories — 3시간 전 · 440개
 - Abercrombie & Fitch — 3시간 전 · 260개
 - Ann Taylor — 3시간 전 · 390개
-- Anthropologie — 2시간 전 · 235개
+- Anthropologie — 3시간 전 · 235개
 - Aritzia — 2시간 전 · 576개
 - Arket — 2시간 전 · 261개
 - Athleta — 2시간 전 · 2개
@@ -172,7 +170,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 23667/32839개 (72%) · 미완 브랜드 120개
+- 전체 23605/32896개 (72%) · 미완 브랜드 121개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -184,8 +182,8 @@
 | Joules | extension | 0/311 (0%) |
 | Patagonia | extension | 0/208 (0%) |
 | Lucky Brand | browser | 0/170 (0%) |
+| Aerie | browser | 0/123 (0%) |
 | Garnet hill | extension | 0/117 (0%) |
-| Aerie | extension | 0/114 (0%) |
 | Lululemon | extension | 0/91 (0%) |
 | The white company | extension | 0/64 (0%) |
 | Prana | server | 0/54 (0%) |
@@ -207,6 +205,7 @@
 | Madewell | extension | 5/16 (31%) |
 | Aritzia | extension | 193/576 (34%) |
 | Monsoon | server | 12/34 (35%) |
+| American Eagle | browser | 70/180 (39%) |
 | Coldwatercreek | browser | 81/200 (41%) |
 | rouje | server | 125/297 (42%) |
 | Abercrombie & Fitch | extension | 118/260 (45%) |
@@ -226,7 +225,7 @@
 | Carlhartt | browser | 27/32 (84%) |
 | Splits59 | server | 96/113 (85%) |
 | Poetry | browser | 324/378 (86%) |
-| The upside | extension | 294/343 (86%) |
+| The upside | browser | 294/343 (86%) |
 | Leset | browser | 282/329 (86%) |
 | Lands end | extension | 89/104 (86%) |
 | Frame | server | 146/166 (88%) |
@@ -309,7 +308,7 @@
 목록 카드 텍스트에서 통화기호로 뽑습니다. 통화 표기가 다르거나(zł·kr 등) 가격을
 이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 엑셀 '가격' 열도 비게 됩니다.
 
-- 전체 133개 브랜드 · ❌ 거의 없음 18개 · ⚠ 일부만 15개
+- 전체 133개 브랜드 · ❌ 거의 없음 19개 · ⚠ 일부만 16개
 
 ## ❌ 가격이 거의 안 잡히는 브랜드 (20% 미만)
 
@@ -321,6 +320,7 @@
 | vineyardvines | server | 0/202 (0%) |
 | Barbour | browser | 0/178 (0%) |
 | Lucky Brand | browser | 0/170 (0%) |
+| Aerie | browser | 0/123 (0%) |
 | Lands end | extension | 0/104 (0%) |
 | Mango | extension | 0/55 (0%) |
 | Massimo Dutti | extension | 0/16 (0%) |
@@ -342,6 +342,7 @@
 | Eileen fisher | extension | 122/360 (34%) | ₩ 235,900 |
 | Joules | extension | 107/311 (34%) | £59 |
 | Madewell | extension | 6/16 (38%) | $100 |
+| American Eagle | browser | 71/180 (39%) | $24.95 |
 | Garnet hill | extension | 48/117 (41%) | $99.00 |
 | On | browser | 72/173 (42%) | $60.00 |
 | Paige | extension | 27/54 (50%) | ₩132 |
@@ -433,9 +434,9 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-09T04:56Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-09T05:01Z)
 
-- 카탈로그 133개 · 상품 32839개 검사 · **문제 항목 56개**
+- 카탈로그 133개 · 상품 32896개 검사 · **문제 항목 56개**
 - 문제가 있는 브랜드 20개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.

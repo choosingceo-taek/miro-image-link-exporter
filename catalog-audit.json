@@ -1,6 +1,6 @@
 {
- "when": "2026-08-09T04:56:23.034Z",
- "scanned": 32839,
+ "when": "2026-08-09T05:01:44.621Z",
+ "scanned": 32896,
  "flagged": 56,
  "report": [
   {
@@ -1332,219 +1332,201 @@
    "missing": true
   },
   {
-   "name": "American Eagle",
-   "items": 132,
-   "age": 154.02580361111112,
-   "missing": false
-  },
-  {
-   "name": "Aerie",
-   "items": 114,
-   "age": 153.99391972222222,
-   "missing": false
-  },
-  {
    "name": "Seasalt cornwall",
    "items": 301,
-   "age": 38.28858527777778,
+   "age": 38.37791527777778,
    "missing": false
   },
   {
    "name": "Gap",
    "items": 4,
-   "age": 13.877808055555555,
+   "age": 13.967138055555555,
    "missing": false
   },
   {
    "name": "Garnet hill",
    "items": 117,
-   "age": 13.82808111111111,
+   "age": 13.917411111111111,
    "missing": false
   },
   {
    "name": "Joules",
    "items": 311,
-   "age": 13.784341944444444,
+   "age": 13.873671944444444,
    "missing": false
   },
   {
    "name": "L.L bean",
    "items": 322,
-   "age": 13.707041944444445,
+   "age": 13.796371944444445,
    "missing": false
   },
   {
    "name": "Lands end",
    "items": 104,
-   "age": 13.581888333333334,
+   "age": 13.671218333333334,
    "missing": false
   },
   {
    "name": "Loft",
    "items": 610,
-   "age": 13.528632777777778,
+   "age": 13.617962777777779,
    "missing": false
   },
   {
    "name": "Lululemon",
    "items": 91,
-   "age": 13.442022222222223,
+   "age": 13.531352222222223,
    "missing": false
   },
   {
    "name": "Madewell",
    "items": 16,
-   "age": 13.409904444444445,
+   "age": 13.499234444444445,
    "missing": false
   },
   {
    "name": "Mango",
    "items": 55,
-   "age": 13.380745,
+   "age": 13.470075,
    "missing": false
   },
   {
    "name": "Massimo Dutti",
    "items": 16,
-   "age": 13.329961944444445,
+   "age": 13.419291944444444,
    "missing": false
   },
   {
    "name": "Old Navy",
    "items": 4,
-   "age": 13.2969175,
+   "age": 13.3862475,
    "missing": false
   },
   {
    "name": "Oysho",
    "items": 16,
-   "age": 13.236258333333334,
+   "age": 13.325588333333334,
    "missing": false
   },
   {
    "name": "Patagonia",
    "items": 208,
-   "age": 13.204915833333333,
+   "age": 13.294245833333333,
    "missing": false
   },
   {
    "name": "Sezane",
    "items": 164,
-   "age": 13.183117222222222,
-   "missing": false
-  },
-  {
-   "name": "The upside",
-   "items": 343,
-   "age": 13.1557725,
+   "age": 13.272447222222223,
    "missing": false
   },
   {
    "name": "The white company",
    "items": 64,
-   "age": 13.13397638888889,
+   "age": 13.223306388888888,
    "missing": false
   },
   {
    "name": "Theory",
    "items": 269,
-   "age": 13.051036666666667,
+   "age": 13.140366666666667,
    "missing": false
   },
   {
    "name": "Addidas",
    "items": 420,
-   "age": 2.9247769444444445,
+   "age": 3.0141069444444444,
    "missing": false
   },
   {
    "name": "H&M",
    "items": 737,
-   "age": 2.753899722222222,
+   "age": 2.843229722222222,
    "missing": false
   },
   {
    "name": "Paige",
    "items": 54,
-   "age": 2.714460277777778,
+   "age": 2.803790277777778,
    "missing": false
   },
   {
    "name": "Wilson",
    "items": 44,
-   "age": 2.673818888888889,
+   "age": 2.763148888888889,
    "missing": false
   },
   {
    "name": "&Other Stories",
    "items": 440,
-   "age": 2.6030972222222224,
+   "age": 2.6924272222222223,
    "missing": false
   },
   {
    "name": "Abercrombie & Fitch",
    "items": 260,
-   "age": 2.560732222222222,
+   "age": 2.650062222222222,
    "missing": false
   },
   {
    "name": "Ann Taylor",
    "items": 390,
-   "age": 2.533711388888889,
+   "age": 2.623041388888889,
    "missing": false
   },
   {
    "name": "Anthropologie",
    "items": 235,
-   "age": 2.428389166666667,
+   "age": 2.5177191666666667,
    "missing": false
   },
   {
    "name": "Aritzia",
    "items": 576,
-   "age": 2.3911497222222224,
+   "age": 2.4804797222222223,
    "missing": false
   },
   {
    "name": "Arket",
    "items": 261,
-   "age": 2.349598611111111,
+   "age": 2.4389286111111113,
    "missing": false
   },
   {
    "name": "Athleta",
    "items": 2,
-   "age": 2.309055277777778,
+   "age": 2.398385277777778,
    "missing": false
   },
   {
    "name": "Banana Republic",
    "items": 1,
-   "age": 2.2657183333333335,
+   "age": 2.3550483333333334,
    "missing": false
   },
   {
    "name": "Eileen fisher",
    "items": 360,
-   "age": 2.2177788888888887,
+   "age": 2.307108888888889,
    "missing": false
   },
   {
    "name": "Fatface",
    "items": 531,
-   "age": 2.178331388888889,
+   "age": 2.267661388888889,
    "missing": false
   },
   {
    "name": "FP Movement",
    "items": 93,
-   "age": 2.0856875,
+   "age": 2.1750175,
    "missing": false
   },
   {
    "name": "Free People",
    "items": 173,
-   "age": 1.993345,
+   "age": 2.082675,
    "missing": false
   }
  ],
@@ -1593,6 +1575,14 @@
    "brand": "Lucky Brand",
    "group": "browser",
    "total": 170,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "Aerie",
+   "group": "browser",
+   "total": 123,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1740,6 +1730,14 @@
    "withPrice": 6,
    "pct": 38,
    "sample": "$100"
+  },
+  {
+   "brand": "American Eagle",
+   "group": "browser",
+   "total": 180,
+   "withPrice": 71,
+   "pct": 39,
+   "sample": "$24.95"
   },
   {
    "brand": "Garnet hill",
@@ -1895,7 +1893,7 @@
   },
   {
    "brand": "The upside",
-   "group": "extension",
+   "group": "browser",
    "total": 343,
    "withPrice": 335,
    "pct": 98,
@@ -2494,14 +2492,6 @@
    "sample": "$17.97"
   },
   {
-   "brand": "American Eagle",
-   "group": "extension",
-   "total": 132,
-   "withPrice": 132,
-   "pct": 100,
-   "sample": "$13.96"
-  },
-  {
    "brand": "Outdoorvoices",
    "group": "server",
    "total": 130,
@@ -2524,14 +2514,6 @@
    "withPrice": 117,
    "pct": 100,
    "sample": "$225.00"
-  },
-  {
-   "brand": "Aerie",
-   "group": "extension",
-   "total": 114,
-   "withPrice": 114,
-   "pct": 100,
-   "sample": "$14.97"
   },
   {
    "brand": "Splits59",
@@ -2658,16 +2640,16 @@
    "pct": 0
   },
   {
-   "brand": "Garnet hill",
-   "group": "extension",
-   "total": 117,
+   "brand": "Aerie",
+   "group": "browser",
+   "total": 123,
    "withComp": 0,
    "pct": 0
   },
   {
-   "brand": "Aerie",
+   "brand": "Garnet hill",
    "group": "extension",
-   "total": 114,
+   "total": 117,
    "withComp": 0,
    "pct": 0
   },
@@ -2840,6 +2822,13 @@
    "pct": 35
   },
   {
+   "brand": "American Eagle",
+   "group": "browser",
+   "total": 180,
+   "withComp": 70,
+   "pct": 39
+  },
+  {
    "brand": "Coldwatercreek",
    "group": "browser",
    "total": 200,
@@ -2974,7 +2963,7 @@
   },
   {
    "brand": "The upside",
-   "group": "extension",
+   "group": "browser",
    "total": 343,
    "withComp": 294,
    "pct": 86
@@ -3519,13 +3508,6 @@
    "pct": 100
   },
   {
-   "brand": "American Eagle",
-   "group": "extension",
-   "total": 132,
-   "withComp": 132,
-   "pct": 100
-  },
-  {
    "brand": "The Great",
    "group": "server",
    "total": 126,
@@ -3856,7 +3838,7 @@
   },
   {
    "brand": "The upside",
-   "group": "extension",
+   "group": "browser",
    "total": 343,
    "price": 335,
    "color": 0,
@@ -4305,6 +4287,15 @@
    "comp": 180
   },
   {
+   "brand": "American Eagle",
+   "group": "browser",
+   "total": 180,
+   "price": 71,
+   "color": 70,
+   "sizes": 0,
+   "comp": 70
+  },
+  {
    "brand": "Barbour",
    "group": "browser",
    "total": 178,
@@ -4458,15 +4449,6 @@
    "comp": 131
   },
   {
-   "brand": "American Eagle",
-   "group": "extension",
-   "total": 132,
-   "price": 132,
-   "color": 132,
-   "sizes": 0,
-   "comp": 132
-  },
-  {
    "brand": "Outdoorvoices",
    "group": "server",
    "total": 130,
@@ -4485,6 +4467,15 @@
    "comp": 126
   },
   {
+   "brand": "Aerie",
+   "group": "browser",
+   "total": 123,
+   "price": 0,
+   "color": 0,
+   "sizes": 0,
+   "comp": 0
+  },
+  {
    "brand": "Garnet hill",
    "group": "extension",
    "total": 117,
@@ -4501,15 +4492,6 @@
    "color": 117,
    "sizes": 117,
    "comp": 117
-  },
-  {
-   "brand": "Aerie",
-   "group": "extension",
-   "total": 114,
-   "price": 114,
-   "color": 0,
-   "sizes": 0,
-   "comp": 0
   },
   {
    "brand": "Splits59",
