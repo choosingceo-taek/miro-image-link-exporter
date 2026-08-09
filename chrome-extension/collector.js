@@ -56,7 +56,14 @@ async function pageCollector() {
       }
       return bad(src) ? '' : src;
     };
-    let src = pick(el.querySelector('img'));
+    // 카드 안의 첫 <img> 만 보면 안 된다. 상품 카드 맨 앞에 아이콘이 오는 사이트가
+    // 있다 — Carhartt 는 카드 첫머리에 확대보기 아이콘(/images/common/eye-black.svg)을
+    // 넣어서, 그 하나가 .svg 라 버려지면 상품 사진까지 통째로 못 찾았다.
+    let src = '';
+    for (const img of el.querySelectorAll('img')) {
+      src = pick(img);
+      if (src) break;
+    }
     if (!src) {
       for (const s of el.querySelectorAll('source[srcset], source[data-srcset]')) {
         const u = fromSrcset(s.getAttribute('srcset')) || fromSrcset(s.getAttribute('data-srcset'));
@@ -172,7 +179,25 @@ async function pageCollector() {
       if (!/^https?:/.test(href.protocol)) return;
       rej.total++;
       const card = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
-      const src = bestImage(a) || bestImage(card);
+      // 카드를 못 짚었으면 한두 단계 위까지 올라가 본다.
+      // Apiece Apart 는 카드 전체를 덮는 투명 링크(<a class="absolute inset-0">)를 쓰는데,
+      // 링크 안에는 sr-only 글자뿐이고 사진은 형제 요소다 — 가장 가까운 div 만 보면
+      // 상품 80개가 통째로 '이미지 없음'으로 버려진다.
+      // 다만 끝없이 올라가면 그리드 전체를 카드로 착각해 옆 상품 사진을 가져온다.
+      // 링크가 여럿 든 조상은 카드가 아니라 목록이므로 거기서 멈춘다.
+      const widen = (el) => {
+        let cur = el;
+        for (let hop = 0; hop < 3; hop++) {
+          const up = cur.parentElement;
+          if (!up || up === document.body) return '';
+          if (up.querySelectorAll('a[href]').length > 3) return '';
+          const got = bestImage(up);
+          if (got) return got;
+          cur = up;
+        }
+        return '';
+      };
+      const src = bestImage(a) || bestImage(card) || widen(card);
       if (!/^https?:/.test(src)) { rej.noImage++; return; }
       // 아이콘·배지를 걸러내려는 검사인데, naturalWidth(실제 로드된 비트맵 크기)로 보면
       // 지연 로딩 중인 저해상도 상품 이미지까지 버린다 — Carhartt sweatpants 에서
