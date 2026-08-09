@@ -1,15 +1,15 @@
-# 엑셀 4항목 채움률 (2026-08-09T20:36Z)
+# 엑셀 4항목 채움률 (2026-08-09T22:27Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 27237/32480 | 84% |
-| 컬러 | 20580/32480 | 63% |
-| 사이즈 | 14354/32480 | 44% |
-| 혼용률 | 23639/32480 | 73% |
+| 가격 | 27274/32642 | 84% |
+| 컬러 | 20698/32642 | 63% |
+| 사이즈 | 14356/32642 | 44% |
+| 혼용률 | 23928/32642 | 73% |
 
-**가격·혼용률 모두 80% 이상인 브랜드 75개** (시연에 안전)
+**가격·혼용률 모두 80% 이상인 브랜드 76개** (시연에 안전)
 
 | 브랜드 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |
 |---|---:|---:|---:|---:|---:|
@@ -28,7 +28,7 @@
 | Poetry | 378 | 100% | 0% | 0% | 86% |
 | Vince | 371 | 100% | 100% | 100% | 98% |
 | Tuckernuck | 370 | 100% | 100% | 100% | 92% |
-| Jager | 367 | 100% | 63% | 0% | 99% |
+| Jager | 367 | 100% | 64% | 0% | 99% |
 | Velvet | 367 | 100% | 81% | 100% | 100% |
 | Chico's | 363 | 99% | 100% | 0% | 98% |
 | Sweaty betty | 359 | 99% | 100% | 0% | 96% |
@@ -71,12 +71,12 @@
 | Eileen fisher | extension | 360 | 34% | 0% | 0% | 22% |
 | Mint velvet | server | 341 | 100% | 0% | 100% | 1% |
 | Scoth & soda | server | 327 | 100% | 100% | 100% | 60% |
-| Stateside | server | 322 | 100% | 80% | 94% | 70% |
+| Stateside | server | 322 | 100% | 81% | 94% | 70% |
 | L.L bean | extension | 319 | 53% | 35% | 0% | 56% |
 | Joules | extension | 314 | 34% | 0% | 0% | 0% |
 | Seasalt cornwall | extension | 301 | 98% | 100% | 0% | 53% |
 | rouje | server | 297 | 99% | 77% | 0% | 42% |
-| Boden | server | 275 | 100% | 1% | 76% | 65% |
+| Boden | server | 275 | 100% | 3% | 76% | 69% |
 | Gymshark | server | 269 | 1% | 100% | 0% | 99% |
 | &Other Stories | extension | 267 | 97% | 14% | 0% | 55% |
 | Abercrombie & Fitch | extension | 261 | 0% | 0% | 0% | 46% |
@@ -87,20 +87,20 @@
 | Coldwatercreek | browser | 200 | 100% | 2% | 0% | 40% |
 | On | browser | 200 | 52% | 100% | 0% | 92% |
 | Bash | server | 196 | 23% | 99% | 0% | 94% |
-| Everlane | server | 186 | 100% | 0% | 100% | 75% |
 | Barbour | browser | 178 | 0% | 0% | 0% | 97% |
 | J crew | browser | 176 | 100% | 0% | 0% | 3% |
 | Lucky Brand | browser | 170 | 0% | 0% | 0% | 0% |
 | Sezane | extension | 164 | 2% | 4% | 0% | 1% |
 | Anthropologie | extension | 157 | 100% | 0% | 0% | 2% |
 | Buck Mason | server | 133 | 100% | 99% | 100% | 4% |
-| Eddie bauer | server | 131 | 100% | 89% | 98% | 66% |
-| Aerie | browser | 122 | 0% | 0% | 0% | 0% |
+| Apiece Apart | extension | 124 | 0% | 0% | 0% | 93% |
+| Aerie | browser | 122 | 0% | 90% | 0% | 93% |
 | Garnet hill | extension | 118 | 42% | 0% | 0% | 0% |
 | Free People | extension | 101 | 99% | 0% | 0% | 2% |
 | Lands end | extension | 100 | 0% | 0% | 0% | 89% |
 | J.jill | server | 91 | 9% | 0% | 0% | 92% |
 | Lululemon | extension | 79 | 52% | 0% | 0% | 0% |
+| Carlhartt | browser | 69 | 91% | 4% | 0% | 38% |
 | FP Movement | extension | 64 | 97% | 0% | 0% | 3% |
 | The white company | extension | 64 | 97% | 0% | 0% | 0% |
 | Oasis | server | 58 | 100% | 100% | 0% | 66% |
@@ -119,46 +119,46 @@
 
 # 크롬 확장 담당 브랜드 갱신 상태 (34개)
 
-**확장 실행 필요 2개** — 36시간 넘게 갱신되지 않았습니다.
+**확장 실행 필요 1개** — 36시간 넘게 갱신되지 않았습니다.
 개인/회사 PC 크롬에서 `RACK 상품 수집기` 팝업의 전체 수집을 한 번 돌리세요.
 
-- ⛔ Apiece Apart — 저장본 없음(한 번도 수집 안 됨)
-- ⚠ Seasalt cornwall — 54시간 전 · 301개
+- ⚠ Seasalt cornwall — 56시간 전 · 301개
 
-<details><summary>정상 32개</summary>
+<details><summary>정상 33개</summary>
 
-- H&M — 6시간 전 · 737개
-- Paige — 6시간 전 · 54개
-- Wilson — 6시간 전 · 44개
-- Gap — 6시간 전 · 4개
-- Garnet hill — 6시간 전 · 118개
-- Joules — 6시간 전 · 314개
-- L.L bean — 6시간 전 · 319개
-- Lands end — 6시간 전 · 100개
-- Loft — 6시간 전 · 610개
-- Lululemon — 6시간 전 · 79개
-- Madewell — 6시간 전 · 16개
-- Mango — 5시간 전 · 57개
-- Massimo Dutti — 5시간 전 · 4개
-- Old Navy — 5시간 전 · 1개
-- Oysho — 5시간 전 · 21개
-- Patagonia — 5시간 전 · 208개
-- Sezane — 5시간 전 · 164개
-- The white company — 5시간 전 · 64개
-- Theory — 5시간 전 · 145개
-- Addidas — 5시간 전 · 449개
-- &Other Stories — 5시간 전 · 267개
-- Abercrombie & Fitch — 5시간 전 · 261개
-- Ann Taylor — 5시간 전 · 391개
-- Anthropologie — 4시간 전 · 157개
-- Aritzia — 4시간 전 · 576개
-- Arket — 4시간 전 · 258개
-- Athleta — 4시간 전 · 1개
-- Banana Republic — 4시간 전 · 4개
-- Eileen fisher — 4시간 전 · 360개
-- Fatface — 4시간 전 · 534개
-- FP Movement — 4시간 전 · 64개
-- Free People — 4시간 전 · 101개
+- H&M — 8시간 전 · 737개
+- Paige — 8시간 전 · 54개
+- Wilson — 8시간 전 · 44개
+- Gap — 8시간 전 · 4개
+- Garnet hill — 8시간 전 · 118개
+- Joules — 8시간 전 · 314개
+- L.L bean — 8시간 전 · 319개
+- Lands end — 8시간 전 · 100개
+- Loft — 8시간 전 · 610개
+- Lululemon — 8시간 전 · 79개
+- Madewell — 7시간 전 · 16개
+- Mango — 7시간 전 · 57개
+- Massimo Dutti — 7시간 전 · 4개
+- Old Navy — 7시간 전 · 1개
+- Oysho — 7시간 전 · 21개
+- Patagonia — 7시간 전 · 208개
+- Sezane — 7시간 전 · 164개
+- The white company — 7시간 전 · 64개
+- Theory — 7시간 전 · 145개
+- Addidas — 7시간 전 · 449개
+- &Other Stories — 7시간 전 · 267개
+- Abercrombie & Fitch — 7시간 전 · 261개
+- Ann Taylor — 7시간 전 · 391개
+- Anthropologie — 6시간 전 · 157개
+- Aritzia — 6시간 전 · 576개
+- Arket — 6시간 전 · 258개
+- Athleta — 6시간 전 · 1개
+- Banana Republic — 6시간 전 · 4개
+- Eileen fisher — 6시간 전 · 360개
+- Fatface — 6시간 전 · 534개
+- FP Movement — 6시간 전 · 64개
+- Free People — 6시간 전 · 101개
+- Apiece Apart — 0시간 전 · 124개
 
 </details>
 
@@ -169,7 +169,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 23639/32480개 (73%) · 미완 브랜드 120개
+- 전체 23928/32642개 (73%) · 미완 브랜드 120개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -181,7 +181,6 @@
 | Joules | extension | 0/314 (0%) |
 | Patagonia | extension | 0/208 (0%) |
 | Lucky Brand | browser | 0/170 (0%) |
-| Aerie | browser | 0/122 (0%) |
 | Garnet hill | extension | 0/118 (0%) |
 | Lululemon | extension | 0/79 (0%) |
 | The white company | extension | 0/64 (0%) |
@@ -199,9 +198,10 @@
 | Splendid | server | 30/399 (8%) |
 | Addidas | extension | 43/449 (10%) |
 | Boldest | browser | 30/201 (15%) |
-| Eileen fisher | extension | 78/360 (22%) |
+| Eileen fisher | extension | 79/360 (22%) |
 | Madewell | extension | 5/16 (31%) |
 | Aritzia | extension | 193/576 (34%) |
+| Carlhartt | browser | 26/69 (38%) |
 | Coldwatercreek | browser | 79/200 (40%) |
 | rouje | server | 125/297 (42%) |
 | Abercrombie & Fitch | extension | 119/261 (46%) |
@@ -211,16 +211,14 @@
 | &Other Stories | extension | 147/267 (55%) |
 | L.L bean | extension | 178/319 (56%) |
 | Scoth & soda | server | 195/327 (60%) |
-| Boden | server | 179/275 (65%) |
-| Eddie bauer | server | 87/131 (66%) |
 | Oasis | server | 38/58 (66%) |
 | Monsoon | server | 21/32 (66%) |
-| Stateside | server | 224/322 (70%) |
-| Everlane | server | 140/186 (75%) |
+| Boden | server | 189/275 (69%) |
+| Stateside | server | 226/322 (70%) |
+| Everlane | server | 148/186 (80%) |
 | Greyson | server | 83/104 (80%) |
 | Mango | extension | 47/57 (82%) |
 | Rails | server | 258/307 (84%) |
-| Carlhartt | browser | 26/31 (84%) |
 | The upside | browser | 288/340 (85%) |
 | Splits59 | server | 96/113 (85%) |
 | Poetry | browser | 324/378 (86%) |
@@ -250,6 +248,8 @@
 | Monrow | server | 191/205 (93%) |
 | Alo | server | 178/192 (93%) |
 | Addison bay | server | 139/150 (93%) |
+| Apiece Apart | extension | 115/124 (93%) |
+| Aerie | browser | 113/122 (93%) |
 | Faherty | server | 309/330 (94%) |
 | English factory | server | 215/228 (94%) |
 | Jigsaw | server | 204/217 (94%) |
@@ -257,6 +257,7 @@
 | Bash | server | 184/196 (94%) |
 | Oak + Fort | server | 322/340 (95%) |
 | Bellerose | server | 309/325 (95%) |
+| Eddie bauer | server | 124/131 (95%) |
 | Sweaty betty | browser | 343/359 (96%) |
 | Z Supply | server | 265/275 (96%) |
 | Nylora | server | 218/226 (96%) |
@@ -280,7 +281,6 @@
 | Sundry | server | 274/281 (98%) |
 | Citizens of Humanity | server | 196/199 (98%) |
 | American Eagle | browser | 176/180 (98%) |
-| The Great | server | 172/175 (98%) |
 | J.mclaughlin | browser | 57/58 (98%) |
 | Shopbop | browser | 456/460 (99%) |
 | Jager | server | 363/367 (99%) |
@@ -306,7 +306,7 @@
 목록 카드 텍스트에서 통화기호로 뽑습니다. 통화 표기가 다르거나(zł·kr 등) 가격을
 이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 엑셀 '가격' 열도 비게 됩니다.
 
-- 전체 133개 브랜드 · ❌ 거의 없음 17개 · ⚠ 일부만 15개
+- 전체 134개 브랜드 · ❌ 거의 없음 18개 · ⚠ 일부만 14개
 
 ## ❌ 가격이 거의 안 잡히는 브랜드 (20% 미만)
 
@@ -318,6 +318,7 @@
 | vineyardvines | server | 1/203 (0%) |
 | Barbour | browser | 0/178 (0%) |
 | Lucky Brand | browser | 0/170 (0%) |
+| Apiece Apart | extension | 0/124 (0%) |
 | Aerie | browser | 0/122 (0%) |
 | Lands end | extension | 0/100 (0%) |
 | Mango | extension | 0/57 (0%) |
@@ -348,7 +349,6 @@
 | Fatface | extension | 310/534 (58%) | £20 |
 | Whistles | server | 150/186 (81%) | $ 69.00 |
 | CCC | browser | 485/582 (83%) |  |
-| Carlhartt | browser | 27/31 (87%) | $11.99 |
 
 
 ---
@@ -358,7 +358,7 @@
 상품을 **한 개도** 주지 못한 주소입니다. 브랜드 사이트에서 개편·삭제됐을 가능성이 큽니다.
 대체 주소를 찾으면 `카테고리 URL 수정` 워크플로로 갈아끼우세요.
 
-- 대상 16개 브랜드 · URL 29개
+- 대상 15개 브랜드 · URL 28개
 
 ## Banana Republic (extension) — 현재 4개 저장
 
@@ -405,10 +405,6 @@
 
 - https://www.arket.com/en-ww/women/clothing/tops/t-shirts/
 
-## Carlhartt (browser) — 현재 31개 저장
-
-- https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017
-
 ## Joules (extension) — 현재 314개 저장
 
 - https://www.joules.com/shop/womens/clothing/shirts-and-blouses
@@ -440,9 +436,9 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-09T20:36Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-08-09T22:27Z)
 
-- 카탈로그 133개 · 상품 32480개 검사 · **문제 항목 57개**
+- 카탈로그 134개 · 상품 32642개 검사 · **문제 항목 57개**
 - 문제가 있는 브랜드 20개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
@@ -661,17 +657,6 @@
   - 표본: womens sports tank tops n4770 — https://www.oysho.com/gb/womens-sports-tank-tops-n4770
   - 표본: short sleeve womens t shirts n4766 — https://www.oysho.com/gb/short-sleeve-womens-t-shirts-n4766
   - 표본: womens long sleeve t shirts n4763 — https://www.oysho.com/gb/womens-long-sleeve-t-shirts-n4763
-
-## Carlhartt — 31개 (browser)
-
--    0개 · https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017
--    2개 · https://www.carhartt.com/c/women-bibs-overalls
--    3개 · https://www.carhartt.com/c/women-tops
--    9개 · https://www.carhartt.com/c/women-hoodies-sweatshirts
--   17개 · https://www.carhartt.com/c/women-tops-tshirt
-  - 표본: womens irvine relaxed t shirt — https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt
-  - 표본: womens irvine loose ls logo t shirt — https://www.carhartt.com/product/107742/womens-irvine-loose-ls-logo-t-shirt
-  - 표본: womens irvine loose ls pocket t shirt — https://www.carhartt.com/product/107973/womens-irvine-loose-ls-pocket-t-shirt
 
 ## Monsoon — 32개 (server)
 
