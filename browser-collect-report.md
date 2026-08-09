@@ -1,24 +1,24 @@
-# 헤드리스 크롬 수집 테스트 (2026-08-09T04:55Z)
+# 헤드리스 크롬 수집 테스트 (2026-08-09T05:00Z)
 
 GitHub Actions(데이터센터 IP)에서 진짜 크롬으로 확장 담당 브랜드를 돌린 결과.
 
-- 대상 37 · ✅ 자동화 가능 3 · ⛔ 확장 필요 23 · 🔧 보완 필요 11
+- 대상 3 · ✅ 자동화 가능 3 · ⛔ 확장 필요 0 · 🔧 보완 필요 0
 
 ## ✅ 자동화 가능 (3)
 
-- **Aerie** — 122개 {"shirts":8,"tops":15,"sweatshirts":34,"pants":44,"dresses":21} · 공용 링크 13개 제외 (68s)
+- **American Eagle** — 180개 {"tops":74,"sweatshirts":32,"shirts":14,"pants":30,"dresses":30} (96s)
+  - 표본: AE Hey Baby Waffle Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1980_647
+  - 표본: AE Everyday T-Shirt — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-everyday-t-shirt/1537_1851_062
+  - 표본: AE Hey Baby Waffle Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1836_062
+  - 표본: AE Soft & Sexy Waffle Crew Neck Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-crew-neck-tee/2370_1979_073
+  - 표본: AE Hey Baby Waffle Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1713_073
+- **Aerie** — 123개 {"shirts":8,"tops":15,"sweatshirts":35,"pants":44,"dresses":21} · 공용 링크 13개 제외 (69s)
   - 표본: cat520027 — https://www.ae.com/us/en/c/aerie/tops/t-shirts/cat520027
   - 표본: cat520025 — https://www.ae.com/us/en/c/aerie/tops/tank-tops/cat520025
   - 표본: brg dyn ega9a9wxl0 — https://www.ae.com/us/en/c/aerie/new-arrivals/tops/brg_dyn_ega9a9wxl0
   - 표본: Aerie Quarter Snap Sweatshirt — https://www.ae.com/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-quarter-snap-sweatshirt/0743_3983_410
   - 표본: Aerie Cozy Polo Boyfriend T-Shirt — https://www.ae.com/us/en/p/aerie/tops/t-shirts/aerie-cozy-polo-boyfriend-t-shirt/5495_4186_092
-- **American Eagle** — 180개 {"tops":74,"sweatshirts":32,"shirts":14,"pants":30,"dresses":30} (97s)
-  - 표본: AE Hey Baby Waffle Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1980_647
-  - 표본: AE Everyday T-Shirt — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-everyday-t-shirt/1537_1852_008
-  - 표본: AE Hey Baby Waffle Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1836_062
-  - 표본: AE Soft & Sexy Waffle Crew Neck Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-crew-neck-tee/2370_1979_073
-  - 표본: AE Hey Baby Waffle Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1713_073
-- **The upside** — 66개 {"dresses":1,"pants":1,"tops":46,"sweatshirts":16,"shirts":2} (31s)
+- **The upside** — 66개 {"dresses":1,"pants":1,"tops":46,"sweatshirts":16,"shirts":2} (32s)
   - 0개 · https://www.theupside.com/shop/tops/knitwear/ ← HTTP 403
   - 0개 · https://www.theupside.com/shop/all-in-one/ ← HTTP 403
   - 0개 · https://www.theupside.com/shop/bottoms/ ← HTTP 403
@@ -28,180 +28,9 @@ GitHub Actions(데이터센터 IP)에서 진짜 크롬으로 확장 담당 브�
   - 표본: Header Submenu Image — https://www.theupside.com/collections/discover/alvorada/
   - 표본: Header Submenu Image — https://www.theupside.com/edits/the-vacation-edit/
 
-## ⛔ 확장 필요(봇 차단) (23)
+## ⛔ 확장 필요(봇 차단) (0)
 
-- **&Other Stories** — 0개 {} (13s)
-  - 0개 · https://www.stories.com/en-us/clothing/tops/ ← HTTP 403
-  - 0개 · https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/ ← HTTP 403
-  - 0개 · https://www.stories.com/en-us/clothing/blouses-shirts/ ← HTTP 403
-  - 0개 · https://www.stories.com/en-us/clothing/dresses/ ← HTTP 403
-  - 0개 · https://www.stories.com/en-us/clothing/trousers/ ← HTTP 403
-- **Addidas** — 0개 {} (11s)
-  - 0개 · https://www.adidas.com/us/women-tops?sort=newest-to-oldest ← HTTP 403
-  - 0개 · https://www.adidas.com/us/women-hoodies_sweatshirts ← HTTP 403
-  - 0개 · https://www.adidas.com/us/women-skirts_dresses ← HTTP 403
-  - 0개 · https://www.adidas.com/us/women-pants ← HTTP 403
-- **Ann Taylor** — 0개 {} (9s)
-  - 0개 · https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/ ← 봇 차단 페이지
-  - 0개 · https://www.anntaylor.com/clothing/dresses/cata000012/ ← 봇 차단 페이지
-  - 0개 · https://www.anntaylor.com/clothing/pants/cata000014/ ← 봇 차단 페이지
-- **Anthropologie** — 0개 {} (14s)
-  - 0개 · https://www.anthropologie.com/tees ← HTTP 403
-  - 0개 · https://www.anthropologie.com/tops-sweatshirts ← HTTP 403
-  - 0개 · https://www.anthropologie.com/tops ← HTTP 403
-  - 0개 · https://www.anthropologie.com/dresses ← HTTP 403
-  - 0개 · https://www.anthropologie.com/bottoms ← HTTP 403
-- **Aritzia** — 0개 {} (16s)
-  - 0개 · https://www.aritzia.com/us/en/clothing/tops ← HTTP 403
-  - 0개 · https://www.aritzia.com/us/en/clothing/tshirts ← HTTP 403
-  - 0개 · https://www.aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74 ← HTTP 403
-  - 0개 · https://www.aritzia.com/us/en/clothing/shirts-blouses ← HTTP 403
-  - 0개 · https://www.aritzia.com/us/en/clothing/dresses-3 ← HTTP 403
-  - 0개 · https://www.aritzia.com/us/en/clothing/sweatsuit-sets/sweat-pants ← HTTP 403
-- **Arket** — 0개 {} (13s)
-  - 0개 · https://www.arket.com/en-ww/women/clothing/tops/ ← HTTP 403
-  - 0개 · https://www.arket.com/en-ww/women/clothing/tops/t-shirts/ ← HTTP 403
-  - 0개 · https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/ ← HTTP 403
-  - 0개 · https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/ ← HTTP 403
-  - 0개 · https://www.arket.com/en-ww/women/clothing/dresses/ ← HTTP 403
-- **Fatface** — 0개 {} (10s)
-  - 0개 · https://www.fatface.com/shop/womens/clothing/tops/t-shirts ← HTTP 403
-  - 0개 · https://www.fatface.com/shop/womens/clothing/sweatshirts-and-hoodies ← HTTP 403
-  - 0개 · https://www.fatface.com/shop/womens/clothing/dresses ← HTTP 403
-  - 0개 · https://www.fatface.com/shop/womens/clothing/all-trousers ← HTTP 403
-- **FP Movement** — 0개 {} (11s)
-  - 0개 · https://www.freepeople.com/fpmovement/workout-tops/ ← HTTP 403
-  - 0개 · https://www.freepeople.com/fpmovement/hoodies-sweatshirts/ ← HTTP 403
-  - 0개 · https://www.freepeople.com/fpmovement/one-pieces/ ← HTTP 403
-  - 0개 · https://www.freepeople.com/fpmovement/workout-bottoms/ ← HTTP 403
-- **Free People** — 0개 {} (13s)
-  - 0개 · https://www.freepeople.com/tops/ ← HTTP 403
-  - 0개 · https://www.freepeople.com/sweatshirts-pullovers/?vis_nav=4 ← HTTP 403
-  - 0개 · https://www.freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2 ← HTTP 403
-  - 0개 · https://www.freepeople.com/dresses/ ← HTTP 403
-  - 0개 · https://www.freepeople.com/pants/ ← HTTP 403
-- **Garnet hill** — 0개 {} (10s)
-  - 0개 · https://www.garnethill.com/clothing/categories/tops-tees/ ← HTTP 403
-  - 0개 · https://www.garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__am__spBlouses?categoryId=191619 ← HTTP 403
-  - 0개 · https://www.garnethill.com/clothing/categories/dresses/ ← HTTP 403
-  - 0개 · https://www.garnethill.com/clothing/categories/pants/ ← HTTP 403
-- **H&M** — 0개 {} (13s)
-  - 0개 · https://www2.hm.com/en_us/women/products/tops.html?sort=newProduct ← HTTP 403
-  - 0개 · https://www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct ← HTTP 403
-  - 0개 · https://www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct ← HTTP 403
-  - 0개 · https://www2.hm.com/en_us/women/products/dresses.html?sort=newProduct ← HTTP 403
-  - 0개 · https://www2.hm.com/en_us/women/products/pants.html?sort=newProduct ← HTTP 403
-- **Joules** — 0개 {} (13s)
-  - 0개 · https://www.joules.com/shop/womens/clothing/tops ← HTTP 403
-  - 0개 · https://www.joules.com/shop/womens/clothing/sweatshirts-and-hoodies ← HTTP 403
-  - 0개 · https://www.joules.com/shop/womens/clothing/shirts-and-blouses ← HTTP 403
-  - 0개 · https://www.joules.com/shop/womens/clothing/dresses ← HTTP 403
-  - 0개 · https://www.joules.com/shop/womens/clothing/all-trousers?p=2#1454.34375 ← HTTP 403
-- **L.L bean** — 0개 {} (13s)
-  - 0개 · https://global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro ← HTTP 403
-  - 0개 · https://global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro ← HTTP 403
-  - 0개 · https://global.llbean.com/llb/shop/516735/?prefn1=refinementGender&prefv1=Womens&nav=gnro ← HTTP 403
-  - 0개 · https://global.llbean.com/llb/shop/506213/?page=womens-dresses-and-skirts&nav=gnro ← HTTP 403
-  - 0개 · https://global.llbean.com/llb/shop/622/?page=womens-pants-and-jeans&nav=gnro ← HTTP 403
-- **Lands end** — 0개 {} (13s)
-  - 0개 · https://www.landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec ← HTTP 403
-  - 0개 · https://www.landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0d-xec ← HTTP 403
-  - 0개 · https://www.landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec ← HTTP 403
-  - 0개 · https://www.landsend.com/shop/womens-dresses/S-xfg-xez-y5c-xec ← HTTP 403
-  - 0개 · https://www.landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec ← HTTP 403
-- **Loft** — 0개 {} (14s)
-  - 0개 · https://www.loft.com/clothing/tees-tanks/cat2860023/ ← 봇 차단 페이지
-  - 0개 · https://www.loft.com/lou-grey/lou-grey-shop-all/cat1880002/ ← 봇 차단 페이지
-  - 0개 · https://www.loft.com/clothing/tops/catl000011/ ← 봇 차단 페이지
-  - 0개 · https://www.loft.com/clothing/dresses/catl000013/ ← 봇 차단 페이지
-  - 0개 · https://www.loft.com/clothing/pants/catl000014/ ← 봇 차단 페이지
-- **Mango** — 0개 {} (16s)
-  - 0개 · https://shop.mango.com/us/en/c/women/t-shirts/8e23bdfb ← HTTP 403
-  - 0개 · https://shop.mango.com/us/en/c/women/tops/227371cd ← HTTP 403
-  - 0개 · https://shop.mango.com/us/en/c/women/knitwear/7e46863e ← HTTP 403
-  - 0개 · https://shop.mango.com/us/en/c/women/shirts---blouses/b8003173 ← HTTP 403
-  - 0개 · https://shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705 ← HTTP 403
-  - 0개 · https://shop.mango.com/us/en/c/women/pants/0bf28b3b ← HTTP 403
-- **Massimo Dutti** — 0개 {} (13s)
-  - 0개 · https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518 ← HTTP 403
-  - 0개 · https://www.massimodutti.com/us/s/w-tops-n2889 ← HTTP 403
-  - 0개 · https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012 ← HTTP 403
-  - 0개 · https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374 ← HTTP 403
-  - 0개 · https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376 ← HTTP 403
-- **Oysho** — 0개 {} (13s)
-  - 0개 · https://www.oysho.com/gb/womens-sports-t-shirts-n4764 ← HTTP 403
-  - 0개 · https://www.oysho.com/gb/womens-sports-tops-n5484 ← HTTP 403
-  - 0개 · https://www.oysho.com/gb/womens-sweatshirts-n4922 ← HTTP 403
-  - 0개 · https://www.oysho.com/gb/dresses-jumpsuits-n4954 ← HTTP 403
-  - 0개 · https://www.oysho.com/gb/womens-pants-n4813 ← HTTP 403
-- **Paige** — 0개 {} (13s)
-  - 0개 · https://paige.com/collection/women-tees-and-tanks ← HTTP 429
-  - 0개 · https://paige.com/collection/women-sweaters-and-sweatshirts ← HTTP 429
-  - 0개 · https://paige.com/collection/women-tops ← HTTP 429
-  - 0개 · https://paige.com/collection/women-dresses ← HTTP 429
-  - 0개 · https://paige.com/collection/women-pants ← HTTP 429
-- **Seasalt cornwall** — 0개 {} (14s)
-  - 0개 · https://www.seasaltcornwall.com/clothing/tops ← HTTP 403
-  - 0개 · https://www.seasaltcornwall.com/clothing/jumpers-cardigans ← HTTP 403
-  - 0개 · https://www.seasaltcornwall.com/clothing/shirts-blouses ← HTTP 403
-  - 0개 · https://www.seasaltcornwall.com/clothing/dresses ← HTTP 403
-  - 0개 · https://www.seasaltcornwall.com/clothing/trousers-leggings-cropped ← HTTP 403
-- **Sezane** — 0개 {} (10s)
-  - 0개 · https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres ← HTTP 403
-  - 0개 · https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops ← HTTP 403
-  - 0개 · https://www.sezane.com/us-en/collection/dresses ← HTTP 403
-  - 0개 · https://www.sezane.com/us-en/collection/bottoms/trousers ← HTTP 403
-- **Theory** — 0개 {} (13s)
-  - 0개 · https://www.theory.com/women/t-shirts-and-tanks/ ← HTTP 403
-  - 0개 · https://www.theory.com/women/loungewear/ ← HTTP 403
-  - 0개 · https://www.theory.com/women/tops/ ← HTTP 403
-  - 0개 · https://www.theory.com/women/dresses/ ← HTTP 403
-  - 0개 · https://www.theory.com/women/pants/ ← HTTP 403
-- **Wilson** — 0개 {} (16s)
-  - 0개 · https://www.wilson.com/en-us/sportswear/women/tops/tanks ← HTTP 403
-  - 0개 · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops ← HTTP 403
-  - 0개 · https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops ← HTTP 403
-  - 0개 · https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts ← HTTP 403
-  - 0개 · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits ← HTTP 403
-  - 0개 · https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings ← HTTP 403
 
-## 🔧 보완 필요 (11)
+## 🔧 보완 필요 (0)
 
-- **Abercrombie & Fitch** — 0개 {} (141s)
-  - 0개 · https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav ← 상품 0개 · 최종주소 https://www.abercrombie.com/shop/us/womens-tees-and-tanks-tops?originalStore=wd&pagefm=navigation-left+nav · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · ""
-  - 0개 · https://www.abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+nav ← 상품 0개 · 최종주소 https://www.abercrombie.com/shop/us/womens-camis-and-tank-tops-tops?originalStore=wd&pagefm=navigation-left+nav · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · ""
-  - 0개 · https://www.abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-left+nav ← 상품 0개 · 최종주소 https://www.abercrombie.com/shop/us/womens-hoodies-and-sweatshirts-tops?originalStore=wd&pagefm=navigation-left+nav · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · ""
-  - 0개 · https://www.abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+nav ← 상품 0개 · 최종주소 https://www.abercrombie.com/shop/us/womens-shirts-and-blouses-tops?originalStore=wd&pagefm=navigation-left+nav · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · ""
-  - 0개 · https://www.abercrombie.com/shop/wd/womens-dresses-and-jumpsuits ← 상품 0개 · 최종주소 https://www.abercrombie.com/shop/us/womens-dresses-and-jumpsuits?originalStore=wd · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · ""
-  - 0개 · https://www.abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation-left+nav ← 상품 0개 · 최종주소 https://www.abercrombie.com/shop/us/womens-sweatpants-and-joggers-bottoms?originalStore=wd&pagefm=navigation-left+nav · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · ""
-- **Apiece Apart** — 0개 {} (46s)
-  - 0개 · https://www.apieceapart.com/shop/tops ← 상품 0개 · 최종주소 https://www.apieceapart.com/shop/tops · 제목 "Tops | Apiece Apart" · 링크 80/이미지 129 · 탈락[total=79 noImage=79 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "The Fall 2026 Collection is Here SHOP NEW ARRIVALS BEST SELLERS ABOUT JOURNAL SALE 0 Tops (64 items) FILTER Cropped Isol"
-  - 0개 · https://www.apieceapart.com/shop/dresses ← 상품 0개 · 최종주소 https://www.apieceapart.com/shop/dresses · 제목 "Dresses | Apiece Apart" · 링크 96/이미지 161 · 탈락[total=95 noImage=95 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "The Fall 2026 Collection is Here SHOP NEW ARRIVALS BEST SELLERS ABOUT JOURNAL SALE 0 Dresses (80 items) FILTER Sonia Str"
-  - 0개 · https://www.apieceapart.com/shop/pants ← 상품 0개 · 최종주소 https://www.apieceapart.com/shop/pants · 제목 "Pants | Apiece Apart" · 링크 72/이미지 113 · 탈락[total=71 noImage=71 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "The Fall 2026 Collection is Here SHOP NEW ARRIVALS BEST SELLERS ABOUT JOURNAL SALE 0 Pants (56 items) FILTER Long Bari T"
-- **Athleta** — 0개 {} · 공용 링크 2개 제외 (132s)
-- **Banana Republic** — 0개 {} · 공용 링크 1개 제외 (143s)
-- **Eileen fisher** — 0개 {} (240s)
-  - 0개 · https://www.eileenfisher.com/shop/clothing/tops-tees ← 오류: page.goto: Timeout 60000ms exceeded.
-  - 0개 · https://www.eileenfisher.com/shop/clothing/tanks-camis ← 오류: page.goto: Timeout 60000ms exceeded.
-  - 0개 · https://www.eileenfisher.com/shop/clothing/dresses-skirts ← 오류: page.goto: Timeout 60000ms exceeded.
-  - 0개 · https://www.eileenfisher.com/shop/clothing/pants-jumpsuits ← 오류: page.goto: Timeout 60000ms exceeded.
-- **Gap** — 0개 {} · 공용 링크 4개 제외 (81s)
-- **Lululemon** — 0개 {} (300s)
-  - 0개 · https://shop.lululemon.com/c/women-t-shirts/n1wx7w ← 오류: page.goto: Timeout 60000ms exceeded.
-  - 0개 · https://shop.lululemon.com/c/women-tank-tops/n1uk4w ← 오류: page.goto: Timeout 60000ms exceeded.
-  - 0개 · https://shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6 ← 오류: page.goto: Timeout 60000ms exceeded.
-  - 0개 · https://shop.lululemon.com/c/women-dresses/n1mk31 ← 오류: page.goto: Timeout 60000ms exceeded.
-  - 0개 · https://shop.lululemon.com/c/women-sweatpants/n1m8w7 ← 오류: page.goto: Timeout 60000ms exceeded.
-- **Madewell** — 0개 {} · 공용 링크 16개 제외 (121s)
-- **Old Navy** — 0개 {} · 공용 링크 4개 제외 (103s)
-- **Patagonia** — 0개 {} (75s)
-  - 0개 · https://www.patagonia.com/shop/womens/tops/t-shirts ← 상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/tops/t-shirts · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "Not found"
-  - 0개 · https://www.patagonia.com/shop/womens/tops/sweatshirts-hoodies ← 상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/tops/sweatshirts-hoodies · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "Not found"
-  - 0개 · https://www.patagonia.com/shop/womens/tops/button-down ← 상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/tops/button-down · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "Not found"
-  - 0개 · https://www.patagonia.com/shop/womens/dresses-jumpsuits ← 상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/dresses-jumpsuits · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "Not found"
-  - 0개 · https://www.patagonia.com/shop/womens/bottoms ← 상품 0개 · 최종주소 https://www.patagonia.com/shop/womens/bottoms · 제목 "" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "Not found"
-- **The white company** — 0개 {} (49s)
-  - 0개 · https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts ← 상품 0개 · 최종주소 https://www.thewhitecompany.com/us/?countryIsoCode=US&currencyIsoCode=USD&clear=true · 제목 "The White Company - US" · 링크 3/이미지 2 · 탈락[total=3 noImage=2 tinyImage=0 shortPath=1 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently"
-  - 0개 · https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear ← 상품 0개 · 최종주소 https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear · 제목 "Page Not Found | The White Company US" · 링크 47/이미지 2 · 탈락[total=47 noImage=47 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "SKIP TO CONTENT Link to The White Company's home NotFoundPage.notFoundPageTitle NotFoundPage.notFoundPageSubTitle HOMEPA"
-  - 0개 · https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics ← 상품 0개 · 최종주소 https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics · 제목 "Page Not Found | The White Company US" · 링크 47/이미지 6 · 탈락[total=47 noImage=47 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "SKIP TO CONTENT Link to The White Company's home NotFoundPage.notFoundPageTitle NotFoundPage.notFoundPageSubTitle HOMEPA"
 
