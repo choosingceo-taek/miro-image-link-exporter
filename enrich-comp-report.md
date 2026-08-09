@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-08-09T05:02Z)
+# 엑셀 항목 보강 결과 (2026-08-09T05:03Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -11,16 +11,16 @@
 
 ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Frank & Eileen · Gymshark · James Perse · LNA · La Ligne · Marine Layer · Me+Em · Nation LTD · Ninety Percent · On · Sanctuary · Shopbop · Sweaty betty · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 72% · 컬러웨이 63%.
-기준 95% 까지 10631개, 목표 99% 까지 11947개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 72% · 컬러웨이 62%.
+기준 95% 까지 10693개, 목표 99% 까지 12009개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 32896개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 23773 | 72% | +106 |
-| 컬러웨이 | 20621 | 63% | +110 |
+| 혼용률 | 23711 | 72% | +0 |
+| 컬러웨이 | 20559 | 62% | +0 |
 
 - 검색 인덱스 재구축: 17340개
 
@@ -31,6 +31,7 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 
 | 브랜드 | 엑셀 | 혼용률 | 컬러웨이 | 이번 실행 | 경로 |
 |---|:-:|---:|---:|---:|---|
+| Aerie | — | 0/123 (0%) | 0/123 (0%) | 혼용률 +0 컬러 +0 |  |
 | Athleta | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
 | Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Fatface | — | 0/531 (0%) | 0/531 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -46,7 +47,6 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 | The white company | — | 0/64 (0%) | 0/64 (0%) | 혼용률 +0 컬러 +0 |  |
 | Wilson | — | 0/44 (0%) | 0/44 (0%) | 혼용률 +0 컬러 +0 |  |
 | Zara | — | 0/427 (0%) | 0/427 (0%) | 혼용률 +0 컬러 +0 |  |
-| Aerie | — | 0/123 (0%) | 0/123 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 100·직접차단 100 |
 | H&M | — | 1/737 (0%) | 2/737 (0%) | 혼용률 +0 컬러 +0 |  |
 | Mint velvet | — | 2/340 (1%) | 0/340 (0%) | 혼용률 +0 컬러 +0 |  |
 | Sezane | — | 1/164 (1%) | 6/164 (4%) | 혼용률 +0 컬러 +0 |  |
@@ -136,6 +136,7 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 | Ulla Johnson | ✅ | 298/306 (97%) | 306/306 (100%) | 혼용률 +0 컬러 +0 |  |
 | Sundry | — | 274/281 (98%) | 261/281 (93%) | 혼용률 +0 컬러 +0 |  |
 | Evereve | ✅ | 432/443 (98%) | 443/443 (100%) | 혼용률 +0 컬러 +0 |  |
+| American Eagle | ✅ | 176/180 (98%) | 180/180 (100%) | 혼용률 +0 컬러 +0 |  |
 | Cotton on | ✅ | 494/505 (98%) | 494/505 (98%) | 혼용률 +0 컬러 +0 |  |
 | J.mclaughlin | — | 56/57 (98%) | 0/57 (0%) | 혼용률 +0 컬러 +0 |  |
 | Chico's | ✅ | 354/360 (98%) | 360/360 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -163,5 +164,4 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 | Old Navy | — | 4/4 (100%) | 0/4 (0%) | 혼용률 +0 컬러 +0 |  |
 | The Great | ✅ | 126/126 (100%) | 126/126 (100%) | 혼용률 +0 컬러 +0 |  |
 | Xirena | ✅ | 341/341 (100%) | 341/341 (100%) | 혼용률 +0 컬러 +0 |  |
-| American Eagle | ✅ | 238/180 (132%) | 242/180 (134%) | 혼용률 +106 컬러 +110 | 성공 페이지 110 |
 
