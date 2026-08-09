@@ -160,8 +160,17 @@ for (const g of targets) {
           await page.waitForTimeout(2500);
         } catch (e) {
           if (!/Timeout/i.test(String((e && e.message) || e))) throw e;
-          resp = await page.goto(pageUrl, { waitUntil: "commit", timeout: NAV_MS });
-          await page.waitForTimeout(SLOW_SETTLE_MS);
+          try {
+            resp = await page.goto(pageUrl, { waitUntil: "commit", timeout: NAV_MS });
+            await page.waitForTimeout(SLOW_SETTLE_MS);
+          } catch (e2) {
+            if (!/Timeout/i.test(String((e2 && e2.message) || e2))) throw e2;
+            // commit 은 응답 헤더가 오는 순간 돌아온다. 그것조차 안 온다는 건 느린 게
+            // 아니라 서버가 아예 응답하지 않는다는 뜻이다 — 데이터센터 IP 를 조용히
+            // 떨구는 방식의 차단이다(403 을 주지 않으니 blockSignal 로는 안 잡힌다).
+            // '오류'로 적으면 다음 사람이 선택자를 고치러 간다. 그래서 이름을 붙인다.
+            throw new Error(`응답 없음(차단 의심) — 헤더조차 ${NAV_MS / 1000}초 안에 안 옴`);
+          }
         }
         if (pages === 0) {
           const sig = blockSignal(
