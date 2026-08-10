@@ -1,26 +1,26 @@
-# 엑셀 항목 보강 결과 (2026-08-10T20:34Z)
+# 엑셀 항목 보강 결과 (2026-08-10T20:47Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
 > 이 숫자는 **방금 쓴 값을 낙관적으로** 센 것이다 — KV 가 최종 일관성이라 쓴 직후에는
 > 안 읽히는 일이 있어 일부러 그렇게 뒀다. 안정된 뒤의 실제 숫자는 `preflight.md` 를 본다.
 
-**지금 두 열이 다 채워져 나오는 브랜드: 34/134개** (상품 9868/33203개)
+**지금 두 열이 다 채워져 나오는 브랜드: 33/134개** (상품 9502/33203개)
 
 패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.
 
-ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Frank & Eileen · Gymshark · Jager · James Perse · LNA · La Ligne · Marine Layer · Me+Em · Nation LTD · Ninety Percent · On · Sanctuary · Shopbop · Sweaty betty · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
+ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Frank & Eileen · Gymshark · James Perse · LNA · La Ligne · Marine Layer · Me+Em · Nation LTD · Ninety Percent · On · Sanctuary · Shopbop · Sweaty betty · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 75% · 컬러웨이 64%.
-기준 95% 까지 10391개, 목표 99% 까지 11719개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 73% · 컬러웨이 62%.
+기준 95% 까지 10930개, 목표 99% 까지 12258개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 33203개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 24895 | 75% | +68 |
-| 컬러웨이 | 21152 | 64% | +70 |
+| 혼용률 | 24133 | 73% | +0 |
+| 컬러웨이 | 20613 | 62% | +0 |
 
 - 검색 인덱스 재구축: 17469개
 
@@ -31,8 +31,8 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 
 | 브랜드 | 엑셀 | 혼용률 | 컬러웨이 | 이번 실행 | 경로 |
 |---|:-:|---:|---:|---:|---|
-| Athleta | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
 | Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
+| Athleta | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
 | Fatface | — | 0/539 (0%) | 0/539 (0%) | 혼용률 +0 컬러 +0 |  |
 | Gap | — | 0/4 (0%) | 0/4 (0%) | 혼용률 +0 컬러 +0 |  |
 | Garnet hill | — | 0/112 (0%) | 0/112 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -126,6 +126,7 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 | Damson Madder | ✅ | 212/219 (97%) | 218/219 (100%) | 혼용률 +0 컬러 +0 |  |
 | Me+Em | ✅ | 477/492 (97%) | 484/492 (98%) | 혼용률 +0 컬러 +0 |  |
 | LNA | ✅ | 204/210 (97%) | 206/210 (98%) | 혼용률 +0 컬러 +0 |  |
+| Sweaty betty | ✅ | 344/354 (97%) | 354/354 (100%) | 혼용률 +0 컬러 +0 |  |
 | CCC | ✅ | 553/569 (97%) | 569/569 (100%) | 혼용률 +0 컬러 +0 |  |
 | Barbour | — | 174/179 (97%) | 0/179 (0%) | 혼용률 +0 컬러 +0 |  |
 | Sanctuary | ✅ | 386/397 (97%) | 396/397 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -149,6 +150,7 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 | Veronica Beard | ✅ | 230/233 (99%) | 233/233 (100%) | 혼용률 +0 컬러 +0 |  |
 | Rag & bone | — | 177/179 (99%) | 0/179 (0%) | 혼용률 +0 컬러 +0 |  |
 | Beyond yoga | ✅ | 208/210 (99%) | 210/210 (100%) | 혼용률 +0 컬러 +0 |  |
+| Jager | — | 363/366 (99%) | 237/366 (65%) | 혼용률 +0 컬러 +0 |  |
 | Gymshark | ✅ | 273/275 (99%) | 274/275 (100%) | 혼용률 +0 컬러 +0 |  |
 | Goldie | — | 153/154 (99%) | 128/154 (83%) | 혼용률 +0 컬러 +0 |  |
 | Draper James | ✅ | 163/164 (99%) | 164/164 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -158,11 +160,9 @@ ALC · American Eagle · Arket · Beyond yoga · CCC · Chico's · Citizens of H
 | La Ligne | ✅ | 368/369 (100%) | 369/369 (100%) | 혼용률 +0 컬러 +0 |  |
 | Sessun | — | 33/33 (100%) | 0/33 (0%) | 혼용률 +0 컬러 +0 |  |
 | James Perse | ✅ | 142/142 (100%) | 142/142 (100%) | 혼용률 +0 컬러 +0 |  |
-| Nation LTD | ✅ | 192/192 (100%) | 192/192 (100%) | 혼용률 +0 컬러 +0 |  |
 | Ninety Percent | ✅ | 165/165 (100%) | 165/165 (100%) | 혼용률 +0 컬러 +0 |  |
+| Nation LTD | ✅ | 192/192 (100%) | 192/192 (100%) | 혼용률 +0 컬러 +0 |  |
 | Old Navy | — | 4/4 (100%) | 0/4 (0%) | 혼용률 +0 컬러 +0 |  |
 | The Great | ✅ | 109/109 (100%) | 109/109 (100%) | 혼용률 +0 컬러 +0 |  |
 | Xirena | ✅ | 341/341 (100%) | 341/341 (100%) | 혼용률 +0 컬러 +0 |  |
-| Sweaty betty | ✅ | 479/354 (135%) | 507/354 (143%) | 혼용률 +63 컬러 +65 | 성공 페이지 65 |
-| Jager | ✅ | 990/366 (270%) | 623/366 (170%) | 혼용률 +5 컬러 +5 | 성공 페이지 5 |
 
