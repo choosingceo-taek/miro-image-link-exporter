@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-08-11T20:36Z)
+# 엑셀 항목 보강 결과 (2026-08-11T20:50Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -11,16 +11,16 @@
 
 ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Faherty · Frank & Eileen · Gymshark · Jager · James Perse · LNA · La Ligne · Me+Em · Nation LTD · Ninety Percent · Sanctuary · Shopbop · Sweaty betty · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 75% · 컬러웨이 64%.
-기준 95% 까지 10492개, 목표 99% 까지 11843개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 73% · 컬러웨이 63%.
+기준 95% 까지 10886개, 목표 99% 까지 12237개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 33776개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 25387 | 75% | +5 |
-| 컬러웨이 | 21596 | 64% | +5 |
+| 혼용률 | 24756 | 73% | +0 |
+| 컬러웨이 | 21202 | 63% | +0 |
 
 - 검색 인덱스 재구축: 17599개
 
@@ -31,8 +31,8 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 
 | 브랜드 | 엑셀 | 혼용률 | 컬러웨이 | 이번 실행 | 경로 |
 |---|:-:|---:|---:|---:|---|
-| Athleta | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
 | Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
+| Athleta | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
 | Fatface | — | 0/539 (0%) | 0/539 (0%) | 혼용률 +0 컬러 +0 |  |
 | Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | Garnet hill | — | 0/118 (0%) | 0/118 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -149,6 +149,7 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | ALC | ✅ | 344/349 (99%) | 349/349 (100%) | 혼용률 +0 컬러 +0 |  |
 | Gerard darel | — | 222/225 (99%) | 0/225 (0%) | 혼용률 +0 컬러 +0 |  |
 | Rag & bone | — | 178/180 (99%) | 0/180 (0%) | 혼용률 +0 컬러 +0 |  |
+| Jager | ✅ | 360/364 (99%) | 353/364 (97%) | 혼용률 +0 컬러 +0 |  |
 | Beyond yoga | ✅ | 209/211 (99%) | 211/211 (100%) | 혼용률 +0 컬러 +0 |  |
 | Veronica Beard | ✅ | 230/232 (99%) | 232/232 (100%) | 혼용률 +0 컬러 +0 |  |
 | Gymshark | ✅ | 281/283 (99%) | 282/283 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -164,5 +165,4 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Ninety Percent | ✅ | 165/165 (100%) | 165/165 (100%) | 혼용률 +0 컬러 +0 |  |
 | Old Navy | — | 4/4 (100%) | 0/4 (0%) | 혼용률 +0 컬러 +0 |  |
 | Xirena | ✅ | 345/345 (100%) | 345/345 (100%) | 혼용률 +0 컬러 +0 |  |
-| Jager | ✅ | 991/364 (272%) | 747/364 (205%) | 혼용률 +5 컬러 +5 | 성공 페이지 5 |
 
