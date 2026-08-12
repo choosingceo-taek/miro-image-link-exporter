@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-08-12T07:14Z)
+# 엑셀 항목 보강 결과 (2026-08-12T09:05Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -12,15 +12,15 @@
 ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Faherty · Frank & Eileen · Gymshark · Jager · James Perse · LNA · La Ligne · Marine Layer · Me+Em · Nation LTD · Ninety Percent · Sanctuary · Shopbop · Sweaty betty · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
 전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 63%.
-기준 95% 까지 10791개, 목표 99% 까지 12135개 더 채워야 합니다.
+기준 95% 까지 10792개, 목표 99% 까지 12136개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 33619개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 24734 | 74% | +0 |
-| 컬러웨이 | 21148 | 63% | +0 |
+| 혼용률 | 24730 | 74% | +0 |
+| 컬러웨이 | 21147 | 63% | +0 |
 
 - 검색 인덱스 재구축: 17584개
 
@@ -31,11 +31,11 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 
 | 브랜드 | 엑셀 | 혼용률 | 컬러웨이 | 이번 실행 | 경로 |
 |---|:-:|---:|---:|---:|---|
-| Athleta | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
 | Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
+| Athleta | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
 | Fatface | — | 0/539 (0%) | 0/539 (0%) | 혼용률 +0 컬러 +0 |  |
-| Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | Garnet hill | — | 0/118 (0%) | 0/118 (0%) | 혼용률 +0 컬러 +0 |  |
+| Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | Joules | — | 0/301 (0%) | 0/301 (0%) | 혼용률 +0 컬러 +0 |  |
 | Massimo Dutti | — | 0/11 (0%) | 0/11 (0%) | 혼용률 +0 컬러 +0 |  |
 | Oysho | — | 0/13 (0%) | 0/13 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -48,8 +48,8 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | H&M | — | 1/743 (0%) | 4/743 (1%) | 혼용률 +0 컬러 +0 |  |
 | Sezane | — | 1/167 (1%) | 6/167 (4%) | 혼용률 +0 컬러 +0 |  |
 | Mint velvet | — | 2/317 (1%) | 0/317 (0%) | 혼용률 +0 컬러 +0 |  |
+| Anthropologie | — | 3/234 (1%) | 0/234 (0%) | 혼용률 +0 컬러 +0 |  |
 | Free People | — | 3/180 (2%) | 0/180 (0%) | 혼용률 +0 컬러 +0 |  |
-| Anthropologie | — | 7/234 (3%) | 1/234 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 1·직접차단 1 |
 | J crew | — | 6/189 (3%) | 0/189 (0%) | 혼용률 +0 컬러 +0 |  |
 | FP Movement | — | 3/92 (3%) | 0/92 (0%) | 혼용률 +0 컬러 +0 |  |
 | Buck Mason | — | 5/127 (4%) | 126/127 (99%) | 혼용률 +0 컬러 +0 |  |
