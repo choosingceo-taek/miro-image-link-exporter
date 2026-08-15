@@ -65,7 +65,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: enrich-browser-report
-          path: enrich-browser-report.md
+          path: |
+            enrich-browser-report.md
+            enrich-browser-state.json
           if-no-files-found: ignore
       - name: Commit report
         if: always()
@@ -73,7 +75,9 @@ jobs:
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- enrich-browser-report.md || true
+          # 이력 파일도 함께 올려야 다음 실행이 차단 브랜드를 기억한다.
+          # 이게 빠지면 매 실행이 백지에서 시작해 같은 벽에 다시 부딪힌다.
+          git add -A -- enrich-browser-report.md enrich-browser-state.json || true
           git commit -m "enrich-browser: real-chrome composition pass" || echo "no changes"
           # 리포트는 매번 통째로 새로 쓰이므로, 충돌하면 이번 실행 결과를 채택한다.
           for i in 1 2 3; do
@@ -83,7 +87,7 @@ jobs:
               git rebase --abort || true
               git fetch origin ${{ github.ref_name }}
               git reset --soft origin/${{ github.ref_name }}
-              git add -A -- enrich-browser-report.md
+              git add -A -- enrich-browser-report.md enrich-browser-state.json
               git commit -m "enrich-browser: real-chrome composition pass" || true
             fi
             sleep 5

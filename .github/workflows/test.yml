@@ -41,6 +41,8 @@ jobs:
         run: node scripts/test-app-flow.mjs
       - name: Run brand list resilience test
         run: node scripts/test-brandlist.mjs
+      - name: Run enrich skip-list test
+        run: node scripts/test-enrich-skip.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
