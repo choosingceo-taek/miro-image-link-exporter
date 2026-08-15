@@ -67,6 +67,27 @@ const api = async (qs, init) => {
   return r.json();
 };
 
+// ── 차단 이력 ───────────────────────────────────────────────────
+// 이게 없으면 도구가 매일 같은 벽에 머리를 박는다. 고르는 기준이 "혼용률이
+// 가장 비어 있는 브랜드"뿐이라, 사이트가 우리를 막아 영영 0% 인 브랜드가
+// 영원히 1등을 한다. 실제로 닷새 동안 3,472개를 시도해 0개를 얻었다 —
+// 그동안 채워질 수 있는 브랜드는 뒤에서 차례를 못 받았다.
+//
+// 그래서 "진짜 크롬으로도 막혔다"를 기록해 두고 한동안 건너뛴다. 영구 제외는
+// 아니다 — 사이트 정책은 바뀌고, 실제로 Aerie 는 확장으로도 못 뚫다가 크롬으로
+// 뚫렸다. SKIP_DAYS 가 지나면 다시 후보가 된다.
+const STATE_PATH = join(ROOT, "enrich-browser-state.json");
+const SKIP_DAYS = Math.max(1, Number(process.env.SKIP_DAYS) || 14);
+const BLOCK_RATIO = 0.9;    // 시도의 이만큼이 차단이면 '막혔다'로 본다
+
+let state = { blocked: {} };
+try {
+  const raw = JSON.parse(readFileSync(STATE_PATH, "utf8"));
+  if (raw && typeof raw === "object" && raw.blocked) state = raw;
+} catch (e) {}
+const skipUntil = (site) => Number((state.blocked[site] || {}).until || 0);
+const isSkipped = (site) => skipUntil(site) > Date.now();
+
 // ── 대상 고르기 ─────────────────────────────────────────────────
 const catalogs = ((await api("catalogs=1")).list || []).filter((c) => c && c.site && (c.count || 0) > 0);
 let targets = [];
@@ -74,10 +95,17 @@ for (const c of catalogs) {
   if (want.length && !want.includes(String(c.brand || "").toLowerCase())) continue;
   targets.push(c);
 }
+const skipped = [];
 if (!want.length) {
   // 비어 있는 순서대로. 오버레이를 읽어 혼용률이 없는 상품 수를 센다.
   const scored = [];
   for (const c of targets) {
+    // 이름을 직접 준 경우(BRANDS=)는 사람이 일부러 고른 것이므로 건너뛰지 않는다.
+    if (isSkipped(c.site)) {
+      const d = Math.ceil((skipUntil(c.site) - Date.now()) / 86400000);
+      skipped.push(`${c.brand}(${d}일)`);
+      continue;
+    }
     let ov = {};
     try { ov = await api("comps=" + encodeURIComponent(c.site)); } catch (e) {}
     let filled = 0;
@@ -90,6 +118,7 @@ if (!want.length) {
 } else {
   targets = targets.slice(0, TOP);
 }
+if (skipped.length) console.log(`건너뜀(차단 이력): ${skipped.join(" · ")}\n`);
 
 if (!targets.length) { console.log("대상 브랜드 없음"); process.exit(0); }
 console.log(`대상 ${targets.length}개: ${targets.map((t) => t.brand).join(", ")}\n`);
@@ -170,6 +199,22 @@ for (const c of targets) {
   console.log("  · " + line);
   rows.push({ brand: c.brand, site: c.site, total: c.count, ...stat, tried: todo.length });
 
+  // 이번 결과를 이력에 남긴다. 거의 다 막혔으면 한동안 후보에서 뺀다.
+  // 반대로 하나라도 읽혔으면 이력을 지운다 — 사이트가 다시 열린 것이므로
+  // 옛 판정에 발이 묶이면 안 된다.
+  if (todo.length >= 10 && stat.blocked / todo.length >= BLOCK_RATIO) {
+    state.blocked[c.site] = {
+      brand: c.brand,
+      until: Date.now() + SKIP_DAYS * 86400000,
+      at: new Date().toISOString().slice(0, 10),
+      ratio: Math.round((stat.blocked / todo.length) * 100),
+    };
+    console.log(`    → ${SKIP_DAYS}일간 후보에서 제외(차단 ${state.blocked[c.site].ratio}%)`);
+  } else if (stat.ok > 0 && state.blocked[c.site]) {
+    delete state.blocked[c.site];
+    console.log("    → 다시 읽히기 시작 — 차단 이력 해제");
+  }
+
   if (STORE && Object.keys(patch).length) {
     // 오버레이는 통째로 저장한다(Worker 는 본문을 그대로 KV 에 넣기만 한다).
     // 기존 값을 잃지 않도록 여기서 합친다 — 새 값이 이긴다.
@@ -206,10 +251,13 @@ const md = [
   "|---|---:|---:|---:|---:|---:|---:|",
   ...rows.map((r) => `| ${r.brand} | ${r.total} | ${r.tried} | **${r.ok}** | ${r.none} | ${r.blocked} | ${r.err} |`),
   "",
+  ...(skipped.length ? [`- 건너뜀(차단 이력): ${skipped.join(" · ")}`, ""] : []),
   "차단·타임아웃이 대부분이면 진짜 크롬으로도 안 된다는 뜻이므로, 그 브랜드는",
   "사람 PC 의 확장(가정용 IP)이 맡아야 합니다. '사이트 미표기'가 대부분이면",
   "더 할 수 있는 것이 없습니다 — 엑셀에 '정보 없음'으로 나갑니다.",
   "",
 ].join("\n");
 writeFileSync(join(ROOT, "enrich-browser-report.md"), md);
+// 이력은 저장한 실행에서만 남긴다 — DRY 로 돌려 보다가 후보를 잠그면 곤란하다.
+if (STORE) writeFileSync(STATE_PATH, JSON.stringify(state, null, 1) + "\n");
 console.log(`\n총 ${grandFilled}/${grandTried} 채움 · 리포트: enrich-browser-report.md`);
