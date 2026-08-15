@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-08-14 19:50Z)
+# 목록 페이지 진단 (2026-08-15 19:22Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -45,10 +45,10 @@
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
   - ```<a href="/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1980_647" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Hey Baby Waffle Tee" data-```
-- `/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1978_133`
+- `/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1990_073`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1978_133" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Long Sleeve Henley ```
+  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1990_073" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Long Sleeve Henley ```
 - `/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1836_062`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
@@ -63,7 +63,7 @@
 
 **주소를 찾은 속성**: `src` 118
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c6eec` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-db6e5` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-dcff5` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-fc99a` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f2216` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d0550` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-ebabc` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-deecf` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
