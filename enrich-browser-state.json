@@ -1,0 +1,34 @@
+{
+ "blocked": {
+  "shop.lululemon.com.lululemon": {
+   "brand": "Lululemon",
+   "until": 1788124923708,
+   "at": "2026-08-16",
+   "ratio": 100
+  },
+  "zara.com.zara": {
+   "brand": "Zara",
+   "until": 1788124926260,
+   "at": "2026-08-16",
+   "ratio": 100
+  },
+  "joules.com.joules": {
+   "brand": "Joules",
+   "until": 1788124929409,
+   "at": "2026-08-16",
+   "ratio": 100
+  },
+  "patagonia.com.patagonia": {
+   "brand": "Patagonia",
+   "until": 1788124931047,
+   "at": "2026-08-16",
+   "ratio": 100
+  },
+  "thewhitecompany.com.thewhitecompany": {
+   "brand": "The white company",
+   "until": 1788124969645,
+   "at": "2026-08-16",
+   "ratio": 93
+  }
+ }
+}
