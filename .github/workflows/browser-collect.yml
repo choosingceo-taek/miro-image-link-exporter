@@ -45,10 +45,20 @@ jobs:
         with:
           node-version: 20
       - name: Install Playwright Chromium
+        # 이 단계에 자체 시간 제한이 없으면, 설치가 멈췄을 때 워크플로 상한을
+        # 통째로 먹고 정작 할 일은 시작도 못 한다. 2026-08-15 에 실제로 그랬다 —
+        # 90분을 설치에 쓰고 취소돼 그날 보강이 0개였다.
+        # 짧게 끊고 세 번 시도한다. 세 번 다 실패하면 그때는 진짜 실패다.
+        timeout-minutes: 20
         run: |
           npm init -y >/dev/null
-          npm i --no-save playwright@1.49.1
-          npx playwright install --with-deps chromium
+          for i in 1 2 3; do
+            timeout 240 npm i --no-save playwright@1.49.1 && \
+            timeout 300 npx playwright install --with-deps chromium && exit 0
+            echo "설치 실패 — ${i}번째, 15초 후 재시도"
+            sleep 15
+          done
+          echo "Playwright 설치가 세 번 다 실패했습니다"; exit 1
       - name: Collect
         env:
           # schedule 실행에는 inputs 가 없으므로 기본값을 여기서 채운다.
