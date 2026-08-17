@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-08-16 19:21Z)
+# 목록 페이지 진단 (2026-08-17 19:29Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -6,7 +6,7 @@
 
 - HTTP **200** · 최종주소 `https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017`
 - 제목: "Women's Sweatpants | Carhartt"
-- 링크 253개 · `<img>` 85개 · iframe 2개
+- 링크 254개 · `<img>` 85개 · iframe 2개
 - 링크 중 이미지가 딸린 것 38개 → 그중 주소를 뽑아낸 것 **29개**
 
 | 증상 | 개수 | 뜻 |
@@ -32,12 +32,12 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's T-Shirts: Graphic Tees, Cropped & More | American Eagle"
-- 링크 521개 · `<img>` 256개 · iframe 6개
-- 링크 중 이미지가 딸린 것 125개 → 그중 주소를 뽑아낸 것 **125개**
+- 링크 519개 · `<img>` 255개 · iframe 6개
+- 링크 중 이미지가 딸린 것 123개 → 그중 주소를 뽑아낸 것 **123개**
 
-**주소를 찾은 속성**: `src` 125
+**주소를 찾은 속성**: `src` 123
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `_container_1eekmh ae-theme` 2 · `flyout qa-flyout flyout-onboarding qa-flyout-onboarding _con` 2 · `_content_13ccxt` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `_container_1eekmh ae-theme` 2 · `_content_13ccxt` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
@@ -58,12 +58,16 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 507개 · `<img>` 221개 · iframe 12개
-- 링크 중 이미지가 딸린 것 118개 → 그중 주소를 뽑아낸 것 **118개**
+- 링크 597개 · `<img>` 281개 · iframe 12개
+- 링크 중 이미지가 딸린 것 148개 → 그중 주소를 뽑아낸 것 **148개**
 
-**주소를 찾은 속성**: `src` 118
+| 증상 | 개수 | 뜻 |
+|---|---:|---|
+| shadow DOM 안의 링크 | 6 | shadow 호스트 1개 — querySelectorAll 로는 안 보입니다 |
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d5c65` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c17a2` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c8518` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-ca297` 1
+**주소를 찾은 속성**: `src` 148
+
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d7faa` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-de418` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-e63ef` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d44db` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
