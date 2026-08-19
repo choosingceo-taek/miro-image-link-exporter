@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-08-19T20:19Z)
+# 엑셀 항목 보강 결과 (2026-08-19T20:32Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -11,16 +11,16 @@
 
 ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Frank & Eileen · Gymshark · Jager · James Perse · LNA · La Ligne · Madewell · Marine Layer · Me+Em · Nation LTD · Ninety Percent · On · Sanctuary · Shopbop · Sweaty betty · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 76% · 컬러웨이 64%.
-기준 95% 까지 10494개, 목표 99% 까지 11846개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 63%.
+기준 95% 까지 10931개, 목표 99% 까지 12283개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 33784개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 25719 | 76% | +13 |
-| 컬러웨이 | 21601 | 64% | +13 |
+| 혼용률 | 25094 | 74% | +0 |
+| 컬러웨이 | 21164 | 63% | +0 |
 
 - 검색 인덱스 재구축: 17557개
 
@@ -43,7 +43,7 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Prana | — | 0/69 (0%) | 0/69 (0%) | 혼용률 +0 컬러 +0 |  |
 | Lululemon | — | 0/505 (0%) | 0/505 (0%) | 혼용률 +0 컬러 +0 |  |
 | The white company | — | 0/48 (0%) | 0/48 (0%) | 혼용률 +0 컬러 +0 |  |
-| Zara | — | 0/426 (0%) | 0/426 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 7 |
+| Zara | — | 0/426 (0%) | 0/426 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 4 |
 | H&M | — | 1/751 (0%) | 4/751 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 7·직접차단 7 |
 | Sezane | — | 1/159 (1%) | 5/159 (3%) | 혼용률 +0 컬러 +0 |  |
 | Free People | — | 2/101 (2%) | 0/101 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -140,6 +140,7 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Ulla Johnson | ✅ | 302/309 (98%) | 309/309 (100%) | 혼용률 +0 컬러 +0 |  |
 | Sanctuary | ✅ | 393/402 (98%) | 401/402 (100%) | 혼용률 +0 컬러 +0 |  |
 | Evereve | ✅ | 449/458 (98%) | 458/458 (100%) | 혼용률 +0 컬러 +0 |  |
+| Jager | ✅ | 354/361 (98%) | 352/361 (98%) | 혼용률 +0 컬러 +0 |  |
 | Chico's | ✅ | 354/360 (98%) | 360/360 (100%) | 혼용률 +0 컬러 +0 |  |
 | American Eagle | ✅ | 179/182 (98%) | 181/182 (99%) | 혼용률 +0 컬러 +0 |  |
 | Vince | ✅ | 379/385 (98%) | 385/385 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -162,7 +163,6 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | James Perse | ✅ | 140/140 (100%) | 140/140 (100%) | 혼용률 +0 컬러 +0 |  |
 | Madewell | ✅ | 34/34 (100%) | 34/34 (100%) | 혼용률 +0 컬러 +0 |  |
 | Nation LTD | ✅ | 190/190 (100%) | 190/190 (100%) | 혼용률 +0 컬러 +0 |  |
-| Ninety Percent | ✅ | 165/165 (100%) | 165/165 (100%) | 혼용률 +0 컬러 +0 |  |
 | Old Navy | — | 1/1 (100%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
-| Jager | ✅ | 979/361 (271%) | 789/361 (219%) | 혼용률 +13 컬러 +13 | 성공 페이지 13 |
+| Ninety Percent | ✅ | 165/165 (100%) | 165/165 (100%) | 혼용률 +0 컬러 +0 |  |
 
