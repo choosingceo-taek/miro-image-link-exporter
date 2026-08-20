@@ -43,6 +43,8 @@ jobs:
         run: node scripts/test-brandlist.mjs
       - name: Run enrich skip-list test
         run: node scripts/test-enrich-skip.mjs
+      - name: Run segment tab test
+        run: node scripts/test-segments.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
