@@ -230,6 +230,20 @@
       border-bottom: 2px solid transparent; margin-bottom: -1px;
     }
     .tnav.active { color: var(--text); font-weight: 700; border-bottom-color: var(--text); }
+    /* ── 세그먼트 탭(YWMN·WMN·ACTIVE·SLEEP) ──
+       상단 탭과 같은 무드지만 한 단계 작게 — 상하 관계가 눈에 보이도록. */
+    .segnav { display: flex; gap: 6px; margin: 0 0 12px; flex: 0 0 auto; }
+    .segnav .seg {
+      flex: 1; width: auto; padding: 6px 2px; background: transparent;
+      border: 1px solid var(--border); border-radius: 2px;
+      color: var(--muted); font-family: inherit; font-size: 10px; font-weight: 600;
+      letter-spacing: 1.4px; text-transform: uppercase; white-space: nowrap;
+    }
+    .segnav .seg:hover { color: var(--text); border-color: var(--muted); }
+    .segnav .seg.active { color: var(--bg); background: var(--text); border-color: var(--text); font-weight: 700; }
+    /* 그 세그먼트에 브랜드가 없으면 누를 수 없게 — 눌러 봐야 빈 목록이다. */
+    .segnav .seg:disabled { opacity: .35; cursor: default; }
+    .segnav .seg .n { font-size: 9px; font-weight: 500; letter-spacing: .5px; opacity: .75; margin-left: 3px; }
     /* ── Market Research 팬 — Board Scanner와 동일 무드로 재스타일 ── */
     #pane-import { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 2px; padding-bottom: 64px; }
     #pane-import::-webkit-scrollbar { width: 8px; }
@@ -304,6 +318,15 @@
     <section class="tabpane" id="pane-import" style="display:none">
       <!-- 검색바와 브랜드·카테고리는 스크롤해도 위에 고정된다(상품만 내려감) -->
       <div class="mr-head">
+      <!-- 세그먼트 탭 — 고르면 아래 브랜드 목록이 그 세그먼트만 남는다.
+           분류는 brands.json 의 segments 필드에서 온다. -->
+      <nav class="segnav" id="segNav">
+        <button class="seg active" data-seg="">ALL</button>
+        <button class="seg" data-seg="YWMN">YWMN</button>
+        <button class="seg" data-seg="WMN">WMN</button>
+        <button class="seg" data-seg="ACTIVE">Active</button>
+        <button class="seg" data-seg="SLEEP">Sleep</button>
+      </nav>
       <div class="url-row">
         <button id="importFetch" class="go" title="검색" aria-label="검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
         <input id="importBrandUrl" type="text" autocomplete="off" spellcheck="false"
@@ -918,7 +941,7 @@
         return [...by.values()].sort((a, z) => a.name.localeCompare(z.name));
       }
 
-      function paintBrands() { fillBrandPicker(); fillCatPicker(); }
+      function paintBrands() { paintSegNav(); fillBrandPicker(); fillCatPicker(); }
 
       // 목록이 아직 없을 때 무슨 일이 벌어지는지 보여 준다. 빈 ALL 만 떠 있으면
       // 사용자는 "고장났다"고 읽는다.
@@ -1019,12 +1042,62 @@
       }
 
       // ── 검색바 아래 브랜드·카테고리 선택 UI ──
+      // ── 세그먼트 필터(YWMN·WMN·ACTIVE·SLEEP) ──
+      // 브랜드가 134개라 한 목록에서 찾기 어렵다. 세그먼트로 먼저 좁힌다.
+      // 한 브랜드가 여러 세그먼트에 속할 수 있다(Aerie = YWMN + SLEEP).
+      // 분류가 없는 브랜드는 어느 탭에서도 사라지면 안 되므로 ALL 에만 둔다 —
+      // 조용히 없어지면 "브랜드가 빠졌다"로 보인다.
+      let segFilter = '';
+      const segsOf = (b) => (b && Array.isArray(b.segments)) ? b.segments : [];
+      const inSeg = (b) => !segFilter || segsOf(b).includes(segFilter);
+
       function fillBrandPicker() {
         if (!pickBrandEl) return;
         const cur = pickBrandEl.value;
+        const list = importBrands.filter(inSeg);
         pickBrandEl.innerHTML = '<option value="">ALL</option>' +
-          importBrands.map(b => `<option value="${escapeHtml(b.name)}">${escapeHtml(b.name)}</option>`).join('');
-        if (cur) pickBrandEl.value = cur;
+          list.map(b => `<option value="${escapeHtml(b.name)}">${escapeHtml(b.name)}</option>`).join('');
+        // 고른 브랜드가 이 세그먼트에 없으면 ALL 로 되돌린다 — 안 그러면
+        // 선택칸에는 이름이 남아 있는데 목록에는 없는 상태가 된다.
+        pickBrandEl.value = (cur && list.some(b => b.name === cur)) ? cur : '';
+      }
+
+      // 각 탭에 몇 개인지 함께 보여 준다. 0개인 탭은 누를 수 없다.
+      function paintSegNav() {
+        const nav = document.getElementById('segNav');
+        if (!nav) return;
+        for (const btn of nav.querySelectorAll('.seg')) {
+          const s = btn.dataset.seg;
+          const n = s ? importBrands.filter(b => segsOf(b).includes(s)).length : importBrands.length;
+          const lab = btn.textContent.replace(/\s*\d+$/, '').trim();
+          btn.innerHTML = `${escapeHtml(lab)}<span class="n">${n}</span>`;
+          btn.classList.toggle('active', s === segFilter);
+          // 아직 브랜드 목록을 못 받았을 때는 잠그지 않는다(전부 0으로 보인다).
+          btn.disabled = !!s && importBrands.length > 0 && n === 0;
+        }
+      }
+
+      {
+        const nav = document.getElementById('segNav');
+        if (nav) nav.addEventListener('click', (e) => {
+          const btn = e.target.closest('.seg');
+          if (!btn || btn.disabled) return;
+          segFilter = btn.dataset.seg || '';
+          paintSegNav();
+          fillBrandPicker();
+          fillCatPicker();
+          // 브랜드 선택이 풀렸으면 결과도 비운다 — 다른 세그먼트의 상품이
+          // 그대로 남아 있으면 지금 탭의 결과로 오해한다.
+          if (pickBrandEl && !pickBrandEl.value && loadedBrandMode) {
+            loadedBrandMode = false;
+            importItems = [];
+            importGridEl.style.display = 'none';
+            importTabsEl.style.display = 'none';
+            importToolbarEl.style.display = 'none';
+            importAddBtn.style.display = 'none';
+            importStatusEl.textContent = '';
+          }
+        });
       }
       // 카테고리 옵션: 브랜드마다 다르게.
       //  · 검색 전 — 선택한 브랜드가 실제 보유한 카테고리만 표시(/api/brands의 categories).
@@ -1088,6 +1161,11 @@
           if (pickBrandEl) pickBrandEl.value = '';
           wantCat = ''; importCat = '';
           loadedBrandMode = false;
+          // 세그먼트 탭도 함께 푼다 — 브랜드만 ALL 이고 탭은 걸려 있으면
+          // 목록에 없는 브랜드를 두고 "왜 안 보이지"가 된다.
+          segFilter = '';
+          paintSegNav();
+          fillBrandPicker();
           fillCatPicker();
           if (titleQuery) { globalTitleSearch(); }
           else {
@@ -1548,6 +1626,20 @@
       }
 
       // 결과가 하나도 없을 때만 쓰는 안내. (로딩 중에는 아무 문구도 띄우지 않는다)
+      // Render 주소가 없으면 실시간 수집을 할 수 없다. 호출부는 true 를 받으면
+      // 그 자리에서 멈춘다.
+      //
+      // 이 함수는 호출만 있고 정의가 없었다(runBrandFetch 안 한 곳). 저장본이
+      // 없는 브랜드를 고르면 'needRender is not defined' 로 그 자리에서 죽었는데,
+      // 이제 거의 모든 브랜드에 저장본이 있어서 좀처럼 그 길로 가지 않아 묻혀 있었다.
+      function needRender() {
+        if (__render) return false;
+        showTab('settings');
+        importStatusEl.textContent =
+          '신상 가져오기를 하려면 ⚙ 설정에 Market Research 서버 주소가 필요합니다 (최초 1회).';
+        return true;
+      }
+
       function showNoResult() {
         importItems = [];
         importGridEl.style.display = 'none';
