@@ -54,8 +54,25 @@ const src = readFileSync(join(ROOT, "index.html"), "utf8");
 // 탭 다섯 개(ALL + 네 세그먼트)가 화면에 있어야 한다.
 const navBlock = src.slice(src.indexOf('<nav class="segnav"'), src.indexOf("</nav>", src.indexOf('<nav class="segnav"')));
 if (!navBlock) fail("세그먼트 탭 마크업이 없다");
-for (const s of ["", ...SEGS]) {
+for (const s of SEGS) {
   if (!navBlock.includes(`data-seg="${s}"`)) fail(`탭에 data-seg="${s}" 가 없다`);
+}
+// ALL 탭은 없앴다 — 아무것도 안 켠 상태가 전체이고, 켜진 탭을 다시 누르면 꺼진다.
+if (navBlock.includes('data-seg=""')) fail("ALL 탭이 아직 남아 있다");
+if (!src.includes("segFilter = (s === segFilter) ? '' : s")) {
+  fail("켜진 탭을 다시 눌러도 안 꺼진다 — ALL 탭이 없으니 전체로 돌아갈 길이 막힌다");
+}
+// 검정 바탕에 검정 글씨가 되지 않도록 색을 직접 박아 뒀는지.
+const css = src.slice(src.indexOf(".segnav .seg.active"), src.indexOf(".segnav .seg.active") + 200);
+if (/var\(--bg\)/.test(css)) {
+  fail("켜진 탭 글자색이 테마 변수다 — 어두운 테마에서 검정 바탕에 검정 글씨가 된다");
+}
+// 개수 표시는 뺐다. (.n 은 상품 카드의 이름 요소에도 쓰이므로 탭 쪽만 본다)
+if (src.includes(".segnav .seg .n")) fail("탭 개수 표시 스타일이 남아 있다");
+if (/paintSegNav[\s\S]{0,600}?class="n"/.test(src)) fail("탭에 개수 표시가 남아 있다");
+// 분류가 아직 안 왔을 때 탭이 통째로 잠기면 안 된다.
+if (!src.includes("const anySeg = importBrands.some")) {
+  fail("분류 도착 전에도 개수로 잠근다 — Render 가 늦으면 네 탭이 다 잠긴다");
 }
 
 const MUST = [
