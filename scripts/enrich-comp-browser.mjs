@@ -108,10 +108,17 @@ if (!want.length) {
     }
     let ov = {};
     try { ov = await api("comps=" + encodeURIComponent(c.site)); } catch (e) {}
-    let filled = 0;
-    for (const o of Object.values(ov || {})) if (o && validComp(String(o.comp || "").trim())) filled++;
-    const miss = c.count - filled;
-    if (miss > 30) scored.push({ ...c, miss, rate: filled / c.count });
+    // '사이트가 안 적음'을 확인한 상품은 더 손댈 것이 없으므로 채운 것과 같이 센다.
+    // 안 그러면 Loft(643개 전부 미표기)처럼 영영 0% 인 브랜드가 "가장 비어 있음"
+    // 1등을 계속 차지하고, 정작 자리는 차지한 채 아무것도 안 한다.
+    let filled = 0, settled = 0;
+    for (const o of Object.values(ov || {})) {
+      if (!o) continue;
+      if (validComp(String(o.comp || "").trim())) { filled++; settled++; }
+      else if (o.none) settled++;
+    }
+    const miss = c.count - settled;
+    if (miss > 30) scored.push({ ...c, miss, rate: settled / c.count });
   }
   scored.sort((a, b) => a.rate - b.rate || b.miss - a.miss);
   targets = scored.slice(0, TOP);
@@ -146,9 +153,31 @@ for (const c of targets) {
   try { overlay = await api("comps=" + encodeURIComponent(c.site)); } catch (e) { overlay = {}; }
 
   // 이미 옳은 혼용률이 있는 상품은 건너뛴다.
+  // 이미 옳은 혼용률이 있는 상품, 그리고 "사이트가 안 적는다"를 최근에 확인한
+  // 상품은 건너뛴다.
+  //
+  // 뒤엣것이 없어서 절반을 헛돌았다. 페이지를 정상적으로 열고 → 소재가 없는 걸
+  // 확인하고(none) → 내일 또 같은 페이지를 여는 짓을 매일 했다. 8/20 실행에서
+  // Prana 65 · Loft 120 · Boldest 120, 시도 665개 중 305개(46%)가 그런 상품이었다.
+  // Loft 는 8/9·8/20·8/21 세 번 같은 답을 받았다.
+  //
+  // 차단은 브랜드 단위로 걸러지는데(enrich-browser-state.json) 미표기는 상품마다
+  // 다를 수 있어 여기서 상품 단위로 본다 — 같은 브랜드라도 어떤 상품은 적고
+  // 어떤 상품은 안 적는다(Mint velvet 이 그렇다: 채움 51 · 미표기 68).
+  // 영구 제외는 아니다. 사이트가 표기를 추가할 수 있으므로 NONE_DAYS 뒤에 다시 본다.
+  const NONE_DAYS = Math.max(1, Number(process.env.NONE_DAYS) || 21);
+  const now = Date.now();
+  let skippedNone = 0;
   const todo = (cat.items || [])
-    .filter((p) => p && p.productUrl && !validComp(String((overlay[p.productUrl] || {}).comp || "").trim()))
+    .filter((p) => {
+      if (!p || !p.productUrl) return false;
+      const o = overlay[p.productUrl] || {};
+      if (validComp(String(o.comp || "").trim())) return false;
+      if (o.none && o.t && now - o.t < NONE_DAYS * 86400000) { skippedNone++; return false; }
+      return true;
+    })
     .slice(0, PER_BRAND);
+  if (skippedNone) console.log(`  · ${c.brand} — 사이트 미표기로 확인된 ${skippedNone}개는 건너뜀`);
   if (!todo.length) { console.log(`  · ${c.brand} — 채울 것 없음`); continue; }
 
   const stat = { ok: 0, none: 0, blocked: 0, err: 0 };

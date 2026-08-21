@@ -78,5 +78,28 @@ if (!/if \(STORE\) writeFileSync\(STATE_PATH/.test(src)) {
 // 건너뛴 브랜드를 리포트에 남겨야 사람이 알아챈다.
 if (!src.includes("건너뜀(차단 이력)")) fail("건너뛴 브랜드를 리포트에 안 남긴다 — 조용히 빠지면 눈치채지 못한다");
 
+// ── ③ '사이트가 안 적음'도 다시 안 읽어야 한다 ──
+// 차단만 기억하고 미표기는 기억하지 않아서, 페이지를 정상적으로 열고 소재가
+// 없는 걸 확인한 뒤 다음 날 또 여는 짓을 매일 했다. 8/20 실행에서 시도 665개 중
+// 305개(46%)가 그런 상품이었다 — Prana 65 · Loft 120 · Boldest 120.
+const noneDays = src.match(/const NONE_DAYS = Math\.max\(1, Number\(process\.env\.NONE_DAYS\) \|\| (\d+)\)/);
+if (!noneDays) fail("미표기 재시도 기간(NONE_DAYS)이 없다 — 매일 같은 상품을 다시 읽는다");
+else if (Number(noneDays[1]) < 7) fail(`NONE_DAYS 가 ${noneDays[1]}일 — 너무 짧아 곧 다시 헛돈다`);
+
+if (!/o\.none && o\.t && now - o\.t < NONE_DAYS/.test(src)) {
+  fail("미표기 상품을 건너뛰는 조건이 없다");
+}
+// 확인 시각(t)이 없으면 건너뛰면 안 된다 — 언제 확인했는지 모르는 값을 영구
+// 제외하면 사이트가 표기를 추가해도 영영 못 읽는다.
+if (!/o\.none && o\.t/.test(src)) fail("확인 시각 없이 건너뛴다 — 영구 제외가 된다");
+
+// 브랜드 고르기에서도 미표기를 '처리됨'으로 세야 한다. 안 그러면 전부 미표기인
+// 브랜드가 계속 1순위를 차지하고 자리만 먹는다.
+const sel = src.slice(src.indexOf("let filled = 0"), src.indexOf("scored.sort"));
+if (!sel.includes("else if (o.none) settled++")) {
+  fail("브랜드 점수에서 미표기를 안 센다 — Loft 처럼 전부 미표기인 브랜드가 매일 1순위가 된다");
+}
+if (!sel.includes("c.count - settled")) fail("남은 개수를 미표기 포함으로 세지 않는다");
+
 if (bad) { console.error(`\n크롬 보강 건너뛰기 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 크롬 보강 건너뛰기 통과 — 판정 ${CASES.length}건 · 배선 8종 (${SKIP_DAYS}일 제외 · 차단 ${BLOCK_RATIO * 100}% 기준)`);
+console.log(`✅ 크롬 보강 건너뛰기 통과 — 판정 ${CASES.length}건 · 배선 13종 (${SKIP_DAYS}일 제외 · 차단 ${BLOCK_RATIO * 100}% 기준)`);
