@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-08-23T20:14Z)
+# 엑셀 항목 보강 결과 (2026-08-23T20:28Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -12,15 +12,15 @@
 ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Frank & Eileen · Gymshark · Jager · James Perse · LNA · La Ligne · Lucky Brand · Marine Layer · Me+Em · Nation LTD · Ninety Percent · On · Sanctuary · Shopbop · Sweaty betty · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
 전체 평균은 아직입니다 — 혼용률 77% · 컬러웨이 63%.
-기준 95% 까지 10862개, 목표 99% 까지 12237개 더 채워야 합니다.
+기준 95% 까지 10863개, 목표 99% 까지 12238개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 34362개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 26302 | 77% | +8 |
-| 컬러웨이 | 21782 | 63% | +8 |
+| 혼용률 | 26301 | 77% | +1 |
+| 컬러웨이 | 21781 | 63% | +1 |
 
 - 검색 인덱스 재구축: 17630개
 
@@ -41,11 +41,11 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Oysho | — | 0/9 (0%) | 0/9 (0%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 0/208 (0%) | 0/208 (0%) | 혼용률 +0 컬러 +0 |  |
 | Prana | — | 0/41 (0%) | 0/41 (0%) | 혼용률 +0 컬러 +0 |  |
-| Lululemon | — | 0/500 (0%) | 0/500 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 29·직접차단 30·오류 1 |
+| Lululemon | — | 0/500 (0%) | 0/500 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 30·직접차단 30 |
 | The white company | — | 0/53 (0%) | 0/53 (0%) | 혼용률 +0 컬러 +0 |  |
+| Zara | — | 0/438 (0%) | 0/438 (0%) | 혼용률 +0 컬러 +0 |  |
+| H&M | — | 0/747 (0%) | 4/747 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 11·직접차단 11 |
 | Wilson | — | 0/46 (0%) | 0/46 (0%) | 혼용률 +0 컬러 +0 |  |
-| Zara | — | 0/438 (0%) | 0/438 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 12 |
-| H&M | — | 0/747 (0%) | 4/747 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 10·직접차단 10 |
 | Sezane | — | 1/180 (1%) | 3/180 (2%) | 혼용률 +0 컬러 +0 |  |
 | Anthropologie | — | 2/292 (1%) | 0/292 (0%) | 혼용률 +0 컬러 +0 |  |
 | Free People | — | 2/205 (1%) | 0/205 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -164,5 +164,5 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Nation LTD | ✅ | 190/190 (100%) | 190/190 (100%) | 혼용률 +0 컬러 +0 |  |
 | Ninety Percent | ✅ | 165/165 (100%) | 165/165 (100%) | 혼용률 +0 컬러 +0 |  |
 | Old Navy | — | 4/4 (100%) | 0/4 (0%) | 혼용률 +0 컬러 +0 |  |
-| Jager | ✅ | 983/357 (275%) | 619/357 (173%) | 혼용률 +8 컬러 +8 | 성공 페이지 8 |
+| Jager | ✅ | 982/357 (275%) | 618/357 (173%) | 혼용률 +1 컬러 +1 | 성공 페이지 2 |
 
