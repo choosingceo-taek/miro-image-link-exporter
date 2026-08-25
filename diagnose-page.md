@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-08-24 19:31Z)
+# 목록 페이지 진단 (2026-08-25 19:33Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -67,7 +67,7 @@
 
 **주소를 찾은 속성**: `src` 118
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-cbb1a` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c0b5f` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c91c6` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f707e` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f40e7` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c5b52` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f036d` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-eeb34` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
@@ -88,21 +88,21 @@
 
 - HTTP **200** · 최종주소 `https://www.apieceapart.com/shop/tops`
 - 제목: "Tops | Apiece Apart"
-- 링크 77개 · `<img>` 123개 · iframe 0개
+- 링크 86개 · `<img>` 141개 · iframe 0개
 - 링크 중 이미지가 딸린 것 0개 → 그중 주소를 뽑아낸 것 **0개**
 
 **이미지가 안 붙은 상품 링크 표본**
 
-- `/products/cropped-isolde-button-down-2?id=f9201e82-ff3a-45ab-8c49-5907123c3e14`
+- `/products/isolde-button-down-1?id=f9cb84ad-9620-429e-9dbb-9b5252710bdb`
   - 카드 class: `inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focu`
   - img 속성: (img 없음)
-  - ```<a class="inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focus-visible:!absolute focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-inset rounded-sm" aria-label="View details for Cropped Isolde Button Down" href="/products/cropped-isolde-button-down-2?id=f9201e82-ff3a-45ab-8c49-5907123c3e14"><span class="sr-only">Cropped Isolde ```
-- `/products/monde-drape-bias-top?id=7a00e29c-ef82-41bd-9297-a86e4d7a089b`
+  - ```<a class="inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focus-visible:!absolute focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-inset rounded-sm" aria-label="View details for Isolde Button Down" href="/products/isolde-button-down-1?id=f9cb84ad-9620-429e-9dbb-9b5252710bdb"><span class="sr-only">Isolde Button Down</span></a>```
+- `/products/nele-lantern-sleeve-top-2?id=755e8a51-1ceb-44de-a077-ac087c9181ff`
   - 카드 class: `inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focu`
   - img 속성: (img 없음)
-  - ```<a class="inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focus-visible:!absolute focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-inset rounded-sm" aria-label="View details for Monde Drape Bias Top" href="/products/monde-drape-bias-top?id=7a00e29c-ef82-41bd-9297-a86e4d7a089b"><span class="sr-only">Monde Drape Bias Top</span></```
-- `/products/isolde-button-down-6?id=335ab320-6b5a-422d-b304-077ff57e62c6`
+  - ```<a class="inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focus-visible:!absolute focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-inset rounded-sm" aria-label="View details for Nele Lantern Sleeve Top" href="/products/nele-lantern-sleeve-top-2?id=755e8a51-1ceb-44de-a077-ac087c9181ff"><span class="sr-only">Nele Lantern Sleeve T```
+- `/products/anni-denim-button?id=f15db154-f717-4782-8c2c-887262c5d114`
   - 카드 class: `inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focu`
   - img 속성: (img 없음)
-  - ```<a class="inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focus-visible:!absolute focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-inset rounded-sm" aria-label="View details for Isolde Button Down" href="/products/isolde-button-down-6?id=335ab320-6b5a-422d-b304-077ff57e62c6"><span class="sr-only">Isolde Button Down</span></a>```
+  - ```<a class="inline-flex items-center no-underline hover:underline absolute inset-0 z-10 focus-visible:!absolute focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-inset rounded-sm" aria-label="View details for Anni Denim Button Up" href="/products/anni-denim-button?id=f15db154-f717-4782-8c2c-887262c5d114"><span class="sr-only">Anni Denim Button Up</span></a>```
 
