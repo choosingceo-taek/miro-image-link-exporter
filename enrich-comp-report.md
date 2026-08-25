@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-08-25T08:33Z)
+# 엑셀 항목 보강 결과 (2026-08-25T10:24Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -12,15 +12,15 @@
 ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Frank & Eileen · Gymshark · James Perse · LNA · La Ligne · Lucky Brand · Marine Layer · Me+Em · Nation LTD · Ninety Percent · Sanctuary · Shopbop · Sweaty betty · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
 전체 평균은 아직입니다 — 혼용률 75% · 컬러웨이 63%.
-기준 95% 까지 11100개, 목표 99% 까지 12473개 더 채워야 합니다.
+기준 95% 까지 11104개, 목표 99% 까지 12477개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 34339개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 25858 | 75% | +0 |
-| 컬러웨이 | 21523 | 63% | +0 |
+| 혼용률 | 25857 | 75% | +0 |
+| 컬러웨이 | 21519 | 63% | +0 |
 
 - 검색 인덱스 재구축: 17724개
 
@@ -35,7 +35,7 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | Garnet hill | — | 0/107 (0%) | 0/107 (0%) | 혼용률 +0 컬러 +0 |  |
-| Joules | — | 0/243 (0%) | 0/243 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 23·직접차단 23 |
+| Joules | — | 0/243 (0%) | 0/243 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 28·직접차단 28 |
 | Massimo Dutti | — | 0/16 (0%) | 0/16 (0%) | 혼용률 +0 컬러 +0 |  |
 | Oysho | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 0/207 (0%) | 0/207 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 30·직접차단 30 |
@@ -45,10 +45,10 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Wilson | — | 0/46 (0%) | 0/46 (0%) | 혼용률 +0 컬러 +0 |  |
 | H&M | — | 0/747 (0%) | 0/747 (0%) | 혼용률 +0 컬러 +0 |  |
 | Zara | — | 0/438 (0%) | 0/438 (0%) | 혼용률 +0 컬러 +0 |  |
-| Fatface | — | 1/316 (0%) | 0/316 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 21·직접차단 21 |
+| Fatface | — | 1/316 (0%) | 0/316 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 23·직접차단 23 |
 | Anthropologie | — | 1/296 (0%) | 0/296 (0%) | 혼용률 +0 컬러 +0 |  |
 | Free People | — | 1/207 (0%) | 0/207 (0%) | 혼용률 +0 컬러 +0 |  |
-| Sezane | — | 2/180 (1%) | 7/180 (4%) | 혼용률 +0 컬러 +0 | 실패 정보없음 10·직접차단 10 |
+| Sezane | — | 1/180 (1%) | 3/180 (2%) | 혼용률 +0 컬러 +0 |  |
 | FP Movement | — | 4/124 (3%) | 0/124 (0%) | 혼용률 +0 컬러 +0 |  |
 | Loft | — | 57/651 (9%) | 59/651 (9%) | 혼용률 +0 컬러 +0 |  |
 | Addidas | — | 56/421 (13%) | 362/421 (86%) | 혼용률 +0 컬러 +0 |  |
