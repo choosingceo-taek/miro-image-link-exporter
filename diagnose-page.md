@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-08-26 21:42Z)
+# 목록 페이지 진단 (2026-08-28 02:26Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -63,7 +63,7 @@
 
 **주소를 찾은 속성**: `src` 118
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-fc2ea` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d0861` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d3bf9` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c9e3b` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c23ca` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c9c63` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-cf3f7` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d2b5b` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
