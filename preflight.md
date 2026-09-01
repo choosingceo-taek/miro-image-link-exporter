@@ -1,129 +1,129 @@
-# 사전 점검 (2026-09-01T00:59Z)
+# 사전 점검 (2026-09-01T23:47Z)
 
 사슬은 이어져 있다 · 주의 1건
 
-## 지금 뽑으면 컬러웨이·혼용률이 붙는 브랜드: 37/134개
+## 지금 뽑으면 컬러웨이·혼용률이 붙는 브랜드: 35/134개
 
-상품 10648개. 이 숫자가 기준이다 —
+상품 9757개. 이 숫자가 기준이다 —
 보강 리포트의 같은 항목은 방금 쓴 값을 낙관적으로 세므로 더 크게 나올 수 있다.
 
-ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Faherty · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Lucky Brand · Marine Layer · Me+Em · Nation LTD · Ninety Percent · On · Sanctuary · Scoth & soda · Shopbop · Sweaty betty · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
+ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Faherty · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Lucky Brand · Marine Layer · Nation LTD · Ninety Percent · On · Sanctuary · Seasalt cornwall · Shopbop · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
 ## 브랜드별 (엑셀 열이 열리는 순)
 
 | 브랜드 | 엑셀 | 혼용률 | 컬러웨이 | 상품 |
 |---|:-:|---:|---:|---:|
-| James Perse | ✅ | 100% | 100% | 145 |
-| Nation LTD | ✅ | 100% | 100% | 194 |
-| The Great | ✅ | 100% | 100% | 168 |
-| Veronica Beard | ✅ | 100% | 100% | 311 |
-| La Ligne | ✅ | 100% | 100% | 377 |
+| James Perse | ✅ | 100% | 100% | 147 |
+| Nation LTD | ✅ | 100% | 100% | 193 |
+| The Great | ✅ | 100% | 100% | 175 |
+| La Ligne | ✅ | 100% | 100% | 379 |
 | ALC | ✅ | 99% | 100% | 385 |
 | Draper James | ✅ | 99% | 100% | 168 |
-| Beyond yoga | ✅ | 99% | 100% | 207 |
-| vineyardvines | ✅ | 99% | 100% | 165 |
-| Shopbop | ✅ | 99% | 100% | 456 |
-| Gymshark | ✅ | 99% | 100% | 291 |
+| Shopbop | ✅ | 99% | 100% | 462 |
+| Veronica Beard | ✅ | 99% | 100% | 279 |
+| Beyond yoga | ✅ | 99% | 100% | 208 |
+| Frank & Eileen | ✅ | 99% | 100% | 398 |
+| Chico's | ✅ | 99% | 100% | 350 |
+| vineyardvines | ✅ | 99% | 100% | 167 |
+| Xirena | ✅ | 99% | 99% | 325 |
+| Gymshark | ✅ | 99% | 100% | 288 |
 | Varley | ✅ | 99% | 100% | 209 |
-| Chico's | ✅ | 99% | 100% | 345 |
-| Sanctuary | ✅ | 99% | 100% | 406 |
+| Seasalt cornwall | ✅ | 100% | 98% | 303 |
 | Vince | ✅ | 98% | 100% | 344 |
-| Scoth & soda | ✅ | 98% | 100% | 330 |
-| Ulla Johnson | ✅ | 98% | 100% | 308 |
-| Frank & Eileen | ✅ | 98% | 100% | 353 |
-| Evereve | ✅ | 98% | 100% | 449 |
-| Xirena | ✅ | 100% | 98% | 403 |
-| WHBM | ✅ | 97% | 100% | 259 |
+| Sanctuary | ✅ | 98% | 100% | 392 |
+| Evereve | ✅ | 98% | 100% | 451 |
+| WHBM | ✅ | 97% | 100% | 260 |
 | American Eagle | ✅ | 98% | 99% | 181 |
+| Damson Madder | ✅ | 97% | 100% | 245 |
 | Ninety Percent | ✅ | 97% | 100% | 165 |
-| On | ✅ | 97% | 100% | 162 |
+| On | ✅ | 97% | 100% | 157 |
 | Bash | ✅ | 97% | 100% | 204 |
-| CCC | ✅ | 96% | 100% | 626 |
-| Sweaty betty | ✅ | 96% | 100% | 341 |
-| Damson Madder | ✅ | 96% | 100% | 239 |
-| Whistles | ✅ | 97% | 100% | 209 |
+| CCC | ✅ | 97% | 100% | 632 |
+| Lucky Brand | ✅ | 98% | 98% | 188 |
+| Whistles | ✅ | 97% | 100% | 212 |
 | Citizens of Humanity | ✅ | 96% | 100% | 182 |
 | Jigsaw | ✅ | 96% | 100% | 231 |
-| Lucky Brand | ✅ | 97% | 98% | 191 |
+| Cotton on | ✅ | 98% | 98% | 468 |
 | Marine Layer | ✅ | 96% | 100% | 269 |
-| Cotton on | ✅ | 97% | 98% | 469 |
-| LNA | ✅ | 97% | 97% | 224 |
+| Ulla Johnson | ✅ | 95% | 100% | 309 |
+| LNA | ✅ | 97% | 97% | 226 |
 | Faherty | ✅ | 95% | 100% | 205 |
-| Vanessa bruno | — | 94% | 100% | 54 |
-| Hobbs | — | 94% | 100% | 349 |
-| Me+Em | ✅ | 95% | 99% | 477 |
-| Alo | — | 94% | 99% | 170 |
+| Vanessa bruno | — | 95% | 100% | 55 |
+| Alo | — | 94% | 99% | 196 |
+| Sweaty betty | — | 94% | 100% | 366 |
+| Hobbs | — | 93% | 100% | 350 |
+| Me+Em | — | 95% | 99% | 434 |
 | Vuori | — | 93% | 100% | 214 |
-| Monrow | — | 93% | 100% | 205 |
-| Reformation | — | 93% | 100% | 372 |
-| Phase eight | — | 92% | 100% | 394 |
-| Cotton citizen | — | 92% | 100% | 225 |
-| Spanx | — | 92% | 100% | 71 |
+| Monrow | — | 93% | 100% | 204 |
+| Reformation | — | 92% | 100% | 372 |
+| Phase eight | — | 91% | 100% | 394 |
+| Spanx | — | 91% | 100% | 75 |
 | Project Social T | — | 92% | 98% | 321 |
 | Theory | — | 95% | 96% | 340 |
+| Dickies | — | 91% | 100% | 138 |
+| Cotton citizen | — | 90% | 100% | 220 |
+| Jager | — | 99% | 91% | 350 |
 | Sundry | — | 97% | 93% | 278 |
-| Tuckernuck | — | 90% | 99% | 385 |
-| Oak + Fort | — | 96% | 93% | 342 |
-| Frame | — | 93% | 95% | 176 |
-| Seasalt cornwall | — | 89% | 98% | 303 |
-| Nike | — | 91% | 96% | 464 |
-| Z Supply | — | 96% | 90% | 261 |
-| Oasis | — | 84% | 100% | 188 |
-| Lilla P | — | 99% | 84% | 170 |
-| Good American | — | 83% | 100% | 150 |
+| Oak + Fort | — | 96% | 93% | 261 |
+| Tuckernuck | — | 90% | 99% | 380 |
+| Oasis | — | 88% | 100% | 135 |
+| Frame | — | 93% | 95% | 177 |
+| Nike | — | 91% | 96% | 465 |
+| Good American | — | 86% | 100% | 137 |
+| Z Supply | — | 95% | 90% | 261 |
+| Bellerose | — | 97% | 88% | 219 |
+| Lilla P | — | 99% | 83% | 168 |
 | Leset | — | 84% | 98% | 261 |
-| Bellerose | — | 97% | 86% | 323 |
 | Velvet | — | 100% | 82% | 373 |
 | Eddie bauer | — | 95% | 86% | 157 |
 | Outdoorvoices | — | 92% | 89% | 130 |
 | Goldie | — | 99% | 81% | 144 |
 | English factory | — | 86% | 94% | 221 |
+| Splendid | — | 81% | 98% | 400 |
 | Michael Stars | — | 91% | 86% | 214 |
-| Buck Mason | — | 78% | 99% | 100 |
 | Thread & supply | — | 96% | 80% | 309 |
-| Dickies | — | 75% | 100% | 265 |
-| Greyson | — | 93% | 81% | 59 |
-| Splendid | — | 73% | 98% | 400 |
+| Buck Mason | — | 78% | 99% | 89 |
+| Greyson | — | 93% | 80% | 59 |
 | Paige | — | 84% | 86% | 56 |
+| Scoth & soda | — | 83% | 84% | 389 |
 | Addison bay | — | 93% | 72% | 153 |
-| Jager | — | 99% | 55% | 347 |
-| Splits59 | — | 84% | 69% | 114 |
+| Splits59 | — | 84% | 69% | 115 |
 | rouje | — | 54% | 99% | 229 |
 | Stateside | — | 61% | 84% | 325 |
-| J crew | — | 72% | 70% | 144 |
+| J crew | — | 72% | 70% | 143 |
 | Ann Taylor | — | 67% | 73% | 428 |
 | Madewell | — | 33% | 100% | 18 |
-| Club monaco | — | 89% | 31% | 104 |
+| Club monaco | — | 91% | 30% | 107 |
 | Nylora | — | 96% | 22% | 226 |
 | Boldest | — | 17% | 100% | 191 |
-| Monsoon | — | 97% | 18% | 34 |
+| Monsoon | — | 97% | 12% | 33 |
 | Arket | — | 54% | 54% | 356 |
-| Rails | — | 85% | 19% | 314 |
+| Rails | — | 84% | 20% | 314 |
 | Old Navy | — | 100% | 0% | 7 |
-| Rag & bone | — | 99% | 0% | 216 |
-| Gerard darel | — | 99% | 0% | 205 |
+| Gerard darel | — | 99% | 0% | 103 |
+| Rag & bone | — | 99% | 0% | 217 |
 | L.L bean | — | 58% | 41% | 326 |
 | Addidas | — | 12% | 85% | 430 |
-| Bassike | — | 97% | 0% | 320 |
+| Bassike | — | 97% | 0% | 322 |
+| Whitestuff | — | 97% | 0% | 395 |
 | Barbour | — | 97% | 0% | 180 |
-| Whitestuff | — | 97% | 0% | 480 |
-| J.mclaughlin | — | 93% | 0% | 206 |
+| J.mclaughlin | — | 94% | 0% | 226 |
+| Wrap | — | 91% | 0% | 409 |
 | Apiece Apart | — | 91% | 0% | 139 |
 | Carlhartt | — | 84% | 7% | 69 |
 | &Other Stories | — | 55% | 36% | 472 |
-| Gestuz | — | 90% | 0% | 671 |
-| Wrap | — | 90% | 0% | 404 |
-| J.jill | — | 89% | 0% | 83 |
-| Poetry | — | 88% | 0% | 350 |
+| Gestuz | — | 91% | 0% | 671 |
+| J.jill | — | 89% | 0% | 84 |
+| Boden | — | 80% | 6% | 326 |
 | The upside | — | 84% | 0% | 360 |
+| Poetry | — | 83% | 0% | 254 |
 | Lands end | — | 83% | 0% | 107 |
-| Boden | — | 73% | 5% | 328 |
 | Aritzia | — | 72% | 0% | 800 |
-| Aerie | — | 31% | 34% | 110 |
-| Mint velvet | — | 63% | 0% | 341 |
 | Mango | — | 62% | 0% | 87 |
-| Sessun | — | 53% | 0% | 87 |
-| Everlane | — | 50% | 0% | 351 |
+| Aerie | — | 34% | 28% | 121 |
+| Mint velvet | — | 61% | 0% | 341 |
+| Sessun | — | 58% | 0% | 97 |
+| Everlane | — | 54% | 0% | 366 |
 | Abercrombie & Fitch | — | 48% | 0% | 240 |
 | Loft | — | 19% | 21% | 640 |
 | Coldwatercreek | — | 35% | 2% | 203 |
@@ -136,12 +136,12 @@ ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Citizens of Hu
 | Banana Republic | — | 0% | 0% | 1 |
 | Fatface | — | 0% | 0% | 311 |
 | Gap | — | 0% | 0% | 6 |
-| Garnet hill | — | 0% | 0% | 107 |
+| Garnet hill | — | 0% | 0% | 75 |
 | Joules | — | 0% | 0% | 393 |
 | Massimo Dutti | — | 0% | 0% | 16 |
 | Oysho | — | 0% | 0% | 14 |
 | Patagonia | — | 0% | 0% | 208 |
-| Prana | — | 0% | 0% | 44 |
+| Prana | — | 0% | 0% | 61 |
 | Lululemon | — | 0% | 0% | 478 |
 | The white company | — | 0% | 0% | 64 |
 | Wilson | — | 0% | 0% | 46 |
