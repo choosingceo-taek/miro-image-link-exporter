@@ -1,19 +1,18 @@
-# 혼용률 보강 — 진짜 크롬 (2026-09-01 00:27Z)
+# 혼용률 보강 — 진짜 크롬 (2026-09-01 23:07Z)
 
 평 fetch 로는 차단되는 브랜드를 진짜 크롬으로 다시 읽은 결과입니다.
 
-- 시도 587개 · **채움 28개** (5%)
+- 시도 331개 · **채움 31개** (9%)
 
 
 | 브랜드 | 상품 | 시도 | 채움 | 사이트 미표기 | 차단·타임아웃 | 오류 |
 |---|---:|---:|---:|---:|---:|---:|
-| H&M | 746 | 120 | **0** | 0 | 120 | 0 |
-| Fatface | 311 | 120 | **0** | 0 | 120 | 0 |
-| Garnet hill | 107 | 107 | **0** | 0 | 107 | 0 |
-| Sezane | 179 | 120 | **0** | 0 | 120 | 0 |
-| Splendid | 400 | 120 | **28** | 1 | 91 | 0 |
+| Anthropologie | 311 | 120 | **0** | 0 | 120 | 0 |
+| FP Movement | 82 | 78 | **0** | 0 | 78 | 0 |
+| Wilson | 46 | 36 | **0** | 0 | 36 | 0 |
+| Splendid | 400 | 97 | **31** | 0 | 66 | 0 |
 
-- 건너뜀(차단 이력): Abercrombie & Fitch(6일) · Addidas(5일) · Anthropologie(1일) · Aritzia(4일) · Arket(4일) · Eileen fisher(4일) · FP Movement(1일) · Free People(2일) · L.L bean(4일) · Joules(13일) · Patagonia(13일) · Scoth & soda(5일) · Lululemon(13일) · &Other Stories(5일) · Wilson(1일)
+- 건너뜀(차단 이력): Abercrombie & Fitch(5일) · Addidas(4일) · Aritzia(3일) · Arket(3일) · Eileen fisher(3일) · Fatface(14일) · Free People(1일) · Garnet hill(14일) · L.L bean(3일) · Joules(13일) · Patagonia(13일) · Scoth & soda(4일) · Sezane(14일) · Lululemon(13일) · &Other Stories(4일) · H&M(14일)
 
 차단·타임아웃이 대부분이면 진짜 크롬으로도 안 된다는 뜻이므로, 그 브랜드는
 사람 PC 의 확장(가정용 IP)이 맡아야 합니다. '사이트 미표기'가 대부분이면
