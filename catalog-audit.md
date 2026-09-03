@@ -1,13 +1,13 @@
-# 엑셀 4항목 채움률 (2026-09-03T22:15Z)
+# 엑셀 4항목 채움률 (2026-09-03T22:24Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 27819/33895 | 82% |
-| 컬러 | 21189/33895 | 63% |
-| 사이즈 | 14583/33895 | 43% |
-| 혼용률 | 25543/33895 | 75% |
+| 가격 | 27820/33895 | 82% |
+| 컬러 | 21248/33895 | 63% |
+| 사이즈 | 14592/33895 | 43% |
+| 혼용률 | 25606/33895 | 76% |
 
 **가격·혼용률 모두 80% 이상인 브랜드 79개** (시연에 안전)
 
@@ -17,7 +17,7 @@
 | CCC | 648 | 85% | 100% | 0% | 96% |
 | Cotton on | 470 | 100% | 98% | 0% | 98% |
 | Evereve | 461 | 100% | 100% | 100% | 98% |
-| Shopbop | 454 | 100% | 90% | 0% | 89% |
+| Shopbop | 454 | 100% | 98% | 0% | 97% |
 | Frank & Eileen | 450 | 100% | 100% | 100% | 99% |
 | Sanctuary | 406 | 100% | 100% | 100% | 99% |
 | Splendid | 402 | 100% | 98% | 100% | 85% |
@@ -28,13 +28,13 @@
 | Tuckernuck | 383 | 100% | 99% | 99% | 90% |
 | Reformation | 374 | 100% | 100% | 100% | 92% |
 | Velvet | 373 | 100% | 82% | 100% | 100% |
-| Sweaty betty | 368 | 100% | 95% | 0% | 89% |
+| Sweaty betty | 368 | 100% | 100% | 0% | 93% |
 | Me+Em | 367 | 100% | 99% | 0% | 95% |
 | The upside | 360 | 97% | 0% | 0% | 84% |
 | Chico's | 349 | 99% | 100% | 0% | 99% |
 | Hobbs | 349 | 100% | 100% | 0% | 93% |
 | Oak + Fort | 341 | 100% | 93% | 100% | 96% |
-| Jager | 340 | 100% | 94% | 0% | 96% |
+| Jager | 340 | 100% | 95% | 0% | 97% |
 | Vince | 337 | 100% | 100% | 100% | 98% |
 | Veronica Beard | 336 | 100% | 100% | 99% | 99% |
 | Wrap | 326 | 97% | 0% | 0% | 90% |
@@ -68,7 +68,7 @@
 | Arket | extension | 440 | 96% | 54% | 54% | 53% |
 | Ann Taylor | extension | 428 | 1% | 73% | 0% | 67% |
 | Addidas | extension | 420 | 91% | 83% | 0% | 11% |
-| Everlane | server | 419 | 100% | 0% | 98% | 56% |
+| Everlane | server | 419 | 100% | 0% | 100% | 58% |
 | Eileen fisher | extension | 410 | 45% | 0% | 0% | 34% |
 | La Ligne | server | 379 | 6% | 100% | 0% | 100% |
 | Joules | extension | 361 | 66% | 0% | 0% | 0% |
@@ -130,9 +130,9 @@
 - Loft — 30시간 전 · 644개
 - Lululemon — 30시간 전 · 479개
 - Aritzia — 30시간 전 · 800개
-- Madewell — 29시간 전 · 19개
-- Mango — 29시간 전 · 99개
-- Arket — 29시간 전 · 440개
+- Madewell — 30시간 전 · 19개
+- Mango — 30시간 전 · 99개
+- Arket — 30시간 전 · 440개
 - Massimo Dutti — 29시간 전 · 16개
 - Athleta — 29시간 전 · 2개
 - Old Navy — 29시간 전 · 8개
@@ -164,7 +164,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 25543/33895개 (75%) · 미완 브랜드 125개
+- 전체 25606/33895개 (76%) · 미완 브랜드 125개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -200,8 +200,8 @@
 | Arket | extension | 234/440 (53%) |
 | Mint velvet | server | 196/355 (55%) |
 | Aritzia | extension | 450/800 (56%) |
-| Everlane | server | 236/419 (56%) |
 | L.L bean | extension | 185/322 (57%) |
+| Everlane | server | 243/419 (58%) |
 | Stateside | server | 203/323 (63%) |
 | Mango | extension | 63/99 (64%) |
 | rouje | server | 147/225 (65%) |
@@ -222,8 +222,6 @@
 | Lands end | extension | 92/108 (85%) |
 | Good American | server | 120/138 (87%) |
 | Nike | browser | 427/478 (89%) |
-| Shopbop | browser | 402/454 (89%) |
-| Sweaty betty | browser | 328/368 (89%) |
 | Tuckernuck | server | 345/383 (90%) |
 | Wrap | browser | 292/326 (90%) |
 | Michael Stars | server | 202/225 (90%) |
@@ -240,6 +238,7 @@
 | Club monaco | server | 97/106 (92%) |
 | J.jill | server | 84/91 (92%) |
 | Greyson | server | 56/61 (92%) |
+| Sweaty betty | browser | 342/368 (93%) |
 | Hobbs | server | 324/349 (93%) |
 | Project Social T | server | 298/322 (93%) |
 | Monrow | server | 188/203 (93%) |
@@ -256,7 +255,6 @@
 | Vanessa bruno | server | 52/55 (95%) |
 | CCC | browser | 625/648 (96%) |
 | Oak + Fort | server | 326/341 (96%) |
-| Jager | server | 326/340 (96%) |
 | Thread & supply | server | 285/296 (96%) |
 | Z Supply | server | 261/272 (96%) |
 | Marine Layer | server | 257/269 (96%) |
@@ -265,7 +263,9 @@
 | On | browser | 179/186 (96%) |
 | Citizens of Humanity | server | 177/184 (96%) |
 | Bellerose | server | 151/157 (96%) |
+| Shopbop | browser | 439/454 (97%) |
 | Whitestuff | server | 387/400 (97%) |
+| Jager | server | 331/340 (97%) |
 | Bassike | server | 313/323 (97%) |
 | Sundry | server | 271/278 (97%) |
 | WHBM | server | 251/258 (97%) |
@@ -430,7 +430,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-09-03T22:15Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-09-03T22:24Z)
 
 - 카탈로그 134개 · 상품 33895개 검사 · **문제 항목 68개**
 - 문제가 있는 브랜드 21개
