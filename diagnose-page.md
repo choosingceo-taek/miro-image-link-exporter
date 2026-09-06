@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-09-05 20:58Z)
+# 목록 페이지 진단 (2026-09-06 21:06Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -61,9 +61,13 @@
 - 링크 510개 · `<img>` 222개 · iframe 12개
 - 링크 중 이미지가 딸린 것 118개 → 그중 주소를 뽑아낸 것 **118개**
 
+| 증상 | 개수 | 뜻 |
+|---|---:|---|
+| shadow DOM 안의 링크 | 6 | shadow 호스트 1개 — querySelectorAll 로는 안 보입니다 |
+
 **주소를 찾은 속성**: `src` 118
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-eba73` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f075a` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f479d` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d02ed` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 13 · `container_2ZJCi with-columns_yaY1x` 7 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d0a40` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-e9439` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f99c5` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c2ede` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
