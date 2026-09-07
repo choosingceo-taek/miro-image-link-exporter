@@ -1,26 +1,26 @@
-# 엑셀 항목 보강 결과 (2026-09-06T23:23Z)
+# 엑셀 항목 보강 결과 (2026-09-07T02:14Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
 > 이 숫자는 **방금 쓴 값을 낙관적으로** 센 것이다 — KV 가 최종 일관성이라 쓴 직후에는
 > 안 읽히는 일이 있어 일부러 그렇게 뒀다. 안정된 뒤의 실제 숫자는 `preflight.md` 를 본다.
 
-**지금 두 열이 다 채워져 나오는 브랜드: 34/134개** (상품 9312/32846개)
+**지금 두 열이 다 채워져 나오는 브랜드: 33/134개** (상품 8847/32846개)
 
 패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.
 
-ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Faherty · Frank & Eileen · Gymshark · James Perse · LNA · La Ligne · Nation LTD · Nike · Ninety Percent · On · Project Social T · Sanctuary · Seasalt cornwall · Shopbop · Sundry · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
+ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity · Cotton on · Damson Madder · Draper James · Evereve · Faherty · Frank & Eileen · Gymshark · James Perse · LNA · La Ligne · Nation LTD · Ninety Percent · On · Project Social T · Sanctuary · Seasalt cornwall · Shopbop · Sundry · The Great · Ulla Johnson · Varley · Veronica Beard · Vince · WHBM · Whistles · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 75% · 컬러웨이 62%.
-기준 95% 까지 10990개, 목표 99% 까지 12304개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 60%.
+기준 95% 까지 11496개, 목표 99% 까지 12810개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 32846개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 24720 | 75% | +2 |
-| 컬러웨이 | 20214 | 62% | +2 |
+| 혼용률 | 24309 | 74% | +0 |
+| 컬러웨이 | 19708 | 60% | +0 |
 
 - 검색 인덱스 재구축: 17430개
 
@@ -37,20 +37,20 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | Joules | — | 0/363 (0%) | 0/363 (0%) | 혼용률 +0 컬러 +0 |  |
 | Massimo Dutti | — | 0/10 (0%) | 0/10 (0%) | 혼용률 +0 컬러 +0 |  |
-| Patagonia | — | 0/162 (0%) | 0/162 (0%) | 혼용률 +0 컬러 +0 |  |
 | Oysho | — | 0/14 (0%) | 0/14 (0%) | 혼용률 +0 컬러 +0 |  |
+| Patagonia | — | 0/162 (0%) | 0/162 (0%) | 혼용률 +0 컬러 +0 |  |
 | Prana | — | 0/85 (0%) | 0/85 (0%) | 혼용률 +0 컬러 +0 |  |
 | The white company | — | 0/62 (0%) | 0/62 (0%) | 혼용률 +0 컬러 +0 |  |
 | Wilson | — | 0/43 (0%) | 0/43 (0%) | 혼용률 +0 컬러 +0 |  |
-| Zara | — | 0/456 (0%) | 0/456 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 22 |
-| H&M | — | 0/746 (0%) | 0/746 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 34·직접차단 34 |
-| Lululemon | — | 1/462 (0%) | 0/462 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 2·직접차단 2 |
+| Zara | — | 0/456 (0%) | 0/456 (0%) | 혼용률 +0 컬러 +0 |  |
+| H&M | — | 0/746 (0%) | 0/746 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 33·직접차단 33 |
+| Lululemon | — | 1/462 (0%) | 0/462 (0%) | 혼용률 +0 컬러 +0 |  |
 | Sezane | — | 1/186 (1%) | 4/186 (2%) | 혼용률 +0 컬러 +0 |  |
-| Anthropologie | — | 4/400 (1%) | 0/400 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 16·직접차단 16 |
+| Anthropologie | — | 4/400 (1%) | 0/400 (0%) | 혼용률 +0 컬러 +0 |  |
+| Free People | — | 3/173 (2%) | 0/173 (0%) | 혼용률 +0 컬러 +0 |  |
 | Garnet hill | — | 2/113 (2%) | 0/113 (0%) | 혼용률 +0 컬러 +0 |  |
-| Free People | — | 12/173 (7%) | 1/173 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 2·직접차단 2 |
+| FP Movement | — | 2/76 (3%) | 0/76 (0%) | 혼용률 +0 컬러 +0 |  |
 | Addidas | — | 35/420 (8%) | 290/420 (69%) | 혼용률 +0 컬러 +0 |  |
-| FP Movement | — | 10/76 (13%) | 0/76 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 1·직접차단 1 |
 | Loft | — | 115/639 (18%) | 122/639 (19%) | 혼용률 +0 컬러 +0 |  |
 | Boldest | — | 36/195 (18%) | 195/195 (100%) | 혼용률 +0 컬러 +0 |  |
 | Madewell | — | 6/19 (32%) | 19/19 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -86,6 +86,7 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Leset | — | 229/268 (85%) | 263/268 (98%) | 혼용률 +0 컬러 +0 |  |
 | J.jill | — | 73/85 (86%) | 0/85 (0%) | 혼용률 +0 컬러 +0 |  |
 | Good American | — | 129/147 (88%) | 147/147 (100%) | 혼용률 +0 컬러 +0 |  |
+| Nike | — | 412/465 (89%) | 445/465 (96%) | 혼용률 +0 컬러 +0 |  |
 | Spanx | — | 71/79 (90%) | 79/79 (100%) | 혼용률 +0 컬러 +0 |  |
 | Tuckernuck | — | 345/383 (90%) | 380/383 (99%) | 혼용률 +0 컬러 +0 |  |
 | Cotton citizen | — | 130/144 (90%) | 144/144 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -164,5 +165,4 @@ ALC · American Eagle · Beyond yoga · CCC · Chico's · Citizens of Humanity �
 | Veronica Beard | ✅ | 271/271 (100%) | 271/271 (100%) | 혼용률 +0 컬러 +0 |  |
 | Xirena | ✅ | 170/170 (100%) | 168/170 (99%) | 혼용률 +0 컬러 +0 |  |
 | Z Supply | — | 266/266 (100%) | 238/266 (89%) | 혼용률 +0 컬러 +0 |  |
-| Nike | ✅ | 806/465 (173%) | 950/465 (204%) | 혼용률 +2 컬러 +2 | 성공 페이지 2 |
 
