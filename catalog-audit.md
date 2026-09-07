@@ -1,13 +1,13 @@
-# 엑셀 4항목 채움률 (2026-09-07T22:38Z)
+# 엑셀 4항목 채움률 (2026-09-07T22:44Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 27720/33868 | 82% |
-| 컬러 | 20685/33868 | 61% |
-| 사이즈 | 14260/33868 | 42% |
-| 혼용률 | 25389/33868 | 75% |
+| 가격 | 27756/33908 | 82% |
+| 컬러 | 20704/33908 | 61% |
+| 사이즈 | 14260/33908 | 42% |
+| 혼용률 | 25439/33908 | 75% |
 
 **가격·혼용률 모두 80% 이상인 브랜드 77개** (시연에 안전)
 
@@ -15,11 +15,11 @@
 |---|---:|---:|---:|---:|---:|
 | Gestuz | 666 | 100% | 0% | 0% | 91% |
 | CCC | 656 | 85% | 100% | 0% | 96% |
+| Wrap | 469 | 99% | 0% | 0% | 92% |
 | Cotton on | 467 | 100% | 98% | 0% | 97% |
 | Evereve | 457 | 100% | 100% | 100% | 97% |
-| Shopbop | 451 | 100% | 98% | 0% | 97% |
+| Shopbop | 451 | 100% | 99% | 0% | 98% |
 | Frank & Eileen | 444 | 100% | 100% | 100% | 99% |
-| Wrap | 431 | 98% | 0% | 0% | 91% |
 | Sanctuary | 406 | 100% | 100% | 100% | 99% |
 | Whitestuff | 403 | 100% | 0% | 0% | 97% |
 | Splendid | 402 | 100% | 98% | 100% | 89% |
@@ -29,13 +29,13 @@
 | Scoth & soda | 380 | 100% | 95% | 84% | 83% |
 | Reformation | 374 | 100% | 100% | 100% | 92% |
 | Velvet | 373 | 100% | 82% | 100% | 100% |
-| Sweaty betty | 371 | 100% | 100% | 0% | 93% |
-| The upside | 360 | 97% | 0% | 0% | 84% |
+| The upside | 369 | 95% | 0% | 0% | 82% |
+| Sweaty betty | 364 | 100% | 99% | 0% | 93% |
 | Hobbs | 351 | 100% | 100% | 0% | 94% |
 | Chico's | 349 | 99% | 100% | 0% | 99% |
 | Oak + Fort | 339 | 100% | 93% | 100% | 96% |
 | WHBM | 337 | 100% | 100% | 0% | 98% |
-| Jager | 336 | 100% | 51% | 0% | 94% |
+| Jager | 336 | 100% | 55% | 0% | 98% |
 | Poetry | 336 | 100% | 0% | 0% | 85% |
 | Vince | 335 | 100% | 100% | 100% | 98% |
 | Project Social T | 326 | 100% | 98% | 98% | 92% |
@@ -62,7 +62,7 @@
 | H&M | extension | 746 | 100% | 0% | 0% | 0% |
 | Loft | extension | 639 | 0% | 19% | 0% | 18% |
 | Joules | extension | 486 | 61% | 0% | 0% | 0% |
-| Nike | browser | 484 | 37% | 93% | 0% | 87% |
+| Nike | browser | 484 | 37% | 95% | 0% | 88% |
 | &Other Stories | extension | 470 | 97% | 34% | 0% | 53% |
 | Lululemon | extension | 460 | 0% | 0% | 0% | 0% |
 | Zara | server | 455 | 100% | 0% | 0% | 0% |
@@ -131,8 +131,8 @@
 - H&M — 8시간 전 · 746개
 - Free People — 8시간 전 · 204개
 - Paige — 8시간 전 · 56개
-- Loft — 7시간 전 · 639개
-- Lululemon — 7시간 전 · 460개
+- Loft — 8시간 전 · 639개
+- Lululemon — 8시간 전 · 460개
 - Aritzia — 7시간 전 · 800개
 - Madewell — 7시간 전 · 19개
 - Wilson — 7시간 전 · 43개
@@ -166,7 +166,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 25389/33868개 (75%) · 미완 브랜드 124개
+- 전체 25439/33908개 (75%) · 미완 브랜드 124개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -212,8 +212,8 @@
 | Stateside | server | 228/310 (74%) |
 | Buck Mason | server | 68/91 (75%) |
 | Oasis | server | 92/119 (77%) |
+| The upside | browser | 301/369 (82%) |
 | Scoth & soda | server | 314/380 (83%) |
-| The upside | browser | 301/360 (84%) |
 | Splits59 | server | 97/115 (84%) |
 | Lands end | extension | 92/110 (84%) |
 | Carlhartt | browser | 58/69 (84%) |
@@ -222,31 +222,30 @@
 | Leset | browser | 228/267 (85%) |
 | J.jill | server | 72/85 (85%) |
 | Paige | extension | 48/56 (86%) |
-| Nike | browser | 421/484 (87%) |
+| Nike | browser | 427/484 (88%) |
 | Good American | server | 137/155 (88%) |
 | Splendid | server | 358/402 (89%) |
 | Tuckernuck | server | 346/383 (90%) |
 | Michael Stars | server | 202/225 (90%) |
 | Spanx | server | 71/79 (90%) |
 | Gestuz | browser | 607/666 (91%) |
-| Wrap | browser | 394/431 (91%) |
 | Phase eight | server | 358/394 (91%) |
 | Cotton citizen | server | 200/220 (91%) |
 | On | browser | 197/217 (91%) |
 | Dickies | server | 146/161 (91%) |
 | Apiece Apart | browser | 126/138 (91%) |
 | Club monaco | server | 94/103 (91%) |
+| Wrap | browser | 430/469 (92%) |
 | Reformation | server | 344/374 (92%) |
 | Project Social T | server | 300/326 (92%) |
 | Alo | server | 176/191 (92%) |
 | Outdoorvoices | server | 119/130 (92%) |
 | Greyson | server | 55/60 (92%) |
-| Sweaty betty | browser | 346/371 (93%) |
+| Sweaty betty | browser | 338/364 (93%) |
 | Vuori | server | 199/213 (93%) |
 | Monrow | server | 189/204 (93%) |
 | Addison bay | server | 142/153 (93%) |
 | Hobbs | server | 329/351 (94%) |
-| Jager | server | 317/336 (94%) |
 | Bash | server | 122/130 (94%) |
 | Me+Em | browser | 308/325 (95%) |
 | Ulla Johnson | server | 295/310 (95%) |
@@ -269,7 +268,6 @@
 | Bellerose | server | 151/157 (96%) |
 | Cotton on | browser | 455/467 (97%) |
 | Evereve | server | 445/457 (97%) |
-| Shopbop | browser | 438/451 (97%) |
 | Whitestuff | server | 390/403 (97%) |
 | Sundry | server | 270/277 (97%) |
 | Jigsaw | server | 229/237 (97%) |
@@ -278,7 +276,9 @@
 | American Eagle | browser | 173/179 (97%) |
 | Eddie bauer | server | 105/108 (97%) |
 | Monsoon | server | 29/30 (97%) |
+| Shopbop | browser | 443/451 (98%) |
 | WHBM | server | 329/337 (98%) |
+| Jager | server | 328/336 (98%) |
 | Vince | server | 329/335 (98%) |
 | Varley | server | 162/166 (98%) |
 | Ninety Percent | server | 158/162 (98%) |
@@ -424,9 +424,9 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-09-07T22:38Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-09-07T22:44Z)
 
-- 카탈로그 134개 · 상품 33868개 검사 · **문제 항목 67개**
+- 카탈로그 134개 · 상품 33908개 검사 · **문제 항목 67개**
 - 문제가 있는 브랜드 21개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
@@ -481,7 +481,7 @@
   - [배너 문구가 상품명] tops · New in — https://www.sezane.com/us-en/petit-sezane/enfant/kids-petit-sezane
   - [배너 문구가 상품명] tops · NEW IN — https://www.sezane.com/us-en/octobre-editions/new-in
 
-## The upside — 3/360개 (browser)
+## The upside — 3/369개 (browser)
 
 - **3개** · https://www.theupside.com/shop/tops/
   - [최상위 경로(랜딩 페이지로 보임)] tops · Header Submenu Image — https://www.theupside.com/tanks-tees/
@@ -546,7 +546,7 @@
 - **1개** · (출처 불명)
   - [상품 페이지가 아닌 경로] sweatshirts · Gift Card — https://sundryclothing.com/products/gift-card
 
-## Sweaty betty — 1/371개 (browser)
+## Sweaty betty — 1/364개 (browser)
 
 - **1개** · https://www.sweatybetty.com/us/shop/bottoms
   - [배너 문구가 상품명] pants · explore more adjustable cuff wide leg pants SB04728 BrackenGreen.html — https://www.sweatybetty.com/us/shop/bottoms/pants/explore-more-adjustable-cuff-wide-leg-pants-SB04728_BrackenGreen.html
