@@ -1,13 +1,13 @@
-# 엑셀 4항목 채움률 (2026-09-08T22:21Z)
+# 엑셀 4항목 채움률 (2026-09-08T22:27Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
 | 가격 | 27290/33350 | 82% |
-| 컬러 | 20344/33350 | 61% |
+| 컬러 | 20369/33350 | 61% |
 | 사이즈 | 14283/33350 | 43% |
-| 혼용률 | 25049/33350 | 75% |
+| 혼용률 | 25074/33350 | 75% |
 
 **가격·혼용률 모두 80% 이상인 브랜드 77개** (시연에 안전)
 
@@ -16,7 +16,7 @@
 | Gestuz | 667 | 100% | 0% | 0% | 91% |
 | CCC | 658 | 85% | 100% | 0% | 96% |
 | Cotton on | 473 | 100% | 97% | 0% | 97% |
-| Shopbop | 454 | 100% | 98% | 0% | 96% |
+| Shopbop | 454 | 100% | 100% | 0% | 99% |
 | Frank & Eileen | 444 | 100% | 100% | 100% | 99% |
 | ALC | 440 | 100% | 100% | 97% | 98% |
 | Scoth & soda | 407 | 100% | 95% | 85% | 84% |
@@ -29,10 +29,10 @@
 | Reformation | 374 | 100% | 100% | 100% | 92% |
 | The upside | 369 | 97% | 0% | 0% | 84% |
 | Vince | 369 | 100% | 100% | 100% | 98% |
-| Sweaty betty | 367 | 100% | 99% | 0% | 92% |
+| Sweaty betty | 367 | 100% | 100% | 0% | 93% |
 | Wrap | 361 | 99% | 0% | 0% | 91% |
 | Hobbs | 351 | 100% | 100% | 0% | 94% |
-| Jager | 348 | 100% | 50% | 0% | 95% |
+| Jager | 348 | 100% | 53% | 0% | 98% |
 | Chico's | 343 | 99% | 100% | 0% | 99% |
 | Oak + Fort | 339 | 100% | 93% | 100% | 96% |
 | Sundry | 337 | 100% | 97% | 100% | 98% |
@@ -63,7 +63,7 @@
 | Loft | extension | 643 | 0% | 19% | 0% | 18% |
 | Lululemon | extension | 473 | 0% | 0% | 0% | 0% |
 | &Other Stories | extension | 473 | 97% | 34% | 0% | 53% |
-| Nike | browser | 465 | 34% | 95% | 0% | 88% |
+| Nike | browser | 465 | 34% | 96% | 0% | 89% |
 | Everlane | server | 458 | 100% | 0% | 100% | 62% |
 | Zara | server | 457 | 100% | 0% | 0% | 0% |
 | Ann Taylor | extension | 428 | 1% | 70% | 0% | 64% |
@@ -135,7 +135,7 @@
 - Lululemon — 8시간 전 · 473개
 - Aritzia — 8시간 전 · 800개
 - Madewell — 8시간 전 · 18개
-- Wilson — 7시간 전 · 40개
+- Wilson — 8시간 전 · 40개
 - Mango — 7시간 전 · 133개
 - Addidas — 7시간 전 · 420개
 - Arket — 7시간 전 · 414개
@@ -152,7 +152,7 @@
 - Abercrombie & Fitch — 7시간 전 · 226개
 - L.L bean — 7시간 전 · 330개
 - Ann Taylor — 7시간 전 · 428개
-- Lands end — 6시간 전 · 111개
+- Lands end — 7시간 전 · 111개
 - Anthropologie — 6시간 전 · 275개
 - Oysho — 6시간 전 · 14개
 - Patagonia — 6시간 전 · 162개
@@ -166,7 +166,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 25049/33350개 (75%) · 미완 브랜드 123개
+- 전체 25074/33350개 (75%) · 미완 브랜드 123개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -222,7 +222,7 @@
 | J.jill | server | 75/87 (86%) |
 | Carlhartt | browser | 59/69 (86%) |
 | Oasis | server | 93/107 (87%) |
-| Nike | browser | 410/465 (88%) |
+| Nike | browser | 412/465 (89%) |
 | Splendid | server | 358/402 (89%) |
 | Tuckernuck | server | 344/382 (90%) |
 | Spanx | server | 72/80 (90%) |
@@ -235,7 +235,6 @@
 | Cotton citizen | server | 137/151 (91%) |
 | Apiece Apart | browser | 127/139 (91%) |
 | Reformation | server | 343/374 (92%) |
-| Sweaty betty | browser | 338/367 (92%) |
 | Beyond yoga | server | 265/287 (92%) |
 | Alo | server | 177/192 (92%) |
 | Addison bay | server | 147/160 (92%) |
@@ -243,11 +242,11 @@
 | Michael Stars | server | 105/114 (92%) |
 | Club monaco | server | 97/106 (92%) |
 | Greyson | server | 55/60 (92%) |
+| Sweaty betty | browser | 340/367 (93%) |
 | Monrow | server | 201/216 (93%) |
 | Good American | server | 99/107 (93%) |
 | Hobbs | server | 330/351 (94%) |
 | Theory | extension | 237/251 (94%) |
-| Jager | server | 329/348 (95%) |
 | Me+Em | browser | 307/322 (95%) |
 | J.mclaughlin | browser | 259/274 (95%) |
 | Frame | server | 217/228 (95%) |
@@ -256,7 +255,6 @@
 | Eddie bauer | server | 162/171 (95%) |
 | Vanessa bruno | server | 52/55 (95%) |
 | CCC | browser | 633/658 (96%) |
-| Shopbop | browser | 438/454 (96%) |
 | Oak + Fort | server | 324/339 (96%) |
 | Ulla Johnson | server | 303/316 (96%) |
 | Thread & supply | server | 289/301 (96%) |
@@ -277,6 +275,7 @@
 | Monsoon | server | 31/32 (97%) |
 | ALC | server | 433/440 (98%) |
 | Vince | server | 363/369 (98%) |
+| Jager | server | 340/348 (98%) |
 | Sundry | server | 330/337 (98%) |
 | Sanctuary | server | 286/292 (98%) |
 | Damson Madder | server | 268/273 (98%) |
@@ -285,6 +284,7 @@
 | American Eagle | browser | 176/180 (98%) |
 | Ninety Percent | server | 158/162 (98%) |
 | LNA | server | 140/143 (98%) |
+| Shopbop | browser | 448/454 (99%) |
 | Frank & Eileen | server | 438/444 (99%) |
 | Chico's | server | 339/343 (99%) |
 | Gymshark | server | 261/263 (99%) |
@@ -429,7 +429,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-09-08T22:21Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-09-08T22:27Z)
 
 - 카탈로그 134개 · 상품 33350개 검사 · **문제 항목 37개**
 - 문제가 있는 브랜드 20개
