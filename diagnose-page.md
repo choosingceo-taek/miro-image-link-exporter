@@ -1,16 +1,32 @@
-# 목록 페이지 진단 (2026-09-12 21:16Z)
+# 목록 페이지 진단 (2026-09-13 21:16Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
 ## https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017
 
-- HTTP **502** · 최종주소 `https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017`
-- 제목: "<!--# echo var="status" default="" --> <!--# echo var="status_text" default="Something went wrong" -->"
+- HTTP **200** · 최종주소 `https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017`
+- 제목: "Women's Sweatpants | Carhartt"
+- 링크 254개 · `<img>` 85개 · iframe 2개
+- 링크 중 이미지가 딸린 것 38개 → 그중 주소를 뽑아낸 것 **29개**
 
-### ⛔ 차단으로 보입니다 — 선택자 문제가 아닙니다
+| 증상 | 개수 | 뜻 |
+|---|---:|---|
+| img 는 있는데 주소가 비어 있음 | 9 | 지연 로딩. 아래 '못 보던 속성'을 수집기에 추가하면 됩니다 |
 
-데이터센터 IP(GitHub Actions)가 막혔다는 뜻이므로, 이 브랜드는 **확장(가정용 IP)** 이 맡아야 합니다.
-> 
+**주소를 찾은 속성**: `src` 29
+
+**성공한 카드의 class**: `list-item ng-star-inserted` 25 · `footer-nav-link ng-star-inserted` 3 · `header-large-logo` 1
+
+**이미지가 안 붙은 상품 링크 표본**
+
+- `/en-eu/p/relaxed-fit-fleece-joggers/105510`
+  - 카드 class: `cx-product-image-container`
+  - img 속성: `_ngcontent-ng-c4076350514=` `src=/images/common/eye-black.svg` `alt=` `aria-hidden=true`
+  - ```<a _ngcontent-ng-c4076350514="" tabindex="-1" class="cx-product-image-container" id="105510" data-sku="105510-V61XLREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><div _ngcontent-ng-c4076350514="" class="product-image-wrapper"><!----><!----><a _ngcontent-ng-c4076350514="" tabindex="0" role="button" mattooltiphidedelay="750" mattooltipposition="right" aria-haspopup="dialog"```
+- `/en-eu/p/relaxed-fit-fleece-joggers/105510`
+  - 카드 class: `product-name`
+  - img 속성: (img 없음)
+  - ```<a _ngcontent-ng-c4076350514="" class="product-name" data-sku="105510-V61XLREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><h2 _ngcontent-ng-c4076350514="" class="product-name-label">Relaxed Fit Fleece Joggers</h2></a>```
 
 ## https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030
 
@@ -42,12 +58,12 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 503개 · `<img>` 212개 · iframe 10개
-- 링크 중 이미지가 딸린 것 107개 → 그중 주소를 뽑아낸 것 **107개**
+- 링크 508개 · `<img>` 218개 · iframe 12개
+- 링크 중 이미지가 딸린 것 112개 → 그중 주소를 뽑아낸 것 **112개**
 
-**주소를 찾은 속성**: `src` 107
+**주소를 찾은 속성**: `src` 112
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 9 · `container_2ZJCi with-columns_yaY1x` 5 · `_container_1eekmh aerie-theme` 2 · `_content_13ccxt` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 9 · `container_2ZJCi with-columns_yaY1x` 5 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f0741` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c1626` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c50d8` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-fcc17` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
