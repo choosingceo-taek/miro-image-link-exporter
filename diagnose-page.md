@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-09-14 22:18Z)
+# 목록 페이지 진단 (2026-09-15 21:57Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -32,7 +32,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's T-Shirts: Graphic Tees, Cropped & More | American Eagle"
-- 링크 517개 · `<img>` 257개 · iframe 6개
+- 링크 517개 · `<img>` 256개 · iframe 6개
 - 링크 중 이미지가 딸린 것 125개 → 그중 주소를 뽑아낸 것 **125개**
 
 **주소를 찾은 속성**: `src` 125
@@ -41,33 +41,33 @@
 
 **이미지가 안 붙은 상품 링크 표본**
 
-- `/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1834_337`
+- `/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_603`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1834_337" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Long-Sleeve Henley ```
-- `/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1836_062`
+  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_603" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Cozy Crew N```
+- `/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1990_139`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1836_062" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Hey Baby Waffle Tee" data-```
-- `/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_369`
+  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1990_139" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Long-Sleeve Henley ```
+- `/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1980_647`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_369" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Cozy Crew N```
+  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-hey-baby-waffle-tee/2370_1980_647" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Hey Baby Waffle Tee" data-```
 
 ## https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 593개 · `<img>` 272개 · iframe 12개
-- 링크 중 이미지가 딸린 것 137개 → 그중 주소를 뽑아낸 것 **137개**
+- 링크 510개 · `<img>` 220개 · iframe 12개
+- 링크 중 이미지가 딸린 것 114개 → 그중 주소를 뽑아낸 것 **114개**
 
 | 증상 | 개수 | 뜻 |
 |---|---:|---|
 | shadow DOM 안의 링크 | 6 | shadow 호스트 1개 — querySelectorAll 로는 안 보입니다 |
 
-**주소를 찾은 속성**: `src` 137
+**주소를 찾은 속성**: `src` 114
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `images_Dzl3I` 9 · `container_2ZJCi with-columns_yaY1x` 5 · `_container_1eekmh aerie-theme` 2 · `_content_13ccxt` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 9 · `container_2ZJCi with-columns_yaY1x` 5 · `_container_1eekmh aerie-theme` 2 · `flyout qa-flyout flyout-onboarding qa-flyout-onboarding _con` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c77c6` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-de945` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-debf8` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
