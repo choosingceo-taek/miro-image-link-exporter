@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-09-28 23:45Z)
+# 목록 페이지 진단 (2026-09-29 22:51Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -58,12 +58,12 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 501개 · `<img>` 203개 · iframe 12개
+- 링크 501개 · `<img>` 204개 · iframe 12개
 - 링크 중 이미지가 딸린 것 114개 → 그중 주소를 뽑아낸 것 **114개**
 
 **주소를 찾은 속성**: `src` 114
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f17cc` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-e1b18` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-cf637` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f2e8e` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-ed293` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-ed67f` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-cb16c` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c6321` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
@@ -84,7 +84,7 @@
 
 - HTTP **200** · 최종주소 `https://www.apieceapart.com/shop/tops`
 - 제목: "Tops | Apiece Apart"
-- 링크 86개 · `<img>` 141개 · iframe 0개
+- 링크 84개 · `<img>` 137개 · iframe 0개
 - 링크 중 이미지가 딸린 것 0개 → 그중 주소를 뽑아낸 것 **0개**
 
 **이미지가 안 붙은 상품 링크 표본**
