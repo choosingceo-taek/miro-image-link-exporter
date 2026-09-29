@@ -1,15 +1,16 @@
-# 혼용률 보강 — 진짜 크롬 (2026-09-20 23:04Z)
+# 혼용률 보강 — 진짜 크롬 (2026-09-29 00:52Z)
 
 평 fetch 로는 차단되는 브랜드를 진짜 크롬으로 다시 읽은 결과입니다.
 
-- 시도 120개 · **채움 0개** (0%)
+- 시도 240개 · **채움 0개** (0%)
 
 
 | 브랜드 | 상품 | 시도 | 채움 | 사이트 미표기 | 차단·타임아웃 | 오류 |
 |---|---:|---:|---:|---:|---:|---:|
-| Eileen fisher | 413 | 120 | **0** | 0 | 120 | 0 |
+| Joules | 240 | 120 | **0** | 0 | 120 | 0 |
+| Lululemon | 407 | 120 | **0** | 0 | 120 | 0 |
 
-- 건너뜀(차단 이력): Abercrombie & Fitch(6일) · Addidas(13일) · Anthropologie(10일) · Aritzia(13일) · Arket(13일) · Fatface(10일) · FP Movement(10일) · Free People(11일) · Garnet hill(10일) · L.L bean(13일) · Joules(9일) · Patagonia(9일) · Sezane(10일) · Lululemon(9일) · &Other Stories(13일) · H&M(10일)
+- 건너뜀(차단 이력): Addidas(5일) · Anthropologie(1일) · Aritzia(4일) · Arket(4일) · Eileen fisher(6일) · Fatface(1일) · FP Movement(1일) · Free People(2일) · Garnet hill(1일) · L.L bean(4일) · Sezane(1일) · &Other Stories(5일) · H&M(1일)
 
 차단·타임아웃이 대부분이면 진짜 크롬으로도 안 된다는 뜻이므로, 그 브랜드는
 사람 PC 의 확장(가정용 IP)이 맡아야 합니다. '사이트 미표기'가 대부분이면
