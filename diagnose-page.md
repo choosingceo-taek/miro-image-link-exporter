@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-10-08 23:40Z)
+# 목록 페이지 진단 (2026-10-09 23:04Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -32,7 +32,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle"
-- 링크 528개 · `<img>` 243개 · iframe 7개
+- 링크 528개 · `<img>` 244개 · iframe 6개
 - 링크 중 이미지가 딸린 것 124개 → 그중 주소를 뽑아낸 것 **124개**
 
 **주소를 찾은 속성**: `src` 124
@@ -67,7 +67,7 @@
 
 **주소를 찾은 속성**: `src` 114
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-df234` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-efdee` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-ee577` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-e48b3` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f7b23` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-db766` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d5de8` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-deeb4` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
