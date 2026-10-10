@@ -1,5 +1,5 @@
 {
- "when": "2026-10-09T23:45:45.950Z",
+ "when": "2026-10-10T22:50:03.196Z",
  "store": true,
  "results": [
   {
@@ -66,14 +66,14 @@
   {
    "brand": "American Eagle",
    "site": "ae.com.americaneagle",
-   "collected": 178,
-   "stored": 178,
+   "collected": 177,
+   "stored": 177,
    "storeErr": "",
    "cats": {
-    "tops": 65,
-    "shirts": 20,
-    "sweatshirts": 30,
+    "tops": 63,
+    "shirts": 21,
     "pants": 33,
+    "sweatshirts": 30,
     "dresses": 30
    },
    "perUrl": [
@@ -108,7 +108,7 @@
      "note": ""
     }
    ],
-   "secs": 111,
+   "secs": 103,
    "dropped": 0,
    "sample": [
     {
@@ -164,7 +164,7 @@
      "note": ""
     }
    ],
-   "secs": 68,
+   "secs": 67,
    "dropped": 0,
    "sample": [
     {
@@ -230,7 +230,7 @@
      "note": ""
     }
    ],
-   "secs": 177,
+   "secs": 176,
    "dropped": 5,
    "sample": [
     {
@@ -259,11 +259,11 @@
   {
    "brand": "Boldest",
    "site": "kolonmall.com.boldest",
-   "collected": 239,
-   "stored": 239,
+   "collected": 238,
+   "stored": 238,
    "storeErr": "",
    "cats": {
-    "tops": 106,
+    "tops": 105,
     "shirts": 27,
     "sweatshirts": 7,
     "pants": 99
@@ -271,7 +271,7 @@
    "perUrl": [
     {
      "url": "https://www.kolonmall.com/boldest/List/133020162237",
-     "count": 138,
+     "count": 137,
      "note": ""
     },
     {
@@ -280,7 +280,7 @@
      "note": ""
     }
    ],
-   "secs": 77,
+   "secs": 78,
    "dropped": 0,
    "sample": [
     {
@@ -309,15 +309,15 @@
   {
    "brand": "CCC",
    "site": "crewclothing.co.uk.ccc",
-   "collected": 584,
-   "stored": 584,
+   "collected": 581,
+   "stored": 581,
    "storeErr": "",
    "cats": {
-    "tops": 113,
     "shirts": 181,
-    "sweatshirts": 109,
+    "tops": 112,
+    "sweatshirts": 108,
     "dresses": 109,
-    "pants": 72
+    "pants": 71
    },
    "perUrl": [
     {
@@ -327,12 +327,12 @@
     },
     {
      "url": "https://www.crewclothing.co.uk/womens/clothing/sweatshirts-hoodies/",
-     "count": 105,
+     "count": 104,
      "note": ""
     },
     {
      "url": "https://www.crewclothing.co.uk/womens/clothing/shirts-and-blouses/",
-     "count": 112,
+     "count": 111,
      "note": ""
     },
     {
@@ -342,32 +342,32 @@
     },
     {
      "url": "https://www.crewclothing.co.uk/womens/clothing/trousers/",
-     "count": 73,
+     "count": 72,
      "note": ""
     }
    ],
-   "secs": 103,
+   "secs": 93,
    "dropped": 1,
    "sample": [
-    {
-     "name": "Jemma Soft Modal Boat Neck Top in Teal",
-     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/jemma-boat-neck-top-teal-wae047/"
-    },
-    {
-     "name": "Classic Cotton Polo in White",
-     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-rugby-shirts/womens-tops-and-tshirts/polo-white-wye025/"
-    },
     {
      "name": "Ultimate Breton in Cameo Blue & White Stripes",
      "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/ultimate-breton-cameoblue-waae001/"
     },
     {
-     "name": "Ultimate Breton in Pink and Navy Stripes",
-     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens/womens-tops-and-tshirts/breton-pink-waae001/"
+     "name": "Jemma Soft Modal Boat Neck Top in Teal",
+     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/jemma-boat-neck-top-teal-wae047/"
     },
     {
      "name": "Jemma Soft Modal Boat Neck Top in Dark Pink",
      "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/jemma-boat-neck-top-pink-wae047/"
+    },
+    {
+     "name": "Jemma Super Soft Modal Blend Stretch Top in White",
+     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/boat-neck-long-sleeve-top-white-wve047/"
+    },
+    {
+     "name": "Ultimate Breton in Pink and Navy Stripes",
+     "productUrl": "https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens/womens-tops-and-tshirts/breton-pink-waae001/"
     }
    ],
    "verdict": "자동화 가능"
@@ -411,7 +411,7 @@
      "note": ""
     }
    ],
-   "secs": 228,
+   "secs": 227,
    "dropped": 0,
    "sample": [
     {
@@ -477,7 +477,7 @@
      "note": ""
     }
    ],
-   "secs": 177,
+   "secs": 175,
    "dropped": 21,
    "sample": [
     {
@@ -506,20 +506,20 @@
   {
    "brand": "Cotton on",
    "site": "cottonon.com.cottonon",
-   "collected": 478,
-   "stored": 478,
+   "collected": 477,
+   "stored": 477,
    "storeErr": "",
    "cats": {
-    "tops": 169,
+    "tops": 167,
     "sweatshirts": 79,
-    "shirts": 14,
-    "pants": 175,
+    "shirts": 13,
+    "pants": 177,
     "dresses": 41
    },
    "perUrl": [
     {
      "url": "https://cottonon.com/US/co/women/women-clothing/womens-tops/",
-     "count": 189,
+     "count": 188,
      "note": ""
     },
     {
@@ -529,7 +529,7 @@
     },
     {
      "url": "https://cottonon.com/US/co/women/women-clothing/womens-tops/womens-shirts-blouses/",
-     "count": 47,
+     "count": 46,
      "note": ""
     },
     {
@@ -543,7 +543,7 @@
      "note": ""
     }
    ],
-   "secs": 258,
+   "secs": 254,
    "dropped": 9,
    "sample": [
     {
@@ -555,12 +555,12 @@
      "productUrl": "https://cottonon.com/US/90s-high-v-neck-%C2%BE-sleeve/2062142-05.html"
     },
     {
-     "name": "Double Layer Long Sleeve, ACORN MARLE/DARK OAK",
-     "productUrl": "https://cottonon.com/US/double-layer-long-sleeve/2061639-03.html"
-    },
-    {
      "name": "90S Baby Tee, CHARCOAL MARLE",
      "productUrl": "https://cottonon.com/US/90s-baby-tee/2058329-134.html"
+    },
+    {
+     "name": "Double Layer Long Sleeve, ACORN MARLE/DARK OAK",
+     "productUrl": "https://cottonon.com/US/double-layer-long-sleeve/2061639-03.html"
     },
     {
      "name": "Softest Luxe Off Shoulder Knit, DARK OAK",
@@ -604,7 +604,7 @@
      "note": ""
     }
    ],
-   "secs": 68,
+   "secs": 63,
    "dropped": 0,
    "sample": [
     {
@@ -633,12 +633,12 @@
   {
    "brand": "Gestuz",
    "site": "gestuz.com.gestuz",
-   "collected": 673,
-   "stored": 673,
+   "collected": 671,
+   "stored": 671,
    "storeErr": "",
    "cats": {
     "tops": 216,
-    "shirts": 162,
+    "shirts": 160,
     "sweatshirts": 50,
     "dresses": 148,
     "pants": 97
@@ -661,7 +661,7 @@
     },
     {
      "url": "https://www.gestuz.com/en-us/shop/shirts",
-     "count": 68,
+     "count": 66,
      "note": ""
     },
     {
@@ -675,7 +675,7 @@
      "note": ""
     }
    ],
-   "secs": 205,
+   "secs": 203,
    "dropped": 0,
    "sample": [
     {
@@ -704,20 +704,20 @@
   {
    "brand": "J crew",
    "site": "jcrew.com.jcrew",
-   "collected": 172,
-   "stored": 172,
+   "collected": 160,
+   "stored": 160,
    "storeErr": "",
    "cats": {
-    "shirts": 68,
-    "pants": 60,
-    "tops": 12,
-    "sweatshirts": 4,
+    "shirts": 61,
+    "pants": 59,
+    "tops": 9,
+    "sweatshirts": 3,
     "dresses": 28
    },
    "perUrl": [
     {
      "url": "https://www.jcrew.com/plp/womens/categories/clothing/tees-and-tanks",
-     "count": 54,
+     "count": 43,
      "note": ""
     },
     {
@@ -737,11 +737,11 @@
     },
     {
      "url": "https://www.jcrew.com/plp/womens/categories/clothing/pants",
-     "count": 39,
+     "count": 38,
      "note": ""
     }
    ],
-   "secs": 123,
+   "secs": 125,
    "dropped": 5,
    "sample": [
     {
@@ -770,12 +770,12 @@
   {
    "brand": "J.mclaughlin",
    "site": "jmclaughlin.com.jmclaughlin",
-   "collected": 30,
+   "collected": 29,
    "stored": 353,
    "storeErr": "",
    "cats": {
-    "pants": 21,
     "tops": 3,
+    "pants": 20,
     "dresses": 5,
     "shirts": 1
    },
@@ -787,7 +787,7 @@
     },
     {
      "url": "https://www.jmclaughlin.com/collections/women-tops-shirts",
-     "count": 49,
+     "count": 47,
      "note": ""
     },
     {
@@ -797,32 +797,32 @@
     },
     {
      "url": "https://www.jmclaughlin.com/collections/women-pants",
-     "count": 54,
+     "count": 55,
      "note": ""
     }
    ],
-   "secs": 186,
-   "dropped": 34,
+   "secs": 161,
+   "dropped": 35,
    "sample": [
-    {
-     "name": "J.McLaughlin Signature Tee in Grand Heraldic Tassel styled with black pants on a model in a polished timeless fashion look",
-     "productUrl": "https://www.jmclaughlin.com/products/signature-tee-grand-heraldic-tassel-black-gold"
-    },
     {
      "name": "Woman wearing a navy Durham Ruffle Top by J.McLaughlin with three-quarter sleeves and delicate ruffle detail along the neckline, paired with white pan",
      "productUrl": "https://www.jmclaughlin.com/products/durham-ruffle-top-solid-winter-navy"
+    },
+    {
+     "name": "J.McLaughlin Signature Tee in Grand Heraldic Tassel styled with black pants on a model in a polished timeless fashion look",
+     "productUrl": "https://www.jmclaughlin.com/products/signature-tee-grand-heraldic-tassel-black-gold"
     },
     {
      "name": "Model wearing Signature Tee in Grand Heraldic Tassel by J.McLaughlin with a gold chain pattern and white pants",
      "productUrl": "https://www.jmclaughlin.com/products/signature-tee-grand-heraldic-tassel-cream-gold"
     },
     {
-     "name": "Kate Ruffle Top in Noble Crest by J.McLaughlin worn with high waisted jeans showcasing a ruffled neckline soft stretch and paisley design",
-     "productUrl": "https://www.jmclaughlin.com/products/kate-ruffle-top-noble-crest-plum-lilac"
-    },
-    {
      "name": "Kate Ruffle Top in Noble Crest by J.McLaughlin featuring a brown and cream scroll print ruffled neckline and long sleeves styled with white pants",
      "productUrl": "https://www.jmclaughlin.com/products/kate-ruffle-top-noble-crest-cream-gold"
+    },
+    {
+     "name": "Kate Ruffle Top in Noble Crest by J.McLaughlin worn with high waisted jeans showcasing a ruffled neckline soft stretch and paisley design",
+     "productUrl": "https://www.jmclaughlin.com/products/kate-ruffle-top-noble-crest-plum-lilac"
     }
    ],
    "verdict": "자동화 가능"
@@ -872,7 +872,7 @@
      "note": ""
     }
    ],
-   "secs": 219,
+   "secs": 215,
    "dropped": 16,
    "sample": [
     {
@@ -901,25 +901,25 @@
   {
    "brand": "Lucky Brand",
    "site": "luckybrand.com.luckybrand",
-   "collected": 184,
-   "stored": 184,
+   "collected": 121,
+   "stored": 121,
    "storeErr": "",
    "cats": {
-    "tops": 58,
-    "sweatshirts": 59,
-    "pants": 16,
-    "shirts": 7,
-    "dresses": 44
+    "tops": 42,
+    "sweatshirts": 34,
+    "pants": 13,
+    "shirts": 6,
+    "dresses": 26
    },
    "perUrl": [
     {
      "url": "https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops",
-     "count": 43,
+     "count": 22,
      "note": "오류: page.evaluate: Execution context was destroyed, most likely because of a navigation."
     },
     {
      "url": "https://www.luckybrand.com/women/clothing/sweaters",
-     "count": 127,
+     "count": 105,
      "note": "오류: page.evaluate: Execution context was destroyed, most likely because of a navigation."
     },
     {
@@ -929,7 +929,7 @@
     },
     {
      "url": "https://www.luckybrand.com/women/clothing/dresses",
-     "count": 129,
+     "count": 108,
      "note": "오류: page.evaluate: Execution context was destroyed, most likely because of a navigation."
     },
     {
@@ -938,7 +938,7 @@
      "note": "오류: page.evaluate: Execution context was destroyed, most likely because of a navigation."
     }
    ],
-   "secs": 379,
+   "secs": 359,
    "dropped": 21,
    "sample": [
     {
@@ -946,20 +946,20 @@
      "productUrl": "https://www.luckybrand.com/lace-yoke-henley/169956.html"
     },
     {
-     "name": "TRIM MIX KNIT PEASANT TOP, image 4",
-     "productUrl": "https://www.luckybrand.com/trim-mix-knit-peasant-top/169186.html"
+     "name": "FLORAL FAIR ISLE CREW SWEATER, image 4",
+     "productUrl": "https://www.luckybrand.com/floral-fair-isle-crew-sweater/169126.html"
     },
     {
-     "name": "NOVELTY EMBROIDERED CREW NECK, image 4",
-     "productUrl": "https://www.luckybrand.com/novelty-embroidered-crew-neck/169901.html"
+     "name": "SHAWL COLLAR FAIR ISLE CARDIGAN, image 4",
+     "productUrl": "https://www.luckybrand.com/shawl-collar-fair-isle-cardigan/169256.html"
     },
     {
-     "name": "FLORAL EMBROIDERED PEASANT TEE, image 4",
-     "productUrl": "https://www.luckybrand.com/floral-embroidered-peasant-tee/173659.html"
+     "name": "FAIR ISLE MOCK NECK SWEATER, image 4",
+     "productUrl": "https://www.luckybrand.com/fair-isle-mock-neck-sweater/170277.html"
     },
     {
-     "name": "SHORT SLEEVE HENLEY TEE, image 4",
-     "productUrl": "https://www.luckybrand.com/short-sleeve-henley-tee/173783.html"
+     "name": "FAIR ISLE SWEATER TEE, image 4",
+     "productUrl": "https://www.luckybrand.com/fair-isle-sweater-tee/173770.html"
     }
    ],
    "verdict": "자동화 가능"
@@ -967,14 +967,14 @@
   {
    "brand": "Me+Em",
    "site": "meandem.com.meem",
-   "collected": 375,
-   "stored": 375,
+   "collected": 373,
+   "stored": 373,
    "storeErr": "",
    "cats": {
-    "tops": 95,
+    "tops": 94,
     "sweatshirts": 11,
     "pants": 131,
-    "shirts": 41,
+    "shirts": 40,
     "dresses": 97
    },
    "perUrl": [
@@ -985,8 +985,8 @@
     },
     {
      "url": "https://www.meandem.com/us/tops/sweatshirts",
-     "count": 23,
-     "note": ""
+     "count": 21,
+     "note": "오류: page.evaluate: Execution context was destroyed, most likely because of a navigation"
     },
     {
      "url": "https://www.meandem.com/us/tops",
@@ -1004,28 +1004,28 @@
      "note": ""
     }
    ],
-   "secs": 110,
+   "secs": 96,
    "dropped": 19,
    "sample": [
-    {
-     "name": "Shrunken Layering Tee",
-     "productUrl": "https://www.meandem.com/us/shrunken-layering-tee-light-cream"
-    },
     {
      "name": "Fitted Crew Neck Tee",
      "productUrl": "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-bright-white"
     },
     {
+     "name": "Shrunken Layering Tee",
+     "productUrl": "https://www.meandem.com/us/shrunken-layering-tee-light-cream"
+    },
+    {
+     "name": "Fitted Tee",
+     "productUrl": "https://www.meandem.com/us/modal-fitted-tee-rich-olive-green"
+    },
+    {
+     "name": "Straight Tee",
+     "productUrl": "https://www.meandem.com/us/soft-washed-v-neck-tee-fresh-white"
+    },
+    {
      "name": "Rib Slim Tee",
      "productUrl": "https://www.meandem.com/us/variegated-rib-tee-cream"
-    },
-    {
-     "name": "Sweatshirt Baby Tee",
-     "productUrl": "https://www.meandem.com/us/baby-tee-lightweight-sweatshirt-warm-chocolate-melange"
-    },
-    {
-     "name": "Evening Baby Tee",
-     "productUrl": "https://www.meandem.com/us/silk-satin-baby-tee-black"
     }
    ],
    "verdict": "자동화 가능"
@@ -1037,11 +1037,11 @@
    "stored": 464,
    "storeErr": "",
    "cats": {
-    "tops": 146,
+    "tops": 147,
     "sweatshirts": 69,
     "shirts": 18,
     "pants": 191,
-    "dresses": 40
+    "dresses": 39
    },
    "perUrl": [
     {
@@ -1056,7 +1056,7 @@
     },
     {
      "url": "https://www.nike.com/w/womens-skirts-and-dresses-5e1x6z8y3qp",
-     "count": 136,
+     "count": 135,
      "note": ""
     },
     {
@@ -1099,20 +1099,20 @@
    "storeErr": "",
    "cats": {
     "tops": 144,
-    "sweatshirts": 35,
+    "sweatshirts": 36,
     "shirts": 5,
     "dresses": 5,
-    "pants": 41
+    "pants": 40
    },
    "perUrl": [
     {
      "url": "https://www.on.com/en-us/shop/womens/apparel/tops-tshirts",
-     "count": 149,
+     "count": 148,
      "note": ""
     },
     {
      "url": "https://www.on.com/en-us/shop/womens/apparel/hoodies-sweatshirts",
-     "count": 61,
+     "count": 63,
      "note": ""
     },
     {
@@ -1122,11 +1122,11 @@
     },
     {
      "url": "https://www.on.com/en-us/shop/womens/apparel/pants",
-     "count": 54,
+     "count": 53,
      "note": ""
     }
    ],
-   "secs": 106,
+   "secs": 96,
    "dropped": 13,
    "sample": [
     {
@@ -1155,13 +1155,13 @@
   {
    "brand": "Poetry",
    "site": "poetryfashion.co.uk.poetry",
-   "collected": 253,
-   "stored": 253,
+   "collected": 236,
+   "stored": 236,
    "storeErr": "",
    "cats": {
-    "tops": 39,
+    "tops": 37,
     "sweatshirts": 7,
-    "shirts": 59,
+    "shirts": 44,
     "pants": 111,
     "dresses": 37
    },
@@ -1173,7 +1173,7 @@
     },
     {
      "url": "https://www.poetryfashion.co.uk/category-POEST/shirts-tunics/index.htm",
-     "count": 51,
+     "count": 34,
      "note": ""
     },
     {
@@ -1187,27 +1187,27 @@
      "note": ""
     }
    ],
-   "secs": 187,
+   "secs": 127,
    "dropped": 3,
    "sample": [
     {
-     "name": "Silk & cotton T-shirt",
+     "name": "Silk & cotton T-shirt, Midnight, large",
      "productUrl": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html"
     },
     {
-     "name": "Silk & cotton T-shirt",
+     "name": "Silk & cotton T-shirt, Blackberry, large",
      "productUrl": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html"
     },
     {
-     "name": "Silk & cotton T-shirt",
+     "name": "Silk & cotton T-shirt, Aqua mist, large",
      "productUrl": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html"
     },
     {
-     "name": "High-neck jersey top",
+     "name": "High-neck jersey top, Blackberry, large",
      "productUrl": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-high-neck-top-blackberry/RW49.C.html"
     },
     {
-     "name": "High-neck jersey top",
+     "name": "High-neck jersey top, Dark taupe, large",
      "productUrl": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-high-neck-top-dark-taupe/RW49.D.html"
     }
    ],
@@ -1216,44 +1216,44 @@
   {
    "brand": "Shopbop",
    "site": "shopbop.com.shopbop",
-   "collected": 396,
-   "stored": 396,
+   "collected": 451,
+   "stored": 451,
    "storeErr": "",
    "cats": {
-    "tops": 140,
-    "shirts": 18,
-    "sweatshirts": 61,
-    "pants": 87,
-    "dresses": 90
+    "tops": 165,
+    "shirts": 20,
+    "pants": 99,
+    "sweatshirts": 68,
+    "dresses": 99
    },
    "perUrl": [
     {
      "url": "https://www.shopbop.com/clothing-tops/br/v=1/13332.htm",
-     "count": 245,
+     "count": 233,
      "note": ""
     },
     {
      "url": "https://www.shopbop.com/clothing-tops/br/v=1/13332.htm?f=MATopsStyle-Sweatshirt",
-     "count": 157,
+     "count": 246,
      "note": ""
     },
     {
      "url": "https://www.shopbop.com/clothing-dresses/br/v=1/13351.htm",
-     "count": 154,
+     "count": 233,
      "note": ""
     },
     {
      "url": "https://www.shopbop.com/clothing-pants/br/v=1/13281.htm?f=MAWomensPantsStyle-Sweatpants",
-     "count": 159,
+     "count": 245,
      "note": ""
     }
    ],
-   "secs": 45,
-   "dropped": 47,
+   "secs": 68,
+   "dropped": 32,
    "sample": [
     {
-     "name": "1522424825.htm",
-     "productUrl": "https://www.shopbop.com/marci-top-black-vrg-grl/vp/v=1/1522424825.htm"
+     "name": "Exclusive",
+     "productUrl": "https://www.shopbop.com/caroline-organza-tee-le-bop/vp/v=1/1547069138.htm"
     },
     {
      "name": "1583421969.htm",
@@ -1261,15 +1261,15 @@
     },
     {
      "name": "Exclusive",
-     "productUrl": "https://www.shopbop.com/canopy-top-madelynne/vp/v=1/1599480304.htm"
+     "productUrl": "https://www.shopbop.com/off-duty-denim-shirt-lioness/vp/v=1/1524265654.htm"
     },
     {
-     "name": "1503673950.htm",
-     "productUrl": "https://www.shopbop.com/bobbi-silk-top-reformation/vp/v=1/1503673950.htm"
+     "name": "Exclusive",
+     "productUrl": "https://www.shopbop.com/varsity-mockneck-parke/vp/v=1/1541343355.htm"
     },
     {
-     "name": "1577206938.htm",
-     "productUrl": "https://www.shopbop.com/relaxed-button-shirt-frank-eileen/vp/v=1/1577206938.htm"
+     "name": "Exclusive",
+     "productUrl": "https://www.shopbop.com/winnie-buttondown-flannel-le-bop/vp/v=1/1515332033.htm"
     }
    ],
    "verdict": "자동화 가능"
@@ -1277,24 +1277,24 @@
   {
    "brand": "Sweaty betty",
    "site": "sweatybetty.com.sweatybetty",
-   "collected": 293,
-   "stored": 293,
+   "collected": 294,
+   "stored": 294,
    "storeErr": "",
    "cats": {
-    "tops": 60,
-    "sweatshirts": 61,
+    "tops": 61,
     "shirts": 23,
+    "sweatshirts": 61,
     "pants": 149
    },
    "perUrl": [
     {
      "url": "https://www.sweatybetty.com/us/shop/tops",
-     "count": 167,
+     "count": 171,
      "note": ""
     },
     {
      "url": "https://www.sweatybetty.com/us/shop/tops/sweatshirts-and-hoodies",
-     "count": 70,
+     "count": 68,
      "note": ""
     },
     {
@@ -1304,11 +1304,11 @@
     },
     {
      "url": "https://www.sweatybetty.com/us/shop/bottoms",
-     "count": 155,
+     "count": 161,
      "note": ""
     }
    ],
-   "secs": 163,
+   "secs": 160,
    "dropped": 9,
    "sample": [
     {
@@ -1320,16 +1320,16 @@
      "productUrl": "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_NoriGreen.html"
     },
     {
+     "name": "athlete seamless workout long sleeve tee SB10117 Black.html",
+     "productUrl": "https://www.sweatybetty.com/us/shop/tops/long-sleeve-tops/athlete-seamless-workout-long-sleeve-tee-SB10117_Black.html"
+    },
+    {
+     "name": "soft flow studio longline tee SB04664 FrenchNavyBlue.html",
+     "productUrl": "https://www.sweatybetty.com/us/shop/tops/t-shirts/soft-flow-studio-longline-tee-SB04664_FrenchNavyBlue.html"
+    },
+    {
      "name": "canyon fleece zip up SB04523 BarleyBeige.html",
      "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/canyon-fleece-zip-up-SB04523_BarleyBeige.html"
-    },
-    {
-     "name": "soft flow studio longline long sleeve tee SB04665 FrenchNavyBlue.html",
-     "productUrl": "https://www.sweatybetty.com/us/shop/tops/long-sleeve-tops/soft-flow-studio-longline-long-sleeve-tee-SB04665_FrenchNavyBlue.html"
-    },
-    {
-     "name": "after class seam detail longline sweatshirt SB05098 NavyBlue.html",
-     "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/after-class-seam-detail-longline-sweatshirt-SB05098_NavyBlue.html"
     }
    ],
    "verdict": "자동화 가능"
@@ -1368,7 +1368,7 @@
      "note": "HTTP 403"
     }
    ],
-   "secs": 32,
+   "secs": 31,
    "dropped": 0,
    "sample": [
     {
@@ -1397,20 +1397,20 @@
   {
    "brand": "Wrap",
    "site": "wraplondon.com.wrap",
-   "collected": 428,
-   "stored": 428,
+   "collected": 346,
+   "stored": 346,
    "storeErr": "",
    "cats": {
-    "tops": 73,
-    "sweatshirts": 131,
-    "shirts": 72,
-    "dresses": 47,
-    "pants": 105
+    "tops": 57,
+    "sweatshirts": 127,
+    "pants": 52,
+    "shirts": 63,
+    "dresses": 47
    },
    "perUrl": [
     {
      "url": "https://www.wraplondon.com/subcats/SWAJT/jersey-tops/index.htm",
-     "count": 90,
+     "count": 68,
      "note": ""
     },
     {
@@ -1420,7 +1420,7 @@
     },
     {
      "url": "https://www.wraplondon.com/subcats/SWABL/shirts-tops/index.htm",
-     "count": 77,
+     "count": 67,
      "note": ""
     },
     {
@@ -1430,11 +1430,11 @@
     },
     {
      "url": "https://www.wraplondon.com/subcats/SWATR/jeans-trousers/index.htm",
-     "count": 88,
+     "count": 38,
      "note": ""
     }
    ],
-   "secs": 196,
+   "secs": 156,
    "dropped": 4,
    "sample": [
     {
