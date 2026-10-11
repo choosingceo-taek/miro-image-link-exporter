@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-10-10 22:16Z)
+# 목록 페이지 진단 (2026-10-11 22:43Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -45,14 +45,14 @@
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
   - ```<a href="/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2169_337" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Cozy Crew N```
-- `/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1834_337`
-  - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
-  - img 속성: (img 없음)
-  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-long-sleeve-henley-t-shirt/3376_1834_337" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <!----> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Long-Sleeve Henley T-Shirt" data-testid="name"> AE Long-Sleeve Henley T-Shirt </h3> <div class="container_AAFq2 text-bold _price_1xhak1 _```
 - `/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_1888_337`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
   - ```<a href="/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_1888_337" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Soft &amp; Sexy```
+- `/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2041_286`
+  - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
+  - img 속성: (img 없음)
+  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2041_286" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Cozy Crew N```
 
 ## https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031
 
@@ -67,7 +67,7 @@
 
 **주소를 찾은 속성**: `src` 114
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-e428c` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d40af` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-e898d` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-fb154` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-ee80f` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c49ee` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-edfad` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-e5b77` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
