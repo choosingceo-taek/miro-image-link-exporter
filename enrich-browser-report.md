@@ -1,16 +1,20 @@
-# 혼용률 보강 — 진짜 크롬 (2026-10-13 02:28Z)
+# 혼용률 보강 — 진짜 크롬 (2026-10-14 00:12Z)
 
 평 fetch 로는 차단되는 브랜드를 진짜 크롬으로 다시 읽은 결과입니다.
 
-- 시도 240개 · **채움 0개** (0%)
+- 시도 672개 · **채움 0개** (0%)
 
 
 | 브랜드 | 상품 | 시도 | 채움 | 사이트 미표기 | 차단·타임아웃 | 오류 |
 |---|---:|---:|---:|---:|---:|---:|
-| Joules | 254 | 120 | **0** | 0 | 120 | 0 |
-| Lululemon | 427 | 120 | **0** | 0 | 120 | 0 |
+| H&M | 744 | 120 | **0** | 0 | 120 | 0 |
+| Fatface | 355 | 120 | **0** | 0 | 120 | 0 |
+| Anthropologie | 307 | 120 | **0** | 0 | 120 | 0 |
+| Sezane | 207 | 120 | **0** | 0 | 120 | 0 |
+| Garnet hill | 108 | 104 | **0** | 0 | 104 | 0 |
+| FP Movement | 94 | 88 | **0** | 0 | 88 | 0 |
 
-- 건너뜀(차단 이력): Addidas(5일) · Anthropologie(1일) · Aritzia(4일) · Eileen fisher(7일) · Fatface(1일) · FP Movement(1일) · Free People(2일) · Garnet hill(1일) · L.L bean(4일) · Sezane(1일) · &Other Stories(5일) · The upside(2일) · H&M(1일)
+- 건너뜀(차단 이력): Addidas(4일) · Aritzia(4일) · Eileen fisher(7일) · Free People(2일) · L.L bean(4일) · Joules(14일) · Lululemon(14일) · &Other Stories(4일) · The upside(2일)
 
 차단·타임아웃이 대부분이면 진짜 크롬으로도 안 된다는 뜻이므로, 그 브랜드는
 사람 PC 의 확장(가정용 IP)이 맡아야 합니다. '사이트 미표기'가 대부분이면
