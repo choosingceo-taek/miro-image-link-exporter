@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-10-14 22:06Z)
+# 목록 페이지 진단 (2026-10-15 21:59Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -32,7 +32,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle"
-- 링크 529개 · `<img>` 244개 · iframe 6개
+- 링크 529개 · `<img>` 243개 · iframe 6개
 - 링크 중 이미지가 딸린 것 124개 → 그중 주소를 뽑아낸 것 **124개**
 
 **주소를 찾은 속성**: `src` 124
@@ -48,25 +48,33 @@
 - `/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_603`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_603" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Cozy Crew N```
-- `/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_1888_140`
+  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_603" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <!----> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Cozy Crew Neck Long Sleeve T-Shirt" data-testid="name"> AE Cozy Crew Neck Long Sleeve T-Shirt </h3> <div class="container_AAFq2 t```
+- `/intl/en/p/women/tops/t-shirts/ae-long-sleeve-waffle-plush-crew-neck-tee/1532_2058_603`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_1888_140" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Soft &amp; Sexy```
+  - ```<a href="/intl/en/p/women/tops/t-shirts/ae-long-sleeve-waffle-plush-crew-neck-tee/1532_2058_603" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-ae _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="AE Long-Sl```
 
 ## https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 501개 · `<img>` 203개 · iframe 12개
-- 링크 중 이미지가 딸린 것 114개 → 그중 주소를 뽑아낸 것 **114개**
+- 링크 591개 · `<img>` 262개 · iframe 12개
+- 링크 중 이미지가 딸린 것 144개 → 그중 주소를 뽑아낸 것 **144개**
 
-**주소를 찾은 속성**: `src` 114
+| 증상 | 개수 | 뜻 |
+|---|---:|---|
+| shadow DOM 안의 링크 | 6 | shadow 호스트 1개 — querySelectorAll 로는 안 보입니다 |
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f764e` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-cfd61` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-e7420` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c7579` 1
+**주소를 찾은 속성**: `src` 144
+
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c53b9` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f9e6a` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c2684` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-de607` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
+- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-oh-snap-classic-sweatshirt/0743_4162_109`
+  - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
+  - img 속성: (img 없음)
+  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-oh-snap-classic-sweatshirt/0743_4162_109" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-produc```
 - `/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-polo-sweater/0745_4185_135`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
@@ -75,10 +83,6 @@
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
   - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
-- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_3981_135`
-  - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
-  - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_3981_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name```
 
 ## https://www.apieceapart.com/shop/tops
 
