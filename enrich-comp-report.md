@@ -1,26 +1,26 @@
-# 엑셀 항목 보강 결과 (2026-10-17T21:57Z)
+# 엑셀 항목 보강 결과 (2026-10-17T22:02Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
 > 이 숫자는 **방금 쓴 값을 낙관적으로** 센 것이다 — KV 가 최종 일관성이라 쓴 직후에는
 > 안 읽히는 일이 있어 일부러 그렇게 뒀다. 안정된 뒤의 실제 숫자는 `preflight.md` 를 본다.
 
-**지금 두 열이 다 채워져 나오는 브랜드: 32/134개** (상품 10043/35498개)
+**지금 두 열이 다 채워져 나오는 브랜드: 30/134개** (상품 9192/35498개)
 
 패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.
 
-ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Cotton on · Damson Madder · Evereve · Frank & Eileen · Gymshark · Jager · James Perse · Jigsaw · LNA · La Ligne · Lucky Brand · Nation LTD · Nike · Ninety Percent · On · Sanctuary · Seasalt cornwall · Shopbop · The Great · Ulla Johnson · Varley · Vince · WHBM · Whistles · Xirena · vineyardvines
+ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Cotton on · Damson Madder · Evereve · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Lucky Brand · Nation LTD · Ninety Percent · On · Sanctuary · Seasalt cornwall · Shopbop · The Great · Ulla Johnson · Varley · Vince · WHBM · Whistles · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 81% · 컬러웨이 66%.
-기준 95% 까지 10188개, 목표 99% 까지 11608개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 77% · 컬러웨이 62%.
+기준 95% 까지 11684개, 목표 99% 까지 13104개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 35498개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 28908 | 81% | +13 |
-| 컬러웨이 | 23536 | 66% | +14 |
+| 혼용률 | 27382 | 77% | +0 |
+| 컬러웨이 | 22040 | 62% | +0 |
 
 - 검색 인덱스 재구축: 17855개
 
@@ -33,8 +33,8 @@ ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Cotton on · D
 |---|:-:|---:|---:|---:|---|
 | Addidas | — | 0/430 (0%) | 0/430 (0%) | 혼용률 +0 컬러 +0 |  |
 | Anthropologie | — | 0/203 (0%) | 0/203 (0%) | 혼용률 +0 컬러 +0 |  |
-| Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Athleta | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
+| Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Fatface | — | 0/357 (0%) | 0/357 (0%) | 혼용률 +0 컬러 +0 |  |
 | Gap | — | 0/2 (0%) | 0/2 (0%) | 혼용률 +0 컬러 +0 |  |
 | Joules | — | 0/262 (0%) | 0/262 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -43,7 +43,7 @@ ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Cotton on · D
 | Lululemon | — | 0/422 (0%) | 0/422 (0%) | 혼용률 +0 컬러 +0 |  |
 | The white company | — | 0/73 (0%) | 0/73 (0%) | 혼용률 +0 컬러 +0 |  |
 | H&M | — | 0/747 (0%) | 2/747 (0%) | 혼용률 +0 컬러 +0 |  |
-| Zara | — | 1/499 (0%) | 0/499 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 2 |
+| Zara | — | 0/499 (0%) | 0/499 (0%) | 혼용률 +0 컬러 +0 |  |
 | Massimo Dutti | — | 1/298 (0%) | 0/298 (0%) | 혼용률 +0 컬러 +0 |  |
 | Sezane | — | 1/205 (0%) | 4/205 (2%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 1/167 (1%) | 0/167 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -80,6 +80,7 @@ ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Cotton on · D
 | Aritzia | — | 685/800 (86%) | 1/800 (0%) | 혼용률 +0 컬러 +0 |  |
 | Good American | — | 487/566 (86%) | 565/566 (100%) | 혼용률 +0 컬러 +0 |  |
 | Carlhartt | — | 73/84 (87%) | 15/84 (18%) | 혼용률 +0 컬러 +0 |  |
+| Nike | — | 395/454 (87%) | 435/454 (96%) | 혼용률 +0 컬러 +0 |  |
 | Ann Taylor | — | 346/390 (89%) | 361/390 (93%) | 혼용률 +0 컬러 +0 |  |
 | Project Social T | — | 235/264 (89%) | 262/264 (99%) | 혼용률 +0 컬러 +0 |  |
 | Frame | — | 197/220 (90%) | 206/220 (94%) | 혼용률 +0 컬러 +0 |  |
@@ -127,6 +128,7 @@ ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Cotton on · D
 | Bellerose | — | 161/167 (96%) | 149/167 (89%) | 혼용률 +0 컬러 +0 |  |
 | Beyond yoga | ✅ | 188/195 (96%) | 195/195 (100%) | 혼용률 +0 컬러 +0 |  |
 | Greyson | — | 85/88 (97%) | 76/88 (86%) | 혼용률 +0 컬러 +0 |  |
+| Jager | — | 384/397 (97%) | 274/397 (69%) | 혼용률 +0 컬러 +0 |  |
 | Evereve | ✅ | 424/437 (97%) | 437/437 (100%) | 혼용률 +0 컬러 +0 |  |
 | Monsoon | — | 33/34 (97%) | 1/34 (3%) | 혼용률 +0 컬러 +0 |  |
 | Gerard darel | — | 133/137 (97%) | 0/137 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -148,6 +150,7 @@ ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Cotton on · D
 | Lucky Brand | ✅ | 84/85 (99%) | 85/85 (100%) | 혼용률 +0 컬러 +0 |  |
 | American Eagle | ✅ | 179/181 (99%) | 181/181 (100%) | 혼용률 +0 컬러 +0 |  |
 | La Ligne | ✅ | 381/385 (99%) | 385/385 (100%) | 혼용률 +0 컬러 +0 |  |
+| Shopbop | ✅ | 450/454 (99%) | 454/454 (100%) | 혼용률 +0 컬러 +0 |  |
 | The Great | ✅ | 231/233 (99%) | 231/233 (99%) | 혼용률 +0 컬러 +0 |  |
 | Cotton on | ✅ | 472/476 (99%) | 465/476 (98%) | 혼용률 +0 컬러 +0 |  |
 | Vince | ✅ | 368/371 (99%) | 371/371 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -162,7 +165,4 @@ ALC · American Eagle · Bash · Beyond yoga · CCC · Chico's · Cotton on · D
 | Oak + Fort | — | 341/341 (100%) | 318/341 (93%) | 혼용률 +0 컬러 +0 |  |
 | Old Navy | — | 9/9 (100%) | 0/9 (0%) | 혼용률 +0 컬러 +0 |  |
 | Z Supply | — | 205/205 (100%) | 178/205 (87%) | 혼용률 +0 컬러 +0 |  |
-| Nike | ✅ | 796/454 (175%) | 939/454 (207%) | 혼용률 +2 컬러 +2 | 성공 페이지 2 |
-| Shopbop | ✅ | 986/454 (217%) | 1000/454 (220%) | 혼용률 +1 컬러 +1 | 성공 페이지 1 |
-| Jager | ✅ | 972/397 (245%) | 720/397 (181%) | 혼용률 +10 컬러 +11 | 성공 페이지 11 |
 
