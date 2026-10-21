@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-10-20 22:09Z)
+# 목록 페이지 진단 (2026-10-21 22:10Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -6,7 +6,7 @@
 
 - HTTP **200** · 최종주소 `https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017`
 - 제목: "Women's Sweatpants | Carhartt"
-- 링크 253개 · `<img>` 84개 · iframe 2개
+- 링크 255개 · `<img>` 84개 · iframe 2개
 - 링크 중 이미지가 딸린 것 37개 → 그중 주소를 뽑아낸 것 **28개**
 
 | 증상 | 개수 | 뜻 |
@@ -22,11 +22,11 @@
 - `/en-eu/p/relaxed-fit-fleece-joggers/105510`
   - 카드 class: `cx-product-image-container`
   - img 속성: `_ngcontent-ng-c4076350514=` `src=/images/common/eye-black.svg` `alt=` `aria-hidden=true`
-  - ```<a _ngcontent-ng-c4076350514="" tabindex="-1" class="cx-product-image-container" id="105510" data-sku="105510-V61XLREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><div _ngcontent-ng-c4076350514="" class="product-image-wrapper"><!----><!----><a _ngcontent-ng-c4076350514="" tabindex="0" role="button" mattooltiphidedelay="750" mattooltipposition="right" aria-haspopup="dialog"```
+  - ```<a _ngcontent-ng-c4076350514="" tabindex="-1" class="cx-product-image-container" id="105510" data-sku="105510-V61XSREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><div _ngcontent-ng-c4076350514="" class="product-image-wrapper"><!----><!----><a _ngcontent-ng-c4076350514="" tabindex="0" role="button" mattooltiphidedelay="750" mattooltipposition="right" aria-haspopup="dialog"```
 - `/en-eu/p/relaxed-fit-fleece-joggers/105510`
   - 카드 class: `product-name`
   - img 속성: (img 없음)
-  - ```<a _ngcontent-ng-c4076350514="" class="product-name" data-sku="105510-V61XLREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><h2 _ngcontent-ng-c4076350514="" class="product-name-label">Relaxed Fit Fleece Joggers</h2></a>```
+  - ```<a _ngcontent-ng-c4076350514="" class="product-name" data-sku="105510-V61XSREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><h2 _ngcontent-ng-c4076350514="" class="product-name-label">Relaxed Fit Fleece Joggers</h2></a>```
 
 ## https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030
 
@@ -58,7 +58,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 591개 · `<img>` 264개 · iframe 12개
+- 링크 591개 · `<img>` 266개 · iframe 12개
 - 링크 중 이미지가 딸린 것 144개 → 그중 주소를 뽑아낸 것 **144개**
 
 | 증상 | 개수 | 뜻 |
@@ -67,7 +67,7 @@
 
 **주소를 찾은 속성**: `src` 144
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `images_Dzl3I` 11 · `container_2ZJCi with-columns_yaY1x` 6 · `_container_1eekmh aerie-theme` 2 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-d5daf` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f4265` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-c4f33` 1 · `_content_1u317r qa-headless-cms-lockup-overlay overlay-f2d1f` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `images_T6gbn` 11 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 5 · `_container_1eekmh aerie-theme` 2
 
 **이미지가 안 붙은 상품 링크 표본**
 
