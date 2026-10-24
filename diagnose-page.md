@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-10-23 21:56Z)
+# 목록 페이지 진단 (2026-10-24 21:26Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -32,7 +32,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle"
-- 링크 562개 · `<img>` 242개 · iframe 6개
+- 링크 564개 · `<img>` 242개 · iframe 6개
 - 링크 중 이미지가 딸린 것 125개 → 그중 주소를 뽑아낸 것 **125개**
 
 **주소를 찾은 속성**: `src` 125
