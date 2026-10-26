@@ -1,60 +1,60 @@
-# 엑셀 4항목 채움률 (2026-10-26T23:39Z)
+# 엑셀 4항목 채움률 (2026-10-26T23:57Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 30058/36551 | 82% |
-| 컬러 | 21663/36551 | 59% |
-| 사이즈 | 15730/36551 | 43% |
-| 혼용률 | 27080/36551 | 74% |
+| 가격 | 30151/36586 | 82% |
+| 컬러 | 22051/36586 | 60% |
+| 사이즈 | 15929/36586 | 44% |
+| 혼용률 | 27597/36586 | 75% |
 
-**가격·혼용률 모두 80% 이상인 브랜드 72개** (시연에 안전)
+**가격·혼용률 모두 80% 이상인 브랜드 76개** (시연에 안전)
 
 | 브랜드 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |
 |---|---:|---:|---:|---:|---:|
 | Aritzia | 800 | 88% | 0% | 0% | 88% |
 | Gestuz | 661 | 100% | 0% | 0% | 92% |
-| Good American | 595 | 99% | 98% | 98% | 85% |
+| Good American | 595 | 99% | 100% | 99% | 86% |
 | CCC | 590 | 87% | 100% | 0% | 97% |
 | Eileen fisher | 505 | 99% | 0% | 0% | 93% |
 | Nation LTD | 488 | 100% | 100% | 98% | 100% |
 | Cotton on | 472 | 100% | 99% | 0% | 99% |
 | Lands end | 462 | 94% | 3% | 0% | 92% |
-| Shopbop | 457 | 100% | 100% | 0% | 99% |
-| Frank & Eileen | 447 | 100% | 100% | 100% | 98% |
+| Shopbop | 458 | 100% | 92% | 0% | 91% |
+| Frank & Eileen | 447 | 100% | 100% | 100% | 99% |
+| Wrap | 437 | 99% | 0% | 0% | 91% |
 | Evereve | 434 | 100% | 100% | 100% | 97% |
-| J.mclaughlin | 412 | 100% | 0% | 0% | 84% |
+| J.mclaughlin | 412 | 100% | 0% | 0% | 89% |
+| Jager | 403 | 100% | 62% | 0% | 93% |
 | Splendid | 403 | 100% | 98% | 100% | 85% |
 | Me+Em | 400 | 99% | 98% | 0% | 93% |
-| Phase eight | 395 | 100% | 100% | 0% | 93% |
-| Wrap | 393 | 99% | 0% | 0% | 92% |
+| Phase eight | 395 | 100% | 100% | 0% | 94% |
 | Sanctuary | 392 | 100% | 100% | 100% | 98% |
-| Tuckernuck | 389 | 100% | 95% | 95% | 89% |
+| Tuckernuck | 389 | 100% | 99% | 99% | 92% |
 | ALC | 380 | 100% | 100% | 98% | 98% |
 | James Perse | 377 | 100% | 99% | 99% | 99% |
+| Scoth & soda | 373 | 100% | 98% | 97% | 89% |
 | Vince | 371 | 100% | 100% | 100% | 99% |
-| Hobbs | 359 | 100% | 99% | 0% | 90% |
+| Hobbs | 359 | 100% | 100% | 0% | 90% |
 | Damson Madder | 356 | 100% | 100% | 99% | 98% |
 | Oak + Fort | 344 | 100% | 94% | 100% | 100% |
-| Velvet | 331 | 100% | 83% | 99% | 99% |
+| Velvet | 331 | 100% | 83% | 99% | 100% |
 | Bassike | 323 | 100% | 0% | 99% | 97% |
 | Boden | 322 | 100% | 10% | 81% | 82% |
-| Chico's | 317 | 99% | 99% | 0% | 97% |
+| Chico's | 317 | 100% | 100% | 0% | 97% |
+| Sweaty betty | 317 | 100% | 89% | 0% | 83% |
 | L.L bean | 316 | 95% | 78% | 0% | 94% |
-| Leset | 315 | 98% | 97% | 96% | 82% |
-| Thread & supply | 312 | 100% | 79% | 98% | 95% |
+| Leset | 315 | 100% | 98% | 98% | 84% |
+| Thread & supply | 312 | 100% | 80% | 100% | 96% |
 | Ulla Johnson | 309 | 100% | 100% | 100% | 97% |
 | The Great | 308 | 98% | 97% | 97% | 99% |
 | Sundry | 304 | 100% | 79% | 100% | 98% |
-| Sweaty betty | 303 | 100% | 99% | 0% | 92% |
 | Jigsaw | 294 | 100% | 100% | 100% | 96% |
 | Seasalt cornwall | 285 | 96% | 98% | 0% | 97% |
 | Project Social T | 277 | 100% | 99% | 99% | 91% |
-| Rails | 277 | 100% | 18% | 98% | 83% |
-| Poetry | 276 | 99% | 0% | 0% | 80% |
 
-<details><summary>아직 부족한 브랜드 58개</summary>
+<details><summary>아직 부족한 브랜드 54개</summary>
 
 | 브랜드 | 그룹 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |
 |---|---|---:|---:|---:|---:|---:|
@@ -63,41 +63,37 @@
 | Reformation | server | 600 | 100% | 73% | 73% | 67% |
 | Fatface | extension | 562 | 45% | 0% | 0% | 0% |
 | Zara | server | 498 | 100% | 0% | 0% | 0% |
-| Nike | browser | 483 | 38% | 95% | 0% | 86% |
 | &Other Stories | extension | 476 | 98% | 22% | 0% | 37% |
+| Nike | browser | 472 | 35% | 92% | 0% | 82% |
 | Everlane | server | 440 | 100% | 0% | 99% | 65% |
 | Addidas | extension | 430 | 75% | 0% | 0% | 0% |
 | Lululemon | extension | 418 | 0% | 0% | 0% | 0% |
 | Massimo Dutti | extension | 413 | 0% | 0% | 0% | 0% |
-| Jager | server | 403 | 100% | 4% | 0% | 7% |
-| The upside | browser | 399 | 90% | 0% | 0% | 79% |
-| Mint velvet | server | 397 | 100% | 0% | 93% | 66% |
+| The upside | browser | 400 | 90% | 0% | 0% | 79% |
+| Mint velvet | server | 397 | 100% | 0% | 100% | 70% |
 | Ann Taylor | extension | 388 | 1% | 92% | 0% | 89% |
 | La Ligne | server | 385 | 5% | 100% | 0% | 99% |
-| Scoth & soda | server | 373 | 97% | 84% | 83% | 77% |
 | Joules | extension | 368 | 42% | 0% | 0% | 0% |
 | Dickies | server | 345 | 100% | 100% | 99% | 70% |
 | Theory | extension | 341 | 6% | 96% | 2% | 95% |
 | Stateside | server | 337 | 100% | 88% | 96% | 61% |
 | Gymshark | server | 296 | 0% | 100% | 0% | 100% |
 | Arket | extension | 284 | 98% | 57% | 57% | 56% |
-| English factory | server | 257 | 100% | 71% | 78% | 72% |
-| On | browser | 237 | 36% | 100% | 0% | 95% |
+| On | browser | 270 | 49% | 99% | 0% | 89% |
 | rouje | server | 236 | 100% | 100% | 0% | 47% |
 | Abercrombie & Fitch | extension | 225 | 16% | 0% | 0% | 59% |
 | Vuori | server | 217 | 17% | 100% | 0% | 93% |
 | Boldest | browser | 213 | 100% | 99% | 0% | 20% |
 | J crew | browser | 210 | 0% | 59% | 0% | 30% |
-| vineyardvines | server | 209 | 13% | 100% | 0% | 98% |
-| Coldwatercreek | browser | 208 | 100% | 1% | 0% | 34% |
+| vineyardvines | server | 209 | 13% | 100% | 0% | 99% |
+| Coldwatercreek | browser | 208 | 100% | 1% | 0% | 35% |
 | Sezane | extension | 204 | 1% | 1% | 0% | 0% |
-| American Eagle | browser | 179 | 73% | 98% | 0% | 96% |
+| American Eagle | browser | 179 | 74% | 100% | 0% | 98% |
 | Anthropologie | extension | 178 | 99% | 0% | 0% | 1% |
 | Veronica Beard | server | 170 | 100% | 81% | 81% | 79% |
-| Oasis | server | 167 | 100% | 94% | 0% | 74% |
+| Oasis | server | 167 | 100% | 98% | 0% | 77% |
 | Patagonia | extension | 167 | 0% | 0% | 0% | 1% |
 | Barbour | browser | 161 | 0% | 0% | 0% | 93% |
-| Splits59 | server | 158 | 100% | 51% | 92% | 73% |
 | Free People | extension | 150 | 87% | 0% | 0% | 2% |
 | Lucky Brand | browser | 125 | 14% | 94% | 0% | 93% |
 | Buck Mason | server | 123 | 100% | 99% | 100% | 47% |
@@ -137,10 +133,10 @@
 - ⚠ Seasalt cornwall — 79시간 전 · 285개
 - ⚠ Anthropologie — 79시간 전 · 178개
 - ⚠ Free People — 79시간 전 · 150개
-- ⚠ Old Navy — 78시간 전 · 8개
-- ⚠ Loft — 78시간 전 · 682개
-- ⚠ H&M — 78시간 전 · 747개
-- ⚠ Theory — 78시간 전 · 341개
+- ⚠ Old Navy — 79시간 전 · 8개
+- ⚠ Loft — 79시간 전 · 682개
+- ⚠ H&M — 79시간 전 · 747개
+- ⚠ Theory — 79시간 전 · 341개
 - ⚠ Banana Republic — 78시간 전 · 1개
 - ⚠ Madewell — 78시간 전 · 21개
 - ⚠ The white company — 78시간 전 · 73개
@@ -151,17 +147,17 @@
 
 <details><summary>정상 12개</summary>
 
-- FP Movement — 33시간 전 · 98개
-- Arket — 33시간 전 · 284개
-- Patagonia — 33시간 전 · 167개
-- Gap — 33시간 전 · 7개
-- Wilson — 33시간 전 · 98개
+- FP Movement — 34시간 전 · 98개
+- Arket — 34시간 전 · 284개
+- Patagonia — 34시간 전 · 167개
+- Gap — 34시간 전 · 7개
+- Wilson — 34시간 전 · 98개
 - Eileen fisher — 33시간 전 · 505개
 - Oysho — 33시간 전 · 18개
 - Paige — 33시간 전 · 56개
 - Lululemon — 33시간 전 · 418개
 - Abercrombie & Fitch — 33시간 전 · 225개
-- Fatface — 0시간 전 · 562개
+- Fatface — 1시간 전 · 562개
 - Mango — 0시간 전 · 106개
 
 </details>
@@ -173,7 +169,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 27080/36551개 (74%) · 미완 브랜드 125개
+- 전체 27597/36586개 (75%) · 미완 브랜드 124개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -196,11 +192,10 @@
 | Free People | extension | 3/150 (2%) |
 | Garnet hill | extension | 3/122 (2%) |
 | FP Movement | extension | 6/98 (6%) |
-| Jager | server | 28/403 (7%) |
 | Boldest | browser | 43/213 (20%) |
 | Loft | extension | 187/682 (27%) |
 | J crew | browser | 64/210 (30%) |
-| Coldwatercreek | browser | 71/208 (34%) |
+| Coldwatercreek | browser | 72/208 (35%) |
 | &Other Stories | extension | 174/476 (37%) |
 | Aerie | browser | 49/120 (41%) |
 | Sessun | server | 32/72 (44%) |
@@ -213,94 +208,94 @@
 | Stateside | server | 204/337 (61%) |
 | Madewell | extension | 13/21 (62%) |
 | Everlane | server | 285/440 (65%) |
-| Mint velvet | server | 262/397 (66%) |
 | Reformation | server | 399/600 (67%) |
+| Mint velvet | server | 279/397 (70%) |
 | Dickies | server | 240/345 (70%) |
-| English factory | server | 185/257 (72%) |
-| Splits59 | server | 116/158 (73%) |
-| Oasis | server | 123/167 (74%) |
-| Scoth & soda | server | 286/373 (77%) |
-| The upside | browser | 317/399 (79%) |
+| Oasis | server | 129/167 (77%) |
+| The upside | browser | 317/400 (79%) |
 | Veronica Beard | server | 135/170 (79%) |
 | Spanx | server | 66/84 (79%) |
-| Poetry | browser | 222/276 (80%) |
-| Boden | server | 264/322 (82%) |
-| Leset | browser | 258/315 (82%) |
+| Poetry | browser | 184/229 (80%) |
+| Splits59 | server | 127/158 (80%) |
+| Nike | browser | 389/472 (82%) |
+| Boden | server | 265/322 (82%) |
 | Whitestuff | server | 226/274 (82%) |
+| Sweaty betty | browser | 262/317 (83%) |
 | Rails | server | 230/277 (83%) |
-| J.mclaughlin | browser | 346/412 (84%) |
+| Leset | browser | 264/315 (84%) |
 | Paige | extension | 47/56 (84%) |
-| Good American | server | 505/595 (85%) |
 | Splendid | server | 344/403 (85%) |
-| Nike | browser | 416/483 (86%) |
+| Good American | server | 510/595 (86%) |
 | Frame | server | 171/196 (87%) |
 | Carlhartt | browser | 74/85 (87%) |
 | Aritzia | extension | 704/800 (88%) |
-| Tuckernuck | server | 347/389 (89%) |
+| J.mclaughlin | browser | 367/412 (89%) |
 | Ann Taylor | extension | 344/388 (89%) |
-| Outdoorvoices | server | 106/119 (89%) |
-| Hobbs | server | 322/359 (90%) |
-| WHBM | server | 223/249 (90%) |
+| Scoth & soda | server | 332/373 (89%) |
+| On | browser | 241/270 (89%) |
+| Hobbs | server | 324/359 (90%) |
+| Shopbop | browser | 418/458 (91%) |
+| Wrap | browser | 399/437 (91%) |
 | Project Social T | server | 251/277 (91%) |
+| English factory | server | 234/257 (91%) |
 | Michael Stars | server | 182/199 (91%) |
 | Addison bay | server | 126/138 (91%) |
 | Apiece Apart | browser | 75/82 (91%) |
-| Gestuz | browser | 609/661 (92%) |
+| Gestuz | browser | 610/661 (92%) |
 | Lands end | extension | 425/462 (92%) |
-| Wrap | browser | 360/393 (92%) |
-| Sweaty betty | browser | 278/303 (92%) |
+| Tuckernuck | server | 357/389 (92%) |
 | Cotton citizen | server | 231/252 (92%) |
-| Alo | server | 182/198 (92%) |
+| Outdoorvoices | server | 110/119 (92%) |
 | Eileen fisher | extension | 468/505 (93%) |
-| Me+Em | browser | 370/400 (93%) |
-| Phase eight | server | 369/395 (93%) |
+| Jager | server | 374/403 (93%) |
+| Me+Em | browser | 371/400 (93%) |
 | Vuori | server | 201/217 (93%) |
 | Monrow | server | 188/203 (93%) |
+| Alo | server | 185/198 (93%) |
 | Barbour | browser | 150/161 (93%) |
 | Marine Layer | server | 146/157 (93%) |
 | Draper James | server | 127/137 (93%) |
 | Lucky Brand | browser | 116/125 (93%) |
+| Phase eight | server | 370/395 (94%) |
 | L.L bean | extension | 298/316 (94%) |
 | Club monaco | server | 236/251 (94%) |
-| Beyond yoga | server | 190/202 (94%) |
 | Bellerose | server | 131/139 (94%) |
 | Bash | server | 44/47 (94%) |
 | Theory | extension | 325/341 (95%) |
-| Thread & supply | server | 296/312 (95%) |
-| On | browser | 224/237 (95%) |
 | Whistles | server | 204/215 (95%) |
 | Eddie bauer | server | 189/200 (95%) |
 | Citizens of Humanity | server | 162/171 (95%) |
 | Vanessa bruno | server | 54/57 (95%) |
+| Thread & supply | server | 300/312 (96%) |
 | Jigsaw | server | 283/294 (96%) |
 | Nylora | server | 225/235 (96%) |
 | LNA | server | 222/232 (96%) |
 | Faherty | server | 184/192 (96%) |
-| American Eagle | browser | 172/179 (96%) |
 | Greyson | server | 86/90 (96%) |
-| CCC | browser | 571/590 (97%) |
-| Evereve | server | 419/434 (97%) |
+| CCC | browser | 572/590 (97%) |
+| Evereve | server | 420/434 (97%) |
 | Bassike | server | 314/323 (97%) |
-| Chico's | server | 307/317 (97%) |
+| Chico's | server | 309/317 (97%) |
 | Ulla Johnson | server | 301/309 (97%) |
 | Seasalt cornwall | extension | 276/285 (97%) |
 | Xirena | server | 252/260 (97%) |
+| Beyond yoga | server | 196/202 (97%) |
 | Gerard darel | browser | 134/138 (97%) |
 | Monsoon | server | 33/34 (97%) |
-| Frank & Eileen | server | 440/447 (98%) |
 | Sanctuary | server | 385/392 (98%) |
 | ALC | server | 372/380 (98%) |
 | Damson Madder | server | 349/356 (98%) |
 | Sundry | server | 297/304 (98%) |
-| Varley | server | 255/259 (98%) |
-| vineyardvines | server | 205/209 (98%) |
+| American Eagle | browser | 175/179 (98%) |
 | Cotton on | browser | 469/472 (99%) |
-| Shopbop | browser | 452/457 (99%) |
+| Frank & Eileen | server | 441/447 (99%) |
 | La Ligne | server | 380/385 (99%) |
 | James Perse | server | 375/377 (99%) |
 | Vince | server | 368/371 (99%) |
-| Velvet | server | 329/331 (99%) |
 | The Great | server | 305/308 (99%) |
+| Varley | server | 256/259 (99%) |
+| WHBM | server | 246/249 (99%) |
+| vineyardvines | server | 206/209 (99%) |
 | Rag & bone | server | 184/185 (99%) |
 | Lilla P | server | 168/169 (99%) |
 | Goldie | server | 139/140 (99%) |
@@ -349,20 +344,20 @@
 | Aerie | browser | 28/120 (23%) |  |
 | J.jill | server | 21/93 (23%) |  |
 | Bash | server | 12/47 (26%) | €185 |
-| On | browser | 86/237 (36%) | $50.00 |
-| Nike | browser | 183/483 (38%) | $40 |
+| Nike | browser | 167/472 (35%) | $40 |
 | Madewell | extension | 8/21 (38%) | $100 |
 | Old Navy | extension | 3/8 (38%) | $7 |
 | Joules | extension | 155/368 (42%) | £49 |
 | Sessun | server | 32/72 (44%) |  |
 | Fatface | extension | 252/562 (45%) | £48 |
+| On | browser | 133/270 (49%) | $70.00 |
 | Paige | extension | 31/56 (55%) | ₩124 |
-| American Eagle | browser | 130/179 (73%) |  |
+| American Eagle | browser | 132/179 (74%) |  |
 | Addidas | extension | 324/430 (75%) | $80 |
 | The white company | extension | 56/73 (77%) | £240.00 |
 | Whistles | server | 173/215 (80%) | $ 109.00 |
 | Carlhartt | browser | 70/85 (82%) | $9.99 |
-| CCC | browser | 513/590 (87%) |  |
+| CCC | browser | 514/590 (87%) |  |
 | Free People | extension | 131/150 (87%) | $148.00 |
 | Aritzia | extension | 705/800 (88%) | ₩49,100 |
 | FP Movement | extension | 86/98 (88%) | $48.00 |
@@ -427,9 +422,9 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-10-26T23:39Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-10-26T23:57Z)
 
-- 카탈로그 134개 · 상품 36551개 검사 · **문제 항목 75개**
+- 카탈로그 134개 · 상품 36586개 검사 · **문제 항목 75개**
 - 문제가 있는 브랜드 24개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
@@ -507,7 +502,7 @@
   - [상품 페이지가 아닌 경로] tops · Go to Linen Clothing page — https://www.seasaltcornwall.com/rewards
   - [상품 페이지가 아닌 경로] dresses · Go to New Men's page — https://www.seasaltcornwall.com/blog/the-autumn-dress-edit-design-diaries
 
-## Sweaty betty — 3/303개 (browser)
+## Sweaty betty — 3/317개 (browser)
 
 - **2개** · https://www.sweatybetty.com/us/shop/bottoms
   - [배너 문구가 상품명] pants · explore more adjustable cuff wide leg pants SB04728 StrataBeige.html — https://www.sweatybetty.com/us/shop/bottoms/pants/explore-more-adjustable-cuff-wide-leg-pants-SB04728_StrataBeige.html
@@ -515,7 +510,7 @@
 - **1개** · https://www.sweatybetty.com/us/shop/tops
   - [배너 문구가 상품명] tops · gift guide — https://www.sweatybetty.com/us/content/gift-guide
 
-## The upside — 3/399개 (browser)
+## The upside — 3/400개 (browser)
 
 - **3개** · https://www.theupside.com/shop/tops/
   - [최상위 경로(랜딩 페이지로 보임)] tops · Header Submenu Image — https://www.theupside.com/tanks-tees/
