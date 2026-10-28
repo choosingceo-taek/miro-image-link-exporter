@@ -1,13 +1,32 @@
-# 목록 페이지 진단 (2026-10-27 22:52Z)
+# 목록 페이지 진단 (2026-10-28 22:57Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
 ## https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017
 
-- HTTP **200** · 최종주소 `https://www.carhartt.com/en-eu/`
+- HTTP **200** · 최종주소 `https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017`
 - 제목: "Women's Sweatpants | Carhartt"
-- 링크 0개 · `<img>` 4개 · iframe 2개
-- 링크 중 이미지가 딸린 것 0개 → 그중 주소를 뽑아낸 것 **0개**
+- 링크 255개 · `<img>` 84개 · iframe 2개
+- 링크 중 이미지가 딸린 것 37개 → 그중 주소를 뽑아낸 것 **28개**
+
+| 증상 | 개수 | 뜻 |
+|---|---:|---|
+| img 는 있는데 주소가 비어 있음 | 9 | 지연 로딩. 아래 '못 보던 속성'을 수집기에 추가하면 됩니다 |
+
+**주소를 찾은 속성**: `src` 28
+
+**성공한 카드의 class**: `list-item ng-star-inserted` 24 · `footer-nav-link ng-star-inserted` 3 · `header-large-logo` 1
+
+**이미지가 안 붙은 상품 링크 표본**
+
+- `/en-eu/p/relaxed-fit-fleece-joggers/105510`
+  - 카드 class: `cx-product-image-container`
+  - img 속성: `_ngcontent-ng-c4076350514=` `src=/images/common/eye-black.svg` `alt=` `aria-hidden=true`
+  - ```<a _ngcontent-ng-c4076350514="" tabindex="-1" class="cx-product-image-container" id="105510" data-sku="105510-V61XSREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><div _ngcontent-ng-c4076350514="" class="product-image-wrapper"><!----><!----><a _ngcontent-ng-c4076350514="" tabindex="0" role="button" mattooltiphidedelay="750" mattooltipposition="right" aria-haspopup="dialog"```
+- `/en-eu/p/relaxed-fit-fleece-joggers/105510`
+  - 카드 class: `product-name`
+  - img 속성: (img 없음)
+  - ```<a _ngcontent-ng-c4076350514="" class="product-name" data-sku="105510-V61XSREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><h2 _ngcontent-ng-c4076350514="" class="product-name-label">Relaxed Fit Fleece Joggers</h2></a>```
 
 ## https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030
 
@@ -42,24 +61,28 @@
 - 링크 515개 · `<img>` 209개 · iframe 12개
 - 링크 중 이미지가 딸린 것 117개 → 그중 주소를 뽑아낸 것 **117개**
 
+| 증상 | 개수 | 뜻 |
+|---|---:|---|
+| shadow DOM 안의 링크 | 6 | shadow 호스트 1개 — querySelectorAll 로는 안 보입니다 |
+
 **주소를 찾은 속성**: `src` 117
 
 **성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 6 · `_container_1eekmh aerie-theme` 2 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
-- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135`
+- `/us/en/p/aerie/best-deals-ever/go-to-crews/aerie-go-to-boyfriend-sweatshirt/0743_4135_618`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
-- `/us/en/p/aerie/best-deals-ever/oh-zip-sets/aerie-oh-zip-sweatshirt/0743_3982_192`
+  - ```<a href="/us/en/p/aerie/best-deals-ever/go-to-crews/aerie-go-to-boyfriend-sweatshirt/0743_4135_618" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
+- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-layover-mockneck-sweatshirt/0743_4079_135`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/best-deals-ever/oh-zip-sets/aerie-oh-zip-sweatshirt/0743_3982_192" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> Matching Set + Bestseller </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-produ```
-- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-polo-sweater/0745_4154_410`
+  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-layover-mockneck-sweatshirt/0743_4079_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-produ```
+- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-bubble-crew-sweater/0745_4056_145`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-polo-sweater/0745_4154_410" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
+  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-bubble-crew-sweater/0745_4056_145" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="Aerie Bubble Cr```
 
 ## https://www.apieceapart.com/shop/tops
 
