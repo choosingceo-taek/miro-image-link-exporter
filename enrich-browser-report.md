@@ -1,17 +1,16 @@
-# 혼용률 보강 — 진짜 크롬 (2026-10-29 00:40Z)
+# 혼용률 보강 — 진짜 크롬 (2026-10-30 00:40Z)
 
 평 fetch 로는 차단되는 브랜드를 진짜 크롬으로 다시 읽은 결과입니다.
 
-- 시도 307개 · **채움 0개** (0%)
+- 시도 210개 · **채움 4개** (2%)
 
 
 | 브랜드 | 상품 | 시도 | 채움 | 사이트 미표기 | 차단·타임아웃 | 오류 |
 |---|---:|---:|---:|---:|---:|---:|
-| Sezane | 207 | 120 | **0** | 0 | 120 | 0 |
-| Garnet hill | 116 | 113 | **0** | 0 | 113 | 0 |
-| FP Movement | 78 | 74 | **0** | 0 | 74 | 0 |
+| Free People | 183 | 120 | **0** | 0 | 120 | 0 |
+| The upside | 417 | 90 | **4** | 0 | 86 | 0 |
 
-- 건너뜀(차단 이력): Addidas(4일) · Anthropologie(13일) · Aritzia(3일) · Arket(8일) · Eileen fisher(6일) · Fatface(13일) · Free People(1일) · Joules(13일) · Lululemon(13일) · &Other Stories(4일) · The upside(1일) · H&M(13일)
+- 건너뜀(차단 이력): Addidas(3일) · Anthropologie(12일) · Aritzia(2일) · Arket(7일) · Eileen fisher(5일) · Fatface(12일) · FP Movement(14일) · Garnet hill(14일) · Joules(12일) · Sezane(14일) · Lululemon(12일) · &Other Stories(3일) · H&M(12일)
 
 차단·타임아웃이 대부분이면 진짜 크롬으로도 안 된다는 뜻이므로, 그 브랜드는
 사람 PC 의 확장(가정용 IP)이 맡아야 합니다. '사이트 미표기'가 대부분이면
