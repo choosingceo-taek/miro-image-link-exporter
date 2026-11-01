@@ -1,18 +1,18 @@
 {
- "when": "2026-10-31T23:11:09.597Z",
- "scanned": 36925,
- "flagged": 104,
+ "when": "2026-11-01T23:20:43.636Z",
+ "scanned": 37059,
+ "flagged": 102,
  "report": [
   {
    "brand": "Phase eight",
    "site": "phase-eight.com.phaseeight",
    "group": "server",
    "total": 396,
-   "badCount": 61,
+   "badCount": 60,
    "bySrc": [
     {
      "src": "(출처 불명)",
-     "count": 61,
+     "count": 60,
      "rows": [
       {
        "name": "30% Off Applied",
@@ -34,13 +34,19 @@
       },
       {
        "name": "30% Off Applied",
+       "productUrl": "https://www.phase-eight.com/row/product/pamela-mohair-jumper-10027040917.html",
+       "category": "sweatshirts",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "30% Off Applied",
        "productUrl": "https://www.phase-eight.com/row/product/cristine-fine-knit-batwing-jumper--10027910507.html",
        "category": "sweatshirts",
        "reason": "배너 문구가 상품명"
       },
       {
        "name": "30% Off Applied",
-       "productUrl": "https://www.phase-eight.com/row/product/pamela-mohair-jumper-10027040917.html",
+       "productUrl": "https://www.phase-eight.com/row/product/tia-long-sleeve-ribbed-batwing-jumper-10028380200.html",
        "category": "sweatshirts",
        "reason": "배너 문구가 상품명"
       },
@@ -79,75 +85,6 @@
        "productUrl": "https://www.phase-eight.com/row/product/beta-fashion-detail-jumper-10027620250.html",
        "category": "sweatshirts",
        "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "30% Off Applied",
-       "productUrl": "https://www.phase-eight.com/row/product/pamela-mohair-v-neck-jumper-10028480106.html",
-       "category": "sweatshirts",
-       "reason": "배너 문구가 상품명"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "brand": "Aritzia",
-   "site": "aritzia.com.aritzia",
-   "group": "extension",
-   "total": 800,
-   "badCount": 6,
-   "bySrc": [
-    {
-     "src": "https://www.aritzia.com/us/en/clothing/tops",
-     "count": 4,
-     "rows": [
-      {
-       "name": "all gifts",
-       "productUrl": "https://www.aritzia.com/intl/en/gifts/all-gifts",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "discover",
-       "productUrl": "https://www.aritzia.com/intl/en/discover",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "back to school",
-       "productUrl": "https://www.aritzia.com/intl/en/shop-by/back-to-school",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      },
-      {
-       "name": "back to school checklist",
-       "productUrl": "https://www.aritzia.com/intl/en/shop-by/back-to-school-checklist",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
-      }
-     ]
-    },
-    {
-     "src": "https://www.aritzia.com/us/en/clothing/dresses-3",
-     "count": 1,
-     "rows": [
-      {
-       "name": "All Dresses",
-       "productUrl": "https://www.aritzia.com/intl/en/clothing/dresses",
-       "category": "dresses",
-       "reason": "배너 문구가 상품명"
-      }
-     ]
-    },
-    {
-     "src": "https://www.aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74",
-     "count": 1,
-     "rows": [
-      {
-       "name": "sale",
-       "productUrl": "https://www.aritzia.com/intl/en/sale",
-       "category": "tops",
-       "reason": "배너 문구가 상품명"
       }
      ]
     }
@@ -157,7 +94,7 @@
    "brand": "Sanctuary",
    "site": "sanctuaryclothing.com.sanctuary",
    "group": "server",
-   "total": 426,
+   "total": 425,
    "badCount": 6,
    "bySrc": [
     {
@@ -211,6 +148,57 @@
    ]
   },
   {
+   "brand": "Aritzia",
+   "site": "aritzia.com.aritzia",
+   "group": "extension",
+   "total": 800,
+   "badCount": 5,
+   "bySrc": [
+    {
+     "src": "https://www.aritzia.com/us/en/clothing/tops",
+     "count": 4,
+     "rows": [
+      {
+       "name": "all gifts",
+       "productUrl": "https://www.aritzia.com/intl/en/gifts/all-gifts",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "discover",
+       "productUrl": "https://www.aritzia.com/intl/en/discover",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "back to school",
+       "productUrl": "https://www.aritzia.com/intl/en/shop-by/back-to-school",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "back to school checklist",
+       "productUrl": "https://www.aritzia.com/intl/en/shop-by/back-to-school-checklist",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    },
+    {
+     "src": "https://www.aritzia.com/us/en/clothing/dresses-3",
+     "count": 1,
+     "rows": [
+      {
+       "name": "All Dresses",
+       "productUrl": "https://www.aritzia.com/intl/en/clothing/dresses",
+       "category": "dresses",
+       "reason": "배너 문구가 상품명"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "brand": "Ann Taylor",
    "site": "anntaylor.com.anntaylor",
    "group": "extension",
@@ -247,7 +235,7 @@
    "brand": "L.L bean",
    "site": "global.llbean.com.llbean",
    "group": "extension",
-   "total": 313,
+   "total": 312,
    "badCount": 3,
    "bySrc": [
     {
@@ -280,7 +268,7 @@
    "brand": "Sezane",
    "site": "sezane.com.sezane",
    "group": "extension",
-   "total": 207,
+   "total": 209,
    "badCount": 3,
    "bySrc": [
     {
@@ -313,7 +301,7 @@
    "brand": "Sweaty betty",
    "site": "sweatybetty.com.sweatybetty",
    "group": "browser",
-   "total": 319,
+   "total": 321,
    "badCount": 3,
    "bySrc": [
     {
@@ -475,7 +463,7 @@
    "brand": "FP Movement",
    "site": "freepeople.com.fpmovement",
    "group": "extension",
-   "total": 74,
+   "total": 72,
    "badCount": 1,
    "bySrc": [
     {
@@ -496,7 +484,7 @@
    "brand": "Free People",
    "site": "freepeople.com.freepeople",
    "group": "extension",
-   "total": 182,
+   "total": 183,
    "badCount": 1,
    "bySrc": [
     {
@@ -580,7 +568,7 @@
    "brand": "Seasalt cornwall",
    "site": "seasaltcornwall.com.seasaltcornwall",
    "group": "extension",
-   "total": 288,
+   "total": 281,
    "badCount": 1,
    "bySrc": [
     {
@@ -643,7 +631,7 @@
    "brand": "Theory",
    "site": "theory.com.theory",
    "group": "extension",
-   "total": 336,
+   "total": 347,
    "badCount": 1,
    "bySrc": [
     {
@@ -664,7 +652,7 @@
    "brand": "Boden",
    "site": "us.boden.com.boden",
    "group": "server",
-   "total": 318,
+   "total": 325,
    "badCount": 1,
    "bySrc": [
     {
@@ -685,7 +673,7 @@
    "brand": "Whistles",
    "site": "whistles.com.whistles",
    "group": "server",
-   "total": 205,
+   "total": 202,
    "badCount": 1,
    "bySrc": [
     {
@@ -769,48 +757,6 @@
    ]
   },
   {
-   "brand": "Old Navy",
-   "site": "oldnavy.gap.com.oldnavy",
-   "group": "extension",
-   "total": 6,
-   "perSrc": [
-    {
-     "src": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
-     "n": 0
-    },
-    {
-     "src": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
-     "n": 0
-    },
-    {
-     "src": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
-     "n": 0
-    },
-    {
-     "src": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
-     "n": 0
-    },
-    {
-     "src": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
-     "n": 6
-    }
-   ],
-   "sample": [
-    {
-     "name": "Image of Old Navy holiday gifts displayed with a snowman.",
-     "productUrl": "https://oldnavy.gap.com/browse/info.do"
-    },
-    {
-     "name": "Image of Old Navy sport.",
-     "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-altuzarra"
-    },
-    {
-     "name": "Image of Old Navy x Disney Cozy Ever After.",
-     "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-cozy-ever-after"
-    }
-   ]
-  },
-  {
    "brand": "Gap",
    "site": "gap.com.gap",
    "group": "extension",
@@ -849,44 +795,44 @@
    ]
   },
   {
-   "brand": "Oysho",
-   "site": "oysho.com.oysho",
+   "brand": "Old Navy",
+   "site": "oldnavy.gap.com.oldnavy",
    "group": "extension",
-   "total": 23,
+   "total": 7,
    "perSrc": [
     {
-     "src": "https://www.oysho.com/gb/dresses-jumpsuits-n4954",
+     "src": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
      "n": 0
     },
     {
-     "src": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
-     "n": 3
+     "src": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
+     "n": 0
     },
     {
-     "src": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
-     "n": 5
+     "src": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
+     "n": 0
     },
     {
-     "src": "https://www.oysho.com/gb/womens-pants-n4813",
-     "n": 6
+     "src": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
+     "n": 0
     },
     {
-     "src": "https://www.oysho.com/gb/womens-sports-tops-n5484",
-     "n": 9
+     "src": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
+     "n": 7
     }
    ],
    "sample": [
     {
-     "name": "womens long sleeve t shirts n4763",
-     "productUrl": "https://www.oysho.com/gb/womens-long-sleeve-t-shirts-n4763"
+     "name": "Image of Old Navy holiday gifts displayed with a snowman.",
+     "productUrl": "https://oldnavy.gap.com/browse/info.do"
     },
     {
-     "name": "short sleeve womens t shirts n4766",
-     "productUrl": "https://www.oysho.com/gb/short-sleeve-womens-t-shirts-n4766"
+     "name": "Image of Old Navy sport.",
+     "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-altuzarra"
     },
     {
-     "name": "womens sports tank tops n4770",
-     "productUrl": "https://www.oysho.com/gb/womens-sports-tank-tops-n4770"
+     "name": "Image of Old Navy x Disney Cozy Ever After.",
+     "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-cozy-ever-after"
     }
    ]
   },
@@ -929,6 +875,48 @@
    ]
   },
   {
+   "brand": "Oysho",
+   "site": "oysho.com.oysho",
+   "group": "extension",
+   "total": 29,
+   "perSrc": [
+    {
+     "src": "https://www.oysho.com/gb/dresses-jumpsuits-n4954",
+     "n": 1
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-sports-tops-n5484",
+     "n": 4
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
+     "n": 6
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-pants-n4813",
+     "n": 6
+    },
+    {
+     "src": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+     "n": 12
+    }
+   ],
+   "sample": [
+    {
+     "name": "womens long sleeve t shirts n4763",
+     "productUrl": "https://www.oysho.com/gb/womens-long-sleeve-t-shirts-n4763"
+    },
+    {
+     "name": "short sleeve womens t shirts n4766",
+     "productUrl": "https://www.oysho.com/gb/short-sleeve-womens-t-shirts-n4766"
+    },
+    {
+     "name": "womens sports tank tops n4770",
+     "productUrl": "https://www.oysho.com/gb/womens-sports-tank-tops-n4770"
+    }
+   ]
+  },
+  {
    "brand": "Monsoon",
    "site": "monsoonlondon.com.monsoon",
    "group": "server",
@@ -957,16 +945,16 @@
    ],
    "sample": [
     {
-     "name": "Diana Devoré Polka Dot Jersey Top Red",
-     "productUrl": "https://www.monsoonlondon.com/ie/diana-devore-polka-dot-jersey-top-red-10091130055.html"
-    },
-    {
      "name": "Maeve Ruffle Stripe Shirt Camel",
      "productUrl": "https://www.monsoonlondon.com/ie/maeve-ruffle-stripe-shirt-camel-10060310056.html"
     },
     {
-     "name": "Sandy Relaxed Blouse Orange",
-     "productUrl": "https://www.monsoonlondon.com/ie/sandy-relaxed-blouse-orange-10064300163.html"
+     "name": "Synthia Snake Print Blouse Pink",
+     "productUrl": "https://www.monsoonlondon.com/ie/synthia-snake-print-blouse-pink-10004940046.html"
+    },
+    {
+     "name": "Luella Feather Cuff Top Ivory",
+     "productUrl": "https://www.monsoonlondon.com/ie/luella-feather-cuff-top-ivory-20003900016.html"
     }
    ]
   },
@@ -974,7 +962,7 @@
    "brand": "Bash",
    "site": "ba-sh.com.bash",
    "group": "server",
-   "total": 47,
+   "total": 36,
    "perSrc": [
     {
      "src": "https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.",
@@ -998,7 +986,7 @@
     },
     {
      "src": "(출처 없음 — 옛 수집분)",
-     "n": 47
+     "n": 36
     }
    ],
    "sample": [
@@ -1066,7 +1054,7 @@
    "brand": "Paige",
    "site": "paige.com.paige",
    "group": "extension",
-   "total": 53,
+   "total": 52,
    "perSrc": [
     {
      "src": "https://paige.com/collection/women-dresses",
@@ -1082,7 +1070,7 @@
     },
     {
      "src": "https://paige.com/collection/women-tees-and-tanks",
-     "n": 12
+     "n": 11
     },
     {
      "src": "https://paige.com/collection/women-tops",
@@ -1099,8 +1087,54 @@
      "productUrl": "https://paige.com/en-kr/products/women-rhodes-tee-black"
     },
     {
-     "name": "Caroline Top - Black Silk image 1",
-     "productUrl": "https://paige.com/en-kr/products/women-caroline-top-black"
+     "name": "Rhodes Tee - Fern image 1",
+     "productUrl": "https://paige.com/en-kr/products/women-rhodes-tee-fern"
+    }
+   ]
+  },
+  {
+   "brand": "Sessun",
+   "site": "en.sessun.com.sessun",
+   "group": "server",
+   "total": 56,
+   "perSrc": [
+    {
+     "src": "https://en.sessun.com/catalogue/t-shirts.html",
+     "n": 0
+    },
+    {
+     "src": "https://en.sessun.com/catalogue/sweatshirts.html",
+     "n": 0
+    },
+    {
+     "src": "https://en.sessun.com/catalogue/tops-and-bodies.html",
+     "n": 0
+    },
+    {
+     "src": "https://en.sessun.com/catalogue/dresses.html",
+     "n": 0
+    },
+    {
+     "src": "https://en.sessun.com/catalogue/trousers.html",
+     "n": 0
+    },
+    {
+     "src": "(출처 없음 — 옛 수집분)",
+     "n": 56
+    }
+   ],
+   "sample": [
+    {
+     "name": "PROCIDA Roadsong | Shirt | SESSÙN Official website",
+     "productUrl": "https://us.sessun.com/catalogue/shirt-and-blouses/procida-roadsong.html"
+    },
+    {
+     "name": "ALFANCY Lanza Papier Libre | Shirt | SESSÙN Official website",
+     "productUrl": "https://us.sessun.com/catalogue/shirt-and-blouses/alfancy-lanza-papier-libre.html"
+    },
+    {
+     "name": "DELIWOOL Nomadwool | Shirt | SESSÙN Official website",
+     "productUrl": "https://us.sessun.com/catalogue/shirt-and-blouses/deliwool-nomadwool.html"
     }
    ]
   },
@@ -1170,7 +1204,7 @@
   {
    "brand": "Old Navy",
    "group": "extension",
-   "total": 6,
+   "total": 7,
    "dead": [
     "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
     "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
@@ -1201,7 +1235,7 @@
   {
    "brand": "Arket",
    "group": "extension",
-   "total": 294,
+   "total": 292,
    "dead": [
     "https://www.arket.com/en-ww/women/clothing/tops/t-shirts/"
    ]
@@ -1209,17 +1243,9 @@
   {
    "brand": "Fatface",
    "group": "extension",
-   "total": 412,
+   "total": 419,
    "dead": [
     "https://www.fatface.com/shop/womens/clothing/tops/t-shirts"
-   ]
-  },
-  {
-   "brand": "Joules",
-   "group": "extension",
-   "total": 296,
-   "dead": [
-    "https://www.joules.com/shop/womens/clothing/tops"
    ]
   },
   {
@@ -1228,14 +1254,6 @@
    "total": 24,
    "dead": [
     "https://www.madewell.com/kr/womens/clothing/dresses/"
-   ]
-  },
-  {
-   "brand": "Oysho",
-   "group": "extension",
-   "total": 23,
-   "dead": [
-    "https://www.oysho.com/gb/dresses-jumpsuits-n4954"
    ]
   },
   {
@@ -1250,200 +1268,200 @@
  "extension": [
   {
    "name": "Fatface",
-   "items": 412,
-   "age": 33.12656138888889,
-   "missing": false
-  },
-  {
-   "name": "Loft",
-   "items": 687,
-   "age": 32.564569722222224,
-   "missing": false
-  },
-  {
-   "name": "Lands end",
-   "items": 459,
-   "age": 9.111248333333334,
-   "missing": false
-  },
-  {
-   "name": "Ann Taylor",
-   "items": 424,
-   "age": 9.085763333333333,
-   "missing": false
-  },
-  {
-   "name": "Seasalt cornwall",
-   "items": 288,
-   "age": 9.015120277777777,
-   "missing": false
-  },
-  {
-   "name": "Anthropologie",
-   "items": 299,
-   "age": 8.875320555555556,
-   "missing": false
-  },
-  {
-   "name": "Free People",
-   "items": 182,
-   "age": 8.747695555555556,
-   "missing": false
-  },
-  {
-   "name": "Old Navy",
-   "items": 6,
-   "age": 8.712706944444445,
+   "items": 419,
+   "age": 14.534650833333334,
    "missing": false
   },
   {
    "name": "H&M",
    "items": 744,
-   "age": 8.60294388888889,
-   "missing": false
-  },
-  {
-   "name": "Theory",
-   "items": 336,
-   "age": 8.490038888888888,
-   "missing": false
-  },
-  {
-   "name": "Banana Republic",
-   "items": 1,
-   "age": 8.446635,
-   "missing": false
-  },
-  {
-   "name": "Madewell",
-   "items": 24,
-   "age": 8.414919166666667,
+   "age": 9.257233611111111,
    "missing": false
   },
   {
    "name": "The white company",
    "items": 68,
-   "age": 8.389250833333334,
+   "age": 9.231288055555556,
    "missing": false
   },
   {
    "name": "L.L bean",
-   "items": 313,
-   "age": 8.311763611111111,
+   "items": 312,
+   "age": 9.154324722222222,
    "missing": false
   },
   {
    "name": "Massimo Dutti",
-   "items": 474,
-   "age": 8.237749444444445,
+   "items": 480,
+   "age": 9.068604166666667,
    "missing": false
   },
   {
    "name": "Sezane",
-   "items": 207,
-   "age": 8.212346944444445,
+   "items": 209,
+   "age": 9.044168888888889,
    "missing": false
   },
   {
    "name": "Garnet hill",
-   "items": 123,
-   "age": 8.165130555555555,
+   "items": 122,
+   "age": 8.997122222222222,
    "missing": false
   },
   {
    "name": "FP Movement",
-   "items": 74,
-   "age": 8.1162725,
+   "items": 72,
+   "age": 8.948753055555555,
    "missing": false
   },
   {
    "name": "Arket",
-   "items": 294,
-   "age": 8.068994444444444,
+   "items": 292,
+   "age": 8.899885277777777,
    "missing": false
   },
   {
    "name": "Patagonia",
    "items": 167,
-   "age": 8.038700833333333,
+   "age": 8.870451388888888,
    "missing": false
   },
   {
    "name": "Gap",
    "items": 7,
-   "age": 8.004589444444445,
+   "age": 8.83294,
    "missing": false
   },
   {
    "name": "Wilson",
    "items": 49,
-   "age": 7.9691052777777776,
+   "age": 8.796980833333333,
    "missing": false
   },
   {
    "name": "Eileen fisher",
    "items": 505,
-   "age": 7.932093333333333,
+   "age": 8.761262777777779,
    "missing": false
   },
   {
    "name": "Oysho",
-   "items": 23,
-   "age": 7.833810833333334,
+   "items": 29,
+   "age": 8.7052275,
    "missing": false
   },
   {
    "name": "Lululemon",
-   "items": 436,
-   "age": 7.792431944444444,
+   "items": 433,
+   "age": 8.667086666666666,
    "missing": false
   },
   {
    "name": "Abercrombie & Fitch",
-   "items": 274,
-   "age": 7.755115833333333,
+   "items": 230,
+   "age": 8.630761388888889,
    "missing": false
   },
   {
    "name": "Mango",
-   "items": 113,
-   "age": 7.709780555555556,
+   "items": 110,
+   "age": 8.585940555555556,
    "missing": false
   },
   {
    "name": "Joules",
-   "items": 296,
-   "age": 7.670281388888889,
+   "items": 391,
+   "age": 8.544475277777778,
    "missing": false
   },
   {
    "name": "Aritzia",
    "items": 800,
-   "age": 7.620314722222222,
+   "age": 8.507032222222222,
    "missing": false
   },
   {
    "name": "Athleta",
    "items": 2,
-   "age": 7.580192222222222,
+   "age": 8.38247,
    "missing": false
   },
   {
    "name": "Paige",
-   "items": 53,
-   "age": 7.541817777777778,
+   "items": 52,
+   "age": 8.343409166666667,
    "missing": false
   },
   {
    "name": "&Other Stories",
-   "items": 485,
-   "age": 7.469220555555555,
+   "items": 482,
+   "age": 8.268930555555556,
    "missing": false
   },
   {
    "name": "Addidas",
    "items": 537,
-   "age": 7.431535555555556,
+   "age": 8.229630277777778,
+   "missing": false
+  },
+  {
+   "name": "Loft",
+   "items": 688,
+   "age": 8.160736666666667,
+   "missing": false
+  },
+  {
+   "name": "Lands end",
+   "items": 459,
+   "age": 8.09294,
+   "missing": false
+  },
+  {
+   "name": "Ann Taylor",
+   "items": 424,
+   "age": 8.031286666666666,
+   "missing": false
+  },
+  {
+   "name": "Seasalt cornwall",
+   "items": 281,
+   "age": 7.947038055555556,
+   "missing": false
+  },
+  {
+   "name": "Anthropologie",
+   "items": 315,
+   "age": 7.78898,
+   "missing": false
+  },
+  {
+   "name": "Free People",
+   "items": 183,
+   "age": 7.6615536111111116,
+   "missing": false
+  },
+  {
+   "name": "Old Navy",
+   "items": 7,
+   "age": 7.626498333333333,
+   "missing": false
+  },
+  {
+   "name": "Theory",
+   "items": 347,
+   "age": 7.508420277777778,
+   "missing": false
+  },
+  {
+   "name": "Banana Republic",
+   "items": 1,
+   "age": 7.4659852777777775,
+   "missing": false
+  },
+  {
+   "name": "Madewell",
+   "items": 24,
+   "age": 7.435891111111111,
    "missing": false
   }
  ],
@@ -1451,7 +1469,7 @@
   {
    "brand": "Loft",
    "group": "extension",
-   "total": 687,
+   "total": 688,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1459,7 +1477,7 @@
   {
    "brand": "Massimo Dutti",
    "group": "extension",
-   "total": 474,
+   "total": 480,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1467,7 +1485,7 @@
   {
    "brand": "Lululemon",
    "group": "extension",
-   "total": 436,
+   "total": 433,
    "withPrice": 0,
    "pct": 0,
    "sample": ""
@@ -1483,8 +1501,16 @@
   {
    "brand": "Sezane",
    "group": "extension",
-   "total": 207,
+   "total": 209,
    "withPrice": 1,
+   "pct": 0,
+   "sample": ""
+  },
+  {
+   "brand": "J crew",
+   "group": "browser",
+   "total": 200,
+   "withPrice": 0,
    "pct": 0,
    "sample": ""
   },
@@ -1521,6 +1547,14 @@
    "sample": ""
   },
   {
+   "brand": "Oysho",
+   "group": "extension",
+   "total": 29,
+   "withPrice": 0,
+   "pct": 0,
+   "sample": ""
+  },
+  {
    "brand": "Gap",
    "group": "extension",
    "total": 7,
@@ -1547,9 +1581,9 @@
   {
    "brand": "Mango",
    "group": "extension",
-   "total": 113,
-   "withPrice": 2,
-   "pct": 2,
+   "total": 110,
+   "withPrice": 3,
+   "pct": 3,
    "sample": "$ 59.99"
   },
   {
@@ -1561,35 +1595,35 @@
    "sample": "$150"
   },
   {
-   "brand": "Abercrombie & Fitch",
+   "brand": "Theory",
    "group": "extension",
-   "total": 274,
-   "withPrice": 35,
-   "pct": 13,
-   "sample": "₩39,365"
+   "total": 347,
+   "withPrice": 30,
+   "pct": 9,
+   "sample": "$56.25"
+  },
+  {
+   "brand": "Bash",
+   "group": "server",
+   "total": 36,
+   "withPrice": 4,
+   "pct": 11,
+   "sample": "€ 125"
   },
   {
    "brand": "Vuori",
    "group": "server",
-   "total": 223,
+   "total": 222,
    "withPrice": 36,
    "pct": 16,
-   "sample": "74"
-  },
-  {
-   "brand": "Theory",
-   "group": "extension",
-   "total": 336,
-   "withPrice": 63,
-   "pct": 19,
-   "sample": "$93.75"
+   "sample": "68"
   },
   {
    "brand": "Aerie",
    "group": "browser",
-   "total": 118,
-   "withPrice": 23,
-   "pct": 19,
+   "total": 119,
+   "withPrice": 24,
+   "pct": 20,
    "sample": ""
   },
   {
@@ -1609,52 +1643,36 @@
    "sample": "$68.00"
   },
   {
-   "brand": "Oysho",
-   "group": "extension",
-   "total": 23,
-   "withPrice": 5,
-   "pct": 22,
-   "sample": "£35.99"
-  },
-  {
    "brand": "Lucky Brand",
    "group": "browser",
-   "total": 223,
+   "total": 224,
    "withPrice": 51,
    "pct": 23,
    "sample": ""
   },
   {
-   "brand": "Bash",
+   "brand": "Sessun",
    "group": "server",
-   "total": 47,
+   "total": 56,
    "withPrice": 15,
-   "pct": 32,
-   "sample": "€175"
-  },
-  {
-   "brand": "Old Navy",
-   "group": "extension",
-   "total": 6,
-   "withPrice": 2,
-   "pct": 33,
-   "sample": "$10"
+   "pct": 27,
+   "sample": ""
   },
   {
    "brand": "Nike",
    "group": "browser",
-   "total": 473,
-   "withPrice": 163,
-   "pct": 34,
+   "total": 472,
+   "withPrice": 164,
+   "pct": 35,
    "sample": "$40"
   },
   {
-   "brand": "On",
-   "group": "browser",
-   "total": 237,
-   "withPrice": 85,
-   "pct": 36,
-   "sample": "$50.00"
+   "brand": "Joules",
+   "group": "extension",
+   "total": 391,
+   "withPrice": 161,
+   "pct": 41,
+   "sample": "£39"
   },
   {
    "brand": "Madewell",
@@ -1665,66 +1683,74 @@
    "sample": "$100"
   },
   {
-   "brand": "Sessun",
-   "group": "server",
-   "total": 75,
-   "withPrice": 35,
-   "pct": 47,
-   "sample": ""
+   "brand": "Old Navy",
+   "group": "extension",
+   "total": 7,
+   "withPrice": 3,
+   "pct": 43,
+   "sample": "$10"
   },
   {
-   "brand": "Joules",
-   "group": "extension",
-   "total": 296,
-   "withPrice": 142,
-   "pct": 48,
-   "sample": "£40"
+   "brand": "On",
+   "group": "browser",
+   "total": 275,
+   "withPrice": 125,
+   "pct": 45,
+   "sample": "$50.00"
   },
   {
    "brand": "Fatface",
    "group": "extension",
-   "total": 412,
-   "withPrice": 206,
+   "total": 419,
+   "withPrice": 210,
    "pct": 50,
-   "sample": "£48"
+   "sample": "£69"
   },
   {
    "brand": "Paige",
    "group": "extension",
-   "total": 53,
+   "total": 52,
    "withPrice": 36,
-   "pct": 68,
+   "pct": 69,
    "sample": "₩125"
   },
   {
    "brand": "Addidas",
    "group": "extension",
    "total": 537,
-   "withPrice": 385,
-   "pct": 72,
+   "withPrice": 382,
+   "pct": 71,
    "sample": "$80"
   },
   {
    "brand": "American Eagle",
    "group": "browser",
    "total": 179,
-   "withPrice": 133,
-   "pct": 74,
+   "withPrice": 131,
+   "pct": 73,
    "sample": ""
+  },
+  {
+   "brand": "Abercrombie & Fitch",
+   "group": "extension",
+   "total": 230,
+   "withPrice": 175,
+   "pct": 76,
+   "sample": "₩34,323"
   },
   {
    "brand": "Whistles",
    "group": "server",
-   "total": 205,
-   "withPrice": 165,
+   "total": 202,
+   "withPrice": 162,
    "pct": 80,
    "sample": "$ 159.20"
   },
   {
    "brand": "Free People",
    "group": "extension",
-   "total": 182,
-   "withPrice": 147,
+   "total": 183,
+   "withPrice": 148,
    "pct": 81,
    "sample": "$58.00"
   },
@@ -1739,9 +1765,9 @@
   {
    "brand": "FP Movement",
    "group": "extension",
-   "total": 74,
-   "withPrice": 62,
-   "pct": 84,
+   "total": 72,
+   "withPrice": 60,
+   "pct": 83,
    "sample": "$48.00"
   },
   {
@@ -1750,7 +1776,7 @@
    "total": 68,
    "withPrice": 58,
    "pct": 85,
-   "sample": "£240.00"
+   "sample": "£80.00"
   },
   {
    "brand": "The upside",
@@ -1769,28 +1795,28 @@
    "sample": "$15"
   },
   {
+   "brand": "Monsoon",
+   "group": "server",
+   "total": 35,
+   "withPrice": 30,
+   "pct": 86,
+   "sample": "72.00"
+  },
+  {
    "brand": "Aritzia",
    "group": "extension",
    "total": 800,
-   "withPrice": 703,
+   "withPrice": 704,
    "pct": 88,
-   "sample": "₩134,900"
+   "sample": "₩42,900"
   },
   {
    "brand": "CCC",
    "group": "browser",
-   "total": 597,
-   "withPrice": 525,
+   "total": 596,
+   "withPrice": 522,
    "pct": 88,
    "sample": ""
-  },
-  {
-   "brand": "Monsoon",
-   "group": "server",
-   "total": 35,
-   "withPrice": 31,
-   "pct": 89,
-   "sample": "64.00"
   },
   {
    "brand": "Lands end",
@@ -1803,7 +1829,7 @@
   {
    "brand": "L.L bean",
    "group": "extension",
-   "total": 313,
+   "total": 312,
    "withPrice": 297,
    "pct": 95,
    "sample": "$25"
@@ -1812,31 +1838,31 @@
    "brand": "Varley",
    "group": "server",
    "total": 304,
-   "withPrice": 290,
+   "withPrice": 289,
    "pct": 95,
    "sample": ""
   },
   {
    "brand": "Arket",
    "group": "extension",
-   "total": 294,
-   "withPrice": 280,
+   "total": 292,
+   "withPrice": 278,
    "pct": 95,
    "sample": "$ 69"
   },
   {
    "brand": "Seasalt cornwall",
    "group": "extension",
-   "total": 288,
-   "withPrice": 278,
-   "pct": 97,
+   "total": 281,
+   "withPrice": 271,
+   "pct": 96,
    "sample": "£45"
   },
   {
    "brand": "&Other Stories",
    "group": "extension",
-   "total": 485,
-   "withPrice": 477,
+   "total": 482,
+   "withPrice": 473,
    "pct": 98,
    "sample": "$ 69"
   },
@@ -1849,6 +1875,14 @@
    "sample": "$125.00"
   },
   {
+   "brand": "Poetry",
+   "group": "browser",
+   "total": 259,
+   "withPrice": 255,
+   "pct": 98,
+   "sample": "£169"
+  },
+  {
    "brand": "Club monaco",
    "group": "server",
    "total": 251,
@@ -1859,18 +1893,18 @@
   {
    "brand": "Garnet hill",
    "group": "extension",
-   "total": 123,
-   "withPrice": 120,
+   "total": 122,
+   "withPrice": 119,
    "pct": 98,
    "sample": "$100"
   },
   {
    "brand": "Good American",
    "group": "server",
-   "total": 598,
-   "withPrice": 594,
+   "total": 599,
+   "withPrice": 595,
    "pct": 99,
-   "sample": "$106600"
+   "sample": "$68.00"
   },
   {
    "brand": "Eileen fisher",
@@ -1883,32 +1917,32 @@
   {
    "brand": "Me+Em",
    "group": "browser",
-   "total": 404,
-   "withPrice": 401,
+   "total": 403,
+   "withPrice": 400,
    "pct": 99,
-   "sample": "$355.00"
+   "sample": "$225.00"
   },
   {
    "brand": "Wrap",
    "group": "browser",
-   "total": 362,
-   "withPrice": 357,
+   "total": 359,
+   "withPrice": 354,
    "pct": 99,
    "sample": "$118"
   },
   {
-   "brand": "Poetry",
-   "group": "browser",
-   "total": 301,
-   "withPrice": 297,
+   "brand": "WHBM",
+   "group": "server",
+   "total": 249,
+   "withPrice": 246,
    "pct": 99,
-   "sample": "£169"
+   "sample": ""
   },
   {
    "brand": "Rag & bone",
    "group": "server",
-   "total": 194,
-   "withPrice": 193,
+   "total": 193,
+   "withPrice": 192,
    "pct": 99,
    "sample": ""
   },
@@ -1926,7 +1960,7 @@
    "total": 744,
    "withPrice": 744,
    "pct": 100,
-   "sample": "$44.99"
+   "sample": "$19.99"
   },
   {
    "brand": "Gestuz",
@@ -1942,7 +1976,7 @@
    "total": 632,
    "withPrice": 632,
    "pct": 100,
-   "sample": "$298.00"
+   "sample": "$188.00"
   },
   {
    "brand": "Zara",
@@ -1963,10 +1997,10 @@
   {
    "brand": "Cotton on",
    "group": "browser",
-   "total": 469,
-   "withPrice": 469,
+   "total": 470,
+   "withPrice": 470,
    "pct": 100,
-   "sample": "$24.99"
+   "sample": "$18.74"
   },
   {
    "brand": "J.mclaughlin",
@@ -1974,45 +2008,37 @@
    "total": 458,
    "withPrice": 458,
    "pct": 100,
-   "sample": "$178.00"
+   "sample": "$148.00"
   },
   {
    "brand": "Shopbop",
    "group": "browser",
-   "total": 457,
-   "withPrice": 457,
+   "total": 456,
+   "withPrice": 456,
    "pct": 100,
-   "sample": "$88.00"
-  },
-  {
-   "brand": "Frank & Eileen",
-   "group": "server",
-   "total": 447,
-   "withPrice": 446,
-   "pct": 100,
-   "sample": "$168.00"
+   "sample": "$825.00"
   },
   {
    "brand": "Evereve",
    "group": "server",
-   "total": 427,
-   "withPrice": 427,
+   "total": 437,
+   "withPrice": 437,
    "pct": 100,
-   "sample": "$70.20"
+   "sample": "$78.00"
   },
   {
    "brand": "Everlane",
    "group": "server",
-   "total": 427,
-   "withPrice": 427,
+   "total": 430,
+   "withPrice": 430,
    "pct": 100,
    "sample": "$34.00"
   },
   {
    "brand": "Sanctuary",
    "group": "server",
-   "total": 426,
-   "withPrice": 426,
+   "total": 425,
+   "withPrice": 425,
    "pct": 100,
    "sample": "$59.00"
   },
@@ -2027,8 +2053,8 @@
   {
    "brand": "Jager",
    "group": "server",
-   "total": 401,
-   "withPrice": 401,
+   "total": 400,
+   "withPrice": 400,
    "pct": 100,
    "sample": "£69"
   },
@@ -2073,6 +2099,14 @@
    "sample": "$350.00"
   },
   {
+   "brand": "Scoth & soda",
+   "group": "server",
+   "total": 376,
+   "withPrice": 376,
+   "pct": 100,
+   "sample": "$68.00"
+  },
+  {
    "brand": "Vince",
    "group": "server",
    "total": 376,
@@ -2081,20 +2115,20 @@
    "sample": ""
   },
   {
-   "brand": "Scoth & soda",
-   "group": "server",
-   "total": 375,
-   "withPrice": 375,
-   "pct": 100,
-   "sample": "$68.00"
-  },
-  {
    "brand": "Sundry",
    "group": "server",
    "total": 364,
    "withPrice": 364,
    "pct": 100,
    "sample": "$68.00"
+  },
+  {
+   "brand": "Frank & Eileen",
+   "group": "server",
+   "total": 362,
+   "withPrice": 361,
+   "pct": 100,
+   "sample": "$168.00"
   },
   {
    "brand": "Damson Madder",
@@ -2139,10 +2173,18 @@
   {
    "brand": "Stateside",
    "group": "server",
-   "total": 336,
-   "withPrice": 336,
+   "total": 335,
+   "withPrice": 335,
    "pct": 100,
    "sample": "$148.00"
+  },
+  {
+   "brand": "Boden",
+   "group": "server",
+   "total": 325,
+   "withPrice": 325,
+   "pct": 100,
+   "sample": "$110.00"
   },
   {
    "brand": "Bassike",
@@ -2155,18 +2197,26 @@
   {
    "brand": "Sweaty betty",
    "group": "browser",
-   "total": 319,
-   "withPrice": 318,
+   "total": 321,
+   "withPrice": 320,
    "pct": 100,
    "sample": "$ 528.00"
   },
   {
-   "brand": "Boden",
+   "brand": "Ulla Johnson",
    "group": "server",
-   "total": 318,
-   "withPrice": 318,
+   "total": 316,
+   "withPrice": 316,
    "pct": 100,
-   "sample": "$110.00"
+   "sample": "$390.00"
+  },
+  {
+   "brand": "Anthropologie",
+   "group": "extension",
+   "total": 315,
+   "withPrice": 315,
+   "pct": 100,
+   "sample": "$98.00"
   },
   {
    "brand": "Leset",
@@ -2177,12 +2227,12 @@
    "sample": "$220"
   },
   {
-   "brand": "Ulla Johnson",
+   "brand": "Chico's",
    "group": "server",
-   "total": 315,
-   "withPrice": 315,
+   "total": 314,
+   "withPrice": 314,
    "pct": 100,
-   "sample": "$390.00"
+   "sample": ""
   },
   {
    "brand": "Thread & supply",
@@ -2193,28 +2243,20 @@
    "sample": "$39.00"
   },
   {
-   "brand": "Chico's",
-   "group": "server",
-   "total": 310,
-   "withPrice": 310,
-   "pct": 100,
-   "sample": ""
-  },
-  {
    "brand": "Jigsaw",
    "group": "server",
-   "total": 302,
-   "withPrice": 302,
+   "total": 301,
+   "withPrice": 301,
    "pct": 100,
    "sample": "$59.00"
   },
   {
-   "brand": "Anthropologie",
-   "group": "extension",
-   "total": 299,
-   "withPrice": 298,
+   "brand": "Rails",
+   "group": "server",
+   "total": 278,
+   "withPrice": 278,
    "pct": 100,
-   "sample": "$98.00"
+   "sample": "$238.00"
   },
   {
    "brand": "Project Social T",
@@ -2223,14 +2265,6 @@
    "withPrice": 277,
    "pct": 100,
    "sample": "$58.00"
-  },
-  {
-   "brand": "Rails",
-   "group": "server",
-   "total": 271,
-   "withPrice": 271,
-   "pct": 100,
-   "sample": "$238.00"
   },
   {
    "brand": "Xirena",
@@ -2257,14 +2291,6 @@
    "sample": "$85.00"
   },
   {
-   "brand": "WHBM",
-   "group": "server",
-   "total": 248,
-   "withPrice": 248,
-   "pct": 100,
-   "sample": ""
-  },
-  {
    "brand": "Nylora",
    "group": "server",
    "total": 235,
@@ -2281,10 +2307,18 @@
    "sample": "$68.00"
   },
   {
-   "brand": "Z Supply",
+   "brand": "Whitestuff",
    "group": "server",
    "total": 230,
    "withPrice": 230,
+   "pct": 100,
+   "sample": "£55.00"
+  },
+  {
+   "brand": "Z Supply",
+   "group": "server",
+   "total": 229,
+   "withPrice": 229,
    "pct": 100,
    "sample": "$54.00"
   },
@@ -2299,10 +2333,18 @@
   {
    "brand": "Boldest",
    "group": "browser",
-   "total": 212,
-   "withPrice": 212,
+   "total": 210,
+   "withPrice": 210,
    "pct": 100,
    "sample": "79,000원"
+  },
+  {
+   "brand": "Alo",
+   "group": "server",
+   "total": 209,
+   "withPrice": 208,
+   "pct": 100,
+   "sample": "$128"
   },
   {
    "brand": "Coldwatercreek",
@@ -2321,26 +2363,10 @@
    "sample": "$66.00"
   },
   {
-   "brand": "J crew",
-   "group": "browser",
-   "total": 202,
-   "withPrice": 202,
-   "pct": 100,
-   "sample": "$39.50"
-  },
-  {
-   "brand": "Frame",
-   "group": "server",
-   "total": 201,
-   "withPrice": 201,
-   "pct": 100,
-   "sample": "$298.00"
-  },
-  {
    "brand": "Monrow",
    "group": "server",
-   "total": 200,
-   "withPrice": 200,
+   "total": 199,
+   "withPrice": 199,
    "pct": 100,
    "sample": "$49.00"
   },
@@ -2353,6 +2379,14 @@
    "sample": "$198.00"
   },
   {
+   "brand": "Frame",
+   "group": "server",
+   "total": 194,
+   "withPrice": 194,
+   "pct": 100,
+   "sample": "$298.00"
+  },
+  {
    "brand": "Michael Stars",
    "group": "server",
    "total": 188,
@@ -2361,12 +2395,12 @@
    "sample": "$88.00"
   },
   {
-   "brand": "Veronica Beard",
+   "brand": "Eddie bauer",
    "group": "server",
-   "total": 174,
-   "withPrice": 174,
+   "total": 175,
+   "withPrice": 175,
    "pct": 100,
-   "sample": "$228"
+   "sample": "$30.00"
   },
   {
    "brand": "Marine Layer",
@@ -2375,14 +2409,6 @@
    "withPrice": 171,
    "pct": 100,
    "sample": "$58.00"
-  },
-  {
-   "brand": "Oasis",
-   "group": "server",
-   "total": 171,
-   "withPrice": 171,
-   "pct": 100,
-   "sample": "£22.00"
   },
   {
    "brand": "Bellerose",
@@ -2401,12 +2427,28 @@
    "sample": "$328.00"
   },
   {
+   "brand": "Oasis",
+   "group": "server",
+   "total": 170,
+   "withPrice": 170,
+   "pct": 100,
+   "sample": "£22.00"
+  },
+  {
    "brand": "Lilla P",
    "group": "server",
    "total": 169,
    "withPrice": 169,
    "pct": 100,
    "sample": "$68.00"
+  },
+  {
+   "brand": "Veronica Beard",
+   "group": "server",
+   "total": 167,
+   "withPrice": 167,
+   "pct": 100,
+   "sample": "$228"
   },
   {
    "brand": "Splits59",
@@ -2425,22 +2467,6 @@
    "sample": "$22.00"
   },
   {
-   "brand": "Alo",
-   "group": "server",
-   "total": 154,
-   "withPrice": 154,
-   "pct": 100,
-   "sample": "$78"
-  },
-  {
-   "brand": "Eddie bauer",
-   "group": "server",
-   "total": 141,
-   "withPrice": 141,
-   "pct": 100,
-   "sample": "$19.99"
-  },
-  {
    "brand": "Addison bay",
    "group": "server",
    "total": 139,
@@ -2449,20 +2475,12 @@
    "sample": "$88.00"
   },
   {
-   "brand": "Whitestuff",
-   "group": "server",
-   "total": 139,
-   "withPrice": 139,
-   "pct": 100,
-   "sample": "£55.00"
-  },
-  {
    "brand": "Gerard darel",
    "group": "browser",
    "total": 138,
    "withPrice": 138,
    "pct": 100,
-   "sample": "$215"
+   "sample": "$165"
   },
   {
    "brand": "Draper James",
@@ -2478,13 +2496,13 @@
    "total": 124,
    "withPrice": 124,
    "pct": 100,
-   "sample": "$ 168"
+   "sample": "$ 178"
   },
   {
    "brand": "Outdoorvoices",
    "group": "server",
-   "total": 124,
-   "withPrice": 124,
+   "total": 119,
+   "withPrice": 119,
    "pct": 100,
    "sample": "$34.00"
   },
@@ -2499,8 +2517,8 @@
   {
    "brand": "Spanx",
    "group": "server",
-   "total": 87,
-   "withPrice": 87,
+   "total": 83,
+   "withPrice": 83,
    "pct": 100,
    "sample": "$128.00"
   },
@@ -2546,50 +2564,43 @@
   {
    "brand": "Massimo Dutti",
    "group": "extension",
-   "total": 474,
+   "total": 480,
    "withComp": 1,
    "pct": 0
   },
   {
    "brand": "Lululemon",
    "group": "extension",
-   "total": 436,
+   "total": 433,
    "withComp": 0,
    "pct": 0
   },
   {
    "brand": "Fatface",
    "group": "extension",
-   "total": 412,
+   "total": 419,
+   "withComp": 0,
+   "pct": 0
+  },
+  {
+   "brand": "Joules",
+   "group": "extension",
+   "total": 391,
    "withComp": 0,
    "pct": 0
   },
   {
    "brand": "Anthropologie",
    "group": "extension",
-   "total": 299,
-   "withComp": 1,
-   "pct": 0
-  },
-  {
-   "brand": "Joules",
-   "group": "extension",
-   "total": 296,
+   "total": 315,
    "withComp": 0,
    "pct": 0
   },
   {
    "brand": "Sezane",
    "group": "extension",
-   "total": 207,
+   "total": 209,
    "withComp": 1,
-   "pct": 0
-  },
-  {
-   "brand": "Free People",
-   "group": "extension",
-   "total": 182,
-   "withComp": 0,
    "pct": 0
   },
   {
@@ -2609,7 +2620,7 @@
   {
    "brand": "Oysho",
    "group": "extension",
-   "total": 23,
+   "total": 29,
    "withComp": 0,
    "pct": 0
   },
@@ -2635,6 +2646,13 @@
    "pct": 0
   },
   {
+   "brand": "Free People",
+   "group": "extension",
+   "total": 183,
+   "withComp": 1,
+   "pct": 1
+  },
+  {
    "brand": "Patagonia",
    "group": "extension",
    "total": 167,
@@ -2644,28 +2662,42 @@
   {
    "brand": "Garnet hill",
    "group": "extension",
-   "total": 123,
+   "total": 122,
    "withComp": 3,
    "pct": 2
   },
   {
    "brand": "FP Movement",
    "group": "extension",
-   "total": 74,
-   "withComp": 3,
-   "pct": 4
+   "total": 72,
+   "withComp": 2,
+   "pct": 3
+  },
+  {
+   "brand": "Jager",
+   "group": "server",
+   "total": 400,
+   "withComp": 36,
+   "pct": 9
   },
   {
    "brand": "Boldest",
    "group": "browser",
-   "total": 212,
+   "total": 210,
    "withComp": 43,
    "pct": 20
   },
   {
+   "brand": "Sessun",
+   "group": "server",
+   "total": 56,
+   "withComp": 15,
+   "pct": 27
+  },
+  {
    "brand": "J crew",
    "group": "browser",
-   "total": 202,
+   "total": 200,
    "withComp": 64,
    "pct": 32
   },
@@ -2677,18 +2709,18 @@
    "pct": 33
   },
   {
-   "brand": "&Other Stories",
-   "group": "extension",
-   "total": 485,
-   "withComp": 180,
-   "pct": 37
-  },
-  {
    "brand": "Aerie",
    "group": "browser",
-   "total": 118,
-   "withComp": 45,
-   "pct": 38
+   "total": 119,
+   "withComp": 42,
+   "pct": 35
+  },
+  {
+   "brand": "&Other Stories",
+   "group": "extension",
+   "total": 482,
+   "withComp": 179,
+   "pct": 37
   },
   {
    "brand": "Buck Mason",
@@ -2696,13 +2728,6 @@
    "total": 124,
    "withComp": 57,
    "pct": 46
-  },
-  {
-   "brand": "Sessun",
-   "group": "server",
-   "total": 75,
-   "withComp": 35,
-   "pct": 47
   },
   {
    "brand": "Wilson",
@@ -2714,36 +2739,36 @@
   {
    "brand": "Mango",
    "group": "extension",
-   "total": 113,
-   "withComp": 60,
-   "pct": 53
-  },
-  {
-   "brand": "Arket",
-   "group": "extension",
-   "total": 294,
-   "withComp": 163,
-   "pct": 55
+   "total": 110,
+   "withComp": 54,
+   "pct": 49
   },
   {
    "brand": "Loft",
    "group": "extension",
-   "total": 687,
-   "withComp": 388,
-   "pct": 56
+   "total": 688,
+   "withComp": 379,
+   "pct": 55
   },
   {
-   "brand": "Abercrombie & Fitch",
+   "brand": "Arket",
    "group": "extension",
-   "total": 274,
-   "withComp": 157,
-   "pct": 57
+   "total": 292,
+   "withComp": 161,
+   "pct": 55
   },
   {
    "brand": "Stateside",
    "group": "server",
-   "total": 336,
+   "total": 335,
    "withComp": 194,
+   "pct": 58
+  },
+  {
+   "brand": "Abercrombie & Fitch",
+   "group": "extension",
+   "total": 230,
+   "withComp": 133,
    "pct": 58
   },
   {
@@ -2751,6 +2776,13 @@
    "group": "server",
    "total": 632,
    "withComp": 400,
+   "pct": 63
+  },
+  {
+   "brand": "Lucky Brand",
+   "group": "browser",
+   "total": 224,
+   "withComp": 141,
    "pct": 63
   },
   {
@@ -2763,15 +2795,8 @@
   {
    "brand": "Everlane",
    "group": "server",
-   "total": 427,
-   "withComp": 272,
-   "pct": 64
-  },
-  {
-   "brand": "Lucky Brand",
-   "group": "browser",
-   "total": 223,
-   "withComp": 142,
+   "total": 430,
+   "withComp": 274,
    "pct": 64
   },
   {
@@ -2782,6 +2807,13 @@
    "pct": 67
   },
   {
+   "brand": "Mint velvet",
+   "group": "server",
+   "total": 398,
+   "withComp": 279,
+   "pct": 70
+  },
+  {
    "brand": "Dickies",
    "group": "server",
    "total": 345,
@@ -2789,17 +2821,24 @@
    "pct": 70
   },
   {
-   "brand": "Mint velvet",
+   "brand": "Whitestuff",
    "group": "server",
-   "total": 398,
-   "withComp": 281,
-   "pct": 71
+   "total": 230,
+   "withComp": 171,
+   "pct": 74
+  },
+  {
+   "brand": "Oasis",
+   "group": "server",
+   "total": 170,
+   "withComp": 127,
+   "pct": 75
   },
   {
    "brand": "Paige",
    "group": "extension",
-   "total": 53,
-   "withComp": 40,
+   "total": 52,
+   "withComp": 39,
    "pct": 75
   },
   {
@@ -2810,38 +2849,31 @@
    "pct": 77
   },
   {
-   "brand": "Boden",
-   "group": "server",
-   "total": 318,
-   "withComp": 244,
-   "pct": 77
-  },
-  {
    "brand": "Spanx",
    "group": "server",
-   "total": 87,
-   "withComp": 67,
+   "total": 83,
+   "withComp": 64,
    "pct": 77
   },
   {
    "brand": "Veronica Beard",
    "group": "server",
-   "total": 174,
-   "withComp": 136,
+   "total": 167,
+   "withComp": 130,
    "pct": 78
+  },
+  {
+   "brand": "Boden",
+   "group": "server",
+   "total": 325,
+   "withComp": 261,
+   "pct": 80
   },
   {
    "brand": "Poetry",
    "group": "browser",
-   "total": 301,
-   "withComp": 238,
-   "pct": 79
-  },
-  {
-   "brand": "Oasis",
-   "group": "server",
-   "total": 171,
-   "withComp": 136,
+   "total": 259,
+   "withComp": 207,
    "pct": 80
   },
   {
@@ -2854,15 +2886,15 @@
   {
    "brand": "Rails",
    "group": "server",
-   "total": 271,
-   "withComp": 225,
+   "total": 278,
+   "withComp": 232,
    "pct": 83
   },
   {
    "brand": "Nike",
    "group": "browser",
-   "total": 473,
-   "withComp": 398,
+   "total": 472,
+   "withComp": 396,
    "pct": 84
   },
   {
@@ -2882,23 +2914,9 @@
   {
    "brand": "Good American",
    "group": "server",
-   "total": 598,
-   "withComp": 513,
+   "total": 599,
+   "withComp": 514,
    "pct": 86
-  },
-  {
-   "brand": "Jager",
-   "group": "server",
-   "total": 401,
-   "withComp": 346,
-   "pct": 86
-  },
-  {
-   "brand": "Whitestuff",
-   "group": "server",
-   "total": 139,
-   "withComp": 121,
-   "pct": 87
   },
   {
    "brand": "Aritzia",
@@ -2915,11 +2933,18 @@
    "pct": 88
   },
   {
-   "brand": "Eddie bauer",
-   "group": "server",
-   "total": 141,
-   "withComp": 124,
-   "pct": 88
+   "brand": "Wrap",
+   "group": "browser",
+   "total": 359,
+   "withComp": 321,
+   "pct": 89
+  },
+  {
+   "brand": "On",
+   "group": "browser",
+   "total": 275,
+   "withComp": 246,
+   "pct": 89
   },
   {
    "brand": "Carlhartt",
@@ -2932,42 +2957,49 @@
    "brand": "J.mclaughlin",
    "group": "browser",
    "total": 458,
-   "withComp": 411,
+   "withComp": 412,
    "pct": 90
   },
   {
    "brand": "Scoth & soda",
    "group": "server",
-   "total": 375,
+   "total": 376,
    "withComp": 339,
    "pct": 90
   },
   {
-   "brand": "Wrap",
-   "group": "browser",
-   "total": 362,
-   "withComp": 324,
+   "brand": "Hobbs",
+   "group": "server",
+   "total": 356,
+   "withComp": 321,
    "pct": 90
   },
   {
-   "brand": "Lands end",
-   "group": "extension",
-   "total": 459,
-   "withComp": 419,
-   "pct": 91
+   "brand": "Vuori",
+   "group": "server",
+   "total": 222,
+   "withComp": 200,
+   "pct": 90
+  },
+  {
+   "brand": "Frame",
+   "group": "server",
+   "total": 194,
+   "withComp": 175,
+   "pct": 90
+  },
+  {
+   "brand": "Eddie bauer",
+   "group": "server",
+   "total": 175,
+   "withComp": 158,
+   "pct": 90
   },
   {
    "brand": "Ann Taylor",
    "group": "extension",
    "total": 424,
    "withComp": 385,
-   "pct": 91
-  },
-  {
-   "brand": "Hobbs",
-   "group": "server",
-   "total": 356,
-   "withComp": 324,
    "pct": 91
   },
   {
@@ -2978,10 +3010,10 @@
    "pct": 91
   },
   {
-   "brand": "Frame",
+   "brand": "Alo",
    "group": "server",
-   "total": 201,
-   "withComp": 182,
+   "total": 209,
+   "withComp": 191,
    "pct": 91
   },
   {
@@ -3006,10 +3038,24 @@
    "pct": 92
   },
   {
+   "brand": "Lands end",
+   "group": "extension",
+   "total": 459,
+   "withComp": 420,
+   "pct": 92
+  },
+  {
    "brand": "Tuckernuck",
    "group": "server",
    "total": 385,
-   "withComp": 356,
+   "withComp": 354,
+   "pct": 92
+  },
+  {
+   "brand": "Sweaty betty",
+   "group": "browser",
+   "total": 321,
+   "withComp": 294,
    "pct": 92
   },
   {
@@ -3027,6 +3073,13 @@
    "pct": 92
   },
   {
+   "brand": "Outdoorvoices",
+   "group": "server",
+   "total": 119,
+   "withComp": 110,
+   "pct": 92
+  },
+  {
    "brand": "Eileen fisher",
    "group": "extension",
    "total": 505,
@@ -3036,8 +3089,8 @@
   {
    "brand": "Me+Em",
    "group": "browser",
-   "total": 404,
-   "withComp": 374,
+   "total": 403,
+   "withComp": 373,
    "pct": 93
   },
   {
@@ -3048,23 +3101,9 @@
    "pct": 93
   },
   {
-   "brand": "Sweaty betty",
-   "group": "browser",
-   "total": 319,
-   "withComp": 298,
-   "pct": 93
-  },
-  {
-   "brand": "Vuori",
-   "group": "server",
-   "total": 223,
-   "withComp": 208,
-   "pct": 93
-  },
-  {
    "brand": "Monrow",
    "group": "server",
-   "total": 200,
+   "total": 199,
    "withComp": 186,
    "pct": 93
   },
@@ -3085,7 +3124,7 @@
   {
    "brand": "L.L bean",
    "group": "extension",
-   "total": 313,
+   "total": 312,
    "withComp": 294,
    "pct": 94
   },
@@ -3111,38 +3150,24 @@
    "pct": 94
   },
   {
-   "brand": "Outdoorvoices",
-   "group": "server",
-   "total": 124,
-   "withComp": 116,
-   "pct": 94
-  },
-  {
    "brand": "Bash",
    "group": "server",
-   "total": 47,
-   "withComp": 44,
+   "total": 36,
+   "withComp": 34,
    "pct": 94
   },
   {
    "brand": "Theory",
    "group": "extension",
-   "total": 336,
-   "withComp": 320,
-   "pct": 95
-  },
-  {
-   "brand": "On",
-   "group": "browser",
-   "total": 237,
-   "withComp": 224,
+   "total": 347,
+   "withComp": 331,
    "pct": 95
   },
   {
    "brand": "Whistles",
    "group": "server",
-   "total": 205,
-   "withComp": 194,
+   "total": 202,
+   "withComp": 191,
    "pct": 95
   },
   {
@@ -3153,13 +3178,6 @@
    "pct": 95
   },
   {
-   "brand": "Alo",
-   "group": "server",
-   "total": 154,
-   "withComp": 146,
-   "pct": 95
-  },
-  {
    "brand": "Vanessa bruno",
    "group": "server",
    "total": 57,
@@ -3167,10 +3185,17 @@
    "pct": 95
   },
   {
+   "brand": "Shopbop",
+   "group": "browser",
+   "total": 456,
+   "withComp": 440,
+   "pct": 96
+  },
+  {
    "brand": "Evereve",
    "group": "server",
-   "total": 427,
-   "withComp": 408,
+   "total": 437,
+   "withComp": 419,
    "pct": 96
   },
   {
@@ -3181,17 +3206,24 @@
    "pct": 96
   },
   {
+   "brand": "Gymshark",
+   "group": "server",
+   "total": 303,
+   "withComp": 290,
+   "pct": 96
+  },
+  {
    "brand": "Jigsaw",
    "group": "server",
-   "total": 302,
-   "withComp": 291,
+   "total": 301,
+   "withComp": 290,
    "pct": 96
   },
   {
    "brand": "Seasalt cornwall",
    "group": "extension",
-   "total": 288,
-   "withComp": 276,
+   "total": 281,
+   "withComp": 269,
    "pct": 96
   },
   {
@@ -3225,22 +3257,15 @@
   {
    "brand": "CCC",
    "group": "browser",
-   "total": 597,
-   "withComp": 577,
-   "pct": 97
-  },
-  {
-   "brand": "Shopbop",
-   "group": "browser",
-   "total": 457,
-   "withComp": 445,
+   "total": 596,
+   "withComp": 576,
    "pct": 97
   },
   {
    "brand": "Sanctuary",
    "group": "server",
-   "total": 426,
-   "withComp": 415,
+   "total": 425,
+   "withComp": 414,
    "pct": 97
   },
   {
@@ -3260,22 +3285,22 @@
   {
    "brand": "Ulla Johnson",
    "group": "server",
-   "total": 315,
-   "withComp": 305,
+   "total": 316,
+   "withComp": 306,
    "pct": 97
   },
   {
    "brand": "Chico's",
    "group": "server",
-   "total": 310,
-   "withComp": 301,
+   "total": 314,
+   "withComp": 305,
    "pct": 97
   },
   {
    "brand": "Varley",
    "group": "server",
    "total": 304,
-   "withComp": 296,
+   "withComp": 294,
    "pct": 97
   },
   {
@@ -3314,6 +3339,13 @@
    "pct": 98
   },
   {
+   "brand": "Frank & Eileen",
+   "group": "server",
+   "total": 362,
+   "withComp": 356,
+   "pct": 98
+  },
+  {
    "brand": "Damson Madder",
    "group": "server",
    "total": 356,
@@ -3321,24 +3353,24 @@
    "pct": 98
   },
   {
+   "brand": "WHBM",
+   "group": "server",
+   "total": 249,
+   "withComp": 243,
+   "pct": 98
+  },
+  {
    "brand": "American Eagle",
    "group": "browser",
    "total": 179,
-   "withComp": 176,
+   "withComp": 175,
    "pct": 98
   },
   {
    "brand": "Cotton on",
    "group": "browser",
-   "total": 469,
+   "total": 470,
    "withComp": 465,
-   "pct": 99
-  },
-  {
-   "brand": "Frank & Eileen",
-   "group": "server",
-   "total": 447,
-   "withComp": 441,
    "pct": 99
   },
   {
@@ -3377,17 +3409,10 @@
    "pct": 99
   },
   {
-   "brand": "WHBM",
-   "group": "server",
-   "total": 248,
-   "withComp": 245,
-   "pct": 99
-  },
-  {
    "brand": "Rag & bone",
    "group": "server",
-   "total": 194,
-   "withComp": 193,
+   "total": 193,
+   "withComp": 192,
    "pct": 99
   },
   {
@@ -3433,17 +3458,10 @@
    "pct": 100
   },
   {
-   "brand": "Gymshark",
-   "group": "server",
-   "total": 303,
-   "withComp": 302,
-   "pct": 100
-  },
-  {
    "brand": "Z Supply",
    "group": "server",
-   "total": 230,
-   "withComp": 230,
+   "total": 229,
+   "withComp": 229,
    "pct": 100
   },
   {
@@ -3456,8 +3474,8 @@
   {
    "brand": "Old Navy",
    "group": "extension",
-   "total": 6,
-   "withComp": 6,
+   "total": 7,
+   "withComp": 7,
    "pct": 100
   }
  ],
@@ -3466,7 +3484,7 @@
    "brand": "Aritzia",
    "group": "extension",
    "total": 800,
-   "price": 703,
+   "price": 704,
    "color": 1,
    "sizes": 0,
    "comp": 701
@@ -3483,11 +3501,11 @@
   {
    "brand": "Loft",
    "group": "extension",
-   "total": 687,
+   "total": 688,
    "price": 0,
-   "color": 423,
+   "color": 414,
    "sizes": 0,
-   "comp": 388
+   "comp": 379
   },
   {
    "brand": "Gestuz",
@@ -3510,26 +3528,26 @@
   {
    "brand": "Good American",
    "group": "server",
-   "total": 598,
-   "price": 594,
-   "color": 597,
-   "sizes": 593,
-   "comp": 513
+   "total": 599,
+   "price": 595,
+   "color": 598,
+   "sizes": 594,
+   "comp": 514
   },
   {
    "brand": "CCC",
    "group": "browser",
-   "total": 597,
-   "price": 525,
-   "color": 597,
+   "total": 596,
+   "price": 522,
+   "color": 596,
    "sizes": 0,
-   "comp": 577
+   "comp": 576
   },
   {
    "brand": "Addidas",
    "group": "extension",
    "total": 537,
-   "price": 385,
+   "price": 382,
    "color": 0,
    "sizes": 0,
    "comp": 0
@@ -3564,16 +3582,16 @@
   {
    "brand": "&Other Stories",
    "group": "extension",
-   "total": 485,
-   "price": 477,
+   "total": 482,
+   "price": 473,
    "color": 112,
    "sizes": 0,
-   "comp": 180
+   "comp": 179
   },
   {
    "brand": "Massimo Dutti",
    "group": "extension",
-   "total": 474,
+   "total": 480,
    "price": 0,
    "color": 0,
    "sizes": 0,
@@ -3582,18 +3600,18 @@
   {
    "brand": "Nike",
    "group": "browser",
-   "total": 473,
-   "price": 163,
-   "color": 445,
+   "total": 472,
+   "price": 164,
+   "color": 440,
    "sizes": 0,
-   "comp": 398
+   "comp": 396
   },
   {
    "brand": "Cotton on",
    "group": "browser",
-   "total": 469,
-   "price": 469,
-   "color": 460,
+   "total": 470,
+   "price": 470,
+   "color": 459,
    "sizes": 0,
    "comp": 465
   },
@@ -3604,7 +3622,7 @@
    "price": 428,
    "color": 15,
    "sizes": 0,
-   "comp": 419
+   "comp": 420
   },
   {
    "brand": "J.mclaughlin",
@@ -3613,61 +3631,52 @@
    "price": 458,
    "color": 1,
    "sizes": 0,
-   "comp": 411
+   "comp": 412
   },
   {
    "brand": "Shopbop",
    "group": "browser",
-   "total": 457,
-   "price": 457,
-   "color": 454,
+   "total": 456,
+   "price": 456,
+   "color": 449,
    "sizes": 0,
-   "comp": 445
+   "comp": 440
   },
   {
-   "brand": "Frank & Eileen",
+   "brand": "Evereve",
    "group": "server",
-   "total": 447,
-   "price": 446,
-   "color": 446,
-   "sizes": 446,
-   "comp": 441
+   "total": 437,
+   "price": 437,
+   "color": 436,
+   "sizes": 435,
+   "comp": 419
   },
   {
    "brand": "Lululemon",
    "group": "extension",
-   "total": 436,
+   "total": 433,
    "price": 0,
    "color": 0,
    "sizes": 0,
    "comp": 0
   },
   {
-   "brand": "Evereve",
-   "group": "server",
-   "total": 427,
-   "price": 427,
-   "color": 425,
-   "sizes": 424,
-   "comp": 408
-  },
-  {
    "brand": "Everlane",
    "group": "server",
-   "total": 427,
-   "price": 427,
+   "total": 430,
+   "price": 430,
    "color": 1,
-   "sizes": 423,
-   "comp": 272
+   "sizes": 426,
+   "comp": 274
   },
   {
    "brand": "Sanctuary",
    "group": "server",
-   "total": 426,
-   "price": 426,
-   "color": 425,
-   "sizes": 425,
-   "comp": 415
+   "total": 425,
+   "price": 425,
+   "color": 424,
+   "sizes": 424,
+   "comp": 414
   },
   {
    "brand": "Ann Taylor",
@@ -3679,6 +3688,15 @@
    "comp": 385
   },
   {
+   "brand": "Fatface",
+   "group": "extension",
+   "total": 419,
+   "price": 210,
+   "color": 0,
+   "sizes": 0,
+   "comp": 0
+  },
+  {
    "brand": "The upside",
    "group": "browser",
    "total": 417,
@@ -3688,22 +3706,13 @@
    "comp": 321
   },
   {
-   "brand": "Fatface",
-   "group": "extension",
-   "total": 412,
-   "price": 206,
-   "color": 0,
-   "sizes": 0,
-   "comp": 0
-  },
-  {
    "brand": "Me+Em",
    "group": "browser",
-   "total": 404,
-   "price": 401,
-   "color": 396,
+   "total": 403,
+   "price": 400,
+   "color": 395,
    "sizes": 0,
-   "comp": 374
+   "comp": 373
   },
   {
    "brand": "Splendid",
@@ -3717,11 +3726,11 @@
   {
    "brand": "Jager",
    "group": "server",
-   "total": 401,
-   "price": 401,
-   "color": 224,
+   "total": 400,
+   "price": 400,
+   "color": 22,
    "sizes": 0,
-   "comp": 346
+   "comp": 36
   },
   {
    "brand": "Mint velvet",
@@ -3730,7 +3739,7 @@
    "price": 398,
    "color": 0,
    "sizes": 396,
-   "comp": 281
+   "comp": 279
   },
   {
    "brand": "Phase eight",
@@ -3751,13 +3760,22 @@
    "comp": 390
   },
   {
+   "brand": "Joules",
+   "group": "extension",
+   "total": 391,
+   "price": 161,
+   "color": 0,
+   "sizes": 0,
+   "comp": 0
+  },
+  {
    "brand": "Tuckernuck",
    "group": "server",
    "total": 385,
    "price": 385,
-   "color": 383,
-   "sizes": 383,
-   "comp": 356
+   "color": 381,
+   "sizes": 381,
+   "comp": 354
   },
   {
    "brand": "James Perse",
@@ -3778,6 +3796,15 @@
    "comp": 374
   },
   {
+   "brand": "Scoth & soda",
+   "group": "server",
+   "total": 376,
+   "price": 376,
+   "color": 374,
+   "sizes": 370,
+   "comp": 339
+  },
+  {
    "brand": "Vince",
    "group": "server",
    "total": 376,
@@ -3787,31 +3814,31 @@
    "comp": 373
   },
   {
-   "brand": "Scoth & soda",
-   "group": "server",
-   "total": 375,
-   "price": 375,
-   "color": 374,
-   "sizes": 370,
-   "comp": 339
-  },
-  {
    "brand": "Sundry",
    "group": "server",
    "total": 364,
    "price": 364,
-   "color": 293,
-   "sizes": 363,
+   "color": 292,
+   "sizes": 362,
    "comp": 354
+  },
+  {
+   "brand": "Frank & Eileen",
+   "group": "server",
+   "total": 362,
+   "price": 361,
+   "color": 361,
+   "sizes": 361,
+   "comp": 356
   },
   {
    "brand": "Wrap",
    "group": "browser",
-   "total": 362,
-   "price": 357,
+   "total": 359,
+   "price": 354,
    "color": 0,
    "sizes": 0,
-   "comp": 324
+   "comp": 321
   },
   {
    "brand": "Damson Madder",
@@ -3827,9 +3854,18 @@
    "group": "server",
    "total": 356,
    "price": 356,
-   "color": 356,
+   "color": 355,
    "sizes": 0,
-   "comp": 324
+   "comp": 321
+  },
+  {
+   "brand": "Theory",
+   "group": "extension",
+   "total": 347,
+   "price": 30,
+   "color": 332,
+   "sizes": 6,
+   "comp": 331
   },
   {
    "brand": "Dickies",
@@ -3861,20 +3897,20 @@
   {
    "brand": "Stateside",
    "group": "server",
-   "total": 336,
-   "price": 336,
-   "color": 293,
-   "sizes": 317,
+   "total": 335,
+   "price": 335,
+   "color": 291,
+   "sizes": 315,
    "comp": 194
   },
   {
-   "brand": "Theory",
-   "group": "extension",
-   "total": 336,
-   "price": 63,
-   "color": 321,
-   "sizes": 6,
-   "comp": 320
+   "brand": "Boden",
+   "group": "server",
+   "total": 325,
+   "price": 325,
+   "color": 33,
+   "sizes": 264,
+   "comp": 261
   },
   {
    "brand": "Bassike",
@@ -3888,20 +3924,29 @@
   {
    "brand": "Sweaty betty",
    "group": "browser",
-   "total": 319,
-   "price": 318,
-   "color": 317,
+   "total": 321,
+   "price": 320,
+   "color": 316,
    "sizes": 0,
-   "comp": 298
+   "comp": 294
   },
   {
-   "brand": "Boden",
+   "brand": "Ulla Johnson",
    "group": "server",
-   "total": 318,
-   "price": 318,
-   "color": 33,
-   "sizes": 250,
-   "comp": 244
+   "total": 316,
+   "price": 316,
+   "color": 316,
+   "sizes": 315,
+   "comp": 306
+  },
+  {
+   "brand": "Anthropologie",
+   "group": "extension",
+   "total": 315,
+   "price": 315,
+   "color": 0,
+   "sizes": 0,
+   "comp": 0
   },
   {
    "brand": "Leset",
@@ -3913,18 +3958,18 @@
    "comp": 264
   },
   {
-   "brand": "Ulla Johnson",
+   "brand": "Chico's",
    "group": "server",
-   "total": 315,
-   "price": 315,
-   "color": 315,
-   "sizes": 314,
+   "total": 314,
+   "price": 314,
+   "color": 314,
+   "sizes": 0,
    "comp": 305
   },
   {
    "brand": "L.L bean",
    "group": "extension",
-   "total": 313,
+   "total": 312,
    "price": 297,
    "color": 245,
    "sizes": 0,
@@ -3940,15 +3985,6 @@
    "comp": 300
   },
   {
-   "brand": "Chico's",
-   "group": "server",
-   "total": 310,
-   "price": 310,
-   "color": 310,
-   "sizes": 0,
-   "comp": 301
-  },
-  {
    "brand": "The Great",
    "group": "server",
    "total": 308,
@@ -3961,73 +3997,55 @@
    "brand": "Varley",
    "group": "server",
    "total": 304,
-   "price": 290,
-   "color": 304,
-   "sizes": 304,
-   "comp": 296
+   "price": 289,
+   "color": 302,
+   "sizes": 302,
+   "comp": 294
   },
   {
    "brand": "Gymshark",
    "group": "server",
    "total": 303,
    "price": 0,
-   "color": 302,
+   "color": 289,
    "sizes": 0,
-   "comp": 302
+   "comp": 290
   },
   {
    "brand": "Jigsaw",
    "group": "server",
-   "total": 302,
-   "price": 302,
-   "color": 302,
-   "sizes": 302,
-   "comp": 291
-  },
-  {
-   "brand": "Poetry",
-   "group": "browser",
    "total": 301,
-   "price": 297,
-   "color": 0,
-   "sizes": 0,
-   "comp": 238
-  },
-  {
-   "brand": "Anthropologie",
-   "group": "extension",
-   "total": 299,
-   "price": 298,
-   "color": 0,
-   "sizes": 0,
-   "comp": 1
-  },
-  {
-   "brand": "Joules",
-   "group": "extension",
-   "total": 296,
-   "price": 142,
-   "color": 0,
-   "sizes": 0,
-   "comp": 0
+   "price": 301,
+   "color": 301,
+   "sizes": 301,
+   "comp": 290
   },
   {
    "brand": "Arket",
    "group": "extension",
-   "total": 294,
-   "price": 280,
-   "color": 165,
-   "sizes": 165,
-   "comp": 163
+   "total": 292,
+   "price": 278,
+   "color": 163,
+   "sizes": 163,
+   "comp": 161
   },
   {
    "brand": "Seasalt cornwall",
    "group": "extension",
-   "total": 288,
-   "price": 278,
-   "color": 283,
+   "total": 281,
+   "price": 271,
+   "color": 276,
    "sizes": 0,
-   "comp": 276
+   "comp": 269
+  },
+  {
+   "brand": "Rails",
+   "group": "server",
+   "total": 278,
+   "price": 278,
+   "color": 52,
+   "sizes": 273,
+   "comp": 232
   },
   {
    "brand": "Project Social T",
@@ -4039,22 +4057,13 @@
    "comp": 251
   },
   {
-   "brand": "Abercrombie & Fitch",
-   "group": "extension",
-   "total": 274,
-   "price": 35,
-   "color": 0,
+   "brand": "On",
+   "group": "browser",
+   "total": 275,
+   "price": 125,
+   "color": 273,
    "sizes": 0,
-   "comp": 157
-  },
-  {
-   "brand": "Rails",
-   "group": "server",
-   "total": 271,
-   "price": 271,
-   "color": 52,
-   "sizes": 266,
-   "comp": 225
+   "comp": 246
   },
   {
    "brand": "vineyardvines",
@@ -4073,6 +4082,15 @@
    "color": 258,
    "sizes": 260,
    "comp": 252
+  },
+  {
+   "brand": "Poetry",
+   "group": "browser",
+   "total": 259,
+   "price": 255,
+   "color": 0,
+   "sizes": 0,
+   "comp": 207
   },
   {
    "brand": "English factory",
@@ -4104,20 +4122,11 @@
   {
    "brand": "WHBM",
    "group": "server",
-   "total": 248,
-   "price": 248,
-   "color": 248,
+   "total": 249,
+   "price": 246,
+   "color": 246,
    "sizes": 0,
-   "comp": 245
-  },
-  {
-   "brand": "On",
-   "group": "browser",
-   "total": 237,
-   "price": 85,
-   "color": 237,
-   "sizes": 0,
-   "comp": 224
+   "comp": 243
   },
   {
    "brand": "Nylora",
@@ -4129,6 +4138,15 @@
    "comp": 225
   },
   {
+   "brand": "Abercrombie & Fitch",
+   "group": "extension",
+   "total": 230,
+   "price": 175,
+   "color": 0,
+   "sizes": 0,
+   "comp": 133
+  },
+  {
    "brand": "LNA",
    "group": "server",
    "total": 230,
@@ -4138,31 +4156,40 @@
    "comp": 220
   },
   {
-   "brand": "Z Supply",
+   "brand": "Whitestuff",
    "group": "server",
    "total": 230,
    "price": 230,
+   "color": 0,
+   "sizes": 0,
+   "comp": 171
+  },
+  {
+   "brand": "Z Supply",
+   "group": "server",
+   "total": 229,
+   "price": 229,
    "color": 200,
-   "sizes": 230,
-   "comp": 230
+   "sizes": 229,
+   "comp": 229
   },
   {
    "brand": "Lucky Brand",
    "group": "browser",
-   "total": 223,
+   "total": 224,
    "price": 51,
-   "color": 143,
+   "color": 142,
    "sizes": 0,
-   "comp": 142
+   "comp": 141
   },
   {
    "brand": "Vuori",
    "group": "server",
-   "total": 223,
+   "total": 222,
    "price": 36,
-   "color": 223,
+   "color": 215,
    "sizes": 0,
-   "comp": 208
+   "comp": 200
   },
   {
    "brand": "rouje",
@@ -4176,11 +4203,29 @@
   {
    "brand": "Boldest",
    "group": "browser",
-   "total": 212,
-   "price": 212,
-   "color": 210,
+   "total": 210,
+   "price": 210,
+   "color": 208,
    "sizes": 0,
    "comp": 43
+  },
+  {
+   "brand": "Alo",
+   "group": "server",
+   "total": 209,
+   "price": 208,
+   "color": 204,
+   "sizes": 204,
+   "comp": 191
+  },
+  {
+   "brand": "Sezane",
+   "group": "extension",
+   "total": 209,
+   "price": 1,
+   "color": 2,
+   "sizes": 0,
+   "comp": 1
   },
   {
    "brand": "Coldwatercreek",
@@ -4190,15 +4235,6 @@
    "color": 3,
    "sizes": 0,
    "comp": 69
-  },
-  {
-   "brand": "Sezane",
-   "group": "extension",
-   "total": 207,
-   "price": 1,
-   "color": 2,
-   "sizes": 0,
-   "comp": 1
   },
   {
    "brand": "Beyond yoga",
@@ -4212,37 +4248,28 @@
   {
    "brand": "Whistles",
    "group": "server",
-   "total": 205,
-   "price": 165,
-   "color": 204,
+   "total": 202,
+   "price": 162,
+   "color": 201,
    "sizes": 0,
-   "comp": 194
+   "comp": 191
   },
   {
    "brand": "J crew",
    "group": "browser",
-   "total": 202,
-   "price": 202,
+   "total": 200,
+   "price": 0,
    "color": 124,
    "sizes": 0,
    "comp": 64
   },
   {
-   "brand": "Frame",
-   "group": "server",
-   "total": 201,
-   "price": 201,
-   "color": 180,
-   "sizes": 196,
-   "comp": 182
-  },
-  {
    "brand": "Monrow",
    "group": "server",
-   "total": 200,
-   "price": 200,
-   "color": 200,
-   "sizes": 200,
+   "total": 199,
+   "price": 199,
+   "color": 199,
+   "sizes": 199,
    "comp": 186
   },
   {
@@ -4255,13 +4282,22 @@
    "comp": 187
   },
   {
-   "brand": "Rag & bone",
+   "brand": "Frame",
    "group": "server",
    "total": 194,
-   "price": 193,
+   "price": 194,
+   "color": 173,
+   "sizes": 189,
+   "comp": 175
+  },
+  {
+   "brand": "Rag & bone",
+   "group": "server",
+   "total": 193,
+   "price": 192,
    "color": 0,
    "sizes": 0,
-   "comp": 193
+   "comp": 192
   },
   {
    "brand": "Michael Stars",
@@ -4275,29 +4311,29 @@
   {
    "brand": "Free People",
    "group": "extension",
-   "total": 182,
-   "price": 147,
+   "total": 183,
+   "price": 148,
    "color": 0,
    "sizes": 0,
-   "comp": 0
+   "comp": 1
   },
   {
    "brand": "American Eagle",
    "group": "browser",
    "total": 179,
-   "price": 133,
-   "color": 179,
+   "price": 131,
+   "color": 178,
    "sizes": 0,
-   "comp": 176
+   "comp": 175
   },
   {
-   "brand": "Veronica Beard",
+   "brand": "Eddie bauer",
    "group": "server",
-   "total": 174,
-   "price": 174,
-   "color": 139,
-   "sizes": 139,
-   "comp": 136
+   "total": 175,
+   "price": 175,
+   "color": 155,
+   "sizes": 172,
+   "comp": 158
   },
   {
    "brand": "Marine Layer",
@@ -4307,15 +4343,6 @@
    "color": 168,
    "sizes": 168,
    "comp": 160
-  },
-  {
-   "brand": "Oasis",
-   "group": "server",
-   "total": 171,
-   "price": 171,
-   "color": 171,
-   "sizes": 0,
-   "comp": 136
   },
   {
    "brand": "Bellerose",
@@ -4336,6 +4363,15 @@
    "comp": 160
   },
   {
+   "brand": "Oasis",
+   "group": "server",
+   "total": 170,
+   "price": 170,
+   "color": 164,
+   "sizes": 0,
+   "comp": 127
+  },
+  {
    "brand": "Lilla P",
    "group": "server",
    "total": 169,
@@ -4352,6 +4388,15 @@
    "color": 0,
    "sizes": 0,
    "comp": 1
+  },
+  {
+   "brand": "Veronica Beard",
+   "group": "server",
+   "total": 167,
+   "price": 167,
+   "color": 133,
+   "sizes": 133,
+   "comp": 130
   },
   {
    "brand": "Barbour",
@@ -4381,24 +4426,6 @@
    "comp": 156
   },
   {
-   "brand": "Alo",
-   "group": "server",
-   "total": 154,
-   "price": 154,
-   "color": 153,
-   "sizes": 153,
-   "comp": 146
-  },
-  {
-   "brand": "Eddie bauer",
-   "group": "server",
-   "total": 141,
-   "price": 141,
-   "color": 125,
-   "sizes": 138,
-   "comp": 124
-  },
-  {
    "brand": "Addison bay",
    "group": "server",
    "total": 139,
@@ -4415,15 +4442,6 @@
    "color": 121,
    "sizes": 135,
    "comp": 138
-  },
-  {
-   "brand": "Whitestuff",
-   "group": "server",
-   "total": 139,
-   "price": 139,
-   "color": 0,
-   "sizes": 0,
-   "comp": 121
   },
   {
    "brand": "Gerard darel",
@@ -4453,19 +4471,10 @@
    "comp": 57
   },
   {
-   "brand": "Outdoorvoices",
-   "group": "server",
-   "total": 124,
-   "price": 124,
-   "color": 111,
-   "sizes": 124,
-   "comp": 116
-  },
-  {
    "brand": "Garnet hill",
    "group": "extension",
-   "total": 123,
-   "price": 120,
+   "total": 122,
+   "price": 119,
    "color": 0,
    "sizes": 0,
    "comp": 3
@@ -4473,20 +4482,29 @@
   {
    "brand": "Aerie",
    "group": "browser",
-   "total": 118,
-   "price": 23,
-   "color": 38,
+   "total": 119,
+   "price": 24,
+   "color": 35,
    "sizes": 0,
-   "comp": 45
+   "comp": 42
+  },
+  {
+   "brand": "Outdoorvoices",
+   "group": "server",
+   "total": 119,
+   "price": 119,
+   "color": 106,
+   "sizes": 119,
+   "comp": 110
   },
   {
    "brand": "Mango",
    "group": "extension",
-   "total": 113,
-   "price": 2,
+   "total": 110,
+   "price": 3,
    "color": 0,
    "sizes": 0,
-   "comp": 60
+   "comp": 54
   },
   {
    "brand": "J.jill",
@@ -4507,15 +4525,6 @@
    "comp": 88
   },
   {
-   "brand": "Spanx",
-   "group": "server",
-   "total": 87,
-   "price": 87,
-   "color": 87,
-   "sizes": 0,
-   "comp": 67
-  },
-  {
    "brand": "Carlhartt",
    "group": "browser",
    "total": 85,
@@ -4523,6 +4532,15 @@
    "color": 15,
    "sizes": 0,
    "comp": 76
+  },
+  {
+   "brand": "Spanx",
+   "group": "server",
+   "total": 83,
+   "price": 83,
+   "color": 82,
+   "sizes": 0,
+   "comp": 64
   },
   {
    "brand": "Apiece Apart",
@@ -4543,22 +4561,13 @@
    "comp": 0
   },
   {
-   "brand": "Sessun",
-   "group": "server",
-   "total": 75,
-   "price": 35,
-   "color": 0,
-   "sizes": 0,
-   "comp": 35
-  },
-  {
    "brand": "FP Movement",
    "group": "extension",
-   "total": 74,
-   "price": 62,
+   "total": 72,
+   "price": 60,
    "color": 0,
    "sizes": 0,
-   "comp": 3
+   "comp": 2
   },
   {
    "brand": "The white company",
@@ -4579,13 +4588,22 @@
    "comp": 54
   },
   {
+   "brand": "Sessun",
+   "group": "server",
+   "total": 56,
+   "price": 15,
+   "color": 0,
+   "sizes": 0,
+   "comp": 15
+  },
+  {
    "brand": "Paige",
    "group": "extension",
-   "total": 53,
+   "total": 52,
    "price": 36,
-   "color": 52,
+   "color": 51,
    "sizes": 0,
-   "comp": 40
+   "comp": 39
   },
   {
    "brand": "Wilson",
@@ -4599,20 +4617,29 @@
   {
    "brand": "Bash",
    "group": "server",
-   "total": 47,
-   "price": 15,
-   "color": 47,
+   "total": 36,
+   "price": 4,
+   "color": 36,
    "sizes": 0,
-   "comp": 44
+   "comp": 34
   },
   {
    "brand": "Monsoon",
    "group": "server",
    "total": 35,
-   "price": 31,
+   "price": 30,
    "color": 1,
    "sizes": 0,
    "comp": 34
+  },
+  {
+   "brand": "Oysho",
+   "group": "extension",
+   "total": 29,
+   "price": 0,
+   "color": 0,
+   "sizes": 0,
+   "comp": 0
   },
   {
    "brand": "Madewell",
@@ -4622,15 +4649,6 @@
    "color": 24,
    "sizes": 0,
    "comp": 16
-  },
-  {
-   "brand": "Oysho",
-   "group": "extension",
-   "total": 23,
-   "price": 5,
-   "color": 0,
-   "sizes": 0,
-   "comp": 0
   },
   {
    "brand": "Gap",
@@ -4644,11 +4662,11 @@
   {
    "brand": "Old Navy",
    "group": "extension",
-   "total": 6,
-   "price": 2,
+   "total": 7,
+   "price": 3,
    "color": 0,
    "sizes": 0,
-   "comp": 6
+   "comp": 7
   },
   {
    "brand": "Athleta",
