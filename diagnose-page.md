@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-11-03 01:28Z)
+# 목록 페이지 진단 (2026-11-03 23:52Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -6,7 +6,7 @@
 
 - HTTP **200** · 최종주소 `https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017`
 - 제목: "Women's Sweatpants | Carhartt"
-- 링크 255개 · `<img>` 84개 · iframe 2개
+- 링크 256개 · `<img>` 84개 · iframe 2개
 - 링크 중 이미지가 딸린 것 37개 → 그중 주소를 뽑아낸 것 **28개**
 
 | 증상 | 개수 | 뜻 |
@@ -21,23 +21,23 @@
 
 - `/en-eu/p/relaxed-fit-fleece-joggers/105510`
   - 카드 class: `cx-product-image-container`
-  - img 속성: `_ngcontent-ng-c4076350514=` `src=/images/common/eye-black.svg` `alt=` `aria-hidden=true`
-  - ```<a _ngcontent-ng-c4076350514="" tabindex="-1" class="cx-product-image-container" id="105510" data-sku="105510-V61XSREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><div _ngcontent-ng-c4076350514="" class="product-image-wrapper"><!----><!----><a _ngcontent-ng-c4076350514="" tabindex="0" role="button" mattooltiphidedelay="750" mattooltipposition="right" aria-haspopup="dialog"```
+  - img 속성: `_ngcontent-ng-c507543076=` `src=/images/common/eye-black.svg` `alt=` `aria-hidden=true`
+  - ```<a _ngcontent-ng-c507543076="" tabindex="-1" class="cx-product-image-container" id="105510" data-sku="105510-V61XSREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><div _ngcontent-ng-c507543076="" class="product-image-wrapper"><!----><!----><a _ngcontent-ng-c507543076="" tabindex="0" role="button" mattooltiphidedelay="750" mattooltipposition="right" aria-haspopup="dialog" cl```
 - `/en-eu/p/relaxed-fit-fleece-joggers/105510`
-  - 카드 class: `product-name`
+  - 카드 class: `product-name product-name-link`
   - img 속성: (img 없음)
-  - ```<a _ngcontent-ng-c4076350514="" class="product-name" data-sku="105510-V61XSREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><h2 _ngcontent-ng-c4076350514="" class="product-name-label">Relaxed Fit Fleece Joggers</h2></a>```
+  - ```<a _ngcontent-ng-c507543076="" class="product-name product-name-link" data-sku="105510-V61XSREG" data-position="1" href="/en-eu/p/relaxed-fit-fleece-joggers/105510"><h2 _ngcontent-ng-c507543076="" class="product-name-label">Relaxed Fit Fleece Joggers</h2></a>```
 
 ## https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle"
-- 링크 563개 · `<img>` 241개 · iframe 6개
-- 링크 중 이미지가 딸린 것 125개 → 그중 주소를 뽑아낸 것 **125개**
+- 링크 285개 · `<img>` 63개 · iframe 5개
+- 링크 중 이미지가 딸린 것 33개 → 그중 주소를 뽑아낸 것 **33개**
 
-**주소를 찾은 속성**: `src` 125
+**주소를 찾은 속성**: `src` 33
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `_container_1eekmh ae-theme` 2 · `flyout qa-flyout flyout-onboarding qa-flyout-onboarding _con` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 30 · `_container_1eekmh ae-theme` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
