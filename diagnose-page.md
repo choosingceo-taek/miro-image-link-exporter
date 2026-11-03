@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-11-01 22:37Z)
+# 목록 페이지 진단 (2026-11-03 01:28Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -32,7 +32,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle"
-- 링크 562개 · `<img>` 241개 · iframe 6개
+- 링크 563개 · `<img>` 241개 · iframe 6개
 - 링크 중 이미지가 딸린 것 125개 → 그중 주소를 뽑아낸 것 **125개**
 
 **주소를 찾은 속성**: `src` 125
@@ -58,31 +58,31 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 515개 · `<img>` 209개 · iframe 11개
-- 링크 중 이미지가 딸린 것 117개 → 그중 주소를 뽑아낸 것 **117개**
+- 링크 515개 · `<img>` 210개 · iframe 11개
+- 링크 중 이미지가 딸린 것 118개 → 그중 주소를 뽑아낸 것 **118개**
 
 | 증상 | 개수 | 뜻 |
 |---|---:|---|
 | shadow DOM 안의 링크 | 6 | shadow 호스트 1개 — querySelectorAll 로는 안 보입니다 |
 
-**주소를 찾은 속성**: `src` 117
+**주소를 찾은 속성**: `src` 118
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 6 · `_container_1eekmh aerie-theme` 2 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 6 · `_container_1eekmh aerie-theme` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
-- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135`
+- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4135_618`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
-- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4178_109`
+  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4135_618" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-produc```
+- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-layover-mockneck-sweatshirt/0743_4079_135`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4178_109" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="Aerie G```
-- `/us/en/p/aerie/best-deals-ever/go-to-crews/aerie-go-to-boyfriend-sweatshirt/0743_4135_572`
+  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-layover-mockneck-sweatshirt/0743_4079_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-produ```
+- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-bubble-crew-sweater/0745_4056_145`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/best-deals-ever/go-to-crews/aerie-go-to-boyfriend-sweatshirt/0743_4135_572" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
+  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-bubble-crew-sweater/0745_4056_145" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="Aerie Bubble Cr```
 
 ## https://www.apieceapart.com/shop/tops
 
