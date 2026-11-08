@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-11-07 22:30Z)
+# 목록 페이지 진단 (2026-11-08 22:41Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -71,18 +71,18 @@
 
 **이미지가 안 붙은 상품 링크 표본**
 
-- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4178_109`
-  - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
-  - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4178_109" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Bestseller </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-```
-- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135`
-  - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
-  - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
 - `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4135_618`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
   - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4135_618" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-produc```
+- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-layover-mockneck-sweatshirt/0743_4079_135`
+  - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
+  - img 속성: (img 없음)
+  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-layover-mockneck-sweatshirt/0743_4079_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-produ```
+- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-bubble-crew-sweater/0745_4056_145`
+  - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
+  - img 속성: (img 없음)
+  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-bubble-crew-sweater/0745_4056_145" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="Aerie Bubble Cr```
 
 ## https://www.apieceapart.com/shop/tops
 
