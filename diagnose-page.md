@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-11-10 01:56Z)
+# 목록 페이지 진단 (2026-11-10 23:55Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -32,7 +32,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle"
-- 링크 562개 · `<img>` 241개 · iframe 6개
+- 링크 561개 · `<img>` 241개 · iframe 6개
 - 링크 중 이미지가 딸린 것 125개 → 그중 주소를 뽑아낸 것 **125개**
 
 **주소를 찾은 속성**: `src` 125
@@ -58,27 +58,27 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 606개 · `<img>` 270개 · iframe 10개
-- 링크 중 이미지가 딸린 것 148개 → 그중 주소를 뽑아낸 것 **148개**
+- 링크 597개 · `<img>` 557개 · iframe 9개
+- 링크 중 이미지가 딸린 것 200개 → 그중 주소를 뽑아낸 것 **200개**
 
-**주소를 찾은 속성**: `src` 148
+**주소를 찾은 속성**: `src` 200
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 120 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 6 · `_container_1eekmh aerie-theme` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `_container_csym83` 82 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 6 · `_container_1eekmh aerie-theme` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
-- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4178_109`
+- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-cotton-cable-cardigan/9492_4006_618`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-sweatshirt/0743_4178_109" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Bestseller </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-```
-- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135`
+  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-cotton-cable-cardigan/9492_4006_618" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="Aerie Cotton ```
+- `/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-oh-zip-sweatshirt/0743_3982_618`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_135" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
-- `/us/en/p/aerie/clothing/loungewear/aerie-oh-snap-cropped-sweatshirt/0743_4048_618`
+  - ```<a href="/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-oh-zip-sweatshirt/0743_3982_618" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="Aerie O```
+- `/us/en/p/aerie/clothing/loungewear/aerie-oh-snap-cropped-sweatshirt/0743_4162_618`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/clothing/loungewear/aerie-oh-snap-cropped-sweatshirt/0743_4048_618" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-nam```
+  - ```<a href="/us/en/p/aerie/clothing/loungewear/aerie-oh-snap-cropped-sweatshirt/0743_4162_618" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-nam```
 
 ## https://www.apieceapart.com/shop/tops
 
