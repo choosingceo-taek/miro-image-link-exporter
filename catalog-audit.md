@@ -1,13 +1,13 @@
-# 엑셀 4항목 채움률 (2026-11-11T00:29Z)
+# 엑셀 4항목 채움률 (2026-11-11T00:34Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 30633/37011 | 83% |
-| 컬러 | 23124/37011 | 62% |
-| 사이즈 | 16063/37011 | 43% |
-| 혼용률 | 28498/37011 | 77% |
+| 가격 | 30601/36979 | 83% |
+| 컬러 | 23161/36979 | 63% |
+| 사이즈 | 16069/36979 | 43% |
+| 혼용률 | 28506/36979 | 77% |
 
 **가격·혼용률 모두 80% 이상인 브랜드 74개** (시연에 안전)
 
@@ -21,12 +21,12 @@
 | Cotton on | 471 | 100% | 97% | 0% | 99% |
 | Lands end | 466 | 91% | 3% | 0% | 90% |
 | J.mclaughlin | 463 | 100% | 0% | 0% | 90% |
-| Shopbop | 455 | 100% | 90% | 0% | 88% |
+| Shopbop | 455 | 100% | 97% | 0% | 95% |
 | Frank & Eileen | 451 | 100% | 100% | 100% | 99% |
 | Evereve | 439 | 100% | 100% | 100% | 95% |
 | Sanctuary | 422 | 100% | 100% | 100% | 98% |
 | Me+Em | 416 | 99% | 98% | 0% | 92% |
-| Jager | 403 | 100% | 96% | 0% | 95% |
+| Jager | 403 | 100% | 97% | 0% | 96% |
 | Phase eight | 398 | 100% | 100% | 0% | 92% |
 | Scoth & soda | 391 | 100% | 100% | 92% | 88% |
 | ALC | 389 | 100% | 100% | 98% | 98% |
@@ -34,12 +34,12 @@
 | Tuckernuck | 378 | 100% | 99% | 99% | 92% |
 | Damson Madder | 376 | 100% | 100% | 99% | 98% |
 | Splendid | 376 | 100% | 98% | 100% | 86% |
-| Wrap | 357 | 99% | 0% | 0% | 90% |
 | Hobbs | 353 | 100% | 100% | 0% | 90% |
 | Velvet | 344 | 100% | 84% | 99% | 100% |
 | Oak + Fort | 342 | 100% | 94% | 100% | 100% |
 | Bassike | 328 | 100% | 0% | 99% | 96% |
 | Sweaty betty | 327 | 100% | 100% | 0% | 93% |
+| Wrap | 325 | 98% | 0% | 0% | 90% |
 | Boden | 324 | 100% | 10% | 89% | 89% |
 | Ulla Johnson | 319 | 100% | 100% | 100% | 97% |
 | L.L bean | 318 | 95% | 82% | 0% | 94% |
@@ -49,7 +49,7 @@
 | Varley | 304 | 96% | 100% | 100% | 97% |
 | Seasalt cornwall | 285 | 97% | 98% | 0% | 96% |
 | Xirena | 276 | 100% | 99% | 100% | 97% |
-| Rails | 272 | 100% | 18% | 97% | 83% |
+| Rails | 272 | 100% | 18% | 98% | 83% |
 | Cotton citizen | 268 | 100% | 100% | 100% | 88% |
 | Project Social T | 261 | 100% | 100% | 100% | 92% |
 | English factory | 259 | 100% | 92% | 100% | 93% |
@@ -66,8 +66,8 @@
 | Addidas | extension | 596 | 98% | 0% | 0% | 0% |
 | Massimo Dutti | extension | 527 | 0% | 0% | 0% | 0% |
 | Zara | server | 500 | 100% | 0% | 0% | 0% |
-| Nike | browser | 497 | 39% | 94% | 0% | 85% |
-| Everlane | server | 445 | 100% | 0% | 98% | 66% |
+| Nike | browser | 497 | 39% | 95% | 0% | 85% |
+| Everlane | server | 445 | 100% | 0% | 99% | 67% |
 | vineyardvines | server | 445 | 16% | 100% | 0% | 98% |
 | Lululemon | extension | 438 | 0% | 0% | 0% | 0% |
 | The upside | browser | 426 | 84% | 0% | 0% | 75% |
@@ -144,8 +144,8 @@
 - Athleta — 9시간 전 · 1개
 - Aritzia — 9시간 전 · 800개
 - &Other Stories — 9시간 전 · 277개
-- Addidas — 8시간 전 · 596개
-- Lands end — 8시간 전 · 466개
+- Addidas — 9시간 전 · 596개
+- Lands end — 9시간 전 · 466개
 - Seasalt cornwall — 8시간 전 · 285개
 - Free People — 8시간 전 · 104개
 - Old Navy — 8시간 전 · 1개
@@ -169,7 +169,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 28498/37011개 (77%) · 미완 브랜드 123개
+- 전체 28506/36979개 (77%) · 미완 브랜드 123개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -204,7 +204,7 @@
 | Reformation | server | 403/670 (60%) |
 | Abercrombie & Fitch | extension | 112/182 (62%) |
 | rouje | server | 139/217 (64%) |
-| Everlane | server | 293/445 (66%) |
+| Everlane | server | 296/445 (67%) |
 | Oasis | server | 83/123 (67%) |
 | Dickies | server | 241/345 (70%) |
 | Carlhartt | browser | 107/152 (70%) |
@@ -213,19 +213,18 @@
 | Stateside | server | 244/335 (73%) |
 | The upside | browser | 321/426 (75%) |
 | Veronica Beard | server | 114/153 (75%) |
-| Aritzia | extension | 614/800 (77%) |
+| Aritzia | extension | 613/800 (77%) |
 | Whitestuff | server | 172/222 (77%) |
-| Loft | extension | 532/678 (78%) |
+| Loft | extension | 531/678 (78%) |
 | Poetry | browser | 239/308 (78%) |
 | Spanx | server | 69/89 (78%) |
 | Club monaco | server | 142/174 (82%) |
-| Rails | server | 225/272 (83%) |
+| Rails | server | 227/272 (83%) |
 | Splits59 | server | 132/159 (83%) |
 | Good American | server | 518/606 (85%) |
-| Nike | browser | 421/497 (85%) |
+| Nike | browser | 422/497 (85%) |
 | Splendid | server | 324/376 (86%) |
 | Leset | browser | 264/308 (86%) |
-| Shopbop | browser | 402/455 (88%) |
 | Scoth & soda | server | 346/391 (88%) |
 | Cotton citizen | server | 235/268 (88%) |
 | Michael Stars | server | 166/188 (88%) |
@@ -234,8 +233,8 @@
 | Lands end | extension | 421/466 (90%) |
 | J.mclaughlin | browser | 417/463 (90%) |
 | Ann Taylor | extension | 372/414 (90%) |
-| Wrap | browser | 321/357 (90%) |
 | Hobbs | server | 317/353 (90%) |
+| Wrap | browser | 291/325 (90%) |
 | Frame | server | 172/190 (91%) |
 | Barbour | browser | 155/171 (91%) |
 | Me+Em | browser | 381/416 (92%) |
@@ -258,15 +257,16 @@
 | L.L bean | extension | 300/318 (94%) |
 | Vuori | server | 206/220 (94%) |
 | Whistles | server | 207/220 (94%) |
-| Citizens of Humanity | server | 160/170 (94%) |
 | Bash | server | 33/35 (94%) |
 | CCC | browser | 757/800 (95%) |
+| Shopbop | browser | 431/455 (95%) |
 | Evereve | server | 418/439 (95%) |
-| Jager | server | 382/403 (95%) |
 | Eddie bauer | server | 200/211 (95%) |
 | Marine Layer | server | 173/182 (95%) |
 | Bellerose | server | 162/170 (95%) |
+| Citizens of Humanity | server | 161/170 (95%) |
 | Vanessa bruno | server | 55/58 (95%) |
+| Jager | server | 386/403 (96%) |
 | Bassike | server | 315/328 (96%) |
 | Jigsaw | server | 297/310 (96%) |
 | Seasalt cornwall | extension | 274/285 (96%) |
@@ -353,7 +353,7 @@
 | Paige | extension | 40/55 (73%) | ₩126 |
 | The white company | extension | 58/74 (78%) | £145.00 |
 | Whistles | server | 177/220 (80%) | $ 199.00 |
-| Aritzia | extension | 645/800 (81%) | ₩150,200 |
+| Aritzia | extension | 644/800 (81%) | ₩150,200 |
 | The upside | browser | 358/426 (84%) |  |
 | FP Movement | extension | 86/100 (86%) | $48.00 |
 | Wilson | extension | 49/56 (88%) | $30 |
@@ -421,9 +421,9 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-11T00:29Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-11T00:34Z)
 
-- 카탈로그 134개 · 상품 37011개 검사 · **문제 항목 80개**
+- 카탈로그 134개 · 상품 36979개 검사 · **문제 항목 80개**
 - 문제가 있는 브랜드 28개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
