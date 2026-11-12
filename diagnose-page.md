@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-11-10 23:55Z)
+# 목록 페이지 진단 (2026-11-12 01:20Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -32,7 +32,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle"
-- 링크 561개 · `<img>` 241개 · iframe 6개
+- 링크 560개 · `<img>` 241개 · iframe 6개
 - 링크 중 이미지가 딸린 것 125개 → 그중 주소를 뽑아낸 것 **125개**
 
 **주소를 찾은 속성**: `src` 125
@@ -58,12 +58,12 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 597개 · `<img>` 557개 · iframe 9개
-- 링크 중 이미지가 딸린 것 200개 → 그중 주소를 뽑아낸 것 **200개**
+- 링크 515개 · `<img>` 206개 · iframe 7개
+- 링크 중 이미지가 딸린 것 118개 → 그중 주소를 뽑아낸 것 **118개**
 
-**주소를 찾은 속성**: `src` 200
+**주소를 찾은 속성**: `src` 118
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `_container_csym83` 82 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 6 · `_container_1eekmh aerie-theme` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 6 · `_container_1eekmh aerie-theme` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
