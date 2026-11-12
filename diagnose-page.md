@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-11-12 01:20Z)
+# 목록 페이지 진단 (2026-11-12 23:59Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -32,7 +32,7 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030`
 - 제목: "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle"
-- 링크 560개 · `<img>` 241개 · iframe 6개
+- 링크 563개 · `<img>` 241개 · iframe 6개
 - 링크 중 이미지가 딸린 것 125개 → 그중 주소를 뽑아낸 것 **125개**
 
 **주소를 찾은 속성**: `src` 125
@@ -58,8 +58,12 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 515개 · `<img>` 206개 · iframe 7개
+- 링크 516개 · `<img>` 210개 · iframe 9개
 - 링크 중 이미지가 딸린 것 118개 → 그중 주소를 뽑아낸 것 **118개**
+
+| 증상 | 개수 | 뜻 |
+|---|---:|---|
+| shadow DOM 안의 링크 | 6 | shadow 호스트 1개 — querySelectorAll 로는 안 보입니다 |
 
 **주소를 찾은 속성**: `src` 118
 
