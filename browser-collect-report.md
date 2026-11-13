@@ -1,4 +1,4 @@
-# 헤드리스 크롬 수집 테스트 (2026-11-12T01:51Z)
+# 헤드리스 크롬 수집 테스트 (2026-11-13T00:42Z)
 
 GitHub Actions(데이터센터 IP)에서 진짜 크롬으로 확장 담당 브랜드를 돌린 결과.
 
@@ -6,138 +6,138 @@ GitHub Actions(데이터센터 IP)에서 진짜 크롬으로 확장 담당 브�
 
 ## ✅ 자동화 가능 (23)
 
-- **Aerie** — 123개 {"sweatshirts":42,"shirts":3,"tops":15,"dresses":18,"pants":45} · 공용 링크 14개 제외 (69s)
+- **Aerie** — 128개 {"sweatshirts":46,"shirts":3,"tops":15,"dresses":18,"pants":46} · 공용 링크 14개 제외 (79s)
   - 표본: cat7030169 — https://www.ae.com/us/en/c/aerie/tops/sweatshirts-hoodies/cat7030169
   - 표본: cat5090139 — https://www.ae.com/us/en/c/aerie/tops/sweaters-cardigans/cat5090139
   - 표본: cat3140009 — https://www.ae.com/us/en/c/aerie/tops/long-sleeve-t-shirts/cat3140009
   - 표본: cat7780002 — https://www.ae.com/us/en/c/aerie/tops/button-ups-blouses/cat7780002
   - 표본: cat1100032 — https://www.ae.com/us/en/c/aerie/tops/jackets/cat1100032
-- **American Eagle** — 179개 {"tops":70,"shirts":15,"sweatshirts":30,"pants":34,"dresses":30} (101s)
+- **American Eagle** — 180개 {"tops":70,"shirts":16,"sweatshirts":30,"pants":34,"dresses":30} (118s)
   - 표본: AE Soft & Sexy Waffle Mock Neck Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_2032_600
   - 표본: AE Cozy Crew Neck Long Sleeve T-Shirt — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_603
   - 표본: AE Long-Sleeve Waffle Plush Crew Neck Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-long-sleeve-waffle-plush-crew-neck-tee/1532_2058_603
   - 표본: AE Soft & Sexy Waffle Mock Neck Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_1888_140
   - 표본: AE Soft & Sexy Waffle Mock Neck Tee — https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_1888_073
-- **Apiece Apart** — 119개 {"tops":67,"shirts":3,"pants":28,"dresses":21} (68s)
+- **Apiece Apart** — 119개 {"tops":67,"shirts":3,"pants":28,"dresses":21} (67s)
   - 표본: fabi chill button down 1 — https://www.apieceapart.com/products/fabi-chill-button-down-1
   - 표본: ora fluid twist top — https://www.apieceapart.com/products/ora-fluid-twist-top
   - 표본: ana cravat shirt — https://www.apieceapart.com/products/ana-cravat-shirt
   - 표본: alegria button down — https://www.apieceapart.com/products/alegria-button-down
   - 표본: cropped isolde button down 3 — https://www.apieceapart.com/products/cropped-isolde-button-down-3
-- **Barbour** — 171개 {"tops":36,"sweatshirts":36,"pants":36,"shirts":36,"dresses":27} · 공용 링크 5개 제외 (158s)
+- **Barbour** — 171개 {"tops":36,"sweatshirts":36,"pants":36,"shirts":36,"dresses":27} · 공용 링크 5개 제외 (163s)
   - 표본: Rosalie T-Shirt White — https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html
   - 표본: Niamh Logo T-Shirt White — https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html
   - 표본: Colletta T-Shirt Nutmeg — https://www.barbour.com/row/colletta-t-shirt-LTS0757BR13.html
   - 표본: Barbour x Mul Heaton Oversized T-Shirt White — https://www.barbour.com/row/barbour-x-mul-heaton-oversized-t-shirt-LTS0740WH11.html
   - 표본: Amaya Logo T-Shirt Black — https://www.barbour.com/row/amaya-logo-t-shirt-LTS0758BK11.html
-- **Boldest** — 224개 {"tops":96,"shirts":24,"sweatshirts":6,"pants":98} (75s)
+- **Boldest** — 218개 {"tops":96,"shirts":21,"sweatshirts":5,"pants":96} (70s)
   - 표본: 와플 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX27116BKS
   - 표본: 와플 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX27116GRS
   - 표본: 라이트 플리스 반집업 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX26516YEB
   - 표본: 라이트 플리스 반집업 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX26516BKS
   - 표본: 라이트 플리스 터틀넥 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX26515BKS
-- **CCC** — 120개 {"tops":22,"sweatshirts":26,"shirts":31,"dresses":17,"pants":24} · 공용 링크 2개 제외 (192s)
+- **CCC** — 240개 {"tops":44,"sweatshirts":52,"shirts":58,"dresses":37,"pants":49} · 공용 링크 2개 제외 (196s)
+  - 표본: Cotton-Slub Perfect V-Neck Tee in Deep Teal Blue — https://www.crewclothing.co.uk/products/cotton-slub-perfect-v-neck-tee-in-deep-teal-blue
+  - 표본: Cotton-Slub Perfect V-Neck Tee in Mulberry — https://www.crewclothing.co.uk/products/cotton-slub-perfect-v-neck-tee-in-mulberry
   - 표본: Ultimate Breton in Navy and Pink Stripes — https://www.crewclothing.co.uk/products/ultimate-breton-in-navy-and-pink-stripes
-  - 표본: Ultimate Breton in Cameo Blue and White Stripes — https://www.crewclothing.co.uk/products/ultimate-breton-in-cameo-blue-and-white-stripes
   - 표본: Ultimate Breton in Sand and White Stripes — https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes
-  - 표본: Relaxed Fit Cotton T-Shirt in White and Navy Stripe — https://www.crewclothing.co.uk/products/relaxed-fit-cotton-t-shirt-in-white-and-navy-stripe
   - 표본: Ultimate Breton in Pink and Navy Stripes — https://www.crewclothing.co.uk/products/ultimate-breton-in-pink-and-navy-stripes
-- **Carlhartt** — 152개 {"tops":92,"pants":8,"sweatshirts":28,"shirts":24} (244s)
+- **Carlhartt** — 152개 {"tops":92,"pants":8,"sweatshirts":28,"shirts":24} (253s)
   - 표본: arrow icon — https://www.carhartt.com/c/collections-new
   - 표본: arrow icon — https://www.carhartt.com/c/best-sellers
   - 표본: arrow icon — https://www.carhartt.com/c/cold-weather-layering
   - 표본: arrow icon — https://www.carhartt.com/c/camo-gear
   - 표본: arrow icon — https://www.carhartt.com/c/fan-shop
-- **Coldwatercreek** — 203개 {"tops":61,"sweatshirts":45,"shirts":27,"dresses":34,"pants":36} · 공용 링크 20개 제외 (174s)
+- **Coldwatercreek** — 205개 {"tops":63,"sweatshirts":46,"shirts":27,"dresses":32,"pants":37} · 공용 링크 20개 제외 (174s)
   - 표본: #BestCotton™ Side-Button Long-Sleeve Tunic — https://www.coldwatercreek.com/bestcotton-side-button-long-sleeve-tunic/25875/
   - 표본: Gilded Bow Ornament Tee — https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/
   - 표본: Pine and Plaid Tee — https://www.coldwatercreek.com/pine-and-plaid-tee/25076/
   - 표본: Prancing Reindeer Embroidered Tee — https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/
   - 표본: Wintertide Waffle Tee — https://www.coldwatercreek.com/wintertide-waffle-tee/22279/
-- **Cotton on** — 471개 {"tops":175,"sweatshirts":72,"pants":177,"shirts":7,"dresses":40} · 공용 링크 9개 제외 (253s)
+- **Cotton on** — 471개 {"tops":175,"sweatshirts":71,"pants":178,"shirts":7,"dresses":40} · 공용 링크 9개 제외 (264s)
   - 표본: Bella Off Shoulder V Neck 3/4 Tee, GREY MARLE — https://cottonon.com/US/bella-off-shoulder-v-neck-3%2F4-tee/2061643-03.html
   - 표본: 90S High V Neck ¾ Sleeve, BLACK — https://cottonon.com/US/90s-high-v-neck-%C2%BE-sleeve/2062142-01.html
   - 표본: 90S High V Neck ¾ Sleeve, WHITE — https://cottonon.com/US/90s-high-v-neck-%C2%BE-sleeve/2062142-02.html
   - 표본: 90S High V Neck ¾ Sleeve, TOTAL ECLIPSE — https://cottonon.com/US/90s-high-v-neck-%C2%BE-sleeve/2062142-05.html
   - 표본: Maple V Neck 3/4 Sleeve, DARK OAK — https://cottonon.com/US/maple-v-neck-3%2F4-sleeve/2061949-02.html
-- **Gerard darel** — 138개 {"shirts":22,"tops":79,"pants":37} · 공용 링크 1개 제외 (190s)
+- **Gerard darel** — 138개 {"shirts":22,"tops":79,"pants":37} · 공용 링크 1개 제외 (192s)
   - 표본: t shirt bara det03e2069100 — https://gerarddarel.com/en-us/products/t-shirt-bara_det03e2069100
   - 표본: t shirt bara det03e2061200 — https://gerarddarel.com/en-us/products/t-shirt-bara_det03e2061200
   - 표본: t shirt becca det15e2157301 — https://gerarddarel.com/en-us/products/t-shirt-becca_det15e2157301
   - 표본: t shirt becca det15e2154501 — https://gerarddarel.com/en-us/products/t-shirt-becca_det15e2154501
   - 표본: t shirt becky det16e2157301 — https://gerarddarel.com/en-us/products/t-shirt-becky_det16e2157301
-- **Gestuz** — 652개 {"tops":207,"shirts":154,"sweatshirts":47,"dresses":148,"pants":96} (220s)
+- **Gestuz** — 651개 {"tops":206,"shirts":154,"sweatshirts":47,"dresses":148,"pants":96} (191s)
   - 표본: SilviGZ Top LOCATION NONE 10906942-1000030 — https://www.gestuz.com/en-us/silvigz-top--10906942-1000030
   - 표본: GZchaela Leather top LOCATION NONE 10911604-100017 — https://www.gestuz.com/en-us/gzchaela-leather-top--10911604-100017
   - 표본: GZelva Top LOCATION NONE 10911583-109839 — https://www.gestuz.com/en-us/gzelva-top--10911583-109839
   - 표본: GZseren Top LOOKBOOK FRONT 10911641-109839 — https://www.gestuz.com/en-us/gzseren-top--10911641-109839
   - 표본: GZbetty T-shirt LOOKBOOK FRONT 10911429-109839 — https://www.gestuz.com/en-us/gzbetty-t-shirt--10911429-109839
-- **J crew** — 230개 {"tops":28,"sweatshirts":4,"pants":110,"shirts":38,"dresses":50} · 공용 링크 13개 제외 (146s)
+- **J crew** — 247개 {"tops":43,"sweatshirts":4,"pants":112,"shirts":38,"dresses":50} · 공용 링크 13개 제외 (160s)
   - 표본: DD414 — https://www.jcrew.com/p/womens/categories/clothing/tees-and-tanks/DD414
   - 표본: CZ835 — https://www.jcrew.com/p/womens/categories/clothing/tees-and-tanks/CZ835
   - 표본: CZ988 — https://www.jcrew.com/p/womens/categories/clothing/tees-and-tanks/CZ988
   - 표본: MQ341 — https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341
   - 표본: MQ341 — https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ341
-- **J.mclaughlin** — 190개 {"pants":140,"tops":6,"sweatshirts":1,"shirts":12,"dresses":31} · 공용 링크 3개 제외 (163s)
+- **J.mclaughlin** — 190개 {"pants":140,"tops":6,"sweatshirts":1,"shirts":12,"dresses":31} · 공용 링크 3개 제외 (164s)
   - 표본: Model wearing Signature Tee in Grand Heraldic Tassel by J.McLaughlin with a gold chain pattern and white pants — https://www.jmclaughlin.com/products/signature-tee-grand-heraldic-tassel-cream-gold
   - 표본: J.McLaughlin Signature Tee in Grand Heraldic Tassel styled with black pants on a model in a polished timeless fashion look — https://www.jmclaughlin.com/products/signature-tee-grand-heraldic-tassel-black-gold
   - 표본: Woman wearing a navy Durham Ruffle Top by J.McLaughlin with three-quarter sleeves and delicate ruffle detail along the neckline, paired with white pan — https://www.jmclaughlin.com/products/durham-ruffle-top-solid-winter-navy
   - 표본: Kate Ruffle Top in Noble Crest by J.McLaughlin worn with high waisted jeans showcasing a ruffled neckline soft stretch and paisley design — https://www.jmclaughlin.com/products/kate-ruffle-top-noble-crest-plum-lilac
   - 표본: Woman wearing a white Signature Tee from J.McLaughlin paired with navy pants, showcasing effortlessly stylish, enduring designs crafted with innovativ — https://www.jmclaughlin.com/products/signature-tee-solid-white
-- **Leset** — 290개 {"tops":209,"pants":48,"sweatshirts":3,"shirts":15,"dresses":15} · 공용 링크 16개 제외 (195s)
+- **Leset** — 290개 {"tops":209,"pants":48,"sweatshirts":3,"shirts":15,"dresses":15} · 공용 링크 16개 제외 (225s)
   - 표본: Pre-Order: Julien Margo Tee — https://leset.com/products/julien-margo-tee-white
   - 표본: Pre-Order: Julien Oversized Long Sleeve — https://leset.com/products/julien-oversized-long-sleeve-white
   - 표본: Pre-Order: Julien Margo Tee — https://leset.com/products/julien-margo-tee-grey-melange
   - 표본: Pre-Order: Julien Oversized Long Sleeve — https://leset.com/products/julien-oversized-long-sleeve-grey-melange
   - 표본: The Margo — https://leset.com/products/the-margo-stone
-- **Lucky Brand** — 160개 {"tops":56,"sweatshirts":62,"pants":12,"dresses":30} · 공용 링크 8개 제외 (211s)
-  - 69개 · https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops ← 오류: page.evaluate: Execution context was destroyed, most likely because of a navigation.
-  - 72개 · https://www.luckybrand.com/women/clothing/sweaters ← 오류: page.evaluate: Execution context was destroyed, most likely because of a navigation.
+- **Lucky Brand** — 167개 {"tops":58,"sweatshirts":67,"pants":12,"dresses":30} · 공용 링크 8개 제외 (263s)
+  - 72개 · https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops ← 오류: page.evaluate: Execution context was destroyed, most likely because of a navigation.
+  - 79개 · https://www.luckybrand.com/women/clothing/sweaters ← 오류: page.evaluate: Execution context was destroyed, most likely because of a navigation.
   - 0개 · https://www.luckybrand.com/women/clothing/shirts/blouses ← 오류: page.evaluate: Execution context was destroyed, most likely because of a navigation.
   - 48개 · https://www.luckybrand.com/women/clothing/dresses ← 오류: page.evaluate: Execution context was destroyed, most likely because of a navigation.
   - 15개 · https://www.luckybrand.com/women/clothing/pants ← 오류: page.evaluate: Execution context was destroyed, most likely because of a navigation.
+  - 표본: POINTELLE CABLE BUTTON FRONT, image 4 — https://www.luckybrand.com/pointelle-cable-button-front/172009.html
   - 표본: BRUSHED BOAT NECK BANDED TOP, image 4 — https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html
   - 표본: LACE TRIM MIX HENLEY, image 4 — https://www.luckybrand.com/lace-trim-mix-henley/173679.html
   - 표본: LACE YOKE HENLEY, image 4 — https://www.luckybrand.com/lace-yoke-henley/169956.html
   - 표본: QUEEN THERMAL, image 4 — https://www.luckybrand.com/queen-thermal/182009.html
-  - 표본: LUCKY SNAKE HEART THERMAL, image 4 — https://www.luckybrand.com/lucky-snake-heart-thermal/182011.html
-- **Me+Em** — 416개 {"tops":115,"sweatshirts":14,"shirts":35,"dresses":122,"pants":130} · 공용 링크 19개 제외 (105s)
+- **Me+Em** — 416개 {"tops":114,"sweatshirts":14,"shirts":37,"dresses":121,"pants":130} · 공용 링크 19개 제외 (110s)
   - 표본: Shrunken Layering Tee — https://www.meandem.com/us/shrunken-layering-tee-light-cream
-  - 표본: Straight Tee — https://www.meandem.com/us/soft-washed-v-neck-tee-fresh-white
-  - 표본: Fitted Crew Neck Tee — https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-bright-white
   - 표본: Raw Edge Sweatshirt — https://www.meandem.com/us/raw-edge-raglan-sweatshirt-soft-white
-  - 표본: Fitted Crew Neck Tee — https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-black
-- **Nike** — 479개 {"shirts":22,"tops":139,"sweatshirts":79,"pants":203,"dresses":36} (138s)
+  - 표본: Straight Tee — https://www.meandem.com/us/soft-washed-v-neck-tee-fresh-white
+  - 표본: Straight Tee — https://www.meandem.com/us/cotton-slub-tee-fresh-white
+  - 표본: Fitted Crew Neck Tee — https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-bright-white
+- **Nike** — 499개 {"shirts":21,"tops":142,"sweatshirts":78,"pants":222,"dresses":36} (146s)
   - 표본: Standard — https://www.nike.com/w/womens-standard-tops-t-shirts-5e1x6z7ooj3z9om13
   - 표본: Oversized — https://www.nike.com/w/womens-tops-t-shirts-3nghfz4b30cz5e1x6z9om13
   - 표본: Slim — https://www.nike.com/w/womens-slim-tops-t-shirts-5e1x6z6gnxjz9om13
   - 표본: NikeSKIMS — https://www.nike.com/w/nikeskims-tops-t-shirts-9om13zb2asd
   - 표본: Graphic Tees — https://www.nike.com/w/womens-graphic-tees-5e1x6za5cbi
-- **On** — 265개 {"tops":159,"shirts":6,"sweatshirts":46,"pants":49,"dresses":5} · 공용 링크 4개 제외 (90s)
-  - 표본: On Studio Long-T Clay Women – Low-impact training Tops and t-shirts — https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013
-  - 표본: Black — https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/black-apparel-1WG10370553
-  - 표본: Cassis — https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/cassis-apparel-1WG10375007
-  - 표본: On Club-T Barberry Women – Travel, recovery, all-day wear Tops and t-shirts — https://www.on.com/en-us/products/club-t-w-1we1006/womens/barberry-apparel-1WE10064977
+- **On** — 267개 {"tops":160,"shirts":6,"sweatshirts":49,"pants":47,"dresses":5} · 공용 링크 1개 제외 (76s)
+  - 표본: On Club-T Black Women – Travel, recovery, all-day wear Tops and t-shirts — https://www.on.com/en-us/products/club-t-w-1we1006/womens/black-apparel-1WE10060553
   - 표본: Flurry — https://www.on.com/en-us/products/club-t-w-1we1006/womens/flurry-apparel-1WE10064975
-- **Poetry** — 298개 {"tops":37,"sweatshirts":7,"shirts":84,"pants":133,"dresses":37} · 공용 링크 3개 제외 (164s)
-  - 표본: Silk & cotton T-shirt — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html
-  - 표본: Silk & cotton T-shirt — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html
-  - 표본: Silk & cotton T-shirt — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html
-  - 표본: High-neck jersey top — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-high-neck-top-blackberry/RW49.C.html
-  - 표본: High-neck jersey top — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-high-neck-top-dark-taupe/RW49.D.html
-- **Shopbop** — 456개 {"tops":171,"sweatshirts":61,"pants":109,"shirts":13,"dresses":102} · 공용 링크 30개 제외 (70s)
-  - 표본: Exclusive — https://www.shopbop.com/varsity-mockneck-parke/vp/v=1/1518289604.htm
-  - 표본: Exclusive — https://www.shopbop.com/varsity-mockneck-parke/vp/v=1/1569321655.htm
-  - 표본: Exclusive — https://www.shopbop.com/varsity-mockneck-parke/vp/v=1/1565173562.htm
-  - 표본: Exclusive — https://www.shopbop.com/stripe-long-sleeve-parke/vp/v=1/1576904230.htm
-  - 표본: 1533759103.htm — https://www.shopbop.com/crew-neck-sweatshirt-polo-ralph/vp/v=1/1533759103.htm
-- **Sweaty betty** — 340개 {"tops":63,"sweatshirts":118,"shirts":17,"pants":142} · 공용 링크 13개 제외 (184s)
-  - 표본: soft flow studio longline long sleeve tee SB04665 Black.html — https://www.sweatybetty.com/us/shop/tops/long-sleeve-tops/soft-flow-studio-longline-long-sleeve-tee-SB04665_Black.html
-  - 표본: nimbus cinched puffer SB04745 Black.html — https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-cinched-puffer-SB04745_Black.html
-  - 표본: athlete seamless workout tank top SB10141 MalbecRedDeepRedMarl.html — https://www.sweatybetty.com/us/shop/tops/vests/athlete-seamless-workout-tank-top-SB10141_MalbecRedDeepRedMarl.html
-  - 표본: canyon fleece zip up SB04523 SootGrey.html — https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/canyon-fleece-zip-up-SB04523_SootGrey.html
-  - 표본: plush mix half zip fleece SB04571 CreamWildernessPrint.html — https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/plush-mix-half-zip-fleece-SB04571_CreamWildernessPrint.html
-- **The upside** — 70개 {"tops":54,"pants":2,"sweatshirts":14} (33s)
+  - 표본: Barberry — https://www.on.com/en-us/products/club-t-w-1we1006/womens/barberry-apparel-1WE10064977
+  - 표본: Crater — https://www.on.com/en-us/products/club-t-w-1we1006/womens/crater-apparel-1WE10061756
+  - 표본: White — https://www.on.com/en-us/products/club-t-w-1we1006/womens/white-apparel-1WE10060069
+- **Poetry** — 299개 {"tops":37,"sweatshirts":7,"shirts":84,"pants":133,"dresses":38} · 공용 링크 3개 제외 (158s)
+  - 표본: Silk & cotton T-shirt, Midnight, large — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html
+  - 표본: Silk & cotton T-shirt, Blackberry, large — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html
+  - 표본: Silk & cotton T-shirt, Aqua mist, large — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html
+  - 표본: High-neck jersey top, Blackberry, large — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-high-neck-top-blackberry/RW49.C.html
+  - 표본: High-neck jersey top, Dark taupe, large — https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-high-neck-top-dark-taupe/RW49.D.html
+- **Shopbop** — 453개 {"tops":160,"shirts":18,"sweatshirts":62,"pants":109,"dresses":104} · 공용 링크 30개 제외 (69s)
+  - 표본: 1545916070.htm — https://www.shopbop.com/sweet-nothings-cami-favorite-daughter/vp/v=1/1545916070.htm
+  - 표본: 1567732572.htm — https://www.shopbop.com/vesela-blouse-ulla-johnson/vp/v=1/1567732572.htm
+  - 표본: 1586575077.htm — https://www.shopbop.com/marline-mesh-lace-blouse-generation/vp/v=1/1586575077.htm
+  - 표본: 1508979706.htm — https://www.shopbop.com/lava-dip-dyed-bow-blouse/vp/v=1/1508979706.htm
+  - 표본: 1558320609.htm — https://www.shopbop.com/daria-top-jan/vp/v=1/1558320609.htm
+- **Sweaty betty** — 69개 {"tops":18,"sweatshirts":24,"shirts":2,"pants":25} · 공용 링크 13개 제외 (81s)
+  - 표본: nimbus mid waterproof puffer SB10380 NoriGreen.html — https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-mid-waterproof-puffer-SB10380_NoriGreen.html
+  - 표본: premium brushed classic hoodie SB10517 EspressoBrown.html — https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/premium-brushed-classic-hoodie-SB10517_EspressoBrown.html
+  - 표본: nimbus longline waterproof puffer SB10381 MalbecRed.html — https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_MalbecRed.html
+  - 표본: soft flow studio longline tee SB04664 MalbecRed.html — https://www.sweatybetty.com/us/shop/tops/t-shirts/soft-flow-studio-longline-tee-SB04664_MalbecRed.html
+  - 표본: athlete seamless workout long sleeve tee SB10117 MalbecRedDeepRedMarl.html — https://www.sweatybetty.com/us/shop/tops/long-sleeve-tops/athlete-seamless-workout-long-sleeve-tee-SB10117_MalbecRedDeepRedMarl.html
+- **The upside** — 70개 {"tops":54,"pants":2,"sweatshirts":14} (34s)
   - 0개 · https://www.theupside.com/shop/tops/knitwear/ ← HTTP 403
   - 0개 · https://www.theupside.com/shop/all-in-one/ ← HTTP 403
   - 0개 · https://www.theupside.com/shop/bottoms/ ← HTTP 403
@@ -146,12 +146,12 @@ GitHub Actions(데이터센터 IP)에서 진짜 크롬으로 확장 담당 브�
   - 표본: Header Submenu Image — https://www.theupside.com/active/bottoms/leggings/
   - 표본: Header Submenu Image — https://www.theupside.com/holiday-gift-guide
   - 표본: Header Submenu Image — https://www.theupside.com/gifts/travel-gifts/
-- **Wrap** — 203개 {"tops":15,"sweatshirts":28,"shirts":38,"dresses":27,"pants":95} · 공용 링크 4개 제외 (126s)
-  - 표본: Striped jersey top — https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html
-  - 표본: High-neck sweatshirt — https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html
-  - 표본: Embroidered jacket — https://www.wraplondon.com/jackets-and-coats/embroidered-cotton-jersey-jacket-coffee/TH92.A.html
-  - 표본: V-neck top — https://www.wraplondon.com/jersey-tops/hemp-organic-cotton-v-neck-top-peach-pink/ZU79.M.html
-  - 표본: Embroidered sweatshirt — https://www.wraplondon.com/jersey-tops/embroidered-cotton-double-sweatshirt-warm-olive/TH88.A.html
+- **Wrap** — 362개 {"tops":62,"sweatshirts":120,"shirts":56,"dresses":27,"pants":97} · 공용 링크 4개 제외 (187s)
+  - 표본: Striped jersey top, Blue stone, large — https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html
+  - 표본: High-neck sweatshirt, Soft slate blue, large — https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html
+  - 표본: Embroidered jacket, Coffee, large — https://www.wraplondon.com/jackets-and-coats/embroidered-cotton-jersey-jacket-coffee/TH92.A.html
+  - 표본: V-neck top, Peach pink, large — https://www.wraplondon.com/jersey-tops/hemp-organic-cotton-v-neck-top-peach-pink/ZU79.M.html
+  - 표본: Embroidered sweatshirt, Warm olive, large — https://www.wraplondon.com/jersey-tops/embroidered-cotton-double-sweatshirt-warm-olive/TH88.A.html
 
 ## ⛔ 확장 필요(봇 차단) (0)
 
