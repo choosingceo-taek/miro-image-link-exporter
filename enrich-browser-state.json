@@ -74,8 +74,8 @@
   },
   "freepeople.com.freepeople": {
    "brand": "Free People",
-   "until": 1794530416428,
-   "at": "2026-10-30",
+   "until": 1795743810695,
+   "at": "2026-11-13",
    "ratio": 100
   },
   "eileenfisher.com.eileenfisher": {
@@ -128,9 +128,15 @@
   },
   "theupside.com.theupside": {
    "brand": "The upside",
-   "until": 1794530421526,
-   "at": "2026-10-30",
+   "until": 1795743815300,
+   "at": "2026-11-13",
    "ratio": 96
+  },
+  "thereformation.com.reformation": {
+   "brand": "Reformation",
+   "until": 1795743817373,
+   "at": "2026-11-13",
+   "ratio": 100
   }
  }
 }
