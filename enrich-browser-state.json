@@ -110,8 +110,8 @@
   },
   "adidas.com.addidas": {
    "brand": "Addidas",
-   "until": 1794788598475,
-   "at": "2026-11-02",
+   "until": 1795999781041,
+   "at": "2026-11-16",
    "ratio": 100
   },
   "scotchandsoda.com.scothsoda": {
@@ -136,6 +136,12 @@
    "brand": "Reformation",
    "until": 1795743817373,
    "at": "2026-11-13",
+   "ratio": 100
+  },
+  "chicos.com.chicos": {
+   "brand": "Chico's",
+   "until": 1795999783062,
+   "at": "2026-11-16",
    "ratio": 100
   }
  }
