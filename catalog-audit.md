@@ -1,118 +1,121 @@
-# 엑셀 4항목 채움률 (2026-11-17T02:55Z)
+# 엑셀 4항목 채움률 (2026-11-18T02:05Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 31565/37938 | 83% |
-| 컬러 | 23025/37938 | 61% |
-| 사이즈 | 16349/37938 | 43% |
-| 혼용률 | 28511/37938 | 75% |
+| 가격 | 30953/37770 | 82% |
+| 컬러 | 22531/37770 | 60% |
+| 사이즈 | 15985/37770 | 42% |
+| 혼용률 | 28190/37770 | 75% |
 
-**가격·혼용률 모두 80% 이상인 브랜드 74개** (시연에 안전)
+**가격·혼용률 모두 80% 이상인 브랜드 71개** (시연에 안전)
 
 | 브랜드 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |
 |---|---:|---:|---:|---:|---:|
-| Gestuz | 648 | 100% | 7% | 0% | 93% |
+| Gestuz | 651 | 100% | 7% | 0% | 93% |
 | Good American | 619 | 99% | 100% | 99% | 85% |
 | Eileen fisher | 545 | 99% | 0% | 0% | 93% |
 | Nation LTD | 524 | 100% | 100% | 98% | 100% |
-| J.mclaughlin | 503 | 100% | 0% | 0% | 90% |
-| James Perse | 498 | 100% | 99% | 99% | 100% |
-| Cotton on | 472 | 100% | 98% | 0% | 99% |
-| Lands end | 464 | 89% | 3% | 0% | 90% |
-| Shopbop | 455 | 100% | 96% | 0% | 94% |
-| Frank & Eileen | 447 | 100% | 100% | 100% | 99% |
-| Evereve | 440 | 100% | 100% | 100% | 95% |
-| Sanctuary | 424 | 100% | 100% | 100% | 98% |
+| J.mclaughlin | 503 | 100% | 0% | 0% | 91% |
+| James Perse | 499 | 100% | 99% | 99% | 100% |
+| Cotton on | 473 | 100% | 97% | 0% | 98% |
+| Lands end | 463 | 88% | 3% | 0% | 88% |
+| Shopbop | 454 | 100% | 82% | 0% | 81% |
+| Frank & Eileen | 446 | 100% | 100% | 100% | 99% |
+| Evereve | 439 | 100% | 100% | 100% | 95% |
+| Sanctuary | 422 | 100% | 100% | 100% | 98% |
 | Me+Em | 413 | 99% | 98% | 0% | 92% |
+| Jager | 403 | 100% | 79% | 0% | 94% |
 | Splendid | 403 | 100% | 98% | 100% | 85% |
-| Jager | 402 | 100% | 60% | 0% | 94% |
-| Phase eight | 399 | 100% | 100% | 0% | 93% |
-| Scoth & soda | 396 | 100% | 100% | 91% | 88% |
+| Phase eight | 398 | 100% | 99% | 0% | 92% |
+| Scoth & soda | 395 | 100% | 99% | 90% | 88% |
 | ALC | 389 | 100% | 100% | 98% | 98% |
-| Tuckernuck | 381 | 100% | 99% | 99% | 91% |
-| Vince | 377 | 100% | 100% | 100% | 99% |
-| Wrap | 374 | 99% | 0% | 0% | 90% |
-| Damson Madder | 373 | 100% | 100% | 99% | 98% |
-| Sweaty betty | 369 | 100% | 97% | 0% | 92% |
-| Hobbs | 352 | 100% | 100% | 0% | 90% |
+| Sweaty betty | 382 | 100% | 99% | 0% | 94% |
+| Tuckernuck | 381 | 100% | 99% | 99% | 92% |
+| Vince | 379 | 100% | 100% | 100% | 99% |
+| Wrap | 368 | 99% | 0% | 0% | 90% |
+| Hobbs | 353 | 100% | 100% | 0% | 91% |
 | Velvet | 351 | 100% | 83% | 99% | 100% |
-| Leset | 350 | 100% | 98% | 97% | 86% |
 | Oak + Fort | 342 | 100% | 94% | 100% | 100% |
+| Damson Madder | 341 | 100% | 100% | 99% | 98% |
 | Boden | 341 | 100% | 10% | 87% | 86% |
 | Bassike | 330 | 100% | 0% | 99% | 96% |
-| L.L bean | 314 | 96% | 82% | 0% | 94% |
-| Ulla Johnson | 308 | 100% | 100% | 100% | 96% |
+| L.L bean | 314 | 95% | 82% | 0% | 94% |
+| Jigsaw | 313 | 100% | 100% | 100% | 96% |
+| Ulla Johnson | 305 | 99% | 99% | 99% | 96% |
 | Varley | 304 | 96% | 100% | 100% | 97% |
-| Seasalt cornwall | 290 | 97% | 98% | 0% | 96% |
-| Rails | 288 | 100% | 17% | 98% | 85% |
+| Poetry | 299 | 100% | 0% | 0% | 80% |
+| Rails | 289 | 100% | 17% | 96% | 82% |
+| Seasalt cornwall | 288 | 95% | 98% | 0% | 95% |
+| Project Social T | 276 | 100% | 98% | 98% | 89% |
 | Xirena | 271 | 100% | 99% | 100% | 97% |
+| Leset | 269 | 100% | 97% | 97% | 85% |
 | Cotton citizen | 266 | 100% | 100% | 100% | 88% |
 | English factory | 266 | 100% | 92% | 100% | 93% |
-| Project Social T | 261 | 100% | 100% | 100% | 92% |
-| Thread & supply | 256 | 100% | 81% | 100% | 97% |
-| WHBM | 248 | 100% | 100% | 0% | 99% |
 
-<details><summary>아직 부족한 브랜드 56개</summary>
+<details><summary>아직 부족한 브랜드 59개</summary>
 
 | 브랜드 | 그룹 | 상품 | 가격 | 컬러 | 사이즈 | 혼용률 |
 |---|---|---:|---:|---:|---:|---:|
 | Aritzia | extension | 800 | 70% | 0% | 0% | 67% |
-| Chico's | server | 800 | 87% | 23% | 0% | 22% |
-| CCC | browser | 800 | 66% | 65% | 36% | 94% |
-| H&M | extension | 743 | 100% | 0% | 0% | 0% |
-| Reformation | server | 707 | 100% | 57% | 57% | 51% |
-| Loft | extension | 688 | 0% | 74% | 0% | 65% |
-| Massimo Dutti | extension | 574 | 0% | 0% | 0% | 0% |
+| Chico's | server | 800 | 84% | 19% | 0% | 18% |
+| CCC | browser | 800 | 65% | 64% | 36% | 93% |
+| H&M | extension | 744 | 100% | 0% | 0% | 0% |
+| Reformation | server | 708 | 100% | 56% | 56% | 50% |
+| Loft | extension | 673 | 0% | 62% | 0% | 55% |
+| Massimo Dutti | extension | 575 | 0% | 0% | 0% | 0% |
+| Everlane | server | 535 | 100% | 0% | 99% | 72% |
 | vineyardvines | server | 531 | 14% | 100% | 0% | 98% |
 | Zara | server | 500 | 100% | 0% | 0% | 0% |
-| Nike | browser | 492 | 40% | 94% | 0% | 85% |
-| Lululemon | extension | 465 | 0% | 0% | 0% | 0% |
-| Everlane | server | 444 | 100% | 0% | 98% | 67% |
-| Addidas | extension | 439 | 100% | 0% | 0% | 0% |
+| Nike | browser | 490 | 40% | 92% | 0% | 82% |
+| Lululemon | extension | 471 | 0% | 0% | 0% | 0% |
 | The upside | browser | 429 | 83% | 0% | 0% | 75% |
-| Mint velvet | server | 416 | 100% | 0% | 100% | 70% |
-| Jigsaw | server | 414 | 95% | 95% | 95% | 78% |
+| Mint velvet | server | 416 | 100% | 0% | 100% | 69% |
+| Addidas | extension | 408 | 73% | 0% | 0% | 0% |
 | La Ligne | server | 390 | 5% | 100% | 0% | 99% |
-| Arket | extension | 385 | 95% | 46% | 46% | 46% |
-| Ann Taylor | extension | 371 | 1% | 94% | 0% | 91% |
-| Anthropologie | extension | 358 | 100% | 0% | 0% | 0% |
-| Dickies | server | 347 | 100% | 100% | 99% | 70% |
-| &Other Stories | extension | 337 | 97% | 32% | 0% | 44% |
+| Arket | extension | 389 | 95% | 46% | 46% | 46% |
+| Ann Taylor | extension | 375 | 1% | 94% | 0% | 90% |
+| &Other Stories | extension | 339 | 97% | 32% | 0% | 44% |
 | Stateside | server | 335 | 100% | 87% | 94% | 75% |
-| Gymshark | server | 303 | 0% | 100% | 0% | 100% |
-| On | browser | 296 | 43% | 100% | 0% | 90% |
-| Joules | extension | 288 | 54% | 0% | 0% | 0% |
+| Joules | extension | 301 | 57% | 0% | 0% | 0% |
+| Gymshark | server | 295 | 0% | 100% | 0% | 99% |
+| Theory | extension | 272 | 5% | 97% | 3% | 97% |
+| Whitestuff | server | 270 | 100% | 0% | 0% | 78% |
+| On | browser | 266 | 35% | 100% | 0% | 93% |
 | Fatface | extension | 265 | 49% | 0% | 0% | 0% |
-| Abercrombie & Fitch | extension | 247 | 72% | 1% | 0% | 60% |
-| Poetry | browser | 222 | 96% | 0% | 0% | 78% |
-| Vuori | server | 221 | 16% | 100% | 0% | 91% |
+| Dickies | server | 252 | 99% | 99% | 99% | 53% |
+| Abercrombie & Fitch | extension | 248 | 71% | 1% | 0% | 59% |
+| Whistles | server | 240 | 77% | 100% | 0% | 93% |
+| Vuori | server | 220 | 16% | 100% | 0% | 94% |
+| Anthropologie | extension | 217 | 100% | 0% | 0% | 0% |
 | rouje | server | 217 | 100% | 97% | 0% | 64% |
-| Sezane | extension | 212 | 6% | 0% | 0% | 0% |
-| Coldwatercreek | browser | 204 | 100% | 2% | 0% | 36% |
-| J crew | browser | 202 | 100% | 98% | 0% | 31% |
-| American Eagle | browser | 178 | 72% | 100% | 0% | 99% |
+| Sezane | extension | 212 | 0% | 0% | 0% | 0% |
+| Coldwatercreek | browser | 204 | 100% | 1% | 0% | 36% |
+| J crew | browser | 202 | 100% | 99% | 0% | 31% |
+| Free People | extension | 184 | 82% | 0% | 0% | 0% |
+| American Eagle | browser | 180 | 72% | 100% | 0% | 98% |
+| Alo | server | 171 | 100% | 86% | 86% | 77% |
 | Barbour | browser | 169 | 0% | 0% | 0% | 91% |
 | Patagonia | extension | 167 | 0% | 0% | 0% | 1% |
-| Lucky Brand | browser | 161 | 51% | 99% | 0% | 99% |
 | Veronica Beard | server | 153 | 100% | 76% | 76% | 75% |
 | Carlhartt | browser | 150 | 49% | 53% | 0% | 71% |
+| Lucky Brand | browser | 146 | 55% | 99% | 0% | 99% |
 | Aerie | browser | 127 | 70% | 88% | 0% | 95% |
-| Buck Mason | server | 119 | 100% | 99% | 100% | 47% |
-| Garnet hill | extension | 111 | 97% | 0% | 0% | 2% |
+| Buck Mason | server | 118 | 100% | 98% | 99% | 47% |
+| Oasis | server | 112 | 100% | 91% | 0% | 71% |
+| Garnet hill | extension | 110 | 97% | 0% | 0% | 2% |
 | Apiece Apart | browser | 102 | 0% | 41% | 0% | 94% |
-| FP Movement | extension | 99 | 86% | 0% | 0% | 9% |
-| Free People | extension | 96 | 99% | 0% | 0% | 0% |
-| Mango | extension | 95 | 2% | 0% | 0% | 56% |
-| Spanx | server | 92 | 100% | 100% | 0% | 76% |
-| J.jill | server | 86 | 60% | 0% | 0% | 93% |
+| FP Movement | extension | 101 | 86% | 2% | 0% | 13% |
+| Mango | extension | 95 | 1% | 0% | 0% | 56% |
+| Spanx | server | 91 | 100% | 96% | 0% | 76% |
+| J.jill | server | 89 | 29% | 0% | 0% | 66% |
 | Prana | server | 81 | 0% | 0% | 0% | 0% |
-| Paige | extension | 78 | 85% | 99% | 0% | 68% |
-| Sessun | server | 76 | 39% | 0% | 0% | 39% |
+| Paige | extension | 78 | 90% | 99% | 0% | 67% |
+| Sessun | server | 74 | 41% | 0% | 0% | 41% |
 | The white company | extension | 68 | 85% | 0% | 0% | 0% |
-| Wilson | extension | 54 | 85% | 70% | 78% | 57% |
-| Bash | server | 43 | 28% | 100% | 0% | 95% |
+| Wilson | extension | 52 | 85% | 71% | 77% | 54% |
+| Bash | server | 47 | 30% | 100% | 0% | 98% |
 | Oysho | extension | 20 | 0% | 0% | 0% | 0% |
 
 </details>
@@ -122,45 +125,43 @@
 
 # 크롬 확장 담당 브랜드 갱신 상태 (33개)
 
-**확장 실행 필요 1개** — 36시간 넘게 갱신되지 않았습니다.
-개인/회사 PC 크롬에서 `RACK 상품 수집기` 팝업의 전체 수집을 한 번 돌리세요.
+모두 36시간 안에 갱신됨 — 확장 실행이 밀리지 않았습니다.
 
-- ⚠ Paige — 36시간 전 · 78개
+<details><summary>정상 33개</summary>
 
-<details><summary>정상 32개</summary>
-
-- H&M — 36시간 전 · 743개
-- FP Movement — 35시간 전 · 99개
-- Arket — 35시간 전 · 385개
-- Patagonia — 35시간 전 · 167개
-- Gap — 35시간 전 · 6개
-- Wilson — 35시간 전 · 54개
-- Eileen fisher — 35시간 전 · 545개
-- Oysho — 35시간 전 · 20개
-- Lululemon — 35시간 전 · 465개
-- Abercrombie & Fitch — 35시간 전 · 247개
-- Mango — 35시간 전 · 95개
-- Joules — 35시간 전 · 288개
-- Aritzia — 13시간 전 · 800개
-- &Other Stories — 13시간 전 · 337개
-- Addidas — 13시간 전 · 439개
-- Lands end — 13시간 전 · 464개
-- Seasalt cornwall — 13시간 전 · 290개
-- Free People — 12시간 전 · 96개
-- Old Navy — 12시간 전 · 1개
-- Theory — 12시간 전 · 182개
-- Banana Republic — 12시간 전 · 5개
-- Madewell — 12시간 전 · 53개
-- Ann Taylor — 12시간 전 · 371개
-- Loft — 12시간 전 · 688개
-- Fatface — 11시간 전 · 265개
+- Fatface — 35시간 전 · 265개
+- Paige — 12시간 전 · 78개
+- H&M — 12시간 전 · 744개
+- FP Movement — 12시간 전 · 101개
+- Arket — 12시간 전 · 389개
+- Patagonia — 12시간 전 · 167개
+- Gap — 12시간 전 · 6개
+- Wilson — 12시간 전 · 52개
+- Eileen fisher — 12시간 전 · 545개
+- Oysho — 12시간 전 · 20개
+- Lululemon — 12시간 전 · 471개
+- Abercrombie & Fitch — 12시간 전 · 248개
+- Mango — 11시간 전 · 95개
+- Joules — 11시간 전 · 301개
+- Aritzia — 11시간 전 · 800개
+- &Other Stories — 11시간 전 · 339개
+- Addidas — 11시간 전 · 408개
+- Lands end — 11시간 전 · 463개
+- Seasalt cornwall — 11시간 전 · 288개
+- Free People — 11시간 전 · 184개
+- Old Navy — 11시간 전 · 7개
+- Theory — 11시간 전 · 272개
+- Banana Republic — 11시간 전 · 1개
+- Madewell — 11시간 전 · 74개
+- Ann Taylor — 11시간 전 · 375개
+- Loft — 11시간 전 · 673개
 - The white company — 11시간 전 · 68개
 - L.L bean — 11시간 전 · 314개
-- Massimo Dutti — 11시간 전 · 574개
+- Massimo Dutti — 11시간 전 · 575개
 - Sezane — 10시간 전 · 212개
-- Garnet hill — 10시간 전 · 111개
-- Athleta — 5시간 전 · 2개
-- Anthropologie — 2시간 전 · 358개
+- Garnet hill — 10시간 전 · 110개
+- Athleta — 10시간 전 · 1개
+- Anthropologie — 10시간 전 · 217개
 
 </details>
 
@@ -171,134 +172,136 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 28511/37938개 (75%) · 미완 브랜드 123개
+- 전체 28190/37770개 (75%) · 미완 브랜드 125개
 
 <details><summary>브랜드별 진행도</summary>
 
 | 브랜드 | 그룹 | 보유/전체 |
 |---|---|---:|
-| H&M | extension | 0/743 (0%) |
-| Massimo Dutti | extension | 1/574 (0%) |
+| H&M | extension | 0/744 (0%) |
+| Massimo Dutti | extension | 1/575 (0%) |
 | Zara | server | 0/500 (0%) |
-| Lululemon | extension | 0/465 (0%) |
-| Addidas | extension | 0/439 (0%) |
-| Anthropologie | extension | 0/358 (0%) |
-| Joules | extension | 0/288 (0%) |
+| Lululemon | extension | 0/471 (0%) |
+| Addidas | extension | 0/408 (0%) |
+| Joules | extension | 0/301 (0%) |
 | Fatface | extension | 0/265 (0%) |
+| Anthropologie | extension | 0/217 (0%) |
 | Sezane | extension | 1/212 (0%) |
-| Free People | extension | 0/96 (0%) |
+| Free People | extension | 0/184 (0%) |
 | Prana | server | 0/81 (0%) |
 | The white company | extension | 0/68 (0%) |
 | Oysho | extension | 0/20 (0%) |
 | Gap | extension | 0/6 (0%) |
 | Patagonia | extension | 1/167 (1%) |
-| Garnet hill | extension | 2/111 (2%) |
-| FP Movement | extension | 9/99 (9%) |
-| Banana Republic | extension | 1/5 (20%) |
-| Chico's | server | 173/800 (22%) |
+| Garnet hill | extension | 2/110 (2%) |
+| FP Movement | extension | 13/101 (13%) |
+| Chico's | server | 144/800 (18%) |
 | J crew | browser | 62/202 (31%) |
 | Coldwatercreek | browser | 73/204 (36%) |
-| Sessun | server | 30/76 (39%) |
-| &Other Stories | extension | 148/337 (44%) |
-| Arket | extension | 176/385 (46%) |
-| Buck Mason | server | 56/119 (47%) |
-| Reformation | server | 361/707 (51%) |
+| Sessun | server | 30/74 (41%) |
+| &Other Stories | extension | 149/339 (44%) |
+| Arket | extension | 177/389 (46%) |
+| Buck Mason | server | 55/118 (47%) |
+| Reformation | server | 357/708 (50%) |
+| Dickies | server | 134/252 (53%) |
+| Wilson | extension | 28/52 (54%) |
+| Loft | extension | 371/673 (55%) |
 | Mango | extension | 53/95 (56%) |
-| Wilson | extension | 31/54 (57%) |
-| Abercrombie & Fitch | extension | 147/247 (60%) |
+| Abercrombie & Fitch | extension | 147/248 (59%) |
 | rouje | server | 139/217 (64%) |
-| Loft | extension | 446/688 (65%) |
-| Aritzia | extension | 537/800 (67%) |
-| Everlane | server | 299/444 (67%) |
-| Paige | extension | 53/78 (68%) |
-| Mint velvet | server | 290/416 (70%) |
-| Dickies | server | 243/347 (70%) |
-| Carlhartt | browser | 106/150 (71%) |
+| J.jill | server | 59/89 (66%) |
+| Aritzia | extension | 536/800 (67%) |
+| Paige | extension | 52/78 (67%) |
+| Mint velvet | server | 288/416 (69%) |
+| Carlhartt | browser | 107/150 (71%) |
+| Oasis | server | 79/112 (71%) |
+| Everlane | server | 385/535 (72%) |
 | The upside | browser | 322/429 (75%) |
 | Stateside | server | 250/335 (75%) |
 | Veronica Beard | server | 114/153 (75%) |
-| Spanx | server | 70/92 (76%) |
-| Jigsaw | server | 324/414 (78%) |
-| Poetry | browser | 174/222 (78%) |
-| Whitestuff | server | 149/182 (82%) |
-| Club monaco | server | 141/172 (82%) |
+| Spanx | server | 69/91 (76%) |
+| Alo | server | 131/171 (77%) |
+| Whitestuff | server | 210/270 (78%) |
+| Poetry | browser | 240/299 (80%) |
+| Shopbop | browser | 366/454 (81%) |
+| Nike | browser | 403/490 (82%) |
+| Rails | server | 238/289 (82%) |
+| Club monaco | server | 142/173 (82%) |
 | Splits59 | server | 131/158 (83%) |
 | Michael Stars | server | 168/199 (84%) |
-| Oasis | server | 103/123 (84%) |
 | Good American | server | 528/619 (85%) |
-| Nike | browser | 418/492 (85%) |
 | Splendid | server | 344/403 (85%) |
-| Rails | server | 244/288 (85%) |
-| Leset | browser | 300/350 (86%) |
+| Leset | browser | 229/269 (85%) |
 | Boden | server | 294/341 (86%) |
-| Alo | server | 177/203 (87%) |
-| Scoth & soda | server | 348/396 (88%) |
+| Lands end | extension | 407/463 (88%) |
+| Scoth & soda | server | 346/395 (88%) |
 | Cotton citizen | server | 235/266 (88%) |
-| J.mclaughlin | browser | 454/503 (90%) |
-| Lands end | extension | 416/464 (90%) |
-| Wrap | browser | 336/374 (90%) |
-| Hobbs | server | 318/352 (90%) |
-| On | browser | 265/296 (90%) |
-| Frame | server | 172/192 (90%) |
-| Tuckernuck | server | 348/381 (91%) |
-| Ann Taylor | extension | 337/371 (91%) |
-| Vuori | server | 202/221 (91%) |
+| Project Social T | server | 245/276 (89%) |
+| Frame | server | 172/194 (89%) |
+| Madewell | extension | 66/74 (89%) |
+| Ann Taylor | extension | 339/375 (90%) |
+| Wrap | browser | 331/368 (90%) |
+| J.mclaughlin | browser | 456/503 (91%) |
+| Hobbs | server | 320/353 (91%) |
 | Eddie bauer | server | 158/174 (91%) |
 | Barbour | browser | 153/169 (91%) |
-| Me+Em | browser | 382/413 (92%) |
-| Sweaty betty | browser | 339/369 (92%) |
-| Project Social T | server | 239/261 (92%) |
-| Draper James | server | 135/147 (92%) |
+| Me+Em | browser | 381/413 (92%) |
+| Phase eight | server | 368/398 (92%) |
+| Tuckernuck | server | 349/381 (92%) |
+| Draper James | server | 136/148 (92%) |
 | Addison bay | server | 130/141 (92%) |
-| Gestuz | browser | 600/648 (93%) |
+| CCC | browser | 746/800 (93%) |
+| Gestuz | browser | 603/651 (93%) |
 | Eileen fisher | extension | 508/545 (93%) |
-| Phase eight | server | 371/399 (93%) |
+| On | browser | 247/266 (93%) |
 | English factory | server | 248/266 (93%) |
-| Whistles | server | 199/214 (93%) |
+| Whistles | server | 222/240 (93%) |
 | Monrow | server | 183/197 (93%) |
-| Theory | extension | 169/182 (93%) |
 | Outdoorvoices | server | 112/121 (93%) |
-| J.jill | server | 80/86 (93%) |
-| CCC | browser | 752/800 (94%) |
-| Shopbop | browser | 429/455 (94%) |
-| Jager | server | 379/402 (94%) |
+| Jager | server | 378/403 (94%) |
+| Sweaty betty | browser | 360/382 (94%) |
 | L.L bean | extension | 296/314 (94%) |
+| Vuori | server | 206/220 (94%) |
 | Apiece Apart | browser | 96/102 (94%) |
-| Madewell | extension | 50/53 (94%) |
-| Evereve | server | 418/440 (95%) |
+| Evereve | server | 417/439 (95%) |
+| Seasalt cornwall | extension | 275/288 (95%) |
 | LNA | server | 224/236 (95%) |
 | Marine Layer | server | 172/181 (95%) |
 | Citizens of Humanity | server | 162/171 (95%) |
 | Bellerose | server | 161/169 (95%) |
 | Aerie | browser | 121/127 (95%) |
 | Vanessa bruno | server | 55/58 (95%) |
-| Bash | server | 41/43 (95%) |
 | Bassike | server | 317/330 (96%) |
-| Ulla Johnson | server | 297/308 (96%) |
-| Seasalt cornwall | extension | 277/290 (96%) |
+| Jigsaw | server | 300/313 (96%) |
+| Ulla Johnson | server | 293/305 (96%) |
+| Thread & supply | server | 248/258 (96%) |
 | Sundry | server | 236/247 (96%) |
 | Nylora | server | 223/233 (96%) |
 | Greyson | server | 89/93 (96%) |
-| Varley | server | 296/304 (97%) |
+| Varley | server | 295/304 (97%) |
+| Theory | extension | 263/272 (97%) |
 | Xirena | server | 263/271 (97%) |
-| Thread & supply | server | 248/256 (97%) |
-| The Great | server | 224/230 (97%) |
-| Faherty | server | 168/174 (97%) |
+| Faherty | server | 169/175 (97%) |
 | Gerard darel | browser | 134/138 (97%) |
+| The Great | server | 115/118 (97%) |
+| Monsoon | server | 28/29 (97%) |
 | vineyardvines | server | 522/531 (98%) |
-| Sanctuary | server | 414/424 (98%) |
+| Cotton on | browser | 465/473 (98%) |
+| Sanctuary | server | 412/422 (98%) |
 | ALC | server | 382/389 (98%) |
-| Damson Madder | server | 366/373 (98%) |
+| Damson Madder | server | 334/341 (98%) |
+| American Eagle | browser | 177/180 (98%) |
 | Beyond yoga | server | 176/179 (98%) |
-| Cotton on | browser | 469/472 (99%) |
-| Frank & Eileen | server | 441/447 (99%) |
+| Bash | server | 46/47 (98%) |
+| Frank & Eileen | server | 440/446 (99%) |
 | La Ligne | server | 385/390 (99%) |
-| Vince | server | 373/377 (99%) |
+| Vince | server | 374/379 (99%) |
+| Gymshark | server | 293/295 (99%) |
 | WHBM | server | 245/248 (99%) |
 | Rag & bone | server | 239/241 (99%) |
-| American Eagle | browser | 176/178 (99%) |
 | Lilla P | server | 168/169 (99%) |
-| Lucky Brand | browser | 159/161 (99%) |
+| Ninety Percent | server | 154/156 (99%) |
+| Lucky Brand | browser | 144/146 (99%) |
 | Goldie | server | 144/145 (99%) |
 
 </details>
@@ -311,56 +314,59 @@
 목록 카드 텍스트에서 통화기호로 뽑습니다. 통화 표기가 다르거나(zł·kr 등) 가격을
 이미지·지연로딩으로 그리는 사이트는 빈칸이 되고, 엑셀 '가격' 열도 비게 됩니다.
 
-- 전체 134개 브랜드 · ❌ 거의 없음 16개 · ⚠ 일부만 23개
+- 전체 134개 브랜드 · ❌ 거의 없음 17개 · ⚠ 일부만 25개
 
 ## ❌ 가격이 거의 안 잡히는 브랜드 (20% 미만)
 
 | 브랜드 | 그룹 | 가격있음/전체 |
 |---|---|---:|
-| Loft | extension | 0/688 (0%) |
-| Massimo Dutti | extension | 0/574 (0%) |
-| Lululemon | extension | 0/465 (0%) |
-| Gymshark | server | 0/303 (0%) |
+| Loft | extension | 1/673 (0%) |
+| Massimo Dutti | extension | 0/575 (0%) |
+| Lululemon | extension | 0/471 (0%) |
+| Gymshark | server | 1/295 (0%) |
+| Sezane | extension | 1/212 (0%) |
 | Barbour | browser | 0/169 (0%) |
 | Patagonia | extension | 0/167 (0%) |
 | Apiece Apart | browser | 0/102 (0%) |
 | Prana | server | 0/81 (0%) |
 | Oysho | extension | 0/20 (0%) |
 | Gap | extension | 0/6 (0%) |
-| Ann Taylor | extension | 4/371 (1%) |
-| Mango | extension | 2/95 (2%) |
+| Ann Taylor | extension | 4/375 (1%) |
+| Mango | extension | 1/95 (1%) |
 | La Ligne | server | 19/390 (5%) |
-| Sezane | extension | 12/212 (6%) |
+| Theory | extension | 14/272 (5%) |
 | vineyardvines | server | 73/531 (14%) |
-| Vuori | server | 36/221 (16%) |
+| Vuori | server | 36/220 (16%) |
 
 ## ⚠ 일부만 잡히는 브랜드 (20~90%)
 
 | 브랜드 | 그룹 | 가격있음/전체 | 예시 |
 |---|---|---:|---|
-| Banana Republic | extension | 1/5 (20%) | $35.99 |
-| Bash | server | 12/43 (28%) | € 335 |
-| Sessun | server | 30/76 (39%) |  |
-| Nike | browser | 197/492 (40%) | $37 |
-| On | browser | 126/296 (43%) | $50.00 |
+| J.jill | server | 26/89 (29%) |  |
+| Bash | server | 14/47 (30%) | € 325 |
+| On | browser | 93/266 (35%) | $70.00 |
+| Nike | browser | 196/490 (40%) | $37 |
+| Sessun | server | 30/74 (41%) |  |
 | Fatface | extension | 129/265 (49%) | £69 |
 | Carlhartt | browser | 74/150 (49%) | $50 |
-| Lucky Brand | browser | 82/161 (51%) |  |
-| Joules | extension | 155/288 (54%) | £54 |
-| J.jill | server | 52/86 (60%) |  |
-| CCC | browser | 528/800 (66%) |  |
-| Aritzia | extension | 560/800 (70%) | $50 |
+| Lucky Brand | browser | 81/146 (55%) |  |
+| Joules | extension | 171/301 (57%) | £65 |
+| Old Navy | extension | 4/7 (57%) | $7 |
+| CCC | browser | 521/800 (65%) |  |
+| Aritzia | extension | 558/800 (70%) | $50 |
 | Aerie | browser | 89/127 (70%) |  |
-| Abercrombie & Fitch | extension | 177/247 (72%) | ₩54,787 |
-| American Eagle | browser | 128/178 (72%) |  |
+| Abercrombie & Fitch | extension | 177/248 (71%) | ₩54,787 |
+| American Eagle | browser | 129/180 (72%) |  |
+| Addidas | extension | 297/408 (73%) | $80 |
+| Whistles | server | 184/240 (77%) | $ 159.20 |
+| Madewell | extension | 59/74 (80%) | $100 |
+| Free People | extension | 150/184 (82%) | $78.00 |
 | The upside | browser | 358/429 (83%) |  |
-| Whistles | server | 181/214 (85%) | $ 159.20 |
-| Paige | extension | 66/78 (85%) | ₩241 |
+| Chico's | server | 672/800 (84%) | $29.00 |
 | The white company | extension | 58/68 (85%) | £145.00 |
-| Wilson | extension | 46/54 (85%) | $15 |
-| FP Movement | extension | 85/99 (86%) | $48.00 |
-| Chico's | server | 693/800 (87%) | $29.00 |
-| Lands end | extension | 414/464 (89%) |  |
+| Wilson | extension | 44/52 (85%) | $15 |
+| FP Movement | extension | 87/101 (86%) | $48.00 |
+| Lands end | extension | 409/463 (88%) |  |
 
 
 ---
@@ -370,23 +376,23 @@
 상품을 **한 개도** 주지 못한 주소입니다. 브랜드 사이트에서 개편·삭제됐을 가능성이 큽니다.
 대체 주소를 찾으면 `카테고리 URL 수정` 워크플로로 갈아끼우세요.
 
-- 대상 12개 브랜드 · URL 22개
+- 대상 13개 브랜드 · URL 23개
 
-## Banana Republic (extension) — 현재 5개 저장
+## Banana Republic (extension) — 현재 1개 저장
 
 - https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136
 - https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136
 - https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136
 - https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136
 
-## Old Navy (extension) — 현재 1개 저장
+## Old Navy (extension) — 현재 7개 저장
 
 - https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136
 - https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click
 - https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits
 - https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136
 
-## Athleta (extension) — 현재 2개 저장
+## Athleta (extension) — 현재 1개 저장
 
 - https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts
 - https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A
@@ -398,23 +404,23 @@
 - https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136
 - https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS
 
-## Addidas (extension) — 현재 439개 저장
+## Addidas (extension) — 현재 408개 저장
 
 - https://www.adidas.com/us/women-tops?sort=newest-to-oldest
+
+## Anthropologie (extension) — 현재 217개 저장
+
+- https://www.anthropologie.com/dresses
 
 ## Fatface (extension) — 현재 265개 저장
 
 - https://www.fatface.com/shop/womens/clothing/tops/t-shirts
 
-## Free People (extension) — 현재 96개 저장
-
-- https://www.freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2
-
-## Joules (extension) — 현재 288개 저장
+## Joules (extension) — 현재 301개 저장
 
 - https://www.joules.com/shop/womens/clothing/tops
 
-## Lucky Brand (browser) — 현재 161개 저장
+## Lucky Brand (browser) — 현재 146개 저장
 
 - https://www.luckybrand.com/women/clothing/shirts/blouses
 
@@ -422,9 +428,13 @@
 
 - https://www.oysho.com/gb/dresses-jumpsuits-n4954
 
-## &Other Stories (extension) — 현재 337개 저장
+## &Other Stories (extension) — 현재 339개 저장
 
 - https://www.stories.com/en-us/clothing/tops/
+
+## Theory (extension) — 현재 272개 저장
+
+- https://www.theory.com/women/pants/
 
 ## The white company (extension) — 현재 68개 저장
 
@@ -433,38 +443,12 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-17T02:55Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-18T02:05Z)
 
-- 카탈로그 134개 · 상품 37938개 검사 · **문제 항목 88개**
-- 문제가 있는 브랜드 25개
+- 카탈로그 134개 · 상품 37770개 검사 · **문제 항목 39개**
+- 문제가 있는 브랜드 23개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
-
-## Phase eight — 47/399개 (server)
-
-- **47개** · (출처 불명)
-  - [배너 문구가 상품명] sweatshirts · 25% Off Applied — https://www.phase-eight.com/row/product/pamela-mohair-jumper-10027040917.html
-  - [배너 문구가 상품명] sweatshirts · 25% Off Applied — https://www.phase-eight.com/row/product/pamela-mohair-v-neck-jumper-10028480106.html
-  - [배너 문구가 상품명] sweatshirts · 25% Off Applied — https://www.phase-eight.com/row/product/cristine-glitter-knit-batwing-jumper-10028040200.html
-  - [배너 문구가 상품명] sweatshirts · 25% Off Applied — https://www.phase-eight.com/row/product/fenia-alpaca-blend-diamond-v-neck-jumper-10028610150.html
-  - [배너 문구가 상품명] sweatshirts · 25% Off Applied — https://www.phase-eight.com/row/product/constance-embellished-short-sleeve-jumper-10028700106.html
-  - [배너 문구가 상품명] sweatshirts · 25% Off Applied — https://www.phase-eight.com/row/product/steph-black-stud-jumper-10013840050.html
-  - [배너 문구가 상품명] dresses · 25% Off Applied — https://www.phase-eight.com/row/product/simara-long-sleeve-ombre-midi-dress-10026860880.html
-  - [배너 문구가 상품명] dresses · 25% Off Applied — https://www.phase-eight.com/row/product/elysia-velvet-mini-dress--10028560050.html
-  - [배너 문구가 상품명] dresses · 25% Off Applied — https://www.phase-eight.com/row/product/dahlia-floral-printed-maxi-dress-10028620000.html
-  - [배너 문구가 상품명] dresses · 25% Off Applied — https://www.phase-eight.com/row/product/jodie-knit-fit-and-flare-midi-dress-10026040215.html
-  - [배너 문구가 상품명] dresses · 25% Off Applied — https://www.phase-eight.com/row/product/lucinda-floral-chiffon-midi-dress-10027090351.html
-  - [배너 문구가 상품명] dresses · 25% Off Applied — https://www.phase-eight.com/row/product/bella-velvet-ruched-midi-dress--10028170258.html
-
-## Sanctuary — 5/424개 (server)
-
-- **4개** · (출처 불명)
-  - [상품 페이지가 아닌 경로] sweatshirts · Gift Card — https://www.sanctuaryclothing.com/products/gift-card
-  - [배너 문구가 상품명] sweatshirts · Back To Bare Tank Black — https://www.sanctuaryclothing.com/products/back-to-bare-tank-black
-  - [배너 문구가 상품명] shirts · More Love Linen Tie Top White — https://www.sanctuaryclothing.com/products/more-love-linen-tie-top-white
-  - [배너 문구가 상품명] dresses · More The Better Halter Dress Navy Blazer — https://www.sanctuaryclothing.com/products/more-the-better-halter-dress-navy-blazer
-- **1개** · https://www.sanctuaryclothing.com/collections/dress
-  - [배너 문구가 상품명] dresses · More The Better Halter Dress Navy Blazer — https://www.sanctuaryclothing.com/collections/dress/products/more-the-better-halter-dress-navy-blazer
 
 ## Aritzia — 4/800개 (extension)
 
@@ -474,6 +458,15 @@
   - [배너 문구가 상품명] tops · back to school — https://www.aritzia.com/intl/en/shop-by/back-to-school
 - **1개** · https://www.aritzia.com/us/en/clothing/dresses-3
   - [배너 문구가 상품명] dresses · All Dresses — https://www.aritzia.com/intl/en/clothing/dresses
+
+## Sanctuary — 4/422개 (server)
+
+- **3개** · (출처 불명)
+  - [상품 페이지가 아닌 경로] sweatshirts · Gift Card — https://www.sanctuaryclothing.com/products/gift-card
+  - [배너 문구가 상품명] sweatshirts · Back To Bare Tank Black — https://www.sanctuaryclothing.com/products/back-to-bare-tank-black
+  - [배너 문구가 상품명] dresses · More The Better Halter Dress Navy Blazer — https://www.sanctuaryclothing.com/products/more-the-better-halter-dress-navy-blazer
+- **1개** · https://www.sanctuaryclothing.com/collections/dress
+  - [배너 문구가 상품명] dresses · More The Better Halter Dress Navy Blazer — https://www.sanctuaryclothing.com/collections/dress/products/more-the-better-halter-dress-navy-blazer
 
 ## L.L bean — 3/314개 (extension)
 
@@ -489,7 +482,7 @@
   - [배너 문구가 상품명] tops · New in — https://www.sezane.com/us-en/petit-sezane/enfant/kids-petit-sezane
   - [배너 문구가 상품명] tops · NEW IN — https://www.sezane.com/us-en/octobre-editions/new-in
 
-## Theory — 3/182개 (extension)
+## Theory — 3/272개 (extension)
 
 - **3개** · https://www.theory.com/women/t-shirts-and-tanks/
   - [배너 문구가 상품명] tops · Gift Guide — https://www.theory.com/womens-holiday-gift-guide.html/
@@ -503,64 +496,59 @@
   - [상품 페이지가 아닌 경로] tops · Meet Eddie Nelson, the Founder of Bred Breathwork — https://www.theupside.com/journal/
   - [상품 페이지가 아닌 경로] tops · International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method — https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method
 
-## Banana Republic — 2/5개 (extension)
+## Madewell — 2/74개 (extension)
 
-- **2개** · https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136
-  - [배너 문구가 상품명] tops · Sign up for texts. Get early access to new arrivas, exclusive launches, and more - for 15% off. Sign up now. — https://br.attn.tv/p/ubl/landing-page
-  - [배너 문구가 상품명] tops · Get More on our App. We made it easier to shop new arrivals, plus enjoy early access and exclusive offers. Download on the apple app store or get it o — https://bananarepublic.onelink.me/6L9o/9faefc80
+- **2개** · https://www.madewell.com/kr/womens/clothing/tees/
+  - [배너 문구가 상품명] tops · gift guide — https://www.madewell.com/kr/womens/gift-guide/
+  - [배너 문구가 상품명] tops · gift guide — https://www.madewell.com/kr/mens/gift-guide/
 
-## Sweaty betty — 2/369개 (browser)
+## Sweaty betty — 2/382개 (browser)
 
 - **2개** · https://www.sweatybetty.com/us/shop/bottoms
   - [배너 문구가 상품명] pants · explore more adjustable cuff wide leg pants SB04728 StrataBeige.html — https://www.sweatybetty.com/us/shop/bottoms/pants/explore-more-adjustable-cuff-wide-leg-pants-SB04728_StrataBeige.html
   - [배너 문구가 상품명] pants · explore more adjustable cuff wide leg pants SB04728 BrackenGreen.html — https://www.sweatybetty.com/us/shop/bottoms/pants/explore-more-adjustable-cuff-wide-leg-pants-SB04728_BrackenGreen.html
 
-## Ann Taylor — 1/371개 (extension)
+## Ann Taylor — 1/375개 (extension)
 
 - **1개** · https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/
   - [최상위 경로(랜딩 페이지로 보임)] tops · points icon — https://www.anntaylor.com/stylerewards
 
-## Athleta — 1/2개 (extension)
-
-- **1개** · https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops
-  - [배너 문구가 상품명] tops · Black Friday Warm-Up Only On The App; button says “Download Now.” Exclusions apply. — https://athleta.onelink.me/7qLU/xmmeeq8s
-
-## Buck Mason — 1/119개 (server)
+## Buck Mason — 1/118개 (server)
 
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] sweatshirts · Gift — https://www.buckmason.com/products/gift
 
-## Damson Madder — 1/373개 (server)
+## Damson Madder — 1/341개 (server)
 
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] sweatshirts · Gift Card — https://damsonmadder.com/en-us/products/damson-madder-gift-card
 
-## Faherty — 1/174개 (server)
+## Faherty — 1/175개 (server)
 
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] sweatshirts · Gift Card — https://fahertybrand.com/products/copy-of-faherty-e-gift-card-good-vibes-for-all
 
-## Frame — 1/192개 (server)
+## Frame — 1/194개 (server)
 
 - **1개** · https://frame-store.com/collections/pants-women
   - [배너 문구가 상품명] pants · Shop The Low Trouser — https://frame-store.com/collections/pants-women/products/the-low-trouser-wp27wpa030-blk
 
-## FP Movement — 1/99개 (extension)
+## FP Movement — 1/101개 (extension)
 
 - **1개** · https://www.freepeople.com/fpmovement/workout-tops/
   - [배너 문구가 상품명] tops · Download on the App Store — https://itunes.apple.com/us/app/free-people/id659532790
 
-## Free People — 1/96개 (extension)
+## Free People — 1/184개 (extension)
 
 - **1개** · https://www.freepeople.com/tops/
   - [배너 문구가 상품명] tops · Download on the App Store — https://itunes.apple.com/us/app/free-people/id659532790
 
-## James Perse — 1/498개 (server)
+## James Perse — 1/499개 (server)
 
 - **1개** · (출처 불명)
   - [상품 페이지가 아닌 경로] sweatshirts · Gift Card — https://www.jamesperse.com/products/gift-card
 
-## Seasalt cornwall — 1/290개 (extension)
+## Seasalt cornwall — 1/288개 (extension)
 
 - **1개** · https://www.seasaltcornwall.com/clothing/tops
   - [최상위 경로(랜딩 페이지로 보임)] tops · Go to xmas page — https://www.seasaltcornwall.com/gifts-home
@@ -570,7 +558,7 @@
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] pants · Splendid x @Cellajaneblog Interlock Pant — https://splendid.com/products/splendid-x-cellajaneblog-interlock-pant-in-truffle
 
-## &Other Stories — 1/337개 (extension)
+## &Other Stories — 1/339개 (extension)
 
 - **1개** · https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/
   - [배너 문구가 상품명] tops · gifting — https://www.stories.com/en-us/trending/gifting/
@@ -580,7 +568,7 @@
 - **1개** · (출처 불명)
   - [상품 페이지가 아닌 경로] sweatshirts · sundry gift card — https://sundryclothing.com/products/gift-card
 
-## The Great — 1/230개 (server)
+## The Great — 1/118개 (server)
 
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] sweatshirts · Shop Gift Cards — https://thisisthegreat.com/products/great-gift-card
@@ -590,7 +578,7 @@
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] dresses · SHOP THE MAEVE DRESS — https://us.boden.com/products/women-tie-neck-satin-midi-dress-puce-charmed-floret-d1867brn
 
-## Whistles — 1/214개 (server)
+## Whistles — 1/240개 (server)
 
 - **1개** · (출처 불명)
   - [배너 문구가 상품명] sweatshirts · GIFT CARD 88888 — https://www.whistles.com/product/GIFT-CARD-88888.html
@@ -599,33 +587,21 @@
 
 카테고리 URL별로 몇 개를 줬는지 — 0개인 URL이 원인이다.
 
-## Old Navy — 1개 (extension)
-
--    0개 · https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136
--    0개 · https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click
--    0개 · https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits
--    0개 · https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136
--    1개 · https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136
-  - 표본: Split-Neck Lettuce-Edge Pointelle T-Shirt — https://oldnavy.gap.com/browse/product.do
-
-## Athleta — 2개 (extension)
+## Athleta — 1개 (extension)
 
 -    0개 · https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts
 -    0개 · https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A
 -    0개 · https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A
--    2개 · https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops
-  - 표본: Black Friday Warm-Up Only On The App; button says “Download Now.” Exclusions apply. — https://athleta.onelink.me/7qLU/xmmeeq8s
-  - 표본: Foundation Midi Sleeve Tee — https://athleta.gap.com/browse/product.do
+-    1개 · https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops
+  - 표본: Coaster Luxe Open Cardigan — https://athleta.gap.com/browse/product.do
 
-## Banana Republic — 5개 (extension)
+## Banana Republic — 1개 (extension)
 
 -    0개 · https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136
 -    0개 · https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136
 -    0개 · https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136
--    5개 · https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136
+-    1개 · https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136
   - 표본: Ribbed Henley Tank — https://bananarepublic.gap.com/browse/product.do
-  - 표본: Limited Time Only. Extra 20% Off Sale. — https://bananarepublic.gap.com/browse/sale
-  - 표본: Sign up for texts. Get early access to new arrivas, exclusive launches, and more - for 15% off. Sign up now. — https://br.attn.tv/p/ubl/landing-page
 
 ## Gap — 6개 (extension)
 
@@ -636,6 +612,17 @@
   - 표본: Gap Gift Shop — https://www.gap.com/browse/women/gift-shop
   - 표본: Gap Gift Shop — https://www.gap.com/browse/men/gift-shop
   - 표본: Gap Gift Shop — https://www.gap.com/browse/girls/gift-shop
+
+## Old Navy — 7개 (extension)
+
+-    0개 · https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136
+-    0개 · https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click
+-    0개 · https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits
+-    0개 · https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136
+-    7개 · https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136
+  - 표본: Picks from our Giftfluencers — https://oldnavy.gap.com/browse/info.do
+  - 표본: Image of Old Navy Holiday dressy. — https://oldnavy.gap.com/browse/women/holiday-outfits
+  - 표본: Image of Old Navy x Disney Cozy Ever After. — https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-cozy-ever-after
 
 ## Oysho — 20개 (extension)
 
@@ -648,46 +635,36 @@
   - 표본: womens long sleeve t shirts n4763 — https://www.oysho.com/gb/womens-long-sleeve-t-shirts-n4763
   - 표본: short sleeve womens t shirts n4766 — https://www.oysho.com/gb/short-sleeve-womens-t-shirts-n4766
 
-## Monsoon — 31개 (server)
+## Monsoon — 29개 (server)
 
 -    0개 · https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/
 -    0개 · https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/
 -    0개 · https://www.monsoonlondon.com/kr/womens/dresses/
 -    0개 · https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/
--   31개 · (출처 없음 — 옛 수집분)
-  - 표본: Maeve Ruffle Stripe Shirt Camel — https://www.monsoonlondon.com/ie/maeve-ruffle-stripe-shirt-camel-10060310056.html
+-   29개 · (출처 없음 — 옛 수집분)
   - 표본: Magdalena Sleeveless Paisley Top Yellow — https://www.monsoonlondon.com/ie/magdalena-sleeveless-paisley-top-yellow-10063060005.html
+  - 표본: Maeve Ruffle Stripe Shirt Camel — https://www.monsoonlondon.com/ie/maeve-ruffle-stripe-shirt-camel-10060310056.html
   - 표본: Mia Textured Frill Bikini Top Teal — https://www.monsoonlondon.com/ie/mia-textured-frill-bikini-top-teal-20009850174.html
 
-## Bash — 43개 (server)
+## Bash — 47개 (server)
 
 -    0개 · https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.
 -    0개 · https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.
 -    0개 · https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ.
 -    0개 · https://ba-sh.com/fr/en/ready-to-wear/dresses/?_gl=1*15p7q1u*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTYkajQxJGwwJGg1MzYzNDQ3NzQ.
 -    0개 · https://ba-sh.com/fr/en/trousers-jeans/?_gl=1*6jfisz*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MzUkajIyJGwwJGg1MzYzNDQ3NzQ.
--   43개 · (출처 없음 — 옛 수집분)
+-   47개 · (출처 없음 — 옛 수집분)
   - 표본: T-shirt IONI — https://ba-sh.com/fr/en/p/t-shirt-ioni-grischine-3667436152573.html
   - 표본: t-shirt CORTOT — https://ba-sh.com/fr/en/p/t-shirt-cortot-encre-3667436089664.html
   - 표본: t-shirt ROSTA — https://ba-sh.com/fr/en/p/t-shirt-rosta-grischine-3667436069260.html
 
-## Madewell — 53개 (extension)
-
--    5개 · https://www.madewell.com/kr/womens/clothing/pants/
--    8개 · https://www.madewell.com/kr/womens/clothing/dresses/
--   15개 · https://www.madewell.com/kr/womens/clothing/tees/
--   25개 · https://www.madewell.com/kr/womens/clothing/tops-shirts/
-  - 표본: Madewell x The Six Bells Graphic Tee — https://www.madewell.com/kr/p/womens/clothing/tees/madewell-x-the-six-bells-graphic-tee/OC208/
-  - 표본: The Shrunken Long Sleeve Tee in Vintage Jersey — https://www.madewell.com/kr/p/womens/clothing/tees/the-shrunken-long-sleeve-tee-in-vintage-jersey/OB005/
-  - 표본: McCarren Oversized Crewneck Sweatshirt — https://www.madewell.com/kr/p/womens/clothing/sweatshirts-sweatpants/mccarren-oversized-crewneck-sweatshirt/OC306/
-
-## Wilson — 54개 (extension)
+## Wilson — 52개 (extension)
 
 -    4개 · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops
 -    4개 · https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts
 -    7개 · https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops
 -    7개 · https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings
--   13개 · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits
+-   11개 · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits
 -   19개 · https://www.wilson.com/en-us/sportswear/women/tops/tanks
   - 표본: Wilson Sporting Goods Baseball Holiday Gift Shop — https://www.wilson.com/en-us/collections/baseball-gifts
   - 표본: Wilson Sporting Goods Custom Basketballs — https://custom.wilson.com/en-us/custom/basketballs
