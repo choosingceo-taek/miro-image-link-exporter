@@ -53,7 +53,23 @@ function siteKeyOf(name, url) {
   return (host + "." + slug).slice(0, 80);
 }
 
-async function getJson(url, tries = 3) {
+// 시간 예산. 워크플로 timeout-minutes(120)에 걸리면 잡이 취소돼 리포트도 저장도 안 남는다
+// (2026-09-27: 수집이 119분을 넘겨 23개 브랜드 결과가 통째로 사라졌다).
+//  · SOFT — 이 시각이 지나면 새 브랜드를 시작하지 않는다. 남은 브랜드는 '미룸'으로 적는다.
+//  · HARD — 진행 중인 브랜드도 멈춘다. 그 브랜드는 저장하지 않는다(일부 카테고리만으로
+//           replace 저장하면 기존 카탈로그가 줄어든다 — 이전 저장본을 그대로 두는 게 낫다).
+// 설치 단계가 최악 20분이므로 20 + 95 + 커밋 몇 분 < 120.
+const T_START = Date.now();
+const SOFT_MS = Math.max(5, Number(process.env.DEADLINE_MIN) || 85) * 60_000;
+const HARD_MS = SOFT_MS + 10 * 60_000;
+const pastSoft = () => Date.now() - T_START > SOFT_MS;
+const pastHard = () => Date.now() - T_START > HARD_MS;
+
+// 시작 직후 설정 파일 3개를 Render 에서 받는다. Render 무료 인스턴스는 깨어나는 데
+// 수십 초가 걸리고 429 를 주기도 한다. 예전엔 5초 간격 3번(총 15초)이라
+// 2026-10-14 에 429 한 번으로 23개 브랜드 수집이 시작도 못 하고 끝났다.
+// 간격을 늘려 가며 약 3분을 버틴다.
+async function getJson(url, tries = 5) {
   let last;
   for (let i = 0; i < tries; i++) {
     try {
@@ -61,17 +77,39 @@ async function getJson(url, tries = 3) {
       if (r.ok) return await r.json();
       last = new Error("HTTP " + r.status);
     } catch (e) { last = e; }
-    await new Promise((r) => setTimeout(r, 5000));
+    if (i < tries - 1) await new Promise((r) => setTimeout(r, Math.min(60_000, 5000 * 3 ** i)));
   }
   throw last;
 }
 
+// 그래도 못 받으면 지난 실행 리포트(저장소에 커밋돼 있다)의 브랜드·카테고리 URL 로 돈다.
+// 하루 늦은 URL 이라도 하루를 통째로 날리는 것보다 낫다.
+function targetsFromLastReport() {
+  try {
+    const prev = JSON.parse(readFileSync(join(ROOT, "browser-collect-report.json"), "utf8"));
+    return (prev.results || [])
+      .filter((r) => r && r.brand && r.site && Array.isArray(r.perUrl) && r.perUrl.length)
+      .filter((r) => !only.length || only.includes(String(r.brand).toLowerCase()))
+      .map((r) => ({ brand: r.brand, site: r.site, urls: r.perUrl.map((u) => u.url).filter(Boolean) }));
+  } catch (e) { return []; }
+}
+
+let configNote = "";
 async function buildTargets() {
-  const [blocked, links, brands] = await Promise.all([
-    getJson(RENDER + "/blocked-brands.json"),
-    getJson(RENDER + "/category-links.json"),
-    getJson(RENDER + "/brands.json").catch(() => []),
-  ]);
+  let blocked, links, brands;
+  try {
+    [blocked, links, brands] = await Promise.all([
+      getJson(RENDER + "/blocked-brands.json"),
+      getJson(RENDER + "/category-links.json"),
+      getJson(RENDER + "/brands.json").catch(() => []),
+    ]);
+  } catch (e) {
+    const fallback = targetsFromLastReport();
+    configNote = `설정 파일을 못 받아(${String((e && e.message) || e).slice(0, 60)}) ` +
+      `지난 실행의 브랜드·카테고리 URL ${fallback.length}개로 대신 수집했습니다.`;
+    console.warn("⚠ " + configNote);
+    return fallback;
+  }
   const byName = new Map((Array.isArray(brands) ? brands : []).map((b) => [String(b.name).toLowerCase(), b]));
   // BRANDS 를 직접 주면 그룹을 무시하고 전체 브랜드에서 고른다 —
   // 아직 어느 그룹에도 없는 후보를 헤드리스로 시험해 볼 때 쓴다.
@@ -106,7 +144,13 @@ function blockSignal(status, title, text) {
 }
 
 const targets = await buildTargets();
-if (!targets.length) { console.error("no targets"); process.exit(1); }
+if (!targets.length) { console.error("no targets" + (configNote ? " — " + configNote : "")); process.exit(1); }
+// 마감에 걸리면 늘 뒤쪽 브랜드만 밀린다. 시작 위치를 날마다 돌려 밀리는 브랜드가 매일 같지 않게 한다.
+{
+  const day = Math.floor(Date.now() / 86_400_000);
+  const k = targets.length ? day % targets.length : 0;
+  targets.push(...targets.splice(0, k));
+}
 console.log(`헤드리스 수집 [${GROUP}] ${targets.length}개 브랜드 (저장 ${STORE ? "ON" : "OFF — 조사만"}, 카테고리당 최대 ${MAX_PAGES}페이지)`);
 
 const browser = await chromium.launch({
@@ -131,8 +175,11 @@ await context.addInitScript(() => {
 const norm = (u) => String(u || "").split("?")[0].replace(/\/+$/, "");
 
 const results = [];
+const deferred = [];   // 마감으로 오늘 못 돈 브랜드 — 실패가 아니다(이전 저장본 유지)
 for (const g of targets) {
+  if (pastSoft()) { deferred.push({ brand: g.brand, why: "마감" }); continue; }
   const t0 = Date.now();
+  let cut = false;     // HARD 마감으로 이 브랜드를 중간에 끊었나
   // 이 브랜드의 카테고리 URL 자체가 상품으로 잡히는 경우를 막는다
   // (목록 페이지 상단의 하위 카테고리 타일이 대표적).
   const listing = new Set(g.urls.map(norm));
@@ -140,6 +187,7 @@ for (const g of targets) {
   const seenIn = new Map();   // productUrl → 몇 개의 카테고리 페이지에서 나왔나
   const perUrl = [];
   for (const url of g.urls) {
+    if (pastHard()) { cut = true; break; }
     const page = await context.newPage();
     let note = "";
     let lastRej = null;
@@ -150,6 +198,7 @@ for (const g of targets) {
       let hubFollowed = 0;
       let pageUrl = queue.shift(), pages = 0;
       while (pageUrl && pages < MAX_PAGES && byUrl.size < PER_CATEGORY) {
+        if (pastHard()) { cut = true; break; }
         // domcontentloaded 를 60초 안에 못 받는 사이트가 있다(Eileen fisher·Lululemon).
         // 차단이 아니라 문서가 늦게 끝나는 것이라, 한 번 더 기회를 준다: 'commit' 은
         // 응답 헤더가 오는 순간 돌아오므로 하위 리소스를 기다리지 않는다. 그 뒤
@@ -243,7 +292,8 @@ for (const g of targets) {
   const cats = {};
   for (const it of items) cats[it.category] = (cats[it.category] || 0) + 1;
   let stored = 0, storeErr = "";
-  if (STORE && items.length >= 5) {
+  if (cut) storeErr = "마감으로 중단 — 저장 안 함(이전 저장본 유지)";
+  if (STORE && !cut && items.length >= 5) {
     try {
       const legacy = g.site.slice(0, g.site.lastIndexOf("."));
       const r = await fetch(
@@ -260,7 +310,7 @@ for (const g of targets) {
   }
   const secs = Math.round((Date.now() - t0) / 1000);
   results.push({
-    brand: g.brand, site: g.site, collected: items.length, stored, storeErr, cats, perUrl, secs, dropped,
+    brand: g.brand, site: g.site, collected: items.length, stored, storeErr, cats, perUrl, secs, dropped, cut,
     // 무엇이 잡혔는지 눈으로 확인할 수 있게 표본을 남긴다(선택자 오작동 진단용).
     sample: items.slice(0, 5).map((it) => ({ name: it.name, productUrl: it.productUrl })),
   });
@@ -276,18 +326,29 @@ await browser.close();
 
 // 판정: 헤드리스로 충분히 모이면 "자동화 가능", 차단 신호가 있으면 "확장 필요", 그 외는 "선택자 보완 필요".
 for (const r of results) {
+  if (r.cut) { deferred.push({ brand: r.brand, why: `마감으로 중단(${r.collected}개까지 모음)` }); continue; }
   const blockedUrls = r.perUrl.filter((u) => /차단|HTTP 40|HTTP 42/.test(u.note)).length;
   r.verdict = r.collected >= 20 ? "자동화 가능"
     : blockedUrls ? "확장 필요(봇 차단)"
     : "보완 필요(수집 0~소량)";
 }
-const auto = results.filter((r) => r.verdict === "자동화 가능");
-const blk = results.filter((r) => r.verdict.startsWith("확장"));
-const fix = results.filter((r) => r.verdict.startsWith("보완"));
+const done = results.filter((r) => !r.cut);
+const auto = done.filter((r) => r.verdict === "자동화 가능");
+const blk = done.filter((r) => r.verdict.startsWith("확장"));
+const fix = done.filter((r) => r.verdict.startsWith("보완"));
 
 let md = `# 헤드리스 크롬 수집 테스트 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
 md += `GitHub Actions(데이터센터 IP)에서 진짜 크롬으로 확장 담당 브랜드를 돌린 결과.\n\n`;
-md += `- 대상 ${results.length} · ✅ 자동화 가능 ${auto.length} · ⛔ 확장 필요 ${blk.length} · 🔧 보완 필요 ${fix.length}\n\n`;
+if (configNote) md += `> ⚠ ${configNote}\n\n`;
+md += `- 대상 ${targets.length} · ✅ 자동화 가능 ${auto.length} · ⛔ 확장 필요 ${blk.length} · 🔧 보완 필요 ${fix.length}` +
+  (deferred.length ? ` · ⏭ 마감으로 미룸 ${deferred.length}` : "") + `\n\n`;
+if (deferred.length) {
+  md += `## ⏭ 마감으로 미룸 (${deferred.length})\n\n`;
+  md += `${Math.round(SOFT_MS / 60_000)}분 예산을 넘겨 오늘은 돌지 않았습니다. 실패가 아니며 이전 저장본이 그대로 쓰입니다. ` +
+    `시작 순서가 날마다 바뀌므로 내일은 앞쪽에서 돕니다.\n\n`;
+  for (const d of deferred) md += `- ${d.brand} — ${d.why}\n`;
+  md += `\n`;
+}
 for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요(봇 차단)", blk], ["🔧 보완 필요", fix]]) {
   md += `## ${title} (${rows.length})\n\n`;
   for (const r of rows) {
@@ -298,6 +359,9 @@ for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요
   }
   md += `\n`;
 }
-writeFileSync(join(ROOT, "browser-collect-report.json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, results }, null, 1));
+// 마감으로 미룬 브랜드는 다음 실행이 설정 파일을 못 받았을 때의 대체 대상 목록에도 남아 있어야 한다.
+const carry = targetsFromLastReport().filter((t) => deferred.some((d) => d.brand === t.brand) && !results.some((r) => r.brand === t.brand));
+const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
+writeFileSync(join(ROOT, "browser-collect-report.json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, configNote, deferred, results: keep }, null, 1));
 writeFileSync(join(ROOT, "browser-collect-report.md"), md);
 console.log(`\n자동화 가능 ${auto.length} / 확장 필요 ${blk.length} / 보완 필요 ${fix.length}`);
