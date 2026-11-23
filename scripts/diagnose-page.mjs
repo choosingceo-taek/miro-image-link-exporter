@@ -14,17 +14,36 @@
 //
 //   node scripts/diagnose-page.mjs <url> [url...]
 //   URLS="a,b" node scripts/diagnose-page.mjs
+//   URL 을 안 주면 그날 헤드리스 수집 리포트에서 '상품 0개'로 끝난 목록 페이지를 고른다.
 import { chromium } from "playwright";
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 
-const URLS = (process.argv.slice(2).length
+let URLS = (process.argv.slice(2).length
   ? process.argv.slice(2)
   : String(process.env.URLS || "").split(",")
 ).map((s) => s.trim()).filter(Boolean);
 
+// 예전엔 워크플로에 주소 4개가 박혀 있어서, 수집기가 이미 그 페이지들에서 25~49개씩
+// 잘 모으고 있는데도 같은 4개를 매일 '막힌 페이지'로 진단했다. 이제는 실제로 0개가
+// 나온 페이지만 본다. 차단(403·봇 확인)과 마감으로 미룬 것은 선택자 문제가 아니라 뺀다.
 if (!URLS.length) {
-  console.error("URL 을 주세요: node scripts/diagnose-page.mjs <url> [url...]");
-  process.exit(1);
+  try {
+    const rep = JSON.parse(readFileSync(new URL("../browser-collect-report.json", import.meta.url), "utf8"));
+    for (const r of rep.results || []) {
+      if (r.deferred || r.cut) continue;
+      for (const u of r.perUrl || []) {
+        if (u.count === 0 && u.url && !/차단|HTTP 4\d\d|응답 없음|마감/.test(u.note || "")) URLS.push(u.url);
+      }
+    }
+    URLS = [...new Set(URLS)].slice(0, 6);
+  } catch (e) {}
+  if (!URLS.length) {
+    const md = `# 목록 페이지 진단 (${new Date().toISOString().slice(0, 16).replace("T", " ")}Z)\n\n` +
+      `오늘 헤드리스 수집에서 상품 0개로 끝난 목록 페이지가 없습니다. 진단할 것이 없습니다.\n`;
+    writeFileSync(process.env.OUT || "diagnose-page.md", md);
+    console.log("진단할 페이지 없음");
+    process.exit(0);
+  }
 }
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +

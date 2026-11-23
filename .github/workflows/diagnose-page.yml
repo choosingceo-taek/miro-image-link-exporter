@@ -67,13 +67,10 @@ jobs:
           timeout 300 npx playwright install chromium
       - name: Diagnose
         env:
-          # 며칠째 막혀 있는 세 페이지.
-          #  · Carhartt 여성 팬츠 — 링크는 잡히는데 이미지가 안 붙어 전부 탈락
-          #  · American Eagle / Aerie — 확장이 매일 시도하는데도 저장이 안 됨.
-          #    여기서 차단으로 나오면 "선택자 문제 아님"이 확정된다.
-          #  · Apiece Apart — 한 번도 수집된 적이 없다.
-          # 주소는 category-links.json 에 있는 실제 값이다(브랜드당 대표 1개).
-          URLS: ${{ github.event.inputs.urls || 'https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017,https://www.ae.com/intl/en/c/women/tops/t-shirts/cat90030,https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031,https://www.apieceapart.com/shop/tops' }}
+          # 비우면 그날 헤드리스 수집 리포트에서 '상품 0개'로 끝난 페이지를 스스로 고른다.
+          # (예전엔 여기에 Carhartt·American Eagle·Aerie·Apiece Apart 주소 4개가 박혀 있어,
+          #  수집기가 이미 그 페이지에서 25~49개씩 모으고 있는데도 매일 같은 4개를 진단했다.)
+          URLS: ${{ github.event.inputs.urls }}
         run: node scripts/diagnose-page.mjs
       - name: Upload report
         if: always()
