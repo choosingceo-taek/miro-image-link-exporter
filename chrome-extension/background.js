@@ -499,7 +499,73 @@ function colorFromHtml(html) {
 // 순차 처리를 4개 동시로 바꿨다. 대신 실행 시간이 브랜드당 몇 분씩 늘어난다.
 const COMP_PER_RUN = MAX_PER_BRAND;
 const COMP_CONCURRENCY = 4;
-async function enrichComps(g, cfg, manual) {
+
+// ── 탭으로 읽기 ────────────────────────────────────────────────────
+// 위 fetch 는 서비스워커에서 나가는 '맨 요청'이다. 집 IP 라도 쿠키·JS 실행이 없어서
+// 봇 확인 화면이나 스크립트로만 그리는 빈 껍데기를 받는 사이트가 많다.
+// 그래서 목록은 탭으로 잘 모으는데(Chico's 800 · Fatface 456 · Lululemon 463 …)
+// 혼용률은 0% 로 남았다. 그런 상품만 실제 탭으로 열어 렌더링된 화면에서 읽는다.
+// 탭은 느리므로(상품당 5~10초) 브랜드당 실행마다 상한을 둔다 — 남은 것은 다음 차례에.
+const TAB_PER_RUN = 40;
+const TAB_GIVEUP = 6;   // 처음 이만큼이 탭으로도 전부 막히면 이 브랜드는 오늘 탭 읽기를 접는다
+const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|just a moment|enable javascript and cookies|request unsuccessful|_Incapsula_Resource|captcha-delivery/i;
+// fetch 로 받은 HTML 이 상품 페이지를 실제로 읽은 것인가(scripts/enrich-comp.mjs 의 realPage 와 같은 규칙).
+function realPage(html) {
+  const s = String(html || '');
+  const title = (s.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ''])[1];
+  if (CHALLENGE_RX.test(title) || CHALLENGE_RX.test(s.slice(0, 6000))) return false;
+  if (/"@type"\s*:\s*"Product"|property=["']og:type["'][^>]*content=["']product/i.test(s)) return true;
+  const visible = s.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  return visible.length >= 600;
+}
+
+// 탭 안에서 실행된다(자립 함수여야 한다). 접힌 소재 탭을 펼치고, 퍼센트+섬유가
+// 보일 때까지 최대 6초 기다린 뒤 HTML 을 돌려준다.
+async function readRenderedPage() {
+  const rx = /composition|material|fabric|소재|혼용|content|details/i;
+  for (const d of document.querySelectorAll('details')) d.open = true;
+  for (const b of document.querySelectorAll('button,[role="button"],summary,[aria-expanded="false"]')) {
+    const t = (b.textContent || '') + ' ' + (b.getAttribute('aria-label') || '');
+    if (t.length < 80 && rx.test(t)) { try { b.click(); } catch (e) {} }
+  }
+  const fibre = /\d{1,3}\s?%\s*(?:[A-Za-z]+\s)?(cotton|polyester|viscose|wool|linen|silk|nylon|polyamide|elastane|spandex|lyocell|modal|cashmere|acrylic|rayon|leather)/i;
+  for (let i = 0; i < 12; i++) {
+    if (fibre.test((document.body && document.body.innerText) || '')) break;
+    await new Promise((r) => setTimeout(r, 500));
+  }
+  return {
+    title: document.title,
+    head: ((document.body && document.body.innerText) || '').slice(0, 600),
+    html: document.documentElement.outerHTML.slice(0, 1500000),
+  };
+}
+
+async function readByTab(url, winId) {
+  let tab = null;
+  try {
+    tab = winId
+      ? await chrome.tabs.create({ url, active: true, windowId: winId })
+      : await chrome.tabs.create({ url, active: false });
+    await waitForComplete(tab.id, 45000);
+    await sleep(2000);   // JS 챌린지·초기 렌더 여유
+    const inj = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: readRenderedPage });
+    const r = (inj && inj[0] && inj[0].result) || null;
+    if (!r) return { blocked: true };
+    if (CHALLENGE_RX.test(r.title + ' ' + r.head)) return { blocked: true };
+    const bits = jsonLdBits(r.html);
+    return {
+      comp: compFromHtml(r.html), color: bits.color || colorFromHtml(r.html),
+      sizes: bits.sizes, price: bits.price, priceOrig: bits.priceOrig,
+    };
+  } catch (e) {
+    return { blocked: true };
+  } finally {
+    if (tab) { try { await chrome.tabs.remove(tab.id); } catch (e) {} }
+  }
+}
+
+async function enrichComps(g, cfg, manual, winId, stopAt) {
   const tok = cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '';
   let cat;
   try { cat = await (await fetch(cfg.worker + '/?catalog=' + encodeURIComponent(g.site) + tok)).json(); }
@@ -537,6 +603,7 @@ async function enrichComps(g, cfg, manual) {
   const todo = (cat.items || []).filter((p) => p && p.productUrl && !full(p)).slice(0, COMP_PER_RUN);
   if (!todo.length) return 0;
   const comps = {};
+  const tabQueue = [];   // fetch 로는 막혀서 탭으로 다시 읽을 상품
   let done = 0;
   const one = async (p) => {
     if (!state.running) return;
@@ -570,17 +637,28 @@ async function enrichComps(g, cfg, manual) {
         } catch (e) {}
       }
       // 부족한 항목은 페이지 HTML(JSON-LD + 본문)에서 보강.
+      let fetchBlocked = false;
       if (!got.comp || !got.sizes || !got.color || !got.price) {
-        const html = await (await fetch(p.productUrl, { credentials: 'omit' })).text();
-        const bits = jsonLdBits(html);
-        if (!got.color) got.color = bits.color || colorFromHtml(html);
-        if (!got.sizes) got.sizes = bits.sizes;
-        if (!got.price) got.price = bits.price;
-        if (!got.priceOrig) got.priceOrig = bits.priceOrig;
-        if (!got.comp) got.comp = compFromHtml(html);
+        let html = '';
+        try {
+          const resp = await fetch(p.productUrl, { credentials: 'omit' });
+          html = await resp.text();
+          if (!resp.ok || !realPage(html)) { fetchBlocked = true; html = ''; }
+        } catch (e) { fetchBlocked = true; }
+        if (html) {
+          const bits = jsonLdBits(html);
+          if (!got.color) got.color = bits.color || colorFromHtml(html);
+          if (!got.sizes) got.sizes = bits.sizes;
+          if (!got.price) got.price = bits.price;
+          if (!got.priceOrig) got.priceOrig = bits.priceOrig;
+          if (!got.comp) got.comp = compFromHtml(html);
+        }
       }
+      // fetch 가 막혀 혼용률을 못 얻었으면 탭으로 다시 읽을 차례를 기다린다.
+      // 여기서 시도 시각을 찍으면 5일 동안 다시 안 보므로, 탭 순서가 안 온 상품은 비워 둔다.
+      if (!got.comp && fetchBlocked) { tabQueue.push({ p, got }); }
       // 빈손이어도 넣는다 — 저장 단계에서 시도 시각만 찍혀 다음 실행이 건너뛴다.
-      comps[p.productUrl] = got;
+      else comps[p.productUrl] = got;
     } catch (e) {}
     done++;
     if (done % 5 === 0 || done === todo.length) {
@@ -594,6 +672,27 @@ async function enrichComps(g, cfg, manual) {
   await Promise.all(Array.from({ length: Math.min(COMP_CONCURRENCY, todo.length) }, async () => {
     while (idx < todo.length && state.running) { const k = idx++; await one(todo[k]); }
   }));
+  // fetch 로 막힌 상품을 탭으로 — 한 번에 하나씩(같은 사이트에 탭을 여럿 띄우면 차단을 부른다).
+  let tabTried = 0, tabBlocked = 0, tabOk = 0;
+  for (const { p, got } of tabQueue.slice(0, TAB_PER_RUN)) {
+    if (!state.running || (stopAt && Date.now() >= stopAt)) break;
+    if (tabTried >= TAB_GIVEUP && tabBlocked === tabTried) break;   // 탭으로도 전부 막힘 → 오늘은 접는다
+    await waitAway(g.brand, manual);
+    if (!state.running) break;
+    state.current = g.brand + ' · 탭으로 혼용률 ' + (tabTried + 1) + '/' + Math.min(tabQueue.length, TAB_PER_RUN);
+    const r = await readByTab(p.productUrl, winId);
+    tabTried++;
+    if (r.blocked) { tabBlocked++; continue; }   // 막힌 상품은 시도 시각을 찍지 않는다 — 다음에 다시
+    for (const k of ['comp', 'color', 'sizes', 'price', 'priceOrig']) if (!got[k] && r[k]) got[k] = r[k];
+    if (got.comp) tabOk++;
+    comps[p.productUrl] = got;
+    await sleep(1500);   // 사이트 부담·차단 방지 텀
+  }
+  if (tabTried) {
+    pushLog({ url: g.site, ok: tabOk > 0, count: tabOk,
+      msg: `${g.brand} · 탭으로 혼용률 ${tabOk}/${tabTried}개` + (tabBlocked ? ` (막힘 ${tabBlocked})` : '') +
+        (tabQueue.length > tabTried ? ` — 남은 ${tabQueue.length - tabTried}개는 다음 차례` : '') });
+  }
   if (!Object.keys(comps).length) return 0;
   // 병합은 여기서 하고 Worker 에는 완성본을 통째로 넘긴다 — Worker 가 병합하면
   // 항목이 많을 때 무료 플랜 CPU 한도(10ms)를 넘겨 저장 전에 죽는다.
@@ -783,7 +882,7 @@ async function collect(input, manual) {
         if (d.ok) okCount++; else failCount++;
         state.items += d.ok ? items.length : 0;
         if (d.ok) {
-          const patched = await enrichComps(g, cfg, manual);
+          const patched = await enrichComps(g, cfg, manual, winId, stopAt);
           if (patched) pushLog({ url: g.site, ok: true, count: patched, msg: `${g.brand} · 혼용률 ${patched}개 채움` });
         }
         pushLog({

@@ -27,7 +27,7 @@
 
 ## 2. 확장 설치(또는 업데이트) — **v1.6.1 필수**
 1. 저장소 ZIP을 받아 압축 풀기
-2. 크롬 주소창에 `chrome://extensions` 입력
+2. 크롬 주소창에 `chrome://extensions` 입력 (엣지는 `edge://extensions` — 크롬·엣지 중 한 곳에만 설치)
 3. 오른쪽 위 **개발자 모드** 켜기
 4. **압축해제된 확장 프로그램을 로드** → 압축 푼 폴더 **안의 `chrome-extension` 폴더**를 선택
    - ⚠️ 저장소 최상위 폴더(`miro-image-link-exporter-main`)를 고르면

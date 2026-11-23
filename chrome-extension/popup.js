@@ -180,7 +180,7 @@ function verCmp(a, b) {
     `<b style="color:#b42318">새 버전 ${latest} 있음</b> (설치본 ${mine})<br>` +
     `<a href="https://github.com/choosingceo-taek/miro-image-link-exporter/tree/main/chrome-extension" ` +
     `target="_blank" style="color:#111">최신 파일 받기</a> → ` +
-    `<b>chrome://extensions</b> 에서 이 확장의 <b>새로고침 ⟳</b>`;
+    `<b>chrome://extensions</b>(엣지: <b>edge://extensions</b>) 에서 이 확장의 <b>새로고침 ⟳</b>`;
   el.style.color = '#111';
 })();
 
