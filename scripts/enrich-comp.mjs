@@ -204,7 +204,7 @@ async function enrichOf(url, stat) {
   // 페이지는 멀쩡히 읽었는데 소재 표기가 없었다면 그건 '아직 못 구한 것'이 아니라
   // '사이트가 안 적는 것'이다. 엑셀에서 '확인 필요'와 다르게 보여 줘야 하므로
   // 그 사실을 남긴다 — 차단이면 readOk 가 false 라 표시하지 않는다.
-  if (typeof partial === "undefined") return readOk ? { none: true } : null;
+  if (typeof partial === "undefined") return readOk ? { none: true } : { blocked: true };
   return partial;
 }
 
@@ -372,7 +372,8 @@ async function processBrand(c, phase) {
     const got = await enrichOf(p.productUrl, stat);
     // 빈 결과도 넣는다 — 저장 단계에서 '시도 시각'만 찍혀 다음 실행이 건너뛴다.
     // 페이지를 읽었는데 소재가 없었으면 none 을 함께 남긴다(엑셀에서 '정보 없음').
-    comps[p.productUrl] = has(got) ? got : (got && got.none ? { none: 1 } : {});
+    // 막혀서 못 읽었으면 blocked 를 남긴다 — 예전 판정이 잘못 찍어 둔 none 을 지우는 데 쓴다.
+    comps[p.productUrl] = has(got) ? got : (got && got.none ? { none: 1 } : got && got.blocked ? { blocked: 1 } : {});
   });
   budget -= todo.length;
 
@@ -413,6 +414,10 @@ async function processBrand(c, phase) {
       // 값을 찾았으면 지운다 — 사이트가 나중에 표기를 추가했을 수 있다.
       if (inc.none && !cur.comp) cur.none = 1;
       else if (cur.comp) delete cur.none;
+      // 오늘 읽으려 했는데 막혔다면 '사이트가 안 적는다'고 단정할 근거가 없다.
+      // 예전 판정은 봇 확인 화면·빈 껍데기도 '읽음'으로 쳐서 Zara·H&M·Massimo Dutti 에
+      // none 을 찍어 두었다 — 엑셀에 '정보 없음'으로 나간다. '확인 필요'로 되돌린다.
+      else if (inc.blocked && cur.none) delete cur.none;
       merged[url] = cur;
       if (n) patched++;
     }
