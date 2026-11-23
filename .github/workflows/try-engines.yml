@@ -1,0 +1,68 @@
+name: Try crawling engines
+
+# 지금 막혀 있는 상품·목록 페이지를 무료 엔진(Playwright · Patchright · Crawlee 크롬/파이어폭스 ·
+# Camoufox · impit)으로 하나씩 열어 비교한다. 읽기만 하고 저장하지 않는다.
+# 결과는 try-engines-report.md 로 커밋한다.
+on:
+  workflow_dispatch:
+    inputs:
+      engines:
+        description: "쉼표 구분 (비우면 전부)"
+        required: false
+        default: ""
+      brands:
+        description: "상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개)"
+        required: false
+        default: ""
+      listings:
+        description: "목록 페이지 URL(쉼표 구분, 비우면 기본 4개)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: try-engines
+  cancel-in-progress: false
+
+jobs:
+  try:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install engines
+        timeout-minutes: 25
+        run: |
+          npm init -y >/dev/null
+          # --no-save 설치는 따로 하면 앞에 받은 것을 지운다 — 한 번에 받는다.
+          timeout 400 npm i --no-save playwright@1.49.1 patchright@1.49.1 crawlee@3.18.2 camoufox-js@0.13.0 impit@0.14.9
+          waitlock() { for _ in $(seq 1 60); do sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || return 0; sleep 5; done; }
+          waitlock
+          timeout 400 npx playwright install --with-deps chromium firefox || timeout 400 npx playwright install chromium firefox
+          timeout 300 npx patchright install chromium || echo "patchright 브라우저 설치 실패 — 그 엔진만 오류로 나온다"
+          timeout 400 npx camoufox-js fetch || echo "camoufox 내려받기 실패 — 그 엔진만 오류로 나온다"
+      - name: Try
+        env:
+          ENGINES: ${{ github.event.inputs.engines }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          LISTINGS: ${{ github.event.inputs.listings }}
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+        run: node scripts/try-engines.mjs
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          rm -f package.json package-lock.json
+          git add -A -- try-engines-report.md || true
+          git commit -m "try-engines: free crawler comparison" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed"
