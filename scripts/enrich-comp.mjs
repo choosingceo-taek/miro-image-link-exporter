@@ -118,6 +118,20 @@ async function get(url, accept, timeoutMs = 20000) {
 const val = (v) => (Array.isArray(v) ? v.length > 0 : !!String(v || "").trim());
 const has = (o) => !!o && (val(o.comp) || val(o.color) || val(o.sizes) || val(o.price));
 
+// 받은 HTML 이 '상품 페이지를 실제로 읽은 것'인가. 아니면 소재가 없다고 결론 내릴 수 없다.
+const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|just a moment|enable javascript and cookies|request unsuccessful|incapsula|perimeterx|captcha-delivery|_Incapsula_Resource/i;
+function realPage(html) {
+  const s = String(html || "");
+  const title = (s.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1];
+  if (CHALLENGE_RX.test(title) || CHALLENGE_RX.test(s.slice(0, 6000))) return false;
+  // JSON-LD Product 나 og:type product 가 있으면 상품 페이지다.
+  if (/"@type"\s*:\s*"Product"|property=["']og:type["'][^>]*content=["']product/i.test(s)) return true;
+  // 그 외에는 화면에 보이는 글이 어느 정도 있어야 한다. 스크립트로만 그리는 껍데기는 수백 자에 그친다.
+  const visible = s.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return visible.length >= 600;
+}
+
 // 한 상품의 네 항목(혼용률·컬러·사이즈·가격). 실패는 null — 이유는 세어서 리포트로.
 async function enrichOf(url, stat) {
   // ① Shopify JSON — 가장 싸고 정확. variants/options 에 사이즈·컬러·가격이 구조화돼 있다.
@@ -153,7 +167,12 @@ async function enrichOf(url, stat) {
   // ② 페이지 직접 → JSON-LD → 본문.
   let html = "";
   let readOk = false;
-  try { html = await get(url); readOk = true; } catch (e) { stat.blocked++; }
+  try { html = await get(url); readOk = realPage(html); } catch (e) { stat.blocked++; }
+  // 200 으로 왔어도 봇 확인 화면이거나 내용이 스크립트로만 그려지는 빈 껍데기면
+  // '읽었다'가 아니다. 예전엔 이걸 읽은 것으로 쳐서 '사이트 미표기(none)'로 적었다 —
+  // Zara 500 · H&M 743 · Massimo Dutti 596 이 그렇게 '정보 없음'으로 분류됐지만,
+  // 진짜 크롬 보강 기록에서는 같은 브랜드가 100% 차단이었다.
+  if (html && !readOk) { stat.blocked++; html = ""; }
   if (html) {
     let ld = {};
     try { ld = fromJsonLd(html); } catch (e) {}
