@@ -35,6 +35,8 @@ const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
 const FIELDS = (process.env.NEED_FIELDS || "comp").split(",").map((s2) => s2.trim()).filter(Boolean);
 // 못 찾은 상품을 며칠 뒤에 다시 시도할지. 사이트가 정보를 안 적으면 아무리 읽어도 안 나온다.
 const RETRY_DAYS = Math.max(1, Number(process.env.RETRY_DAYS) || 5);
+// 혼용률은 있는데 컬러만 빈 상품을 며칠에 한 번 다시 열지. 컬러는 2순위라 길게 둔다.
+const COLOR_RETRY_DAYS = Math.max(1, Number(process.env.COLOR_RETRY_DAYS) || 30);
 // 재시도 창을 무시하고 빈 항목을 전부 다시 읽는다. 평소엔 켜지 않는다 — 사이트가
 // 안 적는 값을 매번 다시 읽게 되기 때문이다. 다만 추출 규칙이 좋아졌거나 예전에
 // 일시적으로 실패한 뒤에는, 창에 갇힌 상품이 전부 '시도 안 함' 상태로 굳는다.
@@ -317,9 +319,17 @@ async function processBrand(c, phase) {
   // 다 새고 정작 빈 상품에 손이 못 간다. 실제로 4항목 목표였을 때 45분에 +429 였다.
   const now = Date.now();
   const RETRY_MS = RETRY_DAYS * 24 * 3600 * 1000;
+  const COLOR_RETRY_MS = COLOR_RETRY_DAYS * 24 * 3600 * 1000;
   const full = (p) => {
     const o = ov(p);
-    if (FIELDS.every((k) => okOf(o, k))) return true;
+    if (FIELDS.every((k) => okOf(o, k))) {
+      // 혼용률은 찼는데 컬러가 없는 상품 — 컬러 규칙이 생기기 전(8/4)에 혼용률을 채운
+      // 상품은 다시 열 일이 없어서 컬러가 영영 비어 있었다(Everlane 306·Mint velvet 292·
+      // The upside 322 … 혼용률은 70% 안팎인데 컬러 0%). 컬러 시도 시각(ct)을 따로 두고
+      // COLOR_RETRY_DAYS 에 한 번만 다시 연다 — 매번 열면 색을 안 적는 사이트에 예산이 샌다.
+      if (!FIELDS.includes("color") && !okOf(o, "color") && !(o.ct && now - o.ct < COLOR_RETRY_MS)) return false;
+      return true;
+    }
     // 값이 들어 있는데 옳지 않으면(쓰레기·절반만 뽑힘) 시도 시각과 무관하게 다시 읽는다.
     // 안 그러면 잘못 저장된 값이 재시도 기간(RETRY_DAYS) 내내 자리를 차지한다.
     if (FIELDS.some((k) => valOf(o, k) && !okOf(o, k))) return false;
@@ -397,6 +407,7 @@ async function processBrand(c, phase) {
       }
       // 값을 못 찾았어도 "시도했음"은 남긴다 — 안 남기면 같은 상품을 매번 다시 읽는다.
       cur.t = now;
+      cur.ct = now;   // 컬러도 이번에 함께 봤다(위 full 의 컬러 재시도 창)
       // 페이지는 읽었는데 소재 표기가 없었다 = 사이트가 안 적는다.
       // 엑셀에서 '확인 필요'(아직 못 구함)와 다르게 '정보 없음'으로 보여 주기 위한 표시다.
       // 값을 찾았으면 지운다 — 사이트가 나중에 표기를 추가했을 수 있다.

@@ -34,6 +34,15 @@ const CASES = [
   ["selectedColor", '<script>window.p={"selectedColor":"Olive Tree"}</script>', "Olive Tree"],
   ["colorName", '<script>{"colorName":"Ecarlate"}</script>', "Ecarlate"],
   ["color", '<script>{"color":"Sand"}</script>', "Sand"],
+  ["영국식 colourName", '<script>{"colourName":"Navy Stripe"}</script>', "Navy Stripe"],
+  ["colorDescription", '<script>{"colorDescription":"Heather Grey"}</script>', "Heather Grey"],
+  ["swatchName", '<script>{"swatchName":"Washed Black"}</script>', "Washed Black"],
+  ["product:color 메타", '<meta property="product:color" content="Ecru">', "Ecru"],
+
+  // ── 화면 글자 ──
+  ["Colour: 같은 칸", "<p>Colour: Dusty Rose</p>", "Dusty Rose"],
+  ["Color: 다음 칸", "<dt>Color:</dt> <dd><span>Olive</span></dd>", "Olive"],
+  ["Colour: 뒤가 안내 문구", "<p>Colour: Select</p>", ""],
 
   // ── 선택 상자 ──
   ["선택된 option", '<option value="1" selected>Light Pink</option>', "Light Pink"],

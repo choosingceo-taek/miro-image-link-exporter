@@ -467,13 +467,19 @@ function colorFromHtml(html) {
   const pats = [
     // 페이지에 심어 둔 JSON — 가장 신뢰도가 높다.
     /"selected(?:Color|Colour)"\s*:\s*"([^"]{1,40})"/i,
-    /"color(?:Name|_name)"\s*:\s*"([^"]{1,40})"/i,
+    // 영국식 철자(colour)와 이름 변형까지 — Mint velvet·Whitestuff 같은 영국 사이트가 colour 를 쓴다.
+    /"colou?r(?:Name|_name|Description|Label|DisplayName|Display)"\s*:\s*"([^"]{1,40})"/i,
+    /"swatch(?:Name|Label)"\s*:\s*"([^"]{1,40})"/i,
+    /<meta[^>]+(?:property|name)="(?:product|og):colou?r"[^>]+content="([^"]{1,40})"/i,
     /"colou?r"\s*:\s*"([^"]{1,40})"/i,
     // 선택된 스와치의 접근성 라벨
     /aria-label="\s*(?:색상|컬러|colou?r)\s*[::]?\s*([^"]{1,40})"/i,
     /data-(?:color|colour|color-name)="([^"]{1,40})"/i,
     // 선택 상자의 선택된 항목
     /<option[^>]+selected[^>]*>([^<]{1,40})<\/option>/i,
+    // 화면 글자 "Colour: Navy" / <span>Color:</span><span>Navy</span>
+    />\s*(?:colou?r|색상)\s*[:：]\s*([A-Za-z][A-Za-z' &\/-]{1,30}?)\s*</i,
+    />\s*(?:colou?r|색상)\s*[:：]\s*<\/[a-z]+>\s*(?:<[^>]+>\s*){0,3}([A-Za-z][A-Za-z' &\/-]{1,30}?)\s*</i,
   ];
   for (const re of pats) {
     const m = h.match(re);
