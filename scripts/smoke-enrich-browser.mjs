@@ -39,7 +39,7 @@ fake.kill();
 if (code !== 0) { console.error(out); fail(`종료 코드 ${code}`); }
 
 // ── 집계가 맞는가 ──
-if (!/시도 4 · ✅ 2 · 미표기 1 · 차단\/타임아웃 1/.test(out)) {
+if (!/시도 6 · ✅ 3 · 미표기 1 · 차단\/타임아웃 2/.test(out)) {
   fail("집계가 예상과 다름:\n     " + (out.match(/· TestBrand.*/) || ["(없음)"])[0]);
 }
 
@@ -62,6 +62,10 @@ else {
   if (p(3) && p(3).comp) fail("소재가 없는데 comp 가 채워졌다");
   // 차단당한 상품은 아무것도 적지 않아야 한다. none 을 적으면 영영 안 읽는다.
   if (p(4)) fail(`차단당한 상품이 저장됐다 — ${JSON.stringify(p(4))}`);
+  // 200 으로 온 봇 확인 화면도 차단이다 — none 으로 적으면 안 된다.
+  if (p(5)) fail(`봇 확인 화면이 저장됐다 — ${JSON.stringify(p(5))}`);
+  // 늦게 그려지는 소재도 읽어야 한다.
+  if (!p(6) || p(6).comp !== "Wool 70% / Nylon 30%") fail(`늦게 그려지는 소재: ${JSON.stringify(p(6))}`);
   // '[object Object]' 가 들어가는 옛 사고의 재발 방지.
   for (const [u, v] of Object.entries(saved)) {
     if (String(v.comp || "").includes("[object")) fail(`객체가 문자열로 새어 들어감: ${u}`);
@@ -79,4 +83,4 @@ else {
 }
 
 if (bad) { console.error(`\n크롬 보강 ${bad}건 실패`); process.exit(1); }
-console.log("✅ 크롬 혼용률 보강 통과 — 평범·접힌탭 두겹·미표기·차단 네 경우 + 저장 내용 확인");
+console.log("✅ 크롬 혼용률 보강 통과 — 평범·접힌탭 두겹·미표기·차단·봇확인화면·늦은표기 여섯 경우 + 저장 내용 확인");

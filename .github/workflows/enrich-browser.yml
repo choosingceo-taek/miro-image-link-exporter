@@ -30,6 +30,10 @@ on:
         description: "1이면 저장(기본 1) · 0이면 결과만"
         required: false
         default: "1"
+      engine:
+        description: "playwright(기본) | patchright(자동화 흔적을 지운 무료 패치판)"
+        required: false
+        default: "playwright"
 
 permissions:
   contents: write
@@ -78,8 +82,16 @@ jobs:
           # 도는 경우가 많다. 아무것도 못 하고 끝내는 것보다 낫다.
           echo "--with-deps 실패 — 시스템 패키지 없이 브라우저만 내려받아 봅니다"
           timeout 300 npx playwright install chromium
+      - name: Install Patchright
+        if: ${{ github.event.inputs.engine == 'patchright' }}
+        timeout-minutes: 10
+        run: |
+          # --no-save 설치는 따로 하면 앞에 받은 것을 지운다 — 둘을 한 번에 받는다.
+          timeout 240 npm i --no-save playwright@1.49.1 patchright@1.49.1
+          timeout 300 npx patchright install chromium
       - name: Enrich
         env:
+          ENGINE: ${{ github.event.inputs.engine || 'playwright' }}
           BRANDS: ${{ github.event.inputs.brands }}
           TOP: ${{ github.event.inputs.top || '6' }}
           PER_BRAND: ${{ github.event.inputs.per_brand || '120' }}

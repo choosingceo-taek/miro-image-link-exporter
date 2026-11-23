@@ -20,7 +20,9 @@
 //   PER_BRAND 브랜드당 상품 수(기본 120)
 //   STORE    1이면 Worker 오버레이에 저장(기본 1)
 //   DRY      1이면 저장하지 않고 결과만 출력
-import { chromium } from "playwright";
+//   ENGINE   playwright(기본) | patchright — patchright 는 Playwright 와 API 가 같은
+//            무료 오픈소스 패치판으로, 자동화 흔적(CDP Runtime.enable 등)을 지운다.
+//            지문 계층만 다룬다 — IP 평판으로 막는 사이트는 여전히 확장(가정용 IP) 몫이다.
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -132,11 +134,26 @@ console.log(`대상 ${targets.length}개: ${targets.map((t) => t.brand).join(", 
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
-const browser = await chromium.launch(
-  process.env.PLAYWRIGHT_CHROMIUM ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM } : {});
-const ctx = await browser.newContext({
-  userAgent: UA, locale: "en-US", viewport: { width: 1366, height: 1400 },
+const ENGINE = (process.env.ENGINE || "playwright").toLowerCase() === "patchright" ? "patchright" : "playwright";
+const { chromium } = await import(ENGINE);
+console.log(`엔진: ${ENGINE}`);
+const browser = await chromium.launch({
+  ...(process.env.PLAYWRIGHT_CHROMIUM ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM } : {}),
+  // 헤드리스 수집(browser-collect)과 같은 설정 — 그쪽은 이 설정으로 23개 브랜드를 매일 읽는다.
+  args: ["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-http2"],
 });
+const ctx = await browser.newContext({
+  // patchright 는 UA 를 덮어쓰면 오히려 지문이 어긋난다 — 크롬 자기 값을 쓰게 둔다.
+  ...(ENGINE === "patchright" ? {} : { userAgent: UA }),
+  locale: "en-US", viewport: { width: 1366, height: 1400 },
+});
+if (ENGINE === "playwright") {
+  await ctx.addInitScript(() => { Object.defineProperty(navigator, "webdriver", { get: () => undefined }); });
+}
+
+// 200 으로 와도 본문이 봇 확인 화면인 경우가 있다. 그걸 '사이트가 소재를 안 적음(none)'으로
+// 기록하면 21일 동안 그 상품을 다시 안 본다 — 차단으로 세야 한다.
+const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|captcha|just a moment/i;
 // 이미지·폰트·영상은 받지 않는다. 혼용률은 글자에만 있고, 안 받으면 몇 배 빠르다.
 await ctx.route("**/*", (route) => {
   const t = route.request().resourceType();
@@ -202,8 +219,18 @@ for (const c of targets) {
               }
             }
           }).catch(() => {});
-          await page.waitForTimeout(600);
+          // 소재를 화면에 늦게 그리는 사이트가 있다(Zara·H&M 처럼 페이지가 뜬 뒤 스크립트로
+          // 상세를 불러오는 곳). 예전엔 600ms 만 기다리고 없으면 '미표기'로 적었다 —
+          // 그래서 소재를 분명히 적는 대형 브랜드가 미표기로 분류돼 있었다.
+          // 퍼센트+섬유 이름이 보일 때까지 최대 6초 기다린다(보이면 바로 넘어간다).
+          await page.waitForFunction(() => {
+            const t = (document.body && document.body.innerText) || "";
+            return /\d{1,3}\s?%\s*(?:[A-Za-z]+\s)?(cotton|polyester|viscose|wool|linen|silk|nylon|polyamide|elastane|spandex|lyocell|modal|cashmere|acrylic|rayon|leather)/i.test(t);
+          }, null, { timeout: 6000 }).catch(() => {});
           const html = await page.content();
+          const head = (await page.title().catch(() => "")) + " " +
+            (await page.locator("body").innerText().catch(() => "")).slice(0, 600);
+          if (CHALLENGE_RX.test(head)) { stat.blocked++; continue; }
           const comp = asComp(compFromHtml(html)) ||
             asComp(compFromText(html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " ")));
           const color = colorFromHtml(html);
