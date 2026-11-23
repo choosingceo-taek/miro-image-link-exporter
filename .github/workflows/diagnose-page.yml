@@ -20,6 +20,14 @@ on:
         description: "page(기본, 목록 구조 진단) | engines(무료 크롤링 엔진 비교 — try-engines)"
         required: false
         default: "page"
+      engines:
+        description: "mode=engines 일 때 돌릴 엔진(쉼표 구분, 비우면 전부)"
+        required: false
+        default: ""
+      brands:
+        description: "mode=engines 일 때 상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -129,8 +137,8 @@ jobs:
           timeout 400 npx camoufox-js fetch || echo "camoufox 내려받기 실패 — 그 엔진만 오류로 나온다"
       - name: Try
         env:
-          ENGINES: ""
-          BRANDS: ""
+          ENGINES: ${{ github.event.inputs.engines }}
+          BRANDS: ${{ github.event.inputs.brands }}
           LISTINGS: ""
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: node scripts/try-engines.mjs

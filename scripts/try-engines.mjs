@@ -10,6 +10,8 @@
 //   crawlee-firefox   같은 것을 파이어폭스로(Crawlee 문서가 차단 회피용으로 권하는 조합)
 //   camoufox          탐지 회피용으로 고친 파이어폭스(camoufox-js)
 //   impit             브라우저 없이 브라우저의 TLS·HTTP2 지문으로 요청(Apify, curl_cffi 류)
+//   site-api          사이트가 자기 화면을 그릴 때 쓰는 JSON 주소를 직접 읽는다(지금은 Zara·Shopify)
+//   wayback           웹 아카이브(archive.org)에 보관된 같은 상품 페이지를 읽는다 — 차단과 무관
 //
 // env:
 //   ENGINES   쉼표 구분(기본: 위 전부)
@@ -24,7 +26,7 @@ import { dirname, join } from "node:path";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
-const ENGINES = (process.env.ENGINES || "playwright,patchright,crawlee-chromium,crawlee-firefox,camoufox,impit")
+const ENGINES = (process.env.ENGINES || "impit,site-api,wayback,playwright,patchright,crawlee-chromium,crawlee-firefox,camoufox")
   .split(",").map((s) => s.trim()).filter(Boolean);
 const PER = Math.max(1, Number(process.env.PER) || 2);
 const NAV_MS = 45_000;
@@ -167,6 +169,65 @@ async function runImpit(urls) {
   return out;
 }
 
+// 사이트가 자기 화면을 그릴 때 부르는 JSON 주소. HTML 페이지보다 방어가 느슨한 경우가 있다.
+function apiUrlOf(url) {
+  const u = new URL(url);
+  // Zara: …-p01234567.html?v1=<상품 id> → /<나라>/<언어>/products-details?productIds=<id>&ajax=true
+  if (/(^|\.)zara\.com$/.test(u.hostname) && u.searchParams.get("v1")) {
+    const loc = u.pathname.split("/").filter(Boolean).slice(0, 2).join("/");
+    return `${u.origin}/${loc}/products-details?productIds=${u.searchParams.get("v1")}&ajax=true`;
+  }
+  // Shopify: /products/<handle> → /products/<handle>.json
+  const m = url.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
+  if (m) return `${m[1]}/products/${m[2]}.json`;
+  return "";
+}
+// JSON 안의 소재 표기를 사람이 읽는 글로 편다 — {"material":"cotton","percentage":"95%"} → "95% cotton"
+function flattenComp(text) {
+  const out = [];
+  for (const m of String(text).matchAll(/"(?:material|name)"\s*:\s*"([A-Za-z ]{3,30})"\s*,\s*"percentage"\s*:\s*"?(\d{1,3})\s?%?"?/gi)) out.push(`${m[2]}% ${m[1]}`);
+  for (const m of String(text).matchAll(/"percentage"\s*:\s*"?(\d{1,3})\s?%?"?\s*,\s*"(?:material|name)"\s*:\s*"([A-Za-z ]{3,30})"/gi)) out.push(`${m[1]}% ${m[2]}`);
+  return out.join(", ");
+}
+async function runSiteApi(urls) {
+  const { Impit } = await import("impit");
+  const impit = new Impit({ browser: "chrome", followRedirects: true, timeout: NAV_MS });
+  const out = {};
+  for (const url of urls) {
+    const api = apiUrlOf(url);
+    if (!api) { out[url] = { v: "err", note: "이 사이트용 JSON 주소를 모름" }; continue; }
+    try {
+      const r = await impit.fetch(api, { headers: { Accept: "application/json", "Accept-Language": "en-US,en;q=0.9" } });
+      const body = await r.text();
+      if (r.status >= 400 || !/^\s*[\[{]/.test(body)) { out[url] = { v: "blocked", note: `HTTP ${r.status} · JSON 아님` }; continue; }
+      const flat = flattenComp(body);
+      const j = judge(r.status, "", `<p>${flat}</p><p>${body.replace(/<[^>]+>/g, " ").slice(0, 200000)}</p>`);
+      out[url] = j.v === "open" ? { v: "open", note: `JSON ${body.length}자 · 소재 못 찾음 · ${(body.match(/.{0,60}omposition.{0,120}/i) || [""])[0]}` } : j;
+    } catch (e) { out[url] = judge(0, "", "", e.message); }
+  }
+  return out;
+}
+
+// 웹 아카이브. 상품의 소재는 바뀌지 않으므로 몇 달 전 보관본이어도 값은 같다.
+async function runWayback(urls) {
+  const out = {};
+  for (const url of urls) {
+    try {
+      const a = await (await fetch("https://archive.org/wayback/available?url=" + encodeURIComponent(url.split("?")[0]),
+        { signal: AbortSignal.timeout(30000) })).json();
+      const snap = a && a.archived_snapshots && a.archived_snapshots.closest;
+      if (!snap || !snap.available) { out[url] = { v: "err", note: "보관본 없음" }; continue; }
+      // id_ = 아카이브가 덧붙이는 머리띠 없이 원본 그대로
+      const raw = `https://web.archive.org/web/${snap.timestamp}id_/${url.split("?")[0]}`;
+      const r = await fetch(raw, { signal: AbortSignal.timeout(45000) });
+      const html = await r.text();
+      const j = judge(r.status, (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1], html);
+      out[url] = { ...j, note: `${snap.timestamp.slice(0, 8)} 보관본 · ${j.note}` };
+    } catch (e) { out[url] = judge(0, "", "", e.message); }
+  }
+  return out;
+}
+
 const RUN = {
   playwright: (u) => runPlainBrowser("playwright", u),
   patchright: (u) => runPlainBrowser("patchright", u),
@@ -174,6 +235,8 @@ const RUN = {
   "crawlee-firefox": (u) => runCrawlee("firefox", u),
   camoufox: (u) => runCamoufox(u),
   impit: (u) => runImpit(u),
+  "site-api": (u) => runSiteApi(u),
+  wayback: (u) => runWayback(u),
 };
 
 const urls = targets.map((t) => t.url);
@@ -189,28 +252,35 @@ for (const eng of ENGINES) {
   const r = Object.values(results[eng]);
   console.log(`${eng}: 소재 ${r.filter((x) => x.v === "comp").length} · 열림 ${r.filter((x) => x.v === "open").length} · ` +
     `차단 ${r.filter((x) => x.v === "blocked").length} · 오류 ${r.filter((x) => x.v === "err").length} (${Math.round((Date.now() - t0) / 1000)}s)`);
+  // 엔진 하나가 끝날 때마다 리포트를 써 둔다 — 시간 제한에 걸려도 그때까지의 결과가 남는다.
+  writeReport(true);
 }
+writeReport(false);
 
 // ── 리포트 ────────────────────────────────────────────────────────
-const ICON = { comp: "✅", open: "🟡", blocked: "⛔", err: "❌" };
-const engs = ENGINES.filter((e) => results[e]);
-let md = `# 무료 크롤링 엔진 비교 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
-md += `GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔진마다 열어 본 결과입니다. 저장은 하지 않았습니다.\n\n`;
-md += `✅ 소재까지 읽음 · 🟡 페이지는 열림(소재 없음/목록) · ⛔ 차단 · ❌ 오류\n\n`;
-md += `| 엔진 | ✅ | 🟡 | ⛔ | ❌ |\n|---|---:|---:|---:|---:|\n`;
-for (const e of engs) {
-  const r = Object.values(results[e]);
-  md += `| ${e} | ${r.filter((x) => x.v === "comp").length} | ${r.filter((x) => x.v === "open").length} | ${r.filter((x) => x.v === "blocked").length} | ${r.filter((x) => x.v === "err").length} |\n`;
+function writeReport(partial) {
+  const ICON = { comp: "✅", open: "🟡", blocked: "⛔", err: "❌" };
+  const engs = ENGINES.filter((e) => results[e]);
+  let md = `# 무료 크롤링 엔진 비교 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+  if (partial) md += `> ⏳ 진행 중 — ${engs.length}/${ENGINES.length}개 엔진까지의 중간 결과입니다.\n\n`;
+  md += `GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔진마다 열어 본 결과입니다. 저장은 하지 않았습니다.\n\n`;
+  md += `✅ 소재까지 읽음 · 🟡 페이지는 열림(소재 없음/목록) · ⛔ 차단 · ❌ 오류\n\n`;
+  md += `| 엔진 | ✅ | 🟡 | ⛔ | ❌ |\n|---|---:|---:|---:|---:|\n`;
+  for (const e of engs) {
+    const r = Object.values(results[e]);
+    md += `| ${e} | ${r.filter((x) => x.v === "comp").length} | ${r.filter((x) => x.v === "open").length} | ${r.filter((x) => x.v === "blocked").length} | ${r.filter((x) => x.v === "err").length} |\n`;
+  }
+  md += `\n## 페이지별\n\n| 구분 | 브랜드 | ${engs.join(" | ")} |\n|---|---|${engs.map(() => ":-:").join("|")}|\n`;
+  for (const t of targets) {
+    md += `| ${t.kind === "listing" ? "목록" : "상품"} | [${t.brand}](${t.url}) | ${engs.map((e) => ICON[(results[e][t.url] || {}).v] || "·").join(" | ")} |\n`;
+  }
+  md += `\n<details><summary>사유</summary>\n\n`;
+  for (const t of targets) {
+    md += `- ${t.brand} — ${t.url}\n`;
+    for (const e of engs) { const r = results[e][t.url] || {}; md += `  - ${e}: ${ICON[r.v] || "·"} ${r.note || ""}\n`; }
+  }
+  md += `\n</details>\n`;
+  writeFileSync(join(ROOT, process.env.OUT || "try-engines-report.md"), md);
+  if (!partial) console.log("\n리포트: try-engines-report.md");
 }
-md += `\n## 페이지별\n\n| 구분 | 브랜드 | ${engs.join(" | ")} |\n|---|---|${engs.map(() => ":-:").join("|")}|\n`;
-for (const t of targets) {
-  md += `| ${t.kind === "listing" ? "목록" : "상품"} | [${t.brand}](${t.url}) | ${engs.map((e) => ICON[(results[e][t.url] || {}).v] || "·").join(" | ")} |\n`;
-}
-md += `\n<details><summary>사유</summary>\n\n`;
-for (const t of targets) {
-  md += `- ${t.brand} — ${t.url}\n`;
-  for (const e of engs) { const r = results[e][t.url] || {}; md += `  - ${e}: ${ICON[r.v] || "·"} ${r.note || ""}\n`; }
-}
-md += `\n</details>\n`;
-writeFileSync(join(ROOT, process.env.OUT || "try-engines-report.md"), md);
-console.log("\n리포트: try-engines-report.md");
+
