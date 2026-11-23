@@ -4,6 +4,9 @@ name: Diagnose enrich
 # 야간 보강은 실패에 '시도 시각'만 찍고 넘어가서 원인이 리포트에서 사라진다.
 # 읽기만 하고 저장은 하지 않는다.
 on:
+  # 8/9 이후 멈춰 있었다 — 미채움 원인이 바뀌었는지 주 1회 다시 가른다.
+  schedule:
+    - cron: "30 23 * * 0"   # 일 UTC 23:30 = 월 KST 08:30 (담당 재분류 뒤)
   workflow_dispatch:
     inputs:
       brands:

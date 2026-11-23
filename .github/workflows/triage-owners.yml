@@ -4,6 +4,9 @@ name: Triage owners
 # 기준은 "상품 페이지를 서버 IP 로 읽을 수 있나" — 목록 페이지가 긁히는 것과는 다른 문제다.
 # 읽기만 하고 저장은 하지 않는다.
 on:
+  # 8/5 에 한 번 돌고 멈춰 있었다 — 사이트 차단 정책은 바뀌므로 주 1회 다시 나눈다.
+  schedule:
+    - cron: "30 22 * * 0"   # 일 UTC 22:30 = 월 KST 07:30
   workflow_dispatch:
     inputs:
       sample:
