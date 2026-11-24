@@ -34,6 +34,8 @@
 //               가장 가까운 앞 제목, 요소 경로, 화면에 보이는지, 추출기가 실제로 본 창(window),
 //               스크립트 JSON 속 소재처럼 보이는 조각. 크기는 DUMP_KB(기본 400)로 자른다.
 //   MATCH       카탈로그에서 상품을 고를 때 이름·주소가 이 정규식에 맞는 것만(예: jacket|coat)
+//   RESULTS_JSON 주면 엔진별·페이지별 결과(읽은 혼용률 전체 포함)를 이 JSON 파일에도 남긴다
+//               (저장된 혼용률 점검 audit-stored-comp.mjs 가 저장값과 견줄 때 쓴다)
 import { readFileSync, writeFileSync, renameSync, mkdtempSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -184,6 +186,14 @@ async function domDump(page) {
   }, DUMP_RX_SRC).catch((e) => ({ error: String(e.message || e).slice(0, 100) }));
 }
 
+// 추출 결과([{material,percent,line}])를 저장 형식 문자열로 — enrich-comp.mjs 의 asComp 와 같은 규칙.
+function asComp(v) {
+  if (!Array.isArray(v)) return String(v || "").trim();
+  const lines = [];
+  for (const c of v) { const n = c.line || 0; (lines[n] = lines[n] || []).push(`${c.material} ${c.percent}%`); }
+  return lines.filter(Boolean).map((l) => l.join(" / ")).join("\n");
+}
+
 // 한 페이지 결과 판정
 function judge(status, title, html, err) {
   if (err) return { v: "err", note: String(err).split("\n")[0].slice(0, 70) };
@@ -192,7 +202,8 @@ function judge(status, title, html, err) {
   if (status >= 400 || CHALLENGE_RX.test(title + " " + text.slice(0, 1500))) return { v: "blocked", note: `HTTP ${status} ${String(title).slice(0, 40)}` };
   const comp = compFromHtml(html);
   const c = Array.isArray(comp) ? comp.map((x) => `${x.material} ${x.percent}%`).join(" / ") : String(comp || "");
-  if (c) return { v: "comp", note: c.slice(0, 60) };
+  // comp: 저장 형식 그대로(두 원단이면 줄바꿈) — 저장값과 견줄 때 쓴다(RESULTS_JSON).
+  if (c) return { v: "comp", note: c.slice(0, 60), comp: asComp(comp) };
   return { v: "open", note: `글 ${text.length}자` };
 }
 
@@ -492,6 +503,16 @@ for (const eng of ENGINES) {
 }
 writeReport(false);
 if (DUMP) writeDump();
+if (process.env.RESULTS_JSON) {
+  // 덤프(dump)는 크므로 뺀다.
+  const slim = {};
+  for (const [e, byUrl] of Object.entries(results)) {
+    slim[e] = {};
+    for (const [u, r] of Object.entries(byUrl)) { const { dump, ...rest } = r || {}; slim[e][u] = rest; }
+  }
+  writeFileSync(resolve(ROOT, process.env.RESULTS_JSON), JSON.stringify({ at: new Date().toISOString(), engines: ENGINES, runInfo, targets, results: slim }, null, 1));
+  console.log("결과 JSON: " + process.env.RESULTS_JSON);
+}
 
 // ── 덤프(DUMP=1) ──────────────────────────────────────────────────
 function writeDump() {

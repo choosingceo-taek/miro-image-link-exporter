@@ -17,15 +17,15 @@ on:
         required: false
         default: ""
       mode:
-        description: "page(기본, 목록 구조 진단) | engines(무료 크롤링 엔진 비교 — try-engines)"
+        description: "page(기본, 목록 구조 진단) | engines(무료 크롤링 엔진 비교 — try-engines) | audit(저장된 혼용률 점검, 읽기만)"
         required: false
         default: "page"
       engines:
-        description: "mode=engines 일 때 돌릴 엔진(쉼표 구분, 비우면 전부)"
+        description: "mode=engines 일 때 돌릴 엔진(쉼표 구분, 비우면 전부) · mode=audit 일 때 검증 엔진(비우면 impit,firefox,wayback)"
         required: false
         default: ""
       brands:
-        description: "mode=engines 일 때 상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개)"
+        description: "mode=engines 일 때 상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개) · mode=audit 일 때 이 브랜드만 점검(비우면 전부)"
         required: false
         default: ""
       dump:
@@ -33,7 +33,7 @@ on:
         required: false
         default: "0"
       per:
-        description: "mode=engines 일 때 브랜드당 상품 수(기본 3)"
+        description: "mode=engines 일 때 브랜드당 상품 수(기본 3) · mode=audit 일 때 검증 표본 브랜드당 수(기본 4)"
         required: false
         default: "3"
       match:
@@ -50,7 +50,7 @@ concurrency:
 
 jobs:
   diagnose:
-    if: ${{ github.event.inputs.mode != 'engines' }}
+    if: ${{ github.event.inputs.mode != 'engines' && github.event.inputs.mode != 'audit' }}
     runs-on: ubuntu-latest
     # 설치 재시도(최대 20분)에 자리를 내주고도 진단이 돌 수 있게 넉넉히 잡는다.
     timeout-minutes: 45
@@ -182,6 +182,70 @@ jobs:
           rm -f package.json package-lock.json
           git add -A -- try-engines-report.md try-engines-dump.md || true
           git commit -m "try-engines: free crawler comparison" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed"
+
+  # 저장된 혼용률 점검 — 읽기만 한다(Worker 에 GET 만, 스크립트가 다른 요청을 막는다).
+  # ① 저장값을 시그니처로 훑고 ② 의심 표본·Loft 표본을 오늘의 추출기로 다시 읽어(try-engines)
+  # ③ 견준 결과를 리포트에 붙인다. 새 워크플로는 main 에 없으면 수동 실행이 안 돼 여기에 둔다.
+  audit:
+    if: ${{ github.event.inputs.mode == 'audit' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 140
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Scan stored compositions (read-only)
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          VERIFY_PER: ${{ github.event.inputs.per }}
+        run: node scripts/audit-stored-comp.mjs
+      - name: Install engines
+        timeout-minutes: 25
+        run: |
+          npm init -y >/dev/null
+          timeout 400 npm i --no-save playwright@1.49.1 impit@0.14.9
+          waitlock() { for _ in $(seq 1 60); do sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || return 0; sleep 5; done; }
+          waitlock
+          timeout 400 npx playwright install --with-deps firefox || timeout 400 npx playwright install firefox
+      - name: Re-read sample pages (read-only)
+        continue-on-error: true
+        env:
+          ENGINES: ${{ github.event.inputs.engines || 'impit,firefox,wayback' }}
+          ENGINE_MIN: "35"
+          OUT: stored-comp-verify-engines.md
+          RESULTS_JSON: stored-comp-verify.json
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+        run: |
+          URLS="$(cat stored-comp-verify-urls.txt)" node scripts/try-engines.mjs
+      - name: Compare with stored values
+        if: always()
+        run: VERIFY=stored-comp-verify.json node scripts/audit-stored-comp.mjs
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stored-comp-audit
+          path: |
+            stored-comp-audit.json
+            stored-comp-audit-raw.md
+            stored-comp-verify-engines.md
+            stored-comp-verify.json
+          if-no-files-found: ignore
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          rm -f package.json package-lock.json
+          git add -A -- stored-comp-audit.json stored-comp-audit-raw.md stored-comp-verify-engines.md stored-comp-verify.json stored-comp-verify-urls.txt || true
+          git commit -m "audit: stored composition signatures (read-only)" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
             sleep 5

@@ -58,6 +58,8 @@ jobs:
         run: node scripts/test-enrich-wayback.mjs
       - name: Run diagnose target selection test
         run: node scripts/test-diagnose-select.mjs
+      - name: Run stored composition audit signature test
+        run: node scripts/test-audit-stored-comp.mjs
       - name: Run research app search/segment/basket test
         run: node scripts/test-app-basket.mjs
       - name: Run extension folder consistency test (manifest · CSP · changelog)
@@ -71,6 +73,8 @@ jobs:
           node --check scripts/enrich-comp.mjs
           node --check scripts/wayback-guard.mjs
           node --check scripts/diagnose-page.mjs
+          node --check scripts/audit-stored-comp.mjs
+          node --check scripts/try-engines.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js
           node --check shared/product-core.js

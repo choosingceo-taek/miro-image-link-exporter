@@ -108,13 +108,18 @@ const asComp = (v) => {
   return lines.filter(Boolean).map((l) => l.join(" / ")).join("\n");
 };
 
+// ── 상품명·혼용률 대조 시작 — audit-stored-comp.mjs 가 이 구간을 떼어 쓴다
 // 상품명이 섬유를 말하는데 읽은 혼용률에 그 섬유가 없으면(또는 "100% 면" 인데 다른 섬유가 섞이면)
 // 리포트에 ⚠ 를 단다. 저장 여부를 정하지는 않는다 — 사람이 눈으로 볼 곳을 짚어 줄 뿐이다.
 const NAME_FIBRES = { cotton: "Cotton", wool: "Wool", merino: "Wool", linen: "Linen", silk: "Silk", cashmere: "Cashmere",
   viscose: "Viscose", lyocell: "Lyocell", tencel: "Lyocell", modal: "Modal", polyester: "Polyester", nylon: "Nylon",
   leather: "Leather", satin: "", denim: "Cotton", alpaca: "Alpaca", mohair: "Mohair" };
 function nameCheck(name, comp) {
-  const n = String(name || "").toLowerCase(), c = String(comp || "");
+  // "Faux Leather"·"Vegan Leather"·"Linen-Look"·"Satin-Effect" 는 그 섬유가 아니라는 뜻이다 — 이름에서 뺀다.
+  const n = String(name || "").toLowerCase()
+    .replace(/\b(?:faux|vegan|imitation|fake|pleather)[\s-]+[a-z]+/g, " ")
+    .replace(/\b[a-z]+[\s-](?:look|like|effect|feel|touch|print)\b/g, " ");
+  const c = String(comp || "");
   const notes = [];
   const pure = n.match(/100\s*%\s*([a-z]+)/);
   if (pure && NAME_FIBRES[pure[1]]) {
@@ -129,6 +134,7 @@ function nameCheck(name, comp) {
   if (c.split("\n").length > 1) notes.push("두 줄");
   return notes.length ? "⚠ " + [...new Set(notes)].join(" · ") : "";
 }
+// ── 상품명·혼용률 대조 끝
 
 const api = async (qs, init) => {
   const r = await fetch(WORKER + "/?" + qs + tok, { signal: AbortSignal.timeout(45000), ...(init || {}) });
