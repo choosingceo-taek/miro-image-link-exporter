@@ -111,7 +111,7 @@ export async function runEnrich(base, env = {}) {
       ...process.env, WORKER_URL: base, WORKER_TOKEN: "test", BRAND_POOL: "1",
       WAYBACK_API: `${base}/wb/available`, WAYBACK_WEB: `${base}/web`,
       CATEGORY_LINKS_URL: `${base}/category-links.json`,
-      WAYBACK_GAP_MS: "5", WAYBACK_BACKOFF_MS: "5",
+      WAYBACK_GAP_MS: "5", WAYBACK_BACKOFF_MS: "5", WAYBACK_NETERR_MS: "5",
       NO_PROXY: "localhost,127.0.0.1", no_proxy: "localhost,127.0.0.1",
       DRY: "", BRANDS: "", ...env,
     },

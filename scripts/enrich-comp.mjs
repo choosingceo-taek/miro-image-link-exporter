@@ -16,7 +16,7 @@
 //      NEED_FIELDS(목표 항목, 기본 comp,color), RETRY_DAYS(빈손 재시도 간격, 기본 5)
 //      DRY=1 (읽기만 하고 Worker 에 아무것도 쓰지 않는다 — 리포트는 enrich-comp-dry-report.md)
 //      BRANDS(쉼표로 나눈 브랜드 이름, 대소문자 무시 — 이 브랜드만 돈다. 비우면 전부)
-//      WAYBACK=0 (아카이브 층 끄기), WAYBACK_MAX(한 실행 조회 상한, 기본 400 · DRY 는 1000),
+//      WAYBACK=0 (아카이브 층 끄기), WAYBACK_MAX(한 실행 조회 상한, 기본 250 · DRY 는 600),
 //      WAYBACK_PER_BRAND(브랜드당 조회 상한, 기본 40), WAYBACK_RETRY_DAYS(보관본 없던 상품을
 //      다시 묻기까지, 기본 30), WAYBACK_API · WAYBACK_WEB · CATEGORY_LINKS_URL(테스트용 주소 바꾸기)
 // 예약 실행은 workflow_dispatch inputs 가 비어 있어 이 기본값이 그대로 쓰인다 —
@@ -271,7 +271,7 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }) {
 // 보관된 '같은 상품 주소'의 예전 페이지에는 혼용률이 그대로 있는 경우가 많다(11/24 실측).
 // 이미 있는 보관본만 읽는다 — 보관을 새로 요청하는 'Save Page Now' 는 절대 부르지 않는다.
 //
-// archive.org 는 무료 공공 서비스라 정중하게 쓴다: 동시 2개 · 약 1초 간격 · 이 저장소를 밝히는
+// archive.org 는 무료 공공 서비스라 정중하게 쓴다: 동시 2개 · 약 4초 간격(분당 15회) · 이 저장소를 밝히는
 // User-Agent(개인 연락처 없음) · 한 실행 WAYBACK_MAX · 브랜드당 WAYBACK_PER_BRAND 상한 ·
 // 429/5xx 에 물러서고, 연달아 실패하면 이 실행에서는 층을 끈다.
 //
@@ -286,11 +286,17 @@ const WAYBACK_API = (process.env.WAYBACK_API || "https://archive.org/wayback/ava
 const WAYBACK_WEB = (process.env.WAYBACK_WEB || "https://web.archive.org/web").replace(/\/+$/, "");
 const numEnv = (k, d) => { const v = process.env[k]; const n = Number(v); return v != null && v !== "" && Number.isFinite(n) ? n : d; };
 // DRY 는 측정용이라 상한을 넉넉히 둔다(저장을 안 하므로 다음 밤 예산을 뺏지도 않는다).
-const WAYBACK_MAX = Math.max(0, numEnv("WAYBACK_MAX", DRY ? 1000 : 400));
+// 상한 계산: 상품 하나에 요청 2~3회 × 4초 ≈ 10초. 250개면 약 40분 — 110분 실행의 다른 경로와 나눠 쓴다.
+const WAYBACK_MAX = Math.max(0, numEnv("WAYBACK_MAX", DRY ? 600 : 250));
 const WAYBACK_PER_BRAND = Math.max(0, numEnv("WAYBACK_PER_BRAND", 40));
 const WAYBACK_RETRY_MS = Math.max(1, numEnv("WAYBACK_RETRY_DAYS", 30)) * 24 * 3600 * 1000;
-const WAYBACK_GAP_MS = Math.max(0, numEnv("WAYBACK_GAP_MS", 1000));        // 요청 사이 간격
+// 요청 사이 간격. 11/24 측정 실행(45303192170)에서 1초 간격(분당 약 40회)으로 5분쯤 지나자
+// archive.org 가 429 없이 접속 자체를 끊었다("fetch failed" 연속) — IP 단위로 막는 것으로 보인다.
+// 분당 15회(4초)로 낮춘다.
+const WAYBACK_GAP_MS = Math.max(0, numEnv("WAYBACK_GAP_MS", 4000));
 const WAYBACK_BACKOFF_MS = Math.max(1, numEnv("WAYBACK_BACKOFF_MS", 5000)); // 429/5xx 뒤 첫 대기
+// 접속이 끊기면(fetch failed) 막힌 것일 공산이 커서 더 길게 쉰다: 30초 → 60초 → 120초.
+const WAYBACK_NETERR_MS = Math.max(1, numEnv("WAYBACK_NETERR_MS", 30000));
 const WAYBACK_FAILS = Math.max(1, numEnv("WAYBACK_FAILS", 4));              // 연속 실패 몇 번에 끄나
 const WB_UA = "rack-catalog-enrich (github.com/choosingceo-taek/miro-image-link-exporter)";
 const CATEGORY_LINKS_URL = process.env.CATEGORY_LINKS_URL ||
@@ -314,7 +320,8 @@ function wbRelease() { wb.inflight--; const r = wbWaiters.shift(); if (r) r(); }
 function wbNote(reason, brand, url, extra) {
   wb.reasons[reason] = (wb.reasons[reason] || 0) + 1;
   const ex = (wb.examples[reason] = wb.examples[reason] || []);
-  if (ex.length < 5) ex.push({ brand, url, extra: extra || "" });
+  // DRY 는 가드를 판단하려는 실행이라 예시를 더 많이 남긴다.
+  if (ex.length < (DRY ? 25 : 5)) ex.push({ brand, url, extra: extra || "" });
 }
 // 아카이브에 GET 한 번. 429·5xx·네트워크 오류는 물러섰다가 두 번까지 다시 해 본다.
 // 연속 실패가 WAYBACK_FAILS 번이면 이 실행에서는 층을 끈다(throw).
@@ -347,7 +354,7 @@ async function wbGet(url, asJson) {
     } catch (e) {
       wb.neterr++;
       last = e;
-      wait = WAYBACK_BACKOFF_MS * 2 ** wb.fails;
+      wait = WAYBACK_NETERR_MS * 2 ** wb.fails;
     } finally {
       wb.ms += Date.now() - t0;
       wbRelease();
@@ -887,7 +894,7 @@ if (WAYBACK) {
   md += `\n사유별 개수: ${Object.entries(wb.reasons).map(([k, v]) => `${k} ${v}`).join(" · ") || "없음"}\n\n`;
   const exKeys = Object.keys(wb.examples);
   if (exKeys.length) {
-    md += `<details><summary>사유별 예시(최대 5개)</summary>\n\n`;
+    md += `<details><summary>사유별 예시(최대 ${DRY ? 25 : 5}개)</summary>\n\n`;
     for (const k of exKeys) {
       md += `**${k}**\n\n`;
       for (const e of wb.examples[k]) md += `- ${e.brand} — ${e.url}${e.extra ? ` — ${e.extra.replace(/\|/g, "/")}` : ""}\n`;

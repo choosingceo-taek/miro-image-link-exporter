@@ -34,10 +34,11 @@ const CATEGORY_WORDS = new Set((
   "tops t-shirts tshirts tees shirts blouses shirts-blouses dresses skirts pants trousers jeans denim " +
   "shorts knitwear knits sweaters jumpers cardigans sweatshirts hoodies jackets coats coats-jackets " +
   "outerwear puffers blazers suits activewear loungewear swimwear lingerie sleepwear tanks " +
-  "collection collections all view-all shop-all basics essentials gifts edit"
+  "collection collections all view-all shop-all basics essentials gifts edit discover " +
+  "black friday cyber monday prime holiday"
 ).split(/\s+/));
 // 마지막 낱말이 이 복수형이면 카테고리일 공산이 크다("rugby-shirts", "womens-tops").
-const PLURAL_GARMENT = /^(?:shirts|t-?shirts|tees|tops|blouses|dresses|skirts|pants|trousers|jeans|shorts|sweaters|jumpers|cardigans|sweatshirts|hoodies|jackets|coats|puffers|blazers|knits|tanks|bags|shoes|accessories|arrivals|clothing)$/;
+const PLURAL_GARMENT = /^(?:shirts|t-?shirts|tees|tops|blouses|dresses|skirts|pants|trousers|jeans|shorts|sweaters|jumpers|cardigans|sweatshirts|hoodies|jackets|coats|puffers|blazers|knits|tanks|bags|shoes|accessories|arrivals|clothing|clothes|sets)$/;
 // 이 이름의 경로 조각이 있으면 카테고리 트리 안이다(Lululemon /c/…, Chico's /store/category/…).
 const CATEGORY_SEGMENTS = new Set(["c", "category", "categories", "browse", "shop-by"]);
 
@@ -177,7 +178,7 @@ const allText = (html) => String(html || "").replace(/<style[\s\S]*?<\/style>/gi
 // 혼용률 덩어리: "NN% 섬유" / "섬유 NN%" 를 찾아, 300자 넘게 떨어지거나 같은 섬유가 다시
 // 나오면 다른 덩어리로 본다(목록에서는 카드가 붙어 있어 거리만으로는 못 가른다).
 // 덩어리마다 '섬유 퍼센트' 묶음을 정렬해 서명으로 만들고, 서로 다른 서명 수를 센다.
-export function compBlocks(html, fibreNames) {
+export function compBlocks(html, fibreNames, sigsOut) {
   const names = [...new Set((fibreNames || []).map((s) => String(s).toLowerCase()))]
     .sort((a, b) => b.length - a.length).map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   if (!names.length) return 0;
@@ -193,7 +194,9 @@ export function compBlocks(html, fibreNames) {
     cur.fibs.add(fib);
     cur.end = m.index + m[0].length;
   }
-  return new Set(blocks.map((b) => [...b.items].sort().join("/"))).size;
+  const sigs = new Set(blocks.map((b) => [...b.items].sort().join("/")));
+  if (sigsOut) sigsOut.push(...[...sigs].slice(0, 4));
+  return sigs.size;
 }
 
 // 화면에 가격이 나오는 횟수(같은 가격도 따로 센다).
@@ -218,14 +221,16 @@ export function archivePageCheck(html, fibreNames) {
     /<meta[^>]+content=["']\s*(?:og:)?product[^"']*["'][^>]*property=["']og:type["']/i.test(s);
   const heads = h1s(s);
   const h1Generic = heads.length === 1 && isCategoryName(heads[0]);
-  const blocks = compBlocks(s, fibreNames);
+  const sigs = [];
+  const blocks = compBlocks(s, fibreNames, sigs);
+  const title = ((s.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1] || "").replace(/\s+/g, " ").trim().slice(0, 60);
   const prices = priceCount(s);
   const carts = (visibleText(s).match(ADD_TO_CART_RX) || []).length;
   const P1 = ld.rootProducts.size >= 1 && ld.rootProducts.size <= 2;
   const P2 = og;
   const P3 = heads.length === 1 && heads[0].length >= 2 && heads[0].length <= 150 && !h1Generic && carts >= 1;
   const signals = { rootProducts: ld.rootProducts.size, listProducts: ld.listProducts, itemList: ld.itemListLen,
-    og, h1: heads.length, blocks, prices, carts };
+    og, h1: heads.length, blocks, prices, carts, sigs, title, types: [...ld.types].slice(0, 6) };
   if ([...ld.types].some((t) => LISTING_TYPES.has(t))) return { ok: false, reason: "목록 페이지(JSON-LD)", signals };
   if (!ld.rootProducts.size && (ld.itemListLen >= 3 || ld.listProducts >= 3)) return { ok: false, reason: "목록 페이지(JSON-LD)", signals };
   if (ld.rootProducts.size >= 3) return { ok: false, reason: "상품 여러 개(JSON-LD)", signals };

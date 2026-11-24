@@ -41,6 +41,14 @@ const URLS = [
   ["Sezane collection", "https://www.sezane.com/us-en/octobre-editions/collection", false],
   ["매거진", "https://www.thewhitecompany.com/uk/magazine/sleep", false],
   ["최상위 짧은 경로", "https://www.anntaylor.com/cat5310001", false],
+  // 11/24 측정 실행(45303192170)에서 보관본 검사까지 가서야 걸린 카테고리 주소들
+  ["Adidas women-black_friday", "https://www.adidas.com/us/women-black_friday", false],
+  ["Adidas women-prime", "https://www.adidas.com/us/women-prime", false],
+  ["Aritzia sweatsuit-sets", "https://www.aritzia.com/intl/en/clothing/sweatsuit-sets", false],
+  ["Aritzia workout-clothes", "https://www.aritzia.com/intl/en/clothing/womens-workout-clothes", false],
+  ["Aritzia discover", "https://www.aritzia.com/intl/en/discover", false],
+  ["Aritzia 상품(/product/…/번호)", "https://www.aritzia.com/intl/en/product/pacino-vest/113937.html", true],
+  ["Adidas 상품", "https://www.adidas.com/us/adidas-x-farm-rio-dress/KR0258.html", true],
   // 남길 것 — 실측 보고서의 진짜 상품 주소
   ["Arket", "https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/", true],
   ["Zara(쿼리)", "https://www.zara.com/us/en/rustic-cotton-t-shirt-p04424306.html?v1=615161645", true],
