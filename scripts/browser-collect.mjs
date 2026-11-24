@@ -16,6 +16,10 @@
 //   MAX_PAGES   카테고리당 최대 페이지(기본 8)
 //   HEADFUL     "1" 이면 headless 끔(로컬 디버깅용)
 //   CHROMIUM_PATH  미리 설치된 크롬 실행 경로(선택)
+//   ENGINE      chromium | firefox. 주면 모든 브랜드를 그 엔진으로 돈다(측정용).
+//               비우면 브랜드별 기본 — Render browser 그룹은 chromium, 추가 브랜드 파일은 적힌 엔진.
+//   FIREFOX_PATH   미리 설치된 파이어폭스 실행 경로(선택)
+//   EXTRA_BRANDS_FILE  추가 브랜드 파일 경로(기본 저장소 루트의 browser-extra-brands.json)
 //   RENDER_URL / WORKER_URL / WORKER_TOKEN
 //   DEADLINE_MIN   시간 예산(분, 기본 85 · 최소 5). 이 시각 뒤로는 새 브랜드를 시작하지 않는다
 //
@@ -24,11 +28,12 @@
 //   HARD_GRACE_SEC   예산 뒤 진행 중인 브랜드를 끊기까지의 여유(기본 600초)
 //   CONFIG_RETRY_MS  설정 파일 재시도 첫 간격(기본 5000 — 5번 시도에 약 3분)
 //   REPORT_DIR       리포트를 읽고 쓰는 폴더(기본 저장소 루트)
+//   DRY_PLAN         "1" 이면 대상·엔진별 실행 옵션만 JSON 으로 찍고 끝낸다(브라우저를 띄우지 않음)
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { chromium } from "playwright";
+import { chromium, firefox } from "playwright";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const REPORT_DIR = process.env.REPORT_DIR || ROOT;
@@ -45,6 +50,66 @@ const HEADFUL = process.env.HEADFUL === "1";
 const only = (process.env.BRANDS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
 // browser = 헤드리스로 수집 가능한 그룹(기본, 매일 자동) · extension = 크롬 확장 담당 그룹(재조사용) · all = 둘 다
 const GROUP = (process.env.GROUP || "browser").toLowerCase();
+const DRY_PLAN = process.env.DRY_PLAN === "1";
+
+// ── 브라우저 엔진 ──
+// 크롬(chromium)으로 403 이 나는 목록 페이지 일부가 파이어폭스로는 열렸다(try-engines-report.md).
+// 두 엔진은 실행·창 옵션만 다르고 나머지(수집기 주입·페이지 넘김·저장)는 똑같이 쓴다.
+// 파이어폭스에는 크롬 user-agent·크롬 전용 실행 인자를 넣지 않는다 — 크롬인 척하면
+// 오히려 어긋난 지문이 돼서 막힌다. 언어·시간대·창 크기만 맞춘다.
+const ENGINES = ["chromium", "firefox"];
+const ENGINE_ENV = (process.env.ENGINE || "").trim().toLowerCase();
+if (ENGINE_ENV && !ENGINES.includes(ENGINE_ENV)) {
+  console.error(`ENGINE 은 ${ENGINES.join(" | ")} 중 하나여야 합니다(받은 값: ${process.env.ENGINE})`);
+  process.exit(2);
+}
+const COMMON_CONTEXT = { viewport: { width: 1440, height: 1000 }, locale: "en-US", timezoneId: "America/New_York" };
+function engineOptions(name) {
+  if (name === "firefox") {
+    return {
+      launch: {
+        headless: !HEADFUL,
+        ...(process.env.FIREFOX_PATH ? { executablePath: process.env.FIREFOX_PATH } : {}),
+      },
+      context: { ...COMMON_CONTEXT },
+      hideWebdriver: false,
+    };
+  }
+  return {
+    launch: {
+      headless: !HEADFUL,
+      // 컨테이너에 크롬이 미리 깔려 있으면(예: PLAYWRIGHT_BROWSERS_PATH) 그걸 쓴다.
+      ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
+      // 일부 사이트(예: shop.lululemon.com)는 헤드리스 크롬의 HTTP/2 협상에서 즉시 끊는다 → HTTP/1.1로.
+      args: ["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-http2"],
+    },
+    context: {
+      ...COMMON_CONTEXT,
+      userAgent:
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+    },
+    // navigator.webdriver 흔적 제거(간단한 자동화 탐지 회피 — 진짜 봇차단은 못 뚫는다)
+    hideWebdriver: true,
+  };
+}
+// 브랜드의 엔진: ENGINE 을 주면 그것, 아니면 브랜드에 적힌 엔진, 그것도 없으면 chromium.
+const engineFor = (t) => ENGINE_ENV || (t && ENGINES.includes(t.engine) ? t.engine : "chromium");
+
+// 엔진은 처음 필요할 때 띄운다 — 한 실행에 크롬 브랜드와 파이어폭스 브랜드가 섞일 수 있다.
+const contexts = new Map();   // 엔진 이름 → { browser, context }
+async function contextFor(name) {
+  if (contexts.has(name)) return contexts.get(name).context;
+  const o = engineOptions(name);
+  const browser = await (name === "firefox" ? firefox : chromium).launch(o.launch);
+  const context = await browser.newContext(o.context);
+  if (o.hideWebdriver) {
+    await context.addInitScript(() => {
+      Object.defineProperty(navigator, "webdriver", { get: () => undefined });
+    });
+  }
+  contexts.set(name, { browser, context });
+  return context;
+}
 
 const PER_CATEGORY = 150;    // 확장(background.js)과 동일
 const MAX_PER_BRAND = 750;
@@ -101,7 +166,11 @@ function targetsFromLastReport() {
     return (prev.results || [])
       .filter((r) => r && r.brand && r.site && Array.isArray(r.perUrl) && r.perUrl.length)
       .filter((r) => !only.length || only.includes(String(r.brand).toLowerCase()))
-      .map((r) => ({ brand: r.brand, site: r.site, urls: r.perUrl.map((u) => u.url).filter(Boolean) }));
+      .map((r) => ({
+        brand: r.brand, site: r.site, urls: r.perUrl.map((u) => u.url).filter(Boolean),
+        // 지난 실행에서 브랜드별로 정해 둔 엔진(추가 브랜드 파일)을 이어 쓴다.
+        ...(r.engineSource === "extra" && ENGINES.includes(r.engine) ? { engine: r.engine, source: "extra" } : {}),
+      }));
   } catch (e) { return []; }
 }
 
@@ -162,26 +231,17 @@ if (!targets.length) { console.error("no targets" + (configNote ? " — " + conf
   const k = targets.length ? day % targets.length : 0;
   targets.push(...targets.splice(0, k));
 }
-console.log(`헤드리스 수집 [${GROUP}] ${targets.length}개 브랜드 (저장 ${STORE ? "ON" : "OFF — 조사만"}, 카테고리당 최대 ${MAX_PAGES}페이지)`);
+for (const t of targets) t.engine = engineFor(t);
+const enginesUsed = [...new Set(targets.map((t) => t.engine))];
+console.log(`헤드리스 수집 [${GROUP}] ${targets.length}개 브랜드 (엔진 ${enginesUsed.join("+")}, 저장 ${STORE ? "ON" : "OFF — 조사만"}, 카테고리당 최대 ${MAX_PAGES}페이지)`);
+if (DRY_PLAN) {
+  // 브라우저 없이 '무엇을 어떤 엔진·옵션으로 돌지'만 보여 준다(엔진 전환 시험용).
+  const opts = {};
+  for (const e of ENGINES) opts[e] = engineOptions(e);
+  console.log("PLAN " + JSON.stringify({ engineEnv: ENGINE_ENV, configNote, targets, options: opts }));
+  process.exit(0);
+}
 
-const browser = await chromium.launch({
-  headless: !HEADFUL,
-  // 컨테이너에 크롬이 미리 깔려 있으면(예: PLAYWRIGHT_BROWSERS_PATH) 그걸 쓴다.
-  ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
-  // 일부 사이트(예: shop.lululemon.com)는 헤드리스 크롬의 HTTP/2 협상에서 즉시 끊는다 → HTTP/1.1로.
-  args: ["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-http2"],
-});
-const context = await browser.newContext({
-  viewport: { width: 1440, height: 1000 },
-  locale: "en-US",
-  timezoneId: "America/New_York",
-  userAgent:
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-});
-// navigator.webdriver 흔적 제거(간단한 자동화 탐지 회피 — 진짜 봇차단은 못 뚫는다)
-await context.addInitScript(() => {
-  Object.defineProperty(navigator, "webdriver", { get: () => undefined });
-});
 
 const norm = (u) => String(u || "").split("?")[0].replace(/\/+$/, "");
 
@@ -199,7 +259,7 @@ for (const g of targets) {
   const perUrl = [];
   for (const url of g.urls) {
     if (pastHard()) { cut = true; break; }
-    const page = await context.newPage();
+    const page = await (await contextFor(g.engine)).newPage();
     let note = "";
     let lastRej = null;
     const byUrl = new Map();
@@ -324,19 +384,20 @@ for (const g of targets) {
   }
   const secs = Math.round((Date.now() - t0) / 1000);
   results.push({
-    brand: g.brand, site: g.site, collected: items.length, stored, storeErr, cats, perUrl, secs, dropped, cut,
+    brand: g.brand, site: g.site, engine: g.engine, engineSource: g.source || (ENGINE_ENV ? "env" : "default"),
+    collected: items.length, stored, storeErr, cats, perUrl, secs, dropped, cut,
     // 무엇이 잡혔는지 눈으로 확인할 수 있게 표본을 남긴다(선택자 오작동 진단용).
     sample: items.slice(0, 5).map((it) => ({ name: it.name, productUrl: it.productUrl })),
   });
   const blockedUrls = perUrl.filter((u) => /차단|HTTP 40|HTTP 42/.test(u.note)).length;
   console.log(
-    `[${results.length}/${targets.length}] ${g.brand}: ${items.length}개` +
+    `[${results.length}/${targets.length}] ${g.brand} (${g.engine}): ${items.length}개` +
     (dropped ? ` (공용 링크 ${dropped}개 제외)` : "") +
     (STORE ? ` → 저장 ${stored}${storeErr ? " (" + storeErr + ")" : ""}` : "") +
     (blockedUrls ? `  ⛔ 차단 ${blockedUrls}/${g.urls.length}` : "") + ` (${secs}s)`,
   );
 }
-await browser.close();
+for (const { browser } of contexts.values()) await browser.close().catch(() => {});
 
 // 판정: 헤드리스로 충분히 모이면 "자동화 가능", 차단 신호가 있으면 "확장 필요", 그 외는 "선택자 보완 필요".
 for (const r of results) {
@@ -351,8 +412,9 @@ const auto = done.filter((r) => r.verdict === "자동화 가능");
 const blk = done.filter((r) => r.verdict.startsWith("확장"));
 const fix = done.filter((r) => r.verdict.startsWith("보완"));
 
-let md = `# 헤드리스 크롬 수집 테스트 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
-md += `GitHub Actions(데이터센터 IP)에서 진짜 크롬으로 확장 담당 브랜드를 돌린 결과.\n\n`;
+let md = `# 헤드리스 브라우저 수집 테스트 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+md += `GitHub Actions(데이터센터 IP)에서 진짜 브라우저로 확장 담당 브랜드를 돌린 결과.\n\n`;
+md += `- 엔진: ${enginesUsed.join(" + ")}` + (ENGINE_ENV ? ` (ENGINE=${ENGINE_ENV} 로 전체 지정)` : " (브랜드별 기본)") + `\n\n`;
 if (configNote) md += `> ⚠ ${configNote}\n\n`;
 md += `- 대상 ${targets.length} · ✅ 자동화 가능 ${auto.length} · ⛔ 확장 필요 ${blk.length} · 🔧 보완 필요 ${fix.length}` +
   (deferred.length ? ` · ⏭ 마감으로 미룸 ${deferred.length}` : "") + `\n\n`;
@@ -366,7 +428,7 @@ if (deferred.length) {
 for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요(봇 차단)", blk], ["🔧 보완 필요", fix]]) {
   md += `## ${title} (${rows.length})\n\n`;
   for (const r of rows) {
-    md += `- **${r.brand}** — ${r.collected}개 ${JSON.stringify(r.cats)}` +
+    md += `- **${r.brand}** [${r.engine}] — ${r.collected}개 ${JSON.stringify(r.cats)}` +
       (r.dropped ? ` · 공용 링크 ${r.dropped}개 제외` : "") + ` (${r.secs}s)\n`;
     for (const u of r.perUrl) if (u.note) md += `  - ${u.count}개 · ${u.url} ← ${u.note}\n`;
     for (const sm of r.sample || []) md += `  - 표본: ${sm.name} — ${sm.productUrl}\n`;
@@ -377,7 +439,7 @@ for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요
 // 지난 리포트가 아니라 오늘 대상(targets)에서 가져온다 — 오늘 설정 파일로 새로 들어온 브랜드는
 // 지난 리포트에 없어서, 미루는 순간 다음 대체 실행 목록에서 빠졌다.
 const carry = targets.filter((t) => deferred.some((d) => d.brand === t.brand) && !results.some((r) => r.brand === t.brand));
-const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
-writeFileSync(join(REPORT_DIR, "browser-collect-report.json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, configNote, deferred, results: keep }, null, 1));
+const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, engine: t.engine, engineSource: t.source || (ENGINE_ENV ? "env" : "default"), collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
+writeFileSync(join(REPORT_DIR, "browser-collect-report.json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, engine: ENGINE_ENV || "per-brand", engines: enginesUsed, configNote, deferred, results: keep }, null, 1));
 writeFileSync(join(REPORT_DIR, "browser-collect-report.md"), md);
 console.log(`\n자동화 가능 ${auto.length} / 확장 필요 ${blk.length} / 보완 필요 ${fix.length}`);

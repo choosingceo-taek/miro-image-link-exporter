@@ -26,6 +26,10 @@ on:
         description: "카테고리당 최대 페이지"
         required: false
         default: "8"
+      engine:
+        description: "chromium(기본) | firefox — 모든 브랜드를 이 엔진으로. 비우면 브랜드별 기본"
+        required: false
+        default: "chromium"
       deadline_min:
         description: "시간 예산(분). 비우면 스크립트 기본값(85). 시험 실행은 store=0 과 함께 작게"
         required: false
@@ -48,13 +52,29 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install Playwright Chromium
+      - name: Pick browsers
+        # 크롬은 늘 받는다. 파이어폭스는 엔진으로 firefox 를 골랐거나, 추가 브랜드 파일에
+        # firefox 브랜드가 있을 때만 받는다(설치 시간이 몇 분 더 든다).
+        id: pick
+        env:
+          ENGINE_IN: ${{ github.event.inputs.engine }}
+        run: |
+          list="chromium"
+          if [ "$ENGINE_IN" = "firefox" ]; then list="chromium firefox"; fi
+          if [ -z "$ENGINE_IN" ] && [ -f browser-extra-brands.json ] && grep -q '"firefox"' browser-extra-brands.json; then
+            list="chromium firefox"
+          fi
+          echo "browsers=$list" >> "$GITHUB_OUTPUT"
+          echo "설치할 브라우저: $list"
+      - name: Install Playwright browsers
         # 이 설치 단계가 두 번 하루치 작업을 통째로 날렸다.
         #  · 8/15 — 시간 제한이 없어 90분을 멈춘 채 쓰고 워크플로가 취소됐다.
         #  · 8/19 — apt 잠금 충돌로 세 번 다 실패했다(재시도 간격이 15초라 소용없었다).
         # 그래서 시간을 끊고, 잠금이 풀리길 기다리고, 그래도 안 되면 시스템 패키지
         # 없이라도 브라우저를 받아 둔다.
         timeout-minutes: 20
+        env:
+          BROWSERS: ${{ steps.pick.outputs.browsers }}
         run: |
           npm init -y >/dev/null
           timeout 240 npm i --no-save playwright@1.49.1
@@ -71,14 +91,14 @@ jobs:
           for wait in 0 30 60; do
             [ "$wait" -gt 0 ] && sleep "$wait"
             waitlock
-            timeout 300 npx playwright install --with-deps chromium && exit 0
+            timeout 300 npx playwright install --with-deps $BROWSERS && exit 0
             echo "설치 실패 — 다시 시도"
           done
           # apt 가 끝내 안 풀려도 브라우저 자체는 받아 둔다. ubuntu-latest 이미지에는
           # 크로미움이 쓰는 공유 라이브러리가 대체로 이미 들어 있어, 이것만으로도
           # 도는 경우가 많다. 아무것도 못 하고 끝내는 것보다 낫다.
           echo "--with-deps 실패 — 시스템 패키지 없이 브라우저만 내려받아 봅니다"
-          timeout 300 npx playwright install chromium
+          timeout 300 npx playwright install $BROWSERS
       - name: Collect
         env:
           # schedule 실행에는 inputs 가 없으므로 기본값을 여기서 채운다.
@@ -88,6 +108,9 @@ jobs:
           MAX_PAGES: ${{ github.event.inputs.max_pages || '8' }}
           # 비어 있으면 스크립트 기본값(85분)이 쓰인다.
           DEADLINE_MIN: ${{ github.event.inputs.deadline_min }}
+          # 예약 실행에는 inputs 가 없어 비어 있다 → 스크립트가 브랜드별 기본 엔진을 쓴다
+          # (Render browser 그룹은 chromium).
+          ENGINE: ${{ github.event.inputs.engine }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: node scripts/browser-collect.mjs
       - name: Upload report

@@ -174,7 +174,7 @@ try {
     state.slow = { "/foxtrot/c/tops": 22_000 };
     const { json, md, stores, out, code } = await collect(L, { DEADLINE_SEC: "18", HARD_GRACE_SEC: "8" });
     state.slow = {};
-    const order = [...out.matchAll(/\[\d+\/4\] (\w+):/g)].map((m) => m[1]);
+    const order = [...out.matchAll(/\[\d+\/4\] (\w+)(?: \(\w+\))?:/g)].map((m) => m[1]);
     if (order[0] !== "Echo") fail(`[${L}] 실행 순서가 예상과 다르다: ${order.join(",")} — 시작 위치 회전 규칙이 바뀌었나`);
     const stored = stores.map((s) => s.brand);
     if (!stored.includes("Echo")) fail(`[${L}] 마감 전에 끝난 Echo 가 저장되지 않았다: ${JSON.stringify(stores)}`);
@@ -219,10 +219,59 @@ try {
     const ri = res(json, "India");
     if (!ri || ri.collected !== 6 || ri.stored !== 0) fail(`[${L}] 조사 결과: ${JSON.stringify(ri && { collected: ri.collected, stored: ri.stored })}`);
     if (json && json.store !== false) fail(`[${L}] 리포트 JSON 의 store 가 false 가 아니다`);
+    if (!ri || ri.engine !== "chromium" || !json || json.engine !== "per-brand") fail(`[${L}] 기본 엔진이 리포트에 chromium 으로 안 적혔다: ${JSON.stringify(ri && ri.engine)} / ${json && json.engine}`);
+    else ok("ENGINE 을 비우면 chromium 으로 돌고 리포트에 엔진이 적힌다");
+  }
+
+  // ── 5. 엔진 선택(DRY_PLAN — 브라우저를 띄우지 않고 고른 옵션만 본다) ──
+  // 로컬·CI 에 파이어폭스가 없어도 '파이어폭스에 크롬 흉내를 넣지 않는다'는 규칙은 지킬 수 있다.
+  {
+    const L = "엔진 선택";
+    setBrands([["Juliet", ["tops"]]]);
+    const plan = async (env) => {
+      const run = spawn(process.execPath, [join(ROOT, "scripts/browser-collect.mjs")], {
+        env: {
+          ...process.env, RENDER_URL: `${BASE}/render`, WORKER_URL: `${BASE}/worker`, GROUP: "browser", BRANDS: "",
+          STORE: "0", DRY_PLAN: "1", ENGINE: "", REPORT_DIR: mkdtempSync(join(tmpdir(), "bc-plan-")),
+          NO_PROXY: "localhost,127.0.0.1", no_proxy: "localhost,127.0.0.1", ...env,
+        },
+        stdio: ["ignore", "pipe", "pipe"],
+      });
+      let out = "";
+      run.stdout.on("data", (d) => { out += d; });
+      run.stderr.on("data", (d) => { out += d; });
+      const code = await new Promise((r) => run.on("close", r));
+      const m = out.match(/^PLAN (.*)$/m);
+      return { code, out, plan: m ? JSON.parse(m[1]) : null };
+    };
+    const ff = await plan({ ENGINE: "firefox" });
+    const p = ff.plan;
+    if (ff.code !== 0 || !p) fail(`[${L}] ENGINE=firefox 계획을 못 받았다(종료 ${ff.code}) ${ff.out.slice(-300)}`);
+    else {
+      const t = p.targets.find((x) => x.brand === "Juliet");
+      if (!t || t.engine !== "firefox") fail(`[${L}] ENGINE=firefox 인데 대상 엔진이 ${t && t.engine}`);
+      const fo = p.options.firefox;
+      if (fo.context.userAgent) fail(`[${L}] 파이어폭스에 user-agent 를 덮어쓴다: ${fo.context.userAgent}`);
+      if (fo.launch.args && fo.launch.args.length) fail(`[${L}] 파이어폭스에 크롬 전용 실행 인자를 넣는다: ${fo.launch.args}`);
+      if (fo.hideWebdriver) fail(`[${L}] 파이어폭스에 webdriver 감추기 스크립트를 넣는다`);
+      if (fo.context.locale !== "en-US" || fo.context.timezoneId !== "America/New_York" || !fo.context.viewport) fail(`[${L}] 파이어폭스 언어·시간대·창 크기가 크롬과 다르다: ${JSON.stringify(fo.context)}`);
+      const co = p.options.chromium;
+      if (!/Chrome\//.test(co.context.userAgent || "") || !(co.launch.args || []).includes("--disable-http2")) fail(`[${L}] 크롬 옵션이 바뀌었다: ${JSON.stringify(co)}`);
+      if (t && t.engine === "firefox" && !fo.context.userAgent && !(fo.launch.args || []).length) ok("ENGINE=firefox — 파이어폭스는 크롬 UA·인자 없이 언어·시간대·창 크기만 맞춘다");
+    }
+    const df = await plan({});
+    const dt = df.plan && df.plan.targets.find((x) => x.brand === "Juliet");
+    if (!dt || dt.engine !== "chromium") fail(`[${L}] ENGINE 을 비우면 chromium 이어야 한다: ${dt && dt.engine}`);
+    else ok("ENGINE 을 비우면 chromium");
+    const up = await plan({ ENGINE: "FireFox" });
+    if (!up.plan || up.plan.targets[0].engine !== "firefox") fail(`[${L}] ENGINE 대소문자를 무시하지 않는다`);
+    const badEng = await plan({ ENGINE: "webkit" });
+    if (badEng.code !== 2 || badEng.plan) fail(`[${L}] 모르는 엔진(webkit)을 거부하지 않는다(종료 ${badEng.code})`);
+    else ok("모르는 엔진 이름은 종료 코드 2로 거부");
   }
 } finally {
   srv.close();
 }
 
 if (bad) { console.error(`\n헤드리스 수집 ${bad}건 실패`); process.exit(1); }
-console.log("\n✅ 헤드리스 수집 통과 — 평소 저장 · 설정 실패 대체 · 마감(미룸/중단·저장 안 함) · STORE=0");
+console.log("\n✅ 헤드리스 수집 통과 — 평소 저장 · 설정 실패 대체 · 마감(미룸/중단·저장 안 함) · STORE=0 · 엔진 선택");
