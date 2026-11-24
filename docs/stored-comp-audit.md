@@ -70,7 +70,12 @@
   저장값 `Leather 100%` → 오늘 페이지 `Wool 70% / Cashmere 30% ‖ Wool 66% / Cashmere 28% / Nylon 5% / Elastane 1%`.
   나머지 2개는 차단(Aritzia 는 데이터센터 접속을 대부분 막는다).
 - 예: Seabreeze Tank(면 메시 탱크) · Francoise Dress(면 포플린) · Ventura Linen Halter Dress — 모두 `Leather 100%`.
-- 어디서 왔나: (조사 중)
+- 다시 읽기(실행 45335644616, 덤프 포함): Cherub Sweater 는 오늘도 `Wool 70% / Cashmere 30% ‖ …`(소재 창 "Materials &
+  Care — Content: 70% wool, 30% cashmere; Rib Trim: …")로 맞게 읽힌다. 나머지 둘은 차단.
+- **어디서 왔나: 찾지 못함.** 오늘 열린 Aritzia 페이지 글 어디에도 "leather" 가 없다(메뉴·추천·스크립트 조각까지 덤프로
+  확인). 이 값들은 실행 리포트(크롬 보강·야간 보강)에 한 번도 나온 적이 없어, 상품별로 값을 남기지 않는 경로 — 사람 PC 의
+  확장 또는 Worker 를 거친 예전 읽기 — 에서 예전 추출기로 저장된 것으로 본다. 원인을 재현하지 못했으므로 추출기를 고칠
+  근거는 없고, 대신 저장 직전 가드(아래)가 이런 값(브랜드의 76%가 같은 값 + 상품명과 어긋남)을 막는다.
 
 ### 3. Gymshark — 🔴 틀림 확인
 
@@ -78,6 +83,10 @@
 - 다시 읽은 4개 모두 첫 줄만 맞고 `Cotton 100%` 줄은 페이지에 없었다. 예:
   [FeatherForm Scoop Neck T-Shirt](https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-blue-aw26)
   저장값 `Nylon 78% / Elastane 21% / Polyester 1% ‖ Cotton 100%` → 오늘 `Nylon 78% / Elastane 21% / Polyester 1%`.
+  한 번 더 연 [Conditioning Club Oversized T-Shirt](https://row.gymshark.com/products/gymshark-conditioning-club-oversized-short-sleeve-t-shirt-ss-tops-white-aw26)도
+  저장값 `Polyester 100% ‖ Cotton 100%` → 오늘 `Polyester 100%`.
+- **어디서 왔나: 오늘 페이지에서는 재현되지 않음.** 오늘 페이지에는 "100% cotton" 같은 글이 없다(추천 상품 이름
+  "CottonMove™" 뿐). 예전 페이지 또는 예전 추출기에서 붙은 것으로 보고, 저장 직전 가드(줄 규칙)가 막는다.
 
 ### 4. &Other Stories — 🟠 모양(보관본 1개로 확인)
 
@@ -85,7 +94,12 @@
   면 티셔츠에 Linen, 면 셔츠에 Wool/Silk 가 붙는다.
 - 다시 읽기: 상품 페이지는 모두 차단. 보관본(웹 아카이브)으로 읽은
   [Box Pleat Tank Top](https://www.stories.com/en-us/product/box-pleat-tank-top-white-1358088003/) 은 `Cotton 100%`
-  (저장값 `Cotton 100% / Linen 100%`).
+  (저장값 `Cotton 100% / Linen 100%`), [Boxy Cotton T-Shirt](https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/) 도
+  보관본 `Cotton 100%` (저장값 `Cotton 100% / Linen 100%`) — 2개 모두 🔴.
+- **어디서 왔나(찾음)**: 상품 페이지 아래 **추천 상품 줄**("Others also bought", "Discover more popular pieces")에 카드마다
+  "Cotton Circle Mini Skirt $99 100% cotton", "Pleated Linen-Blend Shorts $119 …" 처럼 다른 상품의 소재가 적혀 있다.
+  예전 추출기는 첫 "퍼센트+섬유"부터 읽어 이 카드들의 소재를 상품 소재와 한 줄에 묶었다(합 200%). 11/24 에 고친
+  추출기는 "Composition Shell Cotton 100%" 처럼 소재 제목이 붙은 자리를 먼저 찾아, 같은 보관본에서 `Cotton 100%` 만 읽는다.
 
 ### 5. 상품이 아닌 주소에 붙은 값 (시그니처 F) — 125개
 
