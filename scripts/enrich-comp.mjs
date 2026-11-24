@@ -323,6 +323,8 @@ async function wbGet(url, asJson) {
   for (let attempt = 0; attempt < 3; attempt++) {
     if (wb.off) throw new Error("아카이브 층 꺼짐: " + wb.offWhy);
     await wbSlot();
+    // 자리를 기다리는 사이 다른 요청이 층을 껐을 수 있다 — 그러면 보내지 않는다.
+    if (wb.off) { wbRelease(); throw new Error("아카이브 층 꺼짐: " + wb.offWhy); }
     let wait = 0;
     const t0 = Date.now();
     try {

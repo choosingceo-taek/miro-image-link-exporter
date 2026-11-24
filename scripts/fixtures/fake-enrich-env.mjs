@@ -29,7 +29,7 @@ export async function startFake(opts = {}) {
   let archive = {};
   const srv = createServer((req, res) => {
     const u = new URL(req.url, "http://x");
-    state.requests.push({ method: req.method, path: u.pathname, query: u.search });
+    state.requests.push({ method: req.method, path: u.pathname, query: u.search, ua: req.headers["user-agent"] || "" });
     const j = (o, code = 200) => { res.writeHead(code, { "Content-Type": "application/json" }); res.end(JSON.stringify(o)); };
     const body = () => new Promise((r) => { let b = ""; req.on("data", (d) => (b += d)); req.on("end", () => r(b)); });
 
