@@ -94,6 +94,10 @@ jobs:
           # 측정 실행 — '1' 일 때만 켜진다. 예약 실행에서는 빈 값이라 평소대로 저장한다.
           DRY: ${{ github.event.inputs.dry == '1' && '1' || '' }}
           BRANDS: ${{ github.event.inputs.brands || '' }}
+          # 웹 아카이브 층 — 저장소 변수로만 바꾼다(비면 스크립트 기본값: 켬 · 400 · 브랜드당 40).
+          WAYBACK: ${{ vars.WAYBACK || '' }}
+          WAYBACK_MAX: ${{ vars.WAYBACK_MAX || '' }}
+          WAYBACK_PER_BRAND: ${{ vars.WAYBACK_PER_BRAND || '' }}
         run: node scripts/enrich-comp.mjs
       - name: Commit report
         if: always()

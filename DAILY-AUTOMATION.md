@@ -56,6 +56,26 @@
   - `group=browser`(기본) 매일 대상 / `group=extension`+`store=0` 은 차단이 풀렸는지 재조사용
 - 카탈로그 점검: Actions → **Catalog audit** → Run workflow
 - 크롬 확장: 확장 아이콘 → **지금 전체 실행**
+- 혼용률 보강 측정: Actions → **Enrich compositions** → Run workflow
+  - `dry=1` 이면 읽기만 하고 **아무것도 저장하지 않습니다**(리포트는 `enrich-comp-dry-report.md`).
+  - `brands=Zara,Arket,…` 로 브랜드를 좁힙니다(대소문자·기호 무시). 비우면 전부.
+
+## 혼용률 보강의 웹 아카이브 층
+
+데이터센터 IP 를 통째로 막는 브랜드(Zara·Arket·Reformation·Mango …)는 야간 보강이
+상품 페이지를 못 읽습니다. 그런 상품만 웹 아카이브(archive.org)에 **이미 있는 보관본**을
+찾아 혼용률·컬러를 읽습니다. 소재는 바뀌지 않으므로 예전 보관본이어도 값이 같습니다.
+가격·사이즈는 그때의 값이라 받지 않습니다. 보관 요청(Save Page Now)은 하지 않습니다.
+
+- 카테고리 주소가 상품으로 잘못 저장된 경우(예: `/intl/en/new`)는 보관본이 목록 페이지라
+  틀린 값을 줍니다. 주소 규칙과 '상품 하나의 페이지인가' 검사로 거릅니다
+  (`scripts/wayback-guard.mjs`, 테스트 `scripts/test-wayback-guard.mjs`).
+- 오버레이 표시: `via: "wayback"`(혼용률이 보관본에서 옴) · `wd`(보관본 날짜) ·
+  `wt`(보관본을 물어본 시각 — 없거나 못 쓴 상품은 30일 동안 다시 묻지 않음).
+  나중에 지금 페이지에서 같은 값을 읽으면 `via`·`wd` 를 지웁니다.
+- 정중하게 씁니다: 동시 2개 · 약 1초 간격 · 한 실행 400개 · 브랜드당 40개 · 429 가
+  이어지면 그 실행에서는 끔. 저장소 변수 `WAYBACK=0` 으로 끄고, `WAYBACK_MAX` ·
+  `WAYBACK_PER_BRAND` 로 상한을 바꿉니다.
 
 ## 브랜드 그룹을 바꾸려면
 
