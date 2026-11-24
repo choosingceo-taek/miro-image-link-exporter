@@ -1129,14 +1129,16 @@ const PART_LABEL_RX = /(?<![A-Za-z])(?:outer|shell|lining|lined|main|body|contra
 // 2026-11-24 Splendid: 머리 영역에 심긴 개인화 배지 틀 "100% Cotton 100% Cotton 100% Cashmere 100% Cashmere" 가
 // 진짜 소재("68% Viscose - From Bamboo, 29% Polyester, 3% Elastane")보다 먼저 잡혀 "Cotton 100% / Cashmere 100%"
 // 두 줄로 저장됐다(저장값 344개 중 233개). 한 옷의 두 원단은 부위 이름("Lining:")이 사이에 붙거나 둘뿐이다 —
-// 셋 이상이 맨몸으로(구분 기호만 두고) 이어지면 목록으로 보고 소재 후보에서 뺀다. 둘까지는 그대로 둔다
-// (반응형 화면이 같은 소재를 두 번 찍는 일이 있어서).
+// 셋 이상이 맨몸으로(구분 기호만 두고) 이어지거나, 같은 섬유가 맨몸으로 바로 되풀이되면("100% Cashmere 100% Cashmere"
+// — 배지 하나만 그려진 Splendid 페이지가 원피스·레깅스를 Cashmere 100% 로 남긴 모양, 33개) 목록으로 보고 소재 후보에서
+// 뺀다. 서로 다른 둘("100% Silk 100% Polyester")은 겉감·안감일 수 있어 그대로 둔다.
 const BARE_GAP_RX = /^[\s|\/,\u00b7\u2022;+&-]{0,6}$/;
 function bareRunAt(src) {
   const ms = [];
   for (const m of String(src || '').matchAll(COMP_RX)) {
     const g = m.groups;
-    if (FIBRES[String(g.fibf || g.fibr || '').toLowerCase().trim()]) ms.push({ at: m.index, end: m.index + m[0].length, pct: Number(g.pctf || g.pctr) });
+    const fib = FIBRES[String(g.fibf || g.fibr || '').toLowerCase().trim()];
+    if (fib) ms.push({ at: m.index, end: m.index + m[0].length, pct: Number(g.pctf || g.pctr), fib });
   }
   const out = new Set();
   for (let i = 0; i < ms.length;) {
@@ -1144,7 +1146,8 @@ function bareRunAt(src) {
     if (ms[i].pct === 100) {
       while (j + 1 < ms.length && ms[j + 1].pct === 100 && BARE_GAP_RX.test(src.slice(ms[j].end, ms[j + 1].at))) j++;
     }
-    if (j - i + 1 >= 3) for (let k = i; k <= j; k++) out.add(ms[k].at);
+    const dup = j > i && ms.slice(i + 1, j + 1).some((x, k) => x.fib === ms[i + k].fib);
+    if (j - i + 1 >= 3 || dup) for (let k = i; k <= j; k++) out.add(ms[k].at);
     i = j + 1;
   }
   return out;

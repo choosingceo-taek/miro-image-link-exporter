@@ -211,7 +211,12 @@ const HTML_CASES = [
       "100% Linen Lining: 100% Viscose"), "Linen 100%\nViscose 100%"],
   // 목록이 아닌 두 원단(부위 이름 없이 둘만 붙은 것)은 그대로 둔다 — 셋 이상일 때만 목록으로 본다.
   ["맨몸 '100% 섬유' 둘은 목록으로 보지 않는다", "<div>Composition: 100% Silk 100% Polyester</div>", "Silk 100%\nPolyester 100%"],
-  ["같은 소재가 두 번 찍힌 반응형 화면", '<div class="m">100% Cotton</div><div class="d">100% Cotton</div>', "Cotton 100%"],
+  // 같은 섬유가 맨몸으로 바로 되풀이되면 배지 목록이다 — 배지 하나만 그려진 Splendid 페이지(본문 소재는 아직 안 그려짐).
+  // 고치기 전: 원피스·레깅스가 "Cashmere 100%" 로 저장됐다(33개). 진짜 소재가 따로 있으면 그것만 읽는다.
+  ["Splendid 배지 하나뿐 — 본문 소재가 없으면 비운다",
+    SPLENDID_HEAD.replace(SPLENDID_BADGE("3088350", "Cotton"), "") + '<main><h1>Meadow Mini Dress</h1><p>A breezy mini dress.</p></main>', ""],
+  ["Splendid 배지 하나 + 본문 소재 — 본문 것만",
+    SPLENDID_HEAD.replace(SPLENDID_BADGE("3088350", "Cotton"), "") + '<main><h1>Kit Gauze Button Down Shirt</h1><p>Size Chart 100% Cotton Machine wash cold</p></main>', "Cotton 100%"],
   ["소재가 없는 페이지", "<div>A soft everyday tee.</div>", ""],
   ["빈 입력", "", ""],
 ];
