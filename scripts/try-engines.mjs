@@ -58,6 +58,10 @@ const list = (s) => String(s || "").split(",").map((x) => x.trim()).filter(Boole
 const workerSrc = readFileSync(join(ROOT, "worker/fabric-extractor.js"), "utf8");
 const slice = (src, a, b) => { const i = src.indexOf(a), j = src.indexOf(b, i); return src.slice(i, j); };
 const { compFromHtml, compFromText, compWindow } = new Function(slice(workerSrc, "const FIBRES = {", "function titleCase") + "\n return { compFromHtml, compFromText, compWindow };")();
+// 야간 보강(enrich-comp.mjs)과 같은 순서로 읽는다: JSON-LD 의 소재가 있으면 그것, 없으면 본문.
+// (JSON-LD 를 빼면 Loft 처럼 소재를 JSON-LD 에만 적는 사이트가 '소재 없음'으로 잘못 보인다)
+const fromJsonLd = new Function(slice(workerSrc, "function fromJsonLd(html) {", "const FIBRES = {") +
+  slice(workerSrc, "function titleCase(s) {", "// 페이지 제목") + "\n return fromJsonLd;")();
 const DUMP = process.env.DUMP === "1";
 const DUMP_KB = Math.max(50, Number(process.env.DUMP_KB) || 400);
 const MATCH = process.env.MATCH ? new RegExp(process.env.MATCH, "i") : null;
@@ -200,10 +204,13 @@ function judge(status, title, html, err) {
   const text = String(html || "").replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
   if (status >= 400 || CHALLENGE_RX.test(title + " " + text.slice(0, 1500))) return { v: "blocked", note: `HTTP ${status} ${String(title).slice(0, 40)}` };
-  const comp = compFromHtml(html);
+  let ld = {};
+  try { ld = fromJsonLd(html) || {}; } catch (e) {}
+  const fromLd = !!(ld.composition && ld.composition.length);
+  const comp = fromLd ? ld.composition : compFromHtml(html);
   const c = Array.isArray(comp) ? comp.map((x) => `${x.material} ${x.percent}%`).join(" / ") : String(comp || "");
   // comp: 저장 형식 그대로(두 원단이면 줄바꿈) — 저장값과 견줄 때 쓴다(RESULTS_JSON).
-  if (c) return { v: "comp", note: c.slice(0, 60), comp: asComp(comp) };
+  if (c) return { v: "comp", note: (fromLd ? "JSON-LD · " : "") + c.slice(0, 60), comp: asComp(comp), ...(fromLd ? { src: "jsonld" } : {}) };
   return { v: "open", note: `글 ${text.length}자` };
 }
 

@@ -405,7 +405,7 @@ function rawReport(a, verified) {
   if (!verified) md += `(아직 다시 읽지 않음)\n`;
   else {
     md += `다시 읽은 시각 ${a.verifiedAt || "-"} · 엔진: ${Object.entries(a.runInfo || {}).map(([e, s]) => `${e}(${s})`).join(" · ")}\n\n`;
-    const V = { fine: "맞음(지금 페이지와 같음)", wrong: "틀림 확인(지금 페이지와 다름)", fresh: "저장값 없음 · 지금 페이지 값 있음",
+    const V = { fine: "지금 페이지(오늘 추출기)와 같음", wrong: "틀림 확인(지금 페이지·오늘 추출기와 다름)", fresh: "저장값 없음 · 지금 페이지 값 있음",
       "fine-arc": "보관본과 같음", "wrong-arc": "보관본과 다름", "fresh-arc": "저장값 없음 · 보관본 값 있음", open: "열렸지만 소재 못 읽음", unread: "다시 못 읽음(차단·오류)" };
     const tally = new Map();
     for (const s of a.sample) { const k = `${s.sig} · ${V[s.verdict.v]}`; tally.set(k, (tally.get(k) || 0) + 1); }
