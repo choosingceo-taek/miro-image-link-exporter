@@ -17,7 +17,7 @@ on:
         required: false
         default: ""
       mode:
-        description: "page(기본, 목록 구조 진단) | engines(무료 크롤링 엔진 비교 — try-engines) | audit(저장된 혼용률 점검, 읽기만)"
+        description: "page(기본, 목록 구조 진단) | engines(무료 크롤링 엔진 비교 — try-engines) | audit(저장된 혼용률 점검, 읽기만) | clean(혼용률 정리 미리보기, 읽기만) | clean-apply(정리 적용 — confirm 필요) | clean-restore(정리 되돌리기 — confirm·backup 필요)"
         required: false
         default: "page"
       engines:
@@ -25,7 +25,7 @@ on:
         required: false
         default: ""
       brands:
-        description: "mode=engines 일 때 상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개) · mode=audit 일 때 이 브랜드만 점검(비우면 전부)"
+        description: "mode=engines 일 때 상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개) · mode=audit·clean·clean-apply 일 때 이 브랜드만(비우면 전부 — 적용은 미리보기와 같은 값이어야 한다)"
         required: false
         default: ""
       dump:
@@ -40,6 +40,14 @@ on:
         description: "mode=engines 일 때 카탈로그에서 이름·주소가 이 정규식에 맞는 상품만(예: jacket|coat)"
         required: false
         default: ""
+      confirm:
+        description: "mode=clean-apply 일 때 apply-<승인한 미리보기 개수>(예: apply-819) · mode=clean-restore 일 때 restore. 그 밖에는 비워 둔다"
+        required: false
+        default: ""
+      backup:
+        description: "mode=clean-restore 일 때 되돌릴 백업 파일(예: stored-comp-clean-backup-123456789.json)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -52,7 +60,7 @@ concurrency:
 
 jobs:
   diagnose:
-    if: ${{ github.event.inputs.mode != 'engines' && github.event.inputs.mode != 'audit' }}
+    if: ${{ github.event.inputs.mode != 'engines' && github.event.inputs.mode != 'audit' && !startsWith(github.event.inputs.mode, 'clean') }}
     runs-on: ubuntu-latest
     # 설치 재시도(최대 20분)에 자리를 내주고도 진단이 돌 수 있게 넉넉히 잡는다.
     timeout-minutes: 45
@@ -253,6 +261,156 @@ jobs:
           rm -f package.json package-lock.json
           git add -A -- stored-comp-audit.json stored-comp-audit-raw.md stored-comp-verify-engines.md stored-comp-verify.json stored-comp-verify-urls.txt || true
           git commit -m "audit: stored composition signatures (read-only)" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed"
+
+  # 저장된 혼용률 정리 — 미리보기(읽기만). 점검(docs/stored-comp-audit.md)의 '자동으로 지워도 되는 값'을 지금 저장값에서
+  # 다시 골라 지울 목록(stored-comp-clean-report.md)과 승인용 계획(stored-comp-clean-plan.json)을 남긴다.
+  # 스크립트는 APPLY=1 이 아니면 GET 이 아닌 요청을 보내기 전에 막는다.
+  clean:
+    if: ${{ github.event.inputs.mode == 'clean' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Select cleanup targets (dry — no writes)
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          APPLY: ""
+        run: node scripts/clean-stored-comp.mjs
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stored-comp-clean
+          path: |
+            stored-comp-clean-report.md
+            stored-comp-clean-plan.json
+          if-no-files-found: ignore
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- stored-comp-clean-report.md stored-comp-clean-plan.json || true
+          git commit -m "clean: stored composition cleanup targets (dry run)" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed"
+
+  # 정리 적용 — 담당자가 미리보기 목록을 승인한 뒤에만. 우연히 돌지 않게 세 겹으로 막는다:
+  #   ① mode=clean-apply 이고 confirm 이 apply- 로 시작해야 이 잡이 뜬다(기본값은 page·빈 칸)
+  #   ② 스크립트가 confirm 을 브랜치의 승인 목록(stored-comp-clean-plan.json) 개수와 맞춰 본다 — 다르면 아무것도 안 쓴다
+  #   ③ 야간 보강·크롬 보강·헤드리스 수집이 돌고 있으면(같은 오버레이·카탈로그를 통째로 쓴다) 시작하지 않는다
+  # 순서: 백업을 만들어 브랜치에 커밋·아티팩트로 올린 뒤에야 쓴다(STAGE=backup → 커밋 → STAGE=write).
+  clean-apply:
+    if: ${{ github.event.inputs.mode == 'clean-apply' && startsWith(github.event.inputs.confirm, 'apply-') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Refuse while nightly writers are running
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          busy=""
+          for st in in_progress queued; do
+            busy="$busy $(curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=$st&per_page=100" \
+              | jq -r '.workflow_runs[].path' | grep -E 'enrich-comp.yml|enrich-browser.yml|browser-collect.yml|merge-duplicate-keys.yml' || true)"
+          done
+          if [ -n "$(echo $busy | tr -d ' ')" ]; then echo "::error::같은 저장값을 쓰는 실행이 돌고 있다 — 끝난 뒤 다시: $busy"; exit 1; fi
+          echo "겹치는 실행 없음"
+      - name: Back up values to be cleared (no writes yet)
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          APPLY: "1"
+          STAGE: backup
+          CONFIRM: ${{ github.event.inputs.confirm }}
+          RUN_ID: ${{ github.run_id }}
+        run: node scripts/clean-stored-comp.mjs
+      - name: Upload backup (artifact, 90 days)
+        uses: actions/upload-artifact@v4
+        with:
+          name: stored-comp-clean-backup-${{ github.run_id }}
+          retention-days: 90
+          path: |
+            stored-comp-clean-backup-${{ github.run_id }}.json
+            stored-comp-clean-snapshot-${{ github.run_id }}/
+          if-no-files-found: error
+      - name: Commit backup (must succeed before any write)
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -- stored-comp-clean-backup-${{ github.run_id }}.json
+          git commit -m "clean: backup before clearing stored compositions (run ${{ github.run_id }})"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::error::백업을 올리지 못해 지우지 않는다"; exit 1
+      - name: Clear (only values identical in the backup)
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          APPLY: "1"
+          STAGE: write
+          CONFIRM: ${{ github.event.inputs.confirm }}
+          BACKUP: stored-comp-clean-backup-${{ github.run_id }}.json
+          RUN_ID: ${{ github.run_id }}
+        run: node scripts/clean-stored-comp.mjs
+      - name: Commit apply report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- 'stored-comp-clean-apply-*.md' || true
+          git commit -m "clean: stored composition cleanup result (run ${{ github.run_id }})" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed"
+
+  # 정리 되돌리기 — 백업 파일의 값을 제자리에(그 사이 새 값이 들어온 칸은 건드리지 않는다).
+  clean-restore:
+    if: ${{ github.event.inputs.mode == 'clean-restore' && github.event.inputs.confirm == 'restore' && github.event.inputs.backup != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Restore cleared values from backup
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          APPLY: "1"
+          RESTORE: ${{ github.event.inputs.backup }}
+        run: node scripts/clean-stored-comp.mjs
+      - name: Commit restore report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- stored-comp-clean-restore-report.md || true
+          git commit -m "clean: restore stored compositions from backup" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
             sleep 5
