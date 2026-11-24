@@ -17,6 +17,10 @@
 //
 // 확장은 새 헤드리스(channel: "chromium")에서 올라간다. 안 되는 환경이면
 // HEADED=1 xvfb-run -a node scripts/smoke-extension-research.mjs
+//
+// 확장 페이지에서 page.waitForFunction 은 쓰지 않는다 — Playwright 1.49 는 조건을
+// 페이지 안에서 문자열 eval 로 되풀이해 확장 CSP(script-src 'self')에 막힌다.
+// 기다림은 locator.waitFor 로만 한다.
 import { chromium } from "playwright";
 import { createServer } from "node:http";
 import { readFileSync, existsSync, mkdtempSync } from "node:fs";
@@ -72,7 +76,10 @@ const ctx = await chromium.launchPersistentContext(mkdtempSync(join(tmpdir(), "r
   executablePath: process.env.PLAYWRIGHT_CHROMIUM || undefined,
   headless: !headed,
   acceptDownloads: true,
-  viewport: { width: 400, height: 800 },
+  // 화면 크기 흉내(viewport)는 쓰지 않는다 — 크로미움 131(Playwright 1.49)은 흉내를 켜면
+  // 확장 페이지 안 다른 출처 iframe(옆 패널의 앱)으로 가는 클릭을 바깥 <iframe> 요소에
+  // 떨어뜨린다(머리줄 아래 전부). 진짜 옆 패널엔 흉내가 없으니 창 크기를 직접 맞춘다(fitWindow).
+  viewport: null,
   args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`],
 });
 // 엑셀 라이브러리와 Render 는 밖으로 나가지 않게 여기서 물린다.
@@ -112,6 +119,23 @@ const step = async (label, fn) => {
   catch (e) { console.log("  ❌ " + label + " — " + e.message); process.exitCode = 1; }
 };
 const newTab = () => ctx.waitForEvent("page", { timeout: 10000 });
+// 페이지 안쪽 크기가 w×h 가 되게 창 크기를 맞춘다(앞에서 연 진짜 옆 패널이 창 폭을 먹어도).
+async function fitWindow(page, w, h) {
+  const cdp = await ctx.newCDPSession(page);
+  const { windowId } = await cdp.send("Browser.getWindowForTarget");
+  for (let i = 0; i < 5; i++) {
+    const [iw, ih] = await page.evaluate(() => [innerWidth, innerHeight]);
+    if (iw === w && ih === h) break;
+    const { bounds } = await cdp.send("Browser.getWindowBounds", { windowId });
+    if (bounds.windowState && bounds.windowState !== "normal") {
+      await cdp.send("Browser.setWindowBounds", { windowId, bounds: { windowState: "normal" } });
+    }
+    await cdp.send("Browser.setWindowBounds", { windowId, bounds: { width: bounds.width + w - iw, height: bounds.height + h - ih } });
+    await page.waitForTimeout(200);
+  }
+  await cdp.detach();
+  return page.evaluate(() => [innerWidth, innerHeight]);
+}
 
 // ── ① 팝업 ──
 const popup = watch(await ctx.newPage(), "popup");
@@ -145,7 +169,7 @@ await popup.locator("#worker").fill(`${HERE}/w`);
 await popup.locator("#token").fill("testtok");
 await popup.locator("#appUrl").fill(`${HERE}/app.html`);
 await popup.locator("#saveCfg").click();
-await popup.waitForFunction(() => document.getElementById("saveCfg").textContent.includes("저장됨"));
+await popup.locator("#saveCfg", { hasText: "저장됨" }).waitFor({ timeout: 5000 });
 
 let appUrl = "";
 await step("'상품 리서치 열기' → 새 탭이 앱 주소로 열리고 설정이 넘어간다", async () => {
@@ -212,16 +236,18 @@ await step("'옆 패널로 열기'를 눌러도 오류가 없다(열리거나, �
 
 // ── ② 옆 패널 ──
 const panel = watch(await ctx.newPage(), "sidepanel");
+const size = await fitWindow(panel, 400, 800);
+if (size[0] !== 400) console.log(`     (창 크기를 400px 로 못 맞춤: ${size.join("x")})`);
 await panel.goto(`${EXT_URL}/sidepanel.html`);
 await step("옆 패널 iframe 이 앱 주소를 연다", async () => {
-  await panel.waitForFunction(() => document.getElementById("app").getAttribute("src"), null, { timeout: 5000 });
+  await panel.locator("#app[src]").waitFor({ state: "attached", timeout: 5000 });
   const src = await panel.locator("#app").getAttribute("src");
   if (src !== appUrl) throw new Error(src);
 });
 const frame = panel.frameLocator("#app");
 await step("iframe 안에 앱이 뜨고 로딩 표시가 걷힌다", async () => {
   await frame.locator(".brand").first().waitFor({ timeout: 8000 });
-  await panel.waitForFunction(() => document.getElementById("state").hidden, null, { timeout: 5000 });
+  await panel.locator("#state").waitFor({ state: "hidden", timeout: 5000 });
   const box = await panel.locator("#app").boundingBox();
   if (box.width < 390 || box.height < 790) throw new Error(`iframe 크기 ${box.width}x${box.height}`);
 });
@@ -229,6 +255,9 @@ await step("옆 패널 너비에서 서랍·2열로 그려진다", async () => {
   if (!(await frame.locator("#drawerBtn").isVisible())) throw new Error("서랍 버튼 없음");
   await frame.locator("#drawerBtn").click();
   await frame.locator(".brand", { hasText: "Vince" }).click();
+  // 고르면 서랍이 닫혀야 한다 — 안 닫히면 클릭이 앱까지 가지 않은 것이다.
+  await frame.locator("body.drawer").waitFor({ state: "detached", timeout: 3000 })
+    .catch(() => { throw new Error("브랜드를 골랐는데 서랍이 안 닫힘(클릭이 iframe 안으로 안 들어감?)"); });
   await frame.locator(".card").first().waitFor({ timeout: 8000 });
   const cols = await frame.locator("#grid").evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(" ").length);
   if (cols !== 2) throw new Error(cols + "열");
@@ -247,7 +276,7 @@ await step("앱 주소가 죽어 있으면 안내와 '새 탭에서 열기'가 �
     // 주소를 먼저 바꾸고 연다 — 열린 패널에서 바꾸면 앞 주소의 앱이 늦게 보낸 '다 떴음' 신호와 겹친다.
     await sw.evaluate(() => chrome.storage.local.set({ appUrl: "http://localhost:9/app.html" }));
     await dead.goto(`${EXT_URL}/sidepanel.html`);
-    await dead.waitForFunction(() => !document.getElementById("openTab").hidden, null, { timeout: 15000 });
+    await dead.locator("#openTab").waitFor({ state: "visible", timeout: 15000 });
     const t = await dead.locator("#stateText").textContent();
     const sub = await dead.locator("#stateSub").textContent();
     if (!t.includes("열지 못했습니다") || !sub) throw new Error(`${t} / ${sub}`);
