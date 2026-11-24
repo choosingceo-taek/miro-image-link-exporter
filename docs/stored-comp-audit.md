@@ -119,9 +119,30 @@ La Ligne · Mint Velvet · Rag & bone · Boden · Whitestuff · Club Monaco · E
 Ann Taylor 는 여러 줄 값 66개 중 63개에 `Polyester 100%` 줄(안감)이 있다. 다시 열었지만 8개 모두 소재를 못 읽어 ⚪.
 블라우스·원피스 브랜드라 안감일 공산이 크다.
 
-### 7. Loft
+### 7. Loft — 대체로 진짜 혼용률로 본다(⚪ 직접 대조는 못 함)
 
-(정리 중)
+- 상품 673개 · 혼용률 298개 · '사이트 미표기(none)' 375개.
+- **상품명이 이상하다**: 대부분 "A woman wearing a white t-shirt with a penguin graphic …" 같은 사진 설명(이미지
+  대체 글)이 상품명 자리에 들어가 있다. 이건 이름 수집 문제이고 혼용률과는 별개다.
+- 저장값 분포(많은 순): `Polyester 100%` 52 · `Cotton 100%` 37 · `Polyester 85% / Elastane 15%` 12 ·
+  `Viscose 85% / Polyester 9% / Elastane 6%` 12 · `Cotton 70% / Polyester 30%` 12 · `Viscose 100%` 11 ·
+  `Modal 92% / Elastane 8%` 8 · `Cotton 60% / Modal 40%` 6 … — 섞이는 비율이 상품마다 다르고 옷 종류와 맞는다.
+
+| 상품(이름 자리의 글) | 저장값 | 판단 |
+|---|---|---|
+| A woman wearing a white t-shirt with a penguin graphic … | Cotton 100% | 그래픽 티 — 맞아 보임 |
+| A woman in a grey sweatshirt and sweatpants … | Cotton 70% / Polyester 30% | 스웨트 — 맞아 보임 |
+| A woman wearing a black V-neck top and wide-leg black trousers … | Viscose 85% / Polyester 9% / Elastane 6% | 저지 — 맞아 보임 |
+| A blonde woman wearing a grey long-sleeved shirt and blue jeans … | Cotton 60% / Modal 40% | 롱슬리브 티 — 맞아 보임 |
+| Striped Micro Modal Crew Neck Long Sleeve Tee | Modal 94% / Elastane 6% | 이름과 맞음 |
+| Haven Well Within Organic Cotton Striped Racerback Tank | Cotton 92% / Elastane 8% | 이름과 맞음 |
+| A woman wearing a long white fuzzy coat over a red outfit … | Polyester 100% | 퍼 코트 — 맞아 보임 |
+
+- 근거: 오늘 다시 연 Loft 상품 중 값이 비어 있던 7개가 페이지의 구조화 데이터(JSON-LD)에서 `Cotton 60% / Modal 40%`,
+  `Modal 94% / Elastane 6%`, `Cotton 92% / Elastane 8%`, `Cotton 100%` 로 읽혔다 — 저장값과 같은 계열이다.
+  저장값이 있는 6개는 페이지가 열렸지만 이번 실행에서 소재를 읽지 못해 직접 대조는 못 했다.
+- 따로 볼 것: 카테고리 주소 4개(위 5번 — "Casual"·"Midi & Maxi" 에 `Cotton 100% ‖ Linen 100%`) · `Polyester 96%` 2개
+  (나머지 4%가 빠진 값) · `Cotton 100% / Cotton 65% / Polyester 30% / Elastane 5%` 2개(Gameday 티셔츠 — 두 원단을 한 줄에).
 
 ### 8. 이름만 이상한 값 (시그니처 E) — 158개
 
