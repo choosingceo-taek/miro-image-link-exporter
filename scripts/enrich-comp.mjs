@@ -121,10 +121,10 @@ const GATE = 95, GOAL = 99;
 const colorFromHtml = new Function(
   slice("const COLOR_JUNK", "function titleCase") + "\n return colorFromHtml;",
 )();
-// 섬유 이름 목록 — 아카이브 보관본이 '혼용률 여러 벌(목록)'인지 셀 때 쓴다.
-const FIBRE_NAMES = Object.keys(new Function(
+// 섬유 이름 → 대표 이름(worker 의 FIBRES) — 아카이브 보관본이 '혼용률 여러 벌(목록)'인지 셀 때 쓴다.
+const FIBRE_MAP = new Function(
   slice("const FIBRES = {", "function titleCase") + "\n return FIBRES;",
-)());
+)();
 const fromJsonLd = new Function(
   slice("function fromJsonLd(html) {", "const FIBRES = {") +
   slice("function titleCase(s) {", "// 페이지 제목") + "\n return fromJsonLd;",
@@ -413,7 +413,7 @@ async function waybackOf(url, stat, o, ctx) {
     if (orig && !samePage(orig, target)) return reject("다른 주소로 넘어간 보관본", orig.slice(0, 160));
     const html = String(r.body || "");
     if (!realPage(html)) return reject("보관본도 차단·빈 화면");
-    const chk = archivePageCheck(html, FIBRE_NAMES);
+    const chk = archivePageCheck(html, FIBRE_MAP);
     if (!chk.ok) return reject(chk.reason, JSON.stringify(chk.signals));
     let ld = {};
     try { ld = fromJsonLd(html); } catch (e) {}

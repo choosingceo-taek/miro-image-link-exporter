@@ -38,6 +38,17 @@ export const GOOD = {
   // 겉감·안감·배색 — 한 상품의 원단 여러 개는 한 덩어리로 묶여 '혼용률 여러 벌'이 아니다.
   coat: doc(og("product"), `<h1>Wool Blend Coat</h1><span>$298</span>` +
     `<p>Shell: 70% Wool, 30% Polyamide. Lining: 100% Viscose. Trim: 100% Polyester.</p>`),
+  // Zara supima(11/24 측정 2차): 같은 소재를 "100% Supima" · "Cotton 100%" · 둘 다로 세 번 적는다 —
+  // 섬유를 대표 이름으로 묶지 않으면 '혼용률 세 벌'로 거부됐다.
+  zaraSupima: doc(og("product") + ld({ "@type": "ProductGroup", name: "SUPIMA STAND-UP COLLAR T-SHIRT",
+    hasVariant: [{ "@type": "Product", name: "SUPIMA STAND-UP COLLAR T-SHIRT" }] }),
+    `<h1>SUPIMA® STAND-UP COLLAR T-SHIRT</h1><span>$29.90</span><p>Made of 100% Supima cotton.</p>` +
+    `<p>${"x ".repeat(400)}</p><p>OUTER SHELL: Cotton 100%</p><p>${"y ".repeat(400)}</p>` +
+    `<p>${"w ".repeat(400)}</p><p>Care: COTTON 100% · 100% SUPIMA</p>` +
+    `<script>{"composition":"100% supima"}</script>`),
+  // Mango(11/24 측정 2차): 구조화 데이터도 담기 버튼도 없는 보관본. h1 하나 · 혼용률 한 벌 · 가격 2번.
+  mangoNoCart: doc("", `<h1>Long-sleeved boat-neck t-shirt</h1><span>$29.99</span><span>$39.99</span>` +
+    `<p>Composition: 65% polyester, 32% viscose, 3% elastane</p>`),
 };
 
 // ── 받으면 안 되는 것(목록 페이지) ──
@@ -62,6 +73,15 @@ export const BAD = {
   // 상품 표시(og:type product)가 있는데 카드마다 다른 소재가 붙은 목록 — 혼용률 여러 벌.
   listingWithOg: doc(og("product"), `<h1>Knitwear</h1><ul>${cards(10, {
     comp: (i) => ["100% Wool", "70% Wool, 30% Polyamide", "100% Cashmere", "50% Cotton, 50% Acrylic"][i % 4] })}</ul>`),
+  // Aritzia 형(11/24 측정 2차): 상품 표시 없이 사이트 공통 문구에 "100% Merino Wool" · "100% Cotton"
+  // 이 박혀 있다 — 예전 오탐 "Wool 100%" 의 출처. 상품 자기 소재(Polyester)와 합쳐 세 벌.
+  aritziaBoiler: doc(ld({ "@type": "BreadcrumbList", itemListElement: [] }),
+    `<div class="promo">The softest 100% Merino Wool layers.</div><p>${"z ".repeat(400)}</p>` +
+    `<div class="promo">Everyday 100% Cotton tees.</div><p>${"z ".repeat(400)}</p>` +
+    `<div><button>Add to bag</button><p>Shell: 100% Polyester</p></div>`),
+  // Joules 형(11/24 측정 2차): h1 하나(카테고리 낱말 아님) · 혼용률 한 벌인데 가격이 24번 — 목록.
+  joulesMultipack: doc(ld({ "@type": "BreadcrumbList", itemListElement: [] }),
+    `<h1>Buy Women's Tops Online</h1><ul>${cards(24, { price: () => "£29.95", comp: (i) => (i === 2 ? "100% Cotton" : "") })}</ul>`),
   // 상품 표시가 하나도 없는 페이지(글만 길다).
   noSignal: doc("", `<h2>Our materials</h2><p>We love 100% Cotton.</p>`),
 };

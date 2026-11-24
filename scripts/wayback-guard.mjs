@@ -116,13 +116,15 @@ export function samePage(a, b) {
 //     P1. JSON-LD 에 최상위 Product(목록 안이 아닌 것)가 있고 이름이 1~2가지다
 //     P2. og:type 이 product(product.item 등)
 //     P3. <h1> 이 정확히 하나이고, 그 글이 카테고리 낱말이 아니고, '장바구니에 담기' 버튼 글이 있다
+//     P4. <h1> 이 정확히 하나(카테고리 낱말 아님)이고, 혼용률 덩어리가 딱 한 벌, 가격은 3번 이하
+//         (담기 버튼이 스크립트로 그려져 보관본에 없는 상품 페이지 — Mango, 11/24 측정 2차)
 //   목록 표시(하나라도 있으면 거부):
 //     L1. JSON-LD 에 CollectionPage · SearchResultsPage 가 있다
 //     L2. 최상위 Product 가 없는데 ItemList 에 항목이 3개 이상이다
 //     L3. 최상위 Product 의 이름이 3가지 이상이다
 //     L4. 서로 다른 혼용률 덩어리가 3벌 이상이다(상품 카드마다 "100% Cotton" 이 따로 붙은 목록).
 //         겉감·안감·배색처럼 한 상품의 여러 원단은 붙어 있어 한 덩어리로 묶인다.
-//     L5. 상품 하나 표시가 P3 뿐인데 화면에 가격이 8번 이상 나오거나 '담기' 버튼이 3개 이상이다
+//     L5. 상품 하나 표시가 P3·P4 뿐인데 화면에 가격이 8번 이상 나오거나 '담기' 버튼이 3개 이상이다
 //         (카드마다 '빠른 담기'가 붙은 목록. 가격이 다 같아도 횟수로 잡힌다)
 //   상품 표시가 하나도 없으면 거부한다('상품 표시 없음') — 판단할 근거가 없으면 받지 않는다.
 // 오탐 셋(Aritzia new · Joules t-shirts · &Other Stories bags)은 주소 규칙에서도 걸리지만,
@@ -175,11 +177,17 @@ const allText = (html) => String(html || "").replace(/<style[\s\S]*?<\/style>/gi
   .replace(/<[^>]+>/g, " ").replace(/\\u0025/gi, "%").replace(/&nbsp;|&#37;|&percnt;/g, (x) => (x === "&nbsp;" ? " " : "%"))
   .replace(/\s+/g, " ");
 
+// 섬유 이름은 대표 이름으로 묶어 센다(supima·pima·organic cotton → cotton). 안 묶으면 한 상품이
+// "100% Supima cotton" 과 "Cotton 100%" 를 함께 적은 것을 '다른 혼용률 두 벌'로 본다(Zara, 11/24).
 // 혼용률 덩어리: "NN% 섬유" / "섬유 NN%" 를 찾아, 300자 넘게 떨어지거나 같은 섬유가 다시
 // 나오면 다른 덩어리로 본다(목록에서는 카드가 붙어 있어 거리만으로는 못 가른다).
 // 덩어리마다 '섬유 퍼센트' 묶음을 정렬해 서명으로 만들고, 서로 다른 서명 수를 센다.
-export function compBlocks(html, fibreNames, sigsOut) {
-  const names = [...new Set((fibreNames || []).map((s) => String(s).toLowerCase()))]
+// fibres: worker 의 FIBRES 객체({이름: 대표 이름}) 또는 이름 배열.
+export function compBlocks(html, fibres, sigsOut) {
+  const canon = {};
+  if (Array.isArray(fibres)) for (const n of fibres) canon[String(n).toLowerCase()] = String(n).toLowerCase();
+  else for (const [n, c] of Object.entries(fibres || {})) canon[String(n).toLowerCase()] = String(c).toLowerCase();
+  const names = Object.keys(canon)
     .sort((a, b) => b.length - a.length).map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   if (!names.length) return 0;
   const f = "(" + names.join("|") + ")";
@@ -188,7 +196,7 @@ export function compBlocks(html, fibreNames, sigsOut) {
   const blocks = [];
   let cur = null, m;
   while ((m = rx.exec(text))) {
-    const pct = m[1] || m[4], fib = (m[2] || m[3] || "").toLowerCase();
+    const pct = m[1] || m[4], raw = (m[2] || m[3] || "").toLowerCase(), fib = canon[raw] || raw;
     if (!cur || m.index - cur.end > 300 || cur.fibs.has(fib)) { cur = { items: new Set(), fibs: new Set(), end: 0 }; blocks.push(cur); }
     cur.items.add(fib + " " + Number(pct));
     cur.fibs.add(fib);
@@ -213,8 +221,8 @@ function h1s(html) {
   return out;
 }
 
-// fibreNames: 섬유 이름 목록(worker 의 FIBRES 키). { ok, reason, signals } 를 돌려준다.
-export function archivePageCheck(html, fibreNames) {
+// fibres: worker 의 FIBRES 객체(또는 섬유 이름 배열). { ok, reason, signals } 를 돌려준다.
+export function archivePageCheck(html, fibres) {
   const s = String(html || "");
   const ld = scanLd(s);
   const og = /<meta[^>]+property=["']og:type["'][^>]*content=["']\s*(?:og:)?product/i.test(s) ||
@@ -222,20 +230,22 @@ export function archivePageCheck(html, fibreNames) {
   const heads = h1s(s);
   const h1Generic = heads.length === 1 && isCategoryName(heads[0]);
   const sigs = [];
-  const blocks = compBlocks(s, fibreNames, sigs);
+  const blocks = compBlocks(s, fibres, sigs);
   const title = ((s.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1] || "").replace(/\s+/g, " ").trim().slice(0, 60);
   const prices = priceCount(s);
   const carts = (visibleText(s).match(ADD_TO_CART_RX) || []).length;
   const P1 = ld.rootProducts.size >= 1 && ld.rootProducts.size <= 2;
   const P2 = og;
-  const P3 = heads.length === 1 && heads[0].length >= 2 && heads[0].length <= 150 && !h1Generic && carts >= 1;
+  const oneH1 = heads.length === 1 && heads[0].length >= 2 && heads[0].length <= 150 && !h1Generic;
+  const P3 = oneH1 && carts >= 1;
+  const P4 = oneH1 && blocks === 1 && prices <= 3;
   const signals = { rootProducts: ld.rootProducts.size, listProducts: ld.listProducts, itemList: ld.itemListLen,
     og, h1: heads.length, blocks, prices, carts, sigs, title, types: [...ld.types].slice(0, 6) };
   if ([...ld.types].some((t) => LISTING_TYPES.has(t))) return { ok: false, reason: "목록 페이지(JSON-LD)", signals };
   if (!ld.rootProducts.size && (ld.itemListLen >= 3 || ld.listProducts >= 3)) return { ok: false, reason: "목록 페이지(JSON-LD)", signals };
   if (ld.rootProducts.size >= 3) return { ok: false, reason: "상품 여러 개(JSON-LD)", signals };
   if (blocks >= 3) return { ok: false, reason: "혼용률 여러 벌(목록)", signals };
-  if (!P1 && !P2 && P3 && (prices >= 8 || carts >= 3)) return { ok: false, reason: "가격·담기 버튼 여러 개(목록)", signals };
-  if (!P1 && !P2 && !P3) return { ok: false, reason: "상품 표시 없음", signals };
+  if (!P1 && !P2 && (P3 || P4) && (prices >= 8 || carts >= 3)) return { ok: false, reason: "가격·담기 버튼 여러 개(목록)", signals };
+  if (!P1 && !P2 && !P3 && !P4) return { ok: false, reason: "상품 표시 없음", signals };
   return { ok: true, signals };
 }

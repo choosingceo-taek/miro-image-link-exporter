@@ -23,7 +23,7 @@ const fail = (m) => { console.error("  ❌ " + m); bad++; };
 // 섬유 이름은 worker 의 FIBRES 에서(야간 보강과 같은 목록).
 const workerSrc = readFileSync(join(ROOT, "worker/fabric-extractor.js"), "utf8");
 const i = workerSrc.indexOf("const FIBRES = {");
-const FIBRE_NAMES = Object.keys(new Function(workerSrc.slice(i, workerSrc.indexOf("};", i) + 2) + "\n return FIBRES;")());
+const FIBRES = new Function(workerSrc.slice(i, workerSrc.indexOf("};", i) + 2) + "\n return FIBRES;")();
 
 // ── ① 주소 규칙 ──
 const URLS = [
@@ -85,16 +85,17 @@ for (const [s, want] of [["New", true], ["Women's T-Shirts", true], ["rugby-shir
 
 // ── ② 보관본 페이지 검사 ──
 for (const [k, html] of Object.entries(GOOD)) {
-  const r = archivePageCheck(html, FIBRE_NAMES);
+  const r = archivePageCheck(html, FIBRES);
   if (!r.ok) fail(`진짜 상품 페이지(${k})를 거부했다: ${r.reason} ${JSON.stringify(r.signals)}`);
 }
 const WANT_REASON = {
   aritziaNew: /상품 표시 없음/, aritziaNewLd: /목록 페이지/, joulesTshirts: /가격·담기|상품 표시 없음/,
   joulesNamed: /가격·담기/, storiesBags: /목록 페이지/, storiesBagsFlat: /상품 여러 개/,
   listingWithOg: /혼용률 여러 벌/, noSignal: /상품 표시 없음/,
+  aritziaBoiler: /혼용률 여러 벌|상품 표시 없음/, joulesMultipack: /가격·담기|상품 표시 없음/,
 };
 for (const [k, html] of Object.entries(BAD)) {
-  const r = archivePageCheck(html, FIBRE_NAMES);
+  const r = archivePageCheck(html, FIBRES);
   if (r.ok) fail(`목록 페이지(${k})를 통과시켰다: ${JSON.stringify(r.signals)}`);
   else if (WANT_REASON[k] && !WANT_REASON[k].test(r.reason)) fail(`목록 페이지(${k})의 거부 사유가 기대와 다르다: ${r.reason}`);
 }
