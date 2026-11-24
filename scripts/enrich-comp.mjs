@@ -121,16 +121,21 @@ const val = (v) => (Array.isArray(v) ? v.length > 0 : !!String(v || "").trim());
 const has = (o) => !!o && (val(o.comp) || val(o.color) || val(o.sizes) || val(o.price));
 
 // 받은 HTML 이 '상품 페이지를 실제로 읽은 것'인가. 아니면 소재가 없다고 결론 내릴 수 없다.
-const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|just a moment|enable javascript and cookies|request unsuccessful|incapsula|perimeterx|captcha-delivery|_Incapsula_Resource/i;
+const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|just a moment|enable javascript and cookies|request unsuccessful|incapsula incident/i;
 function realPage(html) {
   const s = String(html || "");
   const title = (s.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1];
-  if (CHALLENGE_RX.test(title) || CHALLENGE_RX.test(s.slice(0, 6000))) return false;
+  // 화면에 보이는 글. 스크립트·스타일을 걷어 낸 것이다.
+  const visible = s.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  // 차단 문구는 제목과 화면 글에서만 찾는다. 원본 HTML 에서 찾으면 PerimeterX·Incapsula 로
+  // 보호되는 '정상' 상품 페이지가 머리의 <script src=…perimeterx…/_Incapsula_Resource> 나
+  // 다국어 문구 묶음("Access denied") 때문에 통째로 차단으로 분류된다. 글 없이 iframe 만
+  // 띄우는 캡차(DataDome·Incapsula)는 아래 글 길이 기준에서 걸린다.
+  if (CHALLENGE_RX.test(title) || CHALLENGE_RX.test(visible.slice(0, 3000))) return false;
   // JSON-LD Product 나 og:type product 가 있으면 상품 페이지다.
   if (/"@type"\s*:\s*"Product"|property=["']og:type["'][^>]*content=["']product/i.test(s)) return true;
   // 그 외에는 화면에 보이는 글이 어느 정도 있어야 한다. 스크립트로만 그리는 껍데기는 수백 자에 그친다.
-  const visible = s.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   return visible.length >= 600;
 }
 
