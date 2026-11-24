@@ -38,6 +38,10 @@ jobs:
           node-version: 20
       - name: Install engines
         timeout-minutes: 25
+        env:
+          # camoufox-js 는 브라우저를 GitHub API 로 찾는다. 토큰 없이 부르면 공유 러너 IP 의
+          # 시간당 한도에 걸려 "Failed to fetch releases … after 5 attempts" 로 끝난다(11/24 실행).
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           npm init -y >/dev/null
           # --no-save 설치는 따로 하면 앞에 받은 것을 지운다 — 한 번에 받는다.
@@ -53,6 +57,7 @@ jobs:
           BRANDS: ${{ github.event.inputs.brands }}
           LISTINGS: ${{ github.event.inputs.listings }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/try-engines.mjs
       - name: Commit report
         if: always()
