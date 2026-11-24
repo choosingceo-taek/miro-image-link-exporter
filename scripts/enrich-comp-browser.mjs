@@ -179,15 +179,26 @@ function pickEngine(state, site, engine, best, now) {
   if (engine !== "auto") return engine;
   return chromiumBlocked(state, site, now) ? best : "playwright";
 }
-// 한 브랜드의 결과를 이력에 반영한다. 돌려주는 값: "blocked" | "cleared" | ""
-function recordResult(state, site, eng, r, now, skipDays, ratio) {
+// 한 브랜드의 결과를 이력에 반영한다. 돌려주는 값: "blocked" | "suspect" | "cleared" | ""
+//
+// 한 번 막혔다고 바로 skipDays(14일)를 잠그지 않는다. 11/24 Chico's·파이어폭스 시험(저장 안 함, 같은
+// 설정·몇 분 간격): 12/20 읽힘 → 0/20(4.5초 만에 전부 403) → 0/20(탭 1개·3초 쉼). 탭 수와 무관하게
+// 실행마다(러너 IP 마다) 갈렸다. 한 실행의 운으로 14일을 잃지 않게, 처음 막히면 '의심'으로
+// suspectDays(2일)만 쉬고, 그 뒤 다시 막히면(앞 기록이 끝난 지 30일 안) 그때 skipDays 로 잠근다.
+// 예전 기록(suspect 표시 없음)도 앞 기록으로 센다.
+const SUSPECT_DAYS = 2;
+const STRIKE_MEMORY_DAYS = 30;
+function recordResult(state, site, eng, r, now, skipDays, ratio, suspectDays = SUSPECT_DAYS) {
   if (r.tried >= 10 && r.blocked / r.tried >= ratio) {
+    const prev = (state.blocked[site] || {})[eng];
+    const confirmed = !!prev && now - Number(prev.until || 0) < STRIKE_MEMORY_DAYS * 86400000;
     state.blocked[site] = state.blocked[site] || {};
     state.blocked[site][eng] = {
-      brand: r.brand, until: now + skipDays * 86400000,
+      brand: r.brand, until: now + (confirmed ? skipDays : suspectDays) * 86400000,
       at: new Date(now).toISOString().slice(0, 10), ratio: Math.round((r.blocked / r.tried) * 100),
+      ...(confirmed ? {} : { suspect: 1 }),
     };
-    return "blocked";
+    return confirmed ? "blocked" : "suspect";
   }
   if (r.ok > 0 && state.blocked[site] && state.blocked[site][eng]) {
     delete state.blocked[site][eng];
@@ -439,7 +450,8 @@ for (const c of targets) {
   // 이력은 이 브랜드를 읽은 엔진 칸에만 적는다 — 크롬으로 막혔다고 파이어폭스 기록까지 잠그지 않는다.
   const verdict = recordResult(state, c.site, c.engine,
     { brand: c.brand, tried: todo.length, blocked: stat.blocked + stat.shell, ok: stat.ok }, Date.now(), SKIP_DAYS, BLOCK_RATIO);
-  if (verdict === "blocked") console.log(`    → ${c.engine} 로는 ${SKIP_DAYS}일간 후보에서 제외(차단 ${state.blocked[c.site][c.engine].ratio}%)`);
+  if (verdict === "blocked") console.log(`    → ${c.engine} 로는 ${SKIP_DAYS}일간 후보에서 제외(차단 ${state.blocked[c.site][c.engine].ratio}%, 연달아 막힘)`);
+  if (verdict === "suspect") console.log(`    → ${c.engine} 로 처음 막힘(${state.blocked[c.site][c.engine].ratio}%) — ${SUSPECT_DAYS}일만 쉬고 다시 본다(또 막히면 ${SKIP_DAYS}일)`);
   if (verdict === "cleared") console.log(`    → ${c.engine} 로 다시 읽히기 시작 — 차단 이력 해제`);
 
   // 합치기 — DRY 여도 한다(엇갈린 값을 리포트에 남기려고). 저장은 STORE 일 때만.

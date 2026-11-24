@@ -114,10 +114,23 @@ else {
   if (R.pickEngine(st, "zara.com.zara", "patchright", "firefox", NOW) !== "patchright") fail("엔진을 직접 고르면 그대로 써야 한다");
 
   // 기록: 파이어폭스로 막히면 파이어폭스 칸에만 적고, 크롬 기록은 건드리지 않는다.
+  // 처음 막히면 '의심' — 2일만 쉰다(한 실행의 러너 IP 운으로 14일을 잃지 않게: Chico's 12/20 → 0/20).
   const v1 = R.recordResult(st, "zara.com.zara", "firefox", { brand: "Zara", tried: 20, blocked: 20, ok: 0 }, NOW, SKIP_DAYS, BLOCK_RATIO);
-  if (v1 !== "blocked" || !st.blocked["zara.com.zara"].firefox) fail("파이어폭스 차단을 기록하지 않는다");
+  if (v1 !== "suspect" || !st.blocked["zara.com.zara"].firefox || !st.blocked["zara.com.zara"].firefox.suspect) fail(`처음 막힌 것을 '의심'으로 적지 않는다(${v1})`);
   if (!st.blocked["zara.com.zara"].playwright) fail("파이어폭스를 기록하면서 크롬 기록을 지웠다");
-  if (st.blocked["zara.com.zara"].firefox.until !== NOW + SKIP_DAYS * DAY) fail("제외 기간이 SKIP_DAYS 와 다르다");
+  if (st.blocked["zara.com.zara"].firefox.until !== NOW + 2 * DAY) fail("처음 막힌 것의 제외 기간이 2일이 아니다");
+  // 의심 기간이 끝난 뒤 다시 막히면 확정 — SKIP_DAYS.
+  const v1b = R.recordResult(st, "zara.com.zara", "firefox", { brand: "Zara", tried: 20, blocked: 20, ok: 0 }, NOW + 3 * DAY, SKIP_DAYS, BLOCK_RATIO);
+  if (v1b !== "blocked" || st.blocked["zara.com.zara"].firefox.suspect) fail(`두 번째로 막혔는데 확정하지 않는다(${v1b})`);
+  if (st.blocked["zara.com.zara"].firefox.until !== NOW + 3 * DAY + SKIP_DAYS * DAY) fail("확정 제외 기간이 SKIP_DAYS 와 다르다");
+  // 예전 기록(suspect 표시 없음)이 있는 엔진은 바로 확정.
+  {
+    const s2 = R.normalizeState(old);
+    if (R.recordResult(s2, "zara.com.zara", "playwright", { brand: "Zara", tried: 20, blocked: 20, ok: 0 }, NOW, SKIP_DAYS, BLOCK_RATIO) !== "blocked") fail("예전 확정 기록이 있는데 다시 '의심'부터 시작한다");
+    // 앞 기록이 끝난 지 30일이 넘었으면 새로 시작한다.
+    const s3 = R.normalizeState({ blocked: { "x.com.x": { brand: "X", until: NOW - 40 * DAY, at: "2026-09-01", ratio: 100 } } });
+    if (R.recordResult(s3, "x.com.x", "playwright", { brand: "X", tried: 20, blocked: 20, ok: 0 }, NOW, SKIP_DAYS, BLOCK_RATIO) !== "suspect") fail("40일 전에 끝난 기록 때문에 바로 14일을 잠근다");
+  }
   // 파이어폭스로 다시 읽히면 파이어폭스 칸만 푼다 — 크롬 기록은 남아 auto 가 계속 파이어폭스를 쓴다.
   const v2 = R.recordResult(st, "zara.com.zara", "firefox", { brand: "Zara", tried: 20, blocked: 2, ok: 15 }, NOW, SKIP_DAYS, BLOCK_RATIO);
   if (v2 !== "cleared" || st.blocked["zara.com.zara"].firefox) fail("다시 읽혔는데 파이어폭스 이력을 안 푼다");
@@ -204,4 +217,4 @@ for (const [needle, why] of [
 if (/merged\[u\] = \{ \.\.\.\(merged\[u\] \|\| \{\}\), \.\.\.v/.test(src)) fail("예전 병합({ ...기존, ...새 값 })이 남아 있다");
 
 if (bad) { console.error(`\n크롬 보강 건너뛰기 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 크롬 보강 건너뛰기 통과 — 판정 ${CASES.length}건 · 배선 14종 · 엔진별 이력 18건 · none 출처·병합 ${nRule}건 (${SKIP_DAYS}일 제외 · 차단 ${BLOCK_RATIO * 100}% 기준)`);
+console.log(`✅ 크롬 보강 건너뛰기 통과 — 판정 ${CASES.length}건 · 배선 14종 · 엔진별 이력 22건 · none 출처·병합 ${nRule}건 (${SKIP_DAYS}일 제외 · 차단 ${BLOCK_RATIO * 100}% 기준)`);
