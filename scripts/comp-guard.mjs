@@ -24,7 +24,8 @@
 // 야간 보강(enrich-comp.mjs)·크롬 보강(enrich-comp-browser.mjs)이 저장 직전에 쓰고,
 // 점검(audit-stored-comp.mjs)이 '오늘 저장값에 적용했다면'을 셀 때 쓴다. 네트워크를 쓰지 않는 순수 함수만.
 
-export const GUARD_RULE = {
+// ── 저장 직전 가드 규칙 시작 — chrome-extension/background.js 에 글자 그대로 복사돼 있다(test-comp-guard 가 비교)
+const GUARD_RULE = {
   LINE_MIN_MULTI: 8,   // 여러 줄 값이 이만큼은 있어야 판단한다(적으면 우연과 구별이 안 된다)
   LINE_SHARE: 0.8,     // 같은 줄이 여러 줄 값의 이 비율 이상
   LINE_PARTNERS: 3,    // 짝 줄의 종류(같은 원단 묶음이면 짝이 한두 종류다)
@@ -39,7 +40,7 @@ const LINING_RX = /^(?:polyester|viscose|acetate|triacetate|cupro|nylon|polyamid
 
 // 혼용률 → 단위(원단 한 벌) 목록. 줄로 나뉘고, 예전 저장분처럼 한 줄에 "Wool 100% / Cotton 100%"(합 200)로
 // 붙은 것도 두 벌로 본다.
-export function units(comp) {
+function units(comp) {
   const out = [];
   for (const line of String(comp || "").split("\n").map((l) => l.trim()).filter(Boolean)) {
     const items = line.split(/\s*\/\s*/).filter(Boolean).map((p) => {
@@ -54,13 +55,13 @@ export function units(comp) {
 }
 const unitKey = (u) => u.map((c) => `${c.fib} ${c.pct}%`.toLowerCase()).sort().join(" / ");
 const unitText = (u) => u.map((c) => `${c.fib} ${c.pct}%`).join(" / ");
-export const normValue = (comp) => units(comp).map(unitKey).sort().join(" ‖ ");
+const normValue = (comp) => units(comp).map(unitKey).sort().join(" ‖ ");
 
 // 상품명이 말하는 섬유 중 혼용률에 없는 것. "Faux Leather"·"Linen-Look" 는 그 섬유가 아니다.
 const NAME_FIBRES = { cotton: "Cotton", wool: "Wool", merino: "Wool", linen: "Linen", silk: "Silk", cashmere: "Cashmere",
   viscose: "Viscose", lyocell: "Lyocell", tencel: "Lyocell", modal: "Modal", polyester: "Polyester", nylon: "Nylon",
   leather: "Leather", alpaca: "Alpaca", mohair: "Mohair" };
-export function nameContradicts(name, comp) {
+function nameContradicts(name, comp) {
   const n = String(name || "").toLowerCase()
     .replace(/\b(?:faux|vegan|imitation|fake|pleather)[\s-]+[a-z]+/g, " ")
     .replace(/\b[a-z]+[\s-](?:look|like|effect|feel|touch|print)\b/g, " ");
@@ -69,7 +70,7 @@ export function nameContradicts(name, comp) {
 }
 
 // 브랜드 하나의 값들([{url, name, comp}])에서 조각으로 보이는 줄·값을 찾는다.
-export function findFlags(items, rule = GUARD_RULE) {
+function findFlags(items, rule = GUARD_RULE) {
   const withComp = items.filter((p) => p && String(p.comp || "").trim());
   const flags = [];
   // ① 줄 규칙
@@ -118,7 +119,7 @@ export function findFlags(items, rule = GUARD_RULE) {
 }
 
 // 이 값이 어느 표시에 걸리나(없으면 null).
-export function heldBy(comp, flags) {
+function heldBy(comp, flags) {
   if (!flags.length || !String(comp || "").trim()) return null;
   const us = units(comp);
   const v = normValue(comp);
@@ -133,7 +134,7 @@ const urlKey = (u) => { try { const x = new URL(u); return (x.hostname.replace(/
 
 // 저장 직전에 쓴다. stored: 이 브랜드에 이미 저장돼 화면에 보이는 값, incoming: 이번 실행에서 읽은 값
 // (둘 다 [{url, name, comp}]). 같은 상품은 이번 값으로 본다. 보류할 이번 값의 주소 → 이유를 돌려준다.
-export function guardRun(stored, incoming, rule = GUARD_RULE) {
+function guardRun(stored, incoming, rule = GUARD_RULE) {
   const inc = new Map();
   for (const p of incoming || []) if (p && p.url && String(p.comp || "").trim()) inc.set(urlKey(p.url), p);
   const ctx = [...(stored || []).filter((p) => p && p.url && !inc.has(urlKey(p.url))), ...inc.values()];
@@ -147,9 +148,12 @@ export function guardRun(stored, incoming, rule = GUARD_RULE) {
 }
 
 // 보류 이유를 사람 말로.
-export function flagText(f) {
+function flagText(f) {
   const pct = Math.round(f.share * 100);
   return f.kind === "line"
     ? `여러 줄 값 ${f.of}개 중 ${f.n}개(${pct}%)에 같은 줄 "${f.text}" · 짝 ${f.partners}종`
     : `값 ${f.of}개 중 ${f.n}개(${pct}%)가 "${String(f.text).replace(/\n/g, " ‖ ")}" · 그중 ${f.contra}개는 이름과 어긋남`;
 }
+// ── 저장 직전 가드 규칙 끝
+
+export { GUARD_RULE, units, normValue, nameContradicts, findFlags, heldBy, guardRun, flagText };

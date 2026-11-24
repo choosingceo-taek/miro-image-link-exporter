@@ -131,6 +131,21 @@ eq("짝이 한 종류(같은 원단 묶음): 통과", heldCount(sets), 0);
     eq(`배선: ${f} 가 저장 전에 guardRun`, src.includes('from "./comp-guard.mjs"') && g > 0 && g < post, true);
     eq(`배선: ${f} 리포트에 보류 목록`, src.includes("저장 직전 가드가 보류한 혼용률"), true);
   }
+  // 확장(background.js)은 자립형 파일이라 규칙을 글자 그대로 복사해 둔다 — 어긋나면 확장만 다르게 거른다.
+  const block = (src) => {
+    const a = src.indexOf("// ── 저장 직전 가드 규칙 시작"), b = src.indexOf("// ── 저장 직전 가드 규칙 끝");
+    return a >= 0 && b > a ? src.slice(a, b) : null;
+  };
+  const mod = block(readFileSync(join(ROOT, "scripts/comp-guard.mjs"), "utf8"));
+  const ext = readFileSync(join(ROOT, "chrome-extension/background.js"), "utf8");
+  eq("확장: 가드 규칙이 comp-guard.mjs 와 글자 그대로 같다", !!mod && block(ext) === mod, true);
+  const eg = ext.indexOf("guardRun(stored, incoming)"), ep = ext.indexOf("/?store=overlay&site=", ext.indexOf("async function enrichComps"));
+  eq("확장: enrichComps 가 저장 전에 guardRun", eg > 0 && eg < ep, true);
+  // 복사본을 실제로 돌려 본다(Splendid·면 티 브랜드)
+  const extGuard = new Function(block(ext) + "\n return { findFlags, heldBy };")();
+  const cnt = (g, items) => { const f = g.findFlags(items); return items.filter((p) => g.heldBy(p.comp, f)).length; };
+  eq("확장 복사본: Splendid 보류 수가 같다", cnt(extGuard, splendid), heldCount(splendid));
+  eq("확장 복사본: 면 티 브랜드 통과", cnt(extGuard, tees), 0);
 }
 
 console.log(bad ? `\n저장 직전 가드 — ${bad}개 실패` : "\n저장 직전 가드 — 모두 통과");

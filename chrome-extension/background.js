@@ -602,6 +602,141 @@ async function readByTab(url, winId) {
   }
 }
 
+// 저장 직전 가드 — 브랜드 전체에 되풀이되는 '사이트 장식'(메뉴·배너·추천 블록의 글)을 혼용률로 저장하지 않는다.
+// 2026-11-24 점검: Splendid 344개 중 233개가 "Cotton 100% ‖ Cashmere 100%", Aritzia 472개 중 358개가 "Leather 100%".
+// 야간 보강·크롬 보강과 같은 규칙(scripts/comp-guard.mjs)을 글자 그대로 옮겨 둔다 — 확장은 자립형 파일이라 복사가 불가피하다.
+// ── 저장 직전 가드 규칙 시작 — chrome-extension/background.js 에 글자 그대로 복사돼 있다(test-comp-guard 가 비교)
+const GUARD_RULE = {
+  LINE_MIN_MULTI: 8,   // 여러 줄 값이 이만큼은 있어야 판단한다(적으면 우연과 구별이 안 된다)
+  LINE_SHARE: 0.8,     // 같은 줄이 여러 줄 값의 이 비율 이상
+  LINE_PARTNERS: 3,    // 짝 줄의 종류(같은 원단 묶음이면 짝이 한두 종류다)
+  VALUE_MIN: 30,       // 브랜드 혼용률이 이만큼은 있어야 판단한다
+  VALUE_SHARE: 0.6,    // 한 값이 이 비율 이상
+  VALUE_CONTRA: 0.1,   // 그 값을 가진 상품 중 이름과 어긋나는 비율
+  VALUE_CONTRA_MIN: 5, // 어긋나는 상품이 적어도 이만큼
+};
+
+// 흔한 안감 — 브랜드 전체에 되풀이돼도 진짜일 수 있다.
+const LINING_RX = /^(?:polyester|viscose|acetate|triacetate|cupro|nylon|polyamide) 100%$/i;
+
+// 혼용률 → 단위(원단 한 벌) 목록. 줄로 나뉘고, 예전 저장분처럼 한 줄에 "Wool 100% / Cotton 100%"(합 200)로
+// 붙은 것도 두 벌로 본다.
+function units(comp) {
+  const out = [];
+  for (const line of String(comp || "").split("\n").map((l) => l.trim()).filter(Boolean)) {
+    const items = line.split(/\s*\/\s*/).filter(Boolean).map((p) => {
+      const m = p.match(/^(.*?)\s*(\d{1,3}(?:\.\d+)?)\s*%$/);
+      return m ? { fib: m[1].trim(), pct: Number(m[2]) } : { fib: p.trim(), pct: NaN };
+    });
+    const sum = items.reduce((n, c) => n + (Number.isFinite(c.pct) ? c.pct : 0), 0);
+    if (items.length >= 2 && sum > 150 && items.every((c) => c.pct === 100)) for (const c of items) out.push([c]);
+    else out.push(items);
+  }
+  return out;
+}
+const unitKey = (u) => u.map((c) => `${c.fib} ${c.pct}%`.toLowerCase()).sort().join(" / ");
+const unitText = (u) => u.map((c) => `${c.fib} ${c.pct}%`).join(" / ");
+const normValue = (comp) => units(comp).map(unitKey).sort().join(" ‖ ");
+
+// 상품명이 말하는 섬유 중 혼용률에 없는 것. "Faux Leather"·"Linen-Look" 는 그 섬유가 아니다.
+const NAME_FIBRES = { cotton: "Cotton", wool: "Wool", merino: "Wool", linen: "Linen", silk: "Silk", cashmere: "Cashmere",
+  viscose: "Viscose", lyocell: "Lyocell", tencel: "Lyocell", modal: "Modal", polyester: "Polyester", nylon: "Nylon",
+  leather: "Leather", alpaca: "Alpaca", mohair: "Mohair" };
+function nameContradicts(name, comp) {
+  const n = String(name || "").toLowerCase()
+    .replace(/\b(?:faux|vegan|imitation|fake|pleather)[\s-]+[a-z]+/g, " ")
+    .replace(/\b[a-z]+[\s-](?:look|like|effect|feel|touch|print)\b/g, " ");
+  const c = String(comp || "").toLowerCase();
+  return Object.entries(NAME_FIBRES).filter(([w, f]) => new RegExp(`\\b${w}\\b`).test(n) && !c.includes(f.toLowerCase())).map(([w]) => w);
+}
+
+// 브랜드 하나의 값들([{url, name, comp}])에서 조각으로 보이는 줄·값을 찾는다.
+function findFlags(items, rule = GUARD_RULE) {
+  const withComp = items.filter((p) => p && String(p.comp || "").trim());
+  const flags = [];
+  // ① 줄 규칙
+  const multi = withComp.filter((p) => units(p.comp).length >= 2);
+  if (multi.length >= rule.LINE_MIN_MULTI) {
+    const cnt = new Map();
+    for (const p of multi) {
+      const us = units(p.comp);
+      const keys = new Set(us.map(unitKey));
+      for (const u of us) {
+        const k = unitKey(u);
+        if (!keys.has(k)) continue;
+        keys.delete(k);
+        const e = cnt.get(k) || { text: unitText(u), n: 0, partners: new Set() };
+        e.n++;
+        for (const o of us) if (unitKey(o) !== k) e.partners.add(unitKey(o));
+        cnt.set(k, e);
+      }
+    }
+    for (const [k, e] of cnt) {
+      const share = e.n / multi.length;
+      if (share >= rule.LINE_SHARE && e.partners.size >= rule.LINE_PARTNERS && !LINING_RX.test(e.text)) {
+        flags.push({ kind: "line", key: k, text: e.text, n: e.n, of: multi.length, share, partners: e.partners.size });
+      }
+    }
+  }
+  // ② 값 규칙
+  if (withComp.length >= rule.VALUE_MIN) {
+    const cnt = new Map();
+    for (const p of withComp) {
+      const k = normValue(p.comp);
+      const e = cnt.get(k) || { text: p.comp, n: 0, contra: 0, ex: [] };
+      e.n++;
+      const why = nameContradicts(p.name, p.comp);
+      if (why.length) { e.contra++; if (e.ex.length < 5) e.ex.push({ name: p.name, url: p.url, why }); }
+      cnt.set(k, e);
+    }
+    for (const [k, e] of cnt) {
+      const share = e.n / withComp.length;
+      if (share >= rule.VALUE_SHARE && e.contra >= rule.VALUE_CONTRA_MIN && e.contra / e.n >= rule.VALUE_CONTRA) {
+        flags.push({ kind: "value", key: k, text: e.text, n: e.n, of: withComp.length, share, contra: e.contra, contraEx: e.ex });
+      }
+    }
+  }
+  return flags;
+}
+
+// 이 값이 어느 표시에 걸리나(없으면 null).
+function heldBy(comp, flags) {
+  if (!flags.length || !String(comp || "").trim()) return null;
+  const us = units(comp);
+  const v = normValue(comp);
+  for (const f of flags) {
+    if (f.kind === "value" && f.key === v) return f;
+    if (f.kind === "line" && us.length >= 2 && us.some((u) => unitKey(u) === f.key)) return f;
+  }
+  return null;
+}
+
+const urlKey = (u) => { try { const x = new URL(u); return (x.hostname.replace(/^www\./, "") + x.pathname.replace(/\/+$/, "")).toLowerCase(); } catch (e) { return String(u || ""); } };
+
+// 저장 직전에 쓴다. stored: 이 브랜드에 이미 저장돼 화면에 보이는 값, incoming: 이번 실행에서 읽은 값
+// (둘 다 [{url, name, comp}]). 같은 상품은 이번 값으로 본다. 보류할 이번 값의 주소 → 이유를 돌려준다.
+function guardRun(stored, incoming, rule = GUARD_RULE) {
+  const inc = new Map();
+  for (const p of incoming || []) if (p && p.url && String(p.comp || "").trim()) inc.set(urlKey(p.url), p);
+  const ctx = [...(stored || []).filter((p) => p && p.url && !inc.has(urlKey(p.url))), ...inc.values()];
+  const flags = findFlags(ctx, rule);
+  const held = new Map();
+  for (const p of inc.values()) {
+    const f = heldBy(p.comp, flags);
+    if (f) held.set(p.url, { comp: p.comp, name: p.name || "", flag: f });
+  }
+  return { held, flags };
+}
+
+// 보류 이유를 사람 말로.
+function flagText(f) {
+  const pct = Math.round(f.share * 100);
+  return f.kind === "line"
+    ? `여러 줄 값 ${f.of}개 중 ${f.n}개(${pct}%)에 같은 줄 "${f.text}" · 짝 ${f.partners}종`
+    : `값 ${f.of}개 중 ${f.n}개(${pct}%)가 "${String(f.text).replace(/\n/g, " ‖ ")}" · 그중 ${f.contra}개는 이름과 어긋남`;
+}
+// ── 저장 직전 가드 규칙 끝
+
 async function enrichComps(g, cfg, manual, winId, stopAt) {
   const tok = cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '';
   let cat;
@@ -731,6 +866,23 @@ async function enrichComps(g, cfg, manual, winId, stopAt) {
         (tabQueue.length > tabTried ? ` — 남은 ${tabQueue.length - tabTried}개는 다음 차례` : '') });
   }
   if (!Object.keys(comps).length) return 0;
+  // 저장 직전 가드: 이번에 읽은 혼용률을 이 브랜드에 이미 저장된 값과 함께 보고, 브랜드 전체에 되풀이되는
+  // 조각이면 혼용률만 빼고 저장한다(컬러·사이즈·가격·시도 시각은 남김). 몇 개를 뺐는지 로그에 남긴다.
+  {
+    const items = cat.items || [];
+    const nameOf = new Map(items.map((p) => [p.productUrl, p.name || '']));
+    const stored = items.map((p) => ({ url: p.productUrl, name: p.name || '',
+      comp: String(p.comp || '').trim() || val(overlay[p.productUrl], 'comp') })).filter((x) => x.comp);
+    const incoming = Object.entries(comps).map(([url, got]) => ({ url, name: nameOf.get(url) || '', comp: String((got && got.comp) || '').trim() }))
+      .filter((x) => x.comp);
+    const { held } = guardRun(stored, incoming);
+    for (const url of held.keys()) comps[url] = { ...comps[url], comp: '' };
+    if (held.size) {
+      const f = [...held.values()][0];
+      pushLog({ url: g.site, ok: true, count: 0,
+        msg: `${g.brand} · 혼용률 ${held.size}개 보류 — 다른 상품에도 똑같이 되풀이되는 값(${flagText(f.flag)})` });
+    }
+  }
   // 병합은 여기서 하고 Worker 에는 완성본을 통째로 넘긴다 — Worker 가 병합하면
   // 항목이 많을 때 무료 플랜 CPU 한도(10ms)를 넘겨 저장 전에 죽는다.
   const merged = { ...overlay };
