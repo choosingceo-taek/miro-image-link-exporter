@@ -179,10 +179,167 @@
     return 'tops';
   }
 
+  // ── 전체 상품 검색(독립 앱) ─────────────────────────────────────
+  // Worker 검색 인덱스(?index=1)에서 상품명으로 찾는다. 미로 패널과 같은 규칙
+  // (두 글자 이상, 300개 상한)에 하나만 더했다: 띄어 쓴 낱말이 순서와 상관없이
+  // 모두 들어 있으면 맞는 것으로 본다("linen shirt" 로 "Shirt in Linen" 도 찾는다).
+  // 낱말 하나만 넣으면 미로 패널과 결과가 같다.
+  const SEARCH_MIN = 2;
+  const SEARCH_CAP = 300;
+  function searchIndex(index, q, cap) {
+    const max = cap || SEARCH_CAP;
+    const query = String(q || '').trim().toLowerCase();
+    if (query.length < SEARCH_MIN) return { hits: [], total: 0, capped: false, short: true };
+    const words = query.split(/\s+/).filter(Boolean);
+    const hits = [];
+    let total = 0;
+    for (const it of index || []) {
+      if (!it || !it.imageUrl || !it.productUrl) continue;
+      const name = String(it.name || '').toLowerCase();
+      if (!words.every((w) => name.includes(w))) continue;
+      total++;
+      if (hits.length < max) hits.push(it);
+    }
+    return { hits, total, capped: total > max, short: false };
+  }
+
+  // 인덱스 항목 → 화면·엑셀이 쓰는 상품 모양(mergeOverlay 결과와 같은 필드).
+  // 인덱스의 혼용률은 야간 보강 때 오버레이에서 옮겨 적은 것이다. '사이트 미표기'
+  // 표시(none)는 인덱스에 없으므로 compNone 은 오버레이를 받아야 켜진다.
+  function fromIndex(it) {
+    return {
+      name: it.name || '',
+      imageUrl: it.imageUrl,
+      productUrl: it.productUrl,
+      price: it.price || '',
+      priceOrig: it.priceOrig || '',
+      comp: it.comp || '',
+      compNone: false,
+      color: it.color || '',
+      sizes: it.sizes || '',
+      brand: it.brand || '',
+      cat: guessCat(it.productUrl, it.name),
+    };
+  }
+
+  // 이미 화면에 있는 상품에 나중에 받은 오버레이를 덧입힌다. 인덱스는 하루 한 번
+  // 만들어지고 오버레이는 확장·보강이 올 때마다 바뀌므로, 오버레이 값이 있으면
+  // 그쪽을 믿는다. 값이 없는 필드는 원래 값을 지우지 않는다.
+  function applyOverlay(items, overlay) {
+    const ov = new Map();
+    for (const [u, o] of Object.entries(overlay || {})) if (o) ov.set(urlKey(u), o);
+    let changed = 0;
+    for (const p of items || []) {
+      const o = ov.get(urlKey(p.productUrl));
+      if (!o) continue;
+      const before = p.comp + '|' + p.compNone + '|' + p.color;
+      if (o.comp) p.comp = o.comp;
+      if (o.color) p.color = o.color;
+      if (o.sizes && !p.sizes) p.sizes = o.sizes;
+      if (o.price && !p.price) p.price = o.price;
+      p.compNone = !!(o.none && !p.comp);
+      if (before !== p.comp + '|' + p.compNone + '|' + p.color) changed++;
+    }
+    return changed;
+  }
+
+  // ── 세그먼트(YWMN·WMN·ACTIVE·SLEEP) ────────────────────────────
+  // 미로 패널과 같은 뜻: 한 번에 하나만 켠다, 아무것도 안 켜면 전체, 분류가 없는
+  // 브랜드는 전체에서만 보인다. 분류는 Render 의 /api/brands(brands.json)에 있고
+  // Worker 브랜드 목록에는 없다 — 브랜드 이름(대소문자 무시)으로 맞춘다.
+  const SEGMENTS = [['YWMN', 'YWMN'], ['WMN', 'WMN'], ['ACTIVE', 'Active'], ['SLEEP', 'Sleep']];
+  const nameKey = (s) => String(s || '').trim().toLowerCase();
+  function segMapOf(renderBrands) {
+    const m = {};
+    for (const b of renderBrands || []) {
+      if (!b || !b.name || !Array.isArray(b.segments) || !b.segments.length) continue;
+      m[nameKey(b.name)] = b.segments.slice();
+    }
+    return m;
+  }
+  const segsOf = (brandName, segMap) => (segMap && segMap[nameKey(brandName)]) || [];
+  const inSeg = (brandName, seg, segMap) => !seg || segsOf(brandName, segMap).includes(seg);
+  // 탭마다 '눌러도 되는가'. 분류가 아직 하나도 없으면 아무 탭도 잠그지 않는다 —
+  // 분류가 늦게 오는 사이에 개수를 세면 전부 0이라 네 탭이 통째로 잠긴다(패널에서 실제로 그랬다).
+  function segState(brandNames, segMap) {
+    const anySeg = (brandNames || []).some((n) => segsOf(n, segMap).length);
+    const out = {};
+    for (const [k] of SEGMENTS) {
+      out[k] = { count: (brandNames || []).filter((n) => segsOf(n, segMap).includes(k)).length };
+      out[k].disabled = anySeg && !out[k].count;
+    }
+    return { anySeg, segs: out };
+  }
+
+  // ── 선택 바구니 ────────────────────────────────────────────────
+  // 브랜드를 옮기거나 검색을 해도 고른 상품이 남아 있어야 여러 브랜드를 한
+  // 엑셀에 담을 수 있다. 그래서 선택을 '지금 화면의 상품'이 아니라 상품URL 을
+  // 열쇠로 한 바구니에 상품 정보째 담아 둔다.
+  const hasComp = (p) => validComp(cleanVal(p && p.comp));
+  function basketSummary(items) {
+    const list = items || [];
+    const brands = new Set(list.map((p) => nameKey(p.brand)).filter(Boolean));
+    const ok = list.filter(hasComp).length;
+    const none = list.filter((p) => p.compNone && !hasComp(p)).length;
+    return {
+      n: list.length, brands: brands.size, comp: ok, none,
+      pct: list.length ? Math.round((ok / list.length) * 100) : 0,
+      ready: compReady(list),
+    };
+  }
+  // 혼용률이 없는 것을 뺀다 — 95% 기준에 걸려 열이 닫힐 때 한 번에 여는 버튼.
+  const compOnly = (items) => (items || []).filter(hasComp);
+
+  // 엑셀 행 순서: 브랜드가 처음 담긴 순서대로 묶고, 브랜드 안에서는 담은 순서.
+  function exportOrder(items) {
+    const first = new Map();
+    (items || []).forEach((p, i) => { const k = nameKey(p.brand); if (!first.has(k)) first.set(k, i); });
+    return (items || []).map((p, i) => [p, i])
+      .sort((a, b) => (first.get(nameKey(a[0].brand)) - first.get(nameKey(b[0].brand))) || (a[1] - b[1]))
+      .map((x) => x[0]);
+  }
+
+  // 파일 이름: 한 브랜드면 그 브랜드, 여럿이면 RACK_<n>brands_<날짜>.
+  function exportFileName(items, date, fallback) {
+    const day = String(date || new Date().toISOString()).slice(0, 10);
+    const names = [...new Set((items || []).map((p) => String(p.brand || '').trim()).filter(Boolean)
+      .map((s) => s.toLowerCase()))];
+    if (names.length > 1) return `RACK_${names.length}brands_${day}.xlsx`;
+    const one = (items || []).map((p) => String(p.brand || '').trim()).find(Boolean) || fallback || 'rack';
+    return `${one.replace(/[^\w가-힣]+/g, '_').slice(0, 30)}_${day}.xlsx`;
+  }
+
+  // Shift+클릭 범위: 마지막으로 누른 카드와 지금 카드 사이(양끝 포함)의 상품URL.
+  function rangeBetween(list, a, b) {
+    if (a < 0 || b < 0) return [];
+    const lo = Math.min(a, b), hi = Math.max(a, b);
+    return (list || []).slice(lo, hi + 1).map((p) => p.productUrl);
+  }
+
+  // ── 주소 해시(바로가기) ────────────────────────────────────────
+  // #site=<사이트 키> 또는 #q=<검색어>. 확장이 '수집한 브랜드 리서치에서 보기'로
+  // 여는 주소가 이것이고, 사용자가 화면을 옮길 때마다 갱신돼 즐겨찾기·공유가 된다.
+  function parseHash(h) {
+    const s = String(h || '').replace(/^#/, '');
+    const p = new URLSearchParams(s);
+    return { site: (p.get('site') || '').trim(), q: (p.get('q') || '').trim() };
+  }
+  function makeHash(st) {
+    const p = new URLSearchParams();
+    if (st && st.site) p.set('site', st.site);
+    else if (st && st.q) p.set('q', st.q);
+    const s = p.toString();
+    return s ? '#' + s : '';
+  }
+
   root.RackCore = {
     cleanVal, validComp, validColor, urlKey, guessCat,
     NEED, NO_INFO, FABRIC_GATE,
     compReady, colorReady, colsFor, rowColFor, rowValues, colLetter,
     mergeOverlay,
+    SEARCH_MIN, SEARCH_CAP, searchIndex, fromIndex, applyOverlay,
+    SEGMENTS, segMapOf, segsOf, inSeg, segState,
+    hasComp, basketSummary, compOnly, exportOrder, exportFileName, rangeBetween,
+    parseHash, makeHash,
   };
 })(typeof globalThis !== 'undefined' ? globalThis : this);

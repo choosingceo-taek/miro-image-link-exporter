@@ -10,7 +10,7 @@
     :root {
       --bg: #f6f6f4; --panel: #fff; --line: #e4e2dd; --ink: #1c1a17; --dim: #7a756c;
       --accent: #2f6df6; --accent-soft: #eaf0fe; --warn: #b45309; --warn-bg: #fff7ed;
-      --radius: 10px;
+      --radius: 10px; --headH: 57px; --barH: 60px;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -19,6 +19,7 @@
       }
     }
     * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; }
     body {
       margin: 0; background: var(--bg); color: var(--ink);
       font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
@@ -28,32 +29,53 @@
     button { cursor: pointer; }
 
     header {
-      display: flex; align-items: center; gap: 12px; padding: 12px 18px;
+      display: flex; align-items: center; gap: 12px; padding: 10px 18px;
       background: var(--panel); border-bottom: 1px solid var(--line);
       position: sticky; top: 0; z-index: 20;
     }
-    .logo { font-weight: 700; letter-spacing: .04em; font-size: 15px; }
+    .logo { font-weight: 700; letter-spacing: .04em; font-size: 15px; white-space: nowrap; }
     .logo small { font-weight: 500; color: var(--dim); letter-spacing: 0; margin-left: 7px; }
-    header .sp { flex: 1; }
+    .q { flex: 1; min-width: 0; max-width: 520px; margin-left: auto; position: relative; }
+    .q input {
+      width: 100%; padding: 8px 34px 8px 12px; border: 1px solid var(--line);
+      border-radius: 8px; background: var(--bg);
+    }
+    .q input:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+    .q kbd {
+      position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+      font: 11px/1 inherit; color: var(--dim); border: 1px solid var(--line); border-radius: 4px; padding: 3px 5px;
+      pointer-events: none;
+    }
+    .q input:focus + kbd, .q input:not(:placeholder-shown) + kbd { display: none; }
     .ghost {
       background: transparent; border: 1px solid var(--line); border-radius: 8px;
-      padding: 6px 12px; color: var(--dim);
+      padding: 6px 12px; color: var(--dim); white-space: nowrap;
     }
     .ghost:hover { color: var(--ink); border-color: var(--dim); }
+    .ghost:disabled { opacity: .45; cursor: default; }
+    .ghost.on { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+    #drawerBtn { display: none; max-width: 40vw; overflow: hidden; text-overflow: ellipsis; }
 
     .wrap { display: grid; grid-template-columns: 268px 1fr; gap: 0; align-items: start; }
-    @media (max-width: 820px) { .wrap { grid-template-columns: 1fr; } aside { position: static !important; height: auto !important; } }
 
     aside {
       background: var(--panel); border-right: 1px solid var(--line);
-      position: sticky; top: 53px; height: calc(100vh - 53px);
+      position: sticky; top: var(--headH); height: calc(100vh - var(--headH));
       display: flex; flex-direction: column;
     }
-    aside .find { padding: 12px; border-bottom: 1px solid var(--line); }
+    aside .find { padding: 10px 12px 12px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 9px; }
     aside input[type=search] {
       width: 100%; padding: 8px 11px; border: 1px solid var(--line);
       border-radius: 8px; background: var(--bg);
     }
+    .segs { display: flex; gap: 4px; flex-wrap: wrap; }
+    .segs[hidden] { display: none; }
+    .seg {
+      padding: 3px 8px; border: 1px solid var(--line); border-radius: 999px;
+      background: var(--panel); font-size: 12px; font-weight: 600; letter-spacing: .02em;
+    }
+    .seg.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .seg:disabled { opacity: .38; cursor: default; }
     .brands { overflow-y: auto; flex: 1; padding: 6px; }
     .brand {
       display: flex; align-items: baseline; gap: 8px; width: 100%; text-align: left;
@@ -62,33 +84,56 @@
     .brand:hover { background: var(--bg); }
     .brand.on { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
     .brand .nm { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .brand .ct { font-size: 11px; color: var(--dim); font-variant-numeric: tabular-nums; }
+    .brand .ct { font-size: 11px; color: var(--dim); font-variant-numeric: tabular-nums; white-space: nowrap; }
     .brand.stale .ct { color: var(--warn); }
+    .scrim { display: none; }
 
-    main { padding: 16px 18px 80px; min-width: 0; }
-    .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+    main { padding: 14px 18px calc(var(--barH) + 24px); min-width: 0; }
+    .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; min-height: 22px; }
+    .head h2 { font-size: 16px; margin: 0; font-weight: 650; overflow-wrap: anywhere; }
+    .head .sub { color: var(--dim); font-size: 12.5px; }
+    .head .sub b { color: var(--warn); font-weight: 600; }
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
     .tab {
       padding: 6px 13px; border: 1px solid var(--line); border-radius: 999px;
-      background: var(--panel); font-size: 13px;
+      background: var(--panel); font-size: 13px; white-space: nowrap;
     }
     .tab.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
     .tab:disabled { opacity: .38; cursor: default; }
+    .flt {
+      margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px;
+      color: var(--dim); cursor: pointer; user-select: none; white-space: nowrap;
+    }
+    .flt input { accent-color: var(--accent); margin: 0; }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(178px, 1fr)); gap: 14px; }
     .card {
       background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
-      overflow: hidden; position: relative; display: flex; flex-direction: column;
+      overflow: hidden; position: relative; display: flex; flex-direction: column; min-width: 0;
+      user-select: none;
     }
     .card.sel { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
-    .card .ph { aspect-ratio: 3 / 4; background: var(--bg); overflow: hidden; }
+    .card .ph { aspect-ratio: 3 / 4; background: var(--bg); overflow: hidden; position: relative; }
     .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .card .meta { padding: 9px 10px 11px; display: flex; flex-direction: column; gap: 3px; }
-    .card .nm { font-size: 12.5px; line-height: 1.35; max-height: 2.7em; overflow: hidden; }
+    /* 이미지가 깨지면 깨진 아이콘 대신 빈 자리로 둔다 — 카드 크기는 그대로. */
+    .card .ph.noimg::after {
+      content: "이미지 없음"; position: absolute; inset: 0; display: flex; align-items: center;
+      justify-content: center; color: var(--dim); font-size: 12px;
+      background: repeating-linear-gradient(135deg, transparent 0 10px, rgba(127,127,127,.07) 10px 20px);
+    }
+    .card .meta { padding: 9px 10px 11px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .card .br {
+      font-size: 10.5px; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; color: var(--dim);
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: none; border: 0; padding: 0;
+      text-align: left; cursor: pointer;
+    }
+    .card .br:hover { color: var(--accent); text-decoration: underline; }
+    .card .nm { font-size: 12.5px; line-height: 1.35; max-height: 2.7em; overflow: hidden; overflow-wrap: anywhere; }
     .card .pr { font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums; }
     .card .cp {
       font-size: 11px; line-height: 1.4; color: var(--accent);
       background: var(--accent-soft); border-radius: 5px; padding: 3px 6px; margin-top: 2px;
-      white-space: pre-line;
+      white-space: pre-line; overflow-wrap: anywhere;
     }
     .card .cp.none { color: var(--dim); background: transparent; padding-left: 0; font-style: italic; }
     .card .chk {
@@ -100,22 +145,24 @@
       background: rgba(0,0,0,.55); color: #fff; border-radius: 6px;
       font-size: 11px; padding: 2px 7px; opacity: 0; transition: opacity .12s;
     }
-    .card:hover a.open { opacity: 1; }
+    .card:hover a.open, .card a.open:focus { opacity: 1; }
 
     .bar {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
       background: var(--panel); border-top: 1px solid var(--line);
-      padding: 11px 18px; display: flex; align-items: center; gap: 12px;
+      padding: 10px 18px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
     }
     .bar .sp { flex: 1; }
     .go {
       background: var(--accent); color: #fff; border: 0; border-radius: 8px;
-      padding: 9px 20px; font-weight: 600;
+      padding: 9px 20px; font-weight: 600; white-space: nowrap;
     }
     .go:disabled { opacity: .45; }
-    .msg { color: var(--dim); font-size: 13px; }
+    .msg { color: var(--dim); font-size: 13px; min-width: 0; }
     .msg b { color: var(--ink); }
+    .msg .warn { color: var(--warn); }
     .empty { color: var(--dim); padding: 44px 0; text-align: center; }
+    .note { color: var(--dim); font-size: 12px; margin: -4px 0 12px; }
 
     dialog {
       border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel);
@@ -125,31 +172,74 @@
     dialog label { display: block; margin: 12px 0 4px; font-size: 12px; color: var(--dim); }
     dialog input { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); }
     dialog .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
+    dialog .hint { font-size: 11.5px; color: var(--dim); margin-top: 10px; }
+
+    /* ── 좁은 화면(브라우저 옆 패널 360~420px 포함) ── */
+    @media (max-width: 820px) {
+      header { padding: 8px 10px; gap: 8px; }
+      .logo small { display: none; }
+      #drawerBtn { display: inline-block; padding: 6px 10px; max-width: 150px; }
+      .wrap { display: block; }
+      aside {
+        position: fixed; top: 0; left: 0; bottom: 0; height: 100vh; width: min(300px, 86vw);
+        z-index: 50; transform: translateX(-105%); transition: transform .18s ease;
+        box-shadow: 0 0 24px rgba(0,0,0,.18);
+      }
+      body.drawer aside { transform: none; }
+      body.drawer .scrim { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 45; }
+      main { padding: 12px 12px calc(var(--barH) + 18px); }
+      .bar { padding: 8px 10px; gap: 6px; }
+      .bar .msg { flex-basis: 100%; order: -1; font-size: 12px; }
+      .bar .ghost { padding: 5px 9px; font-size: 12.5px; }
+      .go { padding: 7px 14px; }
+      .flt { margin-left: 0; }
+    }
+    @media (max-width: 480px) {
+      .logo { display: none; }
+      #drawerBtn { max-width: 128px; }
+      #cfgBtn .lb { display: none; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      .card .meta { padding: 7px 8px 9px; }
+      .tab { padding: 5px 10px; font-size: 12.5px; }
+    }
   </style>
 </head>
 <body>
-  <header>
+  <header id="top">
+    <button class="ghost" id="drawerBtn" aria-label="브랜드 목록">☰ 브랜드</button>
     <div class="logo">RACK<small>상품 리서치 · 엑셀 추출</small></div>
-    <div class="sp"></div>
-    <button class="ghost" id="cfgBtn">⚙ 설정</button>
+    <div class="q">
+      <input type="search" id="q" placeholder="상품명 검색 (전체 브랜드)" autocomplete="off" aria-label="상품명 검색">
+      <kbd>/</kbd>
+    </div>
+    <button class="ghost" id="cfgBtn" aria-label="설정">⚙<span class="lb"> 설정</span></button>
   </header>
 
   <div class="wrap">
-    <aside>
-      <div class="find"><input type="search" id="brandFind" placeholder="브랜드 검색" autocomplete="off"></div>
+    <aside id="side">
+      <div class="find">
+        <!-- 세그먼트 — 미로 패널과 같은 뜻. 한 번 더 누르면 꺼져서 전체로 돌아온다.
+             분류는 Render 의 brands.json 에서 온다. 못 받으면 칩을 숨긴다. -->
+        <div class="segs" id="segs"></div>
+        <input type="search" id="brandFind" placeholder="브랜드 검색" autocomplete="off">
+      </div>
       <div class="brands" id="brandList"><div class="empty">불러오는 중…</div></div>
     </aside>
+    <div class="scrim" id="scrim"></div>
 
     <main>
+      <div class="head"><h2 id="title"></h2><span class="sub" id="sub"></span></div>
       <div class="tabs" id="tabs"></div>
       <div class="grid" id="grid"></div>
-      <div class="empty" id="hint">왼쪽에서 브랜드를 고르세요.</div>
+      <div class="empty" id="hint">왼쪽에서 브랜드를 고르거나, 위에서 상품명을 검색하세요.</div>
     </main>
   </div>
 
-  <div class="bar">
+  <div class="bar" id="bar">
     <button class="ghost" id="selAll">전체 선택</button>
     <button class="ghost" id="selNone">선택 해제</button>
+    <button class="ghost" id="selView" disabled>선택한 상품 보기</button>
+    <button class="ghost" id="compOnly" disabled title="선택한 것 중 혼용률이 없는 상품을 뺍니다">혼용률 있는 것만</button>
     <span class="msg" id="msg"></span>
     <div class="sp"></div>
     <button class="go" id="xlsx" disabled>엑셀 추출</button>
@@ -161,6 +251,9 @@
     <input id="cfgWorker" placeholder="https://….workers.dev">
     <label for="cfgToken">Access token</label>
     <input id="cfgToken" placeholder="비어 있으면 토큰 없이 요청">
+    <label for="cfgRender">Market Research 서버(세그먼트 분류)</label>
+    <input id="cfgRender" placeholder="https://….onrender.com">
+    <div class="hint" id="cfgNote"></div>
     <div class="row">
       <button class="ghost" id="cfgCancel">취소</button>
       <button class="go" id="cfgSave">저장</button>
@@ -172,14 +265,25 @@
   'use strict';
   const C = window.RackCore;
   const $ = (id) => document.getElementById(id);
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  };
 
   // 미로 패널과 같은 기본값. 사용자가 ⚙ 에서 바꾸면 localStorage 에 남는다.
+  // ?worker= / ?token= / ?render= 가 붙어 오면 그 값을 이번에만 쓴다 — 크롬 확장이
+  // 기본값과 다른 Worker 를 쓰고 있을 때 넘겨준다(저장은 하지 않는다).
   const DEF_WORKER = 'https://fabric-extractor.hs-fabric-linker.workers.dev';
   const DEF_TOKEN = 'hsfabriclinker';
+  const DEF_RENDER = 'https://market-research-uzs2.onrender.com';
+  const params = new URLSearchParams(location.search);
+  const trimUrl = (s) => String(s || '').trim().replace(/\/+$/, '');
   let cfg = {
-    worker: (localStorage.getItem('fabricWorkerUrl') || DEF_WORKER).replace(/\/+$/, ''),
-    token: localStorage.getItem('fabricAccessToken') ?? DEF_TOKEN,
+    worker: trimUrl(params.get('worker') || store.get('fabricWorkerUrl') || DEF_WORKER),
+    token: params.has('token') ? params.get('token') : (store.get('fabricAccessToken') ?? DEF_TOKEN),
+    render: trimUrl(params.get('render') || store.get('importRenderUrl') || DEF_RENDER),
   };
+  const fromParams = params.has('worker') || params.has('token') || params.has('render');
   const tok = () => (cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '');
   const api = (qs) => fetch(cfg.worker + '/?' + qs + tok()).then((r) => {
     if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -190,12 +294,26 @@
     ['all', '전체'], ['tops', '탑'], ['shirts', '셔츠'],
     ['sweatshirts', '스웨트·니트'], ['pants', '팬츠·스커트'], ['dresses', '원피스'],
   ];
+  const LAST_SITE = 'rackAppLastSite';
+  const SEG_CACHE = 'rackAppSegs';
 
-  let brands = [];        // {site, brand, count, updated}
-  let items = [];         // 지금 브랜드의 상품 전부
-  let cat = 'all';
+  let brands = [];            // {site, brand, count, updated}
+  let segMap = {};            // 브랜드 이름(소문자) → ['YWMN', …]
+  let segStatus = 'loading';  // loading | ok | fail
+  let segFilter = '';
+  let mode = 'home';          // home | brand | search | basket
+  let backTo = 'home';        // '선택한 상품 보기'에서 돌아갈 화면
   let site = '';
-  const picked = new Set();   // 선택한 상품의 productUrl — 카테고리를 옮겨도 유지된다
+  let brandItems = [];        // 지금 브랜드의 상품 전부
+  let search = { q: '', items: [], total: 0, capped: false, short: false, err: '' };
+  let cat = 'all';
+  let compView = false;       // 혼용률 있는 상품만 보기
+  let shown = [];             // 지금 그리드에 그려진 순서 — Shift 범위 선택용
+  let lastIdx = -1;
+  // 선택 바구니: 상품URL → 상품 정보. 브랜드를 옮기거나 검색해도 남는다.
+  const basket = new Map();
+  const catalogCache = new Map();   // site → Promise<items>
+  const overlayCache = new Map();   // site → Promise<overlay>
 
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -208,6 +326,23 @@
     return Math.floor(h / 24) + '일';
   };
 
+  // 머리글·하단바 높이가 줄바꿈으로 바뀌어도 내용이 가려지지 않게 맞춘다.
+  const fit = () => {
+    document.documentElement.style.setProperty('--headH', $('top').offsetHeight + 'px');
+    document.documentElement.style.setProperty('--barH', $('bar').offsetHeight + 'px');
+  };
+  if (window.ResizeObserver) { const ro = new ResizeObserver(fit); ro.observe($('top')); ro.observe($('bar')); }
+  window.addEventListener('resize', fit);
+
+  // ── 주소 해시 ──────────────────────────────────────────────────
+  // replaceState 는 hashchange 를 일으키지 않으므로 우리가 바꾼 것과
+  // 사용자가(또는 확장이) 바꾼 것이 섞이지 않는다.
+  function setHash(st) {
+    const h = C.makeHash(st);
+    if (h === location.hash || (!h && !location.hash)) return;
+    history.replaceState(null, '', location.pathname + location.search + h);
+  }
+
   // ── 브랜드 목록 ────────────────────────────────────────────────
   async function loadBrands() {
     let data;
@@ -216,23 +351,35 @@
       $('brandList').innerHTML =
         `<div class="empty">브랜드를 못 불러왔습니다.<br><small>${esc(e.message)}</small><br>` +
         `<small>⚙ 설정에서 Worker 주소와 토큰을 확인하세요.</small></div>`;
-      return;
+      drawSegs();
+      return false;
     }
     brands = ((data && data.list) || [])
       .filter((c) => c && c.site && (c.count || 0) > 0)
       .sort((a, b) => String(a.brand || a.site).localeCompare(String(b.brand || b.site)));
+    drawSegs();
     drawBrands();
+    return true;
   }
+  const brandName = (b) => b.brand || b.site;
+  const brandBySite = (s) => brands.find((b) => b.site === s);
+  // 검색 인덱스에는 사이트 키가 없고 브랜드 이름만 있다 — 이름으로 사이트를 찾는다.
+  const sitesOfName = (name) => {
+    const k = String(name || '').trim().toLowerCase();
+    return brands.filter((b) => String(brandName(b)).trim().toLowerCase() === k).map((b) => b.site);
+  };
 
   function drawBrands() {
     const q = $('brandFind').value.trim().toLowerCase();
-    const show = q ? brands.filter((b) => String(b.brand || b.site).toLowerCase().includes(q)) : brands;
+    const show = brands.filter((b) =>
+      (!q || String(brandName(b)).toLowerCase().includes(q)) && C.inSeg(brandName(b), segFilter, segMap));
+    if (!brands.length) return;
     if (!show.length) { $('brandList').innerHTML = '<div class="empty">없음</div>'; return; }
     $('brandList').innerHTML = show.map((b) => {
       // 36시간 넘게 갱신 안 된 브랜드는 표시해 둔다 — 확장이 돌지 않았다는 뜻이다.
       const stale = b.updated && Date.now() - b.updated > 36 * 3600000;
-      return `<button class="brand${b.site === site ? ' on' : ''}${stale ? ' stale' : ''}" data-site="${esc(b.site)}">` +
-        `<span class="nm">${esc(b.brand || b.site)}</span>` +
+      return `<button class="brand${b.site === site && mode === 'brand' ? ' on' : ''}${stale ? ' stale' : ''}" data-site="${esc(b.site)}">` +
+        `<span class="nm">${esc(brandName(b))}</span>` +
         `<span class="ct">${b.count}${b.updated ? ' · ' + ago(b.updated) : ''}</span></button>`;
     }).join('');
   }
@@ -240,107 +387,441 @@
   $('brandFind').addEventListener('input', drawBrands);
   $('brandList').addEventListener('click', (e) => {
     const el = e.target.closest('.brand');
-    if (el) openBrand(el.dataset.site);
+    if (el) { closeDrawer(); openBrand(el.dataset.site); }
   });
 
-  // ── 상품 불러오기 ──────────────────────────────────────────────
+  // ── 세그먼트 ──────────────────────────────────────────────────
+  function drawSegs() {
+    const box = $('segs');
+    if (segStatus === 'fail') { box.hidden = true; box.innerHTML = ''; return; }
+    box.hidden = false;
+    const st = C.segState(brands.map(brandName), segMap);
+    box.innerHTML = C.SEGMENTS.map(([k, label]) => {
+      // 분류가 오기 전에는 누를 수 없게만 해 두고, 오면 비어 있는 칸만 잠근다.
+      const dis = segStatus === 'loading' || st.segs[k].disabled;
+      const tip = segStatus === 'loading' ? '분류 불러오는 중…' : '한 번 더 누르면 전체로';
+      return `<button class="seg${segFilter === k ? ' on' : ''}" data-seg="${k}" title="${tip}"${dis ? ' disabled' : ''}>${esc(label)}</button>`;
+    }).join('');
+  }
+  $('segs').addEventListener('click', (e) => {
+    const b = e.target.closest('.seg');
+    if (!b || b.disabled) return;
+    segFilter = segFilter === b.dataset.seg ? '' : b.dataset.seg;
+    drawSegs();
+    drawBrands();
+  });
+
+  // Render 는 놀면 잠들어 깨는 데 시간이 걸린다. 한 번 실패하면 칩을 바로 숨기고
+  // (브랜드 고르기는 막지 않는다) 뒤에서 몇 번 더 두드려 본다. 받은 분류는 저장해 두어
+  // 다음 열기에는 기다림이 없다.
+  async function loadSegs() {
+    try {
+      const c = JSON.parse(store.get(SEG_CACHE) || 'null');
+      if (c && c.map && Object.keys(c.map).length && Date.now() - (c.at || 0) < 7 * 86400000) {
+        segMap = c.map; segStatus = 'ok';
+      }
+    } catch (e) {}
+    drawSegs();
+    if (!cfg.render) { if (segStatus !== 'ok') { segStatus = 'fail'; drawSegs(); } return; }
+    for (const wait of [0, 4000, 12000]) {
+      if (wait) await new Promise((r) => setTimeout(r, wait));
+      try {
+        const ac = new AbortController();
+        const t = setTimeout(() => ac.abort(), 20000);
+        let data;
+        try {
+          const r = await fetch(cfg.render + '/api/brands', { signal: ac.signal });
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          data = await r.json();
+        } finally { clearTimeout(t); }
+        const m = C.segMapOf((data && data.brands) || []);
+        if (Object.keys(m).length) {
+          segMap = m; segStatus = 'ok';
+          store.set(SEG_CACHE, JSON.stringify({ at: Date.now(), map: m }));
+          drawSegs(); drawBrands();
+          return;
+        }
+        throw new Error('분류 없음');
+      } catch (e) {
+        if (segStatus !== 'ok') { segStatus = 'fail'; drawSegs(); drawBrands(); }
+      }
+    }
+  }
+
+  // ── 오버레이(혼용률·컬러) ──────────────────────────────────────
+  function getOverlay(s) {
+    if (!overlayCache.has(s)) {
+      const p = api('comps=' + encodeURIComponent(s)).catch(() => {
+        overlayCache.delete(s);   // 실패는 기억하지 않는다 — 다음에 다시 시도
+        return {};
+      });
+      overlayCache.set(s, p);
+    }
+    return overlayCache.get(s);
+  }
+
+  // ── 브랜드 열기 ────────────────────────────────────────────────
+  let openSeq = 0;
   async function openBrand(s) {
+    const my = ++openSeq;
     site = s;
-    picked.clear();
-    const rec = brands.find((b) => b.site === s) || {};
+    mode = 'brand';
+    cat = 'all';
+    lastIdx = -1;
+    $('q').value = '';
+    store.set(LAST_SITE, s);
+    setHash({ site: s });
+    const rec = brandBySite(s) || {};
+    $('title').textContent = rec.brand || s;
+    $('sub').textContent = '';
     $('hint').textContent = '불러오는 중…';
     $('hint').style.display = '';
     $('grid').innerHTML = '';
     $('tabs').innerHTML = '';
     drawBrands();
+    drawDrawerBtn();
     try {
-      // 상품 목록과 혼용률 오버레이를 동시에 받아 합친다. 오버레이가 없어도
-      // 목록은 보여야 하므로 실패는 빈 객체로 흘린다.
-      const [cat0, ov] = await Promise.all([
-        api('catalog=' + encodeURIComponent(s)),
-        api('comps=' + encodeURIComponent(s)).catch(() => ({})),
-      ]);
-      items = C.mergeOverlay(cat0.items || [], ov, cat0.brand || rec.brand || '');
-      // 저장된 category 를 그대로 믿지 않는다 — 목록 페이지에 다른 종류가 섞인다.
-      items.forEach((p) => { p.cat = C.guessCat(p.productUrl, p.name); });
+      if (!catalogCache.has(s)) {
+        // 상품 목록과 혼용률 오버레이를 동시에 받아 합친다. 오버레이가 없어도
+        // 목록은 보여야 하므로 실패는 빈 객체로 흘린다.
+        const p = Promise.all([api('catalog=' + encodeURIComponent(s)), getOverlay(s)]).then(([cat0, ov]) => {
+          const list = C.mergeOverlay(cat0.items || [], ov, cat0.brand || rec.brand || '');
+          // 저장된 category 를 그대로 믿지 않는다 — 목록 페이지에 다른 종류가 섞인다.
+          list.forEach((p) => { p.cat = C.guessCat(p.productUrl, p.name); });
+          return list;
+        });
+        catalogCache.set(s, p);
+        p.catch(() => catalogCache.delete(s));
+      }
+      const list = await catalogCache.get(s);
+      if (my !== openSeq) return;
+      brandItems = list;
+      // 바구니에 이미 담긴 상품은 바구니 쪽 정보를 최신으로 맞춘다.
+      for (const p of list) if (basket.has(p.productUrl)) basket.set(p.productUrl, p);
+      if (!rec.brand && list[0] && list[0].brand) $('title').textContent = list[0].brand;
     } catch (e) {
+      if (my !== openSeq) return;
+      brandItems = [];
       $('hint').innerHTML = `상품을 못 불러왔습니다.<br><small>${esc(e.message)}</small>`;
-      items = [];
       return;
     }
-    cat = 'all';
     draw();
   }
 
+  // ── 전체 상품 검색 ─────────────────────────────────────────────
+  let indexP = null;
+  function ensureIndex() {
+    if (!indexP) {
+      indexP = api('index=1').then((d) => (Array.isArray(d && d.items) ? d.items : []));
+      indexP.catch(() => { indexP = null; });
+    }
+    return indexP;
+  }
+
+  let searchSeq = 0;
+  async function runSearch(raw) {
+    const q = String(raw || '').trim();
+    const my = ++searchSeq;
+    if (!q) {
+      // 검색을 지우면 보던 브랜드로 돌아간다.
+      search = { q: '', items: [], total: 0, capped: false, short: false, err: '' };
+      if (mode === 'search') {
+        if (site) { mode = 'brand'; setHash({ site }); draw(); drawBrands(); }
+        else { mode = 'home'; setHash({}); draw(); }
+      }
+      return;
+    }
+    mode = 'search';
+    cat = 'all';
+    lastIdx = -1;
+    setHash({ q });
+    drawBrands();
+    if (q.length < C.SEARCH_MIN) {
+      search = { q, items: [], total: 0, capped: false, short: true, err: '' };
+      draw();
+      return;
+    }
+    $('title').textContent = `“${q}” 검색`;
+    $('sub').textContent = '';
+    $('tabs').innerHTML = '';
+    $('grid').innerHTML = '';
+    $('hint').style.display = '';
+    $('hint').textContent = indexP ? '찾는 중…' : '검색 목록 불러오는 중… (처음 한 번만)';
+    let idx;
+    try { idx = await ensureIndex(); }
+    catch (e) {
+      if (my !== searchSeq) return;
+      search = { q, items: [], total: 0, capped: false, short: false, err: e.message };
+      draw();
+      return;
+    }
+    if (my !== searchSeq) return;
+    const r = C.searchIndex(idx, q, C.SEARCH_CAP);
+    const items = r.hits.map(C.fromIndex);
+    // 바구니에 담긴 상품은 같은 객체를 쓴다 — 선택 표시와 혼용률이 어긋나지 않게.
+    search = {
+      q, total: r.total, capped: r.capped, short: false, err: '',
+      items: items.map((p) => basket.get(p.productUrl) || p),
+    };
+    draw();
+    refreshComps(search.items, my);
+  }
+
+  // 검색 결과의 혼용률을 브랜드별 오버레이로 다시 맞춘다. 인덱스는 하루 한 번
+  // 만들어져 그 사이에 채워진 혼용률이 빠져 있고 '사이트 미표기' 표시도 없다.
+  // 브랜드가 많으면 무거우므로 세 개씩만 동시에 받는다.
+  async function refreshComps(items, my) {
+    const sites = [...new Set(items.flatMap((p) => sitesOfName(p.brand)))];
+    if (!sites.length) return;
+    let done = 0;
+    const note = () => {
+      if (my !== searchSeq || mode !== 'search') return;
+      $('sub').dataset.comp = done < sites.length ? `혼용률 최신값 확인 중 ${done}/${sites.length}` : '';
+      drawSub();
+    };
+    note();
+    const queue = sites.slice();
+    await Promise.all(Array.from({ length: Math.min(3, queue.length) }, async () => {
+      while (queue.length) {
+        const s = queue.shift();
+        const ov = await getOverlay(s);
+        done++;
+        const changed = C.applyOverlay(items, ov);
+        if (changed && my === searchSeq && mode === 'search') draw();
+        note();
+      }
+    }));
+    note();
+    tally();
+  }
+
+  let qTimer = null;
+  $('q').addEventListener('input', () => {
+    clearTimeout(qTimer);
+    qTimer = setTimeout(() => runSearch($('q').value), 300);
+  });
+  $('q').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); clearTimeout(qTimer); runSearch($('q').value); }
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      clearTimeout(qTimer);
+      $('q').value = '';
+      runSearch('');
+      $('q').blur();
+    }
+  });
+  // '/' 로 검색창에 바로 간다(입력 중일 때는 그냥 글자).
+  document.addEventListener('keydown', (e) => {
+    const t = e.target;
+    const typing = t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
+    if (e.key === '/' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      e.preventDefault();
+      $('q').focus();
+      $('q').select();
+    } else if (e.key === 'Escape' && document.body.classList.contains('drawer')) {
+      closeDrawer();
+    }
+  });
+
+  // ── 화면 그리기 ────────────────────────────────────────────────
+  const baseList = () =>
+    mode === 'brand' ? brandItems
+      : mode === 'search' ? search.items
+        : mode === 'basket' ? [...basket.values()]
+          : [];
   const inCat = (p) => cat === 'all' || p.cat === cat;
+  const visible = () => baseList().filter((p) => inCat(p) && (!compView || C.hasComp(p)));
+
+  function drawSub() {
+    const el = $('sub');
+    const parts = [];
+    if (mode === 'brand') {
+      const rec = brandBySite(site);
+      parts.push(`${brandItems.length}개` + (rec && rec.updated ? ` · ${ago(rec.updated)} 전 갱신` : ''));
+    } else if (mode === 'search' && !search.short && !search.err && search.q) {
+      parts.push(search.capped
+        ? `${search.total}개 중 ${search.items.length}개만 표시 — <b>더 좁혀 보세요</b>`
+        : `${search.total}개`);
+      if (el.dataset.comp) parts.push(esc(el.dataset.comp));
+    } else if (mode === 'basket') {
+      const s = C.basketSummary([...basket.values()]);
+      parts.push(`${s.n}개 · 브랜드 ${s.brands}`);
+    }
+    el.innerHTML = parts.join(' · ');
+  }
 
   function draw() {
-    const n = {};
-    items.forEach((p) => { n[p.cat] = (n[p.cat] || 0) + 1; });
-    $('tabs').innerHTML = CATS.map(([k, label]) => {
-      const c = k === 'all' ? items.length : (n[k] || 0);
-      return `<button class="tab${k === cat ? ' on' : ''}" data-cat="${k}"${c ? '' : ' disabled'}>` +
-        `${esc(label)} ${c}</button>`;
-    }).join('');
+    const list = baseList();
+    // 제목
+    if (mode === 'brand') $('title').textContent = (brandBySite(site) || {}).brand || (list[0] && list[0].brand) || site;
+    else if (mode === 'search') $('title').textContent = `“${search.q}” 검색`;
+    else if (mode === 'basket') $('title').textContent = '선택한 상품';
+    else $('title').textContent = '';
+    if (mode !== 'search') $('sub').dataset.comp = '';
+    drawSub();
+    drawDrawerBtn();
 
-    const show = items.filter(inCat);
-    $('hint').style.display = show.length ? 'none' : '';
-    if (!show.length) $('hint').textContent = '이 카테고리에 상품이 없습니다.';
+    // 카테고리 탭 + 혼용률 필터
+    if (mode === 'home' || (mode === 'search' && (search.short || search.err))) {
+      $('tabs').innerHTML = '';
+    } else {
+      const n = {};
+      list.forEach((p) => { n[p.cat] = (n[p.cat] || 0) + 1; });
+      $('tabs').innerHTML = CATS.map(([k, label]) => {
+        const c = k === 'all' ? list.length : (n[k] || 0);
+        return `<button class="tab${k === cat ? ' on' : ''}" data-cat="${k}"${c ? '' : ' disabled'}>` +
+          `${esc(label)} ${c}</button>`;
+      }).join('') +
+        `<label class="flt"><input type="checkbox" id="compView"${compView ? ' checked' : ''}> 혼용률 있는 상품만 보기</label>`;
+    }
+
+    shown = visible();
+    const hint = $('hint');
+    if (mode === 'home') {
+      hint.textContent = '왼쪽에서 브랜드를 고르거나, 위에서 상품명을 검색하세요.';
+    } else if (mode === 'search' && search.short) {
+      hint.textContent = `${C.SEARCH_MIN}글자 이상 입력하세요.`;
+    } else if (mode === 'search' && search.err) {
+      hint.innerHTML = `검색 목록을 못 불러왔습니다.<br><small>${esc(search.err)}</small>`;
+    } else if (!list.length) {
+      hint.textContent = mode === 'search' ? '맞는 상품이 없습니다.'
+        : mode === 'basket' ? '아직 고른 상품이 없습니다.' : '저장된 상품이 없습니다.';
+    } else if (!shown.length) {
+      hint.textContent = compView ? '이 화면에는 혼용률이 있는 상품이 없습니다.' : '이 카테고리에 상품이 없습니다.';
+    }
+    hint.style.display = shown.length ? 'none' : '';
 
     // 미로 패널은 카테고리당 100개만 보여 준다(패널이 좁아서). 여기는 전부 보인다.
-    $('grid').innerHTML = show.map((p) => {
-      const on = picked.has(p.productUrl);
+    const withBrand = mode !== 'brand';
+    $('grid').innerHTML = shown.map((p, i) => {
+      const on = basket.has(p.productUrl);
       const c = C.cleanVal(p.comp);
       const cp = C.validComp(c)
         ? `<div class="cp">${esc(c)}</div>`
         : (p.compNone ? `<div class="cp none">${esc(C.NO_INFO)}</div>` : '');
-      return `<div class="card${on ? ' sel' : ''}" data-u="${esc(p.productUrl)}">` +
+      const s = withBrand ? sitesOfName(p.brand)[0] : '';
+      const br = withBrand && p.brand
+        ? `<button type="button" class="br"${s ? ` data-site="${esc(s)}" title="이 브랜드 전체 보기"` : ''}>${esc(p.brand)}</button>`
+        : '';
+      return `<div class="card${on ? ' sel' : ''}" data-i="${i}">` +
         `<input type="checkbox" class="chk"${on ? ' checked' : ''} aria-label="선택">` +
         `<a class="open" href="${esc(p.productUrl)}" target="_blank" rel="noopener">열기</a>` +
-        `<div class="ph"><img src="${esc(p.imageUrl)}" alt="" loading="lazy"></div>` +
-        `<div class="meta"><div class="nm">${esc(p.name) || '(이름 없음)'}</div>` +
+        `<div class="ph${p.imageUrl ? '' : ' noimg'}">${p.imageUrl ? `<img src="${esc(p.imageUrl)}" alt="" loading="lazy">` : ''}</div>` +
+        `<div class="meta">${br}<div class="nm">${esc(p.name) || '(이름 없음)'}</div>` +
         (p.price ? `<div class="pr">${esc(p.price)}</div>` : '') + cp + `</div></div>`;
     }).join('');
     tally();
   }
 
+  // 깨진 상품 이미지는 깨진 아이콘 대신 빈 자리 표시로 바꾼다.
+  // (error 는 버블링이 안 돼 캡처 단계에서 받는다)
+  $('grid').addEventListener('error', (e) => {
+    const img = e.target;
+    if (!img || img.tagName !== 'IMG') return;
+    const ph = img.closest('.ph');
+    if (ph) ph.classList.add('noimg');
+    img.remove();
+  }, true);
+
   $('tabs').addEventListener('click', (e) => {
     const t = e.target.closest('.tab');
-    if (t && !t.disabled) { cat = t.dataset.cat; draw(); }
+    if (t && !t.disabled) { cat = t.dataset.cat; lastIdx = -1; draw(); }
+  });
+  $('tabs').addEventListener('change', (e) => {
+    if (e.target.id === 'compView') { compView = e.target.checked; lastIdx = -1; draw(); }
   });
 
-  // 카드 어디를 눌러도 선택된다. '열기' 링크만 예외.
+  function setPicked(p, on) {
+    if (on) basket.set(p.productUrl, p); else basket.delete(p.productUrl);
+  }
+  function paintCard(card, on) {
+    card.classList.toggle('sel', on);
+    const box = card.querySelector('.chk');
+    if (box) box.checked = on;
+  }
+
+  // 카드 어디를 눌러도 선택된다. '열기' 링크와 브랜드 이름만 예외.
+  // Shift 를 누른 채 누르면 마지막으로 누른 카드까지 한꺼번에 고른다.
   $('grid').addEventListener('click', (e) => {
     if (e.target.closest('a.open')) return;
+    const br = e.target.closest('.br[data-site]');
+    if (br) { openBrand(br.dataset.site); return; }
     const card = e.target.closest('.card');
     if (!card) return;
-    const u = card.dataset.u;
-    if (picked.has(u)) picked.delete(u); else picked.add(u);
-    card.classList.toggle('sel', picked.has(u));
-    const box = card.querySelector('.chk');
-    if (box) box.checked = picked.has(u);
+    const i = Number(card.dataset.i);
+    const p = shown[i];
+    if (!p) return;
+    if (e.shiftKey && lastIdx >= 0 && lastIdx !== i) {
+      // 범위 전체를 마지막으로 누른 카드와 같은 상태로 맞춘다(그 카드를 골랐으면 고르고, 뺐으면 뺀다).
+      const on = basket.has((shown[lastIdx] || {}).productUrl);
+      const urls = new Set(C.rangeBetween(shown, lastIdx, i));
+      shown.forEach((q, j) => { if (urls.has(q.productUrl)) setPicked(q, on); });
+      for (const el of $('grid').querySelectorAll('.card')) {
+        const q = shown[Number(el.dataset.i)];
+        if (q && urls.has(q.productUrl)) paintCard(el, on);
+      }
+      // 체크박스를 직접 눌렀으면 브라우저가 먼저 상태를 뒤집는다 — 우리가 정한 값으로 되돌린다.
+      if (e.target.classList.contains('chk')) e.target.checked = on;
+      if (window.getSelection) window.getSelection().removeAllRanges();
+    } else {
+      setPicked(p, !basket.has(p.productUrl));
+      paintCard(card, basket.has(p.productUrl));
+    }
+    lastIdx = i;
     tally();
   });
 
   $('selAll').addEventListener('click', () => {
-    items.filter(inCat).forEach((p) => picked.add(p.productUrl));
+    visible().forEach((p) => setPicked(p, true));
     draw();
   });
-  $('selNone').addEventListener('click', () => { picked.clear(); draw(); });
+  $('selNone').addEventListener('click', () => { basket.clear(); lastIdx = -1; if (mode === 'basket') mode = backTo; draw(); drawBrands(); });
+  $('selView').addEventListener('click', () => {
+    if (mode === 'basket') {
+      mode = backTo;
+      if (mode === 'brand') setHash({ site }); else if (mode === 'search') setHash({ q: search.q });
+    } else {
+      backTo = mode;
+      mode = 'basket';
+    }
+    cat = 'all'; lastIdx = -1;
+    draw(); drawBrands();
+  });
+  $('compOnly').addEventListener('click', () => {
+    const before = basket.size;
+    for (const [u, p] of [...basket]) if (!C.hasComp(p)) basket.delete(u);
+    const gone = before - basket.size;
+    draw();
+    if (gone) $('msg').insertAdjacentHTML('beforeend', ` · 혼용률 없는 ${gone}개를 뺐습니다`);
+  });
 
   // 선택한 것 중 몇 개에 혼용률이 붙어 나올지 미리 알려 준다 — 뽑고 나서
   // 빈 칸을 발견하는 것보다 낫다.
   function tally() {
-    const sel = items.filter((p) => picked.has(p.productUrl));
-    $('xlsx').disabled = !sel.length;
-    if (!sel.length) { $('msg').textContent = ''; return; }
-    const ok = sel.filter((p) => C.validComp(C.cleanVal(p.comp))).length;
-    const none = sel.filter((p) => p.compNone && !C.validComp(C.cleanVal(p.comp))).length;
-    const pct = Math.round((ok / sel.length) * 100);
-    $('msg').innerHTML = `선택 <b>${sel.length}</b> · 혼용률 <b>${ok}</b> (${pct}%)` +
-      (none ? ` · 사이트 미표기 ${none}` : '') +
-      (C.compReady(sel) ? '' : ` — <span style="color:var(--warn)">95% 미만이라 혼용률 열이 닫힙니다</span>`);
+    const sel = [...basket.values()];
+    const s = C.basketSummary(sel);
+    $('xlsx').disabled = !s.n;
+    $('selView').disabled = !s.n && mode !== 'basket';
+    $('selView').textContent = mode === 'basket' ? '← 돌아가기' : `선택한 상품 보기${s.n ? ' (' + s.n + ')' : ''}`;
+    $('selView').classList.toggle('on', mode === 'basket');
+    $('compOnly').disabled = !s.n || s.comp === s.n;
+    if (!s.n) { $('msg').textContent = ''; return; }
+    $('msg').innerHTML = `선택 <b>${s.n}</b> · 브랜드 <b>${s.brands}</b> · 혼용률 <b>${s.comp}</b> (${s.pct}%)` +
+      (s.none ? ` · 사이트 미표기 ${s.none}` : '') +
+      (s.ready ? '' : ` — <span class="warn">95% 미만이라 혼용률 열이 닫힙니다 · ‘혼용률 있는 것만’을 누르면 열립니다</span>`);
   }
+
+  // ── 좁은 화면: 브랜드 목록은 서랍으로 ─────────────────────────
+  function drawDrawerBtn() {
+    const rec = brandBySite(site);
+    $('drawerBtn').textContent = '☰ ' + (mode === 'brand' && site ? ((rec && rec.brand) || site) : '브랜드');
+  }
+  function closeDrawer() { document.body.classList.remove('drawer'); }
+  $('drawerBtn').addEventListener('click', () => {
+    document.body.classList.toggle('drawer');
+    if (document.body.classList.contains('drawer')) $('brandFind').focus();
+  });
+  $('scrim').addEventListener('click', closeDrawer);
 
   // ── 엑셀 ───────────────────────────────────────────────────────
   async function toPng(url, maxSize) {
@@ -376,7 +857,8 @@
       $('msg').textContent = '엑셀 라이브러리를 못 불러왔습니다. 새로고침 후 다시 시도하세요.';
       return;
     }
-    const sel = items.filter((p) => picked.has(p.productUrl));
+    // 바구니 전체가 한 파일이 된다 — 여러 브랜드를 골랐으면 브랜드별로 묶어 싣는다.
+    const sel = C.exportOrder([...basket.values()]);
     if (!sel.length) return;
     $('xlsx').disabled = true;
 
@@ -436,15 +918,15 @@
     ws.views = [{ state: 'frozen', ySplit: 1 }];
 
     const buf = await wb.xlsx.writeBuffer();
-    const brandSlug = (sel[0].brand || site || 'rack').replace(/[^\w가-힣]+/g, '_').slice(0, 30);
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([buf],
       { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
-    a.download = `${brandSlug}_${new Date().toISOString().slice(0, 10)}.xlsx`;
+    a.download = C.exportFileName(sel, new Date().toISOString(), site || 'rack');
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
 
-    $('msg').innerHTML = `완료 · 총 <b>${sel.length}</b>` +
+    const nb = C.basketSummary(sel).brands;
+    $('msg').innerHTML = `완료 · 총 <b>${sel.length}</b>` + (nb > 1 ? ` · 브랜드 ${nb}` : '') +
       (need.length ? ` · 확인 필요 ${need.length}칸` : ' · 빠진 항목 없음') +
       (noInfo.length ? ` · 사이트 미표기 ${noInfo.length}칸` : '') +
       (thumbFail ? ` · 썸네일 실패 ${thumbFail}` : '');
@@ -455,23 +937,61 @@
   $('cfgBtn').addEventListener('click', () => {
     $('cfgWorker').value = cfg.worker;
     $('cfgToken').value = cfg.token;
+    $('cfgRender').value = cfg.render;
+    $('cfgNote').textContent = fromParams
+      ? '지금은 주소에 붙어 온 설정(크롬 확장이 넘겨준 값)을 쓰고 있습니다. 저장하면 이 값이 이 브라우저의 기본이 됩니다.'
+      : '';
     $('cfg').showModal();
   });
   $('cfgCancel').addEventListener('click', () => $('cfg').close());
   $('cfgSave').addEventListener('click', () => {
-    cfg.worker = $('cfgWorker').value.trim().replace(/\/+$/, '');
+    cfg.worker = trimUrl($('cfgWorker').value);
     cfg.token = $('cfgToken').value.trim();
-    localStorage.setItem('fabricWorkerUrl', cfg.worker);
-    localStorage.setItem('fabricAccessToken', cfg.token);
+    cfg.render = trimUrl($('cfgRender').value);
+    store.set('fabricWorkerUrl', cfg.worker);
+    store.set('fabricAccessToken', cfg.token);
+    store.set('importRenderUrl', cfg.render);
+    // 주소에 붙은 설정은 떼어 낸다 — 새로고침해도 방금 저장한 값을 쓰게.
+    if (fromParams) history.replaceState(null, '', location.pathname + location.hash);
     $('cfg').close();
-    site = ''; items = []; picked.clear();
-    $('grid').innerHTML = ''; $('tabs').innerHTML = '';
-    $('hint').style.display = ''; $('hint').textContent = '왼쪽에서 브랜드를 고르세요.';
-    tally();
+    site = ''; brandItems = []; basket.clear(); mode = 'home';
+    catalogCache.clear(); overlayCache.clear(); indexP = null;
+    $('q').value = '';
+    setHash({});
+    draw();
     loadBrands();
+    loadSegs();
   });
 
-  loadBrands();
+  // ── 시작 ───────────────────────────────────────────────────────
+  // #site= / #q= 가 있으면 그 화면으로, 없으면 마지막으로 보던 브랜드로.
+  function applyHash(useLast) {
+    const h = C.parseHash(location.hash);
+    if (h.site) { if (h.site !== site || mode !== 'brand') openBrand(h.site); return true; }
+    if (h.q) { $('q').value = h.q; runSearch(h.q); return true; }
+    if (useLast) {
+      const last = store.get(LAST_SITE);
+      if (last && brandBySite(last)) { openBrand(last); return true; }
+    }
+    return false;
+  }
+  window.addEventListener('hashchange', () => applyHash(false));
+
+  draw();
+  fit();
+  loadSegs();
+  // 해시가 있으면 브랜드 목록을 기다리지 않고 바로 연다(목록은 옆에서 채워진다).
+  const early = applyHash(false);
+  loadBrands().then(() => {
+    if (!early) applyHash(true);
+    drawDrawerBtn();
+    if (mode === 'brand') draw();
+  });
+
+  // 크롬 확장의 옆 패널 안에 들어가 있으면 다 떴다고 알린다(패널이 로딩 표시를 걷는다).
+  if (window.parent !== window) {
+    try { window.parent.postMessage({ rackApp: 'ready' }, '*'); } catch (e) {}
+  }
 })();
 </script>
 </body>
