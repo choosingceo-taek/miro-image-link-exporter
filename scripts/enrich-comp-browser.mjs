@@ -330,6 +330,7 @@ const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|atte
 const rows = [];
 const reads = [];   // 상품마다 무엇을 읽었나 — 리포트에서 눈으로 확인할 수 있게
 const conflicts = [];   // 지금 페이지 값이 이미 있던 값과 다른 상품
+const shells = [];      // 껍데기로 센 페이지의 예(제목·글 앞부분)
 let grandFilled = 0, grandTried = 0;
 
 for (const c of targets) {
@@ -427,6 +428,8 @@ for (const c of targets) {
             // 차단 화면은 아니지만 이 상품의 본문이 안 그려졌다(껍데기·다른 페이지로 넘어감).
             // 소재가 없다고 결론 내릴 수 없다 — 아무것도 적지 않고, 차단과 같이 센다.
             stat.shell++;
+            // 무엇이 왔는지 리포트에 몇 개 남긴다(제목 + 화면 글 앞부분) — 점검 화면인지, 다른 페이지인지.
+            if (shells.length < 12) shells.push({ brand: c.brand, name: p.name || "", url: p.productUrl, head: head.replace(/\s+/g, " ").trim().slice(0, 160) });
           }
         } catch (e) {
           const msg = String((e && e.message) || e);
@@ -515,6 +518,14 @@ const md = [
   "사람 PC 의 확장(가정용 IP)이 맡아야 합니다. '사이트 미표기'가 대부분이면",
   "더 할 수 있는 것이 없습니다 — 엑셀에 '정보 없음'으로 나갑니다.",
   "",
+  ...(shells.length ? [
+    `<details><summary>껍데기로 센 페이지 예 ${shells.length}개(제목 + 화면 글 앞부분)</summary>`,
+    "",
+    ...shells.map((x) => `- ${x.brand} · ${String(x.name).slice(0, 60)} — ${x.url}\n  > ${x.head.replace(/\|/g, "/")}`),
+    "",
+    "</details>",
+    "",
+  ] : []),
   ...(conflicts.length ? [
     `## 혼용률이 엇갈린 상품 (${conflicts.length})`,
     "",

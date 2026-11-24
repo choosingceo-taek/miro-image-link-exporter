@@ -127,6 +127,7 @@ else {
   if (!/TestBrand/.test(md)) fail("리포트에 브랜드 줄이 없다");
   if (!/\[Waffle Tee\]\(.*\/p\/1\) \| Cotton 95% \/ Elastane 5%/.test(md)) fail("리포트에 읽은 혼용률이 상품명과 함께 없다");
   if (!/Lined Coat.*Wool 100% ‖ Polyester 100% \| ⚠ 두 줄/.test(md)) fail("두 줄 혼용률에 ⚠ 표시가 없다");
+  if (!/껍데기로 센 페이지 예 1개[\s\S]*Capilene Cool Merino Shirt[\s\S]*Shop Women Men Kids/.test(md)) fail("껍데기 페이지 예(제목·글 앞부분)가 리포트에 없다");
   unlinkSync(rp);
 }
 
