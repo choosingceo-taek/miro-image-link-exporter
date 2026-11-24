@@ -105,11 +105,13 @@ else {
   if (Object.keys(R.normalizeState(null).blocked).length) fail("빈 이력이 비어 있지 않다");
   if (Object.keys(R.normalizeState({ blocked: { x: "망가진 값" } }).blocked).length) fail("망가진 항목을 받아들인다");
 
-  // auto: 크롬 기록이 있으면(기간이 지났어도) 파이어폭스로, 없으면 playwright 로.
-  if (R.pickEngine(st, "zara.com.zara", "auto", "firefox") !== "firefox") fail("auto 가 크롬 차단 브랜드를 파이어폭스로 안 보낸다");
-  if (R.pickEngine(st, "joules.com.joules", "auto", "firefox") !== "firefox") fail("auto 가 기간이 지난 크롬 차단 기록을 무시한다");
-  if (R.pickEngine(st, "aerie.com.aerie", "auto", "firefox") !== "playwright") fail("auto 가 이력 없는 브랜드까지 파이어폭스로 보낸다");
-  if (R.pickEngine(st, "zara.com.zara", "patchright", "firefox") !== "patchright") fail("엔진을 직접 고르면 그대로 써야 한다");
+  // auto: 지금 크롬으로 막혀 있으면 파이어폭스로, 아니면 playwright 로.
+  if (R.pickEngine(st, "zara.com.zara", "auto", "firefox", NOW) !== "firefox") fail("auto 가 크롬 차단 브랜드를 파이어폭스로 안 보낸다");
+  // 기간이 지난 크롬 기록은 크롬으로 다시 본다 — 안 그러면 다시 열린 사이트(Reformation)가
+  // 영영 파이어폭스에 묶이고, 크롬 기록은 크롬으로 읽힐 기회가 없어 풀리지도 않는다.
+  if (R.pickEngine(st, "joules.com.joules", "auto", "firefox", NOW) !== "playwright") fail("auto 가 기간이 지난 크롬 기록에 묶여 크롬을 다시 시도하지 않는다");
+  if (R.pickEngine(st, "aerie.com.aerie", "auto", "firefox", NOW) !== "playwright") fail("auto 가 이력 없는 브랜드까지 파이어폭스로 보낸다");
+  if (R.pickEngine(st, "zara.com.zara", "patchright", "firefox", NOW) !== "patchright") fail("엔진을 직접 고르면 그대로 써야 한다");
 
   // 기록: 파이어폭스로 막히면 파이어폭스 칸에만 적고, 크롬 기록은 건드리지 않는다.
   const v1 = R.recordResult(st, "zara.com.zara", "firefox", { brand: "Zara", tried: 20, blocked: 20, ok: 0 }, NOW, SKIP_DAYS, BLOCK_RATIO);

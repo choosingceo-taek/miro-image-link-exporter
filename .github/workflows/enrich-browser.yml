@@ -31,9 +31,9 @@ on:
         required: false
         default: "1"
       engine:
-        description: "playwright(기본) | patchright | firefox | auto(크롬 차단 이력이 있는 브랜드만 파이어폭스)"
+        description: "auto(기본 — 지금 크롬으로 막힌 브랜드만 파이어폭스) | playwright | patchright | firefox"
         required: false
-        default: "playwright"
+        default: "auto"
 
 permissions:
   contents: write
@@ -48,7 +48,13 @@ jobs:
     timeout-minutes: 90
     env:
       # schedule 실행에는 입력이 비어 오므로 기본값을 여기서 정한다.
-      ENGINE: ${{ github.event.inputs.engine || 'playwright' }}
+      # auto: 지금 크롬으로 막혀 있는(제외 기간 안) 브랜드는 파이어폭스로, 나머지는 지금처럼 크롬으로.
+      # 근거(11/24 시험 실행, 저장 안 함, 같은 8개 브랜드 × 20개):
+      #   firefox 28개 채움(Zara 14 · Massimo Dutti 5 · Aritzia 4 · Everlane 3 · Reformation 2)
+      #   playwright 17개(Reformation 14 · Everlane 3 — Zara·Massimo Dutti·Aritzia 는 20/20 차단)
+      # Reformation 은 크롬이 더 잘 읽어서 전부 바꾸지 않는다 — auto 는 크롬 제외 기간(14일)이
+      # 끝난 브랜드를 크롬으로 다시 보고, 읽히면 크롬 기록을 푼다.
+      ENGINE: ${{ github.event.inputs.engine || 'auto' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

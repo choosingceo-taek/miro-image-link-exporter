@@ -27,6 +27,9 @@
 // 크롬은 막히고 파이어폭스는 읽은 곳: Zara 3/3 · Chico's 3/3 · Massimo Dutti · Aritzia 일부 ·
 // Patagonia(크롬은 열리기만, 파이어폭스는 소재까지). 반대로 Reformation 은 크롬이 더 잘 읽어서
 // 무조건 바꾸지 않고 auto(크롬으로 막힌 브랜드만 파이어폭스)를 둔다.
+// 시험 실행(저장 안 함, 같은 8개 브랜드 × 20개): firefox 28개 채움 · playwright 17개
+//   (실행 45309279164 / 45309291602 — Zara 14:0 · Massimo Dutti 5:0 · Aritzia 4:0 ·
+//    Everlane 3:3 · Reformation 2:14 · Chico's·Lululemon 둘 다 0).
 // 추출 규칙은 worker 에서 그대로 떼어 쓴다 — 사본을 만들면 진단과 실제가 어긋난다.
 //
 // env:
@@ -36,11 +39,11 @@
 //   PER_BRAND 브랜드당 상품 수(기본 120)
 //   STORE    1이면 Worker 오버레이에 저장(기본 1)
 //   DRY      1이면 저장하지 않고 결과만 출력
-//   ENGINE   playwright(기본) | patchright | firefox | auto
+//   ENGINE   playwright(스크립트 기본, 워크플로 기본은 auto) | patchright | firefox | auto
 //            patchright — Playwright 와 API 가 같은 무료 패치판으로, 자동화 흔적을 지운다.
 //            firefox    — 그냥 Playwright 파이어폭스(파이어폭스 자기 UA 그대로). 새 의존성 없음.
-//            auto       — 크롬으로 막힌 이력이 있는 브랜드만 AUTO_ENGINE(기본 BEST=firefox)으로,
-//                         나머지는 playwright 로 읽는다.
+//            auto       — 지금 크롬으로 막혀 있는(제외 기간 안) 브랜드만 AUTO_ENGINE(기본
+//                         BEST=firefox)으로, 나머지는 playwright 로 읽는다.
 //            지문 계층만 다룬다 — IP 평판으로 막는 사이트는 여전히 확장(가정용 IP) 몫이다.
 //   STATE_PATH 차단 이력 파일(기본 enrich-browser-state.json — 연기 테스트가 바꿔 쓴다)
 //   PICK_ONLY  1이면 브랜드별로 어떤 엔진을 쓸지만 출력하고 끝낸다(브라우저를 띄우지 않음)
@@ -126,12 +129,15 @@ function normalizeState(raw) {
 }
 const skipUntil = (state, site, eng) => Number(((state.blocked[site] || {})[eng] || {}).until || 0);
 const isSkipped = (state, site, eng, now) => skipUntil(state, site, eng) > now;
-// 크롬으로 막힌 적이 있는가 — 기간이 지난 기록도 센다(이력이 지워지는 건 다시 읽혔을 때뿐이다).
-const chromiumBlocked = (state, site) => CHROMIUM.some((e) => (state.blocked[site] || {})[e]);
+// 지금 크롬으로 막혀 있는가(제외 기간 안). 기간이 지난 기록은 세지 않는다 — 그래야
+// 기간이 끝나면 크롬으로 한 번 다시 보고, 다시 읽히면 기록이 풀린다. 기간이 지난 기록까지
+// 세면 Reformation 처럼 크롬이 다시 잘 읽는 브랜드(11/24 시험: 크롬 14/20 · 파이어폭스 2/20)가
+// 영영 파이어폭스에 묶인다.
+const chromiumBlocked = (state, site, now) => CHROMIUM.some((e) => isSkipped(state, site, e, now));
 // 이 브랜드를 어떤 엔진으로 읽을지
-function pickEngine(state, site, engine, best) {
+function pickEngine(state, site, engine, best, now) {
   if (engine !== "auto") return engine;
-  return chromiumBlocked(state, site) ? best : "playwright";
+  return chromiumBlocked(state, site, now) ? best : "playwright";
 }
 // 한 브랜드의 결과를 이력에 반영한다. 돌려주는 값: "blocked" | "cleared" | ""
 function recordResult(state, site, eng, r, now, skipDays, ratio) {
@@ -160,7 +166,7 @@ const AUTO_ENGINE = ENGINES_OK.includes(String(process.env.AUTO_ENGINE || "").to
 
 let state = { blocked: {} };
 try { state = normalizeState(JSON.parse(readFileSync(STATE_PATH, "utf8"))); } catch (e) {}
-const engineOf = (site) => pickEngine(state, site, ENGINE, AUTO_ENGINE);
+const engineOf = (site) => pickEngine(state, site, ENGINE, AUTO_ENGINE, Date.now());
 
 // ── 대상 고르기 ─────────────────────────────────────────────────
 const catalogs = ((await api("catalogs=1")).list || []).filter((c) => c && c.site && (c.count || 0) > 0);
