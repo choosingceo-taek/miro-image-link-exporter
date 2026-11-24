@@ -1,18 +1,16 @@
 {
- "when": "2026-11-24T05:34:46.246Z",
+ "when": "2026-11-24T03:56:31.400Z",
  "store": false,
  "engine": "firefox",
  "engines": [
   "firefox"
  ],
- "freshContext": false,
  "configNote": "",
- "extraNotes": [],
  "deferred": [],
  "results": [
   {
-   "brand": "Lululemon",
-   "site": "shop.lululemon.com.lululemon",
+   "brand": "Prana",
+   "site": "prana.com.prana",
    "engine": "firefox",
    "engineSource": "env",
    "collected": 0,
@@ -21,101 +19,22 @@
    "cats": {},
    "perUrl": [
     {
-     "url": "https://shop.lululemon.com/c/women-t-shirts/n1wx7w",
+     "url": "https://www.prana.com/women/tops.html",
      "count": 0,
      "note": "HTTP 403"
     },
     {
-     "url": "https://shop.lululemon.com/c/women-tank-tops/n1uk4w",
+     "url": "https://www.prana.com/women/tops/sweaters-hoodies.html",
      "count": 0,
      "note": "HTTP 403"
     },
     {
-     "url": "https://shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6",
+     "url": "https://www.prana.com/women/dresses-skirts.html",
      "count": 0,
      "note": "HTTP 403"
     },
     {
-     "url": "https://shop.lululemon.com/c/women-dresses/n1mk31",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://shop.lululemon.com/c/women-sweatpants/n1m8w7",
-     "count": 0,
-     "note": "HTTP 403"
-    }
-   ],
-   "secs": 19,
-   "dropped": 0,
-   "cut": false,
-   "sample": [],
-   "verdict": "확장 필요(봇 차단)"
-  },
-  {
-   "brand": "Fatface",
-   "site": "fatface.com.fatface",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 0,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {},
-   "perUrl": [
-    {
-     "url": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.fatface.com/shop/womens/clothing/sweatshirts-and-hoodies",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.fatface.com/shop/womens/clothing/dresses",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.fatface.com/shop/womens/clothing/all-trousers",
-     "count": 0,
-     "note": "HTTP 403"
-    }
-   ],
-   "secs": 12,
-   "dropped": 0,
-   "cut": false,
-   "sample": [],
-   "verdict": "확장 필요(봇 차단)"
-  },
-  {
-   "brand": "Addidas",
-   "site": "adidas.com.addidas",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 0,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {},
-   "perUrl": [
-    {
-     "url": "https://www.adidas.com/us/women-tops?sort=newest-to-oldest",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.adidas.com/us/women-hoodies_sweatshirts",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.adidas.com/us/women-skirts_dresses",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.adidas.com/us/women-pants",
+     "url": "https://www.prana.com/women/bottoms.html",
      "count": 0,
      "note": "HTTP 403"
     }
@@ -127,393 +46,39 @@
    "verdict": "확장 필요(봇 차단)"
   },
   {
-   "brand": "Aritzia",
-   "site": "aritzia.com.aritzia",
+   "brand": "Chico's",
+   "site": "chicos.com.chicos",
    "engine": "firefox",
    "engineSource": "env",
-   "collected": 37,
+   "collected": 73,
    "stored": 0,
    "storeErr": "",
    "cats": {
-    "tops": 24,
-    "sweatshirts": 6,
-    "dresses": 2,
-    "shirts": 5
+    "tops": 73
    },
    "perUrl": [
     {
-     "url": "https://www.aritzia.com/us/en/clothing/tops",
+     "url": "https://www.chicos.com/store/category/tees-tanks/cat11199293",
+     "count": 73,
+     "note": ""
+    },
+    {
+     "url": "https://www.chicos.com/store/category/activewear/cat20059281",
      "count": 0,
      "note": "HTTP 403"
     },
     {
-     "url": "https://www.aritzia.com/us/en/clothing/tshirts",
-     "count": 37,
-     "note": ""
-    },
-    {
-     "url": "https://www.aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74",
+     "url": "https://www.chicos.com/store/category/blouses-shirts/cat11199294",
      "count": 0,
      "note": "HTTP 403"
     },
     {
-     "url": "https://www.aritzia.com/us/en/clothing/shirts-blouses",
+     "url": "https://www.chicos.com/store/category/dresses/cat40004",
      "count": 0,
      "note": "HTTP 403"
     },
     {
-     "url": "https://www.aritzia.com/us/en/clothing/dresses-3",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.aritzia.com/us/en/clothing/sweatsuit-sets/sweat-pants",
-     "count": 0,
-     "note": "HTTP 403"
-    }
-   ],
-   "secs": 38,
-   "dropped": 0,
-   "cut": false,
-   "sample": [
-    {
-     "name": "new",
-     "productUrl": "https://www.aritzia.com/us/en/new"
-    },
-    {
-     "name": "thesuperpuff",
-     "productUrl": "https://www.aritzia.com/us/en/clothing/coats-jackets/puffers/thesuperpuff"
-    },
-    {
-     "name": "polar fleece",
-     "productUrl": "https://www.aritzia.com/us/en/clothing/polar-fleece"
-    },
-    {
-     "name": "sweaters",
-     "productUrl": "https://www.aritzia.com/us/en/clothing/sweaters"
-    },
-    {
-     "name": "holiday party dressing",
-     "productUrl": "https://www.aritzia.com/us/en/shop-by/event-dressing/holiday-party-dressing"
-    }
-   ],
-   "verdict": "자동화 가능"
-  },
-  {
-   "brand": "Arket",
-   "site": "arket.com.arket",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 373,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {
-    "tops": 161,
-    "sweatshirts": 38,
-    "shirts": 105,
-    "pants": 4,
-    "dresses": 65
-   },
-   "perUrl": [
-    {
-     "url": "https://www.arket.com/en-ww/women/clothing/tops/",
-     "count": 190,
-     "note": ""
-    },
-    {
-     "url": "https://www.arket.com/en-ww/women/clothing/tops/t-shirts/",
-     "count": 56,
-     "note": ""
-    },
-    {
-     "url": "https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/",
-     "count": 33,
-     "note": ""
-    },
-    {
-     "url": "https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/",
-     "count": 115,
-     "note": ""
-    },
-    {
-     "url": "https://www.arket.com/en-ww/women/clothing/dresses/",
-     "count": 70,
-     "note": ""
-    }
-   ],
-   "secs": 143,
-   "dropped": 0,
-   "cut": false,
-   "sample": [
-    {
-     "name": "Signature Constructed T-Shirt-White-4931",
-     "productUrl": "https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/"
-    },
-    {
-     "name": "Signature Constructed T-Shirt-Beige-17513",
-     "productUrl": "https://www.arket.com/en-ww/product/pearl-heavyweight-t-shirt-light-beige-1135758046/"
-    },
-    {
-     "name": "Wool Rib Top-Black-20580",
-     "productUrl": "https://www.arket.com/en-ww/product/wool-rib-top-black-1357865001/"
-    },
-    {
-     "name": "Signature Boxy T-Shirt-White-14955",
-     "productUrl": "https://www.arket.com/en-ww/product/alba-heavyweight-t-shirt-white-1283090001/"
-    },
-    {
-     "name": "Signature Long-Sleeve T-Shirt-Black-12521",
-     "productUrl": "https://www.arket.com/en-ww/product/long-sleeve-t-shirt-black-1252141002/"
-    }
-   ],
-   "verdict": "자동화 가능"
-  },
-  {
-   "brand": "H&M",
-   "site": "www2.hm.com.hm",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 744,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {
-    "tops": 179,
-    "sweatshirts": 110,
-    "shirts": 137,
-    "pants": 150,
-    "dresses": 168
-   },
-   "perUrl": [
-    {
-     "url": "https://www2.hm.com/en_us/women/products/tops.html?sort=newProduct",
-     "count": 161,
-     "note": ""
-    },
-    {
-     "url": "https://www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct",
-     "count": 165,
-     "note": ""
-    },
-    {
-     "url": "https://www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct",
-     "count": 173,
-     "note": ""
-    },
-    {
-     "url": "https://www2.hm.com/en_us/women/products/dresses.html?sort=newProduct",
-     "count": 174,
-     "note": ""
-    },
-    {
-     "url": "https://www2.hm.com/en_us/women/products/pants.html?sort=newProduct",
-     "count": 150,
-     "note": ""
-    }
-   ],
-   "secs": 261,
-   "dropped": 0,
-   "cut": false,
-   "sample": [
-    {
-     "name": "Raglan-Sleeved Cotton Top",
-     "productUrl": "https://www2.hm.com/en_us/productpage.1378899003.html"
-    },
-    {
-     "name": "A loose-fit cape in a soft grey knit is shown from the front, featuring a high mock neck and a draped, flared silhouette. The bottom hem is showcasing",
-     "productUrl": "https://www2.hm.com/en_us/productpage.1370193002.html"
-    },
-    {
-     "name": "A dark navy blue long-sleeve shirt is shown facing front, featuring a crew neck, dropped shoulders, and relaxed sleeves. The front displays an off-whi",
-     "productUrl": "https://www2.hm.com/en_us/productpage.1378282001.html"
-    },
-    {
-     "name": "Embellished Chiffon Camisole Top",
-     "productUrl": "https://www2.hm.com/en_us/productpage.1372041001.html"
-    },
-    {
-     "name": "Wool Turtleneck Top",
-     "productUrl": "https://www2.hm.com/en_us/productpage.1297273010.html"
-    }
-   ],
-   "verdict": "자동화 가능"
-  },
-  {
-   "brand": "Massimo Dutti",
-   "site": "massimodutti.com.massimodutti",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 111,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {
-    "tops": 13,
-    "pants": 81,
-    "shirts": 5,
-    "sweatshirts": 1,
-    "dresses": 11
-   },
-   "perUrl": [
-    {
-     "url": "https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518",
-     "count": 34,
-     "note": ""
-    },
-    {
-     "url": "https://www.massimodutti.com/us/s/w-tops-n2889",
-     "count": 14,
-     "note": ""
-    },
-    {
-     "url": "https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012",
-     "count": 24,
-     "note": ""
-    },
-    {
-     "url": "https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374",
-     "count": 12,
-     "note": ""
-    },
-    {
-     "url": "https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376",
-     "count": 40,
-     "note": ""
-    }
-   ],
-   "secs": 234,
-   "dropped": 2,
-   "cut": false,
-   "sample": [
-    {
-     "name": "Long-sleeve crewneck t-shirt in a mid-shot with a mock neck and buttons. Features a print of horizontal stripes in navy blue and brown.",
-     "productUrl": "https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106"
-    },
-    {
-     "name": "Close-up of the neckline of a black T-shirt with a crew neck and front button placket.",
-     "productUrl": "https://www.massimodutti.com/us/buttoned-henley-tshirt-l06863575"
-    },
-    {
-     "name": "Oyster-white fitted sleeveless T-shirt with a round neckline, button-loop placket and buttons, and dark jeans.",
-     "productUrl": "https://www.massimodutti.com/us/cotton-blend-bib-detail-tshirt-l06615918"
-    },
-    {
-     "name": "Red long-sleeved henley shirt, dark jeans, and beige trench coat set.",
-     "productUrl": "https://www.massimodutti.com/us/100-cotton-henley-tshirt-l06203115"
-    },
-    {
-     "name": "Medium shot of a dark camel-colored long-sleeve shirt. It features a collar and a front placket with buttons.",
-     "productUrl": "https://www.massimodutti.com/us/long-sleeve-mock-neck-tshirt-l06285106"
-    }
-   ],
-   "verdict": "자동화 가능"
-  },
-  {
-   "brand": "Zara",
-   "site": "zara.com.zara",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 591,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {
-    "tops": 61,
-    "shirts": 42,
-    "pants": 364,
-    "sweatshirts": 24,
-    "dresses": 100
-   },
-   "perUrl": [
-    {
-     "url": "https://www.zara.com/us/en/woman-tshirts-l1362.html?v1=2420417",
-     "count": 138,
-     "note": ""
-    },
-    {
-     "url": "https://www.zara.com/us/en/woman-tops-l1322.html?v1=2635766",
-     "count": 140,
-     "note": ""
-    },
-    {
-     "url": "https://www.zara.com/us/en/woman-sweatshirts-l1320.html?v1=2467841",
-     "count": 121,
-     "note": ""
-    },
-    {
-     "url": "https://www.zara.com/us/en/woman-shirts-l1217.html?v1=2420369",
-     "count": 135,
-     "note": ""
-    },
-    {
-     "url": "https://www.zara.com/us/en/woman-dresses-l1066.html?v1=2420896",
-     "count": 152,
-     "note": ""
-    },
-    {
-     "url": "https://www.zara.com/us/en/woman-trousers-l1335.html?v1=2420795",
-     "count": 156,
-     "note": ""
-    }
-   ],
-   "secs": 986,
-   "dropped": 39,
-   "cut": false,
-   "sample": [
-    {
-     "name": "Black long-sleeve T-shirt set with a crew neck and a front button placket with small matching buttons, a fitted cut, and ribbed fabric.",
-     "productUrl": "https://www.zara.com/us/en/long-sleeve-henley-t-shirt-p04174666.html"
-    },
-    {
-     "name": "long sleeve interlock t shirt p04174639.html",
-     "productUrl": "https://www.zara.com/us/en/long-sleeve-interlock-t-shirt-p04174639.html"
-    },
-    {
-     "name": "Long-sleeve fitted raglan T-shirt set in ecru with black sleeves and a crew neck.",
-     "productUrl": "https://www.zara.com/us/en/lyocell-raglan-sleeve-t-shirt-p03431649.html"
-    },
-    {
-     "name": "supima long sleeve t shirt p00858777.html",
-     "productUrl": "https://www.zara.com/us/en/supima--long-sleeve-t-shirt-p00858777.html"
-    },
-    {
-     "name": "boat neck t shirt p04424640.html",
-     "productUrl": "https://www.zara.com/us/en/boat-neck-t-shirt-p04424640.html"
-    }
-   ],
-   "verdict": "자동화 가능"
-  },
-  {
-   "brand": "Anthropologie",
-   "site": "anthropologie.com.anthropologie",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 7,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {
-    "tops": 7
-   },
-   "perUrl": [
-    {
-     "url": "https://www.anthropologie.com/tees",
-     "count": 7,
-     "note": ""
-    },
-    {
-     "url": "https://www.anthropologie.com/tops-sweatshirts",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.anthropologie.com/tops",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.anthropologie.com/dresses",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.anthropologie.com/bottoms",
+     "url": "https://www.chicos.com/store/category/pants/cat8289646",
      "count": 0,
      "note": "HTTP 403"
     }
@@ -523,177 +88,153 @@
    "cut": false,
    "sample": [
     {
-     "name": "By Anthropologie Layered Lace Puff Sleeve Top",
-     "productUrl": "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top"
+     "name": "Touch of Cool™ Foiled Mockneck Layering Tee",
+     "productUrl": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622"
     },
     {
-     "name": "Pilcro Sequined Twofer Tank",
-     "productUrl": "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank"
+     "name": "Touch of Cool™ Mockneck Layering Tee",
+     "productUrl": "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541"
     },
     {
-     "name": "By Anthropologie Bruna Cashmere Modal Ribbed Top",
-     "productUrl": "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top"
+     "name": "Touch of Cool™ Crewneck Layering Tee",
+     "productUrl": "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172"
     },
     {
-     "name": "By Anthropologie Fuzzy Dolman Sleeve Boatneck Top",
-     "productUrl": "https://www.anthropologie.com/shop/by-anthropologie-fuzzy-dolman-sleeve-boatneck-top"
+     "name": "Touch of Cool™ Crewneck Layering Tee",
+     "productUrl": "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423149"
     },
     {
-     "name": "Maeve Mock Neck Wrap Top",
-     "productUrl": "https://www.anthropologie.com/shop/maeve-mock-neck-wrap-top"
+     "name": "Touch of Cool™ V-Neck Layering Tee",
+     "productUrl": "https://www.chicos.com/store/product/touch-of-cool-v-neck-layering-tee/570423170"
     }
    ],
-   "verdict": "확장 필요(봇 차단)"
+   "verdict": "자동화 가능"
   },
   {
-   "brand": "Free People",
-   "site": "freepeople.com.freepeople",
+   "brand": "WHBM",
+   "site": "whitehouseblackmarket.com.whbm",
    "engine": "firefox",
    "engineSource": "env",
-   "collected": 0,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {},
-   "perUrl": [
-    {
-     "url": "https://www.freepeople.com/tops/",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.freepeople.com/sweatshirts-pullovers/?vis_nav=4",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.freepeople.com/dresses/",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.freepeople.com/pants/",
-     "count": 0,
-     "note": "HTTP 403"
-    }
-   ],
-   "secs": 14,
-   "dropped": 0,
-   "cut": false,
-   "sample": [],
-   "verdict": "확장 필요(봇 차단)"
-  },
-  {
-   "brand": "Joules",
-   "site": "joules.com.joules",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 0,
-   "stored": 0,
-   "storeErr": "",
-   "cats": {},
-   "perUrl": [
-    {
-     "url": "https://www.joules.com/shop/womens/clothing/tops",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.joules.com/shop/womens/clothing/sweatshirts-and-hoodies",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.joules.com/shop/womens/clothing/shirts-and-blouses",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.joules.com/shop/womens/clothing/dresses",
-     "count": 0,
-     "note": "HTTP 403"
-    },
-    {
-     "url": "https://www.joules.com/shop/womens/clothing/all-trousers?p=2#1454.34375",
-     "count": 0,
-     "note": "HTTP 403"
-    }
-   ],
-   "secs": 15,
-   "dropped": 0,
-   "cut": false,
-   "sample": [],
-   "verdict": "확장 필요(봇 차단)"
-  },
-  {
-   "brand": "&Other Stories",
-   "site": "stories.com.otherstories",
-   "engine": "firefox",
-   "engineSource": "env",
-   "collected": 475,
+   "collected": 21,
    "stored": 0,
    "storeErr": "",
    "cats": {
-    "sweatshirts": 25,
-    "tops": 133,
-    "pants": 90,
-    "shirts": 92,
-    "dresses": 135
+    "tops": 21
    },
    "perUrl": [
     {
-     "url": "https://www.stories.com/en-us/clothing/tops/",
-     "count": 153,
+     "url": "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
+     "count": 21,
      "note": ""
     },
     {
-     "url": "https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/",
-     "count": 12,
-     "note": ""
+     "url": "https://www.whitehouseblackmarket.com/store/category/tops/cat210001",
+     "count": 0,
+     "note": "HTTP 403"
     },
     {
-     "url": "https://www.stories.com/en-us/clothing/blouses-shirts/",
-     "count": 108,
-     "note": ""
+     "url": "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287",
+     "count": 0,
+     "note": "HTTP 403"
     },
     {
-     "url": "https://www.stories.com/en-us/clothing/dresses/",
-     "count": 153,
-     "note": ""
+     "url": "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002",
+     "count": 0,
+     "note": "HTTP 403"
     },
     {
-     "url": "https://www.stories.com/en-us/clothing/trousers/",
-     "count": 98,
-     "note": ""
+     "url": "https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+     "count": 0,
+     "note": "HTTP 403"
     }
    ],
-   "secs": 220,
-   "dropped": 6,
+   "secs": 37,
+   "dropped": 0,
    "cut": false,
    "sample": [
     {
-     "name": "Embroidered Wool Polo Jumper - Grey - Lookbook",
-     "productUrl": "https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/"
+     "name": "Satin Front Short Sleeve Tee",
+     "productUrl": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368"
     },
     {
-     "name": "Mock-Neck Lace Top - Dark Red - Lookbook",
-     "productUrl": "https://www.stories.com/en-us/product/mock-neck-lace-top-dark-red-1373644002/"
+     "name": "WHBM FORME™ Ribbed Scoop Neck Tee",
+     "productUrl": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895"
     },
     {
-     "name": "Wool Turtleneck Top - Black - Lookbook",
-     "productUrl": "https://www.stories.com/en-us/product/wool-turtleneck-top-black-1341950002/"
+     "name": "Scoop Neck Long Sleeve Tee",
+     "productUrl": "https://www.whitehouseblackmarket.com/store/product/scoop-neck-long-sleeve-tee/570421361"
     },
     {
-     "name": "Mock-Neck Lace Top - Dark Brown - Lookbook",
-     "productUrl": "https://www.stories.com/en-us/product/mock-neck-lace-top-dark-brown-1373644001/"
+     "name": "Scoop Neck Long Sleeve Tee",
+     "productUrl": "https://www.whitehouseblackmarket.com/store/product/scoop-neck-long-sleeve-tee/570421825"
     },
     {
-     "name": "Rhinestone-Trimmed Top - Black - Lookbook",
-     "productUrl": "https://www.stories.com/en-us/product/rhinestone-trimmed-top-black-1363489001/"
+     "name": "Scoop Neck Long Sleeve Tee",
+     "productUrl": "https://www.whitehouseblackmarket.com/store/product/scoop-neck-long-sleeve-tee/570421360"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Veronica Beard",
+   "site": "veronicabeard.com.veronicabeard",
+   "engine": "firefox",
+   "engineSource": "env",
+   "collected": 382,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 112,
+    "shirts": 64,
+    "sweatshirts": 11,
+    "pants": 96,
+    "dresses": 99
+   },
+   "perUrl": [
+    {
+     "url": "https://veronicabeard.com/collections/tops?filter.style=T-Shirts",
+     "count": 177,
+     "note": ""
+    },
+    {
+     "url": "https://veronicabeard.com/collections/tops",
+     "count": 189,
+     "note": ""
+    },
+    {
+     "url": "https://veronicabeard.com/collections/dresses",
+     "count": 109,
+     "note": ""
+    },
+    {
+     "url": "https://veronicabeard.com/collections/bottoms-pants",
+     "count": 97,
+     "note": ""
+    }
+   ],
+   "secs": 142,
+   "dropped": 10,
+   "cut": false,
+   "sample": [
+    {
+     "name": "drexler henley top green shadow",
+     "productUrl": "https://veronicabeard.com/products/drexler-henley-top-green-shadow"
+    },
+    {
+     "name": "pruitt mesh t shirt black limestone",
+     "productUrl": "https://veronicabeard.com/products/pruitt-mesh-t-shirt-black-limestone"
+    },
+    {
+     "name": "issa long sleeve polo shirt navy",
+     "productUrl": "https://veronicabeard.com/products/issa-long-sleeve-polo-shirt-navy"
+    },
+    {
+     "name": "coralee puff sleeve top garnet rose",
+     "productUrl": "https://veronicabeard.com/products/coralee-puff-sleeve-top-garnet-rose"
+    },
+    {
+     "name": "Mylie Mockneck Tank Top",
+     "productUrl": "https://veronicabeard.com/products/mylie-mock-neck-tank-top-gunmetal"
     }
    ],
    "verdict": "자동화 가능"

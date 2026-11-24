@@ -85,3 +85,33 @@ Veronica Beard)를 GitHub Actions 의 헤드리스 수집기(`scripts/browser-co
 | Chico's | 0 | 5/5 HTTP 403(tees-tanks 포함) | 13s |
 | WHBM | 0 | 5/5 HTTP 403(tees 포함) | 13s |
 | Veronica Beard | 382(공용 링크 10 제외) | T-Shirts 177 · tops 189 · dresses 109 · bottoms-pants 97 | 151s |
+
+### 실행 3 — firefox, 확장 담당 12개 브랜드 (run 45330314937)
+
+엔진 firefox · **저장 OFF**(잡 로그: `STORE: 0`, "저장 OFF — 조사만", `WORKER_TOKEN` 비어 있음) ·
+2026-11-24T05:01Z~05:34Z(수집 단계 약 33분) · 끝: 성공. Worker 에는 아무것도 보내지 않았다.
+이 실행의 리포트 커밋(21a3eca)이 브랜치의 `browser-collect-report.*` 를 덮어서, 그 두 파일은 f4072ce 내용으로
+되돌렸다. 아래는 잡 로그에서 옮긴 것이다.
+
+| 브랜드 | 합계 | URL 별 | 시간 |
+|---|---|---|---|
+| Lululemon | 0 | 5/5 HTTP 403 | 19s |
+| Fatface | 0 | 4/4 HTTP 403 | 12s |
+| Addidas(adidas) | 0 | 4/4 HTTP 403 | 13s |
+| Aritzia | 37 | tshirts 37 만 열림 · 나머지 5개 HTTP 403 | 38s |
+| Arket | 373 | tops 190 · t-shirts 56 · sweatshirts 33 · shirts 115 · dresses 70 | 143s |
+| H&M | 744 | tops 161 · hoodies 165 · shirts 173 · dresses 174 · pants 150 | 261s |
+| Massimo Dutti | 111(공용 링크 2 제외) | t-shirts 34 · tops 14 · shirts 24 · dresses 12 · trousers 40 | 234s |
+| Zara | 591(공용 링크 39 제외) | tshirts 138 · tops 140 · sweatshirts 121 · shirts 135 · dresses 152 · trousers 156 | 986s |
+| Anthropologie | 7 | tees 7 만 열림 · 나머지 4개 HTTP 403 | 39s |
+| Free People | 0 | 5/5 HTTP 403 | 14s |
+| Joules | 0 | 5/5 HTTP 403 | 15s |
+| &Other Stories | 475(공용 링크 6 제외) | tops 153 · sweatshirts 12 · shirts 108 · dresses 153 · trousers 98 | 220s |
+
+읽는 법:
+- 파이어폭스로 목록이 통째로 열린 곳: Arket · H&M · Massimo Dutti · Zara · &Other Stories(5곳).
+- 첫 카테고리 하나만 열리고 나머지는 403(Chico's·WHBM 과 같은 모양): Aritzia · Anthropologie.
+  리포트는 Aritzia 를 '자동화 가능'으로 분류했다(상품이 1개 이상이면 그쪽으로 센다) — 6개 중 5개가 막혔으니
+  실제로는 '일부만 열림'이다. 분류 기준을 바꾸는 일은 이번 범위 밖이라 건드리지 않았다.
+- 완전히 막힘: Lululemon · Fatface · adidas · Free People · Joules.
+- Zara 는 16분 넘게 걸렸다(카테고리 6개 × 최대 8페이지) — 야간 시간 예산에 넣을 때 고려할 것.
