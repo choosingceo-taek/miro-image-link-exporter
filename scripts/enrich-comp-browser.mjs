@@ -11,6 +11,22 @@
 // JS 챌린지를 실행하며, 클라이언트에서 그려지는 본문까지 읽힌다.
 //
 // 그래서 이 스크립트는 '평 fetch 로는 안 되는 브랜드'만 골라 크롬으로 다시 읽는다.
+//
+// ── 엔진 고른 근거(2026-11-24, scripts/try-engines.mjs, Actions 데이터센터 IP) ──
+// 18개 브랜드 × 상품 3쪽 = 54쪽에서 소재까지 읽은 상품 수:
+//                     실행 45301403189   실행 45305293020
+//   playwright(크롬)        5                  5
+//   firefox(그냥)           9                 14
+//   firefox-fp(지문 주입)   —                 11
+//   crawlee-firefox         8                  7
+//   crawlee-chromium        6                  —
+//   patchright              0 (28쪽 표본, 크롬과 같음)
+//   camoufox                실행 실패(GitHub API 한도 / 띄우자마자 segfault exit 139)
+// 그냥 파이어폭스가 Crawlee 지문 주입판보다 낫거나 같다 — 효과는 지문이 아니라 파이어폭스
+// 자체에서 나온다. 그래서 새 의존성 없이 Playwright 의 firefox 를 쓴다.
+// 크롬은 막히고 파이어폭스는 읽은 곳: Zara 3/3 · Chico's 3/3 · Massimo Dutti · Aritzia 일부 ·
+// Patagonia(크롬은 열리기만, 파이어폭스는 소재까지). 반대로 Reformation 은 크롬이 더 잘 읽어서
+// 무조건 바꾸지 않고 auto(크롬으로 막힌 브랜드만 파이어폭스)를 둔다.
 // 추출 규칙은 worker 에서 그대로 떼어 쓴다 — 사본을 만들면 진단과 실제가 어긋난다.
 //
 // env:
@@ -20,11 +36,10 @@
 //   PER_BRAND 브랜드당 상품 수(기본 120)
 //   STORE    1이면 Worker 오버레이에 저장(기본 1)
 //   DRY      1이면 저장하지 않고 결과만 출력
-//   ENGINE   playwright(기본) | patchright | firefox | firefox-fp | auto
+//   ENGINE   playwright(기본) | patchright | firefox | auto
 //            patchright — Playwright 와 API 가 같은 무료 패치판으로, 자동화 흔적을 지운다.
-//            firefox    — 그냥 Playwright 파이어폭스(파이어폭스 자기 UA 그대로).
-//            firefox-fp — 파이어폭스 + 지문 생성·주입(fingerprint-generator/-injector).
-//            auto       — 크롬으로 막힌 이력이 있는 브랜드만 AUTO_ENGINE(기본 BEST)으로,
+//            firefox    — 그냥 Playwright 파이어폭스(파이어폭스 자기 UA 그대로). 새 의존성 없음.
+//            auto       — 크롬으로 막힌 이력이 있는 브랜드만 AUTO_ENGINE(기본 BEST=firefox)으로,
 //                         나머지는 playwright 로 읽는다.
 //            지문 계층만 다룬다 — IP 평판으로 막는 사이트는 여전히 확장(가정용 IP) 몫이다.
 //   STATE_PATH 차단 이력 파일(기본 enrich-browser-state.json — 연기 테스트가 바꿔 쓴다)
@@ -93,7 +108,7 @@ const SKIP_DAYS = Math.max(1, Number(process.env.SKIP_DAYS) || 14);
 const BLOCK_RATIO = 0.9;    // 시도의 이만큼이 차단이면 '막혔다'로 본다
 
 // ── 엔진별 차단 이력 규칙 시작 (test-enrich-skip 이 이 구간을 떼어 직접 돌린다)
-const ENGINES_OK = ["playwright", "patchright", "firefox", "firefox-fp"];
+const ENGINES_OK = ["playwright", "patchright", "firefox"];
 const CHROMIUM = ["playwright", "patchright"];
 function normalizeState(raw) {
   const out = { blocked: {} };
@@ -224,16 +239,7 @@ async function contextFor(eng) {
     const { firefox } = await import("playwright");
     const browser = await firefox.launch();
     browsers.push(browser);
-    if (eng === "firefox-fp") {
-      // Crawlee 가 쓰는 것과 같은 지문 생성·주입을 크롤러 없이 컨텍스트에 바로 붙인다.
-      const { newInjectedContext } = await import("fingerprint-injector");
-      ctx = await newInjectedContext(browser, {
-        fingerprintOptions: { browsers: ["firefox"], operatingSystems: ["windows", "macos"], devices: ["desktop"], locales: ["en-US"] },
-        newContextOptions: { locale: "en-US" },
-      });
-    } else {
-      ctx = await browser.newContext(VIEW);
-    }
+    ctx = await browser.newContext(VIEW);
   }
   // 이미지·폰트·영상은 받지 않는다. 혼용률은 글자에만 있고, 안 받으면 몇 배 빠르다.
   await ctx.route("**/*", (route) => {

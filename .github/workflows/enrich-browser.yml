@@ -31,7 +31,7 @@ on:
         required: false
         default: "1"
       engine:
-        description: "playwright(기본) | patchright | firefox | firefox-fp(파이어폭스+지문 주입) | auto(크롬 차단 이력 브랜드만 파이어폭스)"
+        description: "playwright(기본) | patchright | firefox | auto(크롬 차단 이력이 있는 브랜드만 파이어폭스)"
         required: false
         default: "playwright"
 
@@ -87,18 +87,12 @@ jobs:
           timeout 300 npx playwright install chromium
       - name: Install Firefox
         # 파이어폭스를 쓰는 엔진일 때만 받는다(auto 는 크롬 차단 이력 브랜드에 파이어폭스를 쓴다).
-        if: ${{ env.ENGINE == 'firefox' || env.ENGINE == 'firefox-fp' || env.ENGINE == 'auto' }}
+        if: ${{ env.ENGINE == 'firefox' || env.ENGINE == 'auto' }}
         timeout-minutes: 15
         run: |
           waitlock() { for _ in $(seq 1 60); do sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || return 0; sleep 5; done; }
           waitlock
           timeout 400 npx playwright install --with-deps firefox || timeout 300 npx playwright install firefox
-      - name: Install fingerprint packages
-        if: ${{ env.ENGINE == 'firefox-fp' }}
-        timeout-minutes: 10
-        run: |
-          # --no-save 설치는 따로 하면 앞에 받은 것을 지운다 — 함께 받는다.
-          timeout 240 npm i --no-save playwright@1.49.1 fingerprint-generator@2.1.89 fingerprint-injector@2.1.89
       - name: Install Patchright
         if: ${{ env.ENGINE == 'patchright' }}
         timeout-minutes: 10
