@@ -1,13 +1,13 @@
-# 엑셀 4항목 채움률 (2026-11-24T04:57Z)
+# 엑셀 4항목 채움률 (2026-11-24T05:00Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 31571/38847 | 81% |
-| 컬러 | 22629/38847 | 58% |
-| 사이즈 | 16402/38847 | 42% |
-| 혼용률 | 28250/38847 | 73% |
+| 가격 | 31568/38847 | 81% |
+| 컬러 | 22632/38847 | 58% |
+| 사이즈 | 16401/38847 | 42% |
+| 혼용률 | 28260/38847 | 73% |
 
 **가격·혼용률 모두 80% 이상인 브랜드 73개** (시연에 안전)
 
@@ -21,10 +21,10 @@
 | J.mclaughlin | 516 | 99% | 1% | 0% | 91% |
 | Cotton on | 470 | 100% | 98% | 0% | 100% |
 | Lands end | 460 | 87% | 3% | 0% | 87% |
-| Shopbop | 455 | 100% | 98% | 0% | 97% |
+| Shopbop | 455 | 100% | 99% | 0% | 97% |
 | Frank & Eileen | 446 | 100% | 100% | 100% | 99% |
 | Evereve | 444 | 100% | 100% | 100% | 95% |
-| Me+Em | 426 | 99% | 97% | 0% | 90% |
+| Me+Em | 426 | 99% | 97% | 0% | 91% |
 | Sanctuary | 421 | 100% | 100% | 100% | 98% |
 | Sweaty betty | 405 | 100% | 100% | 0% | 95% |
 | Jager | 403 | 100% | 71% | 0% | 94% |
@@ -41,7 +41,7 @@
 | Boden | 341 | 100% | 10% | 92% | 92% |
 | Veronica Beard | 338 | 99% | 100% | 98% | 97% |
 | Oak + Fort | 337 | 100% | 93% | 100% | 100% |
-| Stateside | 335 | 100% | 87% | 94% | 81% |
+| Stateside | 335 | 100% | 87% | 94% | 82% |
 | Xirena | 332 | 100% | 99% | 100% | 96% |
 | Leset | 326 | 100% | 98% | 96% | 84% |
 | Bassike | 320 | 100% | 0% | 99% | 96% |
@@ -137,7 +137,7 @@
 - Banana Republic — 15시간 전 · 1개
 - Madewell — 15시간 전 · 75개
 - Ann Taylor — 15시간 전 · 381개
-- Loft — 14시간 전 · 673개
+- Loft — 15시간 전 · 673개
 - The white company — 14시간 전 · 68개
 - L.L bean — 14시간 전 · 311개
 - Massimo Dutti — 14시간 전 · 599개
@@ -154,7 +154,7 @@
 - Wilson — 14시간 전 · 51개
 - Eileen fisher — 14시간 전 · 545개
 - Oysho — 14시간 전 · 20개
-- Lululemon — 13시간 전 · 483개
+- Lululemon — 14시간 전 · 483개
 - Abercrombie & Fitch — 13시간 전 · 195개
 - Mango — 13시간 전 · 88개
 - Joules — 13시간 전 · 566개
@@ -172,7 +172,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 28250/38847개 (73%) · 미완 브랜드 124개
+- 전체 28260/38847개 (73%) · 미완 브랜드 124개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -199,7 +199,7 @@
 | J crew | browser | 59/196 (30%) |
 | Coldwatercreek | browser | 66/201 (33%) |
 | WHBM | server | 75/219 (34%) |
-| Reformation | server | 262/752 (35%) |
+| Reformation | server | 261/752 (35%) |
 | &Other Stories | extension | 172/477 (36%) |
 | Sessun | server | 32/79 (41%) |
 | Loft | extension | 298/673 (44%) |
@@ -220,25 +220,25 @@
 | Oasis | server | 90/120 (75%) |
 | Spanx | server | 62/79 (78%) |
 | Poetry | browser | 240/303 (79%) |
-| Stateside | server | 273/335 (81%) |
+| Stateside | server | 275/335 (82%) |
 | Club monaco | server | 139/169 (82%) |
 | Michael Stars | server | 173/209 (83%) |
-| Nike | browser | 398/474 (84%) |
+| Nike | browser | 399/474 (84%) |
 | Leset | browser | 275/326 (84%) |
 | Good American | server | 531/625 (85%) |
 | Splendid | server | 344/403 (85%) |
 | Rails | server | 246/290 (85%) |
-| Splits59 | server | 157/183 (86%) |
 | Lands end | extension | 402/460 (87%) |
 | Cotton citizen | server | 247/282 (88%) |
+| Splits59 | server | 161/183 (88%) |
 | Alo | server | 177/198 (89%) |
 | Frame | server | 170/190 (89%) |
 | Madewell | extension | 67/75 (89%) |
-| Me+Em | browser | 385/426 (90%) |
 | Tuckernuck | server | 340/379 (90%) |
 | Wrap | browser | 336/374 (90%) |
 | Barbour | browser | 152/169 (90%) |
 | J.mclaughlin | browser | 469/516 (91%) |
+| Me+Em | browser | 386/426 (91%) |
 | Ann Taylor | extension | 347/381 (91%) |
 | Hobbs | server | 319/352 (91%) |
 | Project Social T | server | 249/275 (91%) |
@@ -255,7 +255,7 @@
 | Outdoorvoices | server | 112/121 (93%) |
 | J.jill | server | 83/89 (93%) |
 | Monsoon | server | 28/30 (93%) |
-| CCC | browser | 751/800 (94%) |
+| CCC | browser | 752/800 (94%) |
 | Jager | server | 380/403 (94%) |
 | L.L bean | extension | 293/311 (94%) |
 | Vuori | server | 206/219 (94%) |
@@ -281,7 +281,7 @@
 | Bellerose | server | 164/171 (96%) |
 | Aerie | browser | 97/101 (96%) |
 | Greyson | server | 89/93 (96%) |
-| Shopbop | browser | 440/455 (97%) |
+| Shopbop | browser | 442/455 (97%) |
 | Veronica Beard | server | 329/338 (97%) |
 | Jigsaw | server | 304/315 (97%) |
 | Varley | server | 276/284 (97%) |
@@ -352,7 +352,7 @@
 | J.jill | server | 52/89 (58%) | $139 |
 | Fatface | extension | 277/456 (61%) | £29.50 |
 | Aritzia | extension | 513/800 (64%) | $50 |
-| CCC | browser | 513/800 (64%) |  |
+| CCC | browser | 509/800 (64%) |  |
 | Joules | extension | 372/566 (66%) | £45 |
 | Aerie | browser | 69/101 (68%) | $29 |
 | American Eagle | browser | 125/180 (69%) |  |
@@ -418,7 +418,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-24T04:57Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-24T05:00Z)
 
 - 카탈로그 134개 · 상품 38847개 검사 · **문제 항목 40개**
 - 문제가 있는 브랜드 22개
