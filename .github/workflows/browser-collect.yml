@@ -30,6 +30,10 @@ on:
         description: "chromium(기본) | firefox — 모든 브랜드를 이 엔진으로. 비우면 브랜드별 기본"
         required: false
         default: "chromium"
+      fresh_context:
+        description: "1이면 카테고리 URL 마다 쿠키가 빈 새 창으로 연다(측정용, 기본 0)"
+        required: false
+        default: "0"
       deadline_min:
         description: "시간 예산(분). 비우면 스크립트 기본값(85). 시험 실행은 store=0 과 함께 작게"
         required: false
@@ -111,6 +115,7 @@ jobs:
           # 예약 실행에는 inputs 가 없어 비어 있다 → 스크립트가 브랜드별 기본 엔진을 쓴다
           # (Render browser 그룹은 chromium).
           ENGINE: ${{ github.event.inputs.engine }}
+          FRESH_CONTEXT: ${{ github.event.inputs.fresh_context || '0' }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: node scripts/browser-collect.mjs
       - name: Upload report

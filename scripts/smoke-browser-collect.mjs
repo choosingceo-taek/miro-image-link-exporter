@@ -28,7 +28,7 @@ const fail = (m) => { console.error("  ❌ " + m); bad++; };
 const ok = (m) => console.log("  ✅ " + m);
 
 // ── 가짜 서버 하나가 Render·Worker·쇼핑몰을 다 맡는다(경로로 나눈다) ──
-const state = { stores: [], slow: {}, hits: {} };
+const state = { stores: [], slow: {}, hits: {}, catalogs: [], catalogsFail: false };
 const listing = (brand, cat, n) => {
   const slug = brand.toLowerCase();
   let cards = "";
@@ -59,6 +59,8 @@ const srv = createServer((req, res) => {
         j({ ok: true, count: body.items.length });
       });
     }
+    // 저장된 카탈로그 목록(추가 브랜드 저장 전에 지금 개수를 본다)
+    if (u.searchParams.get("catalogs")) return state.catalogsFail ? j({ error: "down" }, 500) : j({ ok: true, list: state.catalogs });
     return j({ error: "unknown" }, 400);
   }
   if (p.startsWith("/img/")) { res.writeHead(404); return res.end(); }
@@ -102,6 +104,8 @@ async function collect(label, env, { prevReport } = {}) {
       ...process.env,
       RENDER_URL: `${BASE}/render`, WORKER_URL: `${BASE}/worker`, WORKER_TOKEN: "test",
       REPORT_DIR: dir, MAX_PAGES: "1", GROUP: "browser", BRANDS: "", STORE: "1",
+      // 저장소의 진짜 추가 브랜드 파일이 끼어들지 않게 — 필요한 시험만 따로 준다.
+      EXTRA_BRANDS_FILE: join(dir, "no-extra.json"),
       NO_PROXY: "localhost,127.0.0.1", no_proxy: "localhost,127.0.0.1",
       ...(process.env.PLAYWRIGHT_CHROMIUM ? { CHROMIUM_PATH: process.env.PLAYWRIGHT_CHROMIUM } : {}),
       ...env,
@@ -122,6 +126,25 @@ async function collect(label, env, { prevReport } = {}) {
   if (!json || !md) fail(`[${label}] 리포트 파일이 없다(json ${!!json} · md ${!!md})`);
   return { code, out, json, md, stores: [...state.stores], hits: { ...state.hits }, secs };
 }
+// 브라우저 없이 대상·엔진 계획만 받는다(DRY_PLAN).
+async function plan(env) {
+  const run = spawn(process.execPath, [join(ROOT, "scripts/browser-collect.mjs")], {
+    env: {
+      ...process.env, RENDER_URL: `${BASE}/render`, WORKER_URL: `${BASE}/worker`, GROUP: "browser", BRANDS: "",
+      STORE: "0", DRY_PLAN: "1", ENGINE: "", REPORT_DIR: mkdtempSync(join(tmpdir(), "bc-plan-")),
+      EXTRA_BRANDS_FILE: join(tmpdir(), "bc-no-extra.json"),
+      NO_PROXY: "localhost,127.0.0.1", no_proxy: "localhost,127.0.0.1", ...env,
+    },
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  let out = "";
+  run.stdout.on("data", (d) => { out += d; });
+  run.stderr.on("data", (d) => { out += d; });
+  const code = await new Promise((r) => run.on("close", r));
+  const m = out.match(/^PLAN (.*)$/m);
+  return { code, out, plan: m ? JSON.parse(m[1]) : null };
+}
+
 const res = (json, brand) => ((json && json.results) || []).find((r) => r.brand === brand);
 
 try {
@@ -223,27 +246,21 @@ try {
     else ok("ENGINE 을 비우면 chromium 으로 돌고 리포트에 엔진이 적힌다");
   }
 
+  // ── 4b. FRESH_CONTEXT=1 — 카테고리마다 새 창으로 열어도 똑같이 모은다 ──
+  {
+    const L = "FRESH_CONTEXT";
+    setBrands([["Bravo", ["tops", "shirts", "pants"]]]);
+    const { json, md } = await collect(L, { STORE: "0", FRESH_CONTEXT: "1" });
+    const rb = res(json, "Bravo");
+    if (!rb || rb.collected !== 18 || !json.freshContext || !/카테고리마다 새 창/.test(md)) fail(`[${L}] ${JSON.stringify(rb && rb.collected)} · ${json && json.freshContext}`);
+    else ok("FRESH_CONTEXT=1 — 카테고리마다 새 창으로 열어도 3개 카테고리 18개를 모으고 리포트에 적는다");
+  }
+
   // ── 5. 엔진 선택(DRY_PLAN — 브라우저를 띄우지 않고 고른 옵션만 본다) ──
   // 로컬·CI 에 파이어폭스가 없어도 '파이어폭스에 크롬 흉내를 넣지 않는다'는 규칙은 지킬 수 있다.
   {
     const L = "엔진 선택";
     setBrands([["Juliet", ["tops"]]]);
-    const plan = async (env) => {
-      const run = spawn(process.execPath, [join(ROOT, "scripts/browser-collect.mjs")], {
-        env: {
-          ...process.env, RENDER_URL: `${BASE}/render`, WORKER_URL: `${BASE}/worker`, GROUP: "browser", BRANDS: "",
-          STORE: "0", DRY_PLAN: "1", ENGINE: "", REPORT_DIR: mkdtempSync(join(tmpdir(), "bc-plan-")),
-          NO_PROXY: "localhost,127.0.0.1", no_proxy: "localhost,127.0.0.1", ...env,
-        },
-        stdio: ["ignore", "pipe", "pipe"],
-      });
-      let out = "";
-      run.stdout.on("data", (d) => { out += d; });
-      run.stderr.on("data", (d) => { out += d; });
-      const code = await new Promise((r) => run.on("close", r));
-      const m = out.match(/^PLAN (.*)$/m);
-      return { code, out, plan: m ? JSON.parse(m[1]) : null };
-    };
     const ff = await plan({ ENGINE: "firefox" });
     const p = ff.plan;
     if (ff.code !== 0 || !p) fail(`[${L}] ENGINE=firefox 계획을 못 받았다(종료 ${ff.code}) ${ff.out.slice(-300)}`);
@@ -268,6 +285,88 @@ try {
     const badEng = await plan({ ENGINE: "webkit" });
     if (badEng.code !== 2 || badEng.plan) fail(`[${L}] 모르는 엔진(webkit)을 거부하지 않는다(종료 ${badEng.code})`);
     else ok("모르는 엔진 이름은 종료 코드 2로 거부");
+  }
+
+  // ── 6. 추가 브랜드 파일(browser-extra-brands.json) ──
+  // Render browser 그룹엔 없지만 여기서도 모을 브랜드. 서버 프리페치가 채우던 카탈로그라
+  // 약한 밤에 덮지 않도록 저장 조건이 더 엄격하다.
+  {
+    const L = "추가 브랜드";
+    setBrands([["Alpha", ["tops"]]]);
+    // 그룹 밖 브랜드(카테고리 링크·브랜드 목록에는 있다)
+    const other = (name, cats) => {
+      if (cats.length) config.links[name] = { tops: cats.map((c) => `${BASE}/${name.toLowerCase()}/c/${c}`) };
+      config.brands.push({ name, url: `${BASE}/${name.toLowerCase()}` });
+    };
+    const four = ["tops", "shirts", "dresses", "pants"];
+    other("Kilo", four); other("November", four); other("Oscar", ["tops"]); other("Lima", []); other("Papa", []);
+    const dir = mkdtempSync(join(tmpdir(), "bc-extra-"));
+    const file = join(dir, "extra.json");
+    writeFileSync(file, JSON.stringify({ brands: [
+      { brand: "kilo", engine: "firefox" },                       // 이름 대소문자가 달라도 찾는다
+      { brand: "Alpha", engine: "firefox" },                      // Render 그룹과 중복 → 무시
+      { brand: "Lima", engine: "firefox" },                       // 카테고리 URL 없음 → 건너뜀
+      { brand: "Papa", engine: "firefox", urls: [`${BASE}/papa/c/tops`] },   // URL 직접 지정
+      { brand: "November", engine: "firefox" },
+      { brand: "Oscar", engine: "firefox" },
+      { brand: "Quebec", engine: "safari" },                      // 모르는 엔진 → 건너뜀
+    ] }));
+    const { plan: p, code } = await plan({ EXTRA_BRANDS_FILE: file });
+    if (code !== 0 || !p) fail(`[${L}] 계획을 못 받았다`);
+    else {
+      const t = (b) => p.targets.find((x) => x.brand === b);
+      const names = p.targets.map((x) => x.brand).sort().join(",");
+      if (names !== "Alpha,Kilo,November,Oscar,Papa") fail(`[${L}] 대상이 예상과 다르다: ${names}`);
+      if (!t("Kilo") || t("Kilo").engine !== "firefox" || t("Kilo").source !== "extra" || t("Kilo").urls.length !== 4) fail(`[${L}] Kilo: ${JSON.stringify(t("Kilo"))}`);
+      else ok("추가 브랜드는 category-links.json 의 URL 로, 적힌 엔진(firefox)으로 대상에 들어간다");
+      if (!t("Alpha") || t("Alpha").engine !== "chromium" || t("Alpha").source) fail(`[${L}] 중복 Alpha 가 Render 그룹 그대로가 아니다: ${JSON.stringify(t("Alpha"))}`);
+      else if (!p.extraNotes.some((n) => /^Alpha: Render browser 그룹에 이미 있어/.test(n))) fail(`[${L}] 중복 무시 안내가 없다: ${p.extraNotes}`);
+      else ok("Render 그룹과 겹치는 추가 항목은 무시(크롬 유지) · 안내를 남긴다");
+      if (t("Lima") || !p.extraNotes.some((n) => /^Lima: 카테고리 URL 이 없어 건너뜀/.test(n))) fail(`[${L}] URL 없는 Lima 처리: ${p.extraNotes}`);
+      else ok("카테고리 URL 이 없는 추가 브랜드는 건너뛰고 안내를 남긴다");
+      if (!t("Papa") || t("Papa").urls[0] !== `${BASE}/papa/c/tops`) fail(`[${L}] 직접 지정한 URL 을 안 쓴다: ${JSON.stringify(t("Papa"))}`);
+      if (!p.extraNotes.some((n) => /^Quebec: 모르는 엔진/.test(n))) fail(`[${L}] 모르는 엔진 안내가 없다`);
+    }
+    // GROUP=extension(확장 담당 재조사)에는 섞지 않는다
+    const pe = await plan({ EXTRA_BRANDS_FILE: file, GROUP: "extension" });
+    // (가짜 Render 의 확장 그룹은 비어 있어 대상 0개로 끝나야 한다 — 추가 브랜드가 섞이면 계획이 나온다)
+    if (pe.plan ? pe.plan.targets.some((x) => x.source === "extra") : !/no targets/.test(pe.out)) fail(`[${L}] GROUP=extension 에 추가 브랜드가 섞였다: ${pe.out.slice(-200)}`);
+    else ok("GROUP=extension(확장 담당 재조사)에는 추가 브랜드를 섞지 않는다");
+    // BRANDS 로 고르면 추가 브랜드의 엔진을 따른다 · ENGINE 을 주면 그게 이긴다
+    const pb = await plan({ EXTRA_BRANDS_FILE: file, BRANDS: "Kilo" });
+    const kb = pb.plan && pb.plan.targets.find((x) => x.brand === "Kilo");
+    if (!kb || kb.engine !== "firefox" || pb.plan.targets.length !== 1) fail(`[${L}] BRANDS=Kilo: ${JSON.stringify(pb.plan && pb.plan.targets)}`);
+    const pc = await plan({ EXTRA_BRANDS_FILE: file, BRANDS: "Kilo", ENGINE: "chromium" });
+    const kc = pc.plan && pc.plan.targets.find((x) => x.brand === "Kilo");
+    if (!kc || kc.engine !== "chromium") fail(`[${L}] ENGINE=chromium 이 추가 브랜드 엔진을 못 덮는다: ${kc && kc.engine}`);
+    else ok("BRANDS 로 골라도 추가 브랜드 엔진을 따르고, ENGINE 을 주면 그게 이긴다");
+
+    // 저장 조건(여기엔 파이어폭스가 없어 ENGINE=chromium 으로 돌린다 — 조건은 엔진과 무관하다)
+    writeFileSync(file, JSON.stringify({ brands: ["Kilo", "November", "Oscar"].map((brand) => ({ brand, engine: "firefox" })) }));
+    state.catalogs = [
+      { site: "localhost.kilo", count: 30 },        // 24개 ≥ 30의 절반 → 저장
+      { site: "localhost.november", count: 100 },   // 24개 < 100의 절반 → 저장 안 함
+    ];
+    const r1 = await collect(L + " 저장", { EXTRA_BRANDS_FILE: file, ENGINE: "chromium" });
+    const st = r1.stores.map((x) => x.brand).sort().join(",");
+    if (st !== "Alpha,Kilo") fail(`[${L}] 저장된 브랜드가 Alpha,Kilo 가 아니다: ${st}`);
+    else ok("추가 브랜드: 기준을 넘은 Kilo(24개, 저장본 30) 만 저장 · Render 그룹 Alpha 는 평소대로");
+    const rn = res(r1.json, "November"), ro = res(r1.json, "Oscar"), rk = res(r1.json, "Kilo");
+    if (!rn || rn.collected !== 24 || !/저장본 100개의 절반 미만/.test(rn.storeErr)) fail(`[${L}] November: ${JSON.stringify(rn && { c: rn.collected, e: rn.storeErr })}`);
+    else ok("지금 저장본의 절반 미만이면 저장하지 않는다(November 24 < 100/2)");
+    if (!ro || ro.collected !== 6 || !/최소 20개 미달/.test(ro.storeErr)) fail(`[${L}] Oscar: ${JSON.stringify(ro && { c: ro.collected, e: ro.storeErr })}`);
+    else ok("추가 브랜드는 20개 미만이면 저장하지 않는다(Oscar 6개 — 일반 브랜드 기준 5개보다 엄격)");
+    if (!rk || rk.engineSource !== "extra") fail(`[${L}] 리포트에 추가 브랜드 표시(engineSource=extra)가 없다`);
+    // 저장 개수를 모르면 보내지 않는다
+    writeFileSync(file, JSON.stringify({ brands: [{ brand: "Kilo", engine: "firefox" }] }));   // 시간을 줄이려 Kilo 만
+    state.catalogsFail = true;
+    const r2 = await collect(L + " 개수 확인 실패", { EXTRA_BRANDS_FILE: file, ENGINE: "chromium" });
+    state.catalogsFail = false;
+    const st2 = r2.stores.map((x) => x.brand).sort().join(",");
+    const rk2 = res(r2.json, "Kilo");
+    if (st2 !== "Alpha" || !rk2 || !/저장된 개수를 확인 못 함/.test(rk2.storeErr)) fail(`[${L}] 개수 확인 실패 때 저장: ${st2} · ${rk2 && rk2.storeErr}`);
+    else ok("저장된 개수를 확인 못 하면 추가 브랜드는 저장하지 않는다(Render 그룹은 평소대로)");
+    rmSync(dir, { recursive: true, force: true });
   }
 } finally {
   srv.close();
