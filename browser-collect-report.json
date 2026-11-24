@@ -1,11 +1,13 @@
 {
- "when": "2026-11-24T03:56:31.400Z",
+ "when": "2026-11-24T05:00:14.179Z",
  "store": false,
  "engine": "firefox",
  "engines": [
   "firefox"
  ],
+ "freshContext": true,
  "configNote": "",
+ "extraNotes": [],
  "deferred": [],
  "results": [
   {
@@ -39,7 +41,7 @@
      "note": "HTTP 403"
     }
    ],
-   "secs": 13,
+   "secs": 12,
    "dropped": 0,
    "cut": false,
    "sample": [],
@@ -83,7 +85,7 @@
      "note": "HTTP 403"
     }
    ],
-   "secs": 39,
+   "secs": 36,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -148,7 +150,7 @@
      "note": "HTTP 403"
     }
    ],
-   "secs": 37,
+   "secs": 36,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -180,14 +182,14 @@
    "site": "veronicabeard.com.veronicabeard",
    "engine": "firefox",
    "engineSource": "env",
-   "collected": 382,
+   "collected": 354,
    "stored": 0,
    "storeErr": "",
    "cats": {
-    "tops": 112,
     "shirts": 64,
+    "tops": 112,
     "sweatshirts": 11,
-    "pants": 96,
+    "pants": 68,
     "dresses": 99
    },
    "perUrl": [
@@ -208,14 +210,18 @@
     },
     {
      "url": "https://veronicabeard.com/collections/bottoms-pants",
-     "count": 97,
+     "count": 69,
      "note": ""
     }
    ],
-   "secs": 142,
+   "secs": 120,
    "dropped": 10,
    "cut": false,
    "sample": [
+    {
+     "name": "issa long sleeve polo shirt navy",
+     "productUrl": "https://veronicabeard.com/products/issa-long-sleeve-polo-shirt-navy"
+    },
     {
      "name": "drexler henley top green shadow",
      "productUrl": "https://veronicabeard.com/products/drexler-henley-top-green-shadow"
@@ -225,16 +231,12 @@
      "productUrl": "https://veronicabeard.com/products/pruitt-mesh-t-shirt-black-limestone"
     },
     {
-     "name": "issa long sleeve polo shirt navy",
-     "productUrl": "https://veronicabeard.com/products/issa-long-sleeve-polo-shirt-navy"
-    },
-    {
      "name": "coralee puff sleeve top garnet rose",
      "productUrl": "https://veronicabeard.com/products/coralee-puff-sleeve-top-garnet-rose"
     },
     {
-     "name": "Mylie Mockneck Tank Top",
-     "productUrl": "https://veronicabeard.com/products/mylie-mock-neck-tank-top-gunmetal"
+     "name": "brightwyn t shirt black",
+     "productUrl": "https://veronicabeard.com/products/brightwyn-t-shirt-black"
     }
    ],
    "verdict": "자동화 가능"
