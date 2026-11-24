@@ -1,14 +1,14 @@
 {
- "at": "2026-11-24T05:23:23.205Z",
+ "at": "2026-11-24T05:40:38.893Z",
  "engines": [
   "impit",
   "firefox",
   "wayback"
  ],
  "runInfo": {
-  "impit": "정상 · 89쪽 · 37s",
-  "firefox": "정상 · 89쪽 · 662s",
-  "wayback": "정상 · 89쪽 · 229s"
+  "impit": "정상 · 89쪽 · 33s",
+  "firefox": "정상 · 89쪽 · 693s",
+  "wayback": "정상 · 89쪽 · 129s"
  },
  "targets": [
   {
@@ -553,24 +553,20 @@
     "comp": "Linen 100%\nCotton 100%"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sleeveless-bow-blouse/849065.html": {
-    "v": "comp",
-    "note": "Polyester 95% / Elastane 5% / Polyester 100%",
-    "comp": "Polyester 95% / Elastane 5%\nPolyester 100%"
+    "v": "open",
+    "note": "글 11313자"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sequin-crew-neck-top/844861.html": {
-    "v": "comp",
-    "note": "Polyester 96% / Elastane 4% / Polyester 100%",
-    "comp": "Polyester 96% / Elastane 4%\nPolyester 100%"
+    "v": "open",
+    "note": "글 11313자"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-cowl-neck-top/849077.html": {
-    "v": "comp",
-    "note": "Polyester 92% / Elastane 8% / Polyester 100%",
-    "comp": "Polyester 92% / Elastane 8%\nPolyester 100%"
+    "v": "open",
+    "note": "글 11313자"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-blouson-sleeve-top/844564.html": {
-    "v": "comp",
-    "note": "Polyester 95% / Elastane 5% / Polyester 100%",
-    "comp": "Polyester 95% / Elastane 5%\nPolyester 100%"
+    "v": "open",
+    "note": "글 11313자"
    },
    "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-blue-aw26": {
     "v": "comp",
@@ -634,24 +630,20 @@
     "note": "HTTP 403 Just a moment..."
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/layered-caplet-blouse/855296.html": {
-    "v": "comp",
-    "note": "Polyester 100%",
-    "comp": "Polyester 100%"
+    "v": "open",
+    "note": "글 11313자"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/polka-dot-lace-trim-blouse/grp_855949_536588.html": {
-    "v": "comp",
-    "note": "Polyester 100%",
-    "comp": "Polyester 100%"
+    "v": "open",
+    "note": "글 11313자"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/dolman-boatneck-top/844941.html": {
-    "v": "comp",
-    "note": "Polyester 78% / Viscose 19% / Elastane 3%",
-    "comp": "Polyester 78% / Viscose 19% / Elastane 3%"
+    "v": "open",
+    "note": "글 11313자"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/animal-print-bow-blouse/844848.html": {
-    "v": "comp",
-    "note": "Polyester 97%",
-    "comp": "Polyester 97%"
+    "v": "open",
+    "note": "글 11313자"
    },
    "https://www.goodamerican.com/products/the-better-than-leather-classic-shirt-berry-noir": {
     "v": "comp",
@@ -710,40 +702,47 @@
     "comp": "Triacetate 70% / Polyester 30%\nPolyester 95% / Elastane 5%"
    },
    "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html": {
-    "v": "open",
-    "note": "글 16380자"
+    "v": "comp",
+    "note": "Cotton 60% / Modal 40%",
+    "comp": "Cotton 60% / Modal 40%"
    },
    "https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html": {
-    "v": "open",
-    "note": "글 16380자"
+    "v": "comp",
+    "note": "Modal 94% / Elastane 6%",
+    "comp": "Modal 94% / Elastane 6%"
    },
    "https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html": {
-    "v": "open",
-    "note": "글 16380자"
+    "v": "comp",
+    "note": "Cotton 92% / Elastane 8%",
+    "comp": "Cotton 92% / Elastane 8%"
    },
    "https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html": {
-    "v": "open",
-    "note": "글 16380자"
+    "v": "comp",
+    "note": "Cotton 60% / Modal 40%",
+    "comp": "Cotton 60% / Modal 40%"
    },
    "https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html": {
-    "v": "open",
-    "note": "글 16380자"
+    "v": "comp",
+    "note": "Cotton 92% / Elastane 8%",
+    "comp": "Cotton 92% / Elastane 8%"
    },
    "https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html": {
-    "v": "open",
-    "note": "글 16380자"
+    "v": "comp",
+    "note": "Cotton 60% / Modal 40%",
+    "comp": "Cotton 60% / Modal 40%"
    },
    "https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html": {
-    "v": "open",
-    "note": "글 16380자"
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%"
    },
    "https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-long-sleeve-tee/763895.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-elbow-sleeve-tee/760842.html": {
     "v": "open",
@@ -751,7 +750,7 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/lace-trim-v-neck-perfect-ribbed-elbow-sleeve-tee/775012.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/modern-wedge-tee/767613.html": {
     "v": "open",
@@ -767,7 +766,7 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/everyday-crew-tee/580214.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/bandana-print-everyday-crew-tee/787471.html": {
     "v": "open",
@@ -791,11 +790,11 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-apron-neck-tank-top/751426.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-scoop-neck-tank-top/760847.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html": {
     "v": "open",
@@ -803,7 +802,7 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/750665.html": {
     "v": "open",
@@ -811,7 +810,7 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/striped-side-button-tank-top/781756.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/side-button-tank-top/761044.html": {
     "v": "open",
@@ -819,7 +818,7 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/cutout-jersey-modern-tee/774214.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/mesh-trim-perfect-ribbed-tank-top/769311.html": {
     "v": "open",
@@ -827,7 +826,7 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/lobster-lunch-everyday-crew-tee/769665.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/786387.html": {
     "v": "open",
@@ -839,15 +838,15 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/holiday-penguin-everyday-crew-tee/886329.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/ruched-flare-sleeve-top/881386.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/floral-velvet-tee/711646.html": {
     "v": "open",
-    "note": "글 16380자"
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/sparkle-long-sleeve-crew-neck-tee/785580.html": {
     "v": "open",
@@ -857,23 +856,22 @@
   "firefox": {
    "https://splendid.com/products/louisa-long-sleeve-tee": {
     "v": "comp",
-    "note": "Cotton 100% / Cashmere 100%",
-    "comp": "Cotton 100%\nCashmere 100%"
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%"
    },
    "https://splendid.com/products/lainey-lace-trim-short-sleeve-tee": {
     "v": "comp",
-    "note": "Cotton 100% / Cashmere 100%",
-    "comp": "Cotton 100%\nCashmere 100%"
+    "note": "Cotton 60% / Polyester 40%",
+    "comp": "Cotton 60% / Polyester 40%"
    },
    "https://splendid.com/products/kacey-striped-v-neck-tee": {
-    "v": "comp",
-    "note": "Cotton 100% / Cashmere 100%",
-    "comp": "Cotton 100%\nCashmere 100%"
+    "v": "open",
+    "note": "글 7009자"
    },
    "https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee": {
     "v": "comp",
-    "note": "Cotton 100% / Cashmere 100%",
-    "comp": "Cotton 100%\nCashmere 100%"
+    "note": "Viscose 68% / Polyester 29% / Elastane 3%",
+    "comp": "Viscose 68% / Polyester 29% / Elastane 3%"
    },
    "https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/": {
     "v": "blocked",
@@ -903,12 +901,14 @@
     "comp": "Viscose 100%\nNylon 100%"
    },
    "https://alcltd.com/collections/tees-tanks/products/annabelle-top-forest-botanic": {
-    "v": "blocked",
-    "note": "HTTP 429 Just a moment..."
+    "v": "comp",
+    "note": "Silk 100% / Nylon 100%",
+    "comp": "Silk 100%\nNylon 100%"
    },
    "https://alcltd.com/collections/tees-tanks/products/jodi-bra-butter": {
-    "v": "blocked",
-    "note": "HTTP 429 Just a moment..."
+    "v": "comp",
+    "note": "Cotton 100% / Viscose 100%",
+    "comp": "Cotton 100%\nViscose 100%"
    },
    "https://www.meandem.com/us/silk-2-in-1-top-black": {
     "v": "comp",
@@ -951,9 +951,8 @@
     "comp": "Linen 100%\nCotton 100%"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sleeveless-bow-blouse/849065.html": {
-    "v": "comp",
-    "note": "Polyester 95% / Elastane 5% / Polyester 100%",
-    "comp": "Polyester 95% / Elastane 5%\nPolyester 100%"
+    "v": "open",
+    "note": "글 539자"
    },
    "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sequin-crew-neck-top/844861.html": {
     "v": "open",
@@ -1064,13 +1063,13 @@
     "note": "HTTP 429 Just a moment..."
    },
    "https://splendid.com/products/stella-linen-trim-tank": {
-    "v": "open",
-    "note": "글 5370자"
+    "v": "comp",
+    "note": "Linen 100%",
+    "comp": "Linen 100%"
    },
    "https://splendid.com/products/lydia-linen-mini-dress": {
-    "v": "comp",
-    "note": "Cotton 100% / Cashmere 100%",
-    "comp": "Cotton 100%\nCashmere 100%"
+    "v": "open",
+    "note": "글 6431자"
    },
    "https://splendid.com/products/stella-linen-midi-dress": {
     "v": "comp",
@@ -1083,20 +1082,24 @@
     "comp": "Linen 100%\nViscose 100%"
    },
    "https://alcltd.com/products/adela-top-black": {
-    "v": "blocked",
-    "note": "HTTP 429 Just a moment..."
+    "v": "comp",
+    "note": "Triacetate 70% / Polyester 30% / Polyester 95% / Elastane 5%",
+    "comp": "Triacetate 70% / Polyester 30%\nPolyester 95% / Elastane 5%"
    },
    "https://alcltd.com/collections/tops/products/alex-top-midnight": {
-    "v": "blocked",
-    "note": "HTTP 429 Just a moment..."
+    "v": "comp",
+    "note": "Wool 100%",
+    "comp": "Wool 100%"
    },
    "https://alcltd.com/collections/tops/products/alex-top-medium-heather-grey": {
-    "v": "blocked",
-    "note": "HTTP 429 Just a moment..."
+    "v": "comp",
+    "note": "Wool 100%",
+    "comp": "Wool 100%"
    },
    "https://alcltd.com/products/adela-dress-black": {
-    "v": "blocked",
-    "note": "HTTP 429 Just a moment..."
+    "v": "comp",
+    "note": "Triacetate 70% / Polyester 30% / Polyester 95% / Elastane 5%",
+    "comp": "Triacetate 70% / Polyester 30%\nPolyester 95% / Elastane 5%"
    },
    "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html": {
     "v": "open",
@@ -1265,8 +1268,8 @@
     "note": "보관본 없음"
    },
    "https://www.stories.com/en-us/clothing/knitwear/": {
-    "v": "err",
-    "note": "보관본 없음"
+    "v": "open",
+    "note": "20260307 보관본 · 글 9245자"
    },
    "https://www.stories.com/en-us/product/rib-knit-wool-boatneck-top-bright-pink-1286682006/": {
     "v": "err",
@@ -1304,8 +1307,9 @@
     "comp": "Cotton 100%\nPolyester 100%"
    },
    "https://www.meandem.com/us/silk-v-neck-camisole-top-tie-ruby-red": {
-    "v": "err",
-    "note": "보관본 없음"
+    "v": "comp",
+    "note": "20260722 보관본 · Silk 100% / Viscose 100%",
+    "comp": "Silk 100%\nViscose 100%"
    },
    "https://www.meandem.com/us/brushed-cashmere-lace-trim-slim-knit-vest-black": {
     "v": "err",
@@ -1510,8 +1514,8 @@
     "note": "보관본 없음"
    },
    "https://www.loft.com/clothing/tops/catl000011/oversized-jersey-modern-tee/771190.html": {
-    "v": "err",
-    "note": "보관본 없음"
+    "v": "open",
+    "note": "20260413 보관본 · 글 18047자"
    },
    "https://www.loft.com/clothing/tops/catl000011/heathered-modern-wedge-tee/769573.html": {
     "v": "err",
@@ -1551,7 +1555,7 @@
    },
    "https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html": {
     "v": "err",
-    "note": "fetch failed"
+    "note": "보관본 없음"
    },
    "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html": {
     "v": "err",
@@ -1562,8 +1566,9 @@
     "note": "보관본 없음"
    },
    "https://www.loft.com/clothing/tops/catl000011/striped-side-button-tank-top/781756.html": {
-    "v": "err",
-    "note": "fetch failed"
+    "v": "comp",
+    "note": "20250624 보관본 · Cotton 100%",
+    "comp": "Cotton 100%"
    },
    "https://www.loft.com/clothing/tops/catl000011/side-button-tank-top/761044.html": {
     "v": "err",
