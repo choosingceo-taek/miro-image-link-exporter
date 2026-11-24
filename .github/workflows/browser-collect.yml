@@ -136,8 +136,11 @@ jobs:
           git add -A -- browser-collect-report.json browser-collect-report.md || true
           git commit -m "browser-collect: headless chrome results" || echo "no changes"
           # 리포트는 매번 통째로 새로 쓰이므로, 충돌하면 이번 실행 결과를 채택한다.
+          # rebase 에서는 ours = 원격(먼저 올라간 쪽), theirs = 지금 다시 얹는 이번 실행의 커밋이다.
+          # 예전엔 -X ours 라서 겹쳐 돈 두 실행 중 뒤 실행의 리포트가 "이미 반영됨"으로 통째로
+          # 버려졌다(2026-11-24 run 45322447710 — 리포트 커밋이 사라지고 아티팩트에만 남음).
           for i in 1 2 3; do
-            if git pull --rebase --autostash -X ours origin ${{ github.ref_name }}; then
+            if git pull --rebase --autostash -X theirs origin ${{ github.ref_name }}; then
               git push origin HEAD:${{ github.ref_name }} && exit 0
             else
               git rebase --abort || true
