@@ -28,6 +28,18 @@ on:
         description: "mode=engines 일 때 상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개)"
         required: false
         default: ""
+      dump:
+        description: "mode=engines 일 때 1이면 소재 자리 덤프(try-engines-dump.md)도 남긴다"
+        required: false
+        default: "0"
+      per:
+        description: "mode=engines 일 때 브랜드당 상품 수(기본 3)"
+        required: false
+        default: "3"
+      match:
+        description: "mode=engines 일 때 카탈로그에서 이름·주소가 이 정규식에 맞는 상품만(예: jacket|coat)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -145,16 +157,30 @@ jobs:
           ENGINES: ${{ github.event.inputs.engines }}
           BRANDS: ${{ github.event.inputs.brands }}
           LISTINGS: ""
+          # urls 를 주면 브랜드 대신 이 주소만 본다(two-part 옷처럼 특정 상품을 볼 때).
+          URLS: ${{ github.event.inputs.urls }}
+          DUMP: ${{ github.event.inputs.dump }}
+          PER: ${{ github.event.inputs.per }}
+          MATCH: ${{ github.event.inputs.match }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/try-engines.mjs
+      - name: Upload dump
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: try-engines
+          path: |
+            try-engines-report.md
+            try-engines-dump.md
+          if-no-files-found: ignore
       - name: Commit report
         if: always()
         run: |
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- try-engines-report.md || true
+          git add -A -- try-engines-report.md try-engines-dump.md || true
           git commit -m "try-engines: free crawler comparison" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0

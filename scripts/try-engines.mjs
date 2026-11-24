@@ -29,6 +29,11 @@
 //   URLS        위 둘 대신 이 URL 만(쉼표 구분)
 //   ENGINE_MIN  엔진 하나에 주는 시간(분, 기본 12)
 //   OUT         리포트 파일 이름(기본 try-engines-report.md)
+//   DUMP        1이면 페이지마다 "NN% 섬유"가 나오는 곳을 모두 덤프한다(try-engines-dump.md).
+//               추출기가 왜 그 값을 골랐는지 사람이 확인하려는 것 — 각 자리의 앞뒤 글,
+//               가장 가까운 앞 제목, 요소 경로, 화면에 보이는지, 추출기가 실제로 본 창(window),
+//               스크립트 JSON 속 소재처럼 보이는 조각. 크기는 DUMP_KB(기본 400)로 자른다.
+//   MATCH       카탈로그에서 상품을 고를 때 이름·주소가 이 정규식에 맞는 것만(예: jacket|coat)
 import { readFileSync, writeFileSync, renameSync, mkdtempSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -50,7 +55,10 @@ const list = (s) => String(s || "").split(",").map((x) => x.trim()).filter(Boole
 // 추출 규칙은 worker 한 벌을 쓴다(enrich-comp-browser 와 같은 방식).
 const workerSrc = readFileSync(join(ROOT, "worker/fabric-extractor.js"), "utf8");
 const slice = (src, a, b) => { const i = src.indexOf(a), j = src.indexOf(b, i); return src.slice(i, j); };
-const compFromHtml = new Function(slice(workerSrc, "const FIBRES = {", "function titleCase") + "\n return compFromHtml;")();
+const { compFromHtml, compFromText, compWindow } = new Function(slice(workerSrc, "const FIBRES = {", "function titleCase") + "\n return { compFromHtml, compFromText, compWindow };")();
+const DUMP = process.env.DUMP === "1";
+const DUMP_KB = Math.max(50, Number(process.env.DUMP_KB) || 400);
+const MATCH = process.env.MATCH ? new RegExp(process.env.MATCH, "i") : null;
 
 // 상품이 아닌 경로 조각은 카탈로그 점검(audit-catalogs)과 같은 목록을 떼어 쓴다.
 const auditSrc = readFileSync(join(ROOT, "scripts/audit-catalogs.mjs"), "utf8");
@@ -78,6 +86,94 @@ export function looksLikeProduct(url) {
 const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|just a moment|enable javascript and cookies|request unsuccessful|_Incapsula_Resource|captcha-delivery|403 forbidden/i;
 const FIBRE_RX = /\d{1,3}\s?%\s*(?:[A-Za-z]+\s)?(cotton|polyester|viscose|wool|linen|silk|nylon|polyamide|elastane|spandex|lyocell|modal|cashmere|acrylic|rayon|leather)/i;
 
+// 덤프용: 앞뒤 어느 순서든 "NN% 섬유" / "섬유 NN%"
+const DUMP_FIB = "cotton|polyester|viscose|wool|linen|silk|nylon|polyamide|elastane|spandex|lyocell|modal|cashmere|acrylic|rayon|leather|acetate|cupro|lycra|merino|hemp|polyurethane|alpaca|mohair";
+const DUMP_RX_SRC = String.raw`\d{1,3}\s?%\s*(?:[A-Za-z™®]+\s){0,3}(?:` + DUMP_FIB + String.raw`)|(?:` + DUMP_FIB + String.raw`)(?:\s+[A-Za-z]+){0,2}\s*:?\s*\d{1,3}\s?%`;
+
+// HTML 만 있을 때(아카이브·impit)의 덤프: 추출기가 본 창 + 보이는 글의 모든 자리 + 스크립트 속 소재 조각
+function htmlDump(html) {
+  const h = String(html || "");
+  const visible = h.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/\s+/g, " ");
+  const win = compWindow(visible);
+  const hits = [];
+  const rx = new RegExp(DUMP_RX_SRC, "gi");
+  let m;
+  while ((m = rx.exec(visible)) && hits.length < 15) hits.push(`@${m.index}: …${visible.slice(Math.max(0, m.index - 300), m.index + 300)}…`);
+  const json = [];
+  for (const sm of h.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/gi)) {
+    const body = sm[1];
+    for (const k of body.matchAll(/"(?:composition|compositions|materials?|fabric|detailedComposition)"\s*:/gi)) {
+      const piece = body.slice(Math.max(0, k.index - 80), k.index + 500);
+      if (/\d{1,3}\s?%|percentage/i.test(piece)) json.push(piece.replace(/\s+/g, " "));
+      if (json.length >= 6) break;
+    }
+    if (json.length >= 6) break;
+  }
+  return {
+    window: win ? win.slice(0, 900) : "",
+    groups: compFromText(win || visible).map((c) => `${c.line || 0}:${c.material} ${c.percent}%`).join(", "),
+    hits, json, visibleLen: visible.length,
+  };
+}
+
+// 브라우저 페이지에서의 덤프: 위에 더해 DOM 위치(요소 경로·보이는지·가장 가까운 앞 제목)
+async function domDump(page) {
+  return page.evaluate((src) => {
+    const FIB = new RegExp(src, "i");
+    const desc = (el) => {
+      const parts = [];
+      for (let e = el, i = 0; e && e.nodeType === 1 && i < 8; e = e.parentElement, i++) {
+        let s = e.tagName.toLowerCase();
+        if (e.id) s += "#" + e.id.slice(0, 30);
+        const c = (typeof e.className === "string" ? e.className : "").trim().split(/\s+/).filter(Boolean).slice(0, 2);
+        if (c.length) s += "." + c.join(".");
+        parts.push(s);
+      }
+      return parts.reverse().join(" > ");
+    };
+    const vis = (el) => {
+      if (!el.getClientRects().length) return false;
+      const cs = getComputedStyle(el);
+      return cs.visibility !== "hidden" && cs.display !== "none";
+    };
+    const heads = [...document.querySelectorAll("h1,h2,h3,h4,h5,h6,dt,legend,[class*=title i],[class*=heading i],[class*=label i],[class*=header i]")];
+    const nodes = [];
+    const seen = new Set();
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let n;
+    while ((n = walker.nextNode()) && nodes.length < 20) {
+      // 글이 span 여럿으로 쪼개진 경우를 위해 조상으로 세 칸까지 올라가 본다.
+      let el = n.parentElement;
+      for (let k = 0; k < 3 && el && !FIB.test(el.textContent || ""); k++) el = el.parentElement;
+      if (!el || /^(SCRIPT|STYLE|NOSCRIPT|BODY|HTML)$/.test(el.tagName) || seen.has(el)) continue;
+      const t = el.textContent || "";
+      if (t.length > 1500 || !FIB.test(t)) continue;
+      seen.add(el);
+      let head = "";
+      for (let i = heads.length - 1; i >= 0; i--) {
+        const h = heads[i];
+        if (h === el || h.contains(el) || el.contains(h)) continue;
+        if (h.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) { head = (h.textContent || "").trim().replace(/\s+/g, " ").slice(0, 100); break; }
+      }
+      let blk = el;
+      for (let i = 0; i < 6 && blk.parentElement && (blk.textContent || "").length < 250; i++) blk = blk.parentElement;
+      nodes.push({
+        path: desc(el), visible: vis(el), head,
+        hidden: !!el.closest("dialog,[role=dialog],[aria-hidden=true],template,[hidden],[inert]"),
+        own: t.trim().replace(/\s+/g, " ").slice(0, 300),
+        block: (blk.textContent || "").trim().replace(/\s+/g, " ").slice(0, 700),
+      });
+    }
+    const body = (document.body && document.body.innerText) || "";
+    const inner = [];
+    const rx = new RegExp(src, "gi");
+    let m;
+    while ((m = rx.exec(body)) && inner.length < 12) inner.push(`@${m.index}: …${body.slice(Math.max(0, m.index - 300), m.index + 300).replace(/\s+/g, " ")}…`);
+    return { nodes, inner, innerLen: body.length, url: location.href };
+  }, DUMP_RX_SRC).catch((e) => ({ error: String(e.message || e).slice(0, 100) }));
+}
+
 // 한 페이지 결과 판정
 function judge(status, title, html, err) {
   if (err) return { v: "err", note: String(err).split("\n")[0].slice(0, 70) };
@@ -104,7 +200,9 @@ async function readPage(page, url) {
   }).catch(() => {});
   await page.waitForFunction((src) => new RegExp(src, "i").test((document.body && document.body.innerText) || ""),
     FIBRE_RX.source, { timeout: 6000 }).catch(() => {});
-  return { status: resp ? resp.status() : 0, title: await page.title().catch(() => ""), html: await page.content() };
+  const html = await page.content();
+  const dump = DUMP ? { ...htmlDump(html), dom: await domDump(page) } : undefined;
+  return { status: resp ? resp.status() : 0, title: await page.title().catch(() => ""), html, dump };
 }
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
@@ -112,7 +210,7 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 async function readAll(browserOrCtx, urls, put) {
   for (const url of urls) {
     const page = await browserOrCtx.newPage();
-    try { const r = await readPage(page, url); put(url, judge(r.status, r.title, r.html)); }
+    try { const r = await readPage(page, url); put(url, { ...judge(r.status, r.title, r.html), ...(r.dump ? { dump: r.dump } : {}) }); }
     catch (e) { put(url, judge(0, "", "", e.message)); }
     finally { await page.close().catch(() => {}); }
   }
@@ -250,7 +348,7 @@ async function runWayback(urls, put) {
       const r = await fetch(raw, { signal: AbortSignal.timeout(45000) });
       const html = await r.text();
       const j = judge(r.status, (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1], html);
-      put(url, { ...j, note: `${snap.timestamp.slice(0, 8)} 보관본 · ${j.note}` });
+      put(url, { ...j, note: `${snap.timestamp.slice(0, 8)} 보관본 · ${j.note}`, ...(DUMP ? { dump: htmlDump(html) } : {}) });
     } catch (e) { put(url, judge(0, "", "", e.message)); }
   }
 }
@@ -310,7 +408,8 @@ if (list(process.env.URLS).length) {
       for (const p of items) {
         if (took >= PER) break;
         if (!looksLikeProduct(p.productUrl)) { skippedBefore++; if (skippedEx.length < 2) skippedEx.push(p.productUrl); continue; }
-        targets.push({ kind: "product", brand: c.brand, url: p.productUrl }); took++;
+        if (MATCH && !MATCH.test(`${p.name || ""} ${p.productUrl}`)) continue;
+        targets.push({ kind: "product", brand: c.brand, url: p.productUrl, name: p.name || "" }); took++;
       }
       const nonAll = items.filter((p) => !looksLikeProduct(p.productUrl)).length;
       picks.push({ brand: c.brand, took, skippedBefore, nonAll, total: items.length, skippedEx });
@@ -382,6 +481,42 @@ for (const eng of ENGINES) {
   writeReport(true);
 }
 writeReport(false);
+if (DUMP) writeDump();
+
+// ── 덤프(DUMP=1) ──────────────────────────────────────────────────
+function writeDump() {
+  const cap = DUMP_KB * 1024;
+  let md = `# 소재 자리 덤프 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+  md += `try-engines DUMP=1. 페이지마다 "NN% 섬유"가 나오는 자리를 모두 적었다. 읽기만 했다.\n`;
+  md += `- window: 추출기(compFromHtml)가 보이는 글에서 compFromText 에 넘긴 창(앞 900자)\n- groups: 그 창에서 나온 줄:섬유\n`;
+  md += `- dom: 요소 경로 · 화면에 보이는지(vis) · 숨김 조상(hidden) · 가장 가까운 앞 제목(head)\n\n`;
+  let full = false;
+  for (const t of targets) {
+    for (const e of ENGINES) {
+      const r = (results[e] || {})[t.url];
+      if (!r || !r.dump) continue;
+      const d = r.dump;
+      let part = `## ${t.brand} · ${e} · ${r.note || ""}\n\n${t.url}${t.name ? ` (${t.name})` : ""}\n\n`;
+      part += `- 보이는 글 ${d.visibleLen}자 · groups: \`${d.groups || "-"}\`\n`;
+      part += "\n**window**\n\n```\n" + (d.window || "(없음)") + "\n```\n";
+      if (d.dom && d.dom.nodes) {
+        part += `\n**dom** (innerText ${d.dom.innerLen}자${d.dom.url && d.dom.url !== t.url ? ` · 최종 주소 ${d.dom.url}` : ""})\n\n`;
+        for (const n of d.dom.nodes) {
+          part += `- vis=${n.visible ? 1 : 0} hidden=${n.hidden ? 1 : 0} head=「${n.head}」\n  - path: \`${n.path}\`\n  - own: ${n.own}\n  - block: ${n.block}\n`;
+        }
+        if (d.dom.inner && d.dom.inner.length) part += `\n**innerText 자리**\n\n${d.dom.inner.map((x) => "- " + x).join("\n")}\n`;
+      } else if (d.dom && d.dom.error) part += `\n(dom 덤프 실패: ${d.dom.error})\n`;
+      if (d.hits && d.hits.length) part += `\n**HTML 글 자리**\n\n${d.hits.map((x) => "- " + x).join("\n")}\n`;
+      if (d.json && d.json.length) part += `\n**스크립트 JSON 조각**\n\n${d.json.map((x) => "- `" + x.replace(/`/g, "'") + "`").join("\n")}\n`;
+      part += "\n";
+      if (md.length + part.length > cap) { md += `\n(크기 제한 ${DUMP_KB}KB — 이후 생략)\n`; full = true; break; }
+      md += part;
+    }
+    if (full) break;
+  }
+  writeFileSync(resolve(ROOT, process.env.DUMP_OUT || "try-engines-dump.md"), md);
+  console.log("덤프: " + (process.env.DUMP_OUT || "try-engines-dump.md") + ` (${Math.round(md.length / 1024)}KB)`);
+}
 
 // ── 리포트 ────────────────────────────────────────────────────────
 function writeReport(partial) {
