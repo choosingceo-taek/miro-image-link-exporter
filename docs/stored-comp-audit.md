@@ -81,19 +81,58 @@
 
 ### 5. 상품이 아닌 주소에 붙은 값 (시그니처 F) — 125개
 
-(정리 중)
+카탈로그에 상품 대신 카테고리·기획전 주소가 들어가 있고, 그 목록 페이지에서 읽은 소재(목록의 아무 상품 것)가
+'상품 혼용률'로 붙었다. 목록 페이지에는 여러 상품이 섞여 있으므로 이 값은 어느 상품의 것도 아니다.
+
+| 브랜드 | 개수 | 판단 | 예 |
+|---|---:|---|---|
+| Carhartt(카탈로그 이름 Carlhartt) | 44 | 🔴 상품 아님 — 이름도 "arrow icon" | `/c/black-friday` → Cotton 59% / Polyester 41% |
+| Aerie | 4 | 🔴 상품 아님 | `/c/aerie/tops/sweatshirts-hoodies/cat7030169` → Cotton 100% |
+| J.McLaughlin | 4 | 🔴 상품 아님 | `/collections/new-arrivals-women` → Polyester 100% |
+| Loft | 4 | 🔴 상품 아님 | `/clothing/dresses/casual-dresses/cat3670007/`("Casual") → Cotton 100% ‖ Linen 100% |
+| Ann Taylor | 3 | 🔴 상품 아님 | `/clothing/sweaters/cata000011/` → Cashmere 100% ‖ Cotton 100% |
+| Madewell | 3 | 🔴 상품 아님 | `/womens/new/new-arrivals/` → Cotton 100% |
+| Seasalt Cornwall | 2 | 🔴 상품 아님 | `/new-arrivals/all-new-arrivals` → Cotton 100% |
+| J.Crew | 59 | 🟢 오탐 — 진짜 상품 주소다 | `/p/womens/categories/clothing/tees-and-tanks/CX381`(끝이 상품 번호) |
+| Garnet Hill | 2 | 🟢 오탐 — 진짜 상품 주소다 | `/eileen-fisher-silk-twill-classic-collar-shirt/clothing/categories/tops-tees/744396` |
+
+→ 앞의 7개 브랜드 **64개는 상품이 아닌 행**이라 값을 지워도 잃는 것이 없다(행 자체를 카탈로그에서 빼는 것도 검토할 만하다).
 
 ### 6. 확인했고 괜찮은 브랜드 — 🟢
 
-(정리 중)
+모양(A·B·D)으로는 의심스러웠지만 실제 페이지와 같았고, 옷 종류와도 맞는 곳.
+
+| 브랜드 | 다시 읽은 수 | 결과 | 왜 두 줄/같은 줄인가 |
+|---|---:|---|---|
+| ALC | 8 | 8개 같음 | 실크 + 나일론 레이스, 트리아세테이트 겉감 + 안감 |
+| Me+Em | 4 | 4개 같음 | 실크 + 폴리 안감, 캐시미어 니트 + 레이스 |
+| Tuckernuck | 5 | 5개 같음 | 면 아일렛 + 폴리 안감, 리넨 + 면 |
+| CCC(Crew Clothing) | 4 | 4개 같음 | 스웨트셔츠 몸판·배색 두 원단 — 브랜드 공통 원단이라 되풀이 |
+| Good American | 4 | 4개 같음 | 'Better Than Leather' 라인 = Polyurethane 100% (이름에 leather 가 있어도 정상) |
+
+같은 모양(줄마다 다른 섬유 100%)인데 확인하지 못한 브랜드 — Sanctuary · Shopbop · Seasalt · Veronica Beard · Jigsaw ·
+La Ligne · Mint Velvet · Rag & bone · Boden · Whitestuff · Club Monaco · English Factory · Ulla Johnson 등(각 10~20개) — 은
+예시 상품이 대부분 블라우스·원피스·자수 셔츠(겉감+안감/자수실)라 진짜 두 원단일 공산이 크다. ⚪ 확인 못 함으로 둔다.
+예외로 볼 곳: **Bellerose 12개**(`Cotton 100% / Leather 100%` 가 면 스웨트셔츠·포플린 셔츠에), **Oak + Fort**(여러 줄 13개 중
+7개에 `Wool 100%` — 새틴 홀터넥 탑·플리스 팬츠에도), **Gestuz**(`Leather 100% / Cotton 100%` 블라우스) — 🟠 사람이 볼 것.
+
+Ann Taylor 는 여러 줄 값 66개 중 63개에 `Polyester 100%` 줄(안감)이 있다. 다시 열었지만 8개 모두 소재를 못 읽어 ⚪.
+블라우스·원피스 브랜드라 안감일 공산이 크다.
 
 ### 7. Loft
 
 (정리 중)
 
-### 8. 이름만 이상한 값 (시그니처 E) — 데이터는 대체로 맞음
+### 8. 이름만 이상한 값 (시그니처 E) — 158개
 
-(정리 중)
+- **121개는 섬유 이름 표기 문제**이고 숫자는 맞다: `Recycled Cotton 20%`(American Eagle), `Metallised Fibre 20%`(Hobbs),
+  `Fibre 14%`(Phase Eight), `Combed Pima Cotton 100%`(Vince), `Lambskin Suede 100%`. 엑셀에 그대로 나가도 사람이
+  읽는 데 문제는 없다 — 지울 대상이 아니다. (Buck Mason `Silk Charmeuse With 100%`, Hobbs `Elastane Sleeve 6%` 처럼 낱말이
+  덜 잘린 것 몇 개는 다듬으면 좋다.)
+- **37개는 숫자가 모자란 값**이다(합 5%·8%·50%·106% 등): Greyson `Elastane 8%`, Ninety Percent `Elastane 5%`,
+  Stateside `Elastane 6%`, Club Monaco 4 · Cotton Citizen 4 · Dickies 4 · Faherty 4 · Good American 2 · 그 밖 4.
+  **37개 모두 카탈로그에 실린 값**이고, 그중 29개는 오버레이에 온전한 값(예: `Modal 95% / Elastane 5%`)이 따로
+  있는데 카탈로그 값이 앞에 서서 가려진다. 오늘의 검사(validComp)는 이 37개를 '옳지 않은 값'으로 거른다.
 
 ## 앞으로 막는 장치
 
