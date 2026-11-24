@@ -30,6 +30,9 @@
 // 시험 실행(저장 안 함, 같은 8개 브랜드 × 20개): firefox 28개 채움 · playwright 17개
 //   (실행 45309279164 / 45309291602 — Zara 14:0 · Massimo Dutti 5:0 · Aritzia 4:0 ·
 //    Everlane 3:3 · Reformation 2:14 · Chico's·Lululemon 둘 다 0).
+//   주의: 이 Zara 14개 상당수는 틀린 값이었다("Wool 100% / Cotton 100%" — 숨은 메뉴의 기획전 이름
+//   "100% WOOL | CASHMERE" 가 섞임). 추출 규칙을 고친 뒤 다시 잰 값(45324955886): Zara 30/30,
+//   목록은 docs/firefox-enrich-checks.md.
 // 추출 규칙은 worker 에서 그대로 떼어 쓴다 — 사본을 만들면 진단과 실제가 어긋난다.
 //
 // env:

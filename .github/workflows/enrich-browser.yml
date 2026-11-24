@@ -60,6 +60,8 @@ jobs:
       # 근거(11/24 시험 실행, 저장 안 함, 같은 8개 브랜드 × 20개):
       #   firefox 28개 채움(Zara 14 · Massimo Dutti 5 · Aritzia 4 · Everlane 3 · Reformation 2)
       #   playwright 17개(Reformation 14 · Everlane 3 — Zara·Massimo Dutti·Aritzia 는 20/20 차단)
+      #   (그때의 Zara 14 는 메뉴 글이 섞인 틀린 값이 많았다 — 추출 규칙을 고친 뒤 Zara 30/30,
+      #    docs/firefox-enrich-checks.md)
       # Reformation 은 크롬이 더 잘 읽어서 전부 바꾸지 않는다 — auto 는 크롬 제외 기간(14일)이
       # 끝난 브랜드를 크롬으로 다시 보고, 읽히면 크롬 기록을 푼다.
       ENGINE: ${{ github.event.inputs.engine || 'auto' }}
