@@ -52,6 +52,10 @@ jobs:
         run: node scripts/test-enrich-merge.mjs
       - name: Run diagnose target selection test
         run: node scripts/test-diagnose-select.mjs
+      - name: Run research app search/segment/basket test
+        run: node scripts/test-app-basket.mjs
+      - name: Run extension folder consistency test (manifest · CSP · changelog)
+        run: node scripts/test-extension-manifest.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
@@ -100,3 +104,5 @@ jobs:
           else
             echo "scripts/smoke-extension-enrich.mjs 없음 — 건너뜀"
           fi
+      - name: Smoke — extension research buttons (popup · side panel)
+        run: xvfb-run -a node scripts/smoke-extension-research.mjs
