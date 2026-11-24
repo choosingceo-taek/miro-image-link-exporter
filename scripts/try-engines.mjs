@@ -95,7 +95,12 @@ function htmlDump(html) {
   const h = String(html || "");
   const visible = h.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/\s+/g, " ");
-  const win = compWindow(visible);
+  // 추출기(compFromHtml)는 <nav>·<template> 을 빼고 본다 — window·groups 는 그와 똑같이 계산한다.
+  // (HTML 글 자리는 메뉴까지 포함한 전체 글에서 찾는다 — 무엇이 빠졌는지 보이게)
+  const forComp = h.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<nav\b[\s\S]*?<\/nav>/gi, " ")
+    .replace(/<template\b[\s\S]*?<\/template>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ").replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/\s+/g, " ");
+  const win = compWindow(forComp);
   const hits = [];
   const rx = new RegExp(DUMP_RX_SRC, "gi");
   let m;
@@ -117,7 +122,7 @@ function htmlDump(html) {
       /itemtype=["'][^"']*schema\.org\/Product/i.test(h) && "itemtype Product"].filter(Boolean).join(", "),
     head: visible.slice(0, 1200),
     window: win ? win.slice(0, 900) : "",
-    groups: compFromText(win || visible).map((c) => `${c.line || 0}:${c.material} ${c.percent}%`).join(", "),
+    groups: compFromText(win || forComp).map((c) => `${c.line || 0}:${c.material} ${c.percent}%`).join(", "),
     hits, json, visibleLen: visible.length,
   };
 }
