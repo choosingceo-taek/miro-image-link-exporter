@@ -237,6 +237,7 @@ jobs:
             stored-comp-audit-raw.md
             stored-comp-verify-engines.md
             stored-comp-verify.json
+            stored-comp-values.json
           if-no-files-found: ignore
       - name: Commit report
         if: always()
@@ -244,7 +245,7 @@ jobs:
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- stored-comp-audit.json stored-comp-audit-raw.md stored-comp-verify-engines.md stored-comp-verify.json stored-comp-verify-urls.txt || true
+          git add -A -- stored-comp-audit.json stored-comp-audit-raw.md stored-comp-verify-engines.md stored-comp-verify.json stored-comp-verify-urls.txt stored-comp-values.json || true
           git commit -m "audit: stored composition signatures (read-only)" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0

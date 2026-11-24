@@ -27,6 +27,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
+import { findFlags, heldBy, flagText, normValue, nameContradicts, GUARD_RULE } from "./comp-guard.mjs";
 
 const SELF = fileURLToPath(import.meta.url);
 const ROOT = join(dirname(SELF), "..");
@@ -249,6 +250,7 @@ async function scan() {
   console.log(`카탈로그 ${list.length}개(옛 키 ${skipOld.size}개 뺌) — 읽기만 한다`);
 
   const brands = [];
+  const allValues = {};   // 브랜드 → [[이름, 혼용률, 주소]] — 가드 문턱을 실제 저장값으로 맞춰 보려는 것(stored-comp-values.json)
   const errors = [];
   const itemsBySite = new Map();   // 검증 표본을 고를 때 이름·값을 찾으려고 들고 있는다
   for (const c of list) {
@@ -273,7 +275,18 @@ async function scan() {
       hidden: items.filter((p) => p.hidden).length,
       multi: withComp.filter((p) => parseComp(p.comp).length >= 2).length,
     };
-    brands.push({ ...stat, A: r.A, B: r.B, C: r.C, D: r.D, E: r.E, F: r.F,
+    // 저장 직전 가드(comp-guard.mjs)를 오늘 저장값에 적용했다면 무엇이 걸리나 — 미리보기(아무것도 고치지 않는다)
+    const gFlags = findFlags(withComp);
+    const gHeld = withComp.filter((p) => heldBy(p.comp, gFlags));
+    // 값 규칙의 문턱을 정하려고 브랜드마다 가장 흔한 값의 비율·이름 어긋남을 남긴다
+    const topCnt = new Map();
+    for (const p of withComp) { const k = normValue(p.comp); const e = topCnt.get(k) || { comp: p.comp, n: 0, contra: 0 }; e.n++; if (nameContradicts(p.name, p.comp).length) e.contra++; topCnt.set(k, e); }
+    const topV = [...topCnt.values()].sort((a, z) => z.n - a.n)[0] || null;
+    const guard = { flags: gFlags.map((f) => ({ ...f, why: flagText(f) })), held: gHeld.length,
+      heldEx: gHeld.slice(0, 6).map((p) => ({ name: p.name, url: p.url, comp: p.comp })),
+      top: topV ? { comp: topV.comp, n: topV.n, of: withComp.length, contra: topV.contra } : null };
+    allValues[brand] = withComp.map((p) => [p.name.slice(0, 90), p.comp, p.url]);
+    brands.push({ ...stat, A: r.A, B: r.B, C: r.C, D: r.D, E: r.E, F: r.F, guard,
       hiddenEx: items.filter((p) => p.hidden).slice(0, 5),
       // Loft 질문용: 저장값 분포와 none·빈 상품
       ...(/loft/i.test(brand) ? { loft: items } : {}) });
@@ -315,6 +328,7 @@ async function scan() {
   }
   const out = { at: new Date().toISOString(), skippedOldKeys: [...skipOld], errors, rules: { B: B_RULE, C: C_RULE }, brands, sample };
   writeFileSync(join(ROOT, "stored-comp-audit.json"), JSON.stringify(out, null, 1));
+  writeFileSync(join(ROOT, "stored-comp-values.json"), JSON.stringify({ at: out.at, rule: GUARD_RULE, brands: allValues }));
   writeFileSync(join(ROOT, "stored-comp-verify-urls.txt"), sample.map((s) => s.url).filter((u) => !u.includes(",")).join(","));
   writeFileSync(join(ROOT, "stored-comp-audit-raw.md"), rawReport(out, null));
   console.log(`표본 ${sample.length}개 → stored-comp-verify-urls.txt · 리포트 stored-comp-audit-raw.md`);
@@ -400,6 +414,20 @@ function rawReport(a, verified) {
   for (const b of bySig("F")) md += `- **${b.brand}** ${b.nF}\n${ex(b.F, 4, (p) => row(p))}\n`;
   md += `\n## 카탈로그 값이 다른 오버레이 값을 가린 예\n\n`;
   for (const b of B.filter((x) => x.hidden)) md += `- **${b.brand}** ${b.hidden}\n${b.hiddenEx.slice(0, 3).map((p) => `  - ${esc(p.name)} — 보임 \`${esc(p.comp)}\` · 가려짐 \`${esc(p.hidden)}\` — ${p.url}`).join("\n")}\n`;
+  md += `\n## 저장 직전 가드(comp-guard.mjs)를 오늘 저장값에 적용했다면 — 미리보기\n\n`;
+  md += `규칙: 줄 — 여러 줄 값 ${GUARD_RULE.LINE_MIN_MULTI}개 이상 · 같은 줄 ${GUARD_RULE.LINE_SHARE * 100}% 이상 · 짝 ${GUARD_RULE.LINE_PARTNERS}종 이상 · 흔한 안감 제외 / ` +
+    `값 — 혼용률 ${GUARD_RULE.VALUE_MIN}개 이상 · 한 값 ${GUARD_RULE.VALUE_SHARE * 100}% 이상 · 그중 이름과 어긋남 ${GUARD_RULE.VALUE_CONTRA * 100}% 이상(최소 ${GUARD_RULE.VALUE_CONTRA_MIN}개)\n\n`;
+  const gb = B.filter((b) => b.guard && b.guard.held);
+  md += `- 걸리는 값 ${gb.reduce((n, b) => n + b.guard.held, 0)}개 · 브랜드 ${gb.length}개\n`;
+  for (const b of gb.sort((x, y) => y.guard.held - x.guard.held)) {
+    md += `- **${b.brand}** ${b.guard.held} / 혼용률 ${b.comp} — ${b.guard.flags.map((f) => f.why).join(" ; ")}\n` +
+      b.guard.heldEx.slice(0, 3).map((p) => `  - ${esc(p.name).slice(0, 70)} — \`${esc(p.comp)}\` — ${p.url}`).join("\n") + "\n";
+  }
+  md += `\n가장 흔한 값이 30% 이상인 브랜드(값 규칙 문턱 확인용):\n\n| 브랜드 | 가장 흔한 값 | 비율 | 그중 이름과 어긋남 |\n|---|---|---:|---:|\n`;
+  for (const b of B.filter((x) => x.guard && x.guard.top && x.guard.top.of >= 30 && x.guard.top.n / x.guard.top.of >= 0.3).sort((x, y) => y.guard.top.n / y.guard.top.of - x.guard.top.n / x.guard.top.of)) {
+    const t = b.guard.top;
+    md += `| ${b.brand} | ${esc(t.comp)} | ${t.n}/${t.of} (${Math.round((t.n / t.of) * 100)}%) | ${t.contra} (${Math.round((t.contra / t.n) * 100)}%) |\n`;
+  }
   const loft = B.find((b) => b.loft);
   if (loft) {
     md += `\n## Loft 저장값\n\n상품 ${loft.total} · 혼용률 ${loft.comp} · none ${loft.none}\n\n`;
