@@ -53,7 +53,13 @@
 | [Stella Linen Midi Dress](https://splendid.com/products/stella-linen-midi-dress) | Cotton 100% ‖ Cashmere 100% | Linen 100% ‖ Viscose 100% |
 | [Stella Linen Mini Dress](https://splendid.com/products/stella-linen-mini-dress) | Cotton 100% ‖ Cashmere 100% | Linen 100% ‖ Viscose 100% |
 
-- 어디서 왔나: (조사 중 — 페이지 덤프)
+- **어디서 왔나(찾음)**: Splendid 모든 페이지 머리(사이트 상단 고정 영역 `div#vue-app-header`)에 개인화 위젯이
+  심어 둔 **상품 배지 틀**이 있다 — `<span class="plp">100% Cotton</span><span class="pdp">100% Cotton</span>` ·
+  `… 100% Cashmere …`. 화면에는 거의 안 보이지만(배지 글자는 CSS 로 감춰져 있음) 페이지 글에는 들어 있어,
+  추출기가 이 "100% Cotton 100% Cotton 100% Cashmere 100% Cashmere" 줄을 진짜 소재(아래쪽 "68% Viscose - From
+  Bamboo, 29% Polyester, 3% Elastane")보다 먼저 만나 두 줄로 묶었다. 페이지의 구조화 데이터(JSON-LD)에는 진짜
+  소재만 있어, 야간 보강처럼 JSON-LD 를 먼저 읽으면 맞게 나온다 — 본문만 읽는 크롬 보강·확장 경로가 틀린 값을 냈다.
+  (덤프: 실행 45333219085, `try-engines-dump.md`)
 
 ### 2. Aritzia — 🔴 틀림 확인(1개) + 🟠 모양
 
