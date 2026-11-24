@@ -44,8 +44,10 @@ on:
 permissions:
   contents: write
 
+# 모드마다 따로 줄을 선다 — 엔진 비교(최대 2시간)가 저장값 점검·목록 진단을 막지 않게.
+# (한 그룹에는 대기 실행이 하나만 남아, 같은 그룹에 둘을 넣으면 앞서 기다리던 것이 취소된다)
 concurrency:
-  group: diagnose-page
+  group: diagnose-page-${{ github.event.inputs.mode || 'page' }}
   cancel-in-progress: false
 
 jobs:
