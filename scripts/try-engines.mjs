@@ -9,6 +9,7 @@
 //   wayback           웹 아카이브(archive.org)에 보관된 같은 상품 페이지를 읽는다 — 차단과 무관
 //   playwright        지금 쓰는 헤드리스 크롬(기준선)
 //   firefox           그냥 Playwright 파이어폭스(지문 주입 없음, 파이어폭스 자기 UA 그대로)
+//   firefox-fp        파이어폭스 + fingerprint-injector 만(Crawlee 크롤러 없이) — 기본 목록에는 없음
 //   patchright        자동화 흔적을 지운 Playwright 패치판
 //   crawlee-chromium  Crawlee PlaywrightCrawler + 지문 생성·주입(fingerprint-suite) + 세션 풀
 //   crawlee-firefox   같은 것을 파이어폭스로(Crawlee 문서가 차단 회피용으로 권하는 조합)
@@ -137,6 +138,20 @@ async function runFirefox(urls, put) {
   await browser.close();
 }
 
+// 파이어폭스 + 지문 생성·주입을 크롤러 없이 컨텍스트에 바로 붙인다(enrich-comp-browser 의 firefox-fp 와 같은 코드).
+// crawlee-firefox 의 효과가 이것만으로 나오는지 보려는 것.
+async function runFirefoxFp(urls, put) {
+  const { firefox } = await import("playwright");
+  const { newInjectedContext } = await import("fingerprint-injector");
+  const browser = await firefox.launch();
+  const ctx = await newInjectedContext(browser, {
+    fingerprintOptions: { browsers: ["firefox"], operatingSystems: ["windows", "macos"], devices: ["desktop"], locales: ["en-US"] },
+    newContextOptions: { locale: "en-US" },
+  });
+  await readAll(ctx, urls, put);
+  await browser.close();
+}
+
 async function runCrawlee(browserName, urls, put) {
   const { PlaywrightCrawler, Configuration } = await import("crawlee");
   const pw = await import("playwright");
@@ -243,6 +258,7 @@ async function runWayback(urls, put) {
 const RUN = {
   playwright: (u, put) => runPlainBrowser("playwright", u, put),
   firefox: (u, put) => runFirefox(u, put),
+  "firefox-fp": (u, put) => runFirefoxFp(u, put),
   patchright: (u, put) => runPlainBrowser("patchright", u, put),
   "crawlee-chromium": (u, put) => runCrawlee("chromium", u, put),
   "crawlee-firefox": (u, put) => runCrawlee("firefox", u, put),

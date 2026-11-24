@@ -20,12 +20,18 @@
 //   PER_BRAND 브랜드당 상품 수(기본 120)
 //   STORE    1이면 Worker 오버레이에 저장(기본 1)
 //   DRY      1이면 저장하지 않고 결과만 출력
-//   ENGINE   playwright(기본) | patchright — patchright 는 Playwright 와 API 가 같은
-//            무료 오픈소스 패치판으로, 자동화 흔적(CDP Runtime.enable 등)을 지운다.
+//   ENGINE   playwright(기본) | patchright | firefox | firefox-fp | auto
+//            patchright — Playwright 와 API 가 같은 무료 패치판으로, 자동화 흔적을 지운다.
+//            firefox    — 그냥 Playwright 파이어폭스(파이어폭스 자기 UA 그대로).
+//            firefox-fp — 파이어폭스 + 지문 생성·주입(fingerprint-generator/-injector).
+//            auto       — 크롬으로 막힌 이력이 있는 브랜드만 AUTO_ENGINE(기본 BEST)으로,
+//                         나머지는 playwright 로 읽는다.
 //            지문 계층만 다룬다 — IP 평판으로 막는 사이트는 여전히 확장(가정용 IP) 몫이다.
+//   STATE_PATH 차단 이력 파일(기본 enrich-browser-state.json — 연기 테스트가 바꿔 쓴다)
+//   PICK_ONLY  1이면 브랜드별로 어떤 엔진을 쓸지만 출력하고 끝낸다(브라우저를 띄우지 않음)
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -78,17 +84,68 @@ const api = async (qs, init) => {
 // 그래서 "진짜 크롬으로도 막혔다"를 기록해 두고 한동안 건너뛴다. 영구 제외는
 // 아니다 — 사이트 정책은 바뀌고, 실제로 Aerie 는 확장으로도 못 뚫다가 크롬으로
 // 뚫렸다. SKIP_DAYS 가 지나면 다시 후보가 된다.
-const STATE_PATH = join(ROOT, "enrich-browser-state.json");
+//
+// 이력은 엔진마다 따로 남긴다(blocked[site][engine]). 브랜드 단위 하나뿐이면 크롬으로
+// 막힌 브랜드가 14일간 통째로 빠져, 파이어폭스로는 열리는 브랜드까지 시도조차 안 한다.
+// 예전 모양({site: {brand, until, …}})은 크롬(playwright)으로 막힌 기록으로 읽는다.
+const STATE_PATH = process.env.STATE_PATH ? resolve(process.env.STATE_PATH) : join(ROOT, "enrich-browser-state.json");
 const SKIP_DAYS = Math.max(1, Number(process.env.SKIP_DAYS) || 14);
 const BLOCK_RATIO = 0.9;    // 시도의 이만큼이 차단이면 '막혔다'로 본다
 
+// ── 엔진별 차단 이력 규칙 시작 (test-enrich-skip 이 이 구간을 떼어 직접 돌린다)
+const ENGINES_OK = ["playwright", "patchright", "firefox", "firefox-fp"];
+const CHROMIUM = ["playwright", "patchright"];
+function normalizeState(raw) {
+  const out = { blocked: {} };
+  const b = (raw && typeof raw === "object" && raw.blocked && typeof raw.blocked === "object") ? raw.blocked : {};
+  for (const [site, v] of Object.entries(b)) {
+    if (!v || typeof v !== "object") continue;
+    if ("until" in v) out.blocked[site] = { playwright: v };          // 예전 모양 = 크롬 기록
+    else {
+      const per = {};
+      for (const [eng, e] of Object.entries(v)) if (e && typeof e === "object" && "until" in e) per[eng] = e;
+      if (Object.keys(per).length) out.blocked[site] = per;
+    }
+  }
+  return out;
+}
+const skipUntil = (state, site, eng) => Number(((state.blocked[site] || {})[eng] || {}).until || 0);
+const isSkipped = (state, site, eng, now) => skipUntil(state, site, eng) > now;
+// 크롬으로 막힌 적이 있는가 — 기간이 지난 기록도 센다(이력이 지워지는 건 다시 읽혔을 때뿐이다).
+const chromiumBlocked = (state, site) => CHROMIUM.some((e) => (state.blocked[site] || {})[e]);
+// 이 브랜드를 어떤 엔진으로 읽을지
+function pickEngine(state, site, engine, best) {
+  if (engine !== "auto") return engine;
+  return chromiumBlocked(state, site) ? best : "playwright";
+}
+// 한 브랜드의 결과를 이력에 반영한다. 돌려주는 값: "blocked" | "cleared" | ""
+function recordResult(state, site, eng, r, now, skipDays, ratio) {
+  if (r.tried >= 10 && r.blocked / r.tried >= ratio) {
+    state.blocked[site] = state.blocked[site] || {};
+    state.blocked[site][eng] = {
+      brand: r.brand, until: now + skipDays * 86400000,
+      at: new Date(now).toISOString().slice(0, 10), ratio: Math.round((r.blocked / r.tried) * 100),
+    };
+    return "blocked";
+  }
+  if (r.ok > 0 && state.blocked[site] && state.blocked[site][eng]) {
+    delete state.blocked[site][eng];
+    if (!Object.keys(state.blocked[site]).length) delete state.blocked[site];
+    return "cleared";
+  }
+  return "";
+}
+// ── 엔진별 차단 이력 규칙 끝
+
+const BEST = "firefox";   // auto 가 크롬으로 막힌 브랜드에 쓰는 엔진(맨 위 주석의 실측 참고)
+const ENGINE_IN = (process.env.ENGINE || "playwright").toLowerCase();
+const ENGINE = ENGINE_IN === "auto" || ENGINES_OK.includes(ENGINE_IN) ? ENGINE_IN : "playwright";
+const AUTO_ENGINE = ENGINES_OK.includes(String(process.env.AUTO_ENGINE || "").toLowerCase())
+  ? process.env.AUTO_ENGINE.toLowerCase() : BEST;
+
 let state = { blocked: {} };
-try {
-  const raw = JSON.parse(readFileSync(STATE_PATH, "utf8"));
-  if (raw && typeof raw === "object" && raw.blocked) state = raw;
-} catch (e) {}
-const skipUntil = (site) => Number((state.blocked[site] || {}).until || 0);
-const isSkipped = (site) => skipUntil(site) > Date.now();
+try { state = normalizeState(JSON.parse(readFileSync(STATE_PATH, "utf8"))); } catch (e) {}
+const engineOf = (site) => pickEngine(state, site, ENGINE, AUTO_ENGINE);
 
 // ── 대상 고르기 ─────────────────────────────────────────────────
 const catalogs = ((await api("catalogs=1")).list || []).filter((c) => c && c.site && (c.count || 0) > 0);
@@ -103,9 +160,12 @@ if (!want.length) {
   const scored = [];
   for (const c of targets) {
     // 이름을 직접 준 경우(BRANDS=)는 사람이 일부러 고른 것이므로 건너뛰지 않는다.
-    if (isSkipped(c.site)) {
-      const d = Math.ceil((skipUntil(c.site) - Date.now()) / 86400000);
-      skipped.push(`${c.brand}(${d}일)`);
+    // 이력은 이 브랜드를 읽을 엔진 기준으로 본다 — 크롬으로 막혔어도 파이어폭스로 읽을
+    // 차례라면 건너뛰지 않는다.
+    const eng = engineOf(c.site);
+    if (isSkipped(state, c.site, eng, Date.now())) {
+      const d = Math.ceil((skipUntil(state, c.site, eng) - Date.now()) / 86400000);
+      skipped.push(`${c.brand}(${eng} ${d}일)`);
       continue;
     }
     let ov = {};
@@ -132,33 +192,61 @@ if (skipped.length) console.log(`건너뜀(차단 이력): ${skipped.join(" · "
 if (!targets.length) { console.log("대상 브랜드 없음"); process.exit(0); }
 console.log(`대상 ${targets.length}개: ${targets.map((t) => t.brand).join(", ")}\n`);
 
+for (const t of targets) t.engine = engineOf(t.site);
+console.log(`엔진: ${ENGINE}${ENGINE === "auto" ? ` (크롬 차단 이력이 있으면 ${AUTO_ENGINE})` : ""}`);
+for (const t of targets) console.log(`  · ${t.brand} → ${t.engine}`);
+if (process.env.PICK_ONLY === "1") process.exit(0);
+
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
-const ENGINE = (process.env.ENGINE || "playwright").toLowerCase() === "patchright" ? "patchright" : "playwright";
-const { chromium } = await import(ENGINE);
-console.log(`엔진: ${ENGINE}`);
-const browser = await chromium.launch({
-  ...(process.env.PLAYWRIGHT_CHROMIUM ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM } : {}),
-  // 헤드리스 수집(browser-collect)과 같은 설정 — 그쪽은 이 설정으로 23개 브랜드를 매일 읽는다.
-  args: ["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-http2"],
-});
-const ctx = await browser.newContext({
-  // patchright 는 UA 를 덮어쓰면 오히려 지문이 어긋난다 — 크롬 자기 값을 쓰게 둔다.
-  ...(ENGINE === "patchright" ? {} : { userAgent: UA }),
-  locale: "en-US", viewport: { width: 1366, height: 1400 },
-});
-if (ENGINE === "playwright") {
-  await ctx.addInitScript(() => { Object.defineProperty(navigator, "webdriver", { get: () => undefined }); });
+const VIEW = { locale: "en-US", viewport: { width: 1366, height: 1400 } };
+const browsers = [];
+const ctxCache = {};
+// 엔진마다 브라우저·컨텍스트를 한 번만 띄운다(auto 면 두 엔진이 섞일 수 있다).
+async function contextFor(eng) {
+  if (ctxCache[eng]) return ctxCache[eng];
+  let ctx;
+  if (eng === "playwright" || eng === "patchright") {
+    const { chromium } = await import(eng);
+    const browser = await chromium.launch({
+      ...(process.env.PLAYWRIGHT_CHROMIUM ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM } : {}),
+      // 헤드리스 수집(browser-collect)과 같은 설정 — 그쪽은 이 설정으로 23개 브랜드를 매일 읽는다.
+      args: ["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-http2"],
+    });
+    browsers.push(browser);
+    // patchright 는 UA 를 덮어쓰면 오히려 지문이 어긋난다 — 크롬 자기 값을 쓰게 둔다.
+    ctx = await browser.newContext({ ...(eng === "patchright" ? {} : { userAgent: UA }), ...VIEW });
+    if (eng === "playwright") {
+      await ctx.addInitScript(() => { Object.defineProperty(navigator, "webdriver", { get: () => undefined }); });
+    }
+  } else {
+    // 파이어폭스. 크롬 UA 를 붙이지 않는다 — 파이어폭스 엔진에 크롬 UA 면 지문이 어긋난다.
+    const { firefox } = await import("playwright");
+    const browser = await firefox.launch();
+    browsers.push(browser);
+    if (eng === "firefox-fp") {
+      // Crawlee 가 쓰는 것과 같은 지문 생성·주입을 크롤러 없이 컨텍스트에 바로 붙인다.
+      const { newInjectedContext } = await import("fingerprint-injector");
+      ctx = await newInjectedContext(browser, {
+        fingerprintOptions: { browsers: ["firefox"], operatingSystems: ["windows", "macos"], devices: ["desktop"], locales: ["en-US"] },
+        newContextOptions: { locale: "en-US" },
+      });
+    } else {
+      ctx = await browser.newContext(VIEW);
+    }
+  }
+  // 이미지·폰트·영상은 받지 않는다. 혼용률은 글자에만 있고, 안 받으면 몇 배 빠르다.
+  await ctx.route("**/*", (route) => {
+    const t = route.request().resourceType();
+    return (t === "image" || t === "font" || t === "media") ? route.abort() : route.continue();
+  });
+  console.log(`  (${eng} 브라우저 띄움)`);
+  return (ctxCache[eng] = ctx);
 }
 
 // 200 으로 와도 본문이 봇 확인 화면인 경우가 있다. 그걸 '사이트가 소재를 안 적음(none)'으로
 // 기록하면 21일 동안 그 상품을 다시 안 본다 — 차단으로 세야 한다.
 const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|captcha|just a moment/i;
-// 이미지·폰트·영상은 받지 않는다. 혼용률은 글자에만 있고, 안 받으면 몇 배 빠르다.
-await ctx.route("**/*", (route) => {
-  const t = route.request().resourceType();
-  return (t === "image" || t === "font" || t === "media") ? route.abort() : route.continue();
-});
 
 const rows = [];
 let grandFilled = 0, grandTried = 0;
@@ -200,6 +288,9 @@ for (const c of targets) {
   const stat = { ok: 0, none: 0, blocked: 0, err: 0 };
   const patch = {};
   let i = 0;
+  let ctx;
+  try { ctx = await contextFor(c.engine); }
+  catch (e) { console.log(`  !! ${c.brand} — ${c.engine} 브라우저를 띄우지 못함: ${String(e.message || e).split("\n")[0]}`); continue; }
   await Promise.all(Array.from({ length: Math.min(TABS, todo.length) }, async () => {
     const page = await ctx.newPage();
     try {
@@ -244,32 +335,26 @@ for (const c of targets) {
           }
         } catch (e) {
           const msg = String((e && e.message) || e);
-          if (/net::ERR|Timeout/i.test(msg)) stat.blocked++; else stat.err++;
+          // 크롬은 net::ERR_…, 파이어폭스는 NS_ERROR_… 로 연결 거부를 알린다.
+          if (/net::ERR|NS_ERROR|NS_BINDING|Timeout/i.test(msg)) stat.blocked++; else stat.err++;
         }
       }
     } finally { await page.close().catch(() => {}); }
   }));
 
   grandFilled += stat.ok; grandTried += todo.length;
-  const line = `${c.brand} — 시도 ${todo.length} · ✅ ${stat.ok} · 미표기 ${stat.none} · 차단/타임아웃 ${stat.blocked} · 오류 ${stat.err}`;
+  const line = `${c.brand} [${c.engine}] — 시도 ${todo.length} · ✅ ${stat.ok} · 미표기 ${stat.none} · 차단/타임아웃 ${stat.blocked} · 오류 ${stat.err}`;
   console.log("  · " + line);
-  rows.push({ brand: c.brand, site: c.site, total: c.count, ...stat, tried: todo.length });
+  rows.push({ brand: c.brand, site: c.site, engine: c.engine, total: c.count, ...stat, tried: todo.length });
 
   // 이번 결과를 이력에 남긴다. 거의 다 막혔으면 한동안 후보에서 뺀다.
   // 반대로 하나라도 읽혔으면 이력을 지운다 — 사이트가 다시 열린 것이므로
   // 옛 판정에 발이 묶이면 안 된다.
-  if (todo.length >= 10 && stat.blocked / todo.length >= BLOCK_RATIO) {
-    state.blocked[c.site] = {
-      brand: c.brand,
-      until: Date.now() + SKIP_DAYS * 86400000,
-      at: new Date().toISOString().slice(0, 10),
-      ratio: Math.round((stat.blocked / todo.length) * 100),
-    };
-    console.log(`    → ${SKIP_DAYS}일간 후보에서 제외(차단 ${state.blocked[c.site].ratio}%)`);
-  } else if (stat.ok > 0 && state.blocked[c.site]) {
-    delete state.blocked[c.site];
-    console.log("    → 다시 읽히기 시작 — 차단 이력 해제");
-  }
+  // 이력은 이 브랜드를 읽은 엔진 칸에만 적는다 — 크롬으로 막혔다고 파이어폭스 기록까지 잠그지 않는다.
+  const verdict = recordResult(state, c.site, c.engine,
+    { brand: c.brand, tried: todo.length, blocked: stat.blocked, ok: stat.ok }, Date.now(), SKIP_DAYS, BLOCK_RATIO);
+  if (verdict === "blocked") console.log(`    → ${c.engine} 로는 ${SKIP_DAYS}일간 후보에서 제외(차단 ${state.blocked[c.site][c.engine].ratio}%)`);
+  if (verdict === "cleared") console.log(`    → ${c.engine} 로 다시 읽히기 시작 — 차단 이력 해제`);
 
   if (STORE && Object.keys(patch).length) {
     // 오버레이는 통째로 저장한다(Worker 는 본문을 그대로 KV 에 넣기만 한다).
@@ -293,19 +378,21 @@ for (const c of targets) {
   }
 }
 
-await browser.close();
+for (const b of browsers) await b.close().catch(() => {});
 
 const md = [
   `# 혼용률 보강 — 진짜 크롬 (${new Date().toISOString().slice(0, 16).replace("T", " ")}Z)`,
   "",
-  "평 fetch 로는 차단되는 브랜드를 진짜 크롬으로 다시 읽은 결과입니다.",
+  "평 fetch 로는 차단되는 브랜드를 진짜 브라우저(크롬·파이어폭스)로 다시 읽은 결과입니다.",
   "",
   `- 시도 ${grandTried}개 · **채움 ${grandFilled}개** (${grandTried ? Math.round((grandFilled / grandTried) * 100) : 0}%)`,
   STORE ? "" : "- (저장하지 않음 — DRY 실행)",
   "",
-  "| 브랜드 | 상품 | 시도 | 채움 | 사이트 미표기 | 차단·타임아웃 | 오류 |",
-  "|---|---:|---:|---:|---:|---:|---:|",
-  ...rows.map((r) => `| ${r.brand} | ${r.total} | ${r.tried} | **${r.ok}** | ${r.none} | ${r.blocked} | ${r.err} |`),
+  `- 엔진: ${ENGINE}${ENGINE === "auto" ? ` (크롬 차단 이력이 있는 브랜드는 ${AUTO_ENGINE})` : ""}`,
+  "",
+  "| 브랜드 | 엔진 | 상품 | 시도 | 채움 | 사이트 미표기 | 차단·타임아웃 | 오류 |",
+  "|---|---|---:|---:|---:|---:|---:|---:|",
+  ...rows.map((r) => `| ${r.brand} | ${r.engine} | ${r.total} | ${r.tried} | **${r.ok}** | ${r.none} | ${r.blocked} | ${r.err} |`),
   "",
   ...(skipped.length ? [`- 건너뜀(차단 이력): ${skipped.join(" · ")}`, ""] : []),
   "차단·타임아웃이 대부분이면 진짜 크롬으로도 안 된다는 뜻이므로, 그 브랜드는",

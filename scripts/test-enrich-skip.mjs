@@ -53,10 +53,11 @@ for (const [label, tried, blocked, want] of CASES) {
 // 판정만 맞고 실제로 건너뛰지 않으면 아무 의미가 없다.
 const MUST = [
   ["const STATE_PATH", "이력 파일 경로가 없다"],
-  ["isSkipped(c.site)", "후보를 고를 때 이력을 확인하지 않는다 — 매일 같은 브랜드를 다시 집는다"],
-  ["state.blocked[c.site] = {", "차단 결과를 기록하지 않는다 — 내일도 똑같이 시도한다"],
+  ["isSkipped(state, c.site, eng,", "후보를 고를 때 이력을 확인하지 않는다 — 매일 같은 브랜드를 다시 집는다"],
+  ["const eng = engineOf(c.site);", "후보를 고를 때 '이 브랜드를 읽을 엔진' 기준으로 이력을 보지 않는다"],
+  ["recordResult(state, c.site, c.engine,", "차단 결과를 기록하지 않는다 — 내일도 똑같이 시도한다"],
   ["writeFileSync(STATE_PATH", "이력을 저장하지 않는다 — 실행이 끝나면 잊는다"],
-  ["delete state.blocked[c.site]", "다시 읽히기 시작해도 이력을 안 푼다 — 영구 제외가 된다"],
+  ["normalizeState(JSON.parse(", "이력을 읽을 때 예전 모양을 새 모양으로 바꾸지 않는다"],
 ];
 for (const [needle, why] of MUST) {
   if (!src.includes(needle)) fail(`${why} (${needle} 없음)`);
@@ -77,6 +78,54 @@ if (!/if \(STORE\) writeFileSync\(STATE_PATH/.test(src)) {
 
 // 건너뛴 브랜드를 리포트에 남겨야 사람이 알아챈다.
 if (!src.includes("건너뜀(차단 이력)")) fail("건너뛴 브랜드를 리포트에 안 남긴다 — 조용히 빠지면 눈치채지 못한다");
+
+// ── ④ 이력은 엔진마다 따로다 ──
+// 예전엔 브랜드 하나에 기록이 하나라, 크롬으로 막힌 브랜드가 14일 동안 통째로 빠졌다.
+// 파이어폭스로는 열리는 브랜드도 시도조차 못 했다. 규칙 구간을 떼어 직접 돌린다.
+const a = src.indexOf("// ── 엔진별 차단 이력 규칙 시작"), b = src.indexOf("// ── 엔진별 차단 이력 규칙 끝");
+if (a < 0 || b < 0) fail("엔진별 이력 규칙 구간을 찾지 못함");
+else {
+  const R = new Function(src.slice(a, b) +
+    "\n return { normalizeState, isSkipped, pickEngine, recordResult, chromiumBlocked };")();
+  const NOW = Date.UTC(2026, 10, 24);
+  const DAY = 86400000;
+  // 예전 모양 — {site: {brand, until, …}} 는 크롬(playwright) 기록으로 읽는다.
+  const old = { blocked: {
+    "zara.com.zara": { brand: "Zara", until: NOW + 5 * DAY, at: "2026-11-19", ratio: 100 },
+    "joules.com.joules": { brand: "Joules", until: NOW - 3 * DAY, at: "2026-10-01", ratio: 100 },
+  } };
+  const st = R.normalizeState(old);
+  if (!st.blocked["zara.com.zara"] || !st.blocked["zara.com.zara"].playwright) fail("예전 모양을 playwright 기록으로 읽지 않는다");
+  if (!R.isSkipped(st, "zara.com.zara", "playwright", NOW)) fail("크롬으로 막힌 기간 안인데 크롬으로 다시 시도한다");
+  if (R.isSkipped(st, "zara.com.zara", "firefox", NOW)) fail("크롬으로 막혔다고 파이어폭스까지 건너뛴다 — 이 변경의 핵심");
+  if (R.isSkipped(st, "joules.com.joules", "playwright", NOW)) fail("기간이 지난 기록인데 계속 건너뛴다");
+  // 새 모양은 그대로 읽힌다(두 번 읽어도 같다).
+  const again = R.normalizeState(JSON.parse(JSON.stringify(st)));
+  if (JSON.stringify(again) !== JSON.stringify(st)) fail("새 모양을 다시 읽으면 모양이 바뀐다");
+  if (Object.keys(R.normalizeState(null).blocked).length) fail("빈 이력이 비어 있지 않다");
+  if (Object.keys(R.normalizeState({ blocked: { x: "망가진 값" } }).blocked).length) fail("망가진 항목을 받아들인다");
+
+  // auto: 크롬 기록이 있으면(기간이 지났어도) 파이어폭스로, 없으면 playwright 로.
+  if (R.pickEngine(st, "zara.com.zara", "auto", "firefox") !== "firefox") fail("auto 가 크롬 차단 브랜드를 파이어폭스로 안 보낸다");
+  if (R.pickEngine(st, "joules.com.joules", "auto", "firefox") !== "firefox") fail("auto 가 기간이 지난 크롬 차단 기록을 무시한다");
+  if (R.pickEngine(st, "aerie.com.aerie", "auto", "firefox") !== "playwright") fail("auto 가 이력 없는 브랜드까지 파이어폭스로 보낸다");
+  if (R.pickEngine(st, "zara.com.zara", "patchright", "firefox") !== "patchright") fail("엔진을 직접 고르면 그대로 써야 한다");
+
+  // 기록: 파이어폭스로 막히면 파이어폭스 칸에만 적고, 크롬 기록은 건드리지 않는다.
+  const v1 = R.recordResult(st, "zara.com.zara", "firefox", { brand: "Zara", tried: 20, blocked: 20, ok: 0 }, NOW, SKIP_DAYS, BLOCK_RATIO);
+  if (v1 !== "blocked" || !st.blocked["zara.com.zara"].firefox) fail("파이어폭스 차단을 기록하지 않는다");
+  if (!st.blocked["zara.com.zara"].playwright) fail("파이어폭스를 기록하면서 크롬 기록을 지웠다");
+  if (st.blocked["zara.com.zara"].firefox.until !== NOW + SKIP_DAYS * DAY) fail("제외 기간이 SKIP_DAYS 와 다르다");
+  // 파이어폭스로 다시 읽히면 파이어폭스 칸만 푼다 — 크롬 기록은 남아 auto 가 계속 파이어폭스를 쓴다.
+  const v2 = R.recordResult(st, "zara.com.zara", "firefox", { brand: "Zara", tried: 20, blocked: 2, ok: 15 }, NOW, SKIP_DAYS, BLOCK_RATIO);
+  if (v2 !== "cleared" || st.blocked["zara.com.zara"].firefox) fail("다시 읽혔는데 파이어폭스 이력을 안 푼다");
+  if (!st.blocked["zara.com.zara"].playwright) fail("파이어폭스로 읽혔다고 크롬 기록까지 지웠다 — auto 가 다음 날 크롬으로 되돌아간다");
+  // 크롬으로 읽히면 크롬 칸을 풀고, 칸이 다 비면 사이트 줄도 지운다.
+  R.recordResult(st, "zara.com.zara", "playwright", { brand: "Zara", tried: 20, blocked: 0, ok: 20 }, NOW, SKIP_DAYS, BLOCK_RATIO);
+  if (st.blocked["zara.com.zara"]) fail("칸이 다 비었는데 사이트 줄이 남는다");
+  // 표본이 적으면 판정하지 않는다.
+  if (R.recordResult(st, "x.com.x", "firefox", { brand: "X", tried: 5, blocked: 5, ok: 0 }, NOW, SKIP_DAYS, BLOCK_RATIO) !== "") fail("표본 5개로 차단 판정을 했다");
+}
 
 // ── ③ '사이트가 안 적음'도 다시 안 읽어야 한다 ──
 // 차단만 기억하고 미표기는 기억하지 않아서, 페이지를 정상적으로 열고 소재가
@@ -102,4 +151,4 @@ if (!sel.includes("else if (o.none) settled++")) {
 if (!sel.includes("c.count - settled")) fail("남은 개수를 미표기 포함으로 세지 않는다");
 
 if (bad) { console.error(`\n크롬 보강 건너뛰기 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 크롬 보강 건너뛰기 통과 — 판정 ${CASES.length}건 · 배선 13종 (${SKIP_DAYS}일 제외 · 차단 ${BLOCK_RATIO * 100}% 기준)`);
+console.log(`✅ 크롬 보강 건너뛰기 통과 — 판정 ${CASES.length}건 · 배선 14종 · 엔진별 이력 18건 (${SKIP_DAYS}일 제외 · 차단 ${BLOCK_RATIO * 100}% 기준)`);

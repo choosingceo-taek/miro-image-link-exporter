@@ -12,7 +12,8 @@
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { existsSync, unlinkSync, readFileSync } from "node:fs";
+import { existsSync, unlinkSync, readFileSync, writeFileSync, mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const PORT = 8952;
@@ -26,20 +27,55 @@ let savedRaw = "";
 fake.stderr.on("data", (d) => { savedRaw += String(d); });
 await new Promise((r) => setTimeout(r, 800));
 
+// 이력 파일은 임시 경로로 — 저장소의 enrich-browser-state.json 을 건드리지 않는다.
+const TMP = mkdtempSync(join(tmpdir(), "smoke-enrich-"));
+const STATE = join(TMP, "state.json");
 const run = spawn(process.execPath, [join(ROOT, "scripts/enrich-comp-browser.mjs")], {
-  env: { ...process.env, WORKER_URL: `http://localhost:${PORT}`, WORKER_TOKEN: "", BRANDS: "TestBrand" },
+  env: { ...process.env, WORKER_URL: `http://localhost:${PORT}`, WORKER_TOKEN: "", BRANDS: "TestBrand", STATE_PATH: STATE },
   stdio: ["ignore", "pipe", "pipe"],
 });
 let out = "";
 run.stdout.on("data", (d) => { out += String(d); });
 run.stderr.on("data", (d) => { out += String(d); });
 const code = await new Promise((r) => run.on("close", r));
+
+// ── 엔진 고르기(브라우저를 띄우지 않고 고르기만) ──
+// 파이어폭스는 이 연기 테스트 환경에 없을 수 있어, PICK_ONLY 로 배선만 본다.
+async function pick(engine, stateObj) {
+  const sp = join(TMP, `pick-${engine}-${stateObj ? "s" : "n"}.json`);
+  if (stateObj) writeFileSync(sp, JSON.stringify(stateObj));
+  const p = spawn(process.execPath, [join(ROOT, "scripts/enrich-comp-browser.mjs")], {
+    env: { ...process.env, WORKER_URL: `http://localhost:${PORT}`, WORKER_TOKEN: "", BRANDS: "TestBrand",
+      ENGINE: engine, PICK_ONLY: "1", STATE_PATH: sp },
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  let o = "";
+  p.stdout.on("data", (d) => { o += String(d); });
+  p.stderr.on("data", (d) => { o += String(d); });
+  await new Promise((r) => p.on("close", r));
+  return o;
+}
+// 예전 모양 이력 = 크롬(playwright)으로 막힌 기록
+const OLD = { blocked: { "test.com.testbrand": { brand: "TestBrand", until: Date.now() + 86400000, at: "2026-11-20", ratio: 100 } } };
+const autoBlocked = await pick("auto", OLD);
+if (!/TestBrand → firefox/.test(autoBlocked)) fail("auto: 크롬 차단 이력이 있는데 파이어폭스로 안 넘어간다\n" + autoBlocked);
+const autoClean = await pick("auto", null);
+if (!/TestBrand → playwright/.test(autoClean)) fail("auto: 이력이 없는데 playwright 가 아니다\n" + autoClean);
+const plain = await pick("playwright", OLD);
+if (!/TestBrand → playwright/.test(plain)) fail("ENGINE=playwright 가 지켜지지 않는다\n" + plain);
+const bogus = await pick("nope", null);
+if (!/TestBrand → playwright/.test(bogus)) fail("모르는 엔진 이름이면 playwright 로 돌아가야 한다\n" + bogus);
 fake.kill();
 
 if (code !== 0) { console.error(out); fail(`종료 코드 ${code}`); }
+// 이 실행은 막히지 않았으므로(6개 중 2개) 이력에 아무것도 남지 않아야 한다 — 새 모양으로 저장된다.
+try {
+  const st = JSON.parse(readFileSync(STATE, "utf8"));
+  if (!st.blocked || Object.keys(st.blocked).length) fail(`이력이 이상하다: ${JSON.stringify(st)}`);
+} catch (e) { fail("이력 파일을 쓰지 않았다: " + e.message); }
 
 // ── 집계가 맞는가 ──
-if (!/시도 6 · ✅ 3 · 미표기 1 · 차단\/타임아웃 2/.test(out)) {
+if (!/TestBrand \[playwright\] — 시도 6 · ✅ 3 · 미표기 1 · 차단\/타임아웃 2/.test(out)) {
   fail("집계가 예상과 다름:\n     " + (out.match(/· TestBrand.*/) || ["(없음)"])[0]);
 }
 
@@ -83,4 +119,4 @@ else {
 }
 
 if (bad) { console.error(`\n크롬 보강 ${bad}건 실패`); process.exit(1); }
-console.log("✅ 크롬 혼용률 보강 통과 — 평범·접힌탭 두겹·미표기·차단·봇확인화면·늦은표기 여섯 경우 + 저장 내용 확인");
+console.log("✅ 크롬 혼용률 보강 통과 — 평범·접힌탭 두겹·미표기·차단·봇확인화면·늦은표기 여섯 경우 + 저장 내용 + 엔진 고르기 4경우");

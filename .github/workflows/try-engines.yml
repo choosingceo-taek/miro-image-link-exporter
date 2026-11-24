@@ -41,7 +41,7 @@ jobs:
         run: |
           npm init -y >/dev/null
           # --no-save 설치는 따로 하면 앞에 받은 것을 지운다 — 한 번에 받는다.
-          timeout 400 npm i --no-save playwright@1.49.1 patchright@1.49.1 crawlee@3.18.2 camoufox-js@0.13.0 impit@0.14.9
+          timeout 400 npm i --no-save playwright@1.49.1 patchright@1.49.1 crawlee@3.18.2 camoufox-js@0.13.0 impit@0.14.9 fingerprint-generator@2.1.89 fingerprint-injector@2.1.89
           waitlock() { for _ in $(seq 1 60); do sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || return 0; sleep 5; done; }
           waitlock
           timeout 400 npx playwright install --with-deps chromium firefox || timeout 400 npx playwright install chromium firefox
