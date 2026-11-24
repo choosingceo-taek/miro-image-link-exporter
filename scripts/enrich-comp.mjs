@@ -16,12 +16,16 @@
 //      NEED_FIELDS(목표 항목, 기본 comp,color), RETRY_DAYS(빈손 재시도 간격, 기본 5)
 //      DRY=1 (읽기만 하고 Worker 에 아무것도 쓰지 않는다 — 리포트는 enrich-comp-dry-report.md)
 //      BRANDS(쉼표로 나눈 브랜드 이름, 대소문자 무시 — 이 브랜드만 돈다. 비우면 전부)
+//      WAYBACK=0 (아카이브 층 끄기), WAYBACK_MAX(한 실행 조회 상한, 기본 400 · DRY 는 1000),
+//      WAYBACK_PER_BRAND(브랜드당 조회 상한, 기본 40), WAYBACK_RETRY_DAYS(보관본 없던 상품을
+//      다시 묻기까지, 기본 30), WAYBACK_API · WAYBACK_WEB · CATEGORY_LINKS_URL(테스트용 주소 바꾸기)
 // 예약 실행은 workflow_dispatch inputs 가 비어 있어 이 기본값이 그대로 쓰인다 —
 // 작게 잡으면 매일 조금씩만 채우다 끝나지 않는다. 하룻밤에 전부 도는 값으로 둔다.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { urlGuard, urlKey, archivePageCheck, archivedOriginal, archivedTimestamp, samePage } from "./wayback-guard.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -117,6 +121,10 @@ const GATE = 95, GOAL = 99;
 const colorFromHtml = new Function(
   slice("const COLOR_JUNK", "function titleCase") + "\n return colorFromHtml;",
 )();
+// 섬유 이름 목록 — 아카이브 보관본이 '혼용률 여러 벌(목록)'인지 셀 때 쓴다.
+const FIBRE_NAMES = Object.keys(new Function(
+  slice("const FIBRES = {", "function titleCase") + "\n return FIBRES;",
+)());
 const fromJsonLd = new Function(
   slice("function fromJsonLd(html) {", "const FIBRES = {") +
   slice("function titleCase(s) {", "// 페이지 제목") + "\n return fromJsonLd;",
@@ -167,7 +175,7 @@ function realPage(html) {
 }
 
 // 한 상품의 네 항목(혼용률·컬러·사이즈·가격). 실패는 null — 이유는 세어서 리포트로.
-async function enrichOf(url, stat) {
+async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }) {
   // ① Shopify JSON — 가장 싸고 정확. variants/options 에 사이즈·컬러·가격이 구조화돼 있다.
   const m = url.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
   if (m) {
@@ -225,20 +233,201 @@ async function enrichOf(url, stat) {
   }
   // ③ Worker 우회 — GitHub Actions IP 는 많은 쇼핑몰에서 403 이지만 Cloudflare IP 는
   //    통과하는 경우가 많다. Worker 안에서 Shopify JSON → 직접 → 리더까지 다시 시도한다.
+  let viaWorker = null;
   try {
     const r = await fetch(WORKER + "/?comp=" + encodeURIComponent(url) + tok, {
       signal: AbortSignal.timeout(20000),
     });
     const j = await r.json();
-    if (has(j)) { stat.worker++; return merge(j, typeof partial === "undefined" ? null : partial); }
-    stat.noData++;
+    if (has(j)) { stat.worker++; viaWorker = merge(j, typeof partial === "undefined" ? null : partial); }
+    else stat.noData++;
   } catch (e) { stat.fail++; }
+  // ④ 웹 아카이브 — 지금 페이지를 진짜로 못 읽었고(차단·봇 확인·빈 껍데기) 앞 경로에서
+  //    혼용률이 안 나왔을 때만. 소재는 시간이 지나도 안 바뀌므로 몇 달 전 보관본이어도
+  //    값이 같다. 가격·사이즈·재고는 바뀌므로 보관본에서는 혼용률·컬러만 받는다.
+  //    Shopify JSON 이나 페이지를 읽었는데 소재가 없던 상품은 '사이트가 안 적는' 쪽이라 묻지 않는다.
+  if (!readOk && typeof partial === "undefined" && !(viaWorker && validComp(asComp(viaWorker.comp)))) {
+    const w = await waybackOf(url, stat, o, wbCtx);
+    if (w && w.comp) {
+      if (!viaWorker) return w;
+      // 우회가 지금 페이지에서 가격·컬러를 읽어 왔으면 그건 살리고 혼용률만 보관본에서.
+      return { ...viaWorker, comp: w.comp, color: viaWorker.color || w.color, via: "wayback", wd: w.wd, wt: w.wt };
+    }
+    if (w && w.wt) {
+      if (viaWorker) viaWorker.wt = w.wt;
+      else return { blocked: true, wt: w.wt };
+    }
+  }
+  if (viaWorker) return viaWorker;
   // 페이지는 멀쩡히 읽었는데 소재 표기가 없었다면 그건 '아직 못 구한 것'이 아니라
   // '사이트가 안 적는 것'이다. 엑셀에서 '확인 필요'와 다르게 보여 줘야 하므로
   // 그 사실을 남긴다 — 차단이면 readOk 가 false 라 표시하지 않는다.
   if (typeof partial === "undefined") return readOk ? { none: true } : { blocked: true };
   return partial;
 }
+
+// ── 웹 아카이브(archive.org) 층 ─────────────────────────────────────
+// 큰 브랜드(Zara·Arket·Reformation·Mango …)는 데이터센터 IP 를 통째로 막지만, 웹 아카이브에
+// 보관된 '같은 상품 주소'의 예전 페이지에는 혼용률이 그대로 있는 경우가 많다(11/24 실측).
+// 이미 있는 보관본만 읽는다 — 보관을 새로 요청하는 'Save Page Now' 는 절대 부르지 않는다.
+//
+// archive.org 는 무료 공공 서비스라 정중하게 쓴다: 동시 2개 · 약 1초 간격 · 이 저장소를 밝히는
+// User-Agent(개인 연락처 없음) · 한 실행 WAYBACK_MAX · 브랜드당 WAYBACK_PER_BRAND 상한 ·
+// 429/5xx 에 물러서고, 연달아 실패하면 이 실행에서는 층을 끈다.
+//
+// 오버레이에 남기는 것:
+//   via: "wayback"  혼용률이 보관본에서 왔다(컬러도 그 보관본에서 왔을 수 있다)
+//   wd:  "20260712" 그 보관본의 날짜
+//   wt:  <ms>       보관본을 물어봤다(없었거나 거부됐거나) — WAYBACK_RETRY_DAYS 동안 다시 안 묻는다
+// 나중에 진짜 페이지에서 같은 혼용률을 읽으면 via·wd 를 지운다(확인됨). 다른 값이 나오면
+// 이미 있는 옳은 값을 덮지 않는 평소 규칙 그대로 둔다 — via 가 남아 있어 나중에 가려낼 수 있다.
+const WAYBACK = process.env.WAYBACK !== "0";
+const WAYBACK_API = (process.env.WAYBACK_API || "https://archive.org/wayback/available").replace(/\/+$/, "");
+const WAYBACK_WEB = (process.env.WAYBACK_WEB || "https://web.archive.org/web").replace(/\/+$/, "");
+const numEnv = (k, d) => { const v = process.env[k]; const n = Number(v); return v != null && v !== "" && Number.isFinite(n) ? n : d; };
+// DRY 는 측정용이라 상한을 넉넉히 둔다(저장을 안 하므로 다음 밤 예산을 뺏지도 않는다).
+const WAYBACK_MAX = Math.max(0, numEnv("WAYBACK_MAX", DRY ? 1000 : 400));
+const WAYBACK_PER_BRAND = Math.max(0, numEnv("WAYBACK_PER_BRAND", 40));
+const WAYBACK_RETRY_MS = Math.max(1, numEnv("WAYBACK_RETRY_DAYS", 30)) * 24 * 3600 * 1000;
+const WAYBACK_GAP_MS = Math.max(0, numEnv("WAYBACK_GAP_MS", 1000));        // 요청 사이 간격
+const WAYBACK_BACKOFF_MS = Math.max(1, numEnv("WAYBACK_BACKOFF_MS", 5000)); // 429/5xx 뒤 첫 대기
+const WAYBACK_FAILS = Math.max(1, numEnv("WAYBACK_FAILS", 4));              // 연속 실패 몇 번에 끄나
+const WB_UA = "rack-catalog-enrich (github.com/choosingceo-taek/miro-image-link-exporter)";
+const CATEGORY_LINKS_URL = process.env.CATEGORY_LINKS_URL ||
+  (process.env.RENDER_URL || "https://market-research-uzs2.onrender.com").replace(/\/+$/, "") + "/category-links.json";
+const wb = {
+  used: 0, inflight: 0, nextAt: 0, fails: 0, off: false, offWhy: "",
+  calls: 0, r429: 0, r5xx: 0, neterr: 0, withQuery: 0, ms: 0,
+  reasons: {}, examples: {},
+};
+const wbWaiters = [];
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// 동시 2개 · 시작 간격 WAYBACK_GAP_MS. 429 를 받으면 nextAt 을 밀어 전체가 함께 쉰다.
+async function wbSlot() {
+  while (wb.inflight >= 2) await new Promise((r) => wbWaiters.push(r));
+  wb.inflight++;
+  const at = Math.max(Date.now(), wb.nextAt);
+  wb.nextAt = at + WAYBACK_GAP_MS;
+  if (at > Date.now()) await sleep(at - Date.now());
+}
+function wbRelease() { wb.inflight--; const r = wbWaiters.shift(); if (r) r(); }
+function wbNote(reason, brand, url, extra) {
+  wb.reasons[reason] = (wb.reasons[reason] || 0) + 1;
+  const ex = (wb.examples[reason] = wb.examples[reason] || []);
+  if (ex.length < 5) ex.push({ brand, url, extra: extra || "" });
+}
+// 아카이브에 GET 한 번. 429·5xx·네트워크 오류는 물러섰다가 두 번까지 다시 해 본다.
+// 연속 실패가 WAYBACK_FAILS 번이면 이 실행에서는 층을 끈다(throw).
+async function wbGet(url, asJson) {
+  let last = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (wb.off) throw new Error("아카이브 층 꺼짐: " + wb.offWhy);
+    await wbSlot();
+    let wait = 0;
+    const t0 = Date.now();
+    try {
+      wb.calls++;
+      const r = await fetch(url, {
+        headers: { "user-agent": WB_UA, accept: asJson ? "application/json" : "text/html,*/*;q=0.8" },
+        redirect: "follow", signal: AbortSignal.timeout(asJson ? 30000 : 45000),
+      });
+      if (r.status === 429 || r.status >= 500) {
+        if (r.status === 429) wb.r429++; else wb.r5xx++;
+        const ra = Number(r.headers.get("retry-after"));
+        try { await r.arrayBuffer(); } catch (e) {}
+        last = new Error("HTTP " + r.status);
+        wait = Math.max(Number.isFinite(ra) ? ra * 1000 : 0, WAYBACK_BACKOFF_MS * 2 ** wb.fails);
+      } else {
+        const body = asJson ? await r.json().catch(() => null) : await r.text();
+        wb.fails = 0;
+        return { status: r.status, url: r.url, body };
+      }
+    } catch (e) {
+      wb.neterr++;
+      last = e;
+      wait = WAYBACK_BACKOFF_MS * 2 ** wb.fails;
+    } finally {
+      wb.ms += Date.now() - t0;
+      wbRelease();
+    }
+    wb.fails++;
+    if (wb.fails >= WAYBACK_FAILS) {
+      if (!wb.off) {
+        wb.off = true;
+        wb.offWhy = `연속 실패 ${wb.fails}회(마지막: ${String((last && last.message) || last)})`;
+        console.log(`  !! 웹 아카이브 층을 이 실행에서 끈다 — ${wb.offWhy}`);
+      }
+      throw last;
+    }
+    wait = Math.min(wait, 120000);
+    wb.nextAt = Math.max(wb.nextAt, Date.now() + wait);   // 전체가 함께 쉰다
+    await sleep(wait);
+  }
+  throw last;
+}
+
+// 이 실행에서 쓰는 카테고리 URL 목록(Render 의 category-links.json). 못 읽으면 주소 규칙만 쓴다.
+let categorySet = null;
+const curBrand = new Map();   // productUrl → 브랜드 이름(아카이브 예시 기록용)
+
+// 한 상품의 보관본에서 혼용률·컬러를 읽는다. 돌려주는 것:
+//   { comp, color, via:"wayback", wd, wt }  찾음
+//   { wt }                                   물어봤지만 못 씀(보관본 없음·거부) — 30일 동안 안 묻는다
+//   null                                     묻지 않음(꺼짐·상한·최근에 물음·주소 거부) 또는 일시 오류
+async function waybackOf(url, stat, o, ctx) {
+  if (!WAYBACK || wb.off) return null;
+  const brand = curBrand.get(url) || "";
+  if (o && o.wt && Date.now() - o.wt < WAYBACK_RETRY_MS) { stat.wbSkip++; return null; }
+  const g = urlGuard(url, categorySet);
+  if (!g.ok) { stat.wbUrl++; wbNote("주소: " + g.reason, brand, url); return null; }
+  if (wb.used >= WAYBACK_MAX || ctx.used >= WAYBACK_PER_BRAND) { stat.wbSkip++; return null; }
+  wb.used++; ctx.used++;
+  const reject = (reason, extra) => { stat.wbReject++; wbNote(reason, brand, url, extra); return { wt: Date.now() }; };
+  try {
+    // 쿼리 없이 먼저 묻는다(보관본은 대개 쿼리 없는 주소로 쌓인다). 없으면 쿼리 그대로 한 번 더 —
+    // Zara(?v1=)·Reformation(?dwvar_)처럼 쿼리가 붙은 주소로만 보관된 경우가 있다.
+    const full = url.split("#")[0];
+    const bare = full.split("?")[0];
+    let snap = null, target = bare;
+    for (const cand of full !== bare ? [bare, full] : [bare]) {
+      const a = await wbGet(`${WAYBACK_API}?url=${encodeURIComponent(cand)}`, true);
+      const c = a.body && a.body.archived_snapshots && a.body.archived_snapshots.closest;
+      if (c && c.available !== false && c.timestamp) { snap = c; target = cand; break; }
+    }
+    if (!snap) { stat.wbNone++; wbNote("보관본 없음", brand, url); return { wt: Date.now() }; }
+    if (target !== bare) wb.withQuery++;
+    if (snap.status && !/^2/.test(String(snap.status))) return reject("보관본이 리다이렉트·오류", `status ${snap.status}`);
+    // id_ = 아카이브가 덧붙이는 머리띠 없이 원본 그대로
+    const r = await wbGet(`${WAYBACK_WEB}/${snap.timestamp}id_/${target}`, false);
+    if (r.status >= 400) return reject("보관본 열기 실패", `HTTP ${r.status}`);
+    const orig = archivedOriginal(r.url);
+    if (orig && !samePage(orig, target)) return reject("다른 주소로 넘어간 보관본", orig.slice(0, 160));
+    const html = String(r.body || "");
+    if (!realPage(html)) return reject("보관본도 차단·빈 화면");
+    const chk = archivePageCheck(html, FIBRE_NAMES);
+    if (!chk.ok) return reject(chk.reason, JSON.stringify(chk.signals));
+    let ld = {};
+    try { ld = fromJsonLd(html); } catch (e) {}
+    const text = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ");
+    const comp = (ld.composition && ld.composition.length)
+      ? asComp(ld.composition) : (asComp(compFromHtml(html)) || asComp(compFromText(text)));
+    if (!validComp(comp)) return reject("보관본에 혼용률 없음", comp ? `뽑힌 값 "${comp.slice(0, 60)}"` : "");
+    const color = ld.color || colorFromHtml(html) || "";
+    const ts = archivedTimestamp(r.url) || String(snap.timestamp);
+    stat.wayback++;
+    wbNote("찾음", brand, url, `${ts.slice(0, 8)} · ${comp.replace(/\n/g, " | ")}${target !== bare ? " · 쿼리 포함 주소" : ""}`);
+    // 가격·사이즈·정가는 일부러 싣지 않는다 — 보관본 시점의 값이라 지금과 다르다.
+    return { comp, color: validColor(color) ? color : "", via: "wayback", wd: ts.slice(0, 8), wt: Date.now(), arcOnly: true };
+  } catch (e) {
+    stat.wbErr++;
+    wbNote("아카이브 오류", brand, url, String((e && e.message) || e).slice(0, 120));
+    return null;   // 일시 오류 — 시각을 안 찍어 다음 실행이 다시 묻는다
+  }
+}
+const sameComp = (a, b) => {
+  const n = (x) => String(x || "").toLowerCase().split(/\s*\/\s*|\n/).map((t) => t.trim()).filter(Boolean).sort().join("/");
+  return !!a && n(a) === n(b);
+};
 
 // 앞 경로에서 얻은 값을 잃지 않게 합친다(먼저 찾은 쪽 우선).
 function merge(a, b) {
@@ -292,6 +481,20 @@ if (BRANDS.length) {
     (unmatchedBrands.length ? ` · 못 찾은 이름: ${unmatchedBrands.join(", ")}` : ""));
 }
 if (DRY) console.log("DRY=1 — 읽기만 한다. Worker 에 저장하지 않고 인덱스도 다시 만들지 않는다.");
+if (WAYBACK) {
+  // 카테고리 URL 자체가 상품으로 저장된 경우를 아카이브에 묻기 전에 거른다(읽기만).
+  try {
+    const links = await fetch(CATEGORY_LINKS_URL, { signal: AbortSignal.timeout(60000) }).then((r) => r.json());
+    categorySet = new Set();
+    for (const c of Object.values(links || {})) {
+      for (const arr of Object.values(c || {})) if (Array.isArray(arr)) for (const u of arr) { const k = urlKey(u); if (k) categorySet.add(k); }
+    }
+    console.log(`웹 아카이브 층 켬 — 상한 ${WAYBACK_MAX}(브랜드당 ${WAYBACK_PER_BRAND}) · 카테고리 URL ${categorySet.size}개`);
+  } catch (e) {
+    console.log(`웹 아카이브 층 켬 — 상한 ${WAYBACK_MAX}(브랜드당 ${WAYBACK_PER_BRAND}) · 카테고리 URL 목록 못 읽음(주소 규칙만 쓴다)`);
+  }
+}
+const wbBrandCtx = new Map();   // 사이트 → { used } — 1차·2차를 합쳐 브랜드당 상한을 센다
 console.log(`카탈로그 ${list.length}개 — [${FIELDS.join(",")}] 채운다 (브랜드당 ${PER_BRAND}, 전체 ${TOTAL}, 재시도 ${RETRY_DAYS}일)`);
 
 let budget = TOTAL;
@@ -308,6 +511,7 @@ const addRow = (r) => {
   prev.patched = (prev.patched || 0) + (r.patched || 0);
   prev.addComp = (prev.addComp || 0) + (r.addComp || 0);
   prev.addColor = (prev.addColor || 0) + (r.addColor || 0);
+  for (const k of ["tried", "liveComp", "arcComp", "ms"]) prev[k] = (prev[k] || 0) + (r[k] || 0);
   if (r.stat) {
     prev.stat = prev.stat || {};
     for (const k of Object.keys(r.stat)) prev.stat[k] = (prev.stat[k] || 0) + r.stat[k];
@@ -331,6 +535,7 @@ const triedThisRun = new Set();
 
 async function processBrand(c, phase) {
   if (budget <= 0) return;
+  const tStart = Date.now();
   let cat;
   try { cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json()); }
   catch (e) { addRow({ brand: c.brand || c.site, site: c.site, error: String(e.message || e) }); return; }
@@ -413,18 +618,29 @@ async function processBrand(c, phase) {
     return;
   }
 
-  const stat = { shopify: 0, page: 0, worker: 0, noData: 0, blocked: 0, fail: 0 };
+  const stat = { shopify: 0, page: 0, worker: 0, wayback: 0, noData: 0, blocked: 0, fail: 0,
+    wbNone: 0, wbReject: 0, wbUrl: 0, wbErr: 0, wbSkip: 0 };
   const comps = {};
+  if (!wbBrandCtx.has(c.site)) wbBrandCtx.set(c.site, { used: 0 });
+  const wbCtx = wbBrandCtx.get(c.site);
   // Worker 우회가 붙어 차단 상품은 왕복이 하나 더 는다 — 동시 처리를 올려 상쇄한다.
-  for (const p of todo) triedThisRun.add(p.productUrl);
+  for (const p of todo) { triedThisRun.add(p.productUrl); curBrand.set(p.productUrl, cat.brand || c.brand || c.site); }
   await pool(todo, PAGE_POOL, async (p) => {
-    const got = await enrichOf(p.productUrl, stat);
+    const got = await enrichOf(p.productUrl, stat, ov(p), wbCtx);
     // 빈 결과도 넣는다 — 저장 단계에서 '시도 시각'만 찍혀 다음 실행이 건너뛴다.
     // 페이지를 읽었는데 소재가 없었으면 none 을 함께 남긴다(엑셀에서 '정보 없음').
     // 막혀서 못 읽었으면 blocked 를 남긴다 — 예전 판정이 잘못 찍어 둔 none 을 지우는 데 쓴다.
-    comps[p.productUrl] = has(got) ? got : (got && got.none ? { none: 1 } : got && got.blocked ? { blocked: 1 } : {});
+    // 아카이브에 물어보고 못 쓴 상품은 wt(물어본 시각)를 함께 넘긴다.
+    comps[p.productUrl] = has(got) ? got
+      : (got && got.none ? { none: 1 } : got && got.blocked ? { blocked: 1, ...(got.wt ? { wt: got.wt } : {}) } : {});
   });
   budget -= todo.length;
+  // 이번에 읽은 혼용률이 어디서 왔나 — 지금 페이지(실시간 경로) / 보관본.
+  let liveComp = 0, arcComp = 0;
+  for (const v of Object.values(comps)) {
+    if (!v || !validComp(asComp(v.comp))) continue;
+    if (v.via === "wayback") arcComp++; else liveComp++;
+  }
 
   // 저장: 병합을 여기서 하고 Worker 에는 완성된 오버레이를 통째로 넘긴다.
   // Worker 가 병합하면(기존 오버레이 파싱 + 항목별 정리 + 재직렬화) 항목 400개쯤에서
@@ -442,20 +658,30 @@ async function processBrand(c, phase) {
     for (const [url, v] of Object.entries(comps)) {
       const cur = { ...(merged[url] || {}) };
       const inc = typeof v === "string" ? { comp: v } : (v || {});
+      const fromArc = inc.via === "wayback";
       let n = 0;
       for (const [k, max] of [["comp", 160], ["color", 80], ["sizes", 200], ["price", 40], ["priceOrig", 40]]) {
+        // 보관본만으로 얻은 결과에서는 혼용률·컬러만 받는다 — 가격·사이즈·정가는 그때의 값이다.
+        if (inc.arcOnly && k !== "comp" && k !== "color") continue;
         const t = clean(inc[k], max);
         // 옳지 않은 값은 아예 저장하지 않는다. 저장해 두면 다음 실행이 "값은 있는데
         // 옳지 않다"고 보고 재시도 기간을 무시한 채 영원히 다시 읽는다.
         const good = k === "comp" ? validComp(t) : k === "color" ? validColor(t) : !!t;
         if (good && !okOf(cur, k)) {
           cur[k] = t; n++;
+          // 보관본에서 온 혼용률은 출처를 남긴다 — 나중에 지금 페이지와 가려낼 수 있게.
+          if (k === "comp" && fromArc) { cur.via = "wayback"; cur.wd = String(inc.wd || "").slice(0, 8); }
           if (k === "comp") addComp++;
           if (k === "color") addColor++;
         } else if (cur[k] && !okOf(cur, k)) {
           delete cur[k];   // 예전에 잘못 저장된 값 정리('[object Object]', 절반만 뽑힌 혼용률)
         }
       }
+      // 보관본 출처 표시 정리: 지금 페이지에서 같은 혼용률을 읽었으면 확인된 것이므로 지운다.
+      // 다른 값이면 이미 있는 옳은 값을 덮지 않는 규칙 그대로 두고, via 도 남긴다.
+      if (cur.via === "wayback" && !fromArc && sameComp(clean(inc.comp, 160), cur.comp)) { delete cur.via; delete cur.wd; }
+      // 보관본을 물어본 시각 — 없거나 못 쓴 상품을 WAYBACK_RETRY_DAYS 동안 다시 묻지 않는다.
+      if (inc.wt) cur.wt = inc.wt;
       // 값을 못 찾았어도 "시도했음"은 남긴다 — 안 남기면 같은 상품을 매번 다시 읽는다.
       cur.t = now;
       cur.ct = now;   // 컬러도 이번에 함께 봤다(위 full 의 컬러 재시도 창)
@@ -514,7 +740,8 @@ async function processBrand(c, phase) {
   // 검증값을 그대로 쓰면 실제로 저장된 것을 안 됐다고 보고하게 되므로 큰 값을 쓴다.
   const haveNow = Math.max(verify == null ? 0 : verify, have + addComp);
   const colorNow = Math.max(verifyColor == null ? 0 : verifyColor, haveColor + addColor);
-  addRow({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, haveColor: colorNow, patched, addComp, addColor, stat });
+  addRow({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, haveColor: colorNow, patched, addComp, addColor, stat,
+    tried: todo.length, liveComp, arcComp, ms: Date.now() - tStart });
   console.log(`  ${c.site}: 혼용률 +${addComp} 컬러 +${addColor} (읽음 ${todo.length}, 경로 ${JSON.stringify(stat)})`);
 }
 
@@ -618,13 +845,14 @@ md += `${RETRY_DAYS}일 안에 시도해 본 상품은 건너뛴다 — 사이�
 // 경로 이름을 그대로 쓰면 오해를 부른다 — shopify/page/worker 는 '성공한 경로'이고
 // noData/blocked/fail 만 실패다. 예전 리포트의 'page=505' 를 '505개 실패'로 읽었다.
 const PATH_LABEL = {
-  shopify: "쇼피JSON", page: "페이지", worker: "우회",
+  shopify: "쇼피JSON", page: "페이지", worker: "우회", wayback: "아카이브",
   noData: "정보없음", blocked: "직접차단", fail: "오류",
+  wbNone: "보관본없음", wbReject: "아카이브거부", wbErr: "아카이브오류",
 };
 const pathStr = (st) => {
   if (!st) return "";
-  const ok = ["shopify", "page", "worker"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
-  const ng = ["noData", "blocked", "fail"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
+  const ok = ["shopify", "page", "worker", "wayback"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
+  const ng = ["noData", "blocked", "fail", "wbNone", "wbReject", "wbErr"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
   return [ok.length ? "성공 " + ok.join("·") : "", ng.length ? "실패 " + ng.join("·") : ""].filter(Boolean).join(" / ");
 };
 const gaps = done.filter((r) => r.total).sort((a, z) => (a.have / a.total) - (z.have / z.total));
@@ -639,6 +867,32 @@ if (gaps.length) {
     md += `| ${r.brand} | ${open} | ${r.have}/${r.total} (${cp}%) | ${r.haveColor || 0}/${r.total} (${cl}%) | 혼용률 +${r.addComp || 0} 컬러 +${r.addColor || 0} | ${pathStr(r.stat)} |\n`;
   }
   md += `\n`;
+}
+// ── 웹 아카이브 층 ─────────────────────────────────────────────────
+if (WAYBACK) {
+  const tried = done.filter((r) => r.tried);
+  md += `## 웹 아카이브 층\n\n`;
+  md += `조회 ${wb.used}/${WAYBACK_MAX}개(브랜드당 ${WAYBACK_PER_BRAND}) · 요청 ${wb.calls}회 · 429 ${wb.r429} · 5xx ${wb.r5xx} · ` +
+    `네트워크 오류 ${wb.neterr} · 쿼리 포함 주소로만 찾은 것 ${wb.withQuery}` +
+    (wb.off ? ` · **이 실행 도중 층을 껐다: ${wb.offWhy}**` : "") + `\n\n`;
+  md += `| 브랜드 | 시도 상품 | 혼용률(지금 페이지) | 혼용률(보관본) | 보관본 없음 | 보관본 거부 | 주소 거부 | 아카이브 오류 | 상한·최근 물음 | 걸린 시간 |\n` +
+    `|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n`;
+  for (const r of tried.sort((a, z) => (z.tried || 0) - (a.tried || 0))) {
+    const st = r.stat || {};
+    md += `| ${r.brand} | ${r.tried} | ${r.liveComp || 0} | ${r.arcComp || 0} | ${st.wbNone || 0} | ${st.wbReject || 0} | ` +
+      `${st.wbUrl || 0} | ${st.wbErr || 0} | ${st.wbSkip || 0} | ${Math.round((r.ms || 0) / 1000)}s |\n`;
+  }
+  md += `\n사유별 개수: ${Object.entries(wb.reasons).map(([k, v]) => `${k} ${v}`).join(" · ") || "없음"}\n\n`;
+  const exKeys = Object.keys(wb.examples);
+  if (exKeys.length) {
+    md += `<details><summary>사유별 예시(최대 5개)</summary>\n\n`;
+    for (const k of exKeys) {
+      md += `**${k}**\n\n`;
+      for (const e of wb.examples[k]) md += `- ${e.brand} — ${e.url}${e.extra ? ` — ${e.extra.replace(/\|/g, "/")}` : ""}\n`;
+      md += `\n`;
+    }
+    md += `</details>\n\n`;
+  }
 }
 const errs = rows.filter((r) => r.error);
 if (errs.length) {

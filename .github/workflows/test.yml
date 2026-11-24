@@ -52,6 +52,8 @@ jobs:
         run: node scripts/test-enrich-merge.mjs
       - name: Run enrich dry-run test (no writes · BRANDS filter)
         run: node scripts/test-enrich-dry.mjs
+      - name: Run wayback guard test (category/listing false positives)
+        run: node scripts/test-wayback-guard.mjs
       - name: Run diagnose target selection test
         run: node scripts/test-diagnose-select.mjs
       - name: Run research app search/segment/basket test
@@ -65,6 +67,7 @@ jobs:
           node --check chrome-extension/popup.js
           node --check scripts/browser-collect.mjs
           node --check scripts/enrich-comp.mjs
+          node --check scripts/wayback-guard.mjs
           node --check scripts/diagnose-page.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js

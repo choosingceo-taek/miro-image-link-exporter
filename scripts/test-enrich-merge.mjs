@@ -114,6 +114,9 @@ async function scenario(label, env) {
   const run = spawn(process.execPath, [join(ROOT, "scripts/enrich-comp.mjs")], {
     env: {
       ...process.env, WORKER_URL: base, WORKER_TOKEN: "test", BRAND_POOL: "1",
+      // 웹 아카이브 층은 끈다 — 켜 두면 진짜 archive.org 로 나간다. 그 층은
+      // scripts/test-enrich-wayback.mjs 가 가짜 아카이브로 따로 본다.
+      WAYBACK: "0",
       NO_PROXY: "localhost,127.0.0.1", no_proxy: "localhost,127.0.0.1", ...env,
     },
     stdio: ["ignore", "pipe", "pipe"],
