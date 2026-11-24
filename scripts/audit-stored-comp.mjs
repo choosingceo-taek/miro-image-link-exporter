@@ -133,7 +133,13 @@ export function sigC(items) {
   for (const p of withComp) { const k = normComp(p.comp); const e = cnt.get(k) || { comp: p.comp, n: 0 }; e.n++; cnt.set(k, e); }
   const top = [...cnt.values()].sort((a, z) => z.n - a.n)[0];
   const share = top.n / withComp.length;
-  return share >= C_RULE.SHARE ? { comp: top.comp, n: top.n, of: withComp.length, share } : null;
+  if (share < C_RULE.SHARE) return null;
+  // 그 값을 가진 상품 중 이름이 그 섬유를 말하는 것 — 낮으면(가죽 100% 인데 이름에 leather 가 거의 없음) 조각일 공산이 크다.
+  const same = withComp.filter((p) => normComp(p.comp) === normComp(top.comp));
+  const fibs = parseComp(top.comp).flat().map((c) => c.fib.toLowerCase());
+  const named = same.filter((p) => fibs.some((f) => String(p.name || "").toLowerCase().includes(f))).length;
+  return { comp: top.comp, n: top.n, of: withComp.length, share, named,
+    examples: same.slice(0, 12).map((p) => ({ name: p.name, url: p.url })) };
 }
 
 // D. 상품명과 어긋남 — nameCheck(⚠ 검사)의 이름 관련 지적만(‘두 줄’은 A·B 에서 따로 본다).
@@ -382,7 +388,7 @@ function rawReport(a, verified) {
     for (const f of b.B) md += `- **${b.brand}** \`${f.line}\` — 여러 줄 ${f.multi}개 중 ${f.n}개(${Math.round(f.share * 100)}%) · 짝 ${f.partners}종${f.lining ? " · 흔한 안감일 수 있음" : ""}\n${(f.examples || []).slice(0, 4).map((u) => "  - " + u).join("\n")}\n`;
   }
   md += `\n## C. 한 값이 독차지 (혼용률 ${C_RULE.MIN}개 이상 · ${C_RULE.SHARE * 100}% 이상) — 확인용\n\n`;
-  for (const b of B.filter((x) => x.C).sort((x, y) => y.C.share - x.C.share)) md += `- **${b.brand}** \`${esc(b.C.comp)}\` ${b.C.n}/${b.C.of} (${Math.round(b.C.share * 100)}%)\n`;
+  for (const b of B.filter((x) => x.C).sort((x, y) => y.C.share - x.C.share)) md += `- **${b.brand}** \`${esc(b.C.comp)}\` ${b.C.n}/${b.C.of} (${Math.round(b.C.share * 100)}%) · 이름에 그 섬유가 있는 상품 ${b.C.named}\n${(b.C.examples || []).slice(0, 5).map((p) => `  - ${esc(p.name).slice(0, 90)} — ${p.url}`).join("\n")}\n`;
   md += `\n## D. 상품명과 어긋남\n\n`;
   for (const b of bySig("D")) md += `- **${b.brand}** ${b.nD} / 혼용률 ${b.comp}\n${ex(b.D, 5, (p) => row(p, p.why.join(" · ")))}\n`;
   md += `\n## E. 불가능한 값\n\n`;
