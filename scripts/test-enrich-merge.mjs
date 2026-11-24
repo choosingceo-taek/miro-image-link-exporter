@@ -220,7 +220,8 @@ try {
     }
     if (!existsSync(REPORT) || !/TestBrand/.test(readFileSync(REPORT, "utf8"))) fail(`[${L}] 리포트에 브랜드 줄이 없다`);
     else if (!/미표기 1 .*껍데기 1/.test(readFileSync(REPORT, "utf8"))) fail(`[${L}] 리포트 경로 열에 미표기·껍데기 수가 없다`);
-    else ok("리포트 경로 열: 미표기 1 · 껍데기 1");
+    else if (!/## 껍데기로 센 페이지 예 \(1\)[\s\S]*Capilene Cool Merino Shirt[\s\S]*Worn Wear/.test(readFileSync(REPORT, "utf8"))) fail(`[${L}] 리포트에 껍데기 예가 없다`);
+    else ok("리포트: 경로 열 미표기 1 · 껍데기 1, 껍데기 예(제목·글 앞부분)");
   }
 
   // ── 시나리오 2: NEED_FIELDS=comp,color — 예전 동작(컬러도 목표) ──

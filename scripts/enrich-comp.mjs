@@ -268,6 +268,15 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
     };
     if (has(out)) { stat.page++; return merge(out, typeof partial === "undefined" ? null : partial); }
   }
+  // 여기까지 왔으면 페이지에서 아무것도 못 얻었다. 껍데기였으면 세고, 무엇이 왔는지 몇 개 남긴다.
+  if (shell) {
+    stat.shell++;
+    if (shellEx.length < 12) {
+      const title = (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1];
+      const vis = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+      shellEx.push({ url, name, head: (String(title).trim() + " · " + vis).slice(0, 200) });
+    }
+  }
   // ③ Worker 우회 — GitHub Actions IP 는 많은 쇼핑몰에서 403 이지만 Cloudflare IP 는
   //    통과하는 경우가 많다. Worker 안에서 Shopify JSON → 직접 → 리더까지 다시 시도한다.
   let viaWorker = null;
@@ -301,7 +310,6 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
   // 그 사실을 남긴다 — 차단이면 readOk 가 false 라 표시하지 않는다.
   if (typeof partial === "undefined") {
     if (readOk && !shell) return { none: true };
-    if (shell) stat.shell++;
     return { blocked: true };
   }
   return partial;
@@ -597,6 +605,8 @@ let budget = TOTAL;
 const rows = [];
 // 지금 페이지에서 읽은 혼용률이 이미 있던 값과 다른 상품 — 리포트에 남겨 사람이 본다(applyLiveComp).
 const compConflicts = [];
+// 껍데기(차단 화면은 아닌데 상품명이 화면 글에 없음)로 센 페이지의 예 — 리포트에 남긴다.
+const shellEx = [];
 // 같은 브랜드가 1차·2차 두 번 처리되므로 결과를 한 줄로 합친다.
 const rowBySite = new Map();
 const addRow = (r) => {
@@ -970,6 +980,12 @@ if (gaps.length) {
     const open = cp >= GATE && cl >= GATE ? "✅" : "—";
     md += `| ${r.brand} | ${open} | ${r.have}/${r.total} (${cp}%) | ${r.haveColor || 0}/${r.total} (${cl}%) | 혼용률 +${r.addComp || 0} 컬러 +${r.addColor || 0} | ${pathStr(r.stat)} |\n`;
   }
+  md += `\n`;
+}
+if (shellEx.length) {
+  md += `## 껍데기로 센 페이지 예 (${shellEx.length})\n\n`;
+  md += `차단 화면은 아닌데 카탈로그 상품명이 화면 글에 없어 '사이트 미표기(none)'로 적지 않은 페이지.\n\n`;
+  for (const x of shellEx) md += `- ${String(x.name).slice(0, 60)} — ${x.url}\n  > ${x.head.replace(/\|/g, "/")}\n`;
   md += `\n`;
 }
 if (compConflicts.length) {
