@@ -1,4 +1,4 @@
-# 무료 크롤링 엔진 비교 (2026-11-24T05:40Z)
+# 무료 크롤링 엔진 비교 (2026-11-24T06:01Z)
 
 GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔진마다 열어 본 결과입니다. 저장은 하지 않았습니다.
 엔진마다 따로 프로세스로 돌려, 한 엔진이 죽어도 다른 엔진 결과는 남습니다.
@@ -7,19 +7,19 @@ GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔�
 
 | 엔진 | ✅ | 🟡 | ⛔ | ❌ | 상품 89쪽 ✅·🟡 | 목록 0쪽 ✅·🟡 | 실행 |
 |---|---:|---:|---:|---:|---:|---:|---|
-| impit | 37 | 45 | 7 | 0 | 37·45 | 0·0 | 정상 · 89쪽 · 33s |
-| firefox | 35 | 46 | 8 | 0 | 35·46 | 0·0 | 정상 · 89쪽 · 693s |
-| wayback | 7 | 4 | 0 | 78 | 7·4 | 0·0 | 정상 · 89쪽 · 129s |
+| impit | 30 | 52 | 7 | 0 | 30·52 | 0·0 | 정상 · 89쪽 · 30s |
+| firefox | 34 | 47 | 8 | 0 | 34·47 | 0·0 | 정상 · 89쪽 · 680s |
+| wayback | 9 | 4 | 0 | 76 | 9·4 | 0·0 | 정상 · 89쪽 · 109s |
 
 ## 페이지별
 
 | 구분 | 브랜드 | impit | firefox | wayback |
 |---|---|:-:|:-:|:-:|
 | 상품 | [splendid.com](https://splendid.com/products/louisa-long-sleeve-tee) | 🟡 | ✅ | ❌ |
-| 상품 | [splendid.com](https://splendid.com/products/lainey-lace-trim-short-sleeve-tee) | 🟡 | ✅ | ❌ |
-| 상품 | [splendid.com](https://splendid.com/products/kacey-striped-v-neck-tee) | 🟡 | 🟡 | 🟡 |
-| 상품 | [splendid.com](https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee) | 🟡 | ✅ | 🟡 |
-| 상품 | [www.stories.com](https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/) | ⛔ | ⛔ | ❌ |
+| 상품 | [splendid.com](https://splendid.com/products/lainey-lace-trim-short-sleeve-tee) | 🟡 | 🟡 | ❌ |
+| 상품 | [splendid.com](https://splendid.com/products/kacey-striped-v-neck-tee) | 🟡 | ✅ | 🟡 |
+| 상품 | [splendid.com](https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee) | 🟡 | 🟡 | 🟡 |
+| 상품 | [www.stories.com](https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/) | ⛔ | ⛔ | ✅ |
 | 상품 | [www.stories.com](https://www.stories.com/en-us/clothing/knitwear/) | ✅ | ✅ | 🟡 |
 | 상품 | [www.stories.com](https://www.stories.com/en-us/product/rib-knit-wool-boatneck-top-bright-pink-1286682006/) | ⛔ | ⛔ | ❌ |
 | 상품 | [www.stories.com](https://www.stories.com/en-us/product/box-pleat-tank-top-white-1358088003/) | ⛔ | ⛔ | ✅ |
@@ -60,21 +60,21 @@ GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔�
 | 상품 | [www.goodamerican.com](https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-carmine) | ✅ | ✅ | ❌ |
 | 상품 | [www.goodamerican.com](https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-espresso) | ✅ | ⛔ | ❌ |
 | 상품 | [www.goodamerican.com](https://www.goodamerican.com/products/the-better-than-leather-trouser-short-black) | ✅ | ⛔ | ❌ |
-| 상품 | [splendid.com](https://splendid.com/products/stella-linen-trim-tank) | 🟡 | ✅ | ❌ |
-| 상품 | [splendid.com](https://splendid.com/products/lydia-linen-mini-dress) | 🟡 | 🟡 | ❌ |
+| 상품 | [splendid.com](https://splendid.com/products/stella-linen-trim-tank) | 🟡 | 🟡 | ❌ |
+| 상품 | [splendid.com](https://splendid.com/products/lydia-linen-mini-dress) | 🟡 | ✅ | ❌ |
 | 상품 | [splendid.com](https://splendid.com/products/stella-linen-midi-dress) | 🟡 | ✅ | ❌ |
 | 상품 | [splendid.com](https://splendid.com/products/stella-linen-mini-dress) | 🟡 | ✅ | ❌ |
 | 상품 | [alcltd.com](https://alcltd.com/products/adela-top-black) | ✅ | ✅ | ❌ |
 | 상품 | [alcltd.com](https://alcltd.com/collections/tops/products/alex-top-midnight) | ✅ | ✅ | ❌ |
 | 상품 | [alcltd.com](https://alcltd.com/collections/tops/products/alex-top-medium-heather-grey) | ✅ | ✅ | ❌ |
 | 상품 | [alcltd.com](https://alcltd.com/products/adela-dress-black) | ✅ | ✅ | ❌ |
-| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html) | ✅ | 🟡 | ❌ |
-| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html) | ✅ | 🟡 | ❌ |
-| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html) | ✅ | 🟡 | ❌ |
-| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html) | ✅ | 🟡 | ❌ |
-| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html) | ✅ | 🟡 | ❌ |
-| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html) | ✅ | 🟡 | ❌ |
-| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html) | ✅ | 🟡 | ❌ |
+| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html) | 🟡 | 🟡 | ❌ |
+| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html) | 🟡 | 🟡 | ❌ |
+| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html) | 🟡 | 🟡 | ❌ |
+| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html) | 🟡 | 🟡 | ❌ |
+| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html) | 🟡 | 🟡 | ❌ |
+| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html) | 🟡 | 🟡 | ❌ |
+| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html) | 🟡 | 🟡 | ❌ |
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html) | 🟡 | 🟡 | ❌ |
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-long-sleeve-tee/763895.html) | 🟡 | 🟡 | ❌ |
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-elbow-sleeve-tee/760842.html) | 🟡 | 🟡 | ❌ |
@@ -90,7 +90,7 @@ GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔�
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/perfect-tank/586193.html) | 🟡 | 🟡 | ❌ |
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-apron-neck-tank-top/751426.html) | 🟡 | 🟡 | ❌ |
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-scoop-neck-tank-top/760847.html) | 🟡 | 🟡 | ❌ |
-| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html) | 🟡 | 🟡 | ❌ |
+| 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html) | 🟡 | 🟡 | ✅ |
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html) | 🟡 | 🟡 | ❌ |
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/750665.html) | 🟡 | 🟡 | ❌ |
 | 상품 | [www.loft.com](https://www.loft.com/clothing/tops/catl000011/striped-side-button-tank-top/781756.html) | 🟡 | 🟡 | ✅ |
@@ -113,20 +113,20 @@ GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔�
   - wayback: ❌ 보관본 없음
 - splendid.com — https://splendid.com/products/lainey-lace-trim-short-sleeve-tee
   - impit: 🟡 글 943자
-  - firefox: ✅ Cotton 60% / Polyester 40%
+  - firefox: 🟡 글 5801자
   - wayback: ❌ 보관본 없음
 - splendid.com — https://splendid.com/products/kacey-striped-v-neck-tee
   - impit: 🟡 글 884자
-  - firefox: 🟡 글 7009자
+  - firefox: ✅ Cotton 100%
   - wayback: 🟡 20260624 보관본 · 글 896자
 - splendid.com — https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee
   - impit: 🟡 글 955자
-  - firefox: ✅ Viscose 68% / Polyester 29% / Elastane 3%
+  - firefox: 🟡 글 7216자
   - wayback: 🟡 20260406 보관본 · 글 963자
 - www.stories.com — https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/
   - impit: ⛔ HTTP 403 Access Denied
   - firefox: ⛔ HTTP 403 Access Denied
-  - wayback: ❌ 보관본 없음
+  - wayback: ✅ 20260517 보관본 · Cotton 100%
 - www.stories.com — https://www.stories.com/en-us/clothing/knitwear/
   - impit: ✅ Wool 100%
   - firefox: ✅ Wool 100%
@@ -289,11 +289,11 @@ GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔�
   - wayback: ❌ 보관본 없음
 - splendid.com — https://splendid.com/products/stella-linen-trim-tank
   - impit: 🟡 글 904자
-  - firefox: ✅ Linen 100%
+  - firefox: 🟡 글 6494자
   - wayback: ❌ 보관본 없음
 - splendid.com — https://splendid.com/products/lydia-linen-mini-dress
   - impit: 🟡 글 905자
-  - firefox: 🟡 글 6431자
+  - firefox: ✅ Cotton 100%
   - wayback: ❌ 보관본 없음
 - splendid.com — https://splendid.com/products/stella-linen-midi-dress
   - impit: 🟡 글 909자
@@ -320,31 +320,31 @@ GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔�
   - firefox: ✅ Triacetate 70% / Polyester 30% / Polyester 95% / Elastane 5%
   - wayback: ❌ 보관본 없음
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html
-  - impit: ✅ Cotton 60% / Modal 40%
+  - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자
   - wayback: ❌ 보관본 없음
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html
-  - impit: ✅ Modal 94% / Elastane 6%
+  - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자
   - wayback: ❌ 보관본 없음
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html
-  - impit: ✅ Cotton 92% / Elastane 8%
+  - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자
   - wayback: ❌ 보관본 없음
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html
-  - impit: ✅ Cotton 60% / Modal 40%
+  - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자
   - wayback: ❌ 보관본 없음
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html
-  - impit: ✅ Cotton 92% / Elastane 8%
+  - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자
   - wayback: ❌ 보관본 없음
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html
-  - impit: ✅ Cotton 60% / Modal 40%
+  - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자
   - wayback: ❌ 보관본 없음
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html
-  - impit: ✅ Cotton 100%
+  - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자
   - wayback: ❌ 보관본 없음
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html
@@ -410,7 +410,7 @@ GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔�
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html
   - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자
-  - wayback: ❌ 보관본 없음
+  - wayback: ✅ 20260413 보관본 · Modal 94% / Elastane 6%
 - www.loft.com — https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html
   - impit: 🟡 글 16233자
   - firefox: 🟡 글 539자

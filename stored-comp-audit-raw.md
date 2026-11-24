@@ -1,9 +1,9 @@
-# 저장된 혼용률 점검 — 원자료 (2026-11-24T05:26Z)
+# 저장된 혼용률 점검 — 원자료 (2026-11-24T05:47Z)
 
 읽기만 했다(쓰기 요청은 스크립트가 막는다). 사람이 읽는 정리는 docs/stored-comp-audit.md.
 
-- 브랜드(카탈로그) 134개 · 상품 38847 · 혼용률이 보이는 상품 28218 (오늘의 validComp 통과 28181)
-- 출처: 카탈로그 값 397 · 오버레이 값 27821 (그중 보관본 via=wayback 0)
+- 브랜드(카탈로그) 134개 · 상품 38847 · 혼용률이 보이는 상품 28227 (오늘의 validComp 통과 28190)
+- 출처: 카탈로그 값 397 · 오버레이 값 27830 (그중 보관본 via=wayback 0)
 - [object …] 등 화면엔 빈 칸인 값 0 · 카탈로그 값이 다른 오버레이 값을 가림 29 · none 2215
 - 여러 줄 혼용률 2016
 - A 706 · B 브랜드 29 · C 브랜드 11 · D 151 · E 158 · F 125
@@ -34,7 +34,7 @@
   - 2-in-1 V-Neck Cami Top — `Silk 100% / Viscose 100%` — overlay — https://www.meandem.com/us/silk-v-neck-camisole-top-tie-ruby-red
   - Lace Trim Slim Knit Vest — `Cashmere 100% ‖ Polyester 100%` — overlay — https://www.meandem.com/us/brushed-cashmere-lace-trim-slim-knit-vest-black
   - Fluid Evening Tank Top — `Silk 100% / Viscose 100%` — overlay — https://www.meandem.com/us/silk-satin-tank-top-light-cream
-- **Tuckernuck** 19 / 혼용률 340
+- **Tuckernuck** 19 / 혼용률 341
   - Blue Teagan Eyelet Short Sleeve Top — `Cotton 100% ‖ Polyester 100%` — overlay — https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top
   - Navy Paisley Ellery Top — `Viscose 100% ‖ Polyester 100%` — overlay — https://tnuck.com/products/navy-paisley-ellery-top
   - Black and Limestone Alyssa Blouse — `Silk 100% ‖ Polyester 100%` — overlay — https://tnuck.com/products/black-and-limestone-alyssa-blouse
@@ -46,7 +46,7 @@
   - The Moment Volume Blouse Midnight Moss Extended Sizing — `Viscose 100% / Polyester 100%` — overlay — https://www.sanctuaryclothing.com/products/the-moment-volume-blouse-midnight-moss-extended-sizing
   - The Moment Volume Blouse Midnight Moss — `Viscose 100% / Polyester 100%` — overlay — https://www.sanctuaryclothing.com/products/the-moment-volume-blouse-midnight-moss
   - Sheer Elegance Volume Blouse Verde Boheme — `Viscose 100% / Polyester 100%` — overlay — https://www.sanctuaryclothing.com/products/sheer-elegance-volume-blouse-verde-boheme
-- **Shopbop** 18 / 혼용률 445
+- **Shopbop** 18 / 혼용률 447
   - Designer Boutique — `Silk 100% ‖ Polyester 100%` — overlay — https://www.shopbop.com/alyssa-blouse-veronica-beard/vp/v=1/1514383149.htm
   - 1548215989.htm — `Polyurethane 100% ‖ Polyester 100%` — overlay — https://www.shopbop.com/nora-vegan-leather-fringe-top/vp/v=1/1548215989.htm
   - 1579353217.htm — `Cotton 100% ‖ Viscose 100%` — overlay — https://www.shopbop.com/kathleen-slvless-button-down-top/vp/v=1/1579353217.htm
@@ -82,7 +82,7 @@
   - Black sheer pants with elastic waistband and wide legs worn with a sleeveless black top. — `Silk 100% / Polyester 100%` — overlay — https://lalignenyc.com/products/ayla-pant-black
   - Morgan Dress — `Silk 100% ‖ Polyester 100%` — overlay — https://lalignenyc.com/products/morgan-dress-ultramarine-smoke
   - Livia Dress — `Silk 100% / Polyester 100%` — overlay — https://lalignenyc.com/products/livia-dress-desert-floral
-- **CCC** 11 / 혼용률 752
+- **CCC** 11 / 혼용률 755
   - 100% Cotton Borg-Lined Zip-Through Hoodie in Navy — `Cotton 100% ‖ Polyester 100%` — overlay — https://www.crewclothing.co.uk/products/100-cotton-borg-lined-zip-through-hoodie-in-navy
   - 100% Cotton Borg-Lined Zip-Through Hoodie in Pink — `Cotton 100% ‖ Polyester 100%` — overlay — https://www.crewclothing.co.uk/products/100-cotton-borg-lined-zip-through-hoodie-in-pink
   - Henley Sleeveless Boat-Neck Dress in Blue Floral — `Viscose 100% ‖ Polyester 100%` — overlay — https://www.crewclothing.co.uk/products/henley-sleeveless-boat-neck-dress-in-blue-floral
@@ -190,7 +190,7 @@
   - Good Classic Bootcut Faux Leather Pants Black001 — `Polyurethane 100% ‖ Polyester 100%` — overlay — https://www.goodamerican.com/products/good-classic-bootcut-faux-leather-pants-black001
   - GOOD SKATE FAUX LEATHER PANTS / BLACK001 — `Polyurethane 100% / Polyester 100%` — overlay — https://www.goodamerican.com/en-az/products/good-skate-faux-leather-pants-black001
   - GOOD CLASSIC BOOTCUT FAUX LEATHER PANTS / BLACK001 — `Polyurethane 100% / Polyester 100%` — overlay — https://www.goodamerican.com/en-az/products/good-classic-bootcut-faux-leather-pants-black001
-- **Nike** 6 / 혼용률 399
+- **Nike** 6 / 혼용률 402
   - Jordan Sport Heritage Women's Dri-FIT Graphic T-Shirt — `Polyester 100% ‖ Cotton 100%` — overlay — https://www.nike.com/t/jordan-sport-heritage-womens-dri-fit-graphic-t-shirt-x77LkcGs/IO8722-100
   - Nike Sportswear Women's Loose Midi Track Skirt — `Polyester 100% ‖ Cotton 100%` — overlay — https://www.nike.com/t/sportswear-womens-loose-midi-track-skirt-fhHiwKLE/IO3378-010
   - Nike Sportswear Women's Loose Bubble Skirt — `Nylon 100% ‖ Polyester 100%` — overlay — https://www.nike.com/t/sportswear-womens-loose-bubble-skirt-AVZYxR8Q/IQ0061-010
@@ -458,17 +458,72 @@
 
 ## C. 한 값이 독차지 (혼용률 30개 이상 · 60% 이상) — 확인용
 
-- **Coldwatercreek** `Cotton 100%` 60/66 (91%)
-- **Xirena** `Cotton 100%` 267/319 (84%)
-- **Boldest** `Cashmere 100%` 106/137 (77%)
-- **Goldie** `Cotton 100%` 105/138 (76%)
-- **Aritzia** `Leather 100%` 358/472 (76%)
-- **Z Supply** `Cotton 100%` 160/215 (74%)
-- **Frank & Eileen** `Cotton 100%` 313/440 (71%)
-- **Nation LTD** `Cotton 100%` 354/524 (68%)
-- **Splendid** `Cotton 100% ‖ Cashmere 100%` 231/344 (67%)
-- **Lilla P** `Cotton 100%` 108/168 (64%)
-- **L.L bean** `Cotton 100%` 186/293 (63%)
+- **Coldwatercreek** `Cotton 100%` 60/66 (91%) · 이름에 그 섬유가 있는 상품 4
+  - Prancing Reindeer Embroidered Tee — https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/
+  - Gilded Bow Ornament Tee — https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/
+  - #BestCotton™ Whispering Pines Tee — https://www.coldwatercreek.com/bestcotton-whispering-pines-tee/25078/
+  - Friendly Fir Embroidered Tee — https://www.coldwatercreek.com/friendly-fir-embroidered-tee/24077/
+  - To the Point Knit Tunic — https://www.coldwatercreek.com/to-the-point-knit-tunic/17768/
+- **Xirena** `Cotton 100%` 267/319 (84%) · 이름에 그 섬유가 있는 상품 0
+  - X2605 Tee Chocolate Cherry Troy Tee Chocolate Cherry Troy Tee — https://www.xirena.com/products/chocolate-cherry-troy-tee
+  - X2605 Tee Chocolate Cherry Terrance Tee Chocolate Cherry Terrance Tee — https://www.xirena.com/products/chocolate-cherry-terrance-tee
+  - X2605 Tee Canyon Lucas Tee Canyon Lucas Tee — https://www.xirena.com/products/canyon-lucas-tee
+  - X2605 Tee Canyon Terrance Tee Canyon Terrance Tee — https://www.xirena.com/products/canyon-terrance-tee
+  - X2605 Top Dusty Moss Lucas Top Dusty Moss Lucas Top — https://www.xirena.com/products/dusty-moss-lucas-tee
+- **Boldest** `Cashmere 100%` 106/137 (77%) · 이름에 그 섬유가 있는 상품 0
+  - 와플 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX27116BKS
+  - 와플 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX27116GRS
+  - 라이트 플리스 반집업 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX26516YEB
+  - 라이트 플리스 반집업 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX26516BKS
+  - 라이트 플리스 터틀넥 긴팔 티셔츠 — https://www.kolonmall.com/Brands/boldest/Product/2ATAX26515BKS
+- **Goldie** `Cotton 100%` 105/138 (76%) · 이름에 그 섬유가 있는 상품 0
+  - Reversible Double Layer Tee — https://www.goldietees.com/products/reversible-double-layer-tee
+  - Reversible Long Sleeve Double Layer Tee — https://www.goldietees.com/products/reversible-long-sleeve-double-layer-tee
+  - Classic Layered Tee — https://www.goldietees.com/products/classic-layered-tee
+  - Limited Edition Jersey Andie Tee — https://www.goldietees.com/products/limited-edition-jersey-andie-tee
+  - Avery Tank — https://www.goldietees.com/products/avery-tank
+- **Aritzia** `Leather 100%` 358/472 (76%) · 이름에 그 섬유가 있는 상품 1
+  - thesuperpuff — https://www.aritzia.com/intl/en/clothing/coats-jackets/puffers/thesuperpuff
+  - polar fleece — https://www.aritzia.com/intl/en/clothing/polar-fleece
+  - holiday party dressing — https://www.aritzia.com/intl/en/shop-by/event-dressing/holiday-party-dressing
+  - sweat pants — https://www.aritzia.com/intl/en/clothing/sweatsuit-sets/sweat-pants
+  - workout jackets — https://www.aritzia.com/intl/en/clothing/womens-workout-clothes/workout-jackets
+- **Z Supply** `Cotton 100%` 160/215 (74%) · 이름에 그 섬유가 있는 상품 3
+  - Sloane Cotton Jersey Tank — https://zsupplyclothing.com/products/sloane-cotton-jersey-tank
+  - Solene Luxe Satin Tee — https://zsupplyclothing.com/products/solene-luxe-top
+  - Dazzle Sequin Tee — https://zsupplyclothing.com/products/dazzle-tee
+  - Caprice Luxe Lace Cami — https://zsupplyclothing.com/products/caprice-luxe-lace-cami
+  - After Dark Lace Trim Bodysuit — https://zsupplyclothing.com/products/after-dark-bodysuit
+- **Frank & Eileen** `Cotton 100%` 313/440 (71%) · 이름에 그 섬유가 있는 상품 14
+  - WAVERLY Pine, Vintage Jersey — https://www.frankandeileen.com/products/waverly-pine-vintage-jersey
+  - ELLA Holly, Vintage Jersey — https://www.frankandeileen.com/products/ella-holly-vintage-jersey
+  - PERRY Clay, Vintage Jersey — https://www.frankandeileen.com/products/perry-clay-vintage-jersey
+  - WAVERLY Classic Navy, Vintage Jersey — https://www.frankandeileen.com/products/waverly-classic-navy-vintage-jersey
+  - PATRICK Classic Navy, Vintage Jersey — https://www.frankandeileen.com/products/patrick-classic-navy-vintage-jersey
+- **Nation LTD** `Cotton 100%` 354/524 (68%) · 이름에 그 섬유가 있는 상품 0
+  - Estella Top — https://nation.la/products/estella-top-layered-stripe
+  - Olive Top — https://nation.la/products/olive-top-blush
+  - Malgo Top — https://nation.la/products/malgo-top-tartan-plaid
+  - Erin Cami — https://nation.la/products/erin-cami-white
+  - Marlowe Long Sleeve — https://nation.la/products/marlowe-long-sleeve-jet-black
+- **Splendid** `Cotton 100% ‖ Cashmere 100%` 231/344 (67%) · 이름에 그 섬유가 있는 상품 0
+  - Louisa Long Sleeve Tee — https://splendid.com/products/louisa-long-sleeve-tee
+  - Lainey Lace Trim Short Sleeve Tee — https://splendid.com/products/lainey-lace-trim-short-sleeve-tee
+  - Kacey Striped V-Neck Tee — https://splendid.com/products/kacey-striped-v-neck-tee
+  - Leopard Bamboo Blend Long Sleeve Tee — https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee
+  - Bamboo Blend Quarter Sleeve Tee — https://splendid.com/products/bamboo-blend-quarter-sleeve-tee
+- **Lilla P** `Cotton 100%` 108/168 (64%) · 이름에 그 섬유가 있는 상품 0
+  - Vintage Long Sleeve V-Neck — https://lillap.com/products/vintage-long-sleeve-v-neck-pa3666
+  - Vintage Long Sleeve Polo — https://lillap.com/products/vintage-long-sleeve-polo-pa3665
+  - Vintage Short Sleeve Crew — https://lillap.com/products/vintage-short-sleeve-crew-pa3664
+  - Vintage Easy Long Sleeve Crew — https://lillap.com/products/vintage-easy-long-sleeve-crew-pa3663
+  - Vintage Kangaroo Pocket Drop Shoulder — https://lillap.com/products/vintage-kangaroo-pocket-drop-shoulder-pa3615
+- **L.L bean** `Cotton 100%` 186/293 (63%) · 이름에 그 섬유가 있는 상품 30
+  - Men's Carefree Unshrinkable Tees — https://global.llbean.com/llb/shop/511742/
+  - Men's Bean Boots — https://global.llbean.com/llb/shop/1/
+  - Women's Quilted Field Jacket — https://global.llbean.com/llb/shop/2/
+  - Kids' Fleece Lined Flannel Shirt — https://global.llbean.com/llb/shop/3/
+  - Stowaway Ultralight Cinch Pack — https://global.llbean.com/llb/shop/29/
 
 ## D. 상품명과 어긋남
 
@@ -563,7 +618,7 @@
   - Active Pique Par Polo Short Sleeve in Cotton Candy Gingham product link — `Polyester 84% / Elastane 16%` — overlay — 이름에 cotton, 혼용률에 없음 — https://addisonbay.com/products/par-golf-polo?variant=42415287238738
 - **Citizens of Humanity** 1 / 혼용률 162
   - Person wearing silk brown shirt and pants on a grey background — `Acetate 86% / Polyester 14%` — overlay — 이름에 silk, 혼용률에 없음 — https://citizensofhumanity.com/products/andira-pull-on-pant-cocoa
-- **CCC** 1 / 혼용률 752
+- **CCC** 1 / 혼용률 755
   - Bernice Linen-Cotton Blouse in Navy & White Stripes — `Linen 55% / Viscose 45%` — overlay — 이름에 cotton, 혼용률에 없음 — https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-shirts-and-blouses/linencotton-blouse-navy-wyc024/
 - **Evereve** 1 / 혼용률 420
   - Joelle Stretch Linen Wide Leg Pant — `Hemp 31% / Cotton 29% / Polyester 23% / Viscose 15% / Elastane 2%` — overlay — 이름에 linen, 혼용률에 없음 — https://evereve.com/products/joelle-stretch-linen-wide-leg-pant-stargazer
@@ -585,7 +640,7 @@
   - Noir Blossom Linen Mini Dress — `Cotton 100%` — overlay — 이름에 linen, 혼용률에 없음 — https://shopenglishfactory.com/products/flower-print-linen-mini-dress-ss2422d
 - **Splits59** 1 / 혼용률 161
   - Jordan Nylon Twill Tearaway — `Elastane 100%` — overlay — 이름에 nylon, 혼용률에 없음 — https://www.splits59.com/products/jordan-nylon-twill-tearaway
-- **Tuckernuck** 1 / 혼용률 340
+- **Tuckernuck** 1 / 혼용률 341
   - Olive Suede & Leather Mixed Media Martie Mini Dress — `Polyester 100%` — overlay — 이름에 leather, 혼용률에 없음 — https://tnuck.com/products/olive-suede-leather-mixed-media-martie-mini-dress
 
 ## E. 불가능한 값
@@ -767,6 +822,79 @@
 - **Ulla Johnson** 1
   - Ames Barrell Leg Trouser - Cinder — 보임 `Polyester 53% / Elastane 4%` · 가려짐 `Polyester 53% / Wool 43% / Elastane 4%` — https://ullajohnson.com/products/ames-barrell-leg-trouser-cinder
 
+## 저장 직전 가드(comp-guard.mjs)를 오늘 저장값에 적용했다면 — 미리보기
+
+규칙: 줄 — 여러 줄 값 8개 이상 · 같은 줄 80% 이상 · 짝 3종 이상 · 흔한 안감 제외 / 값 — 혼용률 30개 이상 · 한 값 60% 이상 · 그중 이름과 어긋남 10% 이상(최소 5개)
+
+- 걸리는 값 718개 · 브랜드 4개
+- **Aritzia** 358 / 혼용률 472 — 값 472개 중 358개(76%)가 "Leather 100%" · 그중 52개는 이름과 어긋남
+  - thesuperpuff — `Leather 100%` — https://www.aritzia.com/intl/en/clothing/coats-jackets/puffers/thesuperpuff
+  - polar fleece — `Leather 100%` — https://www.aritzia.com/intl/en/clothing/polar-fleece
+  - holiday party dressing — `Leather 100%` — https://www.aritzia.com/intl/en/shop-by/event-dressing/holiday-party-dressing
+- **Splendid** 255 / 혼용률 344 — 여러 줄 값 256개 중 242개(95%)에 같은 줄 "Cotton 100%" · 짝 10종 ; 여러 줄 값 256개 중 244개(95%)에 같은 줄 "Cashmere 100%" · 짝 14종
+  - Louisa Long Sleeve Tee — `Cotton 100% ‖ Cashmere 100%` — https://splendid.com/products/louisa-long-sleeve-tee
+  - Lainey Lace Trim Short Sleeve Tee — `Cotton 100% ‖ Cashmere 100%` — https://splendid.com/products/lainey-lace-trim-short-sleeve-tee
+  - Kacey Striped V-Neck Tee — `Cotton 100% ‖ Cashmere 100%` — https://splendid.com/products/kacey-striped-v-neck-tee
+- **&Other Stories** 57 / 혼용률 172 — 여러 줄 값 59개 중 57개(97%)에 같은 줄 "Cotton 100%" · 짝 6종
+  - seasonal accessories — `Cashmere 100% ‖ Cotton 100%` — https://www.stories.com/en-us/accessories/seasonal-accessories/
+  - popular pieces — `Cotton 100% ‖ Wool 100%` — https://www.stories.com/en-us/trending/popular-pieces/
+  - Boxy Cotton T-Shirt - White - Lookbook — `Cotton 100% / Linen 100%` — https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/
+- **Gymshark** 48 / 혼용률 272 — 여러 줄 값 49개 중 48개(98%)에 같은 줄 "Cotton 100%" · 짝 16종
+  - FeatherForm™ Scoop Neck T-Shirt — `Nylon 78% / Elastane 21% / Polyester 1% ‖ Cotton 100%` — https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-blue-aw26
+  - FeatherForm™ Scoop Neck T-Shirt — `Nylon 78% / Elastane 21% / Polyester 1% ‖ Cotton 100%` — https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-black-aw26
+  - FeatherForm™ Scoop Neck T-Shirt — `Nylon 78% / Elastane 21% / Polyester 1% ‖ Cotton 100%` — https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-teal-aw26
+
+가장 흔한 값이 30% 이상인 브랜드(값 규칙 문턱 확인용):
+
+| 브랜드 | 가장 흔한 값 | 비율 | 그중 이름과 어긋남 |
+|---|---|---:|---:|
+| Coldwatercreek | Cotton 100% | 60/66 (91%) | 0 (0%) |
+| Xirena | Cotton 100% | 267/319 (84%) | 0 (0%) |
+| Boldest | Cashmere 100% | 106/137 (77%) | 0 (0%) |
+| Goldie | Cotton 100% | 105/138 (76%) | 0 (0%) |
+| Aritzia | Leather 100% | 358/472 (76%) | 52 (15%) |
+| Z Supply | Cotton 100% | 160/215 (74%) | 2 (1%) |
+| Frank & Eileen | Cotton 100% | 313/440 (71%) | 0 (0%) |
+| Nation LTD | Cotton 100% | 354/524 (68%) | 0 (0%) |
+| Splendid | Cotton 100% ‖ Cashmere 100% | 231/344 (67%) | 6 (3%) |
+| Lilla P | Cotton 100% | 108/168 (64%) | 0 (0%) |
+| L.L bean | Cotton 100% | 186/293 (63%) | 5 (3%) |
+| Buck Mason | Cotton 100% | 34/57 (60%) | 0 (0%) |
+| Damson Madder | Cotton 100% | 213/386 (55%) | 0 (0%) |
+| Sundry | Cotton 100% | 129/235 (55%) | 0 (0%) |
+| Cotton citizen | Cotton 100% | 135/251 (54%) | 0 (0%) |
+| Bellerose | Cotton 100% | 83/164 (51%) | 0 (0%) |
+| Leset | Cotton 100% | 138/275 (50%) | 0 (0%) |
+| Arket | Cotton 100% | 87/174 (50%) | 0 (0%) |
+| Spanx | Modal 47% / Polyester 46% / Elastane 7% | 30/60 (50%) | 0 (0%) |
+| Velvet | Cotton 100% | 168/351 (48%) | 0 (0%) |
+| Faherty | Cotton 100% | 77/163 (47%) | 0 (0%) |
+| Oasis | Polyester 100% | 42/90 (47%) | 0 (0%) |
+| Wrap | Cotton 100% | 155/336 (46%) | 0 (0%) |
+| Seasalt cornwall | Cotton 100% | 123/267 (46%) | 0 (0%) |
+| Michael Stars | Cotton 100% | 76/165 (46%) | 0 (0%) |
+| Rag & bone | Cotton 100% | 108/239 (45%) | 1 (1%) |
+| Bassike | Cotton 100% | 138/307 (45%) | 0 (0%) |
+| Apiece Apart | Cotton 100% | 42/96 (44%) | 0 (0%) |
+| Whitestuff | Cotton 100% | 57/132 (43%) | 0 (0%) |
+| Beyond yoga | Polyester 87% / Elastane 13% | 74/172 (43%) | 0 (0%) |
+| Splits59 | Modal 95% / Elastane 5% | 69/161 (43%) | 0 (0%) |
+| The Great | Cotton 100% | 44/109 (40%) | 0 (0%) |
+| Madewell | Cotton 100% | 27/67 (40%) | 0 (0%) |
+| Citizens of Humanity | Cotton 100% | 63/162 (39%) | 0 (0%) |
+| James Perse | Cotton 100% | 196/521 (38%) | 0 (0%) |
+| vineyardvines | Cotton 100% | 203/546 (37%) | 0 (0%) |
+| CCC | Cotton 100% | 280/755 (37%) | 0 (0%) |
+| Mango | Polyester 100% | 19/52 (37%) | 0 (0%) |
+| Rails | Cotton 100% | 87/246 (35%) | 0 (0%) |
+| Stateside | Cotton 100% | 97/275 (35%) | 0 (0%) |
+| Barbour | Cotton 100% | 53/152 (35%) | 0 (0%) |
+| WHBM | Polyester 100% | 26/75 (35%) | 0 (0%) |
+| Lands end | Cotton 100% | 138/402 (34%) | 0 (0%) |
+| J crew | Cotton 100% | 20/59 (34%) | 0 (0%) |
+| Scoth & soda | Cotton 100% | 112/359 (31%) | 1 (1%) |
+| Ann Taylor | Polyester 100% | 108/347 (31%) | 4 (4%) |
+
 ## Loft 저장값
 
 상품 673 · 혼용률 298 · none 375
@@ -816,32 +944,31 @@
 
 ## 실제 페이지로 확인한 표본 (89개)
 
-다시 읽은 시각 2026-11-24T05:40:38.893Z · 엔진: impit(정상 · 89쪽 · 33s) · firefox(정상 · 89쪽 · 693s) · wayback(정상 · 89쪽 · 129s)
+다시 읽은 시각 2026-11-24T06:01:09.355Z · 엔진: impit(정상 · 89쪽 · 30s) · firefox(정상 · 89쪽 · 680s) · wayback(정상 · 89쪽 · 109s)
 
-- A · 다시 못 읽음(차단·오류): 2
-- A · 보관본과 다름: 1
-- A · 열렸지만 소재 못 읽음: 1
+- A · 다시 못 읽음(차단·오류): 1
+- A · 보관본과 다름: 2
+- A · 열렸지만 소재 못 읽음: 2
 - A · 지금 페이지(오늘 추출기)와 같음: 12
-- A · 틀림 확인(지금 페이지·오늘 추출기와 다름): 4
+- A · 틀림 확인(지금 페이지·오늘 추출기와 다름): 3
 - B · 열렸지만 소재 못 읽음: 4
 - B · 지금 페이지(오늘 추출기)와 같음: 5
 - B · 틀림 확인(지금 페이지·오늘 추출기와 다름): 4
 - D · 다시 못 읽음(차단·오류): 2
 - D · 보관본과 다름: 1
 - D · 열렸지만 소재 못 읽음: 5
-- D · 지금 페이지(오늘 추출기)와 같음: 8
-- D · 틀림 확인(지금 페이지·오늘 추출기와 다름): 4
-- LOFT · 열렸지만 소재 못 읽음: 28
-- LOFT · 저장값 없음 · 보관본 값 있음: 1
-- LOFT · 저장값 없음 · 지금 페이지 값 있음: 7
+- D · 지금 페이지(오늘 추출기)와 같음: 9
+- D · 틀림 확인(지금 페이지·오늘 추출기와 다름): 3
+- LOFT · 열렸지만 소재 못 읽음: 34
+- LOFT · 저장값 없음 · 보관본 값 있음: 2
 
 | 시그니처 | 브랜드 | 상품 | 저장값 | 판정 | 다시 읽은 값 | 엔진별 |
 |---|---|---|---|---|---|---|
 | A | Splendid | [Louisa Long Sleeve Tee](https://splendid.com/products/louisa-long-sleeve-tee) | Cotton 100% ‖ Cashmere 100% | 틀림 확인(지금 페이지·오늘 추출기와 다름) · 저장값에 섞인 줄 | Cotton 100% | impit:open firefox:comp wayback:err |
-| A | Splendid | [Lainey Lace Trim Short Sleeve Tee](https://splendid.com/products/lainey-lace-trim-short-sleeve-tee) | Cotton 100% ‖ Cashmere 100% | 틀림 확인(지금 페이지·오늘 추출기와 다름) | Cotton 60% / Polyester 40% | impit:open firefox:comp wayback:err |
-| A | Splendid | [Kacey Striped V-Neck Tee](https://splendid.com/products/kacey-striped-v-neck-tee) | Cotton 100% ‖ Cashmere 100% | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:open |
-| A | Splendid | [Leopard Bamboo Blend Long Sleeve Tee](https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee) | Cotton 100% ‖ Cashmere 100% | 틀림 확인(지금 페이지·오늘 추출기와 다름) | Viscose 68% / Polyester 29% / Elastane 3% | impit:open firefox:comp wayback:open |
-| A | &Other Stories | [Boxy Cotton T-Shirt - White - Lookbook](https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/) | Cotton 100% / Linen 100% | 다시 못 읽음(차단·오류) |  | impit:blocked firefox:blocked wayback:err |
+| A | Splendid | [Lainey Lace Trim Short Sleeve Tee](https://splendid.com/products/lainey-lace-trim-short-sleeve-tee) | Cotton 100% ‖ Cashmere 100% | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| A | Splendid | [Kacey Striped V-Neck Tee](https://splendid.com/products/kacey-striped-v-neck-tee) | Cotton 100% ‖ Cashmere 100% | 틀림 확인(지금 페이지·오늘 추출기와 다름) · 저장값에 섞인 줄 | Cotton 100% | impit:open firefox:comp wayback:open |
+| A | Splendid | [Leopard Bamboo Blend Long Sleeve Tee](https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee) | Cotton 100% ‖ Cashmere 100% | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:open |
+| A | &Other Stories | [Boxy Cotton T-Shirt - White - Lookbook](https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/) | Cotton 100% / Linen 100% | 보관본과 다름 | Cotton 100% | impit:blocked firefox:blocked wayback:comp |
 | A | &Other Stories | [knitwear](https://www.stories.com/en-us/clothing/knitwear/) | Cotton 100% / Wool 100% | 틀림 확인(지금 페이지·오늘 추출기와 다름) | Wool 100% | impit:comp firefox:comp wayback:open |
 | A | &Other Stories | [Rib-Knit Wool Boatneck Top - Bright Pink - Lookbook](https://www.stories.com/en-us/product/rib-knit-wool-boatneck-top-bright-pink-1286682006/) | Wool 100% / Cotton 100% | 다시 못 읽음(차단·오류) |  | impit:blocked firefox:blocked wayback:err |
 | A | &Other Stories | [Box Pleat Tank Top - White - Lookbook](https://www.stories.com/en-us/product/box-pleat-tank-top-white-1358088003/) | Cotton 100% / Linen 100% | 보관본과 다름 | Cotton 100% | impit:blocked firefox:blocked wayback:comp |
@@ -882,21 +1009,21 @@
 | D 이름에 leather, 혼용률에 없음 | Good American | [better than leather vintage low rise bootcut pant Regular pr](https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-carmine) | Polyurethane 100% | 지금 페이지(오늘 추출기)와 같음 | Polyurethane 100% | impit:comp firefox:comp wayback:err |
 | D 이름에 leather, 혼용률에 없음 | Good American | [BETTER THAN LEATHER LOW RISE BOOTCUT PANT / ESPRESSO](https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-espresso) | Polyurethane 100% | 지금 페이지(오늘 추출기)와 같음 | Polyurethane 100% | impit:comp firefox:blocked wayback:err |
 | D 이름에 leather, 혼용률에 없음 | Good American | [THE BETTER THAN LEATHER TROUSER SHORT / BLACK001](https://www.goodamerican.com/products/the-better-than-leather-trouser-short-black) | Polyurethane 100% | 지금 페이지(오늘 추출기)와 같음 | Polyurethane 100% | impit:comp firefox:blocked wayback:err |
-| D 이름에 linen, 혼용률에 없음 | Splendid | [Stella Linen Trim Tank](https://splendid.com/products/stella-linen-trim-tank) | Cotton 100% ‖ Cashmere 100% | 틀림 확인(지금 페이지·오늘 추출기와 다름) | Linen 100% | impit:open firefox:comp wayback:err |
-| D 이름에 linen, 혼용률에 없음 | Splendid | [Lydia Linen Mini Dress](https://splendid.com/products/lydia-linen-mini-dress) | Cotton 100% | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| D 이름에 linen, 혼용률에 없음 | Splendid | [Stella Linen Trim Tank](https://splendid.com/products/stella-linen-trim-tank) | Cotton 100% ‖ Cashmere 100% | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| D 이름에 linen, 혼용률에 없음 | Splendid | [Lydia Linen Mini Dress](https://splendid.com/products/lydia-linen-mini-dress) | Cotton 100% | 지금 페이지(오늘 추출기)와 같음 | Cotton 100% | impit:open firefox:comp wayback:err |
 | D 이름에 linen, 혼용률에 없음 | Splendid | [Stella Linen Midi Dress](https://splendid.com/products/stella-linen-midi-dress) | Cotton 100% ‖ Cashmere 100% | 틀림 확인(지금 페이지·오늘 추출기와 다름) | Linen 100% ‖ Viscose 100% | impit:open firefox:comp wayback:err |
 | D 이름에 linen, 혼용률에 없음 | Splendid | [Stella Linen Mini Dress](https://splendid.com/products/stella-linen-mini-dress) | Cotton 100% ‖ Cashmere 100% | 틀림 확인(지금 페이지·오늘 추출기와 다름) | Linen 100% ‖ Viscose 100% | impit:open firefox:comp wayback:err |
 | D 이름에 silk, 혼용률에 없음 | ALC | [Adela Silk Chiffon Caped Top](https://alcltd.com/products/adela-top-black) | Triacetate 70% / Polyester 30% ‖ Polyester 95% / Elastane 5% | 지금 페이지(오늘 추출기)와 같음 | Triacetate 70% / Polyester 30% ‖ Polyester 95% / Elastane 5% | impit:comp firefox:comp wayback:err |
 | D 이름에 leather, 혼용률에 없음 | ALC | [Woman wearing a navy ribbed long-sleeve shirt and black leat](https://alcltd.com/collections/tops/products/alex-top-midnight) | Wool 100% | 지금 페이지(오늘 추출기)와 같음 | Wool 100% | impit:comp firefox:comp wayback:err |
 | D 이름에 leather, 혼용률에 없음 | ALC | [Woman wearing a gray shirt and black leather skirt on a ligh](https://alcltd.com/collections/tops/products/alex-top-medium-heather-grey) | Wool 100% | 지금 페이지(오늘 추출기)와 같음 | Wool 100% | impit:comp firefox:comp wayback:err |
 | D 이름에 silk, 혼용률에 없음 | ALC | [Adela Silk Chiffon Caped Mini Dress](https://alcltd.com/products/adela-dress-black) | Triacetate 70% / Polyester 30% ‖ Polyester 95% / Elastane 5% | 지금 페이지(오늘 추출기)와 같음 | Triacetate 70% / Polyester 30% ‖ Polyester 95% / Elastane 5% | impit:comp firefox:comp wayback:err |
-| LOFT | Loft | [A woman wearing a red beanie and a graphic long-sleeve shirt](https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html) | none | 저장값 없음 · 지금 페이지 값 있음 | Cotton 60% / Modal 40% | impit:comp firefox:open wayback:err |
-| LOFT | Loft | [A woman wearing a grey turtleneck and blue jeans with a brow](https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html) | none | 저장값 없음 · 지금 페이지 값 있음 | Modal 94% / Elastane 6% | impit:comp firefox:open wayback:err |
-| LOFT | Loft | [A woman wearing a black and white striped long-sleeve shirt ](https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html) | none | 저장값 없음 · 지금 페이지 값 있음 | Cotton 92% / Elastane 8% | impit:comp firefox:open wayback:err |
-| LOFT | Loft | [A person wearing a blue striped shirt, a denim jacket, and n](https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html) | none | 저장값 없음 · 지금 페이지 값 있음 | Cotton 60% / Modal 40% | impit:comp firefox:open wayback:err |
-| LOFT | Loft | [A woman wearing a royal blue button-placket top and cream-co](https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html) | none | 저장값 없음 · 지금 페이지 값 있음 | Cotton 92% / Elastane 8% | impit:comp firefox:open wayback:err |
-| LOFT | Loft | [A blonde woman wearing a white long-sleeved shirt with color](https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html) | none | 저장값 없음 · 지금 페이지 값 있음 | Cotton 60% / Modal 40% | impit:comp firefox:open wayback:err |
-| LOFT | Loft | [A woman with long brown hair wearing a white t-shirt with "S](https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html) | none | 저장값 없음 · 지금 페이지 값 있음 | Cotton 100% | impit:comp firefox:open wayback:err |
+| LOFT | Loft | [A woman wearing a red beanie and a graphic long-sleeve shirt](https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| LOFT | Loft | [A woman wearing a grey turtleneck and blue jeans with a brow](https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| LOFT | Loft | [A woman wearing a black and white striped long-sleeve shirt ](https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| LOFT | Loft | [A person wearing a blue striped shirt, a denim jacket, and n](https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| LOFT | Loft | [A woman wearing a royal blue button-placket top and cream-co](https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| LOFT | Loft | [A blonde woman wearing a white long-sleeved shirt with color](https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| LOFT | Loft | [A woman with long brown hair wearing a white t-shirt with "S](https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
 | LOFT | Loft | [A woman with long, wavy dark hair wearing a black shirt with](https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
 | LOFT | Loft | [A woman in a pink long-sleeved shirt and brown pants stands ](https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-long-sleeve-tee/763895.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
 | LOFT | Loft | [A young woman with wavy brown hair and a white t-shirt stand](https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-elbow-sleeve-tee/760842.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
@@ -912,7 +1039,7 @@
 | LOFT | Loft | [A woman wearing a navy blue sleeveless top and blue jeans wi](https://www.loft.com/clothing/tops/catl000011/perfect-tank/586193.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
 | LOFT | Loft | [Perfect Ribbed Apron Neck Tank Top](https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-apron-neck-tank-top/751426.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
 | LOFT | Loft | [Perfect Ribbed Scoop Neck Tank Top](https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-scoop-neck-tank-top/760847.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
-| LOFT | Loft | [Long Sleeve Crew Neck Tee](https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
+| LOFT | Loft | [Long Sleeve Crew Neck Tee](https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html) | none | 저장값 없음 · 보관본 값 있음 | Modal 94% / Elastane 6% | impit:open firefox:open wayback:comp |
 | LOFT | Loft | [Long Sleeve Everyday Tee](https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
 | LOFT | Loft | [Long Sleeve Everyday Tee](https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/750665.html) | none | 열렸지만 소재 못 읽음 |  | impit:open firefox:open wayback:err |
 | LOFT | Loft | [A woman in a red and white striped sleeveless top and white ](https://www.loft.com/clothing/tops/catl000011/striped-side-button-tank-top/781756.html) | none | 저장값 없음 · 보관본 값 있음 | Cotton 100% | impit:open firefox:open wayback:comp |

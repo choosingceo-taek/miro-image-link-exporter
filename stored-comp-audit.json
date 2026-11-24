@@ -1,5 +1,5 @@
 {
- "at": "2026-11-24T05:26:06.355Z",
+ "at": "2026-11-24T05:47:17.541Z",
  "skippedOldKeys": [],
  "errors": [],
  "rules": {
@@ -188,6 +188,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 15,
+     "of": 120,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 9,
@@ -230,6 +241,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Nylon 75% / Elastane 25%",
+     "n": 21,
+     "of": 128,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -256,6 +278,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -331,6 +359,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 86% / Recycled Polyester 14%",
+     "n": 29,
+     "of": 97,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -613,6 +652,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 27,
+     "of": 178,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {
     "섬유가 아닌 낱말": 17
@@ -1115,6 +1165,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 51,
+     "of": 386,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 29,
@@ -1141,6 +1202,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 65% / Polyester 35%",
+     "n": 17,
+     "of": 177,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -1510,6 +1582,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 108,
+     "of": 347,
+     "contra": 4
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 5,
@@ -1536,6 +1619,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -1562,6 +1651,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 42,
+     "of": 96,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -1588,7 +1688,58 @@
     "comp": "Leather 100%",
     "n": 358,
     "of": 472,
-    "share": 0.7584745762711864
+    "share": 0.7584745762711864,
+    "named": 1,
+    "examples": [
+     {
+      "name": "thesuperpuff",
+      "url": "https://www.aritzia.com/intl/en/clothing/coats-jackets/puffers/thesuperpuff"
+     },
+     {
+      "name": "polar fleece",
+      "url": "https://www.aritzia.com/intl/en/clothing/polar-fleece"
+     },
+     {
+      "name": "holiday party dressing",
+      "url": "https://www.aritzia.com/intl/en/shop-by/event-dressing/holiday-party-dressing"
+     },
+     {
+      "name": "sweat pants",
+      "url": "https://www.aritzia.com/intl/en/clothing/sweatsuit-sets/sweat-pants"
+     },
+     {
+      "name": "workout jackets",
+      "url": "https://www.aritzia.com/intl/en/clothing/womens-workout-clothes/workout-jackets"
+     },
+     {
+      "name": "socks",
+      "url": "https://www.aritzia.com/intl/en/clothing/accessories/socks"
+     },
+     {
+      "name": "cashmere clothing",
+      "url": "https://www.aritzia.com/intl/en/clothing/cashmere-clothing"
+     },
+     {
+      "name": "all gifts",
+      "url": "https://www.aritzia.com/intl/en/gifts/all-gifts"
+     },
+     {
+      "name": "holiday favourites",
+      "url": "https://www.aritzia.com/intl/en/gifts/holiday-favourites"
+     },
+     {
+      "name": "sale",
+      "url": "https://www.aritzia.com/intl/en/sale"
+     },
+     {
+      "name": "sale sweaters",
+      "url": "https://www.aritzia.com/intl/en/sale/sale-sweaters"
+     },
+     {
+      "name": "sale dresses",
+      "url": "https://www.aritzia.com/intl/en/sale/sale-dresses"
+     }
+    ]
    },
    "D": [
     {
@@ -2376,6 +2527,98 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [
+     {
+      "kind": "value",
+      "key": "leather 100%",
+      "text": "Leather 100%",
+      "n": 358,
+      "of": 472,
+      "share": 0.7584745762711864,
+      "contra": 52,
+      "contraEx": [
+       {
+        "name": "cashmere clothing",
+        "url": "https://www.aritzia.com/intl/en/clothing/cashmere-clothing",
+        "why": [
+         "cashmere"
+        ]
+       },
+       {
+        "name": "ESSENTIAL WOOL CASHMERE CHERUB SWEATER - Midweight wool and cashmere crewneck sweater with puff sleeves.",
+        "url": "https://www.aritzia.com/intl/en/product/essential-wool-cashmere-cherub-sweater/126806.html",
+        "why": [
+         "wool",
+         "cashmere"
+        ]
+       },
+       {
+        "name": "COTTON CHARM™ BASQUE SWEATER VEST - Organic cotton and cashmere button-up sweater vest.",
+        "url": "https://www.aritzia.com/intl/en/product/cotton-charm%E2%84%A2-basque-sweater-vest/130067.html",
+        "why": [
+         "cotton",
+         "cashmere"
+        ]
+       },
+       {
+        "name": "SEABREEZE TANK - Mesh-knit organic cotton crewneck tank.",
+        "url": "https://www.aritzia.com/intl/en/product/seabreeze-tank/131673.html",
+        "why": [
+         "cotton"
+        ]
+       },
+       {
+        "name": "FRANCOISE DRESS - Cotton poplin micro dress with cap sleeves. Price: $128",
+        "url": "https://www.aritzia.com/intl/en/product/francoise-dress/131516.html",
+        "why": [
+         "cotton"
+        ]
+       }
+      ],
+      "why": "값 472개 중 358개(76%)가 \"Leather 100%\" · 그중 52개는 이름과 어긋남"
+     }
+    ],
+    "held": 358,
+    "heldEx": [
+     {
+      "name": "thesuperpuff",
+      "url": "https://www.aritzia.com/intl/en/clothing/coats-jackets/puffers/thesuperpuff",
+      "comp": "Leather 100%"
+     },
+     {
+      "name": "polar fleece",
+      "url": "https://www.aritzia.com/intl/en/clothing/polar-fleece",
+      "comp": "Leather 100%"
+     },
+     {
+      "name": "holiday party dressing",
+      "url": "https://www.aritzia.com/intl/en/shop-by/event-dressing/holiday-party-dressing",
+      "comp": "Leather 100%"
+     },
+     {
+      "name": "sweat pants",
+      "url": "https://www.aritzia.com/intl/en/clothing/sweatsuit-sets/sweat-pants",
+      "comp": "Leather 100%"
+     },
+     {
+      "name": "workout jackets",
+      "url": "https://www.aritzia.com/intl/en/clothing/womens-workout-clothes/workout-jackets",
+      "comp": "Leather 100%"
+     },
+     {
+      "name": "socks",
+      "url": "https://www.aritzia.com/intl/en/clothing/accessories/socks",
+      "comp": "Leather 100%"
+     }
+    ],
+    "top": {
+     "comp": "Leather 100%",
+     "n": 358,
+     "of": 472,
+     "contra": 52
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -2475,6 +2718,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 87,
+     "of": 174,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 6,
@@ -2501,6 +2755,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -2527,6 +2787,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 13,
+     "of": 53,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -2553,6 +2824,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -2671,6 +2948,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 53,
+     "of": 152,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 6,
@@ -2817,6 +3105,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 138,
+     "of": 307,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 2,
@@ -2988,6 +3287,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 83,
+     "of": 164,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 12,
@@ -3030,6 +3340,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 87% / Elastane 13%",
+     "n": 74,
+     "of": 172,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "LuxeFleece 2.0™ Oversized Crewneck",
@@ -3207,6 +3528,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 34,
+     "of": 57,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {
     "섬유가 아닌 낱말": 9
@@ -3801,6 +4133,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 28,
+     "of": 108,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 3,
@@ -3827,6 +4170,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -3869,6 +4218,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 63,
+     "of": 162,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -4124,6 +4484,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 16,
+     "of": 141,
+     "contra": 1
+    }
+   },
    "hiddenEx": [
     {
      "name": "Belted Pocket Dress",
@@ -4216,11 +4587,73 @@
     "comp": "Cotton 100%",
     "n": 60,
     "of": 66,
-    "share": 0.9090909090909091
+    "share": 0.9090909090909091,
+    "named": 4,
+    "examples": [
+     {
+      "name": "Prancing Reindeer Embroidered Tee",
+      "url": "https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/"
+     },
+     {
+      "name": "Gilded Bow Ornament Tee",
+      "url": "https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/"
+     },
+     {
+      "name": "#BestCotton™ Whispering Pines Tee",
+      "url": "https://www.coldwatercreek.com/bestcotton-whispering-pines-tee/25078/"
+     },
+     {
+      "name": "Friendly Fir Embroidered Tee",
+      "url": "https://www.coldwatercreek.com/friendly-fir-embroidered-tee/24077/"
+     },
+     {
+      "name": "To the Point Knit Tunic",
+      "url": "https://www.coldwatercreek.com/to-the-point-knit-tunic/17768/"
+     },
+     {
+      "name": "Follow the Snowflakes Tee",
+      "url": "https://www.coldwatercreek.com/follow-the-snowflakes-tee/26142/"
+     },
+     {
+      "name": "#BestCotton™ High-Low Tunic",
+      "url": "https://www.coldwatercreek.com/bestcotton-high-low-tunic/21518/"
+     },
+     {
+      "name": "#BestCotton™ Side-Button Long-Sleeve Tunic",
+      "url": "https://www.coldwatercreek.com/bestcotton-side-button-long-sleeve-tunic/25875/"
+     },
+     {
+      "name": "Holly Grove Waffle Tee",
+      "url": "https://www.coldwatercreek.com/holly-grove-waffle-tee/25077/"
+     },
+     {
+      "name": "Embroidered Trees Hooded Waffle Top",
+      "url": "https://www.coldwatercreek.com/embroidered-trees-hooded-waffle-top/26079/"
+     },
+     {
+      "name": "Woodland Pines Waffle Tee",
+      "url": "https://www.coldwatercreek.com/woodland-pines-waffle-tee/25895/"
+     },
+     {
+      "name": "Easy Waffle Long-Sleeve Tee",
+      "url": "https://www.coldwatercreek.com/easy-waffle-long-sleeve-tee/25756/"
+     }
+    ]
    },
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 60,
+     "of": 66,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -4308,6 +4741,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 135,
+     "of": 251,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {
     "합이 45%": 2,
@@ -4375,6 +4819,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 84,
+     "of": 468,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 3,
@@ -4386,10 +4841,10 @@
    "brand": "CCC",
    "site": "crewclothing.co.uk.ccc",
    "total": 800,
-   "comp": 752,
-   "valid": 752,
+   "comp": 755,
+   "valid": 755,
    "fromCatalog": 0,
-   "fromOverlay": 752,
+   "fromOverlay": 755,
    "viaWayback": 0,
    "none": 6,
    "rawOnly": 0,
@@ -4587,6 +5042,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 280,
+     "of": 755,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 11,
@@ -4630,6 +5096,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 213,
+     "of": 386,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -4717,6 +5194,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 55% / Polyester 45%",
+     "n": 39,
+     "of": 146,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "Women's EDS Essentials Mid Rise Scrub Jogger",
@@ -4888,6 +5376,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 36,
+     "of": 136,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 9,
@@ -4970,6 +5469,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 42,
+     "of": 199,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 3,
@@ -5009,6 +5519,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 83,
+     "of": 508,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 1,
@@ -5035,6 +5556,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Viscose 100%",
+     "n": 8,
+     "of": 32,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5114,6 +5646,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 111,
+     "of": 420,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 3,
@@ -5175,6 +5718,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 85,
+     "of": 297,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5278,6 +5832,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 77,
+     "of": 163,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "Highland Fairisle Pop Top Mitten - Snow",
@@ -5334,6 +5899,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5360,6 +5931,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Silk 100%",
+     "n": 49,
+     "of": 170,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5386,11 +5968,73 @@
     "comp": "Cotton 100%",
     "n": 313,
     "of": 440,
-    "share": 0.7113636363636363
+    "share": 0.7113636363636363,
+    "named": 14,
+    "examples": [
+     {
+      "name": "WAVERLY Pine, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/waverly-pine-vintage-jersey"
+     },
+     {
+      "name": "ELLA Holly, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/ella-holly-vintage-jersey"
+     },
+     {
+      "name": "PERRY Clay, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/perry-clay-vintage-jersey"
+     },
+     {
+      "name": "WAVERLY Classic Navy, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/waverly-classic-navy-vintage-jersey"
+     },
+     {
+      "name": "PATRICK Classic Navy, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/patrick-classic-navy-vintage-jersey"
+     },
+     {
+      "name": "QUINN Classic Navy, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/quinn-classic-navy-vintage-jersey"
+     },
+     {
+      "name": "ELLA Classic Navy, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/ella-classic-navy-vintage-jersey"
+     },
+     {
+      "name": "PERRY Classic Navy, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/perry-classic-navy-vintage-jersey"
+     },
+     {
+      "name": "PATTY Classic Navy, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/patty-classic-navy-vintage-jersey"
+     },
+     {
+      "name": "INNY Classic Navy, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/inny-classic-navy-vintage-jersey"
+     },
+     {
+      "name": "CHARLOTTE Zinnia, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/charlotte-zinnia-vintage-jersey"
+     },
+     {
+      "name": "CHARLOTTE Turquoise Stripe, Vintage Jersey",
+      "url": "https://www.frankandeileen.com/products/charlotte-turquoise-stripe-vintage-jersey"
+     }
+    ]
    },
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 313,
+     "of": 440,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5417,6 +6061,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 2,
+     "of": 7,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5443,6 +6098,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5469,6 +6130,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5520,6 +6187,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Silk 100%",
+     "n": 1,
+     "of": 2,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5546,6 +6224,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Viscose 100%",
+     "n": 24,
+     "of": 134,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -5739,6 +6428,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 53,
+     "of": 597,
+     "contra": 2
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 10,
@@ -5806,7 +6506,58 @@
     "comp": "Cotton 100%",
     "n": 186,
     "of": 293,
-    "share": 0.6348122866894198
+    "share": 0.6348122866894198,
+    "named": 30,
+    "examples": [
+     {
+      "name": "Men's Carefree Unshrinkable Tees",
+      "url": "https://global.llbean.com/llb/shop/511742/"
+     },
+     {
+      "name": "Men's Bean Boots",
+      "url": "https://global.llbean.com/llb/shop/1/"
+     },
+     {
+      "name": "Women's Quilted Field Jacket",
+      "url": "https://global.llbean.com/llb/shop/2/"
+     },
+     {
+      "name": "Kids' Fleece Lined Flannel Shirt",
+      "url": "https://global.llbean.com/llb/shop/3/"
+     },
+     {
+      "name": "Stowaway Ultralight Cinch Pack",
+      "url": "https://global.llbean.com/llb/shop/29/"
+     },
+     {
+      "name": "Stowaway Ultralight Cinch Pack",
+      "url": "https://global.llbean.com/llb/shop/5841102.html"
+     },
+     {
+      "name": "Tote Charms",
+      "url": "https://global.llbean.com/llb/shop/50/"
+     },
+     {
+      "name": "L.L.Bean Sale",
+      "url": "https://global.llbean.com/llb/shop/32/"
+     },
+     {
+      "name": "Women's Pima Cotton Tee, Long-Sleeve Crewneck",
+      "url": "https://global.llbean.com/llb/shop/32708.html"
+     },
+     {
+      "name": "Women's Pima Cotton Tee, Long-Sleeve Open V-Neck",
+      "url": "https://global.llbean.com/llb/shop/5879147.html"
+     },
+     {
+      "name": "Women's Pima Cotton Tee, Short-Sleeve Crewneck",
+      "url": "https://global.llbean.com/llb/shop/32709.html"
+     },
+     {
+      "name": "Women's Pima Cotton Tee, Long-Sleeve Mockneck",
+      "url": "https://global.llbean.com/llb/shop/36296.html"
+     }
+    ]
    },
    "D": [
     {
@@ -5887,6 +6638,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 186,
+     "of": 293,
+     "contra": 5
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 2,
@@ -5913,11 +6675,73 @@
     "comp": "Cotton 100%",
     "n": 105,
     "of": 138,
-    "share": 0.7608695652173914
+    "share": 0.7608695652173914,
+    "named": 0,
+    "examples": [
+     {
+      "name": "Reversible Double Layer Tee",
+      "url": "https://www.goldietees.com/products/reversible-double-layer-tee"
+     },
+     {
+      "name": "Reversible Long Sleeve Double Layer Tee",
+      "url": "https://www.goldietees.com/products/reversible-long-sleeve-double-layer-tee"
+     },
+     {
+      "name": "Classic Layered Tee",
+      "url": "https://www.goldietees.com/products/classic-layered-tee"
+     },
+     {
+      "name": "Limited Edition Jersey Andie Tee",
+      "url": "https://www.goldietees.com/products/limited-edition-jersey-andie-tee"
+     },
+     {
+      "name": "Avery Tank",
+      "url": "https://www.goldietees.com/products/avery-tank"
+     },
+     {
+      "name": "Quinn Organic Long Sleeve Tee",
+      "url": "https://www.goldietees.com/products/quinn-organic-long-sleeve-tee"
+     },
+     {
+      "name": "Remy Organic Tee",
+      "url": "https://www.goldietees.com/products/remy-organic-tee"
+     },
+     {
+      "name": "Sydney Organic Girlfriend Tee",
+      "url": "https://www.goldietees.com/products/sydney-organic-girlfriend-tee"
+     },
+     {
+      "name": "Kate Organic Tee",
+      "url": "https://www.goldietees.com/products/kate-organic-tee"
+     },
+     {
+      "name": "Rachel Organic Girlfriend Tee",
+      "url": "https://www.goldietees.com/products/rachel-organic-girlfriend-tee"
+     },
+     {
+      "name": "Pavé Shimmer Ringer Tee",
+      "url": "https://www.goldietees.com/products/pave-shimmer-ringer-tee"
+     },
+     {
+      "name": "Pavé Shimmer Ringer Top",
+      "url": "https://www.goldietees.com/products/pave-shimmer-ringer-top"
+     }
+    ]
    },
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 105,
+     "of": 138,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -6184,6 +7008,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 103,
+     "of": 533,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {
     "합이 12%": 1,
@@ -6289,6 +7124,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Nylon 86% / Elastane 14%",
+     "n": 15,
+     "of": 89,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "Detroit Lions 313 Sloane Short Sleeve Tee",
@@ -6680,6 +7526,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 90,
+     "of": 319,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {
     "섬유가 아닌 낱말": 20
@@ -6708,6 +7565,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 196,
+     "of": 521,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -7456,6 +8324,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 20,
+     "of": 59,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 1,
@@ -7643,6 +8522,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 67,
+     "of": 304,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 12,
@@ -7685,6 +8575,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 14,
+     "of": 83,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -7961,6 +8862,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Nylon 91% / Elastane 9%",
+     "n": 61,
+     "of": 469,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 9,
@@ -7987,6 +8899,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -8013,11 +8931,73 @@
     "comp": "Cashmere 100%",
     "n": 106,
     "of": 137,
-    "share": 0.7737226277372263
+    "share": 0.7737226277372263,
+    "named": 0,
+    "examples": [
+     {
+      "name": "와플 긴팔 티셔츠",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX27116BKS"
+     },
+     {
+      "name": "와플 긴팔 티셔츠",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX27116GRS"
+     },
+     {
+      "name": "라이트 플리스 반집업 긴팔 티셔츠",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26516YEB"
+     },
+     {
+      "name": "라이트 플리스 반집업 긴팔 티셔츠",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26516BKS"
+     },
+     {
+      "name": "라이트 플리스 터틀넥 긴팔 티셔츠",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26515BKS"
+     },
+     {
+      "name": "라이트 플리스 터틀넥 긴팔 티셔츠",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26515BRT"
+     },
+     {
+      "name": "베임방지 포르페 컴뱃 셔츠",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2DTAX26031BKX"
+     },
+     {
+      "name": "윈터 기모 터틀넥 긴팔 티셔츠 V2",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26513BKW"
+     },
+     {
+      "name": "윈터 기모 터틀넥 긴팔 티셔츠 V2",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26513GYS"
+     },
+     {
+      "name": "윈터 기모 터틀넥 긴팔 티셔츠 V2",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26513GRC"
+     },
+     {
+      "name": "테크니컬 플리스 후드",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26505BKX"
+     },
+     {
+      "name": "테크니컬 플리스 후드",
+      "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX26505BKW"
+     }
+    ]
    },
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cashmere 100%",
+     "n": 106,
+     "of": 137,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -8224,6 +9204,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 91,
+     "of": 389,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 12,
@@ -8299,6 +9290,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 138,
+     "of": 402,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 4,
@@ -8325,6 +9327,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 138,
+     "of": 275,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -8351,11 +9364,73 @@
     "comp": "Cotton 100%",
     "n": 108,
     "of": 168,
-    "share": 0.6428571428571429
+    "share": 0.6428571428571429,
+    "named": 0,
+    "examples": [
+     {
+      "name": "Vintage Long Sleeve V-Neck",
+      "url": "https://lillap.com/products/vintage-long-sleeve-v-neck-pa3666"
+     },
+     {
+      "name": "Vintage Long Sleeve Polo",
+      "url": "https://lillap.com/products/vintage-long-sleeve-polo-pa3665"
+     },
+     {
+      "name": "Vintage Short Sleeve Crew",
+      "url": "https://lillap.com/products/vintage-short-sleeve-crew-pa3664"
+     },
+     {
+      "name": "Vintage Easy Long Sleeve Crew",
+      "url": "https://lillap.com/products/vintage-easy-long-sleeve-crew-pa3663"
+     },
+     {
+      "name": "Vintage Kangaroo Pocket Drop Shoulder",
+      "url": "https://lillap.com/products/vintage-kangaroo-pocket-drop-shoulder-pa3615"
+     },
+     {
+      "name": "Vintage Short Sleeve Raglan",
+      "url": "https://lillap.com/products/vintage-short-sleeve-raglan-pa3614"
+     },
+     {
+      "name": "Vintage Long Sleeve Seamed V-Neck",
+      "url": "https://lillap.com/products/vintage-long-sleeve-seamed-v-neck-pa3611"
+     },
+     {
+      "name": "Vintage Bias Tee",
+      "url": "https://lillap.com/products/vintage-bias-tee-pa3579"
+     },
+     {
+      "name": "Long Sleeve V-Neck",
+      "url": "https://lillap.com/products/long-sleeve-v-neck-pa3520"
+     },
+     {
+      "name": "Long Sleeve Crewneck",
+      "url": "https://lillap.com/products/long-sleeve-crewneck-pa3519"
+     },
+     {
+      "name": "Keyhole Easy Cuffed Tee",
+      "url": "https://lillap.com/products/keyhole-easy-cuffed-tee-pa3517"
+     },
+     {
+      "name": "Tie Front Tee",
+      "url": "https://lillap.com/products/tie-front-tee-pa3516"
+     }
+    ]
    },
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 108,
+     "of": 168,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -8425,6 +9500,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Viscose 95% / Elastane 5%",
+     "n": 48,
+     "of": 226,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 2,
@@ -8580,6 +9666,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 52,
+     "of": 298,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "loft": [
     {
@@ -13992,6 +15089,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 44,
+     "of": 149,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -14080,6 +15188,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 27,
+     "of": 67,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 2,
@@ -14167,6 +15286,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 41,
+     "of": 171,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -14294,6 +15424,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 65,
+     "of": 380,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 7,
@@ -14320,6 +15461,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 1,
+     "of": 1,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -14647,6 +15799,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 58,
+     "of": 387,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 25,
@@ -14673,6 +15836,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 76,
+     "of": 165,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -14851,6 +16025,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 34,
+     "of": 290,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 11,
@@ -14877,6 +16062,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 27% / Viscose 70% / Elastane 3%",
+     "n": 51,
+     "of": 184,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -14928,6 +16124,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Viscose 100%",
+     "n": 6,
+     "of": 28,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 2,
@@ -14954,7 +16161,58 @@
     "comp": "Cotton 100%",
     "n": 354,
     "of": 524,
-    "share": 0.6755725190839694
+    "share": 0.6755725190839694,
+    "named": 0,
+    "examples": [
+     {
+      "name": "Estella Top",
+      "url": "https://nation.la/products/estella-top-layered-stripe"
+     },
+     {
+      "name": "Olive Top",
+      "url": "https://nation.la/products/olive-top-blush"
+     },
+     {
+      "name": "Malgo Top",
+      "url": "https://nation.la/products/malgo-top-tartan-plaid"
+     },
+     {
+      "name": "Erin Cami",
+      "url": "https://nation.la/products/erin-cami-white"
+     },
+     {
+      "name": "Marlowe Long Sleeve",
+      "url": "https://nation.la/products/marlowe-long-sleeve-jet-black"
+     },
+     {
+      "name": "Victoria Henley",
+      "url": "https://nation.la/products/victoria-henley-mini-truffle-stripe"
+     },
+     {
+      "name": "Candace Top",
+      "url": "https://nation.la/products/candace-top-chestnut"
+     },
+     {
+      "name": "Alexia Top",
+      "url": "https://nation.la/products/alexia-top-chestnut"
+     },
+     {
+      "name": "Sheila Top",
+      "url": "https://nation.la/products/sheila-top-heather-oatmeal"
+     },
+     {
+      "name": "Gia Top",
+      "url": "https://nation.la/products/gia-top-jet-black"
+     },
+     {
+      "name": "Delilah Tank",
+      "url": "https://nation.la/products/delilah-tank-truffle"
+     },
+     {
+      "name": "Cheryl Top",
+      "url": "https://nation.la/products/cheryl-top-plaid-rigato"
+     }
+    ]
    },
    "D": [],
    "E": [
@@ -14975,6 +16233,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 354,
+     "of": 524,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "Rene Luxe Turtleneck",
@@ -15001,10 +16270,10 @@
    "brand": "Nike",
    "site": "nike.com.nike",
    "total": 474,
-   "comp": 399,
-   "valid": 399,
+   "comp": 402,
+   "valid": 402,
    "fromCatalog": 0,
-   "fromOverlay": 399,
+   "fromOverlay": 402,
    "viaWayback": 0,
    "none": 18,
    "rawOnly": 0,
@@ -15089,6 +16358,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 56,
+     "of": 402,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 6,
@@ -15191,6 +16471,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 41,
+     "of": 154,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "Pippa Halter Dress In Melon",
@@ -15281,6 +16572,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Nylon 77% / Elastane 23%",
+     "n": 49,
+     "of": 226,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -15447,6 +16749,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 34,
+     "of": 337,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "100% COTTON BELTED PLAID SHIRT",
@@ -15542,6 +16855,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 42,
+     "of": 90,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 3,
@@ -15568,6 +16892,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 7,
+     "of": 7,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -15607,6 +16942,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 15,
+     "of": 242,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 1,
@@ -15688,6 +17034,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Nylon 90% / Elastane 10%",
+     "n": 20,
+     "of": 112,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 3,
@@ -15714,6 +17071,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -15740,6 +17103,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Leather 100%",
+     "n": 5,
+     "of": 37,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -15766,6 +17140,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 93% / Elastane 7%",
+     "n": 1,
+     "of": 1,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -16599,6 +17984,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 79,
+     "of": 372,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {
     "섬유가 아닌 낱말": 50
@@ -16627,6 +18023,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 45,
+     "of": 240,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -16653,6 +18060,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -16695,6 +18108,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 53,
+     "of": 249,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "Wyatt Ruched Side Tank",
@@ -16904,6 +18328,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 108,
+     "of": 239,
+     "contra": 1
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 11,
@@ -16930,6 +18365,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 87,
+     "of": 246,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -16969,6 +18415,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Viscose 100%",
+     "n": 18,
+     "of": 149,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 1,
@@ -17051,6 +18508,59 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [
+     {
+      "kind": "line",
+      "key": "cotton 100%",
+      "text": "Cotton 100%",
+      "n": 48,
+      "of": 49,
+      "share": 0.9795918367346939,
+      "partners": 16,
+      "why": "여러 줄 값 49개 중 48개(98%)에 같은 줄 \"Cotton 100%\" · 짝 16종"
+     }
+    ],
+    "held": 48,
+    "heldEx": [
+     {
+      "name": "FeatherForm™ Scoop Neck T-Shirt",
+      "url": "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-blue-aw26",
+      "comp": "Nylon 78% / Elastane 21% / Polyester 1%\nCotton 100%"
+     },
+     {
+      "name": "FeatherForm™ Scoop Neck T-Shirt",
+      "url": "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-black-aw26",
+      "comp": "Nylon 78% / Elastane 21% / Polyester 1%\nCotton 100%"
+     },
+     {
+      "name": "FeatherForm™ Scoop Neck T-Shirt",
+      "url": "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-teal-aw26",
+      "comp": "Nylon 78% / Elastane 21% / Polyester 1%\nCotton 100%"
+     },
+     {
+      "name": "Everyday Racer Back Tank with Shelf",
+      "url": "https://row.gymshark.com/products/gymshark-everyday-racer-back-tank-with-shelf-sleeveless-tops-blue-aw26-b8a7p-ufhb",
+      "comp": "Polyester 78% / Elastane 22%\nCotton 100%"
+     },
+     {
+      "name": "Power Oversized T-Shirt",
+      "url": "https://row.gymshark.com/products/power-oversized-t-shirt-white-aw23",
+      "comp": "Cotton 64% / Polyester 33% / Elastane 3%\nCotton 100%"
+     },
+     {
+      "name": "Shape Push Up T-Shirt",
+      "url": "https://row.gymshark.com/products/gymshark-push-up-t-shirt-ss-tops-blue-aw26",
+      "comp": "Nylon 78% / Elastane 22%\nCotton 100%"
+     }
+    ],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 33,
+     "of": 272,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 3,
@@ -17313,6 +18823,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 75,
+     "of": 411,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 18,
@@ -17430,6 +18951,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 112,
+     "of": 359,
+     "contra": 1
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -17674,6 +19206,17 @@
      "hidden": ""
     }
    ],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 123,
+     "of": 267,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 16,
@@ -17700,6 +19243,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 1,
+     "of": 1,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -17726,6 +19280,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -17752,6 +19312,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 19,
+     "of": 52,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -17763,10 +19334,10 @@
    "brand": "Shopbop",
    "site": "shopbop.com.shopbop",
    "total": 455,
-   "comp": 445,
-   "valid": 445,
+   "comp": 447,
+   "valid": 447,
    "fromCatalog": 0,
-   "fromOverlay": 445,
+   "fromOverlay": 447,
    "viaWayback": 0,
    "none": 0,
    "rawOnly": 0,
@@ -18014,6 +19585,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 100,
+     "of": 447,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 18,
@@ -18196,6 +19778,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 38,
+     "of": 251,
+     "contra": 1
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 10,
@@ -18298,6 +19891,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 97,
+     "of": 275,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "Stateside 2x1 Rib 90's Tank in New Navy",
@@ -18387,6 +19991,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Modal 47% / Polyester 46% / Elastane 7%",
+     "n": 30,
+     "of": 60,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -19411,7 +21026,58 @@
     "comp": "Cotton 100%\nCashmere 100%",
     "n": 231,
     "of": 344,
-    "share": 0.6715116279069767
+    "share": 0.6715116279069767,
+    "named": 0,
+    "examples": [
+     {
+      "name": "Louisa Long Sleeve Tee",
+      "url": "https://splendid.com/products/louisa-long-sleeve-tee"
+     },
+     {
+      "name": "Lainey Lace Trim Short Sleeve Tee",
+      "url": "https://splendid.com/products/lainey-lace-trim-short-sleeve-tee"
+     },
+     {
+      "name": "Kacey Striped V-Neck Tee",
+      "url": "https://splendid.com/products/kacey-striped-v-neck-tee"
+     },
+     {
+      "name": "Leopard Bamboo Blend Long Sleeve Tee",
+      "url": "https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee"
+     },
+     {
+      "name": "Bamboo Blend Quarter Sleeve Tee",
+      "url": "https://splendid.com/products/bamboo-blend-quarter-sleeve-tee"
+     },
+     {
+      "name": "Tyra Crewneck Tee",
+      "url": "https://splendid.com/products/tyra-crewneck-tee"
+     },
+     {
+      "name": "Bamboo Jersey Long Sleeve V Neck Tee",
+      "url": "https://splendid.com/products/bamboo-jersey-long-sleeve-v-neck-tee"
+     },
+     {
+      "name": "Striped Bamboo Blend Long Sleeve Tee",
+      "url": "https://splendid.com/products/striped-bamboo-blend-long-sleeve-tee"
+     },
+     {
+      "name": "Faye Stripe Tank",
+      "url": "https://splendid.com/products/faye-stripe-tank"
+     },
+     {
+      "name": "Louisa Short Sleeve Stripe Tee",
+      "url": "https://splendid.com/products/louisa-short-sleeve-stripe-tee"
+     },
+     {
+      "name": "Louisa Short Sleeve Tee",
+      "url": "https://splendid.com/products/louisa-short-sleeve-tee"
+     },
+     {
+      "name": "Kacey V-Neck Tee",
+      "url": "https://splendid.com/products/kacey-v-neck-tee"
+     }
+    ]
    },
    "D": [
     {
@@ -19537,6 +21203,69 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [
+     {
+      "kind": "line",
+      "key": "cotton 100%",
+      "text": "Cotton 100%",
+      "n": 242,
+      "of": 256,
+      "share": 0.9453125,
+      "partners": 10,
+      "why": "여러 줄 값 256개 중 242개(95%)에 같은 줄 \"Cotton 100%\" · 짝 10종"
+     },
+     {
+      "kind": "line",
+      "key": "cashmere 100%",
+      "text": "Cashmere 100%",
+      "n": 244,
+      "of": 256,
+      "share": 0.953125,
+      "partners": 14,
+      "why": "여러 줄 값 256개 중 244개(95%)에 같은 줄 \"Cashmere 100%\" · 짝 14종"
+     }
+    ],
+    "held": 255,
+    "heldEx": [
+     {
+      "name": "Louisa Long Sleeve Tee",
+      "url": "https://splendid.com/products/louisa-long-sleeve-tee",
+      "comp": "Cotton 100%\nCashmere 100%"
+     },
+     {
+      "name": "Lainey Lace Trim Short Sleeve Tee",
+      "url": "https://splendid.com/products/lainey-lace-trim-short-sleeve-tee",
+      "comp": "Cotton 100%\nCashmere 100%"
+     },
+     {
+      "name": "Kacey Striped V-Neck Tee",
+      "url": "https://splendid.com/products/kacey-striped-v-neck-tee",
+      "comp": "Cotton 100%\nCashmere 100%"
+     },
+     {
+      "name": "Leopard Bamboo Blend Long Sleeve Tee",
+      "url": "https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee",
+      "comp": "Cotton 100%\nCashmere 100%"
+     },
+     {
+      "name": "Bamboo Blend Quarter Sleeve Tee",
+      "url": "https://splendid.com/products/bamboo-blend-quarter-sleeve-tee",
+      "comp": "Cotton 100%\nCashmere 100%"
+     },
+     {
+      "name": "Tyra Crewneck Tee",
+      "url": "https://splendid.com/products/tyra-crewneck-tee",
+      "comp": "Cotton 100%\nCashmere 100%"
+     }
+    ],
+    "top": {
+     "comp": "Cotton 100%\nCashmere 100%",
+     "n": 231,
+     "of": 344,
+     "contra": 6
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 233,
@@ -19579,6 +21308,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Modal 95% / Elastane 5%",
+     "n": 69,
+     "of": 161,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -20302,6 +22042,59 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [
+     {
+      "kind": "line",
+      "key": "cotton 100%",
+      "text": "Cotton 100%",
+      "n": 57,
+      "of": 59,
+      "share": 0.9661016949152542,
+      "partners": 6,
+      "why": "여러 줄 값 59개 중 57개(97%)에 같은 줄 \"Cotton 100%\" · 짝 6종"
+     }
+    ],
+    "held": 57,
+    "heldEx": [
+     {
+      "name": "seasonal accessories",
+      "url": "https://www.stories.com/en-us/accessories/seasonal-accessories/",
+      "comp": "Cashmere 100%\nCotton 100%"
+     },
+     {
+      "name": "popular pieces",
+      "url": "https://www.stories.com/en-us/trending/popular-pieces/",
+      "comp": "Cotton 100%\nWool 100%"
+     },
+     {
+      "name": "Boxy Cotton T-Shirt - White - Lookbook",
+      "url": "https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/",
+      "comp": "Cotton 100% / Linen 100%"
+     },
+     {
+      "name": "jackets coats",
+      "url": "https://www.stories.com/en-us/clothing/jackets-coats/",
+      "comp": "Wool 100% / Cotton 100%"
+     },
+     {
+      "name": "knitwear",
+      "url": "https://www.stories.com/en-us/clothing/knitwear/",
+      "comp": "Cotton 100% / Wool 100%"
+     },
+     {
+      "name": "Rib-Knit Wool Boatneck Top - Bright Pink - Lookbook",
+      "url": "https://www.stories.com/en-us/product/rib-knit-wool-boatneck-top-bright-pink-1286682006/",
+      "comp": "Wool 100% / Cotton 100%"
+     }
+    ],
+    "top": {
+     "comp": "Cotton 100% / Linen 100%",
+     "n": 40,
+     "of": 172,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 58,
@@ -20328,6 +22121,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 129,
+     "of": 235,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -20439,6 +22243,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Nylon 62% / Elastane 38%",
+     "n": 70,
+     "of": 385,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 7,
@@ -20465,6 +22280,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Wool 100%",
+     "n": 48,
+     "of": 384,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -20528,6 +22354,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Silk 100%",
+     "n": 37,
+     "of": 260,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 3,
@@ -20554,6 +22391,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 77,
+     "of": 322,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -20580,6 +22428,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -20631,6 +22485,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 44,
+     "of": 109,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 2,
@@ -20657,6 +22522,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 31,
+     "of": 250,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -20668,10 +22544,10 @@
    "brand": "Tuckernuck",
    "site": "tnuck.com.tuckernuck",
    "total": 379,
-   "comp": 340,
-   "valid": 340,
+   "comp": 341,
+   "valid": 341,
    "fromCatalog": 1,
-   "fromOverlay": 339,
+   "fromOverlay": 340,
    "viaWayback": 0,
    "none": 0,
    "rawOnly": 0,
@@ -20947,6 +22823,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 61,
+     "of": 341,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 19,
@@ -21127,6 +23014,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Silk 100%",
+     "n": 67,
+     "of": 297,
+     "contra": 0
+    }
+   },
    "hiddenEx": [
     {
      "name": "Ames Barrell Leg Trouser - Cinder",
@@ -21320,6 +23218,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 58,
+     "of": 313,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 11,
@@ -21346,6 +23255,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 11,
+     "of": 55,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -21372,6 +23292,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Viscose 81% / Polyester 15% / Elastane 4%",
+     "n": 70,
+     "of": 276,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -21459,6 +23390,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 168,
+     "of": 351,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 5,
@@ -21716,6 +23658,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 28,
+     "of": 316,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 15,
@@ -22155,6 +24108,17 @@
     }
    ],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 33,
+     "of": 379,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {
     "섬유가 아닌 낱말": 25
@@ -22208,6 +24172,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 203,
+     "of": 546,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 2,
@@ -22234,6 +24209,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 89% / Elastane 11%",
+     "n": 53,
+     "of": 206,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -22388,6 +24374,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 32,
+     "of": 205,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 9,
@@ -22414,6 +24411,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Polyester 100%",
+     "n": 26,
+     "of": 75,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -22606,6 +24614,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 57,
+     "of": 132,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 11,
@@ -22632,6 +24651,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Nylon 100%",
+     "n": 7,
+     "of": 28,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -22658,6 +24688,17 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 155,
+     "of": 336,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -22684,6 +24725,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -22710,11 +24757,73 @@
     "comp": "Cotton 100%",
     "n": 267,
     "of": 319,
-    "share": 0.8369905956112853
+    "share": 0.8369905956112853,
+    "named": 0,
+    "examples": [
+     {
+      "name": "X2605 Tee Chocolate Cherry Troy Tee Chocolate Cherry Troy Tee",
+      "url": "https://www.xirena.com/products/chocolate-cherry-troy-tee"
+     },
+     {
+      "name": "X2605 Tee Chocolate Cherry Terrance Tee Chocolate Cherry Terrance Tee",
+      "url": "https://www.xirena.com/products/chocolate-cherry-terrance-tee"
+     },
+     {
+      "name": "X2605 Tee Canyon Lucas Tee Canyon Lucas Tee",
+      "url": "https://www.xirena.com/products/canyon-lucas-tee"
+     },
+     {
+      "name": "X2605 Tee Canyon Terrance Tee Canyon Terrance Tee",
+      "url": "https://www.xirena.com/products/canyon-terrance-tee"
+     },
+     {
+      "name": "X2605 Top Dusty Moss Lucas Top Dusty Moss Lucas Top",
+      "url": "https://www.xirena.com/products/dusty-moss-lucas-tee"
+     },
+     {
+      "name": "X2605 Tee Dusty Moss Terrance Tee Dusty Moss Terrance Tee",
+      "url": "https://www.xirena.com/products/dusty-moss-terrance-tee"
+     },
+     {
+      "name": "X2605 Tee Dusty Moss Carter Tee Dusty Moss Carter Tee",
+      "url": "https://www.xirena.com/products/dusty-moss-carter-tee"
+     },
+     {
+      "name": "X2605 Tee Navy Crescent Terrance Tee Navy Crescent Terrance Tee",
+      "url": "https://www.xirena.com/products/navy-crescent-terrance-tee"
+     },
+     {
+      "name": "X2605 Tee Navy Crescent Paulina Tee Navy Crescent Paulina Tee",
+      "url": "https://www.xirena.com/products/navy-crescent-paulina-tee"
+     },
+     {
+      "name": "X2605 Tee Navy Crescent Troy Tee Navy Crescent Troy Tee",
+      "url": "https://www.xirena.com/products/navy-crescent-troy-tee"
+     },
+     {
+      "name": "X2605 Tee Navy Lucas Tee Navy Lucas Tee",
+      "url": "https://www.xirena.com/products/navy-lucas-tee"
+     },
+     {
+      "name": "X2605 Tee Navy Terrance Tee Navy Terrance Tee",
+      "url": "https://www.xirena.com/products/navy-terrance-tee"
+     }
+    ]
    },
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 267,
+     "of": 319,
+     "contra": 0
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -22741,6 +24850,12 @@
    "D": [],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": null
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -22767,7 +24882,58 @@
     "comp": "Cotton 100%",
     "n": 160,
     "of": 215,
-    "share": 0.7441860465116279
+    "share": 0.7441860465116279,
+    "named": 3,
+    "examples": [
+     {
+      "name": "Sloane Cotton Jersey Tank",
+      "url": "https://zsupplyclothing.com/products/sloane-cotton-jersey-tank"
+     },
+     {
+      "name": "Solene Luxe Satin Tee",
+      "url": "https://zsupplyclothing.com/products/solene-luxe-top"
+     },
+     {
+      "name": "Dazzle Sequin Tee",
+      "url": "https://zsupplyclothing.com/products/dazzle-tee"
+     },
+     {
+      "name": "Caprice Luxe Lace Cami",
+      "url": "https://zsupplyclothing.com/products/caprice-luxe-lace-cami"
+     },
+     {
+      "name": "After Dark Lace Trim Bodysuit",
+      "url": "https://zsupplyclothing.com/products/after-dark-bodysuit"
+     },
+     {
+      "name": "Tucked In Rib Long Sleeve Tee",
+      "url": "https://zsupplyclothing.com/products/tucked-in-ls-tee"
+     },
+     {
+      "name": "Lived In Luxe Tank",
+      "url": "https://zsupplyclothing.com/products/lived-in-tank"
+     },
+     {
+      "name": "Celebrate City Graphic Tee",
+      "url": "https://zsupplyclothing.com/products/celebrate-city-tee"
+     },
+     {
+      "name": "Junie Long Sleeve Stripe Slub Tee",
+      "url": "https://zsupplyclothing.com/products/junie-l-s-stripe-slub-tee"
+     },
+     {
+      "name": "Luxe Smooth Essential Tank",
+      "url": "https://zsupplyclothing.com/products/luxe-smooth-essential-tank"
+     },
+     {
+      "name": "Long Breeze Tee",
+      "url": "https://zsupplyclothing.com/products/long-breeze-tee"
+     },
+     {
+      "name": "Classic Slub Baseball Tee",
+      "url": "https://zsupplyclothing.com/products/classic-slub-baseball-tee"
+     }
+    ]
    },
    "D": [
     {
@@ -22803,6 +24969,17 @@
    ],
    "E": [],
    "F": [],
+   "guard": {
+    "flags": [],
+    "held": 0,
+    "heldEx": [],
+    "top": {
+     "comp": "Cotton 100%",
+     "n": 160,
+     "of": 215,
+     "contra": 2
+    }
+   },
    "hiddenEx": [],
    "Ewhy": {},
    "nA": 0,
@@ -22861,9 +25038,9 @@
      "comp": ""
     },
     "firefox": {
-     "v": "comp",
-     "note": "Cotton 60% / Polyester 40%",
-     "comp": "Cotton 60% / Polyester 40%"
+     "v": "open",
+     "note": "글 5801자",
+     "comp": ""
     },
     "wayback": {
      "v": "err",
@@ -22872,10 +25049,9 @@
     }
    },
    "verdict": {
-    "v": "wrong",
-    "how": "diff",
-    "eng": "firefox",
-    "fresh": "Cotton 60% / Polyester 40%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -22894,9 +25070,9 @@
      "comp": ""
     },
     "firefox": {
-     "v": "open",
-     "note": "글 7009자",
-     "comp": ""
+     "v": "comp",
+     "note": "Cotton 100%",
+     "comp": "Cotton 100%"
     },
     "wayback": {
      "v": "open",
@@ -22905,9 +25081,10 @@
     }
    },
    "verdict": {
-    "v": "open",
-    "eng": "impit,firefox,wayback",
-    "fresh": ""
+    "v": "wrong",
+    "how": "extra",
+    "eng": "firefox",
+    "fresh": "Cotton 100%"
    }
   },
   {
@@ -22926,9 +25103,9 @@
      "comp": ""
     },
     "firefox": {
-     "v": "comp",
-     "note": "Viscose 68% / Polyester 29% / Elastane 3%",
-     "comp": "Viscose 68% / Polyester 29% / Elastane 3%"
+     "v": "open",
+     "note": "글 7216자",
+     "comp": ""
     },
     "wayback": {
      "v": "open",
@@ -22937,10 +25114,9 @@
     }
    },
    "verdict": {
-    "v": "wrong",
-    "how": "diff",
-    "eng": "firefox",
-    "fresh": "Viscose 68% / Polyester 29% / Elastane 3%"
+    "v": "open",
+    "eng": "impit,firefox,wayback",
+    "fresh": ""
    }
   },
   {
@@ -22964,15 +25140,17 @@
      "comp": ""
     },
     "wayback": {
-     "v": "err",
-     "note": "보관본 없음",
-     "comp": ""
+     "v": "comp",
+     "note": "20260517 보관본 · Cotton 100%",
+     "comp": "Cotton 100%"
     }
    },
    "verdict": {
-    "v": "unread",
-    "eng": "",
-    "fresh": ""
+    "v": "wrong-arc",
+    "how": "diff",
+    "eng": "wayback",
+    "fresh": "Cotton 100%",
+    "note": "20260517 보관본 · Cotton 100%"
    }
   },
   {
@@ -24302,9 +26480,9 @@
      "comp": ""
     },
     "firefox": {
-     "v": "comp",
-     "note": "Linen 100%",
-     "comp": "Linen 100%"
+     "v": "open",
+     "note": "글 6494자",
+     "comp": ""
     },
     "wayback": {
      "v": "err",
@@ -24313,10 +26491,9 @@
     }
    },
    "verdict": {
-    "v": "wrong",
-    "how": "diff",
-    "eng": "firefox",
-    "fresh": "Linen 100%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -24335,9 +26512,9 @@
      "comp": ""
     },
     "firefox": {
-     "v": "open",
-     "note": "글 6431자",
-     "comp": ""
+     "v": "comp",
+     "note": "Cotton 100%",
+     "comp": "Cotton 100%"
     },
     "wayback": {
      "v": "err",
@@ -24346,9 +26523,10 @@
     }
    },
    "verdict": {
-    "v": "open",
-    "eng": "impit,firefox",
-    "fresh": ""
+    "v": "fine",
+    "how": "same",
+    "eng": "firefox",
+    "fresh": "Cotton 100%"
    }
   },
   {
@@ -24559,9 +26737,9 @@
    "brand": "Loft",
    "engines": {
     "impit": {
-     "v": "comp",
-     "note": "Cotton 60% / Modal 40%",
-     "comp": "Cotton 60% / Modal 40%"
+     "v": "open",
+     "note": "글 16233자",
+     "comp": ""
     },
     "firefox": {
      "v": "open",
@@ -24575,10 +26753,9 @@
     }
    },
    "verdict": {
-    "v": "fresh",
-    "how": "new",
-    "eng": "impit",
-    "fresh": "Cotton 60% / Modal 40%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -24591,9 +26768,9 @@
    "brand": "Loft",
    "engines": {
     "impit": {
-     "v": "comp",
-     "note": "Modal 94% / Elastane 6%",
-     "comp": "Modal 94% / Elastane 6%"
+     "v": "open",
+     "note": "글 16233자",
+     "comp": ""
     },
     "firefox": {
      "v": "open",
@@ -24607,10 +26784,9 @@
     }
    },
    "verdict": {
-    "v": "fresh",
-    "how": "new",
-    "eng": "impit",
-    "fresh": "Modal 94% / Elastane 6%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -24623,9 +26799,9 @@
    "brand": "Loft",
    "engines": {
     "impit": {
-     "v": "comp",
-     "note": "Cotton 92% / Elastane 8%",
-     "comp": "Cotton 92% / Elastane 8%"
+     "v": "open",
+     "note": "글 16233자",
+     "comp": ""
     },
     "firefox": {
      "v": "open",
@@ -24639,10 +26815,9 @@
     }
    },
    "verdict": {
-    "v": "fresh",
-    "how": "new",
-    "eng": "impit",
-    "fresh": "Cotton 92% / Elastane 8%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -24655,9 +26830,9 @@
    "brand": "Loft",
    "engines": {
     "impit": {
-     "v": "comp",
-     "note": "Cotton 60% / Modal 40%",
-     "comp": "Cotton 60% / Modal 40%"
+     "v": "open",
+     "note": "글 16233자",
+     "comp": ""
     },
     "firefox": {
      "v": "open",
@@ -24671,10 +26846,9 @@
     }
    },
    "verdict": {
-    "v": "fresh",
-    "how": "new",
-    "eng": "impit",
-    "fresh": "Cotton 60% / Modal 40%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -24687,9 +26861,9 @@
    "brand": "Loft",
    "engines": {
     "impit": {
-     "v": "comp",
-     "note": "Cotton 92% / Elastane 8%",
-     "comp": "Cotton 92% / Elastane 8%"
+     "v": "open",
+     "note": "글 16233자",
+     "comp": ""
     },
     "firefox": {
      "v": "open",
@@ -24703,10 +26877,9 @@
     }
    },
    "verdict": {
-    "v": "fresh",
-    "how": "new",
-    "eng": "impit",
-    "fresh": "Cotton 92% / Elastane 8%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -24719,9 +26892,9 @@
    "brand": "Loft",
    "engines": {
     "impit": {
-     "v": "comp",
-     "note": "Cotton 60% / Modal 40%",
-     "comp": "Cotton 60% / Modal 40%"
+     "v": "open",
+     "note": "글 16233자",
+     "comp": ""
     },
     "firefox": {
      "v": "open",
@@ -24735,10 +26908,9 @@
     }
    },
    "verdict": {
-    "v": "fresh",
-    "how": "new",
-    "eng": "impit",
-    "fresh": "Cotton 60% / Modal 40%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -24751,9 +26923,9 @@
    "brand": "Loft",
    "engines": {
     "impit": {
-     "v": "comp",
-     "note": "Cotton 100%",
-     "comp": "Cotton 100%"
+     "v": "open",
+     "note": "글 16233자",
+     "comp": ""
     },
     "firefox": {
      "v": "open",
@@ -24767,10 +26939,9 @@
     }
    },
    "verdict": {
-    "v": "fresh",
-    "how": "new",
-    "eng": "impit",
-    "fresh": "Cotton 100%"
+    "v": "open",
+    "eng": "impit,firefox",
+    "fresh": ""
    }
   },
   {
@@ -25258,15 +27429,17 @@
      "comp": ""
     },
     "wayback": {
-     "v": "err",
-     "note": "보관본 없음",
-     "comp": ""
+     "v": "comp",
+     "note": "20260413 보관본 · Modal 94% / Elastane 6%",
+     "comp": "Modal 94% / Elastane 6%"
     }
    },
    "verdict": {
-    "v": "open",
-    "eng": "impit,firefox",
-    "fresh": ""
+    "v": "fresh-arc",
+    "how": "new",
+    "eng": "wayback",
+    "fresh": "Modal 94% / Elastane 6%",
+    "note": "20260413 보관본 · Modal 94% / Elastane 6%"
    }
   },
   {
@@ -25669,10 +27842,10 @@
    }
   }
  ],
- "verifiedAt": "2026-11-24T05:40:38.893Z",
+ "verifiedAt": "2026-11-24T06:01:09.355Z",
  "runInfo": {
-  "impit": "정상 · 89쪽 · 33s",
-  "firefox": "정상 · 89쪽 · 693s",
-  "wayback": "정상 · 89쪽 · 129s"
+  "impit": "정상 · 89쪽 · 30s",
+  "firefox": "정상 · 89쪽 · 680s",
+  "wayback": "정상 · 89쪽 · 109s"
  }
 }

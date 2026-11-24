@@ -1,14 +1,14 @@
 {
- "at": "2026-11-24T05:40:38.893Z",
+ "at": "2026-11-24T06:01:09.355Z",
  "engines": [
   "impit",
   "firefox",
   "wayback"
  ],
  "runInfo": {
-  "impit": "정상 · 89쪽 · 33s",
-  "firefox": "정상 · 89쪽 · 693s",
-  "wayback": "정상 · 89쪽 · 129s"
+  "impit": "정상 · 89쪽 · 30s",
+  "firefox": "정상 · 89쪽 · 680s",
+  "wayback": "정상 · 89쪽 · 109s"
  },
  "targets": [
   {
@@ -702,39 +702,32 @@
     "comp": "Triacetate 70% / Polyester 30%\nPolyester 95% / Elastane 5%"
    },
    "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html": {
-    "v": "comp",
-    "note": "Cotton 60% / Modal 40%",
-    "comp": "Cotton 60% / Modal 40%"
+    "v": "open",
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html": {
-    "v": "comp",
-    "note": "Modal 94% / Elastane 6%",
-    "comp": "Modal 94% / Elastane 6%"
+    "v": "open",
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html": {
-    "v": "comp",
-    "note": "Cotton 92% / Elastane 8%",
-    "comp": "Cotton 92% / Elastane 8%"
+    "v": "open",
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html": {
-    "v": "comp",
-    "note": "Cotton 60% / Modal 40%",
-    "comp": "Cotton 60% / Modal 40%"
+    "v": "open",
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html": {
-    "v": "comp",
-    "note": "Cotton 92% / Elastane 8%",
-    "comp": "Cotton 92% / Elastane 8%"
+    "v": "open",
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html": {
-    "v": "comp",
-    "note": "Cotton 60% / Modal 40%",
-    "comp": "Cotton 60% / Modal 40%"
+    "v": "open",
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html": {
-    "v": "comp",
-    "note": "Cotton 100%",
-    "comp": "Cotton 100%"
+    "v": "open",
+    "note": "글 16233자"
    },
    "https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html": {
     "v": "open",
@@ -860,18 +853,17 @@
     "comp": "Cotton 100%"
    },
    "https://splendid.com/products/lainey-lace-trim-short-sleeve-tee": {
-    "v": "comp",
-    "note": "Cotton 60% / Polyester 40%",
-    "comp": "Cotton 60% / Polyester 40%"
+    "v": "open",
+    "note": "글 5801자"
    },
    "https://splendid.com/products/kacey-striped-v-neck-tee": {
-    "v": "open",
-    "note": "글 7009자"
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%"
    },
    "https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee": {
-    "v": "comp",
-    "note": "Viscose 68% / Polyester 29% / Elastane 3%",
-    "comp": "Viscose 68% / Polyester 29% / Elastane 3%"
+    "v": "open",
+    "note": "글 7216자"
    },
    "https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/": {
     "v": "blocked",
@@ -1063,13 +1055,13 @@
     "note": "HTTP 429 Just a moment..."
    },
    "https://splendid.com/products/stella-linen-trim-tank": {
-    "v": "comp",
-    "note": "Linen 100%",
-    "comp": "Linen 100%"
+    "v": "open",
+    "note": "글 6494자"
    },
    "https://splendid.com/products/lydia-linen-mini-dress": {
-    "v": "open",
-    "note": "글 6431자"
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%"
    },
    "https://splendid.com/products/stella-linen-midi-dress": {
     "v": "comp",
@@ -1264,8 +1256,9 @@
     "note": "20260406 보관본 · 글 963자"
    },
    "https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/": {
-    "v": "err",
-    "note": "보관본 없음"
+    "v": "comp",
+    "note": "20260517 보관본 · Cotton 100%",
+    "comp": "Cotton 100%"
    },
    "https://www.stories.com/en-us/clothing/knitwear/": {
     "v": "open",
@@ -1554,8 +1547,9 @@
     "note": "보관본 없음"
    },
    "https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html": {
-    "v": "err",
-    "note": "보관본 없음"
+    "v": "comp",
+    "note": "20260413 보관본 · Modal 94% / Elastane 6%",
+    "comp": "Modal 94% / Elastane 6%"
    },
    "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html": {
     "v": "err",
