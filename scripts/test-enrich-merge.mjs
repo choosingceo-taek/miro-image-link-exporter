@@ -219,6 +219,8 @@ try {
       else ok(`검색 인덱스 재구축 ${index.items.length}개 — 오버레이의 혼용률·컬러가 실린다`);
     }
     if (!existsSync(REPORT) || !/TestBrand/.test(readFileSync(REPORT, "utf8"))) fail(`[${L}] 리포트에 브랜드 줄이 없다`);
+    else if (!/미표기 1 .*껍데기 1/.test(readFileSync(REPORT, "utf8"))) fail(`[${L}] 리포트 경로 열에 미표기·껍데기 수가 없다`);
+    else ok("리포트 경로 열: 미표기 1 · 껍데기 1");
   }
 
   // ── 시나리오 2: NEED_FIELDS=comp,color — 예전 동작(컬러도 목표) ──

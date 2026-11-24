@@ -716,7 +716,7 @@ async function processBrand(c, phase) {
     return;
   }
 
-  const stat = { shopify: 0, page: 0, worker: 0, wayback: 0, noData: 0, blocked: 0, fail: 0, shell: 0,
+  const stat = { shopify: 0, page: 0, worker: 0, wayback: 0, noData: 0, blocked: 0, fail: 0, shell: 0, none: 0,
     wbNone: 0, wbReject: 0, wbUrl: 0, wbErr: 0, wbSkip: 0 };
   const comps = {};
   if (!wbBrandCtx.has(c.site)) wbBrandCtx.set(c.site, { used: 0 });
@@ -736,6 +736,7 @@ async function processBrand(c, phase) {
   // 이번에 읽은 혼용률이 어디서 왔나 — 지금 페이지(실시간 경로) / 보관본.
   let liveComp = 0, arcComp = 0;
   for (const v of Object.values(comps)) {
+    if (v && v.none) stat.none++;   // 이번에 '사이트 미표기'로 판정한 상품
     if (!v || !validComp(asComp(v.comp))) continue;
     if (v.via === "wayback") arcComp++; else liveComp++;
   }
@@ -956,7 +957,7 @@ const pathStr = (st) => {
   if (!st) return "";
   const ok = ["shopify", "page", "worker", "wayback"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
   const ng = ["noData", "blocked", "shell", "fail", "wbNone", "wbReject", "wbErr"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
-  return [ok.length ? "성공 " + ok.join("·") : "", ng.length ? "실패 " + ng.join("·") : ""].filter(Boolean).join(" / ");
+  return [ok.length ? "성공 " + ok.join("·") : "", st.none ? `미표기 ${st.none}` : "", ng.length ? "실패 " + ng.join("·") : ""].filter(Boolean).join(" / ");
 };
 const gaps = done.filter((r) => r.total).sort((a, z) => (a.have / a.total) - (z.have / z.total));
 if (gaps.length) {
