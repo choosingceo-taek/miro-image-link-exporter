@@ -184,7 +184,8 @@ export function applyEdits(cat, overlay, targets) {
 // 멈춤 조건. 걸린 이유 목록을 돌려준다(비면 통과).
 export function limitCheck(targets, baseline, limits = LIMITS) {
   const out = [];
-  if (baseline > 0 && targets.length > baseline * (1 + limits.MAX_OVER)) {
+  // 허용 상한은 정수로 내림한다(100 × 1.15 가 114.999… 로 계산돼 115 를 막는 일이 없게).
+  if (baseline > 0 && targets.length > Math.floor(baseline * (1 + limits.MAX_OVER) + 1e-9)) {
     out.push(`대상 ${targets.length}개가 기준 ${baseline}개보다 ${Math.round((targets.length / baseline - 1) * 100)}% 많다(허용 ${Math.round(limits.MAX_OVER * 100)}%)`);
   }
   const byBrand = new Map();

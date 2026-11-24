@@ -62,6 +62,8 @@ jobs:
         run: node scripts/test-audit-stored-comp.mjs
       - name: Run store-time composition guard test (site furniture repeated across a brand)
         run: node scripts/test-comp-guard.mjs
+      - name: Run stored composition cleanup test (dry · targets only · re-read · backup/restore · abort limits)
+        run: node scripts/test-clean-stored-comp.mjs
       - name: Run research app search/segment/basket test
         run: node scripts/test-app-basket.mjs
       - name: Run extension folder consistency test (manifest · CSP · changelog)
@@ -77,6 +79,7 @@ jobs:
           node --check scripts/diagnose-page.mjs
           node --check scripts/audit-stored-comp.mjs
           node --check scripts/comp-guard.mjs
+          node --check scripts/clean-stored-comp.mjs
           node --check scripts/try-engines.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js
