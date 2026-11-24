@@ -1125,6 +1125,30 @@ const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|ship
 // 틀린 값이 저장되는 것보다 비어 있는 편이 낫다.
 const PART_GAP = 300;
 const PART_LABEL_RX = /(?<![A-Za-z])(?:outer|shell|lining|lined|main|body|contrast|trim|inner|filling|fill|padding|wadding|insert|pocket|sleeve|collar|cuff|rib|lace|embroidery|겉감|안감|배색|충전재)(?![A-Za-z])[^%]{0,24}$/i;
+// 낱말 없이 "100% 섬유" 만 셋 이상 줄줄이 붙은 자리는 한 옷의 소재가 아니라 배지·메뉴·필터 목록이다.
+// 2026-11-24 Splendid: 머리 영역에 심긴 개인화 배지 틀 "100% Cotton 100% Cotton 100% Cashmere 100% Cashmere" 가
+// 진짜 소재("68% Viscose - From Bamboo, 29% Polyester, 3% Elastane")보다 먼저 잡혀 "Cotton 100% / Cashmere 100%"
+// 두 줄로 저장됐다(저장값 344개 중 233개). 한 옷의 두 원단은 부위 이름("Lining:")이 사이에 붙거나 둘뿐이다 —
+// 셋 이상이 맨몸으로(구분 기호만 두고) 이어지면 목록으로 보고 소재 후보에서 뺀다. 둘까지는 그대로 둔다
+// (반응형 화면이 같은 소재를 두 번 찍는 일이 있어서).
+const BARE_GAP_RX = /^[\s|\/,\u00b7\u2022;+&-]{0,6}$/;
+function bareRunAt(src) {
+  const ms = [];
+  for (const m of String(src || '').matchAll(COMP_RX)) {
+    const g = m.groups;
+    if (FIBRES[String(g.fibf || g.fibr || '').toLowerCase().trim()]) ms.push({ at: m.index, end: m.index + m[0].length, pct: Number(g.pctf || g.pctr) });
+  }
+  const out = new Set();
+  for (let i = 0; i < ms.length;) {
+    let j = i;
+    if (ms[i].pct === 100) {
+      while (j + 1 < ms.length && ms[j + 1].pct === 100 && BARE_GAP_RX.test(src.slice(ms[j].end, ms[j + 1].at))) j++;
+    }
+    if (j - i + 1 >= 3) for (let k = i; k <= j; k++) out.add(ms[k].at);
+    i = j + 1;
+  }
+  return out;
+}
 function compFromText(text) {
   // 한 옷에 원단이 두 가지인 경우가 있다 — 겉감/안감, 몸판/배색, 색상별 사양.
   //   "Shell: 100% Cotton. Lining: 100% Polyester"
@@ -1132,10 +1156,12 @@ function compFromText(text) {
   // 한 줄로 더하면 200% 나 110% 가 되어 없는 조성이 되고, 하나만 남기면 나머지
   // 원단을 잃는다. 그래서 한 벌이 100% 에 차면 줄을 바꿔 이어 담는다.
   const src = String(text || '').slice(0, 16000);
+  const bare = bareRunAt(src);   // 배지·메뉴 목록(위 bareRunAt 주석)은 건너뛴다
   const groups = [];
   let cur = [], total = 0, seen = new Set(), gStart = 0, gEnd = 0;
   const flush = () => { if (cur.length) groups.push({ items: cur, start: gStart, end: gEnd }); cur = []; total = 0; seen = new Set(); };
   for (const m of src.matchAll(COMP_RX)) {
+    if (bare.has(m.index)) continue;
     const g = m.groups;
     const pct = Number(g.pctf || g.pctr);
     const mods = String(g.modf || g.modr || '');
@@ -1242,8 +1268,10 @@ function validColor(s) {
 function compWindow(s) {
   const COMP_HEAD_RX = /(?:composition|materials?|fabric(?:ation)?|content|outer shell|lining|소재|혼용률?)\s*[:：&a-z ]{0,20}$/i;
   const rx = new RegExp(COMP_RX.source, 'gi');
+  const bare = bareRunAt(s);   // 배지·메뉴 목록에서는 창을 열지 않는다(Splendid)
   let m, first = null, headed = null;
   while ((m = rx.exec(s))) {
+    if (bare.has(m.index)) continue;
     if (!first) first = m;
     if (COMP_HEAD_RX.test(s.slice(Math.max(0, m.index - 40), m.index))) { headed = m; break; }
   }

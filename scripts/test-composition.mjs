@@ -138,6 +138,18 @@ const compFromHtml = new Function(
 const pad = "<p>" + "메뉴 배너 안내 ".repeat(4000) + "</p>";
 const ZARA_NAV = '<nav class="layout-categories"><div class="zds-tabs"><ul class="layout-categories__level-n-category-list">' +
   ZARA_MENU.split(" | ").map((t) => `<li><span class="layout-categories-category-name__label">${t}</span></li>`).join("") + '</ul></div></nav>';
+// 2026-11-24 Splendid 상품 페이지(파이어폭스, 실행 45333219085 덤프에서 옮김·줄임). 머리 영역(div#vue-app-header)에
+// 개인화 위젯의 배지 틀이 있고, 배지 글자는 CSS 로 감춰져 있지만 페이지 글에는 남는다.
+const SPLENDID_BADGE = (id, fib) => `<div class="dy_unit dy_smart_object_${id}"><style>.dy_img_badge_html-${id} span { display: none; }</style>` +
+  `<div class="dy_img_badge_html-${id}--container"><div class="dy_img_badge_html-${id} included"><span class="plp">100% ${fib}</span><span class="pdp">100% ${fib}</span></div></div></div>`;
+const SPLENDID_HEAD = '<div id="vue-app-header"><div class="sticky"><div class="sticky__inner"><div>Women Kids Best Sellers Sleepwear ' +
+  'Shop All Sale Best Sellers The Sleep Shop PJ Sets Robes Slippers &amp; Accessories Sale Sleepwear Your Personal Edit Insider Rewards ' +
+  'About About Our Story Splendid Kind Our Fabrics Stores UPF 50+ UPF 50+ ' + SPLENDID_BADGE("3088350", "Cotton") + SPLENDID_BADGE("3884170", "Cashmere") +
+  ' Waitlist Waitlist See all results ' + 'BLACK FRIDAY EVENT 40% OFF SITEWIDE | CODE: GIFT * '.repeat(7) + '</div></div></div></div>';
+const SPLENDID_PAGE = (title, desc, fabric) => SPLENDID_HEAD + `<main><div id="vue-app"><div class="product-details"><div class="product-info loaded">` +
+  `<h1>${title}</h1> $78 Leopard Print Size Chart Find My Size XS S M L XL Add to Bag FREE SHIPPING &amp; RETURNS* Earn 78 points with this purchase. ` +
+  `<div class="product-description">Description Fit Fabric Care Shipping &amp; Returns <div class="product-description__tab-content"><div>` +
+  `<p>${desc}</p><p>Size Chart</p><p>${fabric}</p><p>Machine wash cold</p><p>Imported</p></div></div></div></div></div></div></main>`;
 const HTML_CASES = [
   ["본문에 그대로 있으면 잡는다",
     "<div>Composition: 60% Cotton, 40% Modal</div>", "Cotton 60% / Modal 40%"],
@@ -187,6 +199,19 @@ const HTML_CASES = [
   // 메뉴 조각이 진짜 소재보다 4000자 넘게 앞에 있어도 — 제목이 붙은 쪽을 고른다.
   ["메뉴 조각이 4000자 넘게 앞에 있어도 제목 붙은 소재를 고른다",
     '<div class="menu">PARTYWEAR 100% WOOL | CASHMERE ' + "NEW ARRIVALS BEST SELLERS ".repeat(250) + '</div><div><h1>RUSTIC COTTON T-SHIRT</h1><p>' + ZARA_TAIL + '</p><span>Composition: 100% cotton</span></div>', "Cotton 100%"],
+  // ── 2026-11-24 Splendid — 머리 영역 배지 틀 "100% Cotton 100% Cotton 100% Cashmere 100% Cashmere" ──
+  // 고치기 전: 세 페이지 모두 "Cotton 100%\nCashmere 100%"(저장값 344개 중 233개가 이 값이었다).
+  ["Splendid 뱀부 티 — 머리의 배지 목록은 소재가 아니다",
+    SPLENDID_PAGE("Leopard Bamboo Blend Long Sleeve Tee", "Upgrade your layering game with our Bamboo Blend Long Sleeve Tee. Fitted crewneck tee Made from bamboo with a hint of spandex Long sleeves Style Number: RF3K542",
+      "68% Viscose - From Bamboo, 29% Polyester, 3% Elastane"), "Viscose 68% / Polyester 29% / Elastane 3%"],
+  ["Splendid 면 티 — 배지 목록을 빼고 진짜 Cotton 100% 만",
+    SPLENDID_PAGE("Louisa Long Sleeve Tee", "A classic long sleeve tee in our softest cotton jersey. Style Number: RF3K501", "100% Cotton"), "Cotton 100%"],
+  ["Splendid 리넨 원피스 — 겉감·안감 두 줄은 그대로",
+    SPLENDID_PAGE("Stella Linen Midi Dress", "Pleated front details Midi length with side pleats Lightweight linen fabric Style Number: RS6D430",
+      "100% Linen Lining: 100% Viscose"), "Linen 100%\nViscose 100%"],
+  // 목록이 아닌 두 원단(부위 이름 없이 둘만 붙은 것)은 그대로 둔다 — 셋 이상일 때만 목록으로 본다.
+  ["맨몸 '100% 섬유' 둘은 목록으로 보지 않는다", "<div>Composition: 100% Silk 100% Polyester</div>", "Silk 100%\nPolyester 100%"],
+  ["같은 소재가 두 번 찍힌 반응형 화면", '<div class="m">100% Cotton</div><div class="d">100% Cotton</div>', "Cotton 100%"],
   ["소재가 없는 페이지", "<div>A soft everyday tee.</div>", ""],
   ["빈 입력", "", ""],
 ];
