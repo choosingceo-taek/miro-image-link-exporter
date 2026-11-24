@@ -34,6 +34,14 @@ on:
         description: "auto(기본 — 지금 크롬으로 막힌 브랜드만 파이어폭스) | playwright | patchright | firefox"
         required: false
         default: "auto"
+      tabs:
+        description: "동시에 여는 탭 수(비우면 스크립트 기본)"
+        required: false
+        default: ""
+      pause_ms:
+        description: "탭이 페이지 하나를 본 뒤 쉬는 시간 ms(0.5~1.5배로 흔든다, 비우면 스크립트 기본)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -112,6 +120,8 @@ jobs:
           TOP: ${{ github.event.inputs.top || '6' }}
           PER_BRAND: ${{ github.event.inputs.per_brand || '120' }}
           STORE: ${{ github.event.inputs.store || '1' }}
+          TABS: ${{ github.event.inputs.tabs }}
+          PAUSE_MS: ${{ github.event.inputs.pause_ms }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: node scripts/enrich-comp-browser.mjs
       - name: Upload report

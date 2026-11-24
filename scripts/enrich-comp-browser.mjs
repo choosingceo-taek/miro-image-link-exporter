@@ -61,6 +61,8 @@ const STORE = process.env.STORE !== "0" && process.env.DRY !== "1";
 const want = (process.env.BRANDS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
 // 한 사이트로 동시에 너무 많이 가면 429 를 부른다. 탭 4개면 충분히 빠르다.
 const TABS = Math.max(1, Number(process.env.TABS) || 4);
+// 한 탭이 페이지 하나를 본 뒤 쉬는 시간(ms, 0.5~1.5배로 흔든다). 0 이면 안 쉰다.
+const PAUSE_MS = Math.max(0, Number(process.env.PAUSE_MS) || 0);
 
 // ── 추출 규칙은 worker 한 벌만 쓴다 ─────────────────────────────────
 const workerSrc = readFileSync(join(ROOT, "worker/fabric-extractor.js"), "utf8");
@@ -86,6 +88,28 @@ const asComp = (v) => {
   }
   return lines.filter(Boolean).map((l) => l.join(" / ")).join("\n");
 };
+
+// 상품명이 섬유를 말하는데 읽은 혼용률에 그 섬유가 없으면(또는 "100% 면" 인데 다른 섬유가 섞이면)
+// 리포트에 ⚠ 를 단다. 저장 여부를 정하지는 않는다 — 사람이 눈으로 볼 곳을 짚어 줄 뿐이다.
+const NAME_FIBRES = { cotton: "Cotton", wool: "Wool", merino: "Wool", linen: "Linen", silk: "Silk", cashmere: "Cashmere",
+  viscose: "Viscose", lyocell: "Lyocell", tencel: "Lyocell", modal: "Modal", polyester: "Polyester", nylon: "Nylon",
+  leather: "Leather", satin: "", denim: "Cotton", alpaca: "Alpaca", mohair: "Mohair" };
+function nameCheck(name, comp) {
+  const n = String(name || "").toLowerCase(), c = String(comp || "");
+  const notes = [];
+  const pure = n.match(/100\s*%\s*([a-z]+)/);
+  if (pure && NAME_FIBRES[pure[1]]) {
+    const lines = c.split("\n");
+    if (!lines.some((l) => l.trim() === `${NAME_FIBRES[pure[1]]} 100%`)) notes.push(`이름은 100% ${pure[1]}`);
+  }
+  for (const [w, f] of Object.entries(NAME_FIBRES)) {
+    if (!f || !new RegExp(`\\b${w}\\b`).test(n)) continue;
+    if (w === "denim") continue;
+    if (!c.includes(f)) notes.push(`이름에 ${w}, 혼용률에 없음`);
+  }
+  if (c.split("\n").length > 1) notes.push("두 줄");
+  return notes.length ? "⚠ " + [...new Set(notes)].join(" · ") : "";
+}
 
 const api = async (qs, init) => {
   const r = await fetch(WORKER + "/?" + qs + tok, { signal: AbortSignal.timeout(45000), ...(init || {}) });
@@ -261,6 +285,7 @@ async function contextFor(eng) {
 const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|captcha|just a moment/i;
 
 const rows = [];
+const reads = [];   // 상품마다 무엇을 읽었나 — 리포트에서 눈으로 확인할 수 있게
 let grandFilled = 0, grandTried = 0;
 
 for (const c of targets) {
@@ -339,6 +364,7 @@ for (const c of targets) {
           const color = colorFromHtml(html);
           if (validComp(comp)) {
             patch[p.productUrl] = { comp, ...(color ? { color } : {}) };
+            reads.push({ brand: c.brand, name: p.name || "", url: p.productUrl, comp });
             stat.ok++;
           } else {
             // 페이지는 멀쩡히 읽었는데 소재 표기가 없다 = 사이트가 안 적는다.
@@ -349,6 +375,8 @@ for (const c of targets) {
           const msg = String((e && e.message) || e);
           // 크롬은 net::ERR_…, 파이어폭스는 NS_ERROR_… 로 연결 거부를 알린다.
           if (/net::ERR|NS_ERROR|NS_BINDING|Timeout/i.test(msg)) stat.blocked++; else stat.err++;
+        } finally {
+          if (PAUSE_MS && i < todo.length) await page.waitForTimeout(Math.round(PAUSE_MS * (0.5 + Math.random()))).catch(() => {});
         }
       }
     } finally { await page.close().catch(() => {}); }
@@ -411,6 +439,16 @@ const md = [
   "사람 PC 의 확장(가정용 IP)이 맡아야 합니다. '사이트 미표기'가 대부분이면",
   "더 할 수 있는 것이 없습니다 — 엑셀에 '정보 없음'으로 나갑니다.",
   "",
+  ...(reads.length ? [
+    `<details><summary>읽은 혼용률 ${reads.length}개 — 상품명과 함께(⚠ 는 상품명과 안 맞아 보이는 것)</summary>`,
+    "",
+    "| 브랜드 | 상품명 | 혼용률 | 확인 |",
+    "|---|---|---|---|",
+    ...reads.slice(0, 400).map((r) => `| ${r.brand} | [${String(r.name || "(이름 없음)").replace(/\|/g, "/").slice(0, 70)}](${r.url}) | ${r.comp.replace(/\n/g, " ‖ ")} | ${nameCheck(r.name, r.comp)} |`),
+    "",
+    "</details>",
+    "",
+  ] : []),
 ].join("\n");
 writeFileSync(join(ROOT, "enrich-browser-report.md"), md);
 // 이력은 저장한 실행에서만 남긴다 — DRY 로 돌려 보다가 후보를 잠그면 곤란하다.
