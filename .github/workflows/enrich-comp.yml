@@ -46,6 +46,17 @@ on:
         description: "이 실행의 제한 시간(분, 기본 110)"
         required: false
         default: ""
+      # 아래 둘은 측정용. 예약·workflow_run 실행에는 inputs 가 비어 있어 평소와 똑같이 돈다.
+      # (workflow_dispatch 입력은 10개가 상한이라 아카이브 상한은 저장소 변수 WAYBACK_MAX ·
+      #  WAYBACK_PER_BRAND · WAYBACK 으로 바꾼다)
+      dry:
+        description: "1 이면 읽기만 하고 아무것도 저장하지 않는다(리포트는 enrich-comp-dry-report.md)"
+        required: false
+        default: ""
+      brands:
+        description: "이 브랜드만 (쉼표로 구분, 대소문자 무시). 비우면 전부"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -80,14 +91,25 @@ jobs:
           # 한 사이트로 가는 동시 요청은 8개라 예전(10개)보다 오히려 정중하다.
           BRAND_POOL: ${{ github.event.inputs.brand_pool || vars.BRAND_POOL || '5' }}
           PAGE_POOL: ${{ github.event.inputs.page_pool || vars.PAGE_POOL || '8' }}
+          # 측정 실행 — '1' 일 때만 켜진다. 예약 실행에서는 빈 값이라 평소대로 저장한다.
+          DRY: ${{ github.event.inputs.dry == '1' && '1' || '' }}
+          BRANDS: ${{ github.event.inputs.brands || '' }}
         run: node scripts/enrich-comp.mjs
       - name: Commit report
         if: always()
+        env:
+          DRY: ${{ github.event.inputs.dry == '1' && '1' || '' }}
         run: |
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
-          git add -A -- enrich-comp-report.md || true
-          git commit -m "enrich-comp: 혼용률·컬러 보강 리포트" || echo "no changes"
+          # DRY 실행은 측정 리포트 하나만 올린다 — 진짜 리포트를 덮지 않게.
+          if [ "$DRY" = "1" ]; then
+            git add -- enrich-comp-dry-report.md || true
+            git commit -m "enrich-comp: 측정 실행(DRY) 리포트 — 저장 안 함" || echo "no changes"
+          else
+            git add -A -- enrich-comp-report.md || true
+            git commit -m "enrich-comp: 혼용률·컬러 보강 리포트" || echo "no changes"
+          fi
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} \
               && git push origin HEAD:${{ github.ref_name }} && exit 0

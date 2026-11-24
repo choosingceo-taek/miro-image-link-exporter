@@ -14,6 +14,8 @@
 //
 // env: WORKER_URL, WORKER_TOKEN, PER_BRAND(브랜드당 상한, 기본 800), TOTAL(전체 상한, 기본 40000),
 //      NEED_FIELDS(목표 항목, 기본 comp,color), RETRY_DAYS(빈손 재시도 간격, 기본 5)
+//      DRY=1 (읽기만 하고 Worker 에 아무것도 쓰지 않는다 — 리포트는 enrich-comp-dry-report.md)
+//      BRANDS(쉼표로 나눈 브랜드 이름, 대소문자 무시 — 이 브랜드만 돈다. 비우면 전부)
 // 예약 실행은 workflow_dispatch inputs 가 비어 있어 이 기본값이 그대로 쓰인다 —
 // 작게 잡으면 매일 조금씩만 채우다 끝나지 않는다. 하룻밤에 전부 도는 값으로 둔다.
 
@@ -51,6 +53,31 @@ const PAGE_POOL = Math.max(1, Number(process.env.PAGE_POOL) || 8);
 const TOTAL = Math.max(1, Number(process.env.TOTAL) || 40000);
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const tok = "&token=" + encodeURIComponent(TOKEN);
+
+// ── 측정용 실행(DRY=1) ─────────────────────────────────────────────
+// 상품 페이지·아카이브·Worker 를 읽는 것은 평소와 똑같이 하고, 결과를 합쳐 '저장했다면
+// 무엇이 바뀌었을지'까지 센다. 다만 Worker 에는 아무것도 쓰지 않는다 — 오버레이 저장·
+// 검색 인덱스 재구축을 건너뛰고, 리포트도 다른 파일(enrich-comp-dry-report.md)에 쓴다.
+// 이 스크립트가 Worker 에 쓰는 길은 POST 두 곳(store=overlay, store=index)뿐이고 GET 은
+// 전부 읽기다(?catalogs · ?catalog · ?comps · ?comp — ?comp 는 페이지를 읽어 돌려줄 뿐 KV 에
+// 쓰지 않는다). 그래도 나중에 누가 쓰기를 하나 더 붙일 수 있으므로, DRY 에서는 fetch 자체를
+// 감싸 GET/HEAD 가 아닌 요청은 보내기 전에 막는다.
+const DRY = process.env.DRY === "1";
+if (DRY) {
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = (input, init) => {
+    const method = String((init && init.method) || (input && input.method) || "GET").toUpperCase();
+    if (method !== "GET" && method !== "HEAD") {
+      return Promise.reject(new Error(`DRY=1 — ${method} 요청을 막음: ${String(input && input.url || input).slice(0, 120)}`));
+    }
+    return realFetch(input, init);
+  };
+}
+// 브랜드 이름 비교용 — "Chico's"·"H&M"·"&Other Stories" 처럼 기호가 섞인 이름을 그대로 적어도
+// 맞도록 글자·숫자만 남겨 비교한다.
+const normBrand = (s2) => String(s2 || "").toLowerCase().replace(/[^a-z0-9가-힣]/g, "");
+const BRANDS = String(process.env.BRANDS || "").split(",").map(normBrand).filter(Boolean);
+const REPORT_FILE = DRY ? "enrich-comp-dry-report.md" : "enrich-comp-report.md";
 
 // ── worker 의 추출 블록을 그대로 실행(단일 소스 유지) ─────────────────────
 const workerSrc = readFileSync(join(ROOT, "worker/fabric-extractor.js"), "utf8");
@@ -248,6 +275,23 @@ let list = (ls.list || []).sort((a, z) => (a.site < z.site ? -1 : 1));
   if (skip.size) console.log(`중복 옛 키 ${skip.size}개 건너뜀: ${[...skip].join(", ")}`);
   list = list.filter((c) => !skip.has(c.site));
 }
+// 검색 인덱스는 언제나 전 브랜드로 다시 만든다 — BRANDS 로 줄인 목록으로 만들면
+// 나머지 브랜드가 인덱스에서 통째로 빠진다.
+const allList = list;
+const unmatchedBrands = [];
+if (BRANDS.length) {
+  const hit = (c) => {
+    const b = normBrand(c.brand);
+    const parts = String(c.site || "").toLowerCase().split(".").map(normBrand);
+    return BRANDS.find((x) => x === b || parts.includes(x));
+  };
+  const used = new Set();
+  list = list.filter((c) => { const x = hit(c); if (x) used.add(x); return !!x; });
+  for (const x of BRANDS) if (!used.has(x)) unmatchedBrands.push(x);
+  console.log(`BRANDS 필터 — ${list.length}개 카탈로그: ${list.map((c) => c.brand || c.site).join(", ")}` +
+    (unmatchedBrands.length ? ` · 못 찾은 이름: ${unmatchedBrands.join(", ")}` : ""));
+}
+if (DRY) console.log("DRY=1 — 읽기만 한다. Worker 에 저장하지 않고 인덱스도 다시 만들지 않는다.");
 console.log(`카탈로그 ${list.length}개 — [${FIELDS.join(",")}] 채운다 (브랜드당 ${PER_BRAND}, 전체 ${TOTAL}, 재시도 ${RETRY_DAYS}일)`);
 
 let budget = TOTAL;
@@ -388,6 +432,7 @@ async function processBrand(c, phase) {
   // 실패로 실측됐다. 여기서 병합하면 Worker 는 파싱 없이 쓰기만 하므로 크기와 무관하다.
   let patched = 0, addComp = 0, addColor = 0;
   const keys = Object.keys(comps);
+  // DRY 여도 병합까지는 한다 — '저장했다면 몇 개가 새로 찼을지'를 세기 위해서다.
   if (keys.length) {
     const merged = { ...overlay };
     const clean = (v, max) => {
@@ -430,7 +475,7 @@ async function processBrand(c, phase) {
     const mk = Object.keys(merged);
     if (mk.length > 1000) for (const k of mk.slice(0, mk.length - 1000)) delete merged[k];
 
-    let ok = false;
+    let ok = DRY;   // DRY 는 저장 시도 자체를 하지 않는다
     for (let attempt = 0; attempt < 3 && !ok; attempt++) {
       try {
         const resp = await fetch(`${WORKER}/?store=overlay&site=${encodeURIComponent(c.site)}${tok}`, {
@@ -452,7 +497,7 @@ async function processBrand(c, phase) {
 
   // 저장 후 실제로 박혔는지 다시 읽어 확인한다 — 응답의 patched 만 믿지 않는다.
   let verify = null, verifyColor = null;
-  if (keys.length) {
+  if (keys.length && !DRY) {
     try {
       const re = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json());
       const vs2 = Object.values(re || {});
@@ -488,9 +533,9 @@ for (const phase of [PHASE_NEW, PHASE_OLD]) {
 // ── 검색 인덱스 재구축 — 전 브랜드 카탈로그에서. comp 가 인덱스로 흘러야
 //    보드 스캐너가 접속 없이 붙일 수 있다. 브랜드당 150개(프리페치와 동일 상한).
 let indexCount = 0;
-try {
+if (!DRY) try {
   const idx = [];
-  for (const c of list) {
+  for (const c of allList) {
     try {
       const cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json());
       let om = {};
@@ -529,6 +574,16 @@ const worst = Math.min(compPct, colorPct);
 const need = (p2) => Math.max(0, Math.ceil((p2 / 100) * totalItems) - Math.min(totalHave, totalColor));
 
 let md = `# 엑셀 항목 보강 결과 (${new Date().toISOString().slice(0, 16)}Z)\n\n`;
+if (DRY) {
+  md = `# 엑셀 항목 보강 — 측정 실행(DRY) (${new Date().toISOString().slice(0, 16)}Z)\n\n` +
+    `> ⚠️ **DRY 실행 — 저장하지 않았다.** 페이지·아카이브를 읽고 '저장했다면'을 셌을 뿐,\n` +
+    `> Worker 의 오버레이·검색 인덱스는 그대로다. 아래 '이번 실행 +N' 은 저장했다면 늘었을 개수다.\n` +
+    `> 진짜 결과는 \`enrich-comp-report.md\` 를 본다.\n\n`;
+}
+if (BRANDS.length) {
+  md += `대상 브랜드(BRANDS): ${list.map((c) => c.brand || c.site).join(", ") || "(없음)"}` +
+    (unmatchedBrands.length ? ` · 못 찾은 이름: ${unmatchedBrands.join(", ")}` : "") + `\n\n`;
+}
 // ── 엑셀 열 개방 기준 ──────────────────────────────────────────────
 // 절반만 찬 표는 쓸 수 없다는 판단으로, 두 항목이 모두 GATE% 를 넘을 때만
 // 보드 스캐너 엑셀에 열을 연다(index.html 의 SHOW_FABRIC_COLUMNS).
@@ -557,7 +612,7 @@ md += `목표 항목: ${FIELDS.join(", ")} · 상품 ${totalItems}개\n\n`;
 md += `| 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |\n|---|---:|---:|---:|\n`;
 md += `| 혼용률 | ${totalHave} | ${compPct}% | +${totalComp} |\n`;
 md += `| 컬러웨이 | ${totalColor} | ${colorPct}% | +${totalColorAdd} |\n\n`;
-md += `- 검색 인덱스 재구축: ${indexCount}개\n\n`;
+md += DRY ? `- 검색 인덱스 재구축: DRY 라 하지 않음\n\n` : `- 검색 인덱스 재구축: ${indexCount}개\n\n`;
 md += `백필은 브랜드당 ${PER_BRAND}개·한 회차 ${TOTAL}개 상한이다. 목표 항목이 다 찬 상품과\n`;
 md += `${RETRY_DAYS}일 안에 시도해 본 상품은 건너뛴다 — 사이트가 안 적는 값을 영원히 다시 읽지 않기 위해서다.\n\n`;
 // 경로 이름을 그대로 쓰면 오해를 부른다 — shopify/page/worker 는 '성공한 경로'이고
@@ -590,6 +645,6 @@ if (errs.length) {
   md += `## 읽기 실패 (${errs.length})\n\n`;
   for (const r of errs) md += `- ${r.brand}: ${r.error}\n`;
 }
-writeFileSync(join(ROOT, "enrich-comp-report.md"), md);
+writeFileSync(join(ROOT, REPORT_FILE), md);
 console.log(`\n혼용률 ${totalHave}/${totalItems} (${compPct}%, +${totalComp}) · 컬러 ${totalColor}/${totalItems} (${colorPct}%, +${totalColorAdd}) · 인덱스 ${indexCount}`);
 console.log(`컬러웨이·혼용률이 다 붙는 브랜드 ${ready.length}/${done.filter((r) => r.total).length}개 · 전체 평균 혼용률 ${compPct}% 컬러 ${colorPct}%`);
