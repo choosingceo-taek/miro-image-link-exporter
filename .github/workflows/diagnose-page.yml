@@ -164,6 +164,9 @@ jobs:
           DUMP: ${{ github.event.inputs.dump }}
           PER: ${{ github.event.inputs.per }}
           MATCH: ${{ github.event.inputs.match }}
+          # 실행마다 다른 파일에 쓴다 — 두 실행이 겹쳐 끝나면 같은 파일의 커밋이 서로 섞인다.
+          OUT: try-engines-report-${{ github.run_id }}.md
+          DUMP_OUT: try-engines-dump-${{ github.run_id }}.md
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/try-engines.mjs
@@ -173,8 +176,8 @@ jobs:
         with:
           name: try-engines
           path: |
-            try-engines-report.md
-            try-engines-dump.md
+            try-engines-report*.md
+            try-engines-dump*.md
           if-no-files-found: ignore
       - name: Commit report
         if: always()
@@ -182,7 +185,7 @@ jobs:
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- try-engines-report.md try-engines-dump.md || true
+          git add -A -- 'try-engines-report*.md' 'try-engines-dump*.md' || true
           git commit -m "try-engines: free crawler comparison" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
