@@ -6,6 +6,8 @@
 //   (B) JS 렌더링 — 서버 스크래퍼가 못 읽을 뿐, 진짜 브라우저면 IP와 무관하게 읽힌다
 // (B)는 GitHub Actions에서 매일 자동 수집할 수 있다(사람 PC 불필요).
 // 그 분류가 blocked-brands.json 의 browser(=B) / brands(=A) 두 배열이다.
+// 그 밖에 저장소의 browser-extra-brands.json 에 적힌 브랜드도 돈다 — 서버 프리페치가 목록
+// 페이지에서 막히지만 Actions 에선 열리는 브랜드다(브랜드마다 엔진을 정함 · 저장 조건이 더 엄격).
 //
 // 수집 로직은 크롬 확장과 동일한 chrome-extension/collector.js 를 그대로 주입한다(코드 이중화 없음).
 //

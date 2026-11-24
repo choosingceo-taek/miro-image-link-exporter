@@ -78,6 +78,29 @@
   archive.org 가 접속을 끊었다 — 11/24 측정 실행) 저장소 변수 `WAYBACK=0` 으로 끄고, `WAYBACK_MAX` ·
   `WAYBACK_PER_BRAND` 로 상한을 바꿉니다.
 
+## 추가 브랜드 (browser-extra-brands.json)
+
+서버 프리페치가 **목록 페이지에서 403 으로 막히는데**, GitHub Actions 의 브라우저로는 열리는
+브랜드가 있습니다. 이런 브랜드는 Render 의 그룹 파일을 바꾸지 않고, 이 저장소의
+`browser-extra-brands.json` 에 적어 두면 03:30 헤드리스 수집이 함께 돕니다.
+
+```json
+{ "brands": [ { "brand": "Veronica Beard", "engine": "chromium", "evidence": "측정 근거" } ] }
+```
+
+- `engine` 은 `chromium` 또는 `firefox`. 파이어폭스 브랜드가 하나라도 있으면 워크플로가 파이어폭스도 설치합니다.
+- 카테고리 URL 은 Render `category-links.json` 에서 가져옵니다. 거기에 없으면 `"urls": [...]` 로 직접 적습니다.
+  둘 다 없으면 그 브랜드는 건너뛰고 리포트에 이유를 남깁니다.
+- Render `browser` 그룹에 이미 있는 브랜드를 적으면 무시합니다(그쪽 크롬 수집이 그대로 돕니다).
+- **저장 조건이 더 엄격합니다.** 이 브랜드들의 카탈로그는 평소 서버가 채운 것이라, 약한 밤에 덮지 않게:
+  - 20개 이상 모였을 때만(일반 브랜드는 5개)
+  - 지금 저장본 개수의 절반 이상일 때만 — 절반 아래면 아예 보내지 않고 이전 저장본을 둡니다
+    (Worker 의 축소 가드도 절반 아래면 통째 교체를 막지만, 그때는 옛 상품과 섞어 저장합니다)
+  - 지금 저장본 개수를 못 읽으면 보내지 않습니다
+- 넣을 때는 **근거를 함께** 적습니다(`evidence`). 측정 기록: `browser-collect-firefox-measure.md`.
+- 수동 실행의 `engine` 입력을 비우면 예약 실행과 같이 브랜드별 엔진으로 돕니다. `chromium`·`firefox`
+  를 적으면 모든 브랜드를 그 엔진으로 돕니다(비교 측정용 — 이때는 `store=0`).
+
 ## 브랜드 그룹을 바꾸려면
 
 `choosingceo-taek/miro-market-research` 의 `public/blocked-brands.json` 한 곳만 고치면 됩니다.
