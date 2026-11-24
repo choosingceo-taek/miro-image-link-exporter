@@ -118,7 +118,8 @@ jobs:
   engines:
     if: ${{ github.event.inputs.mode == 'engines' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    # 엔진마다 최대 12분(ENGINE_MIN) × 브라우저 엔진 5~6개 + 설치 25분
+    timeout-minutes: 140
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
