@@ -304,14 +304,18 @@ const COMP_RX = new RegExp(
   '|(?<![A-Za-z])(?<fibr>' + FIBRE_ALT + ')' + MOD_REV + '\\s*[::]?\\s*(?<pctr>\\d{1,3})\\s*%', 'gi');
 // 수식어 자리에 이런 말이 오면 소재 설명이 아니라 판촉·안내 문구다.
 const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|shipping|free|new|all|shop|more|less|min|max|use)\b/i;
+// 두 줄(두 원단)로 볼 수 있는 거리·부위 이름 — worker 의 PART_GAP 주석 참고(같은 규칙).
+const PART_GAP = 300;
+const PART_LABEL_RX = /(?<![A-Za-z])(?:outer|shell|lining|lined|main|body|contrast|trim|inner|filling|fill|padding|wadding|insert|pocket|sleeve|collar|cuff|rib|lace|embroidery|겉감|안감|배색|충전재)(?![A-Za-z])[^%]{0,24}$/i;
 function compFromText(text) {
   // 한 옷에 원단이 두 가지인 경우가 있다 — 겉감/안감, 몸판/배색, 색상별 사양.
   // 한 줄로 더하면 200% 나 110% 가 되어 없는 조성이 되고, 하나만 남기면 나머지
   // 원단을 잃는다. 한 벌이 100% 에 차면 줄을 바꿔 이어 담는다(worker 와 같은 규칙).
+  const src = String(text || '').slice(0, 16000);
   const groups = [];
-  let cur = [], total = 0, seen = new Set();
-  const flush = () => { if (cur.length) groups.push(cur); cur = []; total = 0; seen = new Set(); };
-  for (const m of String(text || '').slice(0, 16000).matchAll(COMP_RX)) {
+  let cur = [], total = 0, seen = new Set(), gStart = 0, gEnd = 0;
+  const flush = () => { if (cur.length) groups.push({ items: cur, start: gStart, end: gEnd }); cur = []; total = 0; seen = new Set(); };
+  for (const m of src.matchAll(COMP_RX)) {
     const g = m.groups;
     const pct = Number(g.pctf || g.pctr);
     const mods = String(g.modf || g.modr || '');
@@ -321,7 +325,9 @@ function compFromText(text) {
     // "20% off cotton tees" 같은 판촉 문구를 소재로 읽지 않는다.
     if (mods && MOD_BAD_RX.test(mods)) continue;
     if (cur.length && (seen.has(material) || total + pct > 105)) flush();
+    if (!cur.length) gStart = m.index;
     cur.push(material + ' ' + pct + '%');
+    gEnd = m.index + m[0].length;
     total += pct;
     seen.add(material);
     if (cur.length >= 8) flush();
@@ -329,18 +335,24 @@ function compFromText(text) {
   }
   flush();
   if (!groups.length) return '';
-  const sum = (g) => g.reduce((n, c) => n + Number(c.match(/(\d+)%/)[1]), 0);
+  const sum = (g) => g.items.reduce((n, c) => n + Number(c.match(/(\d+)%/)[1]), 0);
   const whole = groups.filter((g) => sum(g) >= 95 && sum(g) <= 105);
   const uniq = [];
   const seenLine = new Set();
   for (const g of whole) {
-    const k = g.join(' / ');
+    const k = g.items.join(' / ');
     if (seenLine.has(k)) continue;
     seenLine.add(k);
     uniq.push(g);
   }
   if (!uniq.length || uniq.length > 2) return '';
-  return uniq.map((g) => g.join(' / ')).join('\n');
+  // 두 줄이면 가깝거나 둘 다 부위 이름이 붙어 있어야 한 옷의 두 원단이다.
+  if (uniq.length === 2) {
+    const near = uniq[1].start - uniq[0].end <= PART_GAP;
+    const labelled = (g) => PART_LABEL_RX.test(src.slice(Math.max(0, g.start - 40), g.start));
+    if (!near && !(labelled(uniq[0]) && labelled(uniq[1]))) return '';
+  }
+  return uniq.map((g) => g.items.join(' / ')).join('\n');
 }
 
 
@@ -349,18 +361,30 @@ function compFromText(text) {
 //    페이지에 적혀 있는데도 못 읽는다 → 퍼센트+섬유 주변만 잘라서 넘긴다.
 // ② 소재 설명이 페이지 JSON 안에만 있는 사이트가 많다. 본문에서 못 찾았을 때만
 //    스크립트를 보고, 여러 상품이 섞였을 수 있어 합이 105%를 넘으면 버린다.
+// 창은 "소재 제목(Composition·Materials·Fabric…)이 바로 앞에 붙은 자리"를 먼저 찾고, 없으면 첫 자리에서
+// 연다. 첫 자리가 메뉴·배너의 조각("100% WOOL | CASHMERE")이고 진짜 소재가 4000자 밖에 있으면
+// 조각 하나만 창에 들어와 그대로 틀린 값이 된다(2026-11-24 Zara 에서 본 모양).
 function compWindow(s) {
+  const COMP_HEAD_RX = /(?:composition|materials?|fabric(?:ation)?|content|outer shell|lining|소재|혼용률?)\s*[:：&a-z ]{0,20}$/i;
   const rx = new RegExp(COMP_RX.source, 'gi');
-  const m = rx.exec(s);
-  if (!m) return '';
-  const at = Math.max(0, m.index - 200);
+  let m, first = null, headed = null;
+  while ((m = rx.exec(s))) {
+    if (!first) first = m;
+    if (COMP_HEAD_RX.test(s.slice(Math.max(0, m.index - 40), m.index))) { headed = m; break; }
+  }
+  const pick = headed || first;
+  if (!pick) return '';
+  const at = Math.max(0, pick.index - 200);
   return s.slice(at, at + 4000);
 }
 function compFromHtml(html) {
   const h = String(html || '');
   if (!h) return '';
+  // 메뉴(<nav>)·<template> 은 상품 본문이 아니다(worker 와 같은 규칙 — Zara 숨은 메뉴의 "100% WOOL").
   const visible = h
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<nav\b[\s\S]*?<\/nav>/gi, ' ')
+    .replace(/<template\b[\s\S]*?<\/template>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ');

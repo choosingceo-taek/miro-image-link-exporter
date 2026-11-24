@@ -26,6 +26,20 @@ const asStr = (v) => {
   return lines.filter(Boolean).map((l) => l.join(" / ")).join("\n");
 };
 
+// 2026-11-24 Zara 상품 페이지에서 잡은 실제 화면 글(줄임). 메뉴에 기획전 이름 "100% WOOL | CASHMERE" 가 있다.
+const ZARA_MENU = "Skip to main content Search Bag 0 LOG IN Help WOMAN MAN KIDS ZARA HOME BEAUTY MASSIMO DUTTI ZARA SRPLS " +
+  "DISCOVER CAMPAIGN COLLECTION LOOKBOOK TRI-CHIC RE{FORM}ZARA THE FILM INSTALLATION 01 NEW ARRIVALS THE NEW SKI COLLECTION " +
+  "NEW BACK IN STOCK 02 FEATURED EDITS PARTYWEAR 100% WOOL | CASHMERE 03 COLLECTION BEST SELLERS JACKETS | TRENCHES COATS " +
+  "PUFFERS | TECHNICAL BLAZERS KNITWEAR DRESSES PANTS JEANS SKIRTS T-SHIRTS SHIRTS | BLOUSES TOPS | BODYSUITS SWEATSHIRTS | " +
+  "SWEATPANTS SWEATERS | CARDIGANS SHOES | BAGS CO-ORD SETS SUEDE | LEATHER ACCESSORIES | JEWELRY PERFUMES | BEAUTY LINGERIE " +
+  "SPECIAL PRICES 04 SPECIAL EDITION 05 THE FOLD-ER 06 ZARA PRE-OWNED 07 ZARA HOME 08 660 FITH AVENUE NYC TRAVEL MODE GIFT CARD " +
+  "STORES DOWNLOAD APP SUSTAINABILITY CAREERS + INFO ".repeat(1) + "THE NEW SKI COLLECTION PARTY KNITWEAR 01 NEW ARRIVALS ".repeat(30);
+const ZARA_TAIL = "Add to cart Add Description Straight-fit T-shirt with round neck and short sleeves. See more Complete your look " +
+  "Product Measurements Composition & care Check in-store availability Shipping, Exchanges and Returns Due to the holiday " +
+  "season, orders placed from the 15th of November can be returned until 30th of December.";
+const CARE = "Care: machine wash at max. 30ºC/86ºF with short spin cycle. Do not use bleach. Iron at a maximum of 110ºC/230ºF. " +
+  "Do not dry clean. Do not tumble dry. Wash inside out. Our garments are made with care to last. ".repeat(3);
+
 const CASES = [
   // ── 정상적으로 잡혀야 하는 표기들 ──
   ["Composition: 60% Cotton, 40% Modal", "Cotton 60% / Modal 40%"],
@@ -83,6 +97,19 @@ const CASES = [
   // 실제 화면(FABRICATION 섹션) — 섬유가 아닌 소재 표현은 무시하고 %만 잡는다
   ["FABRICATION 매우 부드러운 플리스 패브릭 폴리에스테르 100%", "Polyester 100%"],
 
+  // ── 멀리 떨어진 두 벌은 한 옷의 두 원단이 아니다(2026-11-24 Zara) ──
+  // 숨은 메뉴의 기획전 이름 "100% WOOL | CASHMERE" 와 3,000자 뒤의 진짜 소재가 두 줄로 묶여
+  // 면 티셔츠가 "Wool 100% / Cotton 100%" 로 읽혔다. 글만으로는 어느 쪽이 맞는지 모르므로 비운다.
+  [ZARA_MENU + " RUSTIC COTTON T-SHIRT $ 25.90 Ecru " + ZARA_TAIL + " Composition: 100% cotton Footer HELP MY ZARA ACCOUNT", ""],
+  // 부위 이름이 둘 다 붙어 있으면 멀어도 두 원단이다.
+  ["OUTER SHELL: 100% cotton. " + CARE + " LINING: 100% polyester", "Cotton 100%\nPolyester 100%"],
+  // 부위 이름이 하나뿐이고 멀면 비운다.
+  ["100% wool blend look. " + CARE + " LINING: 100% polyester", ""],
+  // Zara 두 겹(실측): 겉감·안감이 같으면 한 줄
+  ["OUTER SHELL 82% polyamide 18% elastane LINING 82% polyamide 18% elastane", "Nylon 82% / Elastane 18%"],
+  // Zara 두 겹(실측 모양): 겉감·안감이 다르면 두 줄
+  ["OUTER SHELL 100% polyester LINING 100% cotton", "Polyester 100%\nCotton 100%"],
+
   // ── 혼용률이 없는 페이지 ──
   ["A soft everyday tee in a relaxed fit.", ""],
   ["", ""],
@@ -109,6 +136,8 @@ const compFromHtml = new Function(
 )();
 
 const pad = "<p>" + "메뉴 배너 안내 ".repeat(4000) + "</p>";
+const ZARA_NAV = '<nav class="layout-categories"><div class="zds-tabs"><ul class="layout-categories__level-n-category-list">' +
+  ZARA_MENU.split(" | ").map((t) => `<li><span class="layout-categories-category-name__label">${t}</span></li>`).join("") + '</ul></div></nav>';
 const HTML_CASES = [
   ["본문에 그대로 있으면 잡는다",
     "<div>Composition: 60% Cotton, 40% Modal</div>", "Cotton 60% / Modal 40%"],
@@ -135,6 +164,29 @@ const HTML_CASES = [
     '<script>{"a":"80% Cotton, 20% Polyester"}</script>', "Cotton 80% / Polyester 20%"],
 
   ["할인 문구는 여전히 무시한다", "<div>Extra 20% OFF everything</div>", ""],
+
+  // ── 2026-11-24 Zara(파이어폭스로 연 실제 페이지, 줄임) ──
+  // 숨은 메뉴 <nav class="layout-categories"> 의 "100% WOOL | CASHMERE" 가 섞이면 안 된다.
+  ["Zara 면 티셔츠 — 메뉴의 100% WOOL 은 상품 소재가 아니다",
+    ZARA_NAV + '<div class="product-detail-view"><h1>RUSTIC COTTON T-SHIRT</h1><p>' + ZARA_TAIL +
+    '</p><div class="product-detail-composition"><span>Composition: 100% cotton</span></div></div>', "Cotton 100%"],
+  ["Zara 재킷 — 메뉴 + 한 겹(OUTER SHELL)",
+    ZARA_NAV + '<div class="product-detail-view"><h1>FITTED ZIP-UP JACKET</h1><p>' + ZARA_TAIL +
+    '</p><div class="product-detail-composition"><span class="product-detail-composition__single-part">Composition: 49% modal, 45% polyester, 6% elastane</span></div></div>',
+    "Modal 49% / Polyester 45% / Elastane 6%"],
+  ["Zara 재킷 — 메뉴 + 겉감·안감 같은 소재",
+    ZARA_NAV + '<div class="product-detail-view"><h1>STRETCH ZIP-UP HOODIE JACKET</h1><p>' + ZARA_TAIL +
+    '</p><div class="product-detail-composition"><ul><li>OUTER SHELL<ul><li>82% polyamide</li><li>18% elastane</li></ul></li>' +
+    '<li>LINING<ul><li>82% polyamide</li><li>18% elastane</li></ul></li></ul></div></div>', "Nylon 82% / Elastane 18%"],
+  // 메뉴가 <nav> 가 아니어도(그냥 div) — 창을 "Composition:" 이 붙은 자리에서 열어 메뉴 조각이 안 들어온다.
+  ["메뉴가 <nav> 가 아니어도 — 소재 제목이 붙은 자리에서 창을 연다",
+    '<div class="menu">' + ZARA_MENU + '</div><div><h1>RUSTIC COTTON T-SHIRT</h1><p>' + ZARA_TAIL + '</p><span>Composition: 100% cotton</span></div>', "Cotton 100%"],
+  // 소재 제목도 없고 메뉴 조각과 진짜 소재가 멀리 떨어져 있으면 — 어느 쪽인지 모르므로 비운다.
+  ["제목 없는 두 벌이 멀리 떨어져 있으면 비운다",
+    '<div class="menu">' + ZARA_MENU + '</div><div><h1>RUSTIC COTTON T-SHIRT</h1><p>' + ZARA_TAIL + '</p><span>100% cotton</span></div>', ""],
+  // 메뉴 조각이 진짜 소재보다 4000자 넘게 앞에 있어도 — 제목이 붙은 쪽을 고른다.
+  ["메뉴 조각이 4000자 넘게 앞에 있어도 제목 붙은 소재를 고른다",
+    '<div class="menu">PARTYWEAR 100% WOOL | CASHMERE ' + "NEW ARRIVALS BEST SELLERS ".repeat(250) + '</div><div><h1>RUSTIC COTTON T-SHIRT</h1><p>' + ZARA_TAIL + '</p><span>Composition: 100% cotton</span></div>', "Cotton 100%"],
   ["소재가 없는 페이지", "<div>A soft everyday tee.</div>", ""],
   ["빈 입력", "", ""],
 ];

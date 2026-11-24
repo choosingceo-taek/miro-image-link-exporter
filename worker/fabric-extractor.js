@@ -1117,16 +1117,25 @@ const COMP_RX = new RegExp(
 // 수식어 자리에 이런 말이 오면 소재 설명이 아니라 판촉·안내 문구다.
 const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|shipping|free|new|all|shop|more|less|min|max|use)\b/i;
 
+// 두 원단(겉감/안감 등)으로 볼 수 있는 거리. 두 벌이 이보다 멀리 떨어져 있고 둘 다 부위 이름
+// (OUTER SHELL · LINING …)이 붙어 있지 않으면, 한 옷의 두 원단이 아니라 서로 다른 곳에서 온
+// 조각이다. 2026-11-24 Zara: 숨은 메뉴의 "PARTYWEAR 100% WOOL | CASHMERE" 와 3,400자 뒤의 진짜
+// 소재 "100% cotton" 이 두 줄로 묶여 면 티셔츠가 "Wool 100% / Cotton 100%" 로 읽혔다.
+// 어느 쪽이 맞는지 글만으로는 알 수 없으므로 그럴 때는 아무것도 돌려주지 않는다 —
+// 틀린 값이 저장되는 것보다 비어 있는 편이 낫다.
+const PART_GAP = 300;
+const PART_LABEL_RX = /(?<![A-Za-z])(?:outer|shell|lining|lined|main|body|contrast|trim|inner|filling|fill|padding|wadding|insert|pocket|sleeve|collar|cuff|rib|lace|embroidery|겉감|안감|배색|충전재)(?![A-Za-z])[^%]{0,24}$/i;
 function compFromText(text) {
   // 한 옷에 원단이 두 가지인 경우가 있다 — 겉감/안감, 몸판/배색, 색상별 사양.
   //   "Shell: 100% Cotton. Lining: 100% Polyester"
   //   "100% Cotton Jersey, Heather Gray: 90% Cotton/10% Polyester"
   // 한 줄로 더하면 200% 나 110% 가 되어 없는 조성이 되고, 하나만 남기면 나머지
   // 원단을 잃는다. 그래서 한 벌이 100% 에 차면 줄을 바꿔 이어 담는다.
+  const src = String(text || '').slice(0, 16000);
   const groups = [];
-  let cur = [], total = 0, seen = new Set();
-  const flush = () => { if (cur.length) groups.push(cur); cur = []; total = 0; seen = new Set(); };
-  for (const m of String(text || '').slice(0, 16000).matchAll(COMP_RX)) {
+  let cur = [], total = 0, seen = new Set(), gStart = 0, gEnd = 0;
+  const flush = () => { if (cur.length) groups.push({ items: cur, start: gStart, end: gEnd }); cur = []; total = 0; seen = new Set(); };
+  for (const m of src.matchAll(COMP_RX)) {
     const g = m.groups;
     const pct = Number(g.pctf || g.pctr);
     const mods = String(g.modf || g.modr || '');
@@ -1137,7 +1146,9 @@ function compFromText(text) {
     if (mods && MOD_BAD_RX.test(mods)) continue;
     // 같은 섬유가 다시 나오거나 합이 100 을 넘기려 하면 한 벌이 끝난 것이다.
     if (cur.length && (seen.has(material) || total + pct > 105)) flush();
+    if (!cur.length) gStart = m.index;
     cur.push({ material, percent: pct });
+    gEnd = m.index + m[0].length;
     total += pct;
     seen.add(material);
     if (cur.length >= 8) flush();
@@ -1146,10 +1157,10 @@ function compFromText(text) {
   flush();
   if (!groups.length) return [];
 
-  const asLine = (g) => g.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
+  const asLine = (g) => g.items.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
   // 온전한 한 벌(합 95~105)만 남긴다. 어중간한 조각은 다른 상품에서 새어 든 것이다.
   const whole = groups.filter((g) => {
-    const t = g.reduce((n, c) => n + c.percent, 0);
+    const t = g.items.reduce((n, c) => n + c.percent, 0);
     return t >= 95 && t <= 105;
   });
   // 같은 줄이 반복되면 한 번만 ("100% Cotton ... 100% Cotton lining").
@@ -1163,8 +1174,14 @@ function compFromText(text) {
   }
   // 서로 다른 조성이 셋 이상이면 한 옷의 원단이 아니라 여러 상품이 섞인 것이다.
   if (!uniq.length || uniq.length > 2) return [];
+  // 두 줄이면 한 옷의 두 원단인지 본다 — 가깝거나, 둘 다 부위 이름이 붙어 있어야 한다(PART_GAP 주석).
+  if (uniq.length === 2) {
+    const near = uniq[1].start - uniq[0].end <= PART_GAP;
+    const labelled = (g) => PART_LABEL_RX.test(src.slice(Math.max(0, g.start - 40), g.start));
+    if (!near && !(labelled(uniq[0]) && labelled(uniq[1]))) return [];
+  }
   // 줄 번호를 달아 돌려준다 — 문자열로 바꿀 때 이 번호로 줄을 나눈다.
-  return uniq.flatMap((g, n) => g.map((c) => ({ ...c, line: n })));
+  return uniq.flatMap((g, n) => g.items.map((c) => ({ ...c, line: n })));
 }
 
 
@@ -1219,18 +1236,31 @@ function validColor(s) {
 //    내용은 페이지 JSON(__NEXT_DATA__, Shopify 하이드레이션 등)에만 담아 둔다.
 //    본문에서 못 찾았을 때만 스크립트 안을 본다 — 추천 상품 블록에 다른 상품의
 //    소재가 섞여 있을 수 있어서, 이 경로는 합이 105%를 넘으면 통째로 버린다.
+// 창은 "소재 제목(Composition·Materials·Fabric…)이 바로 앞에 붙은 자리"를 먼저 찾고, 없으면 첫 자리에서
+// 연다. 첫 자리가 메뉴·배너의 조각("100% WOOL | CASHMERE")이고 진짜 소재가 4000자 밖에 있으면
+// 조각 하나만 창에 들어와 그대로 틀린 값이 된다(2026-11-24 Zara 에서 본 모양).
 function compWindow(s) {
+  const COMP_HEAD_RX = /(?:composition|materials?|fabric(?:ation)?|content|outer shell|lining|소재|혼용률?)\s*[:：&a-z ]{0,20}$/i;
   const rx = new RegExp(COMP_RX.source, 'gi');
-  const m = rx.exec(s);
-  if (!m) return '';
-  const at = Math.max(0, m.index - 200);
+  let m, first = null, headed = null;
+  while ((m = rx.exec(s))) {
+    if (!first) first = m;
+    if (COMP_HEAD_RX.test(s.slice(Math.max(0, m.index - 40), m.index))) { headed = m; break; }
+  }
+  const pick = headed || first;
+  if (!pick) return '';
+  const at = Math.max(0, pick.index - 200);
   return s.slice(at, at + 4000);
 }
 function compFromHtml(html) {
   const h = String(html || '');
   if (!h) return [];
+  // 메뉴(<nav>)와 <template> 은 상품 본문이 아니다. Zara 의 숨은 메뉴에는 "100% WOOL | CASHMERE"
+  // 라는 기획전 이름이 있어, 그게 첫 "퍼센트+섬유"로 잡혀 엉뚱한 울 100% 가 섞였다(2026-11-24).
   const visible = h
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<nav\b[\s\S]*?<\/nav>/gi, ' ')
+    .replace(/<template\b[\s\S]*?<\/template>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ');
