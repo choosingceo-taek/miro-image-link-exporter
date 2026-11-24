@@ -111,6 +111,11 @@ function htmlDump(html) {
     if (json.length >= 6) break;
   }
   return {
+    // 상품 페이지 신호 — '정말 이 상품 페이지를 읽었나' 판정을 고칠 근거
+    title: ((h.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1] || "").trim().slice(0, 120),
+    signals: [/"@type"\s*:\s*\[?\s*"Product"/i.test(h) && "JSON-LD Product", /property=["']og:type["'][^>]*content=["']product/i.test(h) && "og:type product",
+      /itemtype=["'][^"']*schema\.org\/Product/i.test(h) && "itemtype Product"].filter(Boolean).join(", "),
+    head: visible.slice(0, 1200),
     window: win ? win.slice(0, 900) : "",
     groups: compFromText(win || visible).map((c) => `${c.line || 0}:${c.material} ${c.percent}%`).join(", "),
     hits, json, visibleLen: visible.length,
@@ -498,6 +503,8 @@ function writeDump() {
       const d = r.dump;
       let part = `## ${t.brand} · ${e} · ${r.note || ""}\n\n${t.url}${t.name ? ` (${t.name})` : ""}\n\n`;
       part += `- 보이는 글 ${d.visibleLen}자 · groups: \`${d.groups || "-"}\`\n`;
+      part += `- 제목: ${d.title || "-"} · 상품 신호: ${d.signals || "없음"}\n`;
+      part += `- 글 앞부분: ${(d.head || "").slice(0, d.window ? 400 : 1200)}\n`;
       part += "\n**window**\n\n```\n" + (d.window || "(없음)") + "\n```\n";
       if (d.dom && d.dom.nodes) {
         part += `\n**dom** (innerText ${d.dom.innerLen}자${d.dom.url && d.dom.url !== t.url ? ` · 최종 주소 ${d.dom.url}` : ""})\n\n`;
