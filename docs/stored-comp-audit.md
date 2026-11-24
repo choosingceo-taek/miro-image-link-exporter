@@ -1,11 +1,13 @@
 # 저장된 혼용률 점검 (2026-11-24)
 
-> 작성 중 — 이 문서는 작업하면서 채운다. 숫자는 2026-11-24 점검 실행 기준이다.
-> **아직 아무 값도 지우거나 고치지 않았다.** 정리는 담당자 승인 뒤에 한다.
+> 숫자는 2026-11-24 점검 실행(GitHub Actions 45335666146, 읽기만) 기준이다. 원자료: `stored-comp-audit-raw.md`.
+> **아직 아무 값도 지우거나 고치지 않았다.** 정리는 담당자 승인 뒤에 한다 — 맨 아래 '정리 제안'.
 
 ## 한눈에
 
-- 지금 저장된 혼용률: **28,218개** (브랜드 134개, 상품 38,847개 중).
+- 지금 저장된 혼용률: **28,227개** (브랜드 134개, 상품 38,847개 중. 2시간 전 첫 점검 때는 28,218개).
+- **확실히 틀려서 자동으로 지워도 되는 값: 819개(2.9%)** — 브랜드 4곳의 조각 값 718개 + 상품이 아닌 행 64개 +
+  숫자가 모자란 값 37개. 사람이 한 번 볼 값은 약 230개. 나머지는 맞거나 맞을 공산이 크다.
 - 틀린 값은 몇 브랜드에 몰려 있다. 실제 페이지와 견줘 **틀림이 확인된 브랜드**는 Splendid · Aritzia · Gymshark ·
   &Other Stories 네 곳이고, 여기에 **상품이 아닌 주소(카테고리 목록)에 붙은 값**(Carhartt 등)이 있다.
 - 나머지 의심 브랜드(ALC · Me+Em · Tuckernuck · CCC · Good American 등)는 실제 페이지와 같았다 —
@@ -24,8 +26,8 @@
    - F: 상품이 아닌 주소(카테고리·목록)에 붙은 값
 2. **실제 페이지와 견주기** — 의심 브랜드에서 89개를 골라 오늘 다시 열어 읽었다(GitHub Actions, 저장 안 함).
    - 주의: "다시 읽은 값과 같다"가 곧 "맞다"는 아니다. 오늘 추출기도 같은 실수를 할 수 있다 — Splendid 는
-     본문만 읽으면 오늘도 `Cotton 100% ‖ Cashmere 100%` 가 나왔고, 페이지의 구조화 데이터(JSON-LD)를 먼저 읽어야
-     진짜 소재가 나왔다. 그래서 '같음'이어도 상품명·옷 종류와 맞는지 함께 봤다.
+     같은 상품을 열 때마다 맞게도, `Cotton 100% ‖ Cashmere 100%` 로도 읽혔다(아래). 그래서 '같음'이어도
+     상품명·옷 종류와 맞는지 함께 봤다. 표본은 세 번 다시 읽었다(실행 45333214242 · 45335666146 · 덤프용 45335644616).
 
 ## 판정 기준
 
@@ -40,9 +42,9 @@
 
 ### 1. Splendid — 🔴 틀림 확인
 
-- 저장된 혼용률 344개 중 **233개가 `Cotton 100% ‖ Cashmere 100%`** (두 줄). 여러 줄 값 251개 중 239개에
-  `Cashmere 100%`, 237개에 `Cotton 100%` 줄이 들어 있다. 리넨 원피스·뱀부 티셔츠에도 붙어 있다.
-- 다시 읽은 6개 모두 달랐다:
+- 저장된 혼용률 344개 중 **231개가 `Cotton 100% ‖ Cashmere 100%`** (두 줄). 두 원단 값 256개 중 244개에
+  `Cashmere 100%`, 242개에 `Cotton 100%` 줄이 들어 있다. 리넨 원피스·뱀부 티셔츠에도 붙어 있다.
+- 다시 읽어 소재가 나온 7개 모두 달랐다(Kacey Striped V-Neck Tee 도 `Cotton 100%`):
 
 | 상품 | 저장값 | 오늘 페이지 |
 |---|---|---|
@@ -61,11 +63,15 @@
   **열 때마다 있기도 하고 없기도 하다** — 같은 날 같은 상품을 두 번 열어 한 번은 맞게(배지 없음, 실행 45333214242),
   한 번은 `Cotton 100% ‖ Cashmere 100%`(배지 있음, 실행 45333219085)로 읽었다. 그래서 "오늘 다시 읽어도 같다"가
   나온 적이 있었다. Splendid 는 페이지를 브라우저로 그려야 글이 나와(그냥 받으면 900자 껍데기) 크롬 보강·확장
-  경로가 값을 채웠고, 거기서 이 조각이 섞였다. (덤프: `try-engines-dump-45335644616.md` — 실행 45335644616, 같은 배지가 Louisa·Lainey 페이지에서도 나왔다. 실행 45333219085 의 Leopard 페이지에서도 같은 모양)
+  경로가 값을 채웠고, 거기서 이 조각이 섞였다.
+- 한 줄 값도 의심스럽다: `Cashmere 100%` 33개(Meadow Mini Dress · Katerina Blouse · Essential Legging · Winslow Jogger …)와
+  `Cotton 100%` 32개(Lydia **Linen** Mini Dress · Gigi Gingham Jumpsuit …). 배지가 하나만 그려지고 본문 소재는 아직 안
+  그려졌을 때 이렇게 남는다. 다만 The Lila Cotton Tee · Tori Cashmere Turtleneck Tank 처럼 맞는 것도 섞여 있어 사람이 볼 몫이다. (덤프: `try-engines-dump-45335644616.md` — 실행 45335644616, 같은 배지가 Louisa·Lainey 페이지에서도 나왔다. 실행 45333219085 의 Leopard 페이지에서도 같은 모양)
 
 ### 2. Aritzia — 🔴 틀림 확인(1개) + 🟠 모양
 
 - 저장된 혼용률 472개 중 **358개가 `Leather 100%`** (한 줄). 면 탱크톱·울 스웨터·리넨 원피스에도 붙어 있다.
+  358개 중 상품명에 leather 가 들어간 것은 1개뿐이고 그것도 카테고리 페이지("leather and suede")다.
 - 다시 읽기: [Essential Wool Cashmere Cherub Sweater](https://www.aritzia.com/intl/en/product/essential-wool-cashmere-cherub-sweater/126806.html)
   저장값 `Leather 100%` → 오늘 페이지 `Wool 70% / Cashmere 30% ‖ Wool 66% / Cashmere 28% / Nylon 5% / Elastane 1%`.
   나머지 2개는 차단(Aritzia 는 데이터센터 접속을 대부분 막는다).
@@ -88,7 +94,7 @@
 - **어디서 왔나: 오늘 페이지에서는 재현되지 않음.** 오늘 페이지에는 "100% cotton" 같은 글이 없다(추천 상품 이름
   "CottonMove™" 뿐). 예전 페이지 또는 예전 추출기에서 붙은 것으로 보고, 저장 직전 가드(줄 규칙)가 막는다.
 
-### 4. &Other Stories — 🟠 모양(보관본 1개로 확인)
+### 4. &Other Stories — 🔴 보관본으로 확인(2개) + 🟠 모양
 
 - 저장된 혼용률 172개 중 **58개가 `Cotton 100% / Linen 100%` 꼴**(예전 저장 형식 — 두 원단을 한 줄에 합 200%로).
   면 티셔츠에 Linen, 면 셔츠에 Wool/Silk 가 붙는다.
@@ -205,6 +211,71 @@ Ann Taylor 는 여러 줄 값 66개 중 63개에 `Polyester 100%` 줄(안감)이
    - 못 막는 경우(알고 있는 빈틈): 조각이 흔한 안감 이름(`Polyester 100%`)이면 통과한다 · 브랜드에 저장된 값이 적은
      초기에는 근거가 모자라 통과한다 · 한 줄짜리 조각이 정직한 값처럼 상품명과 어긋나지 않으면 통과한다.
 
+### 가드를 오늘 저장값 전체에 대 보면
+
+가드를 오늘 저장된 28,227개에 그대로 적용하면 **718개**가 걸린다 — 모두 위에서 틀림을 확인한 네 브랜드다:
+
+| 브랜드 | 걸리는 값 | 규칙 | 근거 |
+|---|---:|---|---|
+| Aritzia | 358 / 472 | 값 | `Leather 100%` 가 76% · 그중 52개는 상품명이 다른 섬유(울·면·리넨…)를 말함 |
+| Splendid | 255 / 344 | 줄 | 두 원단 값 256개 중 `Cashmere 100%` 244 · `Cotton 100%` 242 · 짝 14종·10종 |
+| &Other Stories | 57 / 172 | 줄 | 두 원단(합 200%) 값 59개 중 57개에 `Cotton 100%` · 짝 6종 |
+| Gymshark | 48 / 272 | 줄 | 두 원단 값 49개 중 48개에 `Cotton 100%` · 짝 16종 |
+
+일부러 통과시킨 정직한 경우(오늘 데이터에서):
+
+| 브랜드 | 되풀이되는 값/줄 | 왜 통과 |
+|---|---|---|
+| Xirena · Coldwatercreek · Frank & Eileen · Nation LTD · Goldie · Z Supply · Lilla P | `Cotton 100%` 이 63~91% | 상품명과 어긋나는 상품이 0~2개 |
+| L.L.Bean | `Cotton 100%` 186/293 | 어긋나는 상품 5개(3%) — 문턱 10% 아래 |
+| Boldest | `Cashmere 100%` 106/137 | 캐시미어 브랜드, 어긋남 0 |
+| Ann Taylor · Veronica Beard · Draper James · Rag & bone · Outdoor Voices | `Polyester 100%`·`Nylon 100%` 줄 70~95% | 흔한 안감 |
+| Lilla P | 두 줄이 늘 같은 짝(`Cotton 100% ‖ Cotton 90% / Polyester 10%` 7/7) | 짝이 한 종류 = 같은 원단 묶음 |
+| Bassike · English Factory · Barbour · Seasalt | `Cotton 100%` 줄 50~70% | 80% 문턱 아래 |
+| Ulla Johnson | `Cotton 100% ‖ Leather 100%`(크로셰+가죽) | 두 원단 값이 10개뿐, 짝 2종 |
+
 ## 정리 제안
 
-(정리 중)
+**지금은 아무것도 지우지 않았다.** 아래는 승인을 받으면 할 일이다. 지운 칸은 비고, 야간 보강·크롬 보강이 고친
+추출기와 가드로 다시 채운다(Splendid·Gymshark 는 페이지가 열리므로 다시 채워질 것, Aritzia·&Other Stories 는 대부분
+막혀 있어 확장이나 보관본이 채울 때까지 빈칸으로 남을 공산이 크다).
+
+### A. 자동으로 지워도 되는 값 — 819개
+
+| # | 무엇 | 정확한 조건 | 개수 |
+|---|---|---|---:|
+| 1 | Aritzia `Leather 100%` | 브랜드 Aritzia, 값이 정확히 `Leather 100%` | 358 |
+| 2 | Splendid 배지 조각 | 브랜드 Splendid, 두 원단 값(두 줄 또는 한 줄 합 200%)에 `Cotton 100%` 또는 `Cashmere 100%` 한 벌이 들어 있음 | 255 |
+| 3 | &Other Stories 추천 상품 조각 | 브랜드 &Other Stories, 두 원단 값에 `Cotton 100%` 한 벌이 들어 있음 | 57 |
+| 4 | Gymshark 덧붙은 줄 | 브랜드 Gymshark, 두 줄 값의 한 줄이 `Cotton 100%` | 48 |
+| 5 | 상품이 아닌 행 | 위 5번 표의 Carhartt 44 · Aerie 4 · J.McLaughlin 4 · Loft 4 · Ann Taylor 3 · Madewell 3 · Seasalt 2 (주소가 `/c/…`·`/collections/…`·`/cat…`·`new-arrivals`) | 64 |
+| 6 | 숫자가 모자란 값 | 카탈로그에 실린 값 중 오늘 검사(validComp)를 통과 못 하는 37개(합 5~106%). 그중 29개는 지우면 가려져 있던 온전한 값이 보인다 | 37 |
+
+1~4 는 저장 직전 가드가 오늘 데이터에서 고르는 718개와 정확히 같다 — 같은 규칙으로 고르면 된다.
+Gymshark 는 지우는 대신 `Cotton 100%` 줄만 떼어 내도 된다(다시 읽은 4개 모두 나머지 줄은 맞았다). 다만 값을 고쳐 쓰는
+일이라 지우기보다 한 단계 더 조심할 일이다.
+
+### B. 사람이 한 번 볼 값 — 약 230개
+
+| 무엇 | 개수 | 볼 것 |
+|---|---:|---|
+| Splendid 한 줄 `Cashmere 100%` · `Cotton 100%` | 65 | 원피스·레깅스·블라우스의 캐시미어 100%는 거의 틀림. 이름에 cotton/cashmere 가 있는 것(Lila Cotton Tee 등)은 맞을 수 있음 |
+| Bellerose 두 원단 값에 `Leather 100%` | 5 | 면 스웨트셔츠·포플린 셔츠에 가죽 — 틀림 공산 큼 |
+| Oak + Fort 두 원단 값에 `Wool 100%` | 7 | 새틴 홀터넥·플리스 팬츠에 울 — 틀림 공산 큼 |
+| Gestuz `Leather 100% / …` | 3 | 블라우스·원피스·바지에 가죽 |
+| &Other Stories 나머지 두 원단 값 | 2 | "occasion party edit"(카테고리) `Wool 100% ‖ Silk 100%` · Satin Slip Midi Dress `Viscose 100% / Linen 100%` |
+| Loft | 4 | `Polyester 96%` 2개(4% 빠짐) · Gameday 티셔츠 `Cotton 100% / Cotton 65% / …` 2개 |
+| 확인 못 한 'A 모양' 브랜드(Sanctuary · Shopbop · Seasalt · Veronica Beard · Jigsaw · La Ligne · Mint Velvet · Rag & bone · Boden · Whitestuff · Club Monaco · English Factory · Ulla Johnson …) | 약 150 | 대부분 블라우스·원피스의 겉감+안감으로 맞아 보임. 티셔츠·니트인데 두 원단이면 의심 |
+
+### C. 손대지 않아도 되는 것
+
+- 이름 표기만 다른 값 121개(`Recycled Cotton`, `Metallised Fibre`, `Combed Pima Cotton` …) — 숫자는 맞다. 다듬는 것은 선택.
+- J.Crew 59개 · Garnet Hill 2개 — '상품 아닌 주소'로 잡혔지만 진짜 상품 주소다.
+- 확인해서 괜찮았던 브랜드(ALC · Me+Em · Tuckernuck · CCC · Good American)와 Loft 의 나머지 값.
+
+### 같이 알아 둘 것
+
+- 고친 추출기와 가드는 이 작업 브랜치에만 있다. main 에 합치고 Worker·확장을 배포하기 전에는 야간 실행·확장이
+  예전 규칙으로 돈다 — 그 전에 지우면 같은 틀린 값이 다시 들어올 수 있으니, **정리는 합친 뒤에** 하는 것이 좋다.
+- Aritzia·Gymshark 의 조각은 오늘 페이지에서 재현되지 않았다. 출처를 못 찾았으므로 추출기로 막은 것이 아니라
+  가드로만 막는다.

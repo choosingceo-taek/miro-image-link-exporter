@@ -244,13 +244,14 @@ jobs:
             stored-comp-verify.json
             stored-comp-values.json
           if-no-files-found: ignore
+      # stored-comp-values.json(저장값 전체, 4MB)은 아티팩트로만 남긴다 — 브랜치에 쌓지 않는다.
       - name: Commit report
         if: always()
         run: |
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- stored-comp-audit.json stored-comp-audit-raw.md stored-comp-verify-engines.md stored-comp-verify.json stored-comp-verify-urls.txt stored-comp-values.json || true
+          git add -A -- stored-comp-audit.json stored-comp-audit-raw.md stored-comp-verify-engines.md stored-comp-verify.json stored-comp-verify-urls.txt || true
           git commit -m "audit: stored composition signatures (read-only)" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
