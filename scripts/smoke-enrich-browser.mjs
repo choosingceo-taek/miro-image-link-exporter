@@ -75,7 +75,7 @@ try {
 } catch (e) { fail("이력 파일을 쓰지 않았다: " + e.message); }
 
 // ── 집계가 맞는가 ──
-if (!/TestBrand \[playwright\] — 시도 6 · ✅ 3 · 미표기 1 · 차단\/타임아웃 2/.test(out)) {
+if (!/TestBrand \[playwright\] — 시도 8 · ✅ 3 · 미표기 2 · 껍데기 1 · 차단\/타임아웃 2/.test(out)) {
   fail("집계가 예상과 다름:\n     " + (out.match(/· TestBrand.*/) || ["(없음)"])[0]);
 }
 
@@ -102,10 +102,20 @@ else {
   if (p(5)) fail(`봇 확인 화면이 저장됐다 — ${JSON.stringify(p(5))}`);
   // 늦게 그려지는 소재도 읽어야 한다.
   if (!p(6) || p(6).comp !== "Wool 70% / Nylon 30%") fail(`늦게 그려지는 소재: ${JSON.stringify(p(6))}`);
+  // 껍데기(상품명이 화면 글에 없음)는 none 으로 적지 않는다 — Patagonia 167개가 이렇게 잘못 적혔다.
+  if (p(7)) fail(`껍데기 페이지가 저장됐다 — ${JSON.stringify(p(7))}`);
+  // nv 없는 예전 none 은 크롬 몫 — 크롬으로는 다시 열지 않으므로 그대로 남는다.
+  if (!p(8) || p(8).none !== 1 || p(8).comp || p(8).nv) fail(`크롬 몫의 예전 none 을 다시 열었다 — ${JSON.stringify(p(8))}`);
+  // fetch 만 적은 none 은 크롬으로 한 번 더 열고, 역시 없으면 nv 에 chromium 을 더한다.
+  if (!p(9) || p(9).none !== 1 || p(9).nv !== "chromium,fetch") fail(`fetch 몫 none 다시 보기: ${JSON.stringify(p(9))}`);
+  // 새로 적은 none 에는 이 엔진이 남는다.
+  if (p(3) && p(3).nv !== "chromium") fail(`새 none 의 nv: ${JSON.stringify(p(3))}`);
+  // 혼용률이 들어간 상품에 none 이 남지 않는다.
+  for (const n of [1, 2, 6]) if (p(n) && (p(n).none || p(n).nv)) fail(`혼용률을 채웠는데 none 이 남았다: ${JSON.stringify(p(n))}`);
   // '[object Object]' 가 들어가는 옛 사고의 재발 방지.
   for (const [u, v] of Object.entries(saved)) {
     if (String(v.comp || "").includes("[object")) fail(`객체가 문자열로 새어 들어감: ${u}`);
-    if (!v.t) fail(`시도 시각(t)이 없다: ${u} — 재시도 창이 동작하지 않는다`);
+    if (!v.t && !/\/p\/8$/.test(u)) fail(`시도 시각(t)이 없다: ${u} — 재시도 창이 동작하지 않는다`);
   }
 }
 
@@ -115,8 +125,10 @@ if (!existsSync(rp)) fail("리포트 파일이 없다");
 else {
   const md = readFileSync(rp, "utf8");
   if (!/TestBrand/.test(md)) fail("리포트에 브랜드 줄이 없다");
+  if (!/\[Waffle Tee\]\(.*\/p\/1\) \| Cotton 95% \/ Elastane 5%/.test(md)) fail("리포트에 읽은 혼용률이 상품명과 함께 없다");
+  if (!/Lined Coat.*Wool 100% ‖ Polyester 100% \| ⚠ 두 줄/.test(md)) fail("두 줄 혼용률에 ⚠ 표시가 없다");
   unlinkSync(rp);
 }
 
 if (bad) { console.error(`\n크롬 보강 ${bad}건 실패`); process.exit(1); }
-console.log("✅ 크롬 혼용률 보강 통과 — 평범·접힌탭 두겹·미표기·차단·봇확인화면·늦은표기 여섯 경우 + 저장 내용 + 엔진 고르기 4경우");
+console.log("✅ 크롬 혼용률 보강 통과 — 평범·접힌탭 두겹·미표기·차단·봇확인화면·늦은표기·껍데기·예전 none 두 가지 + 저장 내용 + 엔진 고르기 4경우");

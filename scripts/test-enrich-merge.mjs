@@ -47,7 +47,15 @@ const PAGES = {
   "/p/12": page("Fixed Tee", "<div>Composition: 95% Cotton, 5% Elastane</div>", { name: "Fixed Tee", color: "Ecru" }),
   // /p/13 는 403
   "/p/14": page("Fresh Tee", "<div>Composition: 100% Cotton</div>", { name: "Fresh Tee", color: "Olive" }),
+  // 차단 화면도 아니고 글도 600자를 넘지만, 이 상품의 본문이 안 그려진 껍데기(Patagonia 1,017자형).
+  // 제목과 JSON-LD 에는 상품명이 있어도 화면 글에는 없다 — none 을 적으면 안 된다.
+  "/p/15": `<html><head><title>Capilene Cool Merino Shirt</title>${ld({ name: "Capilene Cool Merino Shirt" })}</head><body>` +
+    `<header>Shop Women Men Kids Packs &amp; Gear Activism Stories Worn Wear</header><div id="app"></div><footer>${prose}</footer></body></html>`,
 };
+// 카탈로그의 상품명 — 페이지의 이름과 같다(껍데기 판정이 이 이름을 화면 글에서 찾는다).
+const NAMES = { 1: "Navy Tee", 2: "Recent Tee", 3: "Black Tee", 4: "Bot Check Tee", 5: "Blocked Wool Tee", 6: "Mystery Pant",
+  7: "Empty Shell Tee", 8: "Half Knit", 9: "Blocked Tee", 10: "Skipped", 12: "Fixed Tee", 13: "Blocked Half Tee", 14: "Fresh Tee",
+  15: "Capilene Cool Merino Shirt" };
 
 // 시나리오마다 처음 오버레이를 새로 만든다(시각은 실행 직전 기준).
 function seedOverlay(base, now) {
@@ -72,6 +80,8 @@ function seedOverlay(base, now) {
     [u(13)]: { comp: "Cotton 60%", t: now - 1 * DAY },
     // 혼용률 있음 · 컬러 없음 · 최근 시도 · 컬러 시도 기록 없음
     [u(14)]: { comp: "Cotton 100%", t: now - 1 * DAY },
+    // 예전에 껍데기를 '읽음'으로 쳐서 찍힌 none(Patagonia 167개) — 재시도 창 밖
+    [u(15)]: { none: 1, t: now - 6 * DAY },
   };
 }
 
@@ -92,7 +102,7 @@ async function scenario(label, env) {
     if (u.searchParams.has("catalogs")) return j({ list: [{ site: SITE, brand: "TestBrand", count: 14 }] });
     if (u.searchParams.has("catalog")) {
       const items = [];
-      for (let n = 1; n <= 14; n++) if (n !== 11) items.push({ name: "P" + n, category: "tops", imageUrl: `https://img.x/${n}.jpg`, productUrl: `${base}/p/${n}` });
+      for (let n = 1; n <= 15; n++) if (n !== 11) items.push({ name: NAMES[n], category: "tops", imageUrl: `https://img.x/${n}.jpg`, productUrl: `${base}/p/${n}` });
       return j({ brand: "TestBrand", items });
     }
     if (u.searchParams.has("comps")) return j(overlay);
@@ -168,7 +178,11 @@ try {
     else ok("403 차단 → 기존의 옳은 혼용률은 그대로, none 없음");
 
     if (!at(6) || at(6).none !== 1 || at(6).comp || !stamped(6)) fail(`[${L}] 실제로 읽었고 소재가 없는 페이지: ${JSON.stringify(at(6))}`);
-    else ok("정상으로 읽었는데 소재 표기 없음 → none 을 남긴다");
+    else ok("정상으로 읽었는데 소재 표기 없음(상품명이 화면 글에 있음) → none 을 남긴다");
+    if (at(6).nv !== "fetch") fail(`[${L}] none 을 적은 읽기 방식(nv)이 없다: ${JSON.stringify(at(6))}`);
+    else ok("none 에 nv=fetch 를 함께 남긴다 — 크롬 보강이 다른 엔진으로 한 번 더 확인할 수 있게");
+    if (h(15) !== 1 || at(15).none || at(15).nv || at(15).comp || !stamped(15)) fail(`[${L}] 본문이 안 그려진 껍데기: 접속 ${h(15)} · ${JSON.stringify(at(15))}`);
+    else ok("차단 화면은 아니지만 상품명이 화면 글에 없는 껍데기 → none 을 적지 않고, 예전 none 도 걷어 낸다");
 
     for (const [n, why] of [[7, "빈 껍데기(200)"], [9, "403 차단"]]) {
       const o = at(n);

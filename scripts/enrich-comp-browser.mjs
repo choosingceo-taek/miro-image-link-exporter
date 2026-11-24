@@ -77,6 +77,22 @@ const colorFromHtml = new Function(slice("const COLOR_JUNK", "function titleCase
 const { validComp } = new Function(
   slice("const COMP_ITEM_RX", "// ── 페이지 HTML 전체에서 혼용률") + "\n return { validComp, validColor };")();
 
+// ── none 판정·출처 규칙은 야간 보강(enrich-comp.mjs) 한 벌을 그대로 떼어 쓴다 ──
+// 두 스크립트가 같은 오버레이에 쓰므로 규칙이 갈라지면 서로의 표시를 망가뜨린다.
+const ecSrc = readFileSync(join(ROOT, "scripts/enrich-comp.mjs"), "utf8");
+const ecSlice = (a, b) => {
+  const i = ecSrc.indexOf(a), j = ecSrc.indexOf(b, i);
+  if (i < 0 || j < 0) throw new Error("enrich-comp.mjs 블록을 찾지 못함: " + a);
+  return ecSrc.slice(i, j);
+};
+// productRead(html, name): 이 상품의 본문이 그려진 페이지인가 — none 은 그럴 때만 적는다.
+const productRead = new Function(ecSlice("// ── 이 상품 페이지를 정말 읽었나(none 판정) 시작", "// ── 이 상품 페이지를 정말 읽었나(none 판정) 끝") +
+  "\n return productRead;")();
+// noneSeenBy · markNone · applyLiveComp: none 을 어느 엔진이 적었나(nv) · 지금 페이지 값과 보관본 값의 관계
+const { noneSeenBy, markNone, applyLiveComp } = new Function("validComp",
+  ecSlice("// ── 혼용률 출처·none 표시 규칙 시작", "// ── 혼용률 출처·none 표시 규칙 끝") +
+  "\n return { noneSeenBy, markNone, applyLiveComp };")(validComp);
+
 // 원단이 둘이면 항목에 line 번호가 달려 온다 — 줄로 나눠 담는다.
 // (이 변환을 빠뜨리면 '[object Object]' 가 저장된다)
 const asComp = (v) => {
@@ -200,6 +216,7 @@ for (const c of catalogs) {
   targets.push(c);
 }
 const skipped = [];
+const recheckBrands = [];   // auto 가 '다른 엔진이 적은 none 다시 보기'로 파이어폭스를 고른 브랜드
 if (!want.length) {
   // 비어 있는 순서대로. 오버레이를 읽어 혼용률이 없는 상품 수를 센다.
   const scored = [];
@@ -218,14 +235,28 @@ if (!want.length) {
     // '사이트가 안 적음'을 확인한 상품은 더 손댈 것이 없으므로 채운 것과 같이 센다.
     // 안 그러면 Loft(643개 전부 미표기)처럼 영영 0% 인 브랜드가 "가장 비어 있음"
     // 1등을 계속 차지하고, 정작 자리는 차지한 채 아무것도 안 한다.
-    let filled = 0, settled = 0;
+    //
+    // 단, 미표기는 '이 브랜드를 읽을 엔진이 확인한 것'만 센다(noneSeenBy). 다른 엔진이 적은 none 은
+    // 이 엔진으로 한 번 더 볼 거리다.
+    let filled = 0, settled = 0, unseenBest = 0;
     for (const o of Object.values(ov || {})) {
       if (!o) continue;
       if (validComp(String(o.comp || "").trim())) { filled++; settled++; }
-      else if (o.none) settled++;
+      else if (o.none) {
+        if (noneSeenBy(o, eng)) settled++;
+        if (!noneSeenBy(o, AUTO_ENGINE)) unseenBest++;
+      }
     }
-    const miss = c.count - settled;
-    if (miss > 30) scored.push({ ...c, miss, rate: settled / c.count });
+    let miss = c.count - settled, useEng = eng, rate = settled / c.count;
+    // auto: 크롬으로는 더 할 일이 없는데(미표기 대부분이 크롬·fetch 몫) 파이어폭스가 아직 안 본 none 이
+    // 많은 브랜드는 파이어폭스로 한 번 다시 본다. Patagonia 가 그렇다 — 남은 167개가 전부 예전 none 이라
+    // 크롬 차례에는 할 일이 없고, 크롬 차단 이력도 9/28 에 끝나 auto 가 파이어폭스를 고를 일이 없었다.
+    // 파이어폭스가 한 번 보고 나면 nv 에 firefox 가 붙어 다시 고르지 않는다 — 상품당 한 번이다.
+    if (ENGINE === "auto" && eng !== AUTO_ENGINE && miss <= 30 && unseenBest > 30 && !isSkipped(state, c.site, AUTO_ENGINE, Date.now())) {
+      useEng = AUTO_ENGINE; miss = unseenBest; rate = (c.count - unseenBest) / c.count;
+      recheckBrands.push(c.brand);
+    }
+    if (miss > 30) scored.push({ ...c, miss, rate, engine: useEng });
   }
   scored.sort((a, b) => a.rate - b.rate || b.miss - a.miss);
   targets = scored.slice(0, TOP);
@@ -237,8 +268,9 @@ if (skipped.length) console.log(`건너뜀(차단 이력): ${skipped.join(" · "
 if (!targets.length) { console.log("대상 브랜드 없음"); process.exit(0); }
 console.log(`대상 ${targets.length}개: ${targets.map((t) => t.brand).join(", ")}\n`);
 
-for (const t of targets) t.engine = engineOf(t.site);
+for (const t of targets) t.engine = t.engine || engineOf(t.site);
 console.log(`엔진: ${ENGINE}${ENGINE === "auto" ? ` (크롬 차단 이력이 있으면 ${AUTO_ENGINE})` : ""}`);
+if (recheckBrands.length) console.log(`  (다른 엔진이 적은 미표기를 ${AUTO_ENGINE} 로 다시 볼 브랜드: ${recheckBrands.join(", ")})`);
 for (const t of targets) console.log(`  · ${t.brand} → ${t.engine}`);
 if (process.env.PICK_ONLY === "1") process.exit(0);
 
@@ -286,6 +318,7 @@ const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|atte
 
 const rows = [];
 const reads = [];   // 상품마다 무엇을 읽었나 — 리포트에서 눈으로 확인할 수 있게
+const conflicts = [];   // 지금 페이지 값이 이미 있던 값과 다른 상품
 let grandFilled = 0, grandTried = 0;
 
 for (const c of targets) {
@@ -307,22 +340,31 @@ for (const c of targets) {
   // 다를 수 있어 여기서 상품 단위로 본다 — 같은 브랜드라도 어떤 상품은 적고
   // 어떤 상품은 안 적는다(Mint velvet 이 그렇다: 채움 51 · 미표기 68).
   // 영구 제외는 아니다. 사이트가 표기를 추가할 수 있으므로 NONE_DAYS 뒤에 다시 본다.
+  //
+  // 엔진마다 열리는 페이지가 다르다 — Patagonia 는 fetch·크롬으로는 1,017자 껍데기, 파이어폭스로는
+  // 본문이 나온다. 그래서 none 은 '지금 이 브랜드를 읽는 엔진'이 적은 것일 때만 믿는다(noneSeenBy).
+  // 다른 엔진이 적은 none 은 한 번 더 열어 보고, 이 엔진도 소재를 못 찾으면 nv 에 이 엔진을 더한다 —
+  // 그 뒤로는 건너뛴다. 엔진마다 상품당 한 번뿐이라 비용이 묶인다.
   const NONE_DAYS = Math.max(1, Number(process.env.NONE_DAYS) || 21);
   const now = Date.now();
-  let skippedNone = 0;
+  let skippedNone = 0, recheckNone = 0;
   const todo = (cat.items || [])
     .filter((p) => {
       if (!p || !p.productUrl) return false;
       const o = overlay[p.productUrl] || {};
       if (validComp(String(o.comp || "").trim())) return false;
-      if (o.none && o.t && now - o.t < NONE_DAYS * 86400000) { skippedNone++; return false; }
+      if (o.none && o.t && now - o.t < NONE_DAYS * 86400000) {
+        if (noneSeenBy(o, c.engine)) { skippedNone++; return false; }
+        recheckNone++;
+      }
       return true;
     })
     .slice(0, PER_BRAND);
   if (skippedNone) console.log(`  · ${c.brand} — 사이트 미표기로 확인된 ${skippedNone}개는 건너뜀`);
+  if (recheckNone) console.log(`  · ${c.brand} — 다른 엔진이 미표기로 적은 ${recheckNone}개를 ${c.engine} 로 다시 봄(대상 안에서 앞쪽 ${PER_BRAND}개까지)`);
   if (!todo.length) { console.log(`  · ${c.brand} — 채울 것 없음`); continue; }
 
-  const stat = { ok: 0, none: 0, blocked: 0, err: 0 };
+  const stat = { ok: 0, none: 0, shell: 0, blocked: 0, err: 0 };
   const patch = {};
   let i = 0;
   let ctx;
@@ -366,10 +408,14 @@ for (const c of targets) {
             patch[p.productUrl] = { comp, ...(color ? { color } : {}) };
             reads.push({ brand: c.brand, name: p.name || "", url: p.productUrl, comp });
             stat.ok++;
-          } else {
-            // 페이지는 멀쩡히 읽었는데 소재 표기가 없다 = 사이트가 안 적는다.
+          } else if (productRead(html, p.name || "")) {
+            // 이 상품의 본문이 그려진 페이지인데 소재 표기가 없다 = 사이트가 안 적는다.
             patch[p.productUrl] = { none: 1, ...(color ? { color } : {}) };
             stat.none++;
+          } else {
+            // 차단 화면은 아니지만 이 상품의 본문이 안 그려졌다(껍데기·다른 페이지로 넘어감).
+            // 소재가 없다고 결론 내릴 수 없다 — 아무것도 적지 않고, 차단과 같이 센다.
+            stat.shell++;
           }
         } catch (e) {
           const msg = String((e && e.message) || e);
@@ -383,7 +429,7 @@ for (const c of targets) {
   }));
 
   grandFilled += stat.ok; grandTried += todo.length;
-  const line = `${c.brand} [${c.engine}] — 시도 ${todo.length} · ✅ ${stat.ok} · 미표기 ${stat.none} · 차단/타임아웃 ${stat.blocked} · 오류 ${stat.err}`;
+  const line = `${c.brand} [${c.engine}] — 시도 ${todo.length} · ✅ ${stat.ok} · 미표기 ${stat.none} · 껍데기 ${stat.shell} · 차단/타임아웃 ${stat.blocked} · 오류 ${stat.err}`;
   console.log("  · " + line);
   rows.push({ brand: c.brand, site: c.site, engine: c.engine, total: c.count, ...stat, tried: todo.length });
 
@@ -392,16 +438,32 @@ for (const c of targets) {
   // 옛 판정에 발이 묶이면 안 된다.
   // 이력은 이 브랜드를 읽은 엔진 칸에만 적는다 — 크롬으로 막혔다고 파이어폭스 기록까지 잠그지 않는다.
   const verdict = recordResult(state, c.site, c.engine,
-    { brand: c.brand, tried: todo.length, blocked: stat.blocked, ok: stat.ok }, Date.now(), SKIP_DAYS, BLOCK_RATIO);
+    { brand: c.brand, tried: todo.length, blocked: stat.blocked + stat.shell, ok: stat.ok }, Date.now(), SKIP_DAYS, BLOCK_RATIO);
   if (verdict === "blocked") console.log(`    → ${c.engine} 로는 ${SKIP_DAYS}일간 후보에서 제외(차단 ${state.blocked[c.site][c.engine].ratio}%)`);
   if (verdict === "cleared") console.log(`    → ${c.engine} 로 다시 읽히기 시작 — 차단 이력 해제`);
 
+  // 합치기 — DRY 여도 한다(엇갈린 값을 리포트에 남기려고). 저장은 STORE 일 때만.
+  // 규칙(applyLiveComp·markNone)은 야간 보강과 같다:
+  //   지금 페이지에서 읽은 혼용률 — 빈 칸이면 채우고, 보관본(via=wayback) 값과 같으면 via·wd 를 지우고,
+  //   보관본과 다르면 지금 페이지 값으로 바꾼다(엇갈림은 리포트에). 혼용률이 들어가면 none·nv 를 지운다.
+  //   none — 옳은 혼용률이 없을 때만, nv 에 이 엔진을 더한다.
+  // 예전엔 { ...기존, ...새 값 } 이라 지금 페이지에서 읽어도 via:"wayback" 이 남았다.
+  const merged = { ...overlay };
+  {
+    const now = Date.now();
+    for (const [u, v] of Object.entries(patch)) {
+      const cur = { ...(merged[u] || {}) };
+      if (v.comp) {
+        const r = applyLiveComp(cur, v.comp);
+        if (r.conflict) conflicts.push({ brand: c.brand, url: u, ...r.conflict, act: r.act });
+      } else if (v.none && !validComp(String(cur.comp || "").trim())) markNone(cur, c.engine);
+      if (v.color) cur.color = v.color;
+      cur.t = now;
+      merged[u] = cur;
+    }
+  }
   if (STORE && Object.keys(patch).length) {
     // 오버레이는 통째로 저장한다(Worker 는 본문을 그대로 KV 에 넣기만 한다).
-    // 기존 값을 잃지 않도록 여기서 합친다 — 새 값이 이긴다.
-    const merged = { ...overlay };
-    const now = Date.now();
-    for (const [u, v] of Object.entries(patch)) merged[u] = { ...(merged[u] || {}), ...v, t: now };
     let saved = false;
     for (let a = 0; a < 3 && !saved; a++) {
       try {
@@ -430,15 +492,27 @@ const md = [
   "",
   `- 엔진: ${ENGINE}${ENGINE === "auto" ? ` (크롬 차단 이력이 있는 브랜드는 ${AUTO_ENGINE})` : ""}`,
   "",
-  "| 브랜드 | 엔진 | 상품 | 시도 | 채움 | 사이트 미표기 | 차단·타임아웃 | 오류 |",
-  "|---|---|---:|---:|---:|---:|---:|---:|",
-  ...rows.map((r) => `| ${r.brand} | ${r.engine} | ${r.total} | ${r.tried} | **${r.ok}** | ${r.none} | ${r.blocked} | ${r.err} |`),
+  "| 브랜드 | 엔진 | 상품 | 시도 | 채움 | 사이트 미표기 | 껍데기 | 차단·타임아웃 | 오류 |",
+  "|---|---|---:|---:|---:|---:|---:|---:|---:|",
+  ...rows.map((r) => `| ${r.brand} | ${r.engine} | ${r.total} | ${r.tried} | **${r.ok}** | ${r.none} | ${r.shell} | ${r.blocked} | ${r.err} |`),
+  "",
+  "껍데기 = 차단 화면은 아닌데 이 상품의 본문(상품명)이 화면에 안 그려진 페이지. 미표기(none)로 적지 않고 차단과 같이 센다.",
   "",
   ...(skipped.length ? [`- 건너뜀(차단 이력): ${skipped.join(" · ")}`, ""] : []),
   "차단·타임아웃이 대부분이면 진짜 크롬으로도 안 된다는 뜻이므로, 그 브랜드는",
   "사람 PC 의 확장(가정용 IP)이 맡아야 합니다. '사이트 미표기'가 대부분이면",
   "더 할 수 있는 것이 없습니다 — 엑셀에 '정보 없음'으로 나갑니다.",
   "",
+  ...(conflicts.length ? [
+    `## 혼용률이 엇갈린 상품 (${conflicts.length})`,
+    "",
+    "지금 페이지에서 읽은 값이 이미 있던 값과 다르다. 보관본 값이었으면 지금 페이지 값으로 바꿨고(바꿈), 지금 페이지에서 읽었던 값이면 그대로 뒀다(유지).",
+    "",
+    "| 브랜드 | 상품 | 있던 값 | 지금 페이지 | 처리 |",
+    "|---|---|---|---|---|",
+    ...conflicts.slice(0, 100).map((x) => `| ${x.brand} | ${x.url} | ${String(x.old).replace(/\n/g, " ‖ ")}${x.oldVia ? ` (${x.oldVia} ${x.oldWd})` : ""} | ${String(x.live).replace(/\n/g, " ‖ ")} | ${x.act === "replace" ? "바꿈" : "유지"} |`),
+    "",
+  ] : []),
   ...(reads.length ? [
     `<details><summary>읽은 혼용률 ${reads.length}개 — 상품명과 함께(⚠ 는 상품명과 안 맞아 보이는 것)</summary>`,
     "",

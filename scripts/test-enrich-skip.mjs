@@ -147,10 +147,61 @@ if (!/o\.none && o\.t/.test(src)) fail("확인 시각 없이 건너뛴다 — �
 // 브랜드 고르기에서도 미표기를 '처리됨'으로 세야 한다. 안 그러면 전부 미표기인
 // 브랜드가 계속 1순위를 차지하고 자리만 먹는다.
 const sel = src.slice(src.indexOf("let filled = 0"), src.indexOf("scored.sort"));
-if (!sel.includes("else if (o.none) settled++")) {
-  fail("브랜드 점수에서 미표기를 안 센다 — Loft 처럼 전부 미표기인 브랜드가 매일 1순위가 된다");
+if (!sel.includes("if (noneSeenBy(o, eng)) settled++")) {
+  fail("브랜드 점수에서 미표기를 (이 엔진이 확인한 것으로) 안 센다 — Loft 처럼 전부 미표기인 브랜드가 매일 1순위가 된다");
 }
 if (!sel.includes("c.count - settled")) fail("남은 개수를 미표기 포함으로 세지 않는다");
 
+// ── ⑤ none 을 누가 적었나(nv) · 지금 페이지 값과 보관본 값 ──
+// 규칙은 enrich-comp.mjs 한 벌이고 크롬 보강은 그 구간을 떼어 쓴다. 여기서 직접 돌린다.
+let nRule = 0;
+{
+  const ec = readFileSync(join(ROOT, "scripts/enrich-comp.mjs"), "utf8");
+  const A = "// ── 혼용률 출처·none 표시 규칙 시작", B = "// ── 혼용률 출처·none 표시 규칙 끝";
+  if (ec.indexOf(A) < 0 || ec.indexOf(B) < 0) fail("enrich-comp.mjs 에 출처·none 규칙 구간이 없다");
+  if (!src.includes(A) || !src.includes(B)) fail("크롬 보강이 출처·none 규칙 구간을 떼어 쓰지 않는다(사본이 생기면 갈라진다)");
+  const validComp = (s2) => /^([A-Za-z]+ \d{1,3}%)( \/ [A-Za-z]+ \d{1,3}%)*(\n([A-Za-z]+ \d{1,3}%)( \/ [A-Za-z]+ \d{1,3}%)*)?$/.test(String(s2 || "").trim());
+  const R = new Function("validComp", ec.slice(ec.indexOf(A), ec.indexOf(B)) +
+    "\n return { noneSeenBy, markNone, clearNone, applyLiveComp };")(validComp);
+  const eq = (label, got, want) => { nRule++; if (JSON.stringify(got) !== JSON.stringify(want)) fail(`${label}: 기대 ${JSON.stringify(want)} 실제 ${JSON.stringify(got)}`); };
+  // nv 없는 예전 none = fetch·크롬이 적은 것. 파이어폭스는 한 번 더 본다.
+  eq("예전 none · playwright", R.noneSeenBy({ none: 1 }, "playwright"), true);
+  eq("예전 none · patchright", R.noneSeenBy({ none: 1 }, "patchright"), true);
+  eq("예전 none · firefox", R.noneSeenBy({ none: 1 }, "firefox"), false);
+  eq("fetch 만 · playwright", R.noneSeenBy({ none: 1, nv: "fetch" }, "playwright"), false);
+  eq("firefox 가 적음 · firefox", R.noneSeenBy({ none: 1, nv: "firefox" }, "firefox"), true);
+  eq("none 아님", R.noneSeenBy({ nv: "firefox" }, "firefox"), false);
+  // markNone: 이 엔진을 더한다(예전 none 이면 예전 몫도 남긴다) — 엔진마다 상품당 한 번
+  { const o = { none: 1 }; R.markNone(o, "firefox"); eq("예전 none 에 firefox 더함", o, { none: 1, nv: "chromium,fetch,firefox" }); }
+  { const o = {}; R.markNone(o, "fetch"); eq("새 none(fetch)", o, { none: 1, nv: "fetch" }); }
+  { const o = { none: 1, nv: "fetch" }; R.markNone(o, "playwright"); R.markNone(o, "playwright"); eq("같은 엔진 두 번", o, { none: 1, nv: "chromium,fetch" }); }
+  // applyLiveComp: 지금 페이지에서 읽은 혼용률
+  { const o = { none: 1, nv: "fetch" }; eq("빈 칸 채움", R.applyLiveComp(o, "Cotton 100%").act, "set"); eq("빈 칸 채움 결과", o, { comp: "Cotton 100%" }); }
+  { const o = { comp: "Cotton 95% / Elastane 5%", via: "wayback", wd: "20260712", color: "White" };
+    eq("보관본과 같은 값(순서 다름)", R.applyLiveComp(o, "Elastane 5% / Cotton 95%").act, "same");
+    eq("확인됨 → via·wd 지움", o, { comp: "Cotton 95% / Elastane 5%", color: "White" }); }
+  { const o = { comp: "Cotton 100%", via: "wayback", wd: "20250101" };
+    const r = R.applyLiveComp(o, "Linen 100%");
+    eq("보관본과 다른 값 → 지금 페이지가 이김", r.act, "replace");
+    eq("바꾼 결과", o, { comp: "Linen 100%" });
+    eq("엇갈림 기록", r.conflict, { old: "Cotton 100%", oldVia: "wayback", oldWd: "20250101", live: "Linen 100%" }); }
+  { const o = { comp: "Cashmere 100%" };
+    const r = R.applyLiveComp(o, "Wool 100%");
+    eq("지금 페이지에서 읽었던 값과 다름 → 유지", r.act, "keep");
+    eq("유지 결과", o, { comp: "Cashmere 100%" });
+    eq("유지도 기록", !!r.conflict, true); }
+  { const o = { none: 1 }; eq("옳지 않은 값은 무시", R.applyLiveComp(o, "Cotton 60% / Wool").act, ""); eq("무시하면 그대로", o, { none: 1 }); }
+}
+// 배선: 크롬 보강이 이 규칙으로 합치고(예전의 { ...기존, ...새 값 } 이 아니라), none 은 이 엔진이 본 것만 믿는다.
+for (const [needle, why] of [
+  ["applyLiveComp(cur, v.comp)", "지금 페이지 혼용률을 출처 규칙으로 합치지 않는다 — via:\"wayback\" 이 남는다"],
+  ["markNone(cur, c.engine)", "none 에 이 엔진(nv)을 남기지 않는다"],
+  ["if (noneSeenBy(o, c.engine)) { skippedNone++; return false; }", "다른 엔진이 적은 none 까지 건너뛴다 — 새 엔진이 다시 볼 기회가 없다"],
+  ["productRead(html, p.name", "껍데기 페이지를 none 으로 적는다"],
+  ["blocked: stat.blocked + stat.shell", "껍데기를 차단으로 세지 않는다 — 크롬이 껍데기만 받는 브랜드가 auto 에서 파이어폭스로 안 넘어간다"],
+  ["unseenBest > 30", "auto 가 '파이어폭스가 아직 안 본 none' 이 쌓인 브랜드를 다시 보지 않는다(Patagonia)"],
+]) { nRule++; if (!src.includes(needle)) fail(`${why} (${needle} 없음)`); }
+if (/merged\[u\] = \{ \.\.\.\(merged\[u\] \|\| \{\}\), \.\.\.v/.test(src)) fail("예전 병합({ ...기존, ...새 값 })이 남아 있다");
+
 if (bad) { console.error(`\n크롬 보강 건너뛰기 ${bad}건 실패`); process.exit(1); }
-console.log(`✅ 크롬 보강 건너뛰기 통과 — 판정 ${CASES.length}건 · 배선 14종 · 엔진별 이력 18건 (${SKIP_DAYS}일 제외 · 차단 ${BLOCK_RATIO * 100}% 기준)`);
+console.log(`✅ 크롬 보강 건너뛰기 통과 — 판정 ${CASES.length}건 · 배선 14종 · 엔진별 이력 18건 · none 출처·병합 ${nRule}건 (${SKIP_DAYS}일 제외 · 차단 ${BLOCK_RATIO * 100}% 기준)`);

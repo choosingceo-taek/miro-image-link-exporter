@@ -86,5 +86,39 @@ for (const [, html] of CASES) {
   }
 }
 
+// ── none 을 적어도 되는가(productRead) ──────────────────────────────
+// realPage 는 '차단 화면이 아니다'까지만 본다. none(엑셀 '정보 없음', 한동안 다시 안 봄)은
+// "이 상품의 본문이 그려진 페이지"에서만 적는다. 규칙은 enrich-comp.mjs 한 벌이고,
+// enrich-comp-browser.mjs 는 그 구간을 그대로 떼어 쓴다 — 떼어 쓰는지도 여기서 본다.
+const ecSrc = readFileSync(join(ROOT, "scripts/enrich-comp.mjs"), "utf8");
+const A = "// ── 이 상품 페이지를 정말 읽었나(none 판정) 시작", B = "// ── 이 상품 페이지를 정말 읽었나(none 판정) 끝";
+const prBlock = ecSrc.slice(ecSrc.indexOf(A), ecSrc.indexOf(B));
+const productRead = new Function(prBlock + "\n return productRead;")();
+const brSrc = readFileSync(join(ROOT, "scripts/enrich-comp-browser.mjs"), "utf8");
+if (!brSrc.includes("이 상품 페이지를 정말 읽었나(none 판정) 시작")) fail("enrich-comp-browser.mjs 가 productRead 구간을 떼어 쓰지 않는다");
+if (!/productRead\(html, p\.name/.test(brSrc)) fail("enrich-comp-browser.mjs 가 none 을 적기 전에 productRead(html, p.name) 를 보지 않는다");
+if (!/productRead\(html, name\)/.test(ecSrc)) fail("enrich-comp.mjs 가 none 을 적기 전에 productRead(html, name) 를 보지 않는다");
+
+// Patagonia 껍데기(11/24 실측: 모든 엔진에서 글 1,017자). 메뉴·바닥글만 있고 상품 본문이 없다.
+const shellProse = ("Shop Women Men Kids Packs & Gear Activism Stories Worn Wear Gift Cards Sign In Cart " +
+  "Free shipping on orders over $99 Ironclad Guarantee Returns Help Contact Find a store ").repeat(6);
+const PR = [
+  // [설명, html, 카탈로그 상품명, none 을 적어도 되는가]
+  ["Loft 형 — 상품명이 화면에 있고 소재 표기 없음", `<html><head><title>Ribbed Crew Sweater | LOFT</title></head><body><h1>Ribbed Crew Sweater</h1><p>${prose}</p></body></html>`, "Ribbed Crew Sweater", true],
+  ["상품명 대소문자·문장부호 차이(RUSTIC COTTON T-SHIRT)", `<html><body><h1>RUSTIC COTTON T-SHIRT</h1><p>${prose}</p></body></html>`, "Rustic cotton t-shirt", true],
+  ["상품명 낱말 일부만 다름(색 이름이 붙음)", `<html><body><h1>Women's Long-Sleeved Capilene Cool Merino Shirt</h1><p>${prose}</p></body></html>`, "W's L/S Capilene Cool Merino Shirt - Black", true],
+  ["Patagonia 껍데기 — 제목·JSON-LD 엔 이름이 있지만 화면 글엔 없다", `<html><head><title>Women's In-Spired Easy-Cut Tee</title><script type="application/ld+json">{"@type":"Product","name":"Women's In-Spired Easy-Cut Tee"}</script></head><body><header>${shellProse}</header><div id="app"></div></body></html>`, "Women's In-Spired Easy-Cut Tee", false],
+  ["다른 상품 페이지로 넘어감", `<html><body><h1>Classic Denim Jacket</h1><p>${prose}</p></body></html>`, "Silk Slip Dress", false],
+  ["상품명 없음 + JSON-LD Product + 글 충분", `<html><head><script type="application/ld+json">{"@type":"Product","name":"X"}</script></head><body><p>${prose}</p></body></html>`, "", true],
+  ["상품명 없음 + 상품 신호 없음", `<html><body><p>${prose}</p></body></html>`, "", false],
+  ["상품명 없음 + og:type product 지만 글이 얇다", `<html><head><meta property="og:type" content="product"></head><body><div id="root">Tee</div></body></html>`, "", false],
+  ["빈 문자열", "", "Crew Tee", false],
+];
+for (const [label, html, name, want] of PR) {
+  let got;
+  try { got = productRead(html, name); } catch (e) { got = "오류 " + e.message; }
+  if (got !== want) fail(`[productRead] ${label} — 기대 ${want ? "none 가능" : "못 읽음"} 실제 ${got}`);
+}
+
 if (bad) { console.error(`\nrealPage ${bad}건 실패`); process.exit(1); }
-console.log(`✅ realPage 통과 — ${CASES.length}가지 페이지 × 두 벌(enrich-comp · 확장) 일치`);
+console.log(`✅ realPage 통과 — ${CASES.length}가지 페이지 × 두 벌(enrich-comp · 확장) 일치 · none 판정(productRead) ${PR.length}건`);

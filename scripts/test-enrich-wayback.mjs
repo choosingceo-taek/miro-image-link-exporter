@@ -6,7 +6,8 @@
 //   - 쿼리 없는 주소로 보관본이 없으면 쿼리 붙은 주소로 한 번 더(Zara ?v1=)
 //   - 보관본 없음 → wt 를 찍고, 다음 실행은 30일 안이라 다시 묻지 않는다
 //   - 카테고리 주소 오탐 셋 → 아카이브에 묻지도 않는다 · 목록 같은 보관본 · 다른 주소로 넘어간 보관본 → 거부
-//   - 나중에 지금 페이지에서 같은 값을 읽으면 via 를 지운다 / 다른 값이면 덮지 않는다
+//   - 나중에 지금 페이지에서 같은 값을 읽으면 via 를 지운다 / 다른 값이면 지금 페이지가 이기고 리포트에 남긴다
+//     (지금 페이지에서 읽었던 값과 다르면 덮지 않고 리포트에 남긴다)
 //   - 429 가 이어지면 물러섰다가 층을 끈다 · 조회 상한 · DRY=1 은 쓰기 0 · WAYBACK=0 은 접속 0
 //   node scripts/test-enrich-wayback.mjs
 import { readFileSync, writeFileSync, existsSync, unlinkSync } from "node:fs";
@@ -42,6 +43,7 @@ const P = {
   moved: "/p/old-tee-55",                          // 보관본이 다른 주소로 넘어감
   confirm: "/p/live-tee-3",                        // 보관본 값을 지금 페이지가 확인
   differ: "/p/live-diff-4",                        // 지금 페이지가 다른 값을 줌
+  keepLive: "/p/live-keep-8",                      // 지금 페이지에서 읽었던 값이 있는데 오늘 다른 값
   recentWt: "/p/recent-wt-5",                      // 이틀 전에 물어봄 → 안 묻는다
   oldWt: "/p/old-wt-6",                            // 40일 전에 물어봄 → 다시 묻는다
   staleNone: "/p/stale-none-7",                    // 예전 none · 오늘 막힘 · 보관본 없음
@@ -49,6 +51,7 @@ const P = {
 const PAGES = {
   [P.confirm]: live("Live Tee", "<div>Composition: 100% Cotton</div>", "Navy"),
   [P.differ]: live("Live Linen", "<div>Composition: 100% Linen</div>", "Sand"),
+  [P.keepLive]: live("Keep Wool", "<div>Composition: 100% Wool</div>", "Grey"),
 };
 // 보관본에 가격·사이즈가 있어도 버려야 한다 — 일부러 넣어 둔다.
 const arketWithPrice = GOOD.arket.replace('"price":"35"', '"price":"35","priceCurrency":"USD"')
@@ -75,6 +78,7 @@ function world(base) {
       [u(P.hit)]: { none: 1, t: Date.now() - 10 * DAY },                 // 예전 none → 보관본 값이 지운다
       [u(P.confirm)]: { comp: "Cotton 100%", via: "wayback", wd: "20250101", t: Date.now() - 10 * DAY },
       [u(P.differ)]: { comp: "Cotton 100%", via: "wayback", wd: "20250101", t: Date.now() - 10 * DAY },
+      [u(P.keepLive)]: { comp: "Cashmere 100%", t: Date.now() - 10 * DAY },
       [u(P.recentWt)]: { t: Date.now() - 10 * DAY, wt: Date.now() - 2 * DAY },
       [u(P.oldWt)]: { t: Date.now() - 41 * DAY, wt: Date.now() - 40 * DAY },
       [u(P.staleNone)]: { none: 1, t: Date.now() - 10 * DAY },
@@ -147,8 +151,20 @@ try {
     if (cf.comp !== "Cotton 100%" || cf.via || cf.wd || cf.color !== "Navy") fail(`[${L}] 지금 페이지가 같은 값 확인: ${JSON.stringify(cf)}`);
     else ok("지금 페이지에서 같은 혼용률을 읽으면 via·wd 를 지운다(확인됨)");
     const df = at(P.differ);
-    if (df.comp !== "Cotton 100%" || df.via !== "wayback") fail(`[${L}] 지금 페이지가 다른 값: ${JSON.stringify(df)}`);
-    else ok("지금 페이지가 다른 값이면 이미 있는 값을 덮지 않고 via 도 남긴다");
+    // 보관본은 몇 달 전의 다른 판일 수 있다 — 지금 파는 페이지가 이기고, 엇갈림은 리포트에 남긴다.
+    if (df.comp !== "Linen 100%" || df.via || df.wd) fail(`[${L}] 지금 페이지가 보관본과 다른 값: ${JSON.stringify(df)}`);
+    else ok("지금 페이지가 보관본과 다른 값이면 지금 페이지 값으로 바꾸고 via·wd 를 지운다");
+    const kl = at(P.keepLive);
+    if (kl.comp !== "Cashmere 100%" || kl.via) fail(`[${L}] 지금 페이지에서 읽었던 값과 다른 값: ${JSON.stringify(kl)}`);
+    else ok("지금 페이지에서 읽었던 값과 다르면 덮지 않는다");
+    {
+      const rep = readFileSync(REPORT, "utf8");
+      const sec = rep.slice(rep.indexOf("## 혼용률이 엇갈린 상품"));
+      if (!/## 혼용률이 엇갈린 상품 \(2\)/.test(rep) || !sec.includes(P.differ) || !sec.includes(P.keepLive) ||
+        !/Cotton 100% \(wayback 20250101\) \| Linen 100% \| 바꿈/.test(sec) || !/Cashmere 100% \| Wool 100% \| 유지/.test(sec))
+        fail(`[${L}] 리포트에 엇갈린 두 상품이 안 남았다:\n${sec.slice(0, 600)}`);
+      else ok("리포트 '혼용률이 엇갈린 상품': 있던 값(출처) · 지금 페이지 값 · 바꿈/유지");
+    }
     if (apiAsked(fk.state, base, P.confirm) || apiAsked(fk.state, base, P.differ)) fail(`[${L}] 지금 페이지를 읽은 상품을 아카이브에 물었다`);
 
     if (apiAsked(fk.state, base, P.recentWt) || at(P.recentWt).comp) fail(`[${L}] 이틀 전에 물어본 상품을 다시 물었다`);

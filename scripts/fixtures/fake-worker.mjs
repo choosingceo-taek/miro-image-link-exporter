@@ -16,7 +16,17 @@ const ITEMS = [
   { name: "Blocked Item", imageUrl: "https://x/4.jpg", productUrl: `http://localhost:${PORT}/p/4` },
   { name: "Challenge Item", imageUrl: "https://x/5.jpg", productUrl: `http://localhost:${PORT}/p/5` },
   { name: "Late Knit", imageUrl: "https://x/6.jpg", productUrl: `http://localhost:${PORT}/p/6` },
+  { name: "Capilene Cool Merino Shirt", imageUrl: "https://x/7.jpg", productUrl: `http://localhost:${PORT}/p/7` },
+  { name: "Legacy None Tee", imageUrl: "https://x/8.jpg", productUrl: `http://localhost:${PORT}/p/8` },
+  { name: "Recheck Pant", imageUrl: "https://x/9.jpg", productUrl: `http://localhost:${PORT}/p/9` },
 ];
+// 오버레이(이미 저장된 값). none 의 nv = 그 none 을 적은 읽기 방식.
+const OVERLAY = {
+  // nv 없는 예전 none — fetch·크롬이 적은 것으로 본다. 크롬(playwright)으로는 다시 안 연다.
+  [`http://localhost:${PORT}/p/8`]: { none: 1, t: Date.now() - 2 * 86400000 },
+  // 평 fetch 만 적은 none — 크롬으로 한 번 더 열어 본다.
+  [`http://localhost:${PORT}/p/9`]: { none: 1, nv: "fetch", t: Date.now() - 2 * 86400000 },
+};
 
 const PAGES = {
   // 평범한 표기
@@ -34,6 +44,12 @@ const PAGES = {
   "/p/6": `<html><body><h1>Late Knit</h1><div id="d"></div>
      <script>setTimeout(() => { document.getElementById("d").textContent = "Composition: 70% Wool, 30% Polyamide"; }, 4000);</script>
      </body></html>`,
+  // 차단 화면은 아니고 글도 있지만 이 상품의 본문이 안 그려진 껍데기(Patagonia 1,017자형) — none 을 적으면 안 된다.
+  "/p/7": `<html><head><title>Capilene Cool Merino Shirt</title></head><body><header>${"Shop Women Men Kids Packs Gear Activism Stories Worn Wear Gift Cards Sign In Cart Free shipping on orders over $99 ".repeat(8)}</header><div id="app"></div></body></html>`,
+  // 이 페이지는 소재를 적지만, 예전 none 이 크롬 몫이라 열리지 않아야 한다(열리면 comp 가 저장된다).
+  "/p/8": `<html><body><h1>Legacy None Tee</h1><div>Composition: 100% Cotton</div></body></html>`,
+  // 다시 열어 보니 역시 소재 없음 → none 에 chromium 을 더한다.
+  "/p/9": `<html><body><h1>Recheck Pant</h1><p>Machine wash cold. Imported.</p></body></html>`,
 };
 
 let saved = null;
@@ -42,7 +58,7 @@ createServer((req, res) => {
   const j = (o) => { res.writeHead(200, { "Content-Type": "application/json" }); res.end(JSON.stringify(o)); };
   if (u.searchParams.has("catalogs")) return j({ list: [{ site: "test.com.testbrand", brand: "TestBrand", count: ITEMS.length, updated: Date.now() }] });
   if (u.searchParams.has("catalog")) return j({ brand: "TestBrand", items: ITEMS });
-  if (u.searchParams.has("comps")) return j({});
+  if (u.searchParams.has("comps")) return j(OVERLAY);
   if (u.searchParams.get("store") === "overlay") {
     let b = ""; req.on("data", (d) => (b += d));
     return req.on("end", () => { saved = JSON.parse(b); console.error("SAVED:" + JSON.stringify(saved)); j({ ok: true }); });

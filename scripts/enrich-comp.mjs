@@ -174,8 +174,42 @@ function realPage(html) {
   return visible.length >= 600;
 }
 
+// ── 이 상품 페이지를 정말 읽었나(none 판정) 시작 — enrich-comp-browser.mjs 가 이 구간을 떼어 쓴다
+// realPage 는 '차단 화면이 아니다'까지만 본다. 소재가 없다(none)는 결론은 그보다 강한 근거가
+// 있어야 한다 — none 은 엑셀에 '정보 없음'으로 나가고 그 상품을 한동안 다시 안 보기 때문이다.
+//
+// 11/24 실측: Patagonia 상품 페이지는 fetch·크롬으로 열면 글 1,017자짜리 껍데기만 온다(600자는
+// 넘는다). 그 껍데기를 '읽었다'로 쳐서 남은 167개가 전부 none 이 됐는데, 파이어폭스로 열면
+// 같은 상품에서 혼용률이 나온다. 그래서 none 은 "이 상품의 본문이 그려진 페이지"일 때만 적는다:
+//   · 카탈로그의 상품명이 있으면 — 그 이름의 낱말 대부분(60% 이상)이 화면 글에 있어야 한다.
+//     제목(<title>)만으로는 안 된다. 껍데기도 제목은 갖고 있다.
+//   · 상품명이 없으면 — 상품 신호(JSON-LD Product · og:type product · schema.org/Product)와
+//     화면 글 600자 이상.
+// 아니면 '못 읽음'으로 센다(차단과 같이) — none 을 적지 않는다.
+const NAME_STOP = new Set(["the", "and", "with", "for", "in", "of", "a", "an", "to", "by", "new", "women", "womens",
+  "men", "mens", "s", "x", "de", "la", "le", "et", "en"]);
+function nameWords(name) {
+  return String(name || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "")
+    .split(/[^\p{L}\p{N}]+/u).filter((w) => w.length >= 2 && !NAME_STOP.has(w));
+}
+function productRead(html, name) {
+  const s = String(html || "");
+  const visible = s.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<title[\s\S]*?<\/title>/gi, " ").replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/&#0?39;|&apos;|&rsquo;/gi, "'");
+  const words = nameWords(name);
+  if (words.length) {
+    const hay = " " + nameWords(visible).join(" ") + " ";
+    const hit = words.filter((w) => hay.includes(" " + w + " ")).length;
+    return hit / words.length >= 0.6;
+  }
+  const signal = /"@type"\s*:\s*\[?\s*"Product"|property=["']og:type["'][^>]*content=["']product|itemtype=["'][^"']*schema\.org\/Product/i.test(s);
+  return signal && visible.replace(/\s+/g, " ").trim().length >= 600;
+}
+// ── 이 상품 페이지를 정말 읽었나(none 판정) 끝
+
 // 한 상품의 네 항목(혼용률·컬러·사이즈·가격). 실패는 null — 이유는 세어서 리포트로.
-async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }) {
+async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
   // ① Shopify JSON — 가장 싸고 정확. variants/options 에 사이즈·컬러·가격이 구조화돼 있다.
   const m = url.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
   if (m) {
@@ -215,6 +249,9 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }) {
   // Zara 500 · H&M 743 · Massimo Dutti 596 이 그렇게 '정보 없음'으로 분류됐지만,
   // 진짜 크롬 보강 기록에서는 같은 브랜드가 100% 차단이었다.
   if (html && !readOk) { stat.blocked++; html = ""; }
+  // 차단 화면은 아니지만 이 상품의 본문이 그려지지 않은 껍데기(Patagonia 1,017자) — 소재가 없다고
+  // 결론 내릴 수 없다. 아래에서 none 대신 '못 읽음'으로 돌리고, 아카이브도 물어본다.
+  const shell = readOk && !productRead(html, name);
   if (html) {
     let ld = {};
     try { ld = fromJsonLd(html); } catch (e) {}
@@ -246,7 +283,7 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }) {
   //    혼용률이 안 나왔을 때만. 소재는 시간이 지나도 안 바뀌므로 몇 달 전 보관본이어도
   //    값이 같다. 가격·사이즈·재고는 바뀌므로 보관본에서는 혼용률·컬러만 받는다.
   //    Shopify JSON 이나 페이지를 읽었는데 소재가 없던 상품은 '사이트가 안 적는' 쪽이라 묻지 않는다.
-  if (!readOk && typeof partial === "undefined" && !(viaWorker && validComp(asComp(viaWorker.comp)))) {
+  if ((!readOk || shell) && typeof partial === "undefined" && !(viaWorker && validComp(asComp(viaWorker.comp)))) {
     const w = await waybackOf(url, stat, o, wbCtx);
     if (w && w.comp) {
       if (!viaWorker) return w;
@@ -262,7 +299,11 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }) {
   // 페이지는 멀쩡히 읽었는데 소재 표기가 없었다면 그건 '아직 못 구한 것'이 아니라
   // '사이트가 안 적는 것'이다. 엑셀에서 '확인 필요'와 다르게 보여 줘야 하므로
   // 그 사실을 남긴다 — 차단이면 readOk 가 false 라 표시하지 않는다.
-  if (typeof partial === "undefined") return readOk ? { none: true } : { blocked: true };
+  if (typeof partial === "undefined") {
+    if (readOk && !shell) return { none: true };
+    if (shell) stat.shell++;
+    return { blocked: true };
+  }
   return partial;
 }
 
@@ -279,8 +320,9 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }) {
 //   via: "wayback"  혼용률이 보관본에서 왔다(컬러도 그 보관본에서 왔을 수 있다)
 //   wd:  "20260712" 그 보관본의 날짜
 //   wt:  <ms>       보관본을 물어봤다(없었거나 거부됐거나) — WAYBACK_RETRY_DAYS 동안 다시 안 묻는다
-// 나중에 진짜 페이지에서 같은 혼용률을 읽으면 via·wd 를 지운다(확인됨). 다른 값이 나오면
-// 이미 있는 옳은 값을 덮지 않는 평소 규칙 그대로 둔다 — via 가 남아 있어 나중에 가려낼 수 있다.
+// 나중에 진짜 페이지에서 같은 혼용률을 읽으면 via·wd 를 지운다(확인됨). 다른 값이 나오면 지금
+// 페이지 값으로 바꾸고 via·wd 를 지운 뒤, 두 값을 리포트('혼용률이 엇갈린 상품')에 남긴다 —
+// 보관본은 몇 달 전의 다른 판일 수 있고 지금 페이지가 지금 파는 상품이다(applyLiveComp, 크롬 보강도 같은 규칙).
 const WAYBACK = process.env.WAYBACK !== "0";
 const WAYBACK_API = (process.env.WAYBACK_API || "https://archive.org/wayback/available").replace(/\/+$/, "");
 const WAYBACK_WEB = (process.env.WAYBACK_WEB || "https://web.archive.org/web").replace(/\/+$/, "");
@@ -433,10 +475,55 @@ async function waybackOf(url, stat, o, ctx) {
     return null;   // 일시 오류 — 시각을 안 찍어 다음 실행이 다시 묻는다
   }
 }
+// ── 혼용률 출처·none 표시 규칙 시작 — enrich-comp-browser.mjs 가 이 구간을 떼어 쓴다(validComp 를 넘겨받음)
 const sameComp = (a, b) => {
   const n = (x) => String(x || "").toLowerCase().split(/\s*\/\s*|\n/).map((t) => t.trim()).filter(Boolean).sort().join("/");
   return !!a && n(a) === n(b);
 };
+// none 을 누가 적었나(nv). 쉼표로 이은 읽기 방식 묶음 — fetch(평 fetch) · chromium(크롬·patchright) · firefox.
+// 읽기 방식마다 열리는 페이지가 다르다(Patagonia: fetch·크롬은 껍데기, 파이어폭스는 본문). 그래서 크롬 보강은
+// 지금 쓰는 엔진이 이 목록에 없을 때 none 을 한 번 더 확인한다 — 엔진마다 상품당 한 번뿐이다.
+// nv 가 없는 예전 none 은 fetch·크롬이 적은 것으로 본다(파이어폭스를 쓰기 전의 표시다).
+const NONE_LEGACY = "chromium,fetch";
+const engineClass = (eng) => (eng === "playwright" || eng === "patchright" || eng === "chromium" ? "chromium" : eng === "firefox" ? "firefox" : "fetch");
+function noneSeenBy(o, eng) {
+  if (!o || !o.none) return false;
+  return String(o.nv || NONE_LEGACY).split(",").includes(engineClass(eng));
+}
+function markNone(cur, eng) {
+  const s = new Set(String(cur.none ? (cur.nv || NONE_LEGACY) : "").split(",").filter(Boolean));
+  s.add(engineClass(eng));
+  cur.none = 1;
+  cur.nv = [...s].sort().join(",");
+}
+function clearNone(cur) { delete cur.none; delete cur.nv; }
+// 지금 페이지(보관본이 아님)에서 옳은 혼용률을 읽었을 때. cur 를 고치고 무슨 일이 있었는지 돌려준다.
+//   빈 칸            → 채운다("set")
+//   같은 값          → 보관본 출처였으면 via·wd 를 지운다(확인됨, "same")
+//   보관본과 다른 값 → 지금 페이지가 이긴다("replace"). 보관본은 몇 달 전의 다른 판일 수 있고, 지금 페이지가
+//                      지금 파는 상품이다. 대신 두 값을 리포트에 남겨 사람이 볼 수 있게 한다(conflict).
+//   지금 페이지에서 읽었던 다른 값 → 덮지 않는다("keep") — 어느 쪽이 옳은지 알 근거가 없다. 역시 남긴다.
+// 혼용률이 들어가면 none 은 지운다.
+function applyLiveComp(cur, comp) {
+  if (!validComp(comp)) return { act: "" };
+  if (!validComp(String(cur.comp || "").trim())) {
+    cur.comp = comp; delete cur.via; delete cur.wd; clearNone(cur);
+    return { act: "set" };
+  }
+  if (sameComp(comp, cur.comp)) {
+    if (cur.via === "wayback") { delete cur.via; delete cur.wd; }
+    clearNone(cur);
+    return { act: "same" };
+  }
+  const conflict = { old: cur.comp, oldVia: cur.via || "", oldWd: cur.wd || "", live: comp };
+  if (cur.via === "wayback") {
+    cur.comp = comp; delete cur.via; delete cur.wd; clearNone(cur);
+    return { act: "replace", conflict };
+  }
+  clearNone(cur);
+  return { act: "keep", conflict };
+}
+// ── 혼용률 출처·none 표시 규칙 끝
 
 // 앞 경로에서 얻은 값을 잃지 않게 합친다(먼저 찾은 쪽 우선).
 function merge(a, b) {
@@ -508,6 +595,8 @@ console.log(`카탈로그 ${list.length}개 — [${FIELDS.join(",")}] 채운다 
 
 let budget = TOTAL;
 const rows = [];
+// 지금 페이지에서 읽은 혼용률이 이미 있던 값과 다른 상품 — 리포트에 남겨 사람이 본다(applyLiveComp).
+const compConflicts = [];
 // 같은 브랜드가 1차·2차 두 번 처리되므로 결과를 한 줄로 합친다.
 const rowBySite = new Map();
 const addRow = (r) => {
@@ -627,7 +716,7 @@ async function processBrand(c, phase) {
     return;
   }
 
-  const stat = { shopify: 0, page: 0, worker: 0, wayback: 0, noData: 0, blocked: 0, fail: 0,
+  const stat = { shopify: 0, page: 0, worker: 0, wayback: 0, noData: 0, blocked: 0, fail: 0, shell: 0,
     wbNone: 0, wbReject: 0, wbUrl: 0, wbErr: 0, wbSkip: 0 };
   const comps = {};
   if (!wbBrandCtx.has(c.site)) wbBrandCtx.set(c.site, { used: 0 });
@@ -635,7 +724,7 @@ async function processBrand(c, phase) {
   // Worker 우회가 붙어 차단 상품은 왕복이 하나 더 는다 — 동시 처리를 올려 상쇄한다.
   for (const p of todo) { triedThisRun.add(p.productUrl); curBrand.set(p.productUrl, cat.brand || c.brand || c.site); }
   await pool(todo, PAGE_POOL, async (p) => {
-    const got = await enrichOf(p.productUrl, stat, ov(p), wbCtx);
+    const got = await enrichOf(p.productUrl, stat, ov(p), wbCtx, p.name || "");
     // 빈 결과도 넣는다 — 저장 단계에서 '시도 시각'만 찍혀 다음 실행이 건너뛴다.
     // 페이지를 읽었는데 소재가 없었으면 none 을 함께 남긴다(엑셀에서 '정보 없음').
     // 막혀서 못 읽었으면 blocked 를 남긴다 — 예전 판정이 잘못 찍어 둔 none 을 지우는 데 쓴다.
@@ -676,6 +765,13 @@ async function processBrand(c, phase) {
         // 옳지 않은 값은 아예 저장하지 않는다. 저장해 두면 다음 실행이 "값은 있는데
         // 옳지 않다"고 보고 재시도 기간을 무시한 채 영원히 다시 읽는다.
         const good = k === "comp" ? validComp(t) : k === "color" ? validColor(t) : !!t;
+        // 지금 페이지에서 읽은 혼용률은 출처 규칙(applyLiveComp)을 따른다 — 크롬 보강과 같은 규칙.
+        if (k === "comp" && good && !fromArc) {
+          const r = applyLiveComp(cur, t);
+          if (r.act === "set" || r.act === "replace") { n++; addComp++; }
+          if (r.conflict) compConflicts.push({ brand: cat.brand || c.brand || c.site, url, ...r.conflict, act: r.act });
+          continue;
+        }
         if (good && !okOf(cur, k)) {
           cur[k] = t; n++;
           // 보관본에서 온 혼용률은 출처를 남긴다 — 나중에 지금 페이지와 가려낼 수 있게.
@@ -686,9 +782,6 @@ async function processBrand(c, phase) {
           delete cur[k];   // 예전에 잘못 저장된 값 정리('[object Object]', 절반만 뽑힌 혼용률)
         }
       }
-      // 보관본 출처 표시 정리: 지금 페이지에서 같은 혼용률을 읽었으면 확인된 것이므로 지운다.
-      // 다른 값이면 이미 있는 옳은 값을 덮지 않는 규칙 그대로 두고, via 도 남긴다.
-      if (cur.via === "wayback" && !fromArc && sameComp(clean(inc.comp, 160), cur.comp)) { delete cur.via; delete cur.wd; }
       // 보관본을 물어본 시각 — 없거나 못 쓴 상품을 WAYBACK_RETRY_DAYS 동안 다시 묻지 않는다.
       if (inc.wt) cur.wt = inc.wt;
       // 값을 못 찾았어도 "시도했음"은 남긴다 — 안 남기면 같은 상품을 매번 다시 읽는다.
@@ -697,12 +790,13 @@ async function processBrand(c, phase) {
       // 페이지는 읽었는데 소재 표기가 없었다 = 사이트가 안 적는다.
       // 엑셀에서 '확인 필요'(아직 못 구함)와 다르게 '정보 없음'으로 보여 주기 위한 표시다.
       // 값을 찾았으면 지운다 — 사이트가 나중에 표기를 추가했을 수 있다.
-      if (inc.none && !cur.comp) cur.none = 1;
-      else if (cur.comp) delete cur.none;
+      // nv 에 'fetch' 를 남긴다 — 크롬 보강이 다른 엔진으로 한 번 더 확인할 수 있게(markNone).
+      if (inc.none && !cur.comp) markNone(cur, "fetch");
+      else if (cur.comp) clearNone(cur);
       // 오늘 읽으려 했는데 막혔다면 '사이트가 안 적는다'고 단정할 근거가 없다.
       // 예전 판정은 봇 확인 화면·빈 껍데기도 '읽음'으로 쳐서 Zara·H&M·Massimo Dutti 에
       // none 을 찍어 두었다 — 엑셀에 '정보 없음'으로 나간다. '확인 필요'로 되돌린다.
-      else if (inc.blocked && cur.none) delete cur.none;
+      else if (inc.blocked && cur.none) clearNone(cur);
       merged[url] = cur;
       if (n) patched++;
     }
@@ -855,13 +949,13 @@ md += `${RETRY_DAYS}일 안에 시도해 본 상품은 건너뛴다 — 사이�
 // noData/blocked/fail 만 실패다. 예전 리포트의 'page=505' 를 '505개 실패'로 읽었다.
 const PATH_LABEL = {
   shopify: "쇼피JSON", page: "페이지", worker: "우회", wayback: "아카이브",
-  noData: "정보없음", blocked: "직접차단", fail: "오류",
+  noData: "정보없음", blocked: "직접차단", fail: "오류", shell: "껍데기",
   wbNone: "보관본없음", wbReject: "아카이브거부", wbErr: "아카이브오류",
 };
 const pathStr = (st) => {
   if (!st) return "";
   const ok = ["shopify", "page", "worker", "wayback"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
-  const ng = ["noData", "blocked", "fail", "wbNone", "wbReject", "wbErr"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
+  const ng = ["noData", "blocked", "shell", "fail", "wbNone", "wbReject", "wbErr"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
   return [ok.length ? "성공 " + ok.join("·") : "", ng.length ? "실패 " + ng.join("·") : ""].filter(Boolean).join(" / ");
 };
 const gaps = done.filter((r) => r.total).sort((a, z) => (a.have / a.total) - (z.have / z.total));
@@ -874,6 +968,15 @@ if (gaps.length) {
     // 이 브랜드를 지금 뽑으면 두 열이 붙는지 — 패널의 판정과 같은 기준.
     const open = cp >= GATE && cl >= GATE ? "✅" : "—";
     md += `| ${r.brand} | ${open} | ${r.have}/${r.total} (${cp}%) | ${r.haveColor || 0}/${r.total} (${cl}%) | 혼용률 +${r.addComp || 0} 컬러 +${r.addColor || 0} | ${pathStr(r.stat)} |\n`;
+  }
+  md += `\n`;
+}
+if (compConflicts.length) {
+  md += `## 혼용률이 엇갈린 상품 (${compConflicts.length})\n\n`;
+  md += `지금 페이지에서 읽은 값이 이미 있던 값과 다르다. 보관본 값이었으면 지금 페이지 값으로 바꿨고(바꿈),\n`;
+  md += `지금 페이지에서 읽었던 값이면 그대로 뒀다(유지).\n\n| 브랜드 | 상품 | 있던 값 | 지금 페이지 | 처리 |\n|---|---|---|---|---|\n`;
+  for (const x of compConflicts.slice(0, 100)) {
+    md += `| ${x.brand} | ${x.url} | ${String(x.old).replace(/\n/g, " ‖ ")}${x.oldVia ? ` (${x.oldVia} ${x.oldWd})` : ""} | ${String(x.live).replace(/\n/g, " ‖ ")} | ${x.act === "replace" ? "바꿈" : "유지"} |\n`;
   }
   md += `\n`;
 }
