@@ -862,7 +862,10 @@ async function processBrand(c, phase) {
   if (keys.length && !DRY) {
     try {
       const re = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json());
-      const vs2 = Object.values(re || {});
+      // 지금 카탈로그에 있는 상품만 센다. 오버레이에는 카탈로그에서 빠진 상품의 값도 남아 있어,
+      // 전부 세면 채움률이 100% 를 넘는다(11/24 실행: Bassike 909/320 · 전체 129%).
+      // 예전엔 쓴 브랜드가 적어 드러나지 않았는데, 컬러 재시도로 거의 모든 브랜드가 쓰면서 드러났다.
+      const vs2 = items.map((p) => (re || {})[p.productUrl]).filter(Boolean);
       verify = vs2.filter((o) => validComp(valOf(o, "comp"))).length;
       verifyColor = vs2.filter((o) => validColor(valOf(o, "color"))).length;
       // 쓰기 직후 읽기는 KV 지연으로 0 이 나올 수 있다 — 쓴 것도 없을 때만 문제로 본다.
