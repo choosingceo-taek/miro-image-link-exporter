@@ -17,6 +17,13 @@
 //   HEADFUL     "1" 이면 headless 끔(로컬 디버깅용)
 //   CHROMIUM_PATH  미리 설치된 크롬 실행 경로(선택)
 //   RENDER_URL / WORKER_URL / WORKER_TOKEN
+//   DEADLINE_MIN   시간 예산(분, 기본 85 · 최소 5). 이 시각 뒤로는 새 브랜드를 시작하지 않는다
+//
+// 시험용 훅(scripts/smoke-browser-collect.mjs 가 쓴다 — 운영에서는 비워 둔다):
+//   DEADLINE_SEC     DEADLINE_MIN 대신 초 단위 예산(최소 제한 없음)
+//   HARD_GRACE_SEC   예산 뒤 진행 중인 브랜드를 끊기까지의 여유(기본 600초)
+//   CONFIG_RETRY_MS  설정 파일 재시도 첫 간격(기본 5000 — 5번 시도에 약 3분)
+//   REPORT_DIR       리포트를 읽고 쓰는 폴더(기본 저장소 루트)
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -24,6 +31,7 @@ import { dirname, join } from "node:path";
 import { chromium } from "playwright";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const REPORT_DIR = process.env.REPORT_DIR || ROOT;
 const RENDER = (process.env.RENDER_URL || "https://market-research-uzs2.onrender.com").replace(/\/+$/, "");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
@@ -60,8 +68,10 @@ function siteKeyOf(name, url) {
 //           replace 저장하면 기존 카탈로그가 줄어든다 — 이전 저장본을 그대로 두는 게 낫다).
 // 설치 단계가 최악 20분이므로 20 + 95 + 커밋 몇 분 < 120.
 const T_START = Date.now();
-const SOFT_MS = Math.max(5, Number(process.env.DEADLINE_MIN) || 85) * 60_000;
-const HARD_MS = SOFT_MS + 10 * 60_000;
+const SOFT_MS = Number(process.env.DEADLINE_SEC) > 0
+  ? Number(process.env.DEADLINE_SEC) * 1000
+  : Math.max(5, Number(process.env.DEADLINE_MIN) || 85) * 60_000;
+const HARD_MS = SOFT_MS + (Number(process.env.HARD_GRACE_SEC) > 0 ? Number(process.env.HARD_GRACE_SEC) * 1000 : 10 * 60_000);
 const pastSoft = () => Date.now() - T_START > SOFT_MS;
 const pastHard = () => Date.now() - T_START > HARD_MS;
 
@@ -69,6 +79,7 @@ const pastHard = () => Date.now() - T_START > HARD_MS;
 // 수십 초가 걸리고 429 를 주기도 한다. 예전엔 5초 간격 3번(총 15초)이라
 // 2026-10-14 에 429 한 번으로 23개 브랜드 수집이 시작도 못 하고 끝났다.
 // 간격을 늘려 가며 약 3분을 버틴다.
+const RETRY_BASE_MS = Number(process.env.CONFIG_RETRY_MS) > 0 ? Number(process.env.CONFIG_RETRY_MS) : 5000;
 async function getJson(url, tries = 5) {
   let last;
   for (let i = 0; i < tries; i++) {
@@ -77,7 +88,7 @@ async function getJson(url, tries = 5) {
       if (r.ok) return await r.json();
       last = new Error("HTTP " + r.status);
     } catch (e) { last = e; }
-    if (i < tries - 1) await new Promise((r) => setTimeout(r, Math.min(60_000, 5000 * 3 ** i)));
+    if (i < tries - 1) await new Promise((r) => setTimeout(r, Math.min(60_000, RETRY_BASE_MS * 3 ** i)));
   }
   throw last;
 }
@@ -86,7 +97,7 @@ async function getJson(url, tries = 5) {
 // 하루 늦은 URL 이라도 하루를 통째로 날리는 것보다 낫다.
 function targetsFromLastReport() {
   try {
-    const prev = JSON.parse(readFileSync(join(ROOT, "browser-collect-report.json"), "utf8"));
+    const prev = JSON.parse(readFileSync(join(REPORT_DIR, "browser-collect-report.json"), "utf8"));
     return (prev.results || [])
       .filter((r) => r && r.brand && r.site && Array.isArray(r.perUrl) && r.perUrl.length)
       .filter((r) => !only.length || only.includes(String(r.brand).toLowerCase()))
@@ -277,6 +288,9 @@ for (const g of targets) {
     perUrl.push({ url, count: byUrl.size, note });
     console.log(`   ${byUrl.size ? "·" : "✕"} ${byUrl.size}개  ${url}${note ? "  ← " + note : ""}`);
   }
+  // 끊겨서 못 돈 카테고리도 perUrl 에 남긴다. 리포트 JSON 은 다음 실행이 설정 파일을 못 받았을 때
+  // 대신 돌 목록이라, 여기서 빠지면 그 카테고리는 그날 수집 대상에서 사라진다.
+  if (cut) for (const url of g.urls) if (!perUrl.some((u) => u.url === url)) perUrl.push({ url, count: 0, note: "마감으로 중단 — 오늘 못 돎" });
 
   // 모든 카테고리 페이지에 똑같이 등장하는 링크는 상품이 아니라 내비게이션·추천 블록이다.
   // (Madewell처럼 4개 카테고리가 저마다 18개를 주는데 합쳐도 22개면 대부분이 공용 블록이다)
@@ -360,8 +374,10 @@ for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요
   md += `\n`;
 }
 // 마감으로 미룬 브랜드는 다음 실행이 설정 파일을 못 받았을 때의 대체 대상 목록에도 남아 있어야 한다.
-const carry = targetsFromLastReport().filter((t) => deferred.some((d) => d.brand === t.brand) && !results.some((r) => r.brand === t.brand));
+// 지난 리포트가 아니라 오늘 대상(targets)에서 가져온다 — 오늘 설정 파일로 새로 들어온 브랜드는
+// 지난 리포트에 없어서, 미루는 순간 다음 대체 실행 목록에서 빠졌다.
+const carry = targets.filter((t) => deferred.some((d) => d.brand === t.brand) && !results.some((r) => r.brand === t.brand));
 const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
-writeFileSync(join(ROOT, "browser-collect-report.json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, configNote, deferred, results: keep }, null, 1));
-writeFileSync(join(ROOT, "browser-collect-report.md"), md);
+writeFileSync(join(REPORT_DIR, "browser-collect-report.json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, configNote, deferred, results: keep }, null, 1));
+writeFileSync(join(REPORT_DIR, "browser-collect-report.md"), md);
 console.log(`\n자동화 가능 ${auto.length} / 확장 필요 ${blk.length} / 보완 필요 ${fix.length}`);

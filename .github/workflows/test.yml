@@ -1,7 +1,8 @@
 name: Collector tests
 on:
   push:
-    branches: [main]
+    # claude/** — 작업 브랜치에 올리는 순간 돌려 본다(머지 전에 깨진 걸 안다).
+    branches: [main, "claude/**"]
   pull_request:
 
 jobs:
@@ -45,12 +46,57 @@ jobs:
         run: node scripts/test-enrich-skip.mjs
       - name: Run segment tab test
         run: node scripts/test-segments.mjs
+      - name: Run bot-challenge page test (realPage, two copies)
+        run: node scripts/test-realpage.mjs
+      - name: Run enrich selection/merge test (fake Worker)
+        run: node scripts/test-enrich-merge.mjs
+      - name: Run diagnose target selection test
+        run: node scripts/test-diagnose-select.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
           node --check chrome-extension/collector.js
           node --check chrome-extension/popup.js
           node --check scripts/browser-collect.mjs
+          node --check scripts/enrich-comp.mjs
+          node --check scripts/diagnose-page.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js
           node --check shared/product-core.js
+
+  # 진짜 크롬으로 도는 연기 테스트. 가짜 서버(localhost)에만 붙으므로 바깥 사이트·Render·
+  # Worker 에는 접속하지 않는다. 크로미움 설치에 몇 분이 걸려 단위 테스트와 잡을 나눈다.
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Playwright Chromium
+        timeout-minutes: 10
+        run: |
+          npm init -y >/dev/null
+          npm i --no-save playwright@1.49.1 exceljs@4.4.0
+          npx playwright install --with-deps chromium
+          command -v xvfb-run >/dev/null || sudo apt-get install -y xvfb
+      - name: Smoke — collector card images
+        run: node scripts/smoke-collector-cards.mjs
+      - name: Smoke — headless collector (deadline · fallback · store)
+        run: node scripts/smoke-browser-collect.mjs
+      - name: Smoke — browser composition enrich
+        run: node scripts/smoke-enrich-browser.mjs
+      - name: Smoke — standalone app (xlsx export)
+        run: node scripts/smoke-app.mjs
+      - name: Smoke — panel brand list
+        run: node scripts/smoke-panel-brands.mjs
+      - name: Smoke — extension tab enrich
+        # 확장은 헤드리스로 못 띄워 가상 화면(xvfb)이 필요하다. 파일이 아직 없으면 건너뛰고,
+        # 있으면 실패가 그대로 잡 실패가 된다(bash -e).
+        run: |
+          if [ -f scripts/smoke-extension-enrich.mjs ]; then
+            xvfb-run -a node scripts/smoke-extension-enrich.mjs
+          else
+            echo "scripts/smoke-extension-enrich.mjs 없음 — 건너뜀"
+          fi

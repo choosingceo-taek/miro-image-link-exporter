@@ -6,8 +6,8 @@
 // 선택 → 엑셀 내려받기까지 실제로 밟고, 받은 xlsx 를 열어 혼용률 열과
 // 썸네일이 들어갔는지 확인한다.
 //
-// CI 에는 넣지 않는다: 크로미움 내려받기에 몇 분이 걸리고, 이 저장소는 이미
-// GitHub 러너를 못 받아 배치가 통째로 건너뛰는 일이 있었다. 손으로 돌린다:
+// CI 에서는 단위 테스트와 따로 'smoke' 잡으로 돈다(.github/workflows/test.yml —
+// 크로미움 내려받기에 몇 분이 걸려 나눴다). 손으로 돌릴 때:
 //
 //   npm i --no-save playwright@1.49.1 exceljs@4.4.0
 //   npx playwright install --with-deps chromium

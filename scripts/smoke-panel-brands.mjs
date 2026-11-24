@@ -9,7 +9,7 @@
 // scripts/test-brandlist.mjs 는 합치기 규칙과 코드에 방어 장치가 있는지만 본다 —
 // 실제로 화면의 <select> 가 채워지는지는 브라우저로만 확인할 수 있다.
 //
-// 손으로 돌린다(크로미움 내려받기가 몇 분이라 CI 에는 없다):
+// CI 에서는 'smoke' 잡으로 돈다(.github/workflows/test.yml). 손으로 돌릴 때:
 //   npm i --no-save playwright@1.49.1
 //   npx playwright install --with-deps chromium
 //   node scripts/smoke-panel-brands.mjs
