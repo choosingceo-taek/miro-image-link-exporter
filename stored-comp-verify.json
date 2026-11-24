@@ -1,0 +1,1610 @@
+{
+ "at": "2026-11-24T05:23:23.205Z",
+ "engines": [
+  "impit",
+  "firefox",
+  "wayback"
+ ],
+ "runInfo": {
+  "impit": "정상 · 89쪽 · 37s",
+  "firefox": "정상 · 89쪽 · 662s",
+  "wayback": "정상 · 89쪽 · 229s"
+ },
+ "targets": [
+  {
+   "kind": "product",
+   "brand": "splendid.com",
+   "url": "https://splendid.com/products/louisa-long-sleeve-tee"
+  },
+  {
+   "kind": "product",
+   "brand": "splendid.com",
+   "url": "https://splendid.com/products/lainey-lace-trim-short-sleeve-tee"
+  },
+  {
+   "kind": "product",
+   "brand": "splendid.com",
+   "url": "https://splendid.com/products/kacey-striped-v-neck-tee"
+  },
+  {
+   "kind": "product",
+   "brand": "splendid.com",
+   "url": "https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee"
+  },
+  {
+   "kind": "product",
+   "brand": "www.stories.com",
+   "url": "https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.stories.com",
+   "url": "https://www.stories.com/en-us/clothing/knitwear/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.stories.com",
+   "url": "https://www.stories.com/en-us/product/rib-knit-wool-boatneck-top-bright-pink-1286682006/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.stories.com",
+   "url": "https://www.stories.com/en-us/product/box-pleat-tank-top-white-1358088003/"
+  },
+  {
+   "kind": "product",
+   "brand": "alcltd.com",
+   "url": "https://alcltd.com/products/annabelle-top-forest-botanic"
+  },
+  {
+   "kind": "product",
+   "brand": "alcltd.com",
+   "url": "https://alcltd.com/products/hana-top-ganache-french-blue"
+  },
+  {
+   "kind": "product",
+   "brand": "alcltd.com",
+   "url": "https://alcltd.com/collections/tees-tanks/products/annabelle-top-forest-botanic"
+  },
+  {
+   "kind": "product",
+   "brand": "alcltd.com",
+   "url": "https://alcltd.com/collections/tees-tanks/products/jodi-bra-butter"
+  },
+  {
+   "kind": "product",
+   "brand": "www.meandem.com",
+   "url": "https://www.meandem.com/us/silk-2-in-1-top-black"
+  },
+  {
+   "kind": "product",
+   "brand": "www.meandem.com",
+   "url": "https://www.meandem.com/us/cotton-schifflie-blouse-light-cream"
+  },
+  {
+   "kind": "product",
+   "brand": "www.meandem.com",
+   "url": "https://www.meandem.com/us/silk-v-neck-camisole-top-tie-ruby-red"
+  },
+  {
+   "kind": "product",
+   "brand": "www.meandem.com",
+   "url": "https://www.meandem.com/us/brushed-cashmere-lace-trim-slim-knit-vest-black"
+  },
+  {
+   "kind": "product",
+   "brand": "tnuck.com",
+   "url": "https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top"
+  },
+  {
+   "kind": "product",
+   "brand": "tnuck.com",
+   "url": "https://tnuck.com/products/navy-paisley-ellery-top"
+  },
+  {
+   "kind": "product",
+   "brand": "tnuck.com",
+   "url": "https://tnuck.com/products/black-and-limestone-alyssa-blouse"
+  },
+  {
+   "kind": "product",
+   "brand": "tnuck.com",
+   "url": "https://tnuck.com/products/royal-blue-santo-top"
+  },
+  {
+   "kind": "product",
+   "brand": "www.anntaylor.com",
+   "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sleeveless-bow-blouse/849065.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.anntaylor.com",
+   "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sequin-crew-neck-top/844861.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.anntaylor.com",
+   "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-cowl-neck-top/849077.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.anntaylor.com",
+   "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-blouson-sleeve-top/844564.html"
+  },
+  {
+   "kind": "product",
+   "brand": "row.gymshark.com",
+   "url": "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-blue-aw26"
+  },
+  {
+   "kind": "product",
+   "brand": "row.gymshark.com",
+   "url": "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-black-aw26"
+  },
+  {
+   "kind": "product",
+   "brand": "row.gymshark.com",
+   "url": "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-teal-aw26"
+  },
+  {
+   "kind": "product",
+   "brand": "row.gymshark.com",
+   "url": "https://row.gymshark.com/products/gymshark-everyday-racer-back-tank-with-shelf-sleeveless-tops-blue-aw26-b8a7p-ufhb"
+  },
+  {
+   "kind": "product",
+   "brand": "tnuck.com",
+   "url": "https://tnuck.com/products/tan-scrolling-floral-petunia-blouse"
+  },
+  {
+   "kind": "product",
+   "brand": "www.crewclothing.co.uk",
+   "url": "https://www.crewclothing.co.uk/products/henley-half-zip-sweatshirt-in-pink"
+  },
+  {
+   "kind": "product",
+   "brand": "www.crewclothing.co.uk",
+   "url": "https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes"
+  },
+  {
+   "kind": "product",
+   "brand": "www.crewclothing.co.uk",
+   "url": "https://www.crewclothing.co.uk/products/nepp-half-zip-sweatshirt-in-oat"
+  },
+  {
+   "kind": "product",
+   "brand": "www.crewclothing.co.uk",
+   "url": "https://www.crewclothing.co.uk/products/interest-space-dye-sweatshirt-in-pinks"
+  },
+  {
+   "kind": "product",
+   "brand": "www.aritzia.com",
+   "url": "https://www.aritzia.com/intl/en/clothing/cashmere-clothing"
+  },
+  {
+   "kind": "product",
+   "brand": "www.aritzia.com",
+   "url": "https://www.aritzia.com/intl/en/product/essential-wool-cashmere-cherub-sweater/126806.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.aritzia.com",
+   "url": "https://www.aritzia.com/intl/en/product/cotton-charm%E2%84%A2-basque-sweater-vest/130067.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.aritzia.com",
+   "url": "https://www.aritzia.com/intl/en/product/seabreeze-tank/131673.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.anntaylor.com",
+   "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/layered-caplet-blouse/855296.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.anntaylor.com",
+   "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/polka-dot-lace-trim-blouse/grp_855949_536588.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.anntaylor.com",
+   "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/dolman-boatneck-top/844941.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.anntaylor.com",
+   "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/animal-print-bow-blouse/844848.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.goodamerican.com",
+   "url": "https://www.goodamerican.com/products/the-better-than-leather-classic-shirt-berry-noir"
+  },
+  {
+   "kind": "product",
+   "brand": "www.goodamerican.com",
+   "url": "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-carmine"
+  },
+  {
+   "kind": "product",
+   "brand": "www.goodamerican.com",
+   "url": "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-espresso"
+  },
+  {
+   "kind": "product",
+   "brand": "www.goodamerican.com",
+   "url": "https://www.goodamerican.com/products/the-better-than-leather-trouser-short-black"
+  },
+  {
+   "kind": "product",
+   "brand": "splendid.com",
+   "url": "https://splendid.com/products/stella-linen-trim-tank"
+  },
+  {
+   "kind": "product",
+   "brand": "splendid.com",
+   "url": "https://splendid.com/products/lydia-linen-mini-dress"
+  },
+  {
+   "kind": "product",
+   "brand": "splendid.com",
+   "url": "https://splendid.com/products/stella-linen-midi-dress"
+  },
+  {
+   "kind": "product",
+   "brand": "splendid.com",
+   "url": "https://splendid.com/products/stella-linen-mini-dress"
+  },
+  {
+   "kind": "product",
+   "brand": "alcltd.com",
+   "url": "https://alcltd.com/products/adela-top-black"
+  },
+  {
+   "kind": "product",
+   "brand": "alcltd.com",
+   "url": "https://alcltd.com/collections/tops/products/alex-top-midnight"
+  },
+  {
+   "kind": "product",
+   "brand": "alcltd.com",
+   "url": "https://alcltd.com/collections/tops/products/alex-top-medium-heather-grey"
+  },
+  {
+   "kind": "product",
+   "brand": "alcltd.com",
+   "url": "https://alcltd.com/products/adela-dress-black"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-long-sleeve-tee/763895.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-elbow-sleeve-tee/760842.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/lace-trim-v-neck-perfect-ribbed-elbow-sleeve-tee/775012.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/modern-wedge-tee/767613.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/oversized-jersey-modern-tee/771190.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/heathered-modern-wedge-tee/769573.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/everyday-crew-tee/580214.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/bandana-print-everyday-crew-tee/787471.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/everyday-v-neck-tee/580224.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/lotus-flower-everyday-v-neck-tee/784743.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/harbor-tank-top/586150.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/perfect-tank/586193.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-apron-neck-tank-top/751426.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-scoop-neck-tank-top/760847.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/750665.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/striped-side-button-tank-top/781756.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/side-button-tank-top/761044.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/cutout-jersey-modern-tee/774214.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/mesh-trim-perfect-ribbed-tank-top/769311.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/lobster-lunch-everyday-crew-tee/769665.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/786387.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/holiday-dog-everyday-crew-tee/711658.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/holiday-penguin-everyday-crew-tee/886329.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/ruched-flare-sleeve-top/881386.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/floral-velvet-tee/711646.html"
+  },
+  {
+   "kind": "product",
+   "brand": "www.loft.com",
+   "url": "https://www.loft.com/clothing/tops/catl000011/sparkle-long-sleeve-crew-neck-tee/785580.html"
+  }
+ ],
+ "results": {
+  "impit": {
+   "https://splendid.com/products/louisa-long-sleeve-tee": {
+    "v": "open",
+    "note": "글 909자"
+   },
+   "https://splendid.com/products/lainey-lace-trim-short-sleeve-tee": {
+    "v": "open",
+    "note": "글 943자"
+   },
+   "https://splendid.com/products/kacey-striped-v-neck-tee": {
+    "v": "open",
+    "note": "글 884자"
+   },
+   "https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee": {
+    "v": "open",
+    "note": "글 955자"
+   },
+   "https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied"
+   },
+   "https://www.stories.com/en-us/clothing/knitwear/": {
+    "v": "comp",
+    "note": "Wool 100%",
+    "comp": "Wool 100%"
+   },
+   "https://www.stories.com/en-us/product/rib-knit-wool-boatneck-top-bright-pink-1286682006/": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied"
+   },
+   "https://www.stories.com/en-us/product/box-pleat-tank-top-white-1358088003/": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied"
+   },
+   "https://alcltd.com/products/annabelle-top-forest-botanic": {
+    "v": "comp",
+    "note": "Silk 100% / Nylon 100%",
+    "comp": "Silk 100%\nNylon 100%"
+   },
+   "https://alcltd.com/products/hana-top-ganache-french-blue": {
+    "v": "comp",
+    "note": "Viscose 100% / Nylon 100%",
+    "comp": "Viscose 100%\nNylon 100%"
+   },
+   "https://alcltd.com/collections/tees-tanks/products/annabelle-top-forest-botanic": {
+    "v": "comp",
+    "note": "Silk 100% / Nylon 100%",
+    "comp": "Silk 100%\nNylon 100%"
+   },
+   "https://alcltd.com/collections/tees-tanks/products/jodi-bra-butter": {
+    "v": "comp",
+    "note": "Cotton 100% / Viscose 100%",
+    "comp": "Cotton 100%\nViscose 100%"
+   },
+   "https://www.meandem.com/us/silk-2-in-1-top-black": {
+    "v": "comp",
+    "note": "Silk 100% / Polyester 100%",
+    "comp": "Silk 100%\nPolyester 100%"
+   },
+   "https://www.meandem.com/us/cotton-schifflie-blouse-light-cream": {
+    "v": "comp",
+    "note": "Cotton 100% / Polyester 100%",
+    "comp": "Cotton 100%\nPolyester 100%"
+   },
+   "https://www.meandem.com/us/silk-v-neck-camisole-top-tie-ruby-red": {
+    "v": "comp",
+    "note": "Silk 100% / Viscose 100%",
+    "comp": "Silk 100%\nViscose 100%"
+   },
+   "https://www.meandem.com/us/brushed-cashmere-lace-trim-slim-knit-vest-black": {
+    "v": "comp",
+    "note": "Cashmere 100% / Polyester 100%",
+    "comp": "Cashmere 100%\nPolyester 100%"
+   },
+   "https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top": {
+    "v": "comp",
+    "note": "Cotton 100% / Polyester 100%",
+    "comp": "Cotton 100%\nPolyester 100%"
+   },
+   "https://tnuck.com/products/navy-paisley-ellery-top": {
+    "v": "comp",
+    "note": "Viscose 100% / Polyester 100%",
+    "comp": "Viscose 100%\nPolyester 100%"
+   },
+   "https://tnuck.com/products/black-and-limestone-alyssa-blouse": {
+    "v": "comp",
+    "note": "Silk 100% / Polyester 100%",
+    "comp": "Silk 100%\nPolyester 100%"
+   },
+   "https://tnuck.com/products/royal-blue-santo-top": {
+    "v": "comp",
+    "note": "Linen 100% / Cotton 100%",
+    "comp": "Linen 100%\nCotton 100%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sleeveless-bow-blouse/849065.html": {
+    "v": "comp",
+    "note": "Polyester 95% / Elastane 5% / Polyester 100%",
+    "comp": "Polyester 95% / Elastane 5%\nPolyester 100%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sequin-crew-neck-top/844861.html": {
+    "v": "comp",
+    "note": "Polyester 96% / Elastane 4% / Polyester 100%",
+    "comp": "Polyester 96% / Elastane 4%\nPolyester 100%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-cowl-neck-top/849077.html": {
+    "v": "comp",
+    "note": "Polyester 92% / Elastane 8% / Polyester 100%",
+    "comp": "Polyester 92% / Elastane 8%\nPolyester 100%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-blouson-sleeve-top/844564.html": {
+    "v": "comp",
+    "note": "Polyester 95% / Elastane 5% / Polyester 100%",
+    "comp": "Polyester 95% / Elastane 5%\nPolyester 100%"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-blue-aw26": {
+    "v": "comp",
+    "note": "Nylon 78% / Elastane 21% / Polyester 1%",
+    "comp": "Nylon 78% / Elastane 21% / Polyester 1%"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-black-aw26": {
+    "v": "comp",
+    "note": "Nylon 78% / Elastane 21% / Polyester 1%",
+    "comp": "Nylon 78% / Elastane 21% / Polyester 1%"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-teal-aw26": {
+    "v": "comp",
+    "note": "Nylon 78% / Elastane 21% / Polyester 1%",
+    "comp": "Nylon 78% / Elastane 21% / Polyester 1%"
+   },
+   "https://row.gymshark.com/products/gymshark-everyday-racer-back-tank-with-shelf-sleeveless-tops-blue-aw26-b8a7p-ufhb": {
+    "v": "comp",
+    "note": "Polyester 78% / Elastane 22%",
+    "comp": "Polyester 78% / Elastane 22%"
+   },
+   "https://tnuck.com/products/tan-scrolling-floral-petunia-blouse": {
+    "v": "comp",
+    "note": "Cotton 80% / Polyester 20% / Polyester 100%",
+    "comp": "Cotton 80% / Polyester 20%\nPolyester 100%"
+   },
+   "https://www.crewclothing.co.uk/products/henley-half-zip-sweatshirt-in-pink": {
+    "v": "comp",
+    "note": "Cotton 64% / Polyester 36% / Cotton 57% / Polyester 40% / El",
+    "comp": "Cotton 64% / Polyester 36%\nCotton 57% / Polyester 40% / Elastane 3%"
+   },
+   "https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes": {
+    "v": "comp",
+    "note": "Cotton 64% / Polyester 36% / Cotton 57% / Polyester 40% / El",
+    "comp": "Cotton 64% / Polyester 36%\nCotton 57% / Polyester 40% / Elastane 3%"
+   },
+   "https://www.crewclothing.co.uk/products/nepp-half-zip-sweatshirt-in-oat": {
+    "v": "comp",
+    "note": "Cotton 66% / Polyester 34% / Cotton 57% / Polyester 40% / El",
+    "comp": "Cotton 66% / Polyester 34%\nCotton 57% / Polyester 40% / Elastane 3%"
+   },
+   "https://www.crewclothing.co.uk/products/interest-space-dye-sweatshirt-in-pinks": {
+    "v": "comp",
+    "note": "Cotton 64% / Polyester 36% / Cotton 57% / Polyester 40% / El",
+    "comp": "Cotton 64% / Polyester 36%\nCotton 57% / Polyester 40% / Elastane 3%"
+   },
+   "https://www.aritzia.com/intl/en/clothing/cashmere-clothing": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment..."
+   },
+   "https://www.aritzia.com/intl/en/product/essential-wool-cashmere-cherub-sweater/126806.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment..."
+   },
+   "https://www.aritzia.com/intl/en/product/cotton-charm%E2%84%A2-basque-sweater-vest/130067.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment..."
+   },
+   "https://www.aritzia.com/intl/en/product/seabreeze-tank/131673.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment..."
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/layered-caplet-blouse/855296.html": {
+    "v": "comp",
+    "note": "Polyester 100%",
+    "comp": "Polyester 100%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/polka-dot-lace-trim-blouse/grp_855949_536588.html": {
+    "v": "comp",
+    "note": "Polyester 100%",
+    "comp": "Polyester 100%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/dolman-boatneck-top/844941.html": {
+    "v": "comp",
+    "note": "Polyester 78% / Viscose 19% / Elastane 3%",
+    "comp": "Polyester 78% / Viscose 19% / Elastane 3%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/animal-print-bow-blouse/844848.html": {
+    "v": "comp",
+    "note": "Polyester 97%",
+    "comp": "Polyester 97%"
+   },
+   "https://www.goodamerican.com/products/the-better-than-leather-classic-shirt-berry-noir": {
+    "v": "comp",
+    "note": "Polyurethane 100%",
+    "comp": "Polyurethane 100%"
+   },
+   "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-carmine": {
+    "v": "comp",
+    "note": "Polyurethane 100%",
+    "comp": "Polyurethane 100%"
+   },
+   "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-espresso": {
+    "v": "comp",
+    "note": "Polyurethane 100%",
+    "comp": "Polyurethane 100%"
+   },
+   "https://www.goodamerican.com/products/the-better-than-leather-trouser-short-black": {
+    "v": "comp",
+    "note": "Polyurethane 100%",
+    "comp": "Polyurethane 100%"
+   },
+   "https://splendid.com/products/stella-linen-trim-tank": {
+    "v": "open",
+    "note": "글 904자"
+   },
+   "https://splendid.com/products/lydia-linen-mini-dress": {
+    "v": "open",
+    "note": "글 905자"
+   },
+   "https://splendid.com/products/stella-linen-midi-dress": {
+    "v": "open",
+    "note": "글 909자"
+   },
+   "https://splendid.com/products/stella-linen-mini-dress": {
+    "v": "open",
+    "note": "글 909자"
+   },
+   "https://alcltd.com/products/adela-top-black": {
+    "v": "comp",
+    "note": "Triacetate 70% / Polyester 30% / Polyester 95% / Elastane 5%",
+    "comp": "Triacetate 70% / Polyester 30%\nPolyester 95% / Elastane 5%"
+   },
+   "https://alcltd.com/collections/tops/products/alex-top-midnight": {
+    "v": "comp",
+    "note": "Wool 100%",
+    "comp": "Wool 100%"
+   },
+   "https://alcltd.com/collections/tops/products/alex-top-medium-heather-grey": {
+    "v": "comp",
+    "note": "Wool 100%",
+    "comp": "Wool 100%"
+   },
+   "https://alcltd.com/products/adela-dress-black": {
+    "v": "comp",
+    "note": "Triacetate 70% / Polyester 30% / Polyester 95% / Elastane 5%",
+    "comp": "Triacetate 70% / Polyester 30%\nPolyester 95% / Elastane 5%"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-long-sleeve-tee/763895.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-elbow-sleeve-tee/760842.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lace-trim-v-neck-perfect-ribbed-elbow-sleeve-tee/775012.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/modern-wedge-tee/767613.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/oversized-jersey-modern-tee/771190.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/heathered-modern-wedge-tee/769573.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/everyday-crew-tee/580214.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/bandana-print-everyday-crew-tee/787471.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/everyday-v-neck-tee/580224.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lotus-flower-everyday-v-neck-tee/784743.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/harbor-tank-top/586150.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-tank/586193.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-apron-neck-tank-top/751426.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-scoop-neck-tank-top/760847.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/750665.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-side-button-tank-top/781756.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/side-button-tank-top/761044.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/cutout-jersey-modern-tee/774214.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/mesh-trim-perfect-ribbed-tank-top/769311.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lobster-lunch-everyday-crew-tee/769665.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/786387.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/holiday-dog-everyday-crew-tee/711658.html": {
+    "v": "open",
+    "note": "글 16233자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/holiday-penguin-everyday-crew-tee/886329.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/ruched-flare-sleeve-top/881386.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/floral-velvet-tee/711646.html": {
+    "v": "open",
+    "note": "글 16380자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/sparkle-long-sleeve-crew-neck-tee/785580.html": {
+    "v": "open",
+    "note": "글 16233자"
+   }
+  },
+  "firefox": {
+   "https://splendid.com/products/louisa-long-sleeve-tee": {
+    "v": "comp",
+    "note": "Cotton 100% / Cashmere 100%",
+    "comp": "Cotton 100%\nCashmere 100%"
+   },
+   "https://splendid.com/products/lainey-lace-trim-short-sleeve-tee": {
+    "v": "comp",
+    "note": "Cotton 100% / Cashmere 100%",
+    "comp": "Cotton 100%\nCashmere 100%"
+   },
+   "https://splendid.com/products/kacey-striped-v-neck-tee": {
+    "v": "comp",
+    "note": "Cotton 100% / Cashmere 100%",
+    "comp": "Cotton 100%\nCashmere 100%"
+   },
+   "https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee": {
+    "v": "comp",
+    "note": "Cotton 100% / Cashmere 100%",
+    "comp": "Cotton 100%\nCashmere 100%"
+   },
+   "https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied"
+   },
+   "https://www.stories.com/en-us/clothing/knitwear/": {
+    "v": "comp",
+    "note": "Wool 100%",
+    "comp": "Wool 100%"
+   },
+   "https://www.stories.com/en-us/product/rib-knit-wool-boatneck-top-bright-pink-1286682006/": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied"
+   },
+   "https://www.stories.com/en-us/product/box-pleat-tank-top-white-1358088003/": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied"
+   },
+   "https://alcltd.com/products/annabelle-top-forest-botanic": {
+    "v": "comp",
+    "note": "Silk 100% / Nylon 100%",
+    "comp": "Silk 100%\nNylon 100%"
+   },
+   "https://alcltd.com/products/hana-top-ganache-french-blue": {
+    "v": "comp",
+    "note": "Viscose 100% / Nylon 100%",
+    "comp": "Viscose 100%\nNylon 100%"
+   },
+   "https://alcltd.com/collections/tees-tanks/products/annabelle-top-forest-botanic": {
+    "v": "blocked",
+    "note": "HTTP 429 Just a moment..."
+   },
+   "https://alcltd.com/collections/tees-tanks/products/jodi-bra-butter": {
+    "v": "blocked",
+    "note": "HTTP 429 Just a moment..."
+   },
+   "https://www.meandem.com/us/silk-2-in-1-top-black": {
+    "v": "comp",
+    "note": "Silk 100% / Polyester 100%",
+    "comp": "Silk 100%\nPolyester 100%"
+   },
+   "https://www.meandem.com/us/cotton-schifflie-blouse-light-cream": {
+    "v": "comp",
+    "note": "Cotton 100% / Polyester 100%",
+    "comp": "Cotton 100%\nPolyester 100%"
+   },
+   "https://www.meandem.com/us/silk-v-neck-camisole-top-tie-ruby-red": {
+    "v": "comp",
+    "note": "Silk 100% / Viscose 100%",
+    "comp": "Silk 100%\nViscose 100%"
+   },
+   "https://www.meandem.com/us/brushed-cashmere-lace-trim-slim-knit-vest-black": {
+    "v": "comp",
+    "note": "Cashmere 100% / Polyester 100%",
+    "comp": "Cashmere 100%\nPolyester 100%"
+   },
+   "https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top": {
+    "v": "comp",
+    "note": "Cotton 100% / Polyester 100%",
+    "comp": "Cotton 100%\nPolyester 100%"
+   },
+   "https://tnuck.com/products/navy-paisley-ellery-top": {
+    "v": "comp",
+    "note": "Viscose 100% / Polyester 100%",
+    "comp": "Viscose 100%\nPolyester 100%"
+   },
+   "https://tnuck.com/products/black-and-limestone-alyssa-blouse": {
+    "v": "comp",
+    "note": "Silk 100% / Polyester 100%",
+    "comp": "Silk 100%\nPolyester 100%"
+   },
+   "https://tnuck.com/products/royal-blue-santo-top": {
+    "v": "comp",
+    "note": "Linen 100% / Cotton 100%",
+    "comp": "Linen 100%\nCotton 100%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sleeveless-bow-blouse/849065.html": {
+    "v": "comp",
+    "note": "Polyester 95% / Elastane 5% / Polyester 100%",
+    "comp": "Polyester 95% / Elastane 5%\nPolyester 100%"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sequin-crew-neck-top/844861.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-cowl-neck-top/849077.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-blouson-sleeve-top/844564.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-blue-aw26": {
+    "v": "comp",
+    "note": "Nylon 78% / Elastane 21% / Polyester 1%",
+    "comp": "Nylon 78% / Elastane 21% / Polyester 1%"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-black-aw26": {
+    "v": "comp",
+    "note": "Nylon 78% / Elastane 21% / Polyester 1%",
+    "comp": "Nylon 78% / Elastane 21% / Polyester 1%"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-teal-aw26": {
+    "v": "comp",
+    "note": "Nylon 78% / Elastane 21% / Polyester 1%",
+    "comp": "Nylon 78% / Elastane 21% / Polyester 1%"
+   },
+   "https://row.gymshark.com/products/gymshark-everyday-racer-back-tank-with-shelf-sleeveless-tops-blue-aw26-b8a7p-ufhb": {
+    "v": "comp",
+    "note": "Polyester 78% / Elastane 22%",
+    "comp": "Polyester 78% / Elastane 22%"
+   },
+   "https://tnuck.com/products/tan-scrolling-floral-petunia-blouse": {
+    "v": "comp",
+    "note": "Cotton 80% / Polyester 20% / Polyester 100%",
+    "comp": "Cotton 80% / Polyester 20%\nPolyester 100%"
+   },
+   "https://www.crewclothing.co.uk/products/henley-half-zip-sweatshirt-in-pink": {
+    "v": "comp",
+    "note": "Cotton 64% / Polyester 36% / Cotton 57% / Polyester 40% / El",
+    "comp": "Cotton 64% / Polyester 36%\nCotton 57% / Polyester 40% / Elastane 3%"
+   },
+   "https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes": {
+    "v": "comp",
+    "note": "Cotton 64% / Polyester 36% / Cotton 57% / Polyester 40% / El",
+    "comp": "Cotton 64% / Polyester 36%\nCotton 57% / Polyester 40% / Elastane 3%"
+   },
+   "https://www.crewclothing.co.uk/products/nepp-half-zip-sweatshirt-in-oat": {
+    "v": "comp",
+    "note": "Cotton 66% / Polyester 34% / Cotton 57% / Polyester 40% / El",
+    "comp": "Cotton 66% / Polyester 34%\nCotton 57% / Polyester 40% / Elastane 3%"
+   },
+   "https://www.crewclothing.co.uk/products/interest-space-dye-sweatshirt-in-pinks": {
+    "v": "comp",
+    "note": "Cotton 64% / Polyester 36% / Cotton 57% / Polyester 40% / El",
+    "comp": "Cotton 64% / Polyester 36%\nCotton 57% / Polyester 40% / Elastane 3%"
+   },
+   "https://www.aritzia.com/intl/en/clothing/cashmere-clothing": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment..."
+   },
+   "https://www.aritzia.com/intl/en/product/essential-wool-cashmere-cherub-sweater/126806.html": {
+    "v": "comp",
+    "note": "Wool 70% / Cashmere 30% / Wool 66% / Cashmere 28% / Nylon 5%",
+    "comp": "Wool 70% / Cashmere 30%\nWool 66% / Cashmere 28% / Nylon 5% / Elastane 1%"
+   },
+   "https://www.aritzia.com/intl/en/product/cotton-charm%E2%84%A2-basque-sweater-vest/130067.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment..."
+   },
+   "https://www.aritzia.com/intl/en/product/seabreeze-tank/131673.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment..."
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/layered-caplet-blouse/855296.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/polka-dot-lace-trim-blouse/grp_855949_536588.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/dolman-boatneck-top/844941.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/animal-print-bow-blouse/844848.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.goodamerican.com/products/the-better-than-leather-classic-shirt-berry-noir": {
+    "v": "comp",
+    "note": "Polyurethane 100%",
+    "comp": "Polyurethane 100%"
+   },
+   "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-carmine": {
+    "v": "comp",
+    "note": "Polyurethane 100%",
+    "comp": "Polyurethane 100%"
+   },
+   "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-espresso": {
+    "v": "blocked",
+    "note": "HTTP 429 Just a moment..."
+   },
+   "https://www.goodamerican.com/products/the-better-than-leather-trouser-short-black": {
+    "v": "blocked",
+    "note": "HTTP 429 Just a moment..."
+   },
+   "https://splendid.com/products/stella-linen-trim-tank": {
+    "v": "open",
+    "note": "글 5370자"
+   },
+   "https://splendid.com/products/lydia-linen-mini-dress": {
+    "v": "comp",
+    "note": "Cotton 100% / Cashmere 100%",
+    "comp": "Cotton 100%\nCashmere 100%"
+   },
+   "https://splendid.com/products/stella-linen-midi-dress": {
+    "v": "comp",
+    "note": "Linen 100% / Viscose 100%",
+    "comp": "Linen 100%\nViscose 100%"
+   },
+   "https://splendid.com/products/stella-linen-mini-dress": {
+    "v": "comp",
+    "note": "Linen 100% / Viscose 100%",
+    "comp": "Linen 100%\nViscose 100%"
+   },
+   "https://alcltd.com/products/adela-top-black": {
+    "v": "blocked",
+    "note": "HTTP 429 Just a moment..."
+   },
+   "https://alcltd.com/collections/tops/products/alex-top-midnight": {
+    "v": "blocked",
+    "note": "HTTP 429 Just a moment..."
+   },
+   "https://alcltd.com/collections/tops/products/alex-top-medium-heather-grey": {
+    "v": "blocked",
+    "note": "HTTP 429 Just a moment..."
+   },
+   "https://alcltd.com/products/adela-dress-black": {
+    "v": "blocked",
+    "note": "HTTP 429 Just a moment..."
+   },
+   "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-long-sleeve-tee/763895.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-elbow-sleeve-tee/760842.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lace-trim-v-neck-perfect-ribbed-elbow-sleeve-tee/775012.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/modern-wedge-tee/767613.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/oversized-jersey-modern-tee/771190.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/heathered-modern-wedge-tee/769573.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/everyday-crew-tee/580214.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/bandana-print-everyday-crew-tee/787471.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/everyday-v-neck-tee/580224.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lotus-flower-everyday-v-neck-tee/784743.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/harbor-tank-top/586150.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-tank/586193.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-apron-neck-tank-top/751426.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-scoop-neck-tank-top/760847.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/750665.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-side-button-tank-top/781756.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/side-button-tank-top/761044.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/cutout-jersey-modern-tee/774214.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/mesh-trim-perfect-ribbed-tank-top/769311.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lobster-lunch-everyday-crew-tee/769665.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/786387.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/holiday-dog-everyday-crew-tee/711658.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/holiday-penguin-everyday-crew-tee/886329.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/ruched-flare-sleeve-top/881386.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/floral-velvet-tee/711646.html": {
+    "v": "open",
+    "note": "글 539자"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/sparkle-long-sleeve-crew-neck-tee/785580.html": {
+    "v": "open",
+    "note": "글 539자"
+   }
+  },
+  "wayback": {
+   "https://splendid.com/products/louisa-long-sleeve-tee": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://splendid.com/products/lainey-lace-trim-short-sleeve-tee": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://splendid.com/products/kacey-striped-v-neck-tee": {
+    "v": "open",
+    "note": "20260624 보관본 · 글 896자"
+   },
+   "https://splendid.com/products/leopard-bamboo-blend-long-sleeve-tee": {
+    "v": "open",
+    "note": "20260406 보관본 · 글 963자"
+   },
+   "https://www.stories.com/en-us/product/boxy-t-shirt-white-1223613001/": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.stories.com/en-us/clothing/knitwear/": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.stories.com/en-us/product/rib-knit-wool-boatneck-top-bright-pink-1286682006/": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.stories.com/en-us/product/box-pleat-tank-top-white-1358088003/": {
+    "v": "comp",
+    "note": "20260812 보관본 · Cotton 100%",
+    "comp": "Cotton 100%"
+   },
+   "https://alcltd.com/products/annabelle-top-forest-botanic": {
+    "v": "comp",
+    "note": "20260908 보관본 · Silk 100% / Nylon 100%",
+    "comp": "Silk 100%\nNylon 100%"
+   },
+   "https://alcltd.com/products/hana-top-ganache-french-blue": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://alcltd.com/collections/tees-tanks/products/annabelle-top-forest-botanic": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://alcltd.com/collections/tees-tanks/products/jodi-bra-butter": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.meandem.com/us/silk-2-in-1-top-black": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.meandem.com/us/cotton-schifflie-blouse-light-cream": {
+    "v": "comp",
+    "note": "20260722 보관본 · Cotton 100% / Polyester 100%",
+    "comp": "Cotton 100%\nPolyester 100%"
+   },
+   "https://www.meandem.com/us/silk-v-neck-camisole-top-tie-ruby-red": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.meandem.com/us/brushed-cashmere-lace-trim-slim-knit-vest-black": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://tnuck.com/products/navy-paisley-ellery-top": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://tnuck.com/products/black-and-limestone-alyssa-blouse": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://tnuck.com/products/royal-blue-santo-top": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sleeveless-bow-blouse/849065.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/sequin-crew-neck-top/844861.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-cowl-neck-top/849077.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-blouson-sleeve-top/844564.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-blue-aw26": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-black-aw26": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://row.gymshark.com/products/gymshark-feather-form-scoop-neck-t-shirt-ss-tops-teal-aw26": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://row.gymshark.com/products/gymshark-everyday-racer-back-tank-with-shelf-sleeveless-tops-blue-aw26-b8a7p-ufhb": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://tnuck.com/products/tan-scrolling-floral-petunia-blouse": {
+    "v": "comp",
+    "note": "20261110 보관본 · Cotton 80% / Polyester 20% / Polyester 100%",
+    "comp": "Cotton 80% / Polyester 20%\nPolyester 100%"
+   },
+   "https://www.crewclothing.co.uk/products/henley-half-zip-sweatshirt-in-pink": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.crewclothing.co.uk/products/nepp-half-zip-sweatshirt-in-oat": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.crewclothing.co.uk/products/interest-space-dye-sweatshirt-in-pinks": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.aritzia.com/intl/en/clothing/cashmere-clothing": {
+    "v": "comp",
+    "note": "20250113 보관본 · Cashmere 100%",
+    "comp": "Cashmere 100%"
+   },
+   "https://www.aritzia.com/intl/en/product/essential-wool-cashmere-cherub-sweater/126806.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.aritzia.com/intl/en/product/cotton-charm%E2%84%A2-basque-sweater-vest/130067.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.aritzia.com/intl/en/product/seabreeze-tank/131673.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/layered-caplet-blouse/855296.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/polka-dot-lace-trim-blouse/grp_855949_536588.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/dolman-boatneck-top/844941.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/animal-print-bow-blouse/844848.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.goodamerican.com/products/the-better-than-leather-classic-shirt-berry-noir": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-carmine": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-espresso": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.goodamerican.com/products/the-better-than-leather-trouser-short-black": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://splendid.com/products/stella-linen-trim-tank": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://splendid.com/products/lydia-linen-mini-dress": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://splendid.com/products/stella-linen-midi-dress": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://splendid.com/products/stella-linen-mini-dress": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://alcltd.com/products/adela-top-black": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://alcltd.com/collections/tops/products/alex-top-midnight": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://alcltd.com/collections/tops/products/alex-top-medium-heather-grey": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://alcltd.com/products/adela-dress-black": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/heathered-ribbed-turtleneck-top/711652.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-metallic-button-henley-top/711634.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-long-sleeve-modern-tee/711775.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/metallic-button-henley-top/711815.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/ski-long-sleeve-modern-tee/785269.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/snow-sequin-long-sleeve-everyday-tee/814071.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/pearlized-sparkle-long-sleeve-everyday-tee/711782.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-long-sleeve-tee/763895.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-elbow-sleeve-tee/760842.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lace-trim-v-neck-perfect-ribbed-elbow-sleeve-tee/775012.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/modern-wedge-tee/767613.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/oversized-jersey-modern-tee/771190.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/heathered-modern-wedge-tee/769573.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/everyday-crew-tee/580214.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/bandana-print-everyday-crew-tee/787471.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/everyday-v-neck-tee/580224.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lotus-flower-everyday-v-neck-tee/784743.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/harbor-tank-top/586150.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-tank/586193.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-apron-neck-tank-top/751426.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/perfect-ribbed-scoop-neck-tank-top/760847.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-crew-neck-tee/593639.html": {
+    "v": "err",
+    "note": "fetch failed"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/759965.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/750665.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/striped-side-button-tank-top/781756.html": {
+    "v": "err",
+    "note": "fetch failed"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/side-button-tank-top/761044.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/cutout-jersey-modern-tee/774214.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/mesh-trim-perfect-ribbed-tank-top/769311.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/lobster-lunch-everyday-crew-tee/769665.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/long-sleeve-everyday-tee/786387.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/holiday-dog-everyday-crew-tee/711658.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/holiday-penguin-everyday-crew-tee/886329.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/ruched-flare-sleeve-top/881386.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/floral-velvet-tee/711646.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   },
+   "https://www.loft.com/clothing/tops/catl000011/sparkle-long-sleeve-crew-neck-tee/785580.html": {
+    "v": "err",
+    "note": "보관본 없음"
+   }
+  }
+ }
+}
