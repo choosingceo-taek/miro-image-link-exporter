@@ -4,10 +4,14 @@ const send = (msg) => new Promise((res) => chrome.runtime.sendMessage(msg, res))
 async function loadCfg() {
   const cfg = await send({ type: 'getCfg' });
   if (cfg) { $('worker').value = cfg.worker || ''; $('token').value = cfg.token || ''; }
+  const st = await rackAppSettings();
+  $('appUrl').value = st.appUrl || '';
 }
 
 $('saveCfg').addEventListener('click', async () => {
   await send({ type: 'setCfg', worker: $('worker').value.trim(), token: $('token').value.trim() });
+  // 리서치 앱 주소는 팝업·옆 패널만 쓰므로 백그라운드를 거치지 않고 바로 저장한다.
+  try { await chrome.storage.local.set({ appUrl: $('appUrl').value.trim() }); } catch (e) {}
   $('saveCfg').textContent = '저장됨 ✓';
   setTimeout(() => ($('saveCfg').textContent = '설정 저장'), 1500);
 });
@@ -20,12 +24,54 @@ $('collectHere').addEventListener('click', async () => {
   try {
     const r = await send({ type: 'collectActive' });
     box.innerHTML = r && r.ok
-      ? `<span style="color:#1a7f37">✅ ${escapeHtml(r.msg)} → 미로 앱에서 확인</span>`
+      ? `<span style="color:#1a7f37">✅ ${escapeHtml(r.msg)} → 미로 앱·리서치에서 확인</span>`
       : `<span style="color:#b42318">⚠ ${escapeHtml((r && r.msg) || '실패')}</span>`;
+    // 방금 수집한 브랜드를 리서치 앱에서 바로 연다(#site=<사이트 키>).
+    if (r && r.ok && r.site) {
+      const b = document.createElement('button');
+      b.className = 'seeBrand';
+      b.id = 'seeBrand';
+      b.textContent = '수집한 브랜드 리서치에서 보기 →';
+      b.addEventListener('click', () => openApp('site=' + encodeURIComponent(r.site)));
+      box.appendChild(document.createElement('br'));
+      box.appendChild(b);
+    }
   } catch (e) {
     box.innerHTML = `<span style="color:#b42318">⚠ ${escapeHtml(String(e && e.message || e))}</span>`;
   } finally { $('collectHere').disabled = false; }
 });
+
+// ── 상품 리서치 열기 ────────────────────────────────────────────
+// 화면은 GitHub Pages 의 app.html 이다(research.js 참고). 새 탭 또는 브라우저 옆 패널.
+async function openApp(hash) {
+  const url = rackAppUrl(await rackAppSettings(), hash);
+  chrome.tabs.create({ url });
+}
+$('openApp').addEventListener('click', () => openApp(''));
+
+// 옆 패널 API(chrome.sidePanel)는 크롬 116·엣지 최신판부터 있다. 없으면 버튼을
+// 숨기고 새 탭 버튼만 남긴다. open() 은 '사용자가 누른 그 순간'에만 허락되므로
+// 창 번호를 미리 받아 두고, 누를 때는 기다리지 않고 바로 부른다.
+const canSidePanel = !!(chrome.sidePanel && typeof chrome.sidePanel.open === 'function');
+let myWindowId = null;
+if (!canSidePanel) {
+  $('openPanel').hidden = true;
+} else {
+  try { chrome.windows.getCurrent((w) => { myWindowId = w && w.id; }); } catch (e) {}
+  $('openPanel').addEventListener('click', () => {
+    let p;
+    try {
+      p = myWindowId != null
+        ? chrome.sidePanel.open({ windowId: myWindowId })
+        : Promise.reject(new Error('창 정보를 아직 못 받았습니다'));
+    } catch (e) { p = Promise.reject(e); }
+    Promise.resolve(p).then(() => window.close()).catch((e) => {
+      // 옆 패널을 못 열면 새 탭으로 연다 — 버튼을 눌렀는데 아무 일도 없으면 고장으로 보인다.
+      console.warn('옆 패널 열기 실패:', e && e.message);
+      openApp('');
+    });
+  });
+}
 
 $('start').addEventListener('click', async () => {
   const urls = $('urls').value.split('\n').map((s) => s.trim()).filter((s) => /^https?:\/\//i.test(s));

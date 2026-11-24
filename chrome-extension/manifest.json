@@ -1,20 +1,24 @@
 {
   "manifest_version": 3,
   "name": "RACK 상품 수집기",
-  "version": "1.7.20",
-  "description": "서버가 못 긁는 봇 차단 쇼핑몰을 실제 크롬 탭으로 방문·수집해 RACK 공유 저장소(미로 앱)로 전송합니다. 매일 자동 수집 예약 지원.",
+  "version": "1.7.21",
+  "description": "서버가 못 긁는 봇 차단 쇼핑몰을 실제 크롬 탭으로 방문·수집해 RACK 공유 저장소(미로 앱)로 전송합니다. 매일 자동 수집 예약 지원. 상품 리서치·엑셀 추출 화면을 새 탭이나 옆 패널로 엽니다.",
   "permissions": [
     "tabs",
     "scripting",
     "storage",
     "alarms",
-    "idle"
+    "idle",
+    "sidePanel"
   ],
   "host_permissions": [
     "<all_urls>"
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
   },
   "action": {
     "default_popup": "popup.html",

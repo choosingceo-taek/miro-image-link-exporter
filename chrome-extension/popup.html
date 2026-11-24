@@ -22,9 +22,24 @@
     .log .no { color: #b42318; }
     details { margin-top: 12px; } summary { font-size: 11px; color: #888; cursor: pointer; }
     .hint { font-size: 10.5px; color: #999; margin-top: 4px; line-height: 1.5; }
+    /* 상품 리서치 — 수집 버튼(검정)과 헷갈리지 않게 파란색으로 맨 위에 둔다. */
+    .research { margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid #eee; }
+    .research .row { margin-top: 0; }
+    button.primary { flex: 1 1 auto; background: #2f6df6; border-color: #2f6df6; font-size: 13px; letter-spacing: .5px; text-transform: none; }
+    button.side { flex: 0 0 auto; padding: 11px 10px; text-transform: none; letter-spacing: 0; }
+    button[hidden] { display: none; }
+    .seeBrand { display: inline-block; margin-top: 6px; padding: 0; border: 0; background: none; color: #2f6df6; font-size: 12px; font-weight: 700; letter-spacing: 0; text-transform: none; text-decoration: underline; cursor: pointer; flex: none; }
   </style>
 </head>
 <body>
+  <div class="research">
+    <div class="row">
+      <button id="openApp" class="primary">🔎 상품 리서치 열기</button>
+      <button id="openPanel" class="ghost side" title="브라우저 오른쪽 옆 패널에 띄웁니다">옆 패널로 열기</button>
+    </div>
+    <p class="hint">미로 없이 <b>브랜드·상품 검색과 엑셀 추출</b>을 여기서 합니다.</p>
+  </div>
+
   <h1>RACK 수집기</h1>
   <p class="sub">상품 목록 페이지를 수집 → 미로 앱 공유</p>
 
@@ -97,9 +112,12 @@
     <input id="worker" type="url" placeholder="https://…workers.dev" />
     <label for="token">Access token</label>
     <input id="token" type="text" placeholder="hsfabriclinker" />
+    <label for="appUrl">리서치 앱 주소 (비우면 기본 — 시험용)</label>
+    <input id="appUrl" type="url" placeholder="https://choosingceo-taek.github.io/miro-image-link-exporter/app.html" />
     <div class="row"><button id="saveCfg" class="ghost">설정 저장</button></div>
   </details>
 
+  <script src="research.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>

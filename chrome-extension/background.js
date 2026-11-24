@@ -1000,7 +1000,8 @@ async function collectActive() {
     const msg = d.ok
       ? (brand + ' · 이 페이지 ' + (d.added != null ? d.added : d.count) + '개 → 저장소 총 ' + d.count + '개')
       : ('전송 실패 ' + (d.error || resp.status));
-    return { ok: !!d.ok, count: d.ok ? d.count : 0, msg };
+    // site·brand 는 팝업의 '수집한 브랜드 리서치에서 보기'(#site=)에 쓴다.
+    return { ok: !!d.ok, count: d.ok ? d.count : 0, msg, site, brand };
   } catch (e) { return { ok: false, msg: '오류: ' + String((e && e.message) || e) }; }
 }
 
