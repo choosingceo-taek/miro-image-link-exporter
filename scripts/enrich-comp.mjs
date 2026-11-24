@@ -26,6 +26,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { urlGuard, urlKey, archivePageCheck, archivedOriginal, archivedTimestamp, samePage } from "./wayback-guard.mjs";
+import { guardRun, flagText } from "./comp-guard.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -605,6 +606,8 @@ let budget = TOTAL;
 const rows = [];
 // 지금 페이지에서 읽은 혼용률이 이미 있던 값과 다른 상품 — 리포트에 남겨 사람이 본다(applyLiveComp).
 const compConflicts = [];
+// 저장 직전 가드(comp-guard.mjs)가 보류한 값 — 브랜드 전체에 되풀이되는 사이트 장식으로 보여 저장하지 않았다.
+const guardHeld = [];
 // 껍데기(차단 화면은 아닌데 상품명이 화면 글에 없음)로 센 페이지의 예 — 리포트에 남긴다.
 const shellEx = [];
 // 같은 브랜드가 1차·2차 두 번 처리되므로 결과를 한 줄로 합친다.
@@ -743,6 +746,25 @@ async function processBrand(c, phase) {
       : (got && got.none ? { none: 1 } : got && got.blocked ? { blocked: 1, ...(got.wt ? { wt: got.wt } : {}) } : {});
   });
   budget -= todo.length;
+  // 저장 직전 가드: 이번에 읽은 혼용률을 이 브랜드에 이미 저장된 값과 함께 보고, 브랜드 전체에
+  // 되풀이되는 조각(메뉴·배너·추천 블록에서 온 글)이면 저장하지 않고 보류한다(comp-guard.mjs 머리말).
+  // 혼용률만 뺀다 — 컬러·가격은 그대로 저장하고, 시도 시각도 남아 재시도 기간이 지나면 다시 읽는다.
+  {
+    const nameOf = new Map(items.map((p) => [p.productUrl, p.name || ""]));
+    const stored = items.map((p) => ({ url: p.productUrl, name: p.name || "",
+      comp: String(p.comp || "").trim() || valOf(ov(p), "comp") })).filter((x) => validComp(x.comp));
+    const incoming = Object.entries(comps).map(([url, v]) => ({ url, name: nameOf.get(url) || "", comp: v ? asComp(v.comp) : "" }))
+      .filter((x) => validComp(x.comp));
+    const { held } = guardRun(stored, incoming);
+    for (const [url, h] of held) {
+      guardHeld.push({ brand: cat.brand || c.brand || c.site, url, name: h.name, comp: h.comp, why: flagText(h.flag) });
+      const v = { ...comps[url] };
+      delete v.comp; delete v.via; delete v.wd; delete v.none;
+      comps[url] = v;
+      stat.held = (stat.held || 0) + 1;
+    }
+  }
+
   // 이번에 읽은 혼용률이 어디서 왔나 — 지금 페이지(실시간 경로) / 보관본.
   let liveComp = 0, arcComp = 0;
   for (const v of Object.values(comps)) {
@@ -967,7 +989,7 @@ const pathStr = (st) => {
   if (!st) return "";
   const ok = ["shopify", "page", "worker", "wayback"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
   const ng = ["noData", "blocked", "shell", "fail", "wbNone", "wbReject", "wbErr"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
-  return [ok.length ? "성공 " + ok.join("·") : "", st.none ? `미표기 ${st.none}` : "", ng.length ? "실패 " + ng.join("·") : ""].filter(Boolean).join(" / ");
+  return [ok.length ? "성공 " + ok.join("·") : "", st.none ? `미표기 ${st.none}` : "", st.held ? `가드 보류 ${st.held}` : "", ng.length ? "실패 " + ng.join("·") : ""].filter(Boolean).join(" / ");
 };
 const gaps = done.filter((r) => r.total).sort((a, z) => (a.have / a.total) - (z.have / z.total));
 if (gaps.length) {
@@ -994,6 +1016,15 @@ if (compConflicts.length) {
   md += `지금 페이지에서 읽었던 값이면 그대로 뒀다(유지).\n\n| 브랜드 | 상품 | 있던 값 | 지금 페이지 | 처리 |\n|---|---|---|---|---|\n`;
   for (const x of compConflicts.slice(0, 100)) {
     md += `| ${x.brand} | ${x.url} | ${String(x.old).replace(/\n/g, " ‖ ")}${x.oldVia ? ` (${x.oldVia} ${x.oldWd})` : ""} | ${String(x.live).replace(/\n/g, " ‖ ")} | ${x.act === "replace" ? "바꿈" : "유지"} |\n`;
+  }
+  md += `\n`;
+}
+if (guardHeld.length) {
+  md += `## 저장 직전 가드가 보류한 혼용률 (${guardHeld.length})\n\n`;
+  md += `이 브랜드의 다른 상품에도 똑같이 되풀이되는 값이라 상품의 소재가 아니라 페이지 틀(메뉴·배너·추천 블록)의 글로 보고\n`;
+  md += `저장하지 않았다(scripts/comp-guard.mjs). 칸은 비어 있고 재시도 기간이 지나면 다시 읽는다.\n\n| 브랜드 | 상품 | 읽은 값 | 이유 |\n|---|---|---|---|\n`;
+  for (const x of guardHeld.slice(0, 100)) {
+    md += `| ${x.brand} | [${String(x.name || "(이름 없음)").replace(/\|/g, "/").slice(0, 60)}](${x.url}) | ${String(x.comp).replace(/\n/g, " ‖ ")} | ${x.why.replace(/\|/g, "/")} |\n`;
   }
   md += `\n`;
 }

@@ -53,6 +53,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
+import { guardRun, flagText } from "./comp-guard.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -339,6 +340,7 @@ const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|atte
 const rows = [];
 const reads = [];   // 상품마다 무엇을 읽었나 — 리포트에서 눈으로 확인할 수 있게
 const conflicts = [];   // 지금 페이지 값이 이미 있던 값과 다른 상품
+const guardHeld = [];   // 저장 직전 가드가 보류한 값(브랜드 전체에 되풀이되는 사이트 장식)
 const shells = [];      // 껍데기로 센 페이지의 예(제목·글 앞부분)
 let grandFilled = 0, grandTried = 0;
 
@@ -451,8 +453,26 @@ for (const c of targets) {
     } finally { await page.close().catch(() => {}); }
   }));
 
+  // 저장 직전 가드(comp-guard.mjs) — 야간 보강과 같은 규칙. 이번에 읽은 값을 이 브랜드의 저장값과 함께 보고,
+  // 브랜드 전체에 되풀이되는 조각이면 혼용률을 저장하지 않는다(컬러는 저장). 리포트에 남긴다.
+  {
+    const items = cat.items || [];
+    const nameOf = new Map(items.map((p) => [p.productUrl, p.name || ""]));
+    const stored = items.map((p) => ({ url: p.productUrl, name: p.name || "",
+      comp: String(p.comp || "").trim() || String((overlay[p.productUrl] || {}).comp || "").trim() }))
+      .filter((x) => validComp(x.comp));
+    const incoming = Object.entries(patch).filter(([, v]) => v.comp).map(([url, v]) => ({ url, name: nameOf.get(url) || "", comp: v.comp }));
+    const { held } = guardRun(stored, incoming);
+    for (const [u, h] of held) {
+      guardHeld.push({ brand: c.brand, url: u, name: h.name, comp: h.comp, why: flagText(h.flag) });
+      const v = { ...patch[u] };
+      delete v.comp;
+      patch[u] = v;   // 빈 객체여도 남긴다 — 시도 시각(t)이 찍힌다
+      stat.ok--; stat.held = (stat.held || 0) + 1;
+    }
+  }
   grandFilled += stat.ok; grandTried += todo.length;
-  const line = `${c.brand} [${c.engine}] — 시도 ${todo.length} · ✅ ${stat.ok} · 미표기 ${stat.none} · 껍데기 ${stat.shell} · 차단/타임아웃 ${stat.blocked} · 오류 ${stat.err}`;
+  const line = `${c.brand} [${c.engine}] — 시도 ${todo.length} · ✅ ${stat.ok}${stat.held ? ` · 가드 보류 ${stat.held}` : ""} · 미표기 ${stat.none} · 껍데기 ${stat.shell} · 차단/타임아웃 ${stat.blocked} · 오류 ${stat.err}`;
   console.log("  · " + line);
   rows.push({ brand: c.brand, site: c.site, engine: c.engine, total: c.count, ...stat, tried: todo.length });
 
@@ -461,7 +481,7 @@ for (const c of targets) {
   // 옛 판정에 발이 묶이면 안 된다.
   // 이력은 이 브랜드를 읽은 엔진 칸에만 적는다 — 크롬으로 막혔다고 파이어폭스 기록까지 잠그지 않는다.
   const verdict = recordResult(state, c.site, c.engine,
-    { brand: c.brand, tried: todo.length, blocked: stat.blocked + stat.shell, ok: stat.ok }, Date.now(), SKIP_DAYS, BLOCK_RATIO);
+    { brand: c.brand, tried: todo.length, blocked: stat.blocked + stat.shell, ok: stat.ok + (stat.held || 0) }, Date.now(), SKIP_DAYS, BLOCK_RATIO);
   if (verdict === "blocked") console.log(`    → ${c.engine} 로는 ${SKIP_DAYS}일간 후보에서 제외(차단 ${state.blocked[c.site][c.engine].ratio}%, 연달아 막힘)`);
   if (verdict === "suspect") console.log(`    → ${c.engine} 로 처음 막힘(${state.blocked[c.site][c.engine].ratio}%) — ${SUSPECT_DAYS}일만 쉬고 다시 본다(또 막히면 ${SKIP_DAYS}일)`);
   if (verdict === "cleared") console.log(`    → ${c.engine} 로 다시 읽히기 시작 — 차단 이력 해제`);
@@ -533,6 +553,16 @@ const md = [
     ...shells.map((x) => `- ${x.brand} · ${String(x.name).slice(0, 60)} — ${x.url}\n  > ${x.head.replace(/\|/g, "/")}`),
     "",
     "</details>",
+    "",
+  ] : []),
+  ...(guardHeld.length ? [
+    `## 저장 직전 가드가 보류한 혼용률 (${guardHeld.length})`,
+    "",
+    "이 브랜드의 다른 상품에도 똑같이 되풀이되는 값이라 상품의 소재가 아니라 페이지 틀(메뉴·배너·추천 블록)의 글로 보고 저장하지 않았다(scripts/comp-guard.mjs). 칸은 비어 있고 나중에 다시 읽는다.",
+    "",
+    "| 브랜드 | 상품 | 읽은 값 | 이유 |",
+    "|---|---|---|---|",
+    ...guardHeld.slice(0, 100).map((x) => `| ${x.brand} | [${String(x.name || "(이름 없음)").replace(/\|/g, "/").slice(0, 60)}](${x.url}) | ${String(x.comp).replace(/\n/g, " ‖ ")} | ${x.why.replace(/\|/g, "/")} |`),
     "",
   ] : []),
   ...(conflicts.length ? [

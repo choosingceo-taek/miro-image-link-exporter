@@ -119,5 +119,19 @@ eq("짝이 한 종류(같은 원단 묶음): 통과", heldCount(sets), 0);
   eq("guardRun: 같은 상품의 새 값", guardRun(stored, [fixed]).held.size, 0);
 }
 
+// ── 배선: 두 보강 스크립트가 저장(POST) 전에 가드를 거친다 ──
+{
+  const { readFileSync } = await import("node:fs");
+  const { fileURLToPath } = await import("node:url");
+  const { dirname, join } = await import("node:path");
+  const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+  for (const f of ["scripts/enrich-comp.mjs", "scripts/enrich-comp-browser.mjs"]) {
+    const src = readFileSync(join(ROOT, f), "utf8");
+    const g = src.indexOf("guardRun(stored, incoming)"), post = src.indexOf("/?store=overlay&site=");
+    eq(`배선: ${f} 가 저장 전에 guardRun`, src.includes('from "./comp-guard.mjs"') && g > 0 && g < post, true);
+    eq(`배선: ${f} 리포트에 보류 목록`, src.includes("저장 직전 가드가 보류한 혼용률"), true);
+  }
+}
+
 console.log(bad ? `\n저장 직전 가드 — ${bad}개 실패` : "\n저장 직전 가드 — 모두 통과");
 process.exit(bad ? 1 : 0);
