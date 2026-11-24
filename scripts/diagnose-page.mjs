@@ -15,7 +15,10 @@
 //   node scripts/diagnose-page.mjs <url> [url...]
 //   URLS="a,b" node scripts/diagnose-page.mjs
 //   URL 을 안 주면 그날 헤드리스 수집 리포트에서 '상품 0개'로 끝난 목록 페이지를 고른다.
-import { chromium } from "playwright";
+//
+// 시험용 훅(scripts/test-diagnose-select.mjs 가 쓴다 — 평소엔 비워 둔다):
+//   REPORT=<경로>   읽을 수집 리포트(기본 browser-collect-report.json)
+//   LIST_ONLY=1     고른 주소만 JSON 으로 찍고 브라우저를 띄우지 않고 끝낸다
 import { readFileSync, writeFileSync } from "node:fs";
 
 let URLS = (process.argv.slice(2).length
@@ -28,7 +31,7 @@ let URLS = (process.argv.slice(2).length
 // 나온 페이지만 본다. 차단(403·봇 확인)과 마감으로 미룬 것은 선택자 문제가 아니라 뺀다.
 if (!URLS.length) {
   try {
-    const rep = JSON.parse(readFileSync(new URL("../browser-collect-report.json", import.meta.url), "utf8"));
+    const rep = JSON.parse(readFileSync(process.env.REPORT || new URL("../browser-collect-report.json", import.meta.url), "utf8"));
     for (const r of rep.results || []) {
       if (r.deferred || r.cut) continue;
       for (const u of r.perUrl || []) {
@@ -45,6 +48,10 @@ if (!URLS.length) {
     process.exit(0);
   }
 }
+
+if (process.env.LIST_ONLY === "1") { console.log(JSON.stringify(URLS)); process.exit(0); }
+// 진단할 것이 있을 때만 브라우저 모듈을 불러온다 — 없을 때는 크로미움이 없어도 끝난다.
+const { chromium } = await import("playwright");
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
