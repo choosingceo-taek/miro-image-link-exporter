@@ -1,4 +1,4 @@
-# 목록 페이지 진단 (2026-11-23 00:01Z)
+# 목록 페이지 진단 (2026-11-24 04:12Z)
 
 상품이 0개로 나오는 페이지를 진짜 크롬으로 열어 구조를 뜯어본 결과입니다.
 
@@ -7,15 +7,15 @@
 - HTTP **200** · 최종주소 `https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017`
 - 제목: "Women's Sweatpants | Carhartt"
 - 링크 254개 · `<img>` 84개 · iframe 2개
-- 링크 중 이미지가 딸린 것 37개 → 그중 주소를 뽑아낸 것 **28개**
+- 링크 중 이미지가 딸린 것 37개 → 그중 주소를 뽑아낸 것 **27개**
 
 | 증상 | 개수 | 뜻 |
 |---|---:|---|
-| img 는 있는데 주소가 비어 있음 | 9 | 지연 로딩. 아래 '못 보던 속성'을 수집기에 추가하면 됩니다 |
+| img 는 있는데 주소가 비어 있음 | 10 | 지연 로딩. 아래 '못 보던 속성'을 수집기에 추가하면 됩니다 |
 
-**주소를 찾은 속성**: `src` 28
+**주소를 찾은 속성**: `src` 27
 
-**성공한 카드의 class**: `list-item ng-star-inserted` 24 · `footer-nav-link ng-star-inserted` 3 · `header-large-logo` 1
+**성공한 카드의 class**: `list-item ng-star-inserted` 24 · `footer-nav-link ng-star-inserted` 3
 
 **이미지가 안 붙은 상품 링크 표본**
 
@@ -58,16 +58,16 @@
 
 - HTTP **200** · 최종주소 `https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031`
 - 제목: "Women's Tops: Cozy Sweaters, Sweatshirts, Shirts & More | Aerie"
-- 링크 536개 · `<img>` 211개 · iframe 9개
-- 링크 중 이미지가 딸린 것 116개 → 그중 주소를 뽑아낸 것 **116개**
+- 링크 530개 · `<img>` 209개 · iframe 9개
+- 링크 중 이미지가 딸린 것 115개 → 그중 주소를 뽑아낸 것 **115개**
 
 | 증상 | 개수 | 뜻 |
 |---|---:|---|
 | shadow DOM 안의 링크 | 6 | shadow 호스트 1개 — querySelectorAll 로는 안 보입니다 |
 
-**주소를 찾은 속성**: `src` 116
+**주소를 찾은 속성**: `src` 115
 
-**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 3 · `_container_1eekmh aerie-theme` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1 · `module-background_+5eER col-xs-12 col-sm-12 col-md-12 col-lg` 1
+**성공한 카드의 class**: `x-link-to qa-x-link-to _tile-link_1loo4i` 90 · `images_T6gbn` 12 · `container_lNjyr with-columns_wvSlQ` 6 · `_container_1eekmh aerie-theme` 2 · `content_4Lkq- qa-headless-cms-lockup-overlay cms-1y275r4 ove` 2 · `_logo-container_1u97wq _with-banner_1u97wq` 1 · `container_lNjyr with-columns_wvSlQ shake-animation_3etWh` 1 · `module-background_+5eER col-xs-12 col-sm-12 col-md-12 col-lg` 1
 
 **이미지가 안 붙은 상품 링크 표본**
 
@@ -79,10 +79,10 @@
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
   - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-polo-sweater/0745_4154_410" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
-- `/us/en/p/aerie/pajamas/aerie-real-soft-piping-long-sleeve-pj-top/2782_1333_201`
+- `/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_192`
   - 카드 class: `x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i`
   - img 속성: (img 없음)
-  - ```<a href="/us/en/p/aerie/pajamas/aerie-real-soft-piping-long-sleeve-pj-top/2782_1333_201" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-product-name="```
+  - ```<a href="/us/en/p/aerie/tops/sweaters-cardigans/aerie-sunday-soft-plush-crew-sweater/0745_4188_192" data-testid="x-link" class="x-link-to qa-x-link-to _tile-link_1loo4i _tile-link_1loo4i"> <div class="merchant-flags text-bold text-capitalize merchant-flag-aerie _flags_14vr46" data-testid="merchant-flags"> New + Matching Set </div> <h3 class="product-name _product-name_15zhao _gray_1loo4i" data-pro```
 
 ## https://www.apieceapart.com/shop/tops
 
