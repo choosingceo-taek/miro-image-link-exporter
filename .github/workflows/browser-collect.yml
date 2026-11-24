@@ -5,6 +5,9 @@ name: Headless browser collect
 #
 # 수동 실행 시 group=extension 으로 두면 확장 담당 브랜드를 재조사할 수 있다
 # (차단이 풀렸는지 확인용). 그때는 store=0 으로 두고 결과 리포트만 본다.
+#
+# 저장소의 browser-extra-brands.json 에 적힌 브랜드도 함께 돈다(서버 프리페치가 목록에서
+# 막히는 브랜드 · 브랜드마다 엔진을 고른다). 저장 조건이 더 엄격하다 — DAILY-AUTOMATION.md 참고.
 on:
   schedule:
     - cron: "30 18 * * *"   # UTC 18:30 = KST 03:30 — 서버 프리페치(03:00) 뒤에 이어서
@@ -27,9 +30,12 @@ on:
         required: false
         default: "8"
       engine:
-        description: "chromium(기본) | firefox — 모든 브랜드를 이 엔진으로. 비우면 브랜드별 기본"
+        # 비워 두는 것이 기본이다. 비우면 Render browser 그룹은 chromium, 추가 브랜드 파일
+        # (browser-extra-brands.json)의 브랜드는 거기 적힌 엔진으로 돈다 — 예약 실행과 같다.
+        # chromium·firefox 를 적으면 모든 브랜드를 그 엔진으로 돈다(비교 측정용).
+        description: "비우면 브랜드별 기본(예약 실행과 같음) · chromium | firefox 면 모든 브랜드를 그 엔진으로"
         required: false
-        default: "chromium"
+        default: ""
       fresh_context:
         description: "1이면 카테고리 URL 마다 쿠키가 빈 새 창으로 연다(측정용, 기본 0)"
         required: false
@@ -65,7 +71,9 @@ jobs:
         run: |
           list="chromium"
           if [ "$ENGINE_IN" = "firefox" ]; then list="chromium firefox"; fi
-          if [ -z "$ENGINE_IN" ] && [ -f browser-extra-brands.json ] && grep -q '"firefox"' browser-extra-brands.json; then
+          if [ -z "$ENGINE_IN" ] && [ -f browser-extra-brands.json ] && node -e '
+            const d = JSON.parse(require("fs").readFileSync("browser-extra-brands.json", "utf8"));
+            process.exit((d.brands || []).some((b) => String(b.engine || "").toLowerCase() === "firefox") ? 0 : 1);'; then
             list="chromium firefox"
           fi
           echo "browsers=$list" >> "$GITHUB_OUTPUT"
@@ -113,7 +121,7 @@ jobs:
           # 비어 있으면 스크립트 기본값(85분)이 쓰인다.
           DEADLINE_MIN: ${{ github.event.inputs.deadline_min }}
           # 예약 실행에는 inputs 가 없어 비어 있다 → 스크립트가 브랜드별 기본 엔진을 쓴다
-          # (Render browser 그룹은 chromium).
+          # (Render browser 그룹은 chromium, 추가 브랜드는 browser-extra-brands.json 에 적힌 엔진).
           ENGINE: ${{ github.event.inputs.engine }}
           FRESH_CONTEXT: ${{ github.event.inputs.fresh_context || '0' }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
