@@ -5,7 +5,10 @@
 // 두 곳에서 같은 코드를 쓰기 위해 외부 의존성 없이 self-contained 로 유지할 것.
 
 // 페이지 컨텍스트에서 실행되는 수집기 (완전 self-contained: 자동 스크롤 후 상품 배열 반환)
-async function pageCollector() {
+// opts.cap: 이만큼 모이면 스크롤을 멈춘다(기본 600). 헤드리스 수집기는 카테고리당 150개만 쓰므로
+// 더 작게 준다 — 끝없이 이어지는 목록(Nike·Reformation)에서 한 카테고리에 10분 넘게 쓰던 것을 막는다.
+async function pageCollector(opts) {
+  const CAP = Math.max(20, Number(opts && opts.cap) || 600);
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const guessCategory = (u, name) => {
     const n = ' ' + String(name || '').toLowerCase() + ' ';
@@ -343,7 +346,7 @@ async function pageCollector() {
   const keep = (list) => { for (const it of list) if (!acc.has(it.productUrl)) acc.set(it.productUrl, it); };
   keep(harvest());
   let stable = 0, lastCount = -1;
-  for (let i = 0; i < 140 && acc.size < 600; i++) {
+  for (let i = 0; i < 140 && acc.size < CAP; i++) {
     const doc = document.documentElement;
     const atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 80;
     if (atBottom) window.scrollTo(0, doc.scrollHeight);

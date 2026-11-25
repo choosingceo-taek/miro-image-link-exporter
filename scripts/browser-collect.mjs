@@ -192,7 +192,8 @@ const MAX_PER_BRAND = 750;
 
 // 확장과 같은 수집기 코드를 문자열로 읽어 page.evaluate 에 넣는다.
 const collectorSrc = readFileSync(join(ROOT, "chrome-extension", "collector.js"), "utf8");
-const COLLECTOR = `(async () => { ${collectorSrc}\n return await pageCollector(); })()`;
+// cap: 카테고리당 쓰는 수(PER_CATEGORY)보다 조금 넉넉히 — 공용 링크를 빼고도 150개가 남게.
+const COLLECTOR = `(async () => { ${collectorSrc}\n return await pageCollector({ cap: 200 }); })()`;
 
 // 확장(background.js)의 siteKeyOf / 야간 프리페치의 siteKey 와 동일한 규칙.
 function siteKeyOf(name, url) {
