@@ -46,6 +46,11 @@
 | Bash | 크롬 · 합치기 | srv 4·4·4·10~24·7 | 35·38·97·107·76 (295) | 45604834917·45604846574 | T-shirt IONI `/fr/en/p/t-shirt-ioni-kaki-3667436072215.html` · Tank top SHADEY `/p/tank-top-shadey-champagne-3667436159237.html` · BAPY Sweatshirt `/p/bapy-sweatshirt-ecru-3667436160745.html` |
 | Vanessa bruno | 크롬 · 합치기 | srv tops 6 · 나머지 0 | tops 4+2 · knit(엑셀 주소) 9 · 셔츠 77 · 원피스 41 · 바지 25 (207) | 45604834917·45604846574 | Camomille t-shirt `/p/camomille-t-shirt-45499.html` · Glendon t-shirt `/p/glendon-t-shirt-52710.html` · Glycine tank top `/p/glycine-tank-top-53999.html` |
 
+**최종 확인(run 45636819418, 최종 설정 그대로 · 저장 안 함)**: 두 잡 모두 미룸 없이 끝남 — Render 그룹 23개 88분, 추가 브랜드 12개 65분.
+추가 브랜드 수: Bash 295 · Vanessa bruno 144(엑셀 주소 그대로) · Veronica Beard 371 · H&M 745 · Seasalt 275 · Gap 477 · Old Navy 680 ·
+Athleta 408 · Banana Republic 512 · Reformation 537 · Sessun 211 · Whitestuff 663 · The upside 221. Lucky Brand 는 61·91·0·68·37 로
+야간(65·90·0·67·36)과 같아짐(다른 페이지로 넘어가면 다시 읽지 않게 고친 뒤).
+
 ### 2-2. 수집기 규칙으로 고친 Render 그룹 브랜드(엔진 그대로)
 
 | 브랜드 | 전 | 후 | 실행 | 표본 |
