@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T09:37:25.669Z",
+ "generated": "2026-11-25T10:14:17.406Z",
  "note": "docs/access-map.md 와 같은 사실. listing=목록(카테고리) 페이지, product=상품 페이지. basis 가 '규칙'인 행은 사람이 따로 보지 않은 판정.",
  "vocabulary": {
   "listing": {
@@ -199,6 +199,42 @@
     "playwright": "정상 · 23쪽 · 128s",
     "firefox": "정상 · 23쪽 · 127s"
    }
+  },
+  {
+   "id": "45584342647",
+   "at": "2026-11-25T09:21",
+   "ip": "20.55.223.x",
+   "engines": [
+    "impit",
+    "playwright",
+    "firefox",
+    "firefox-fresh"
+   ],
+   "targets": 84,
+   "runInfo": {
+    "impit": "정상 · 84쪽 · 59s",
+    "playwright": "정상 · 84쪽 · 1068s",
+    "firefox": "정상 · 84쪽 · 767s",
+    "firefox-fresh": "정상 · 84쪽 · 867s"
+   }
+  },
+  {
+   "id": "45584347742",
+   "at": "2026-11-25T09:21",
+   "ip": "20.120.221.x",
+   "engines": [
+    "impit",
+    "playwright",
+    "firefox",
+    "firefox-fresh"
+   ],
+   "targets": 82,
+   "runInfo": {
+    "impit": "정상 · 82쪽 · 42s",
+    "playwright": "정상 · 82쪽 · 702s",
+    "firefox": "정상 · 82쪽 · 908s",
+    "firefox-fresh": "정상 · 82쪽 · 952s"
+   }
   }
  ],
  "brands": [
@@ -241,19 +277,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -265,14 +303,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -285,15 +325,36 @@
       ]
      },
      "firefox": {
+      "ok": 6,
+      "n": 6,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 3,
       "n": 3,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -309,27 +370,30 @@
       "url": "https://www.stories.com/en-us/clothing/tops/",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.stories.com/en-us/clothing/blouses-shirts/",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -557,18 +621,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 15,
+      "n": 18,
       "urlsOk": 0,
       "urls": 6,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -580,14 +646,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -599,14 +667,35 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -622,27 +711,30 @@
       "url": "https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 418",
-       "firefox": "0/1 blocked"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 418",
+       "firefox": "0/2 blocked",
+       "firefox-fresh": "0/1 blocked"
       }
      },
      {
       "url": "https://www.abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+nav",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 418",
-       "firefox": "0/1 blocked"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 418",
+       "firefox": "0/2 blocked",
+       "firefox-fresh": "0/1 blocked"
       }
      },
      {
       "url": "https://www.abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-left+nav",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 418",
-       "firefox": "0/1 blocked"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 418",
+       "firefox": "0/2 blocked",
+       "firefox-fresh": "0/1 blocked"
       }
      },
      {
@@ -868,18 +960,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 11,
+      "n": 14,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -893,14 +987,40 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked",
+       "conn-drop"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
+     },
+     "firefox": {
+      "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -912,16 +1032,16 @@
        "Akamai"
       ]
      },
-     "firefox": {
+     "firefox-fresh": {
       "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -939,27 +1059,30 @@
       "url": "https://www.adidas.com/us/women-tops?sort=newest-to-oldest",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.adidas.com/us/women-hoodies_sweatshirts",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked·conn-drop 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.adidas.com/us/women-skirts_dresses",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked·conn-drop 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -1326,19 +1449,21 @@
     "tierLabel": "0 이미 정상",
     "measured": {
      "impit": {
-      "ok": 10,
-      "n": 10,
+      "ok": 12,
+      "n": 12,
       "urlsOk": 4,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -1349,15 +1474,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 2,
-      "n": 2,
+      "ok": 4,
+      "n": 4,
       "urlsOk": 2,
       "urls": 2,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -1368,15 +1495,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 4,
+      "n": 4,
+      "urlsOk": 2,
+      "urls": 2,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 2,
       "n": 2,
       "urlsOk": 2,
       "urls": 2,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -1392,18 +1540,20 @@
       "url": "https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.ae.com/us/en/c/aerie/tops/hoodies-sweatshirts/cat7030169",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -1980,19 +2130,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 9,
-      "n": 9,
+      "ok": 12,
+      "n": 12,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -2003,15 +2155,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 1,
-      "n": 3,
+      "ok": 2,
+      "n": 6,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok",
@@ -2026,14 +2180,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       200
+      ],
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -2051,27 +2228,30 @@
       "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "0/1 blocked"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "0/2 blocked",
+       "firefox-fresh": "0/1 blocked"
       }
      },
      {
       "url": "https://www.anntaylor.com/clothing/dresses/cata000012/",
       "cat": "dresses",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked"
+       "impit": "4/4",
+       "playwright": "0/2 blocked",
+       "firefox": "0/2 blocked",
+       "firefox-fresh": "0/1 blocked"
       }
      },
      {
       "url": "https://www.anntaylor.com/clothing/pants/cata000014/",
       "cat": "pants",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked"
+       "impit": "4/4",
+       "playwright": "0/2 blocked",
+       "firefox": "0/2 blocked",
+       "firefox-fresh": "0/1 blocked"
       }
      }
     ]
@@ -2150,18 +2330,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -2175,14 +2357,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -2195,15 +2379,17 @@
       ]
      },
      "firefox": {
-      "ok": 1,
-      "n": 3,
+      "ok": 2,
+      "n": 6,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok",
@@ -2216,6 +2402,27 @@
       "by": [
        "DataDome"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 3,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "DataDome"
+      ]
      }
     },
     "urls": [
@@ -2223,27 +2430,30 @@
       "url": "https://www.anthropologie.com/tees",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.anthropologie.com/tops-sweatshirts",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.anthropologie.com/tops",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -2586,18 +2796,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 15,
+      "n": 18,
       "urlsOk": 0,
       "urls": 6,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -2611,14 +2823,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -2631,15 +2845,17 @@
       ]
      },
      "firefox": {
-      "ok": 1,
-      "n": 3,
+      "ok": 2,
+      "n": 6,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked",
@@ -2652,6 +2868,27 @@
       "by": [
        "Cloudflare"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 3,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Cloudflare"
+      ]
      }
     },
     "urls": [
@@ -2659,27 +2896,30 @@
       "url": "https://www.aritzia.com/us/en/clothing/tops",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.aritzia.com/us/en/clothing/tshirts",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -2915,19 +3155,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -2939,14 +3181,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -2959,15 +3203,36 @@
       ]
      },
      "firefox": {
+      "ok": 6,
+      "n": 6,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 3,
       "n": 3,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -2983,27 +3248,30 @@
       "url": "https://www.arket.com/en-ww/women/clothing/tops/",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.arket.com/en-ww/women/clothing/tops/t-shirts/",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -3223,18 +3491,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 12,
+      "n": 16,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "no-cards"
@@ -3245,15 +3515,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 1,
-      "n": 4,
+      "ok": 3,
+      "n": 8,
       "urlsOk": 1,
       "urls": 4,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok",
@@ -3265,15 +3537,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 8,
+      "n": 8,
+      "urlsOk": 4,
+      "urls": 4,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 4,
       "n": 4,
       "urlsOk": 4,
       "urls": 4,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -3289,36 +3582,40 @@
       "url": "https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "0/1 no-cards",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "0/2 no-cards",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "0/1 no-cards",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "0/2 no-cards",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A",
       "cat": "pants",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "0/1 no-cards",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "1/2 no-cards",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      }
     ]
@@ -3371,18 +3668,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 12,
+      "n": 16,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "no-cards"
@@ -3393,15 +3692,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 4,
-      "n": 4,
+      "ok": 8,
+      "n": 8,
       "urlsOk": 4,
       "urls": 4,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -3412,15 +3713,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 8,
+      "n": 8,
+      "urlsOk": 4,
+      "urls": 4,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 4,
       "n": 4,
       "urlsOk": 4,
       "urls": 4,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -3436,36 +3758,40 @@
       "url": "https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136",
       "cat": "pants",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      }
     ]
@@ -3789,19 +4115,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -3812,15 +4140,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -3831,15 +4161,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -3868,6 +4200,25 @@
       ],
       "status": [],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -3875,30 +4226,33 @@
       "url": "https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 shell"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 shell",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 shell"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 shell",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ.",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 shell"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 shell",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -4882,19 +5236,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 10,
-      "n": 12,
+      "ok": 12,
+      "n": 14,
       "urlsOk": 4,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok",
@@ -4906,15 +5262,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 2,
-      "n": 2,
+      "ok": 4,
+      "n": 4,
       "urlsOk": 2,
       "urls": 2,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -4925,15 +5283,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 4,
+      "n": 4,
+      "urlsOk": 2,
+      "urls": 2,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 2,
       "n": 2,
       "urlsOk": 2,
       "urls": 2,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -4949,18 +5328,20 @@
       "url": "https://www.carhartt.com/c/women-tops-tshirt",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.carhartt.com/c/women-hoodies-sweatshirts",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -5439,18 +5820,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 15,
+      "n": 20,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -5464,14 +5847,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 5,
+      "n": 10,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -5485,14 +5870,16 @@
      },
      "firefox": {
       "ok": 0,
-      "n": 5,
+      "n": 10,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -5526,6 +5913,27 @@
        403
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 5,
+      "urlsOk": 0,
+      "urls": 5,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
      }
     },
     "urls": [
@@ -5533,50 +5941,55 @@
       "url": "https://www.chicos.com/store/category/tees-tanks/cat11199293",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.chicos.com/store/category/activewear/cat20059281",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.chicos.com/store/category/blouses-shirts/cat11199294",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "0/2 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.chicos.com/store/category/dresses/cat40004",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.chicos.com/store/category/pants/cat8289646",
       "cat": "pants",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "0/2 shell 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "0/2 shell 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      }
     ]
@@ -6763,19 +7176,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -6786,15 +7201,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -6805,23 +7222,29 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
-      "urlsOk": 3,
+      "ok": 5,
+      "n": 6,
+      "urlsOk": 2,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
-       "ok"
+       "ok",
+       "blocked"
       ],
       "status": [
-       200
+       200,
+       403
       ],
-      "by": []
+      "by": [
+       "Cloudflare"
+      ]
      },
      "server": {
       "ok": 6,
@@ -6842,6 +7265,25 @@
       ],
       "status": [],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -6849,30 +7291,33 @@
       "url": "https://www.dickies.com/collections/womens-tops",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "1/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.dickies.com/en-us/collections/womens-hoodies",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.dickies.com/en-us/collections/womens-shirt-jackets",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 shell"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 shell",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -7031,7 +7476,24 @@
      }
     ]
    },
-   "blocker": null
+   "blocker": {
+    "by": "Cloudflare",
+    "confidence": "높음",
+    "signals": [
+     "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.dickies.com/cdn-cgi/challenge-platform/h/g/orc, 불러온 주소 challenges.cloudflare.com/turnstile/v0/g/b9d4778be"
+    ],
+    "title": "Just a moment...",
+    "status": 403,
+    "engine": "firefox",
+    "url": "https://www.dickies.com/collections/womens-tops",
+    "cookies": [],
+    "headers": {
+     "content-type": "text/html; charset=UTF-8",
+     "cf-mitigated": "challenge",
+     "server": "cloudflare",
+     "cf-ray": "a5ffb4661df520d1-IAD"
+    }
+   }
   },
   {
    "brand": "Draper James",
@@ -7339,18 +7801,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 11,
+      "n": 14,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -7364,14 +7828,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -7385,14 +7851,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -7410,27 +7899,30 @@
       "url": "https://www.eileenfisher.com/shop/clothing/tops-tees",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.eileenfisher.com/shop/clothing/tanks-camis",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.eileenfisher.com/shop/clothing/dresses-skirts",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -8176,18 +8668,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 11,
+      "n": 14,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -8201,14 +8695,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -8222,14 +8718,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -8247,27 +8766,30 @@
       "url": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.fatface.com/shop/womens/clothing/sweatshirts-and-hoodies",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.fatface.com/shop/womens/clothing/dresses",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -8492,18 +9014,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 11,
+      "n": 14,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -8517,14 +9041,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -8538,14 +9064,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "DataDome"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -8563,27 +9112,30 @@
       "url": "https://www.freepeople.com/fpmovement/workout-tops/",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.freepeople.com/fpmovement/hoodies-sweatshirts/",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.freepeople.com/fpmovement/one-pieces/",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -8934,19 +9486,21 @@
     "tierLabel": "0 이미 정상",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -8957,15 +9511,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -8976,15 +9532,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -9012,6 +9570,25 @@
       ],
       "status": [],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -9019,30 +9596,33 @@
       "url": "https://www.frankandeileen.com/collections/tees-tanks",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.frankandeileen.com/collections/sweatshirts-capelets",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.frankandeileen.com/collections/button-ups",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -9117,18 +9697,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -9142,14 +9724,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -9163,14 +9747,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "DataDome"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -9188,27 +9795,30 @@
       "url": "https://www.freepeople.com/tops/",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.freepeople.com/sweatshirts-pullovers/?vis_nav=4",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -9441,18 +10051,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 12,
+      "n": 16,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "no-cards"
@@ -9463,15 +10075,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 4,
-      "n": 4,
+      "ok": 8,
+      "n": 8,
       "urlsOk": 4,
       "urls": 4,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -9482,15 +10096,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 8,
+      "n": 8,
+      "urlsOk": 4,
+      "urls": 4,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 4,
       "n": 4,
       "urlsOk": 4,
       "urls": 4,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -9506,36 +10141,40 @@
       "url": "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS",
       "cat": "pants",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      }
     ]
@@ -9583,28 +10222,30 @@
    },
    "listing": {
     "status": "partial",
-    "tier": 2,
-    "cause": "크롬 Akamai 403 · 평 HTML 은 상품이 없는 껍데기(36KB) · 파이어폭스는 첫 URL 만 · 확장도 URL 3개에서 4~9개",
+    "tier": 1,
+    "cause": "Akamai — 크롬 403 · 파이어폭스는 한 창이면 첫 URL 만, 새 창이면 3/3 열림. 그런데 열려도 상품 7~10개뿐이고 집 IP 확장도 URL 3개에서 4~9개 — 목록을 잘 못 읽음",
     "why": "확장 86·4·9·9",
     "basis": "측정·판정",
-    "fix": "확장 수집기 확인(3개 URL 이 거의 빈손) — 접근은 집 IP",
+    "fix": "파이어폭스 + 새 창으로 열고 수집기 확인(무료, 새 창 1회 측정)",
     "label": "🟠 일부만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 11,
+      "n": 14,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "shell"
@@ -9616,14 +10257,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -9636,15 +10279,17 @@
       ]
      },
      "firefox": {
-      "ok": 1,
-      "n": 3,
+      "ok": 2,
+      "n": 6,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok",
@@ -9657,6 +10302,25 @@
       "by": [
        "Akamai"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -9664,27 +10328,30 @@
       "url": "https://www.garnethill.com/clothing/categories/tops-tees/",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 shell",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "0/4 shell",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__am__spBlouses?categoryId=191619",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 shell",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 shell",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.garnethill.com/clothing/categories/dresses/",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 shell",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 shell",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -10299,18 +10966,20 @@
     "measured": {
      "impit": {
       "ok": 2,
-      "n": 13,
+      "n": 16,
       "urlsOk": 1,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "geo",
@@ -10323,15 +10992,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -10342,23 +11013,29 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
-      "urlsOk": 3,
+      "ok": 5,
+      "n": 6,
+      "urlsOk": 2,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
-       "ok"
+       "ok",
+       "blocked"
       ],
       "status": [
-       200
+       200,
+       403
       ],
-      "by": []
+      "by": [
+       "Cloudflare"
+      ]
      },
      "server": {
       "ok": 4,
@@ -10381,6 +11058,29 @@
        429
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 2,
+      "n": 3,
+      "urlsOk": 2,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked",
+       "ok"
+      ],
+      "status": [
+       403,
+       200
+      ],
+      "by": [
+       "Cloudflare"
+      ]
      }
     },
     "urls": [
@@ -10388,30 +11088,33 @@
       "url": "https://www.goodamerican.com/en-kr/collections/tees-tanks",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 geo",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "1/2 rate-limit 429"
+       "impit": "0/4 geo",
+       "playwright": "2/2",
+       "firefox": "1/2 blocked 403",
+       "server": "1/2 rate-limit 429",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.goodamerican.com/collections/jeanius-sweats",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.goodamerican.com/en-kr/collections/womens-tops",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 geo",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 rate-limit 429"
+       "impit": "0/4 geo",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -10443,7 +11146,24 @@
     "measured": {},
     "urls": []
    },
-   "blocker": null
+   "blocker": {
+    "by": "Cloudflare",
+    "confidence": "높음",
+    "signals": [
+     "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.goodamerican.com/cdn-cgi/challenge-platform/h/, 불러온 주소 challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0"
+    ],
+    "title": "Just a moment...",
+    "status": 403,
+    "engine": "firefox",
+    "url": "https://www.goodamerican.com/en-kr/collections/tees-tanks",
+    "cookies": [],
+    "headers": {
+     "content-type": "text/html; charset=UTF-8",
+     "cf-mitigated": "challenge",
+     "server": "cloudflare",
+     "cf-ray": "a5ffb4793d16821e-IAD"
+    }
+   }
   },
   {
    "brand": "Greyson",
@@ -10750,19 +11470,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -10774,14 +11496,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -10794,15 +11518,36 @@
       ]
      },
      "firefox": {
+      "ok": 6,
+      "n": 6,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 3,
       "n": 3,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -10818,27 +11563,30 @@
       "url": "https://www2.hm.com/en_us/women/products/tops.html?sort=newProduct",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -11845,19 +12593,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 15,
-      "n": 15,
+      "ok": 18,
+      "n": 18,
       "urlsOk": 6,
       "urls": 6,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -11868,15 +12618,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -11887,15 +12639,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -11926,6 +12680,25 @@
        429
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -11933,30 +12706,33 @@
       "url": "https://www.jamesperse.com/collections/womens-t-shirts",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 rate-limit 429"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.jamesperse.com/collections/womens-tanks",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "1/2 rate-limit 429"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "1/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -12181,18 +12957,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -12206,14 +12984,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -12227,14 +13007,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -12252,27 +13055,30 @@
       "url": "https://www.joules.com/shop/womens/clothing/tops",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.joules.com/shop/womens/clothing/sweatshirts-and-hoodies",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.joules.com/shop/womens/clothing/shirts-and-blouses",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -12505,19 +13311,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -12529,14 +13337,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -12549,15 +13359,36 @@
       ]
      },
      "firefox": {
+      "ok": 6,
+      "n": 6,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 3,
       "n": 3,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -12573,27 +13404,30 @@
       "url": "https://global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://global.llbean.com/llb/shop/516735/?prefn1=refinementGender&prefv1=Womens&nav=gnro",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -12894,18 +13728,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -12919,14 +13755,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -12940,14 +13778,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -12965,27 +13826,30 @@
       "url": "https://www.landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0d-xec",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -13629,19 +14493,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -13653,14 +14519,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -13673,19 +14541,42 @@
       ]
      },
      "firefox": {
-      "ok": 1,
-      "n": 3,
+      "ok": 2,
+      "n": 6,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked",
        "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 3,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
       ],
       "status": [
        200
@@ -13700,27 +14591,30 @@
       "url": "https://www.loft.com/clothing/tees-tanks/cat2860023/",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked"
+       "impit": "4/4",
+       "playwright": "0/2 blocked",
+       "firefox": "0/2 blocked",
+       "firefox-fresh": "0/1 blocked"
       }
      },
      {
       "url": "https://www.loft.com/lou-grey/lou-grey-shop-all/cat1880002/",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "0/2 blocked",
+       "firefox": "2/2",
+       "firefox-fresh": "0/1 blocked"
       }
      },
      {
       "url": "https://www.loft.com/clothing/tops/catl000011/",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked"
+       "impit": "4/4",
+       "playwright": "0/2 blocked",
+       "firefox": "0/2 blocked",
+       "firefox-fresh": "0/1 blocked"
       }
      },
      {
@@ -13958,19 +14852,21 @@
     "tierLabel": "4 새 URL 필요(담당자)",
     "measured": {
      "impit": {
-      "ok": 12,
-      "n": 12,
+      "ok": 14,
+      "n": 14,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -13981,15 +14877,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 1,
-      "n": 2,
+      "ok": 2,
+      "n": 4,
       "urlsOk": 1,
       "urls": 2,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok",
@@ -14001,15 +14899,37 @@
       "by": []
      },
      "firefox": {
+      "ok": 2,
+      "n": 4,
+      "urlsOk": 1,
+      "urls": 2,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok",
+       "shell"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 1,
       "n": 2,
       "urlsOk": 1,
       "urls": 2,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "ok",
@@ -14026,9 +14946,10 @@
       "url": "https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -14042,9 +14963,10 @@
       "url": "https://www.luckybrand.com/women/clothing/shirts/blouses",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "0/1 shell",
-       "firefox": "0/1 shell"
+       "impit": "4/4",
+       "playwright": "0/2 shell",
+       "firefox": "0/2 shell",
+       "firefox-fresh": "0/1 shell"
       }
      },
      {
@@ -14231,18 +15153,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -14256,14 +15180,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "conn-drop"
@@ -14273,14 +15199,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -14298,27 +15247,30 @@
       "url": "https://shop.lululemon.com/c/women-t-shirts/n1wx7w",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 conn-drop",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 conn-drop",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://shop.lululemon.com/c/women-tank-tops/n1uk4w",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 conn-drop",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 conn-drop",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 conn-drop",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 conn-drop",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -14546,19 +15498,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 3,
-      "n": 11,
+      "ok": 4,
+      "n": 14,
       "urlsOk": 1,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "no-cards",
@@ -14570,15 +15524,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -14589,15 +15545,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 6,
+      "n": 6,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 3,
       "n": 3,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -14613,27 +15590,30 @@
       "url": "https://www.madewell.com/kr/womens/clothing/tees/",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.madewell.com/kr/womens/clothing/dresses/",
       "cat": "dresses",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -14790,18 +15770,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 15,
+      "n": 18,
       "urlsOk": 0,
       "urls": 6,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -14815,14 +15797,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -14836,14 +15820,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       429
+      ],
+      "by": [
+       "Vercel"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -14861,27 +15868,30 @@
       "url": "https://shop.mango.com/us/en/c/women/t-shirts/8e23bdfb",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 429",
-       "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429"
+       "impit": "0/4 blocked 429",
+       "playwright": "0/2 blocked 429",
+       "firefox": "0/2 blocked 429",
+       "firefox-fresh": "0/1 blocked 429"
       }
      },
      {
       "url": "https://shop.mango.com/us/en/c/women/tops/227371cd",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 429",
-       "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429"
+       "impit": "0/4 blocked 429",
+       "playwright": "0/2 blocked 429",
+       "firefox": "0/2 blocked 429",
+       "firefox-fresh": "0/1 blocked 429"
       }
      },
      {
       "url": "https://shop.mango.com/us/en/c/women/knitwear/7e46863e",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 429",
-       "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429"
+       "impit": "0/4 blocked 429",
+       "playwright": "0/2 blocked 429",
+       "firefox": "0/2 blocked 429",
+       "firefox-fresh": "0/1 blocked 429"
       }
      },
      {
@@ -15233,27 +16243,29 @@
    "listing": {
     "status": "home-only",
     "tier": 1,
-    "cause": "평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2/3 열림",
+    "cause": "평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2회 모두 열림(한 창 2/3 — 1개 404, 새 창 3/3)",
     "why": "확장 603개",
     "basis": "측정·판정",
-    "fix": "헤드리스 파이어폭스 — 오늘 2/3 · 11/24 111개(공용 링크 제외)",
+    "fix": "헤드리스 파이어폭스(+새 창) — 11/24 111개 · 오늘 2회",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -15267,14 +16279,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -15287,15 +16301,17 @@
       ]
      },
      "firefox": {
-      "ok": 2,
-      "n": 3,
+      "ok": 4,
+      "n": 6,
       "urlsOk": 2,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok",
@@ -15308,6 +16324,25 @@
       "by": [
        "Akamai"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -15315,27 +16350,30 @@
       "url": "https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.massimodutti.com/us/s/w-tops-n2889",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 dead 404"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 dead 404",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -16358,19 +17396,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 11,
-      "n": 11,
+      "ok": 14,
+      "n": 14,
       "urlsOk": 4,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -16381,15 +17421,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -16400,15 +17442,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -16440,6 +17484,25 @@
        429
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -16447,30 +17510,33 @@
       "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "1/2 rate-limit 429"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "1/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 shell·rate-limit 429"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 shell·rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.monsoonlondon.com/kr/womens/dresses/",
       "cat": "dresses",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -16561,19 +17627,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 11,
-      "n": 11,
+      "ok": 14,
+      "n": 14,
       "urlsOk": 4,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -16584,15 +17652,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -16603,15 +17673,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -16639,6 +17711,25 @@
       ],
       "status": [],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -16646,30 +17737,33 @@
       "url": "https://nation.la/collections/tops",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://nation.la/collections/sweatshirts",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://nation.la/collections/dresses",
       "cat": "dresses",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -16748,18 +17842,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 10,
+      "n": 12,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "no-cards"
@@ -16770,15 +17866,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 2,
-      "n": 2,
+      "ok": 4,
+      "n": 4,
       "urlsOk": 2,
       "urls": 2,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -16789,15 +17887,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 4,
+      "n": 4,
+      "urlsOk": 2,
+      "urls": 2,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 2,
       "n": 2,
       "urlsOk": 2,
       "urls": 2,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -16813,18 +17932,20 @@
       "url": "https://www.nike.com/w/womens-tops-t-shirts-5e1x6z9om13",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.nike.com/w/womens-fleece-4xh6qz5e1x6",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -17428,18 +18549,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 15,
+      "n": 20,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "no-cards"
@@ -17450,15 +18573,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 5,
-      "n": 5,
+      "ok": 10,
+      "n": 10,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -17469,15 +18594,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 10,
+      "n": 10,
+      "urlsOk": 5,
+      "urls": 5,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 5,
       "n": 5,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -17493,45 +18639,50 @@
       "url": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
       "cat": "pants",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      }
     ]
@@ -17983,18 +19134,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -18008,14 +19161,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -18028,15 +19183,36 @@
       ]
      },
      "firefox": {
+      "ok": 6,
+      "n": 6,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 3,
       "n": 3,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -18052,18 +19228,20 @@
       "url": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.oysho.com/gb/womens-sports-tops-n5484",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -18077,9 +19255,10 @@
       "url": "https://www.oysho.com/gb/dresses-jumpsuits-n4954",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked",
-       "playwright": "0/1 blocked 403",
-       "firefox": "1/1"
+       "impit": "0/4 blocked",
+       "playwright": "0/2 blocked 403",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -18159,18 +19338,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -18184,14 +19365,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -18205,14 +19388,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       429
+      ],
+      "by": [
+       "Vercel"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -18230,27 +19436,30 @@
       "url": "https://paige.com/collection/women-tees-and-tanks",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 429",
-       "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429"
+       "impit": "0/4 blocked 429",
+       "playwright": "0/2 blocked 429",
+       "firefox": "0/2 blocked 429",
+       "firefox-fresh": "0/1 blocked 429"
       }
      },
      {
       "url": "https://paige.com/collection/women-sweaters-and-sweatshirts",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 429",
-       "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429"
+       "impit": "0/4 blocked 429",
+       "playwright": "0/2 blocked 429",
+       "firefox": "0/2 blocked 429",
+       "firefox-fresh": "0/1 blocked 429"
       }
      },
      {
       "url": "https://paige.com/collection/women-tops",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 429",
-       "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429"
+       "impit": "0/4 blocked 429",
+       "playwright": "0/2 blocked 429",
+       "firefox": "0/2 blocked 429",
+       "firefox-fresh": "0/1 blocked 429"
       }
      },
      {
@@ -18480,18 +19689,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "maintenance"
@@ -18503,14 +19714,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "maintenance"
@@ -18521,19 +19734,40 @@
       "by": []
      },
      "firefox": {
-      "ok": 1,
-      "n": 3,
+      "ok": 2,
+      "n": 6,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "maintenance",
        "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 3,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "maintenance"
       ],
       "status": [
        200
@@ -18546,27 +19780,30 @@
       "url": "https://www.patagonia.com/shop/womens/tops/t-shirts",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 maintenance",
-       "playwright": "0/1 maintenance",
-       "firefox": "0/1 maintenance"
+       "impit": "0/4 maintenance",
+       "playwright": "0/2 maintenance",
+       "firefox": "0/2 maintenance",
+       "firefox-fresh": "0/1 maintenance"
       }
      },
      {
       "url": "https://www.patagonia.com/shop/womens/tops/sweatshirts-hoodies",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 maintenance",
-       "playwright": "0/1 maintenance",
-       "firefox": "1/1"
+       "impit": "0/4 maintenance",
+       "playwright": "0/2 maintenance",
+       "firefox": "2/2",
+       "firefox-fresh": "0/1 maintenance"
       }
      },
      {
       "url": "https://www.patagonia.com/shop/womens/tops/button-down",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 maintenance",
-       "playwright": "0/1 maintenance",
-       "firefox": "0/1 maintenance"
+       "impit": "0/4 maintenance",
+       "playwright": "0/2 maintenance",
+       "firefox": "0/2 maintenance",
+       "firefox-fresh": "0/1 maintenance"
       }
      },
      {
@@ -19165,7 +20402,7 @@
    "listing": {
     "status": "blocked",
     "tier": 2,
-    "cause": "Cloudflare 차단 화면(Attention Required · Sorry, you have been blocked) — impit·서버 전부 · 크롬·파이어폭스는 첫 URL 만 열리고 다음부터 403",
+    "cause": "Cloudflare 차단 화면(Attention Required · Sorry, you have been blocked) — impit·서버 전부. 1차 러너에선 크롬·파이어폭스가 첫 URL 만 열렸고, 2차 러너에선 첫 URL 도 403(새 창 포함)",
     "why": "서버 6일 연속 1개 · 카탈로그 9/22 이후 갱신 없음(두 달)",
     "basis": "측정·판정",
     "fix": "확장 담당으로 옮김(집 IP — 안 재 봄) 또는 유료(Cloudflare 대응)",
@@ -19174,18 +20411,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 12,
+      "n": 16,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -19199,14 +20438,16 @@
      },
      "playwright": {
       "ok": 1,
-      "n": 4,
-      "urlsOk": 1,
+      "n": 8,
+      "urlsOk": 0,
       "urls": 4,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok",
@@ -19217,19 +20458,22 @@
        403
       ],
       "by": [
-       "HUMAN(PerimeterX)"
+       "HUMAN(PerimeterX)",
+       "Cloudflare"
       ]
      },
      "firefox": {
       "ok": 1,
-      "n": 4,
-      "urlsOk": 1,
+      "n": 8,
+      "urlsOk": 0,
       "urls": 4,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok",
@@ -19240,6 +20484,7 @@
        403
       ],
       "by": [
+       "HUMAN(PerimeterX)",
        "Cloudflare"
       ]
      },
@@ -19264,6 +20509,27 @@
        403
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 4,
+      "urlsOk": 0,
+      "urls": 4,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
      }
     },
     "urls": [
@@ -19271,40 +20537,44 @@
       "url": "https://www.prana.com/women/tops.html",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "1/2 blocked 403",
+       "firefox": "1/2 blocked 403",
+       "server": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.prana.com/women/tops/sweaters-hoodies.html",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "0/2 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.prana.com/women/dresses-skirts.html",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "0/2 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.prana.com/women/bottoms.html",
       "cat": "pants",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "0/2 shell 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "0/2 shell 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      }
     ]
@@ -19956,27 +21226,29 @@
    "listing": {
     "status": "partial",
     "tier": 1,
-    "cause": "Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0) · 데이터센터 크롬은 3/3 열림",
+    "cause": "Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0). 데이터센터 헤드리스 크롬은 2회 모두 3/3, 파이어폭스는 첫 URL 만 — 새 창이면 3/3",
     "why": "프리페치 221개(저장 753 은 옛 수집분 포함)",
     "basis": "측정·판정",
-    "fix": "헤드리스 크롬 그룹으로 옮김(무료) — 러너마다 갈리는지 2차 측정 참고",
+    "fix": "헤드리스 크롬 그룹으로 옮김(무료, 2회 측정)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -19989,15 +21261,17 @@
       ]
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -20008,15 +21282,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 1,
-      "n": 3,
+      "ok": 2,
+      "n": 6,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok",
@@ -20052,6 +21328,25 @@
        403
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -20059,30 +21354,33 @@
       "url": "https://www.thereformation.com/tops",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.thereformation.com/the-sweater-shop.html",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "1/1",
-       "firefox": "0/1 blocked 403",
-       "server": "0/2 shell 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "2/2",
+       "firefox": "0/2 blocked 403",
+       "server": "0/2 shell 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.thereformation.com/tops/button-ups",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "1/1",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "2/2",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -20844,19 +22142,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 13,
-      "n": 13,
+      "ok": 16,
+      "n": 16,
       "urlsOk": 5,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -20867,15 +22167,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -20886,15 +22188,36 @@
       "by": []
      },
      "firefox": {
+      "ok": 6,
+      "n": 6,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45578690977",
+       "45584342647"
+      ],
+      "ips": [
+       "52.176.139.x",
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
+     },
+     "firefox-fresh": {
       "ok": 3,
       "n": 3,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -20910,27 +22233,30 @@
       "url": "https://www.seasaltcornwall.com/clothing/tops",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.seasaltcornwall.com/clothing/jumpers-cardigans",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.seasaltcornwall.com/clothing/shirts-blouses",
       "cat": "shirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -21289,18 +22615,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 11,
+      "n": 14,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -21314,14 +22642,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -21335,14 +22665,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "DataDome"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -21360,27 +22713,30 @@
       "url": "https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.sezane.com/us-en/collection/dresses",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -22761,18 +24117,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "no-cards"
@@ -22783,15 +24141,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -22802,15 +24162,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -22838,6 +24200,25 @@
       ],
       "status": [],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -22845,30 +24226,33 @@
       "url": "https://thisisthegreat.com/collections/the-great-knits",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://thisisthegreat.com/collections/knit-shop-sweatshirts",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://thisisthegreat.com/collections/tops",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -22947,28 +24331,30 @@
    },
    "listing": {
     "status": "partial",
-    "tier": 2,
-    "cause": "Cloudflare 확인 화면 — 헤드리스·파이어폭스 모두 첫 URL 만 열리고 다음 3개 403",
+    "tier": 1,
+    "cause": "Cloudflare 확인 화면 — 한 창으로 이어서 열면 첫 카테고리만 열리고 다음부터 403(헤드리스 크롬·파이어폭스 2회). 카테고리마다 쿠키 없는 새 창으로 열면 4/4 열림(68·56·30·68)",
     "why": "헤드리스 11/25 70·0·0·0 (저장 429 는 옛 수집분)",
     "basis": "측정·판정",
-    "fix": "카테고리마다 새 창으로 열기(11/25 2차 측정 참고) · 안 되면 확장 또는 유료",
+    "fix": "헤드리스 수집을 파이어폭스 + 카테고리마다 새 창(browser-collect 의 FRESH_CONTEXT=1 — 이미 있는 설정)으로. 새 창 측정은 1회",
     "label": "🟠 일부만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 12,
+      "n": 16,
       "urlsOk": 0,
       "urls": 4,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "blocked"
@@ -22981,15 +24367,17 @@
       ]
      },
      "playwright": {
-      "ok": 1,
-      "n": 4,
+      "ok": 2,
+      "n": 8,
       "urlsOk": 1,
       "urls": 4,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok",
@@ -23004,15 +24392,17 @@
       ]
      },
      "firefox": {
-      "ok": 1,
-      "n": 4,
+      "ok": 2,
+      "n": 8,
       "urlsOk": 1,
       "urls": 4,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok",
@@ -23025,6 +24415,25 @@
       "by": [
        "Cloudflare"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 4,
+      "n": 4,
+      "urlsOk": 4,
+      "urls": 4,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -23032,49 +24441,53 @@
       "url": "https://www.theupside.com/shop/tops/",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "0/4 blocked 403",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.theupside.com/shop/tops/knitwear/",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.theupside.com/shop/all-in-one/",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.theupside.com/shop/bottoms/",
       "cat": "pants",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "1/1"
       }
      }
     ]
    },
    "product": {
     "status": "partial",
-    "tier": 2,
-    "cause": "Cloudflare — 브라우저는 첫 페이지만",
+    "tier": 1,
+    "cause": "Cloudflare — 한 창으로 이어 열면 첫 페이지만",
     "why": "혼용률 322/429",
     "basis": "측정·판정",
-    "fix": "확장 또는 새 창",
+    "fix": "보강도 페이지마다 새 창(1회 측정 결과는 상품 2차 실행 참고)",
     "label": "🟠 일부만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -23282,18 +24695,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 9,
+      "n": 12,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "geo"
@@ -23305,14 +24720,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "geo",
@@ -23328,14 +24745,16 @@
      },
      "firefox": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "geo",
@@ -23348,6 +24767,25 @@
       "by": [
        "Akamai"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 3,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "geo"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -23355,27 +24793,30 @@
       "url": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 geo",
-       "playwright": "0/1 geo",
-       "firefox": "0/1 geo"
+       "impit": "0/4 geo",
+       "playwright": "0/2 geo",
+       "firefox": "0/2 geo",
+       "firefox-fresh": "0/1 geo"
       }
      },
      {
       "url": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 geo",
-       "playwright": "0/1 dead 404",
-       "firefox": "0/1 dead 404"
+       "impit": "0/4 geo",
+       "playwright": "0/2 dead 404",
+       "firefox": "0/2 dead 404",
+       "firefox-fresh": "0/1 geo"
       }
      },
      {
       "url": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 geo",
-       "playwright": "0/1 dead 404",
-       "firefox": "0/1 dead 404"
+       "impit": "0/4 geo",
+       "playwright": "0/2 dead 404",
+       "firefox": "0/2 dead 404",
+       "firefox-fresh": "0/1 geo"
       }
      }
     ]
@@ -23570,18 +25011,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -23595,14 +25038,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 3,
+      "n": 6,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -23616,14 +25061,37 @@
      },
      "firefox": {
       "ok": 0,
+      "n": 6,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45578696329",
+       "45584347742"
+      ],
+      "ips": [
+       "74.235.103.x",
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
       "n": 3,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -23641,27 +25109,30 @@
       "url": "https://www.theory.com/women/t-shirts-and-tanks/",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.theory.com/women/loungewear/",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.theory.com/women/tops/",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -24257,18 +25728,20 @@
     "measured": {
      "impit": {
       "ok": 6,
-      "n": 15,
+      "n": 18,
       "urlsOk": 3,
       "urls": 6,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "no-cards",
@@ -24281,15 +25754,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 2,
-      "n": 3,
+      "ok": 4,
+      "n": 6,
       "urlsOk": 2,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok",
@@ -24301,15 +25776,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 2,
-      "n": 3,
+      "ok": 4,
+      "n": 6,
       "urlsOk": 2,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok",
@@ -24339,6 +25816,26 @@
       ],
       "status": [],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 2,
+      "n": 3,
+      "urlsOk": 2,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok",
+       "dead"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -24346,30 +25843,33 @@
       "url": "https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.vanessabruno.com/clothing/shirts-tops/top.html",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "2/2"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "2/2",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.vanessabruno.com/last-chance/knitwear.html",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 dead",
-       "playwright": "0/1 dead",
-       "firefox": "0/1 dead",
-       "server": "0/2 shell"
+       "impit": "0/4 dead",
+       "playwright": "0/2 dead",
+       "firefox": "0/2 dead",
+       "server": "0/2 shell",
+       "firefox-fresh": "0/1 dead"
       }
      },
      {
@@ -25032,18 +26532,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 13,
+      "n": 16,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "no-cards"
@@ -25054,15 +26556,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -25073,15 +26577,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -25113,6 +26619,25 @@
        429
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -25120,30 +26645,33 @@
       "url": "https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "1/2 rate-limit 429"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "1/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 rate-limit 429"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 no-cards",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 shell·rate-limit 429"
+       "impit": "0/4 no-cards",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 shell·rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -25386,18 +26914,20 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 15,
+      "n": 20,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -25411,14 +26941,16 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 5,
+      "n": 10,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -25432,14 +26964,16 @@
      },
      "firefox": {
       "ok": 0,
-      "n": 5,
+      "n": 10,
       "urlsOk": 0,
       "urls": 5,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "blocked"
@@ -25471,6 +27005,27 @@
        403
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 5,
+      "urlsOk": 0,
+      "urls": 5,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "Akamai"
+      ]
      }
     },
     "urls": [
@@ -25478,50 +27033,55 @@
       "url": "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.whitehouseblackmarket.com/store/category/tops/cat210001",
       "cat": "tops",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287",
       "cat": "shirts",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002",
       "cat": "dresses",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
       "cat": "pants",
       "engines": {
-       "impit": "0/3 blocked 403",
-       "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "server": "2/2"
+       "impit": "0/4 blocked 403",
+       "playwright": "0/2 blocked 403",
+       "firefox": "0/2 blocked 403",
+       "server": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      }
     ]
@@ -25901,19 +27461,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 15,
-      "n": 15,
+      "ok": 18,
+      "n": 18,
       "urlsOk": 6,
       "urls": 6,
       "runs": [
        "45578685230",
        "45578696329",
-       "45580608846"
+       "45580608846",
+       "45584347742"
       ],
       "ips": [
        "20.64.204.x",
        "74.235.103.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -25924,15 +27486,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -25943,15 +27507,17 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578696329"
+       "45578696329",
+       "45584347742"
       ],
       "ips": [
-       "74.235.103.x"
+       "74.235.103.x",
+       "20.120.221.x"
       ],
       "causes": [
        "ok"
@@ -25982,6 +27548,25 @@
        429
       ],
       "by": []
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45584347742"
+      ],
+      "ips": [
+       "20.120.221.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -25989,30 +27574,33 @@
       "url": "https://www.whitestuff.com/browse/collection/womens-t-shirts",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "1/2 rate-limit 429"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "1/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.whitestuff.com/browse/womens/tops-and-tees",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 rate-limit 429"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.whitestuff.com/browse/womens/knitwear",
       "cat": "sweatshirts",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1",
-       "server": "0/2 rate-limit 429"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "server": "0/2 rate-limit 429",
+       "firefox-fresh": "1/1"
       }
      },
      {
@@ -26219,19 +27807,21 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 15,
-      "n": 15,
+      "ok": 18,
+      "n": 18,
       "urlsOk": 6,
       "urls": 6,
       "runs": [
        "45578685230",
        "45578690977",
-       "45580608846"
+       "45580608846",
+       "45584342647"
       ],
       "ips": [
        "20.64.204.x",
        "52.176.139.x",
-       "52.226.124.x"
+       "52.226.124.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -26242,15 +27832,17 @@
       "by": []
      },
      "playwright": {
-      "ok": 3,
-      "n": 3,
+      "ok": 6,
+      "n": 6,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
        "ok"
@@ -26261,23 +27853,52 @@
       "by": []
      },
      "firefox": {
-      "ok": 3,
-      "n": 3,
-      "urlsOk": 3,
+      "ok": 5,
+      "n": 6,
+      "urlsOk": 2,
       "urls": 3,
       "runs": [
-       "45578690977"
+       "45578690977",
+       "45584342647"
       ],
       "ips": [
-       "52.176.139.x"
+       "52.176.139.x",
+       "20.55.223.x"
       ],
       "causes": [
-       "ok"
+       "ok",
+       "blocked"
       ],
       "status": [
-       200
+       200,
+       403
       ],
-      "by": []
+      "by": [
+       "Cloudflare"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 1,
+      "n": 3,
+      "urlsOk": 1,
+      "urls": 3,
+      "runs": [
+       "45584342647"
+      ],
+      "ips": [
+       "20.55.223.x"
+      ],
+      "causes": [
+       "ok",
+       "blocked"
+      ],
+      "status": [
+       200,
+       403
+      ],
+      "by": [
+       "Cloudflare"
+      ]
      }
     },
     "urls": [
@@ -26285,27 +27906,30 @@
       "url": "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "1/2 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops",
       "cat": "tops",
       "engines": {
-       "impit": "3/3",
-       "playwright": "1/1",
-       "firefox": "1/1"
+       "impit": "4/4",
+       "playwright": "2/2",
+       "firefox": "2/2",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
@@ -26469,7 +28093,24 @@
      }
     ]
    },
-   "blocker": null
+   "blocker": {
+    "by": "Cloudflare",
+    "confidence": "높음",
+    "signals": [
+     "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.wilson.com/cdn-cgi/challenge-platform/h/b/orch, 불러온 주소 challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0"
+    ],
+    "title": "Just a moment...",
+    "status": 403,
+    "engine": "firefox",
+    "url": "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
+    "cookies": [],
+    "headers": {
+     "content-type": "text/html; charset=UTF-8",
+     "cf-mitigated": "challenge",
+     "server": "cloudflare",
+     "cf-ray": "a5ffb43fc8917fa2-IAD"
+    }
+   }
   },
   {
    "brand": "Wrap",

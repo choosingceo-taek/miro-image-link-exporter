@@ -1,6 +1,6 @@
 # 접근 지도 — 134개 브랜드, 우리 수집기가 어디까지 닿는가
 
-만든 때 2026-11-25T09:37Z · 측정 실행 11회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
+만든 때 2026-11-25T10:14Z · 측정 실행 13회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
 
 이 문서는 `node scripts/build-access-map.mjs` 가 만든다. 같은 사실이 `access-map.json` 에 기계용으로 있다.
 판정 근거는 세 가지뿐이다 — ① 11/25 야간 리포트(서버 프리페치·헤드리스 수집·카탈로그 점검·혼용률 보강),
@@ -83,11 +83,14 @@
 | Cloudflare | 높음 | Alo | HTTP 403 · 제목 "Verifying your connection..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge |
 | Cloudflare | 높음 | Aritzia | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
 | Cloudflare | 높음 | Coldwatercreek | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
+| Cloudflare | 높음 | Dickies | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.dickies.com/cdn-cgi/challenge-platform/h/g/orc, 불러온 주소 challenges.cloudflare.com/turnstile/v0/g/b9d4778be |
+| Cloudflare | 높음 | Good American | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.goodamerican.com/cdn-cgi/challenge-platform/h/, 불러온 주소 challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0 |
 | Cloudflare | 높음 | L.L bean | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-block |
 | Cloudflare | 높음 | On | HTTP 200 · 제목 "" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-challenge |
 | Cloudflare | 높음 | Prana | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 화면 흔적 cf-block |
 | Cloudflare | 높음 | Reformation | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
 | Cloudflare | 높음 | The upside | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge |
+| Cloudflare | 높음 | Wilson | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.wilson.com/cdn-cgi/challenge-platform/h/b/orch, 불러온 주소 challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0 |
 | DataDome | 높음 | Anthropologie | HTTP 403 · 제목 "anthropologie.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | FP Movement | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | Free People | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
@@ -100,6 +103,28 @@
 | Vercel | 높음 | Paige | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
 
 
+업체별로 본 것(오늘 측정 기준):
+
+- **Akamai(Bot Manager)** — 가장 많다. 두 가지 모양: ① “Access Denied … Reference #18.…” 화면 + `server: AkamaiGHost`·`akamai-grn` +
+  쿠키 `_abck`·`bm_sz`·`bm_s`(Chico's·WHBM·Joules·Fatface·Lululemon·Lands end·Theory·Eileen fisher·adidas — adidas 는
+  “Reference Error … unable to give you access”), ② HTTP 200 인데 본문이 비어 있고 `bm-verify` 확인 스크립트 + 쿠키 `ak_bmsc`
+  (Zara·Massimo Dutti·Oysho, 브라우저 없는 fetch 에만). 일부 사이트(H&M·Arket·&Other Stories·Garnet hill)는 **헤드리스 크롬만** 거부하고
+  브라우저 없는 fetch(impit)나 파이어폭스는 통과시킨다 — 사이트마다 규칙 강도가 다르다는 뜻이다.
+- **Cloudflare** — “Just a moment…”/“Verifying your connection…” 확인 화면(`cf-mitigated: challenge`, Aritzia·Reformation·The upside·
+  Coldwatercreek·Alo)과 “Attention Required! … Sorry, you have been blocked” 차단 화면(Prana, L.L bean 은 크롬만). 브라우저로 열면
+  첫 페이지는 통과하고 두 번째부터 막히는 경우가 많다(Prana·The upside·Reformation 파이어폭스).
+- **DataDome** — `x-datadome: protected`, 쿠키 `datadome`, 화면 “Please enable JS and disable any ad blocker” + `captcha-delivery.com`.
+  Anthropologie·Free People·FP Movement(같은 회사)·Sezane. 우리 엔진 전부(브라우저 포함) 막힌다.
+- **HUMAN(PerimeterX)** — 화면 “Access to this page has been denied.” + `px-cloud.net` 스크립트·`px-captcha`. Ann Taylor·Loft(같은 회사).
+  **브라우저만** 막히고 브라우저 없는 fetch 는 통과(상품 링크 170~260개가 그대로 보인다).
+- **Vercel 방화벽** — “Vercel Security Checkpoint … We're verifying your browser”, HTTP 429, `x-vercel-id`. Mango·Paige. 모든 엔진.
+- **업체 불명** — Abercrombie & Fitch: 제목 “Client Challenge”, 쿠키 `_fs_ch_st_*`, 크롬은 HTTP 418. 흔적으로 업체를 특정할 수 없어 '알 수 없음'.
+- **차단이 아닌 것** — The White Company 는 미국 IP 를 /us/ 로 돌려 “미국으로 배송 못 함” 화면(지역). Patagonia 는 데이터센터에
+  “시스템 점검 중” 정적 화면(`server: AkamaiNetStorage`)을 준다 — 같은 시각 파이어폭스로 일부 페이지가 열려 진짜 점검은 아니다(낮음).
+
+유료 서비스를 고른다면: 무료로 안 되는 주소의 대부분이 **Akamai**(브랜드 수 기준 최다)이고 다음이 **DataDome**·**Cloudflare** 다.
+세 업체를 모두 통과하는지가 관건이다 — 한 업체만 잘 뚫는 서비스는 일부 브랜드만 푼다. Vercel(2)·Client Challenge(1)는 작다.
+아래 §6 의 시험 칸으로 `targets-blocked.json`(무료로 못 연 주소만) 한 번이면 서비스마다 업체별 통과율이 나온다.
 
 
 ## 3. 담당자가 확인해야 할 URL
@@ -216,77 +241,77 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| &Other Stories | 크롬 확장(집 PC) | 343 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 343개(URL 4/5 · tops 12개) — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 | 헤드리스 파이어폭스(browser-extra-brands) 또는 서버 HTML 로 옮김 — 11/24 파이어폭스 수집 475개 · 오늘 impit·파이어폭스 전부 성공 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Abercrombie & Fitch | 크롬 확장(집 PC) | 214 | 업체 불명 'Client Challenge' 확인 화면(쿠키 _fs_ch_st_*) · 크롬은 HTTP 418 | 확장 214개(6/6 URL) — 오늘 impit 0/15(blocked) · playwright 0/3(blocked 418) · firefox 0/3(blocked) | 확장 유지. 서버에 A&F 전용 카탈로그 API 코드(abercrombie-catalog)가 있다 — 데이터센터에서 되는지 안 재 봄(추정) | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Addidas | 크롬 확장(집 PC) | 408 | Akamai 거부(“Reference Error … unable to give you access”) — 모든 엔진 | 확장 408개(URL 3/4) — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 · 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Ann Taylor | 크롬 확장(집 PC) | 381 | 브라우저는 PerimeterX 차단 화면(“Access to this page has been denied” + px-cloud.net) · 평 HTML(impit)은 상품 250개 넘게 보임 | 확장 381개 — 오늘 impit 9/9 · playwright 1/3(blocked) · firefox 0/3(blocked) | 서버 HTML 수집(브라우저 TLS 지문 fetch)으로 옮김 — 오늘 impit 9/9 URL 에서 상품 링크 252~261개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Anthropologie | 크롬 확장(집 PC) | 270 | DataDome 차단(x-datadome: protected · 쿠키 datadome · captcha-delivery) — 파이어폭스는 첫 URL 만 열리고 다음부터 403 | 확장 270개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) | 확장 유지 · 유료(DataDome 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Aritzia | 크롬 확장(집 PC) | 800 | Cloudflare 확인 화면(Just a moment… · cf-mitigated: challenge) — 파이어폭스는 3개 중 1개만 | 확장 800개(6/6 URL) — 오늘 impit 0/15(blocked 403) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) | 서버에 Aritzia 검색 API(Algolia) 코드가 이미 있다 — 데이터센터에서 되면 무료(오늘 안 잼, 추정) · 아니면 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Arket | 크롬 확장(집 PC) | 285 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 285개(URL 4/5) — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 | 헤드리스 파이어폭스 또는 서버 HTML — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 373개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Eileen fisher | 크롬 확장(집 PC) | 545 | Akamai 거부 화면(Access Denied · Reference #) — 모든 엔진 | 확장 545개 — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Fatface | 크롬 확장(집 PC) | 374 | Akamai 거부 — 모든 엔진 | 확장 374개(URL 3/4) — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| FP Movement | 크롬 확장(집 PC) | 58 | DataDome 차단 — 모든 엔진 | 확장 58개 · 표본이 카테고리 타일(수집기가 잘못 잡음 의심) — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 + 확장 수집기 선택자 확인 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Free People | 크롬 확장(집 PC) | 190 | DataDome 차단 — 모든 엔진 | 확장 190개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 · 유료(DataDome 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| H&M | 크롬 확장(집 PC) | 744 | 크롬만 Akamai 403 — 평 HTML(impit)에 상품 링크 323개, 파이어폭스도 열림 | 확장 744개 — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 744개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Joules | 크롬 확장(집 PC) | 459 | Akamai 거부 — 모든 엔진(Fatface 와 같은 플랫폼) | 확장 459개(URL 4/5) — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| L.L bean | 크롬 확장(집 PC) | 310 | 크롬만 Cloudflare 차단(Attention Required) — 평 HTML·파이어폭스는 열림 | 확장 310개 — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13(상품 링크 244~276)·파이어폭스 3/3 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Lands end | 크롬 확장(집 PC) | 469 | Akamai 거부 — 모든 엔진 | 확장 469개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Loft | 크롬 확장(집 PC) | 673 | 브라우저는 PerimeterX 차단 화면 · 평 HTML(impit)은 상품 링크 171개 | 확장 673개 — 오늘 impit 13/13 · playwright 0/3(blocked) · firefox 1/3(blocked) | 서버 HTML 수집으로 옮김 — 오늘 impit 13/13 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Lululemon | 크롬 확장(집 PC) | 476 | Akamai 거부 — 모든 엔진(크롬은 접속 끊김) | 확장 476개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(conn-drop) · firefox 0/3(blocked 403) | 확장 유지 · 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Madewell | 크롬 확장(집 PC) | 75 | 차단 없음 — 데이터센터 크롬·파이어폭스 3/3(22~26개). 평 HTML 엔 상품이 적음(스크립트가 그림) | 확장 75개(URL 35·26·6·8) — 오늘 impit 3/11(no-cards) · playwright 3/3 · firefox 3/3 | 헤드리스 크롬 그룹으로 옮김(무료). URL 이 한국 지역(/kr/)이라 가격이 원화일 수 있음 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Mango | 크롬 확장(집 PC) | 93 | Vercel 보안 확인 화면(Vercel Security Checkpoint, HTTP 429) — 모든 엔진 · 확장도 URL 당 14~16개만 | 확장 93개 — 오늘 impit 0/15(blocked 429) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) | 확장 유지 + 확장 수집기의 더 보기/스크롤 확인 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Massimo Dutti | 크롬 확장(집 PC) | 603 | 평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2/3 열림 | 확장 603개 — 오늘 impit 0/13(blocked) · playwright 0/3(blocked 403) · firefox 2/3(dead 404) | 헤드리스 파이어폭스 — 오늘 2/3 · 11/24 111개(공용 링크 제외) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Paige | 크롬 확장(집 PC) | 60 | Vercel 보안 확인 화면(HTTP 429) — 모든 엔진 | 확장 60개(URL 당 8~24) — 오늘 impit 0/13(blocked 429) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Patagonia | 크롬 확장(집 PC) | 168 | 데이터센터에는 '시스템 점검 중' 정적 화면(server: AkamaiNetStorage) — 진짜 점검이 아니라 봇에게 보내는 화면으로 보임(낮음) · 파이어폭스 1/3 | 확장 168개 — 오늘 impit 0/13(maintenance) · playwright 0/3(maintenance) · firefox 1/3(maintenance) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Seasalt cornwall | 크롬 확장(집 PC) | 279 | 차단 없음 — 데이터센터 모든 엔진 성공 | 확장 279개 — 오늘 impit 13/13 · playwright 3/3 · firefox 3/3 | 서버(HTML) 그룹으로 옮김 — 오늘 impit 13/13 · 크롬·파이어폭스 59~60개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Sezane | 크롬 확장(집 PC) | 206 | DataDome 차단(CloudFront 앞단) — 모든 엔진 | 확장 206개(URL 1개는 1개만) — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| The white company | 크롬 확장(집 PC) | 68 | 지역: /uk/ 주소가 미국 IP 에서 /us/ 로 넘어가 '미국으로 배송 못 함' 화면 — 차단 아님 | 확장 68개(URL 2/3) — 오늘 impit 0/9(geo) · playwright 0/3(geo·dead 404) · firefox 0/3(geo·dead 404) | 영국 지역 쿠키·파라미터로 열어 보기(무료, 안 재 봄) · 안 되면 영국 IP(유료 서비스의 국가 지정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Theory | 크롬 확장(집 PC) | 379 | Akamai 거부 — 모든 엔진 | 확장 379개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| Wilson | 크롬 확장(집 PC) | 52 | 차단 없음 — 데이터센터 모든 엔진 성공(크롬·파이어폭스 24~28개 > 확장 4~19개) | 확장 52개 — 오늘 impit 15/15 · playwright 3/3 · firefox 3/3 | 헤드리스 크롬 그룹으로 옮김(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| &Other Stories | 크롬 확장(집 PC) | 343 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 343개(URL 4/5 · tops 12개) — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스(browser-extra-brands) 또는 서버 HTML 로 옮김 — 11/24 파이어폭스 수집 475개 · 오늘 impit·파이어폭스 전부 성공 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Abercrombie & Fitch | 크롬 확장(집 PC) | 214 | 업체 불명 'Client Challenge' 확인 화면(쿠키 _fs_ch_st_*) · 크롬은 HTTP 418 | 확장 214개(6/6 URL) — 오늘 impit 0/18(blocked) · playwright 0/6(blocked 418) · firefox 0/6(blocked) · firefox-fresh 0/3(blocked) | 확장 유지. 서버에 A&F 전용 카탈로그 API 코드(abercrombie-catalog)가 있다 — 데이터센터에서 되는지 안 재 봄(추정) | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Addidas | 크롬 확장(집 PC) | 408 | Akamai 거부(“Reference Error … unable to give you access”) — 모든 엔진 | 확장 408개(URL 3/4) — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked·conn-drop 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 · 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Ann Taylor | 크롬 확장(집 PC) | 381 | 브라우저는 PerimeterX 차단 화면(“Access to this page has been denied” + px-cloud.net) · 평 HTML(impit)은 상품 250개 넘게 보임 | 확장 381개 — 오늘 impit 12/12 · playwright 2/6(blocked) · firefox 0/6(blocked) · firefox-fresh 0/3(blocked) | 서버 HTML 수집(브라우저 TLS 지문 fetch)으로 옮김 — 오늘 impit 9/9 URL 에서 상품 링크 252~261개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Anthropologie | 크롬 확장(집 PC) | 270 | DataDome 차단(x-datadome: protected · 쿠키 datadome · captcha-delivery) — 파이어폭스는 첫 URL 만 열리고 다음부터 403 | 확장 270개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 · 유료(DataDome 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Aritzia | 크롬 확장(집 PC) | 800 | Cloudflare 확인 화면(Just a moment… · cf-mitigated: challenge) — 파이어폭스는 3개 중 1개만 | 확장 800개(6/6 URL) — 오늘 impit 0/18(blocked 403) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 서버에 Aritzia 검색 API(Algolia) 코드가 이미 있다 — 데이터센터에서 되면 무료(오늘 안 잼, 추정) · 아니면 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Arket | 크롬 확장(집 PC) | 285 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 285개(URL 4/5) — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스 또는 서버 HTML — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 373개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Eileen fisher | 크롬 확장(집 PC) | 545 | Akamai 거부 화면(Access Denied · Reference #) — 모든 엔진 | 확장 545개 — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Fatface | 크롬 확장(집 PC) | 374 | Akamai 거부 — 모든 엔진 | 확장 374개(URL 3/4) — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| FP Movement | 크롬 확장(집 PC) | 58 | DataDome 차단 — 모든 엔진 | 확장 58개 · 표본이 카테고리 타일(수집기가 잘못 잡음 의심) — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 + 확장 수집기 선택자 확인 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Free People | 크롬 확장(집 PC) | 190 | DataDome 차단 — 모든 엔진 | 확장 190개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 · 유료(DataDome 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| H&M | 크롬 확장(집 PC) | 744 | 크롬만 Akamai 403 — 평 HTML(impit)에 상품 링크 323개, 파이어폭스도 열림 | 확장 744개 — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 744개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Joules | 크롬 확장(집 PC) | 459 | Akamai 거부 — 모든 엔진(Fatface 와 같은 플랫폼) | 확장 459개(URL 4/5) — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| L.L bean | 크롬 확장(집 PC) | 310 | 크롬만 Cloudflare 차단(Attention Required) — 평 HTML·파이어폭스는 열림 | 확장 310개 — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13(상품 링크 244~276)·파이어폭스 3/3 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Lands end | 크롬 확장(집 PC) | 469 | Akamai 거부 — 모든 엔진 | 확장 469개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Loft | 크롬 확장(집 PC) | 673 | 브라우저는 PerimeterX 차단 화면 · 평 HTML(impit)은 상품 링크 171개 | 확장 673개 — 오늘 impit 16/16 · playwright 0/6(blocked) · firefox 2/6(blocked) · firefox-fresh 0/3(blocked) | 서버 HTML 수집으로 옮김 — 오늘 impit 13/13 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Lululemon | 크롬 확장(집 PC) | 476 | Akamai 거부 — 모든 엔진(크롬은 접속 끊김) | 확장 476개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(conn-drop) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 · 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Madewell | 크롬 확장(집 PC) | 75 | 차단 없음 — 데이터센터 크롬·파이어폭스 3/3(22~26개). 평 HTML 엔 상품이 적음(스크립트가 그림) | 확장 75개(URL 35·26·6·8) — 오늘 impit 4/14(no-cards) · playwright 6/6 · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 크롬 그룹으로 옮김(무료). URL 이 한국 지역(/kr/)이라 가격이 원화일 수 있음 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Mango | 크롬 확장(집 PC) | 93 | Vercel 보안 확인 화면(Vercel Security Checkpoint, HTTP 429) — 모든 엔진 · 확장도 URL 당 14~16개만 | 확장 93개 — 오늘 impit 0/18(blocked 429) · playwright 0/6(blocked 429) · firefox 0/6(blocked 429) · firefox-fresh 0/3(blocked 429) | 확장 유지 + 확장 수집기의 더 보기/스크롤 확인 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Massimo Dutti | 크롬 확장(집 PC) | 603 | 평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2회 모두 열림(한 창 2/3 — 1개 404, 새 창 3/3) | 확장 603개 — 오늘 impit 0/16(blocked) · playwright 0/6(blocked 403) · firefox 4/6(dead 404) · firefox-fresh 3/3 | 헤드리스 파이어폭스(+새 창) — 11/24 111개 · 오늘 2회 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Paige | 크롬 확장(집 PC) | 60 | Vercel 보안 확인 화면(HTTP 429) — 모든 엔진 | 확장 60개(URL 당 8~24) — 오늘 impit 0/16(blocked 429) · playwright 0/6(blocked 429) · firefox 0/6(blocked 429) · firefox-fresh 0/3(blocked 429) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Patagonia | 크롬 확장(집 PC) | 168 | 데이터센터에는 '시스템 점검 중' 정적 화면(server: AkamaiNetStorage) — 진짜 점검이 아니라 봇에게 보내는 화면으로 보임(낮음) · 파이어폭스 1/3 | 확장 168개 — 오늘 impit 0/16(maintenance) · playwright 0/6(maintenance) · firefox 2/6(maintenance) · firefox-fresh 0/3(maintenance) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Seasalt cornwall | 크롬 확장(집 PC) | 279 | 차단 없음 — 데이터센터 모든 엔진 성공 | 확장 279개 — 오늘 impit 16/16 · playwright 6/6 · firefox 6/6 · firefox-fresh 3/3 | 서버(HTML) 그룹으로 옮김 — 오늘 impit 13/13 · 크롬·파이어폭스 59~60개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Sezane | 크롬 확장(집 PC) | 206 | DataDome 차단(CloudFront 앞단) — 모든 엔진 | 확장 206개(URL 1개는 1개만) — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| The white company | 크롬 확장(집 PC) | 68 | 지역: /uk/ 주소가 미국 IP 에서 /us/ 로 넘어가 '미국으로 배송 못 함' 화면 — 차단 아님 | 확장 68개(URL 2/3) — 오늘 impit 0/12(geo) · playwright 0/6(geo·dead 404) · firefox 0/6(geo·dead 404) · firefox-fresh 0/3(geo) | 영국 지역 쿠키·파라미터로 열어 보기(무료, 안 재 봄) · 안 되면 영국 IP(유료 서비스의 국가 지정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Theory | 크롬 확장(집 PC) | 379 | Akamai 거부 — 모든 엔진 | 확장 379개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
+| Wilson | 크롬 확장(집 PC) | 52 | 차단 없음 — 데이터센터 모든 엔진 성공(크롬·파이어폭스 24~28개 > 확장 4~19개) | 확장 52개 — 오늘 impit 18/18 · playwright 6/6 · firefox 5/6(blocked 403) · firefox-fresh 1/3(blocked 403) | 헤드리스 크롬 그룹으로 옮김(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 
 ### 🟠 일부만 — 9개 브랜드 · 상품 4,104개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| Chico's | 서버(Render) | 800 | Akamai 거부 — 우리 엔진 전부 403. 서버는 리더 프록시(r.jina.ai) 우회로 가끔 성공(6일 중 3일 0) — 그 우회는 429 한도 | 프리페치 6일 3·3·262·251·3·208 · 카탈로그 11/22 이후 갱신 없음 — 오늘 impit 0/15(blocked 403) · playwright 0/5(blocked 403) · firefox 0/5(blocked 403) · server 6/10(blocked·shell 403) | 확장 담당으로 옮김(집 IP) — 또는 유료(Akamai 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 5회 |
-| Garnet hill | 크롬 확장(집 PC) | 108 | 크롬 Akamai 403 · 평 HTML 은 상품이 없는 껍데기(36KB) · 파이어폭스는 첫 URL 만 · 확장도 URL 3개에서 4~9개 | 확장 86·4·9·9 — 오늘 impit 0/11(shell) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) | 확장 수집기 확인(3개 URL 이 거의 빈손) — 접근은 집 IP | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| James Perse | 서버(Render) | 526 | 차단 없음 — 서버가 매일 142~155개, 저장 526 은 옛 수집분. 페이지당 상품 링크 13~22개라 페이지 넘김을 못 따라가는 것으로 보임(추정) | 프리페치 142개 — 오늘 impit 15/15 · playwright 3/3 · firefox 3/3 · server 6/12(rate-limit 429) | 서버의 페이지 넘김 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
-| Nation LTD | 서버(Render) | 525 | 차단 없음 — 서버가 매일 161~164개, 저장 525 는 옛 수집분 · 페이지당 22~52개(페이지 넘김 의심, 추정) | 프리페치 161개 — 오늘 impit 11/11 · playwright 3/3 · firefox 3/3 · server 8/8 | 서버의 페이지 넘김 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
-| Reformation | 서버(Render) | 753 | Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0) · 데이터센터 크롬은 3/3 열림 | 프리페치 221개(저장 753 은 옛 수집분 포함) — 오늘 impit 0/13(blocked 403) · playwright 3/3 · firefox 1/3(blocked 403) · server 7/10(shell·blocked 403) | 헤드리스 크롬 그룹으로 옮김(무료) — 러너마다 갈리는지 2차 측정 참고 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
-| The upside | 헤드리스(Actions) | 429 | Cloudflare 확인 화면 — 헤드리스·파이어폭스 모두 첫 URL 만 열리고 다음 3개 403 | 헤드리스 11/25 70·0·0·0 (저장 429 는 옛 수집분) — 오늘 impit 0/12(blocked 403) · playwright 1/4(blocked 403) · firefox 1/4(blocked 403) | 카테고리마다 새 창으로 열기(11/25 2차 측정 참고) · 안 되면 확장 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
-| vineyardvines | 서버(Render) | 560 | 평 HTML 엔 상품이 없음(스크립트가 그림) — 서버는 리더 프록시로 tops·dresses·pants 만 · 크롬도 6~10개만(지연 로딩) | 프리페치 143~151개(저장 560 은 옛 수집분 포함) — 오늘 impit 0/13(no-cards) · playwright 3/3 · firefox 3/3 · server 3/10(rate-limit·shell 429) | 헤드리스로 옮기고 스크롤·더 보기 처리(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
-| WHBM | 서버(Render) | 219 | Akamai 거부 — 우리 엔진 전부 403(Chico's 와 같은 회사). 서버는 리더 프록시 우회로만 — 오늘 낮엔 됐고 밤엔 6일 연속 2개 | 프리페치 6일 2개 · 카탈로그 11/18 이후 갱신 없음 — 오늘 impit 0/15(blocked 403) · playwright 0/5(blocked 403) · firefox 0/5(blocked 403) · server 10/10 | 확장 담당으로 옮김 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 5회 |
-| Whitestuff | 서버(Render) | 184 | 서버 직접 fetch 가 'fetch failed'(Worker 도 404) → 리더 프록시로만 읽어 매일 114~267개로 흔들림. 평 HTML(impit)·크롬은 15/15 성공 | 프리페치 6일 184·182·190·223·114·267 — 오늘 impit 15/15 · playwright 3/3 · firefox 3/3 · server 3/12(rate-limit 429) | 서버 fetch 를 브라우저 TLS 지문 fetch(impit 류)로 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| Chico's | 서버(Render) | 800 | Akamai 거부 — 우리 엔진 전부 403. 서버는 리더 프록시(r.jina.ai) 우회로 가끔 성공(6일 중 3일 0) — 그 우회는 429 한도 | 프리페치 6일 3·3·262·251·3·208 · 카탈로그 11/22 이후 갱신 없음 — 오늘 impit 0/20(blocked 403) · playwright 0/10(blocked 403) · firefox 0/10(blocked 403) · server 6/10(blocked·shell 403) · firefox-fresh 0/5(blocked 403) | 확장 담당으로 옮김(집 IP) — 또는 유료(Akamai 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 6회 |
+| Garnet hill | 크롬 확장(집 PC) | 108 | Akamai — 크롬 403 · 파이어폭스는 한 창이면 첫 URL 만, 새 창이면 3/3 열림. 그런데 열려도 상품 7~10개뿐이고 집 IP 확장도 URL 3개에서 4~9개 — 목록을 잘 못 읽음 | 확장 86·4·9·9 — 오늘 impit 0/14(shell) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) · firefox-fresh 3/3 | 파이어폭스 + 새 창으로 열고 수집기 확인(무료, 새 창 1회 측정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| James Perse | 서버(Render) | 526 | 차단 없음 — 서버가 매일 142~155개, 저장 526 은 옛 수집분. 페이지당 상품 링크 13~22개라 페이지 넘김을 못 따라가는 것으로 보임(추정) | 프리페치 142개 — 오늘 impit 18/18 · playwright 6/6 · firefox 6/6 · server 6/12(rate-limit 429) · firefox-fresh 3/3 | 서버의 페이지 넘김 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Nation LTD | 서버(Render) | 525 | 차단 없음 — 서버가 매일 161~164개, 저장 525 는 옛 수집분 · 페이지당 22~52개(페이지 넘김 의심, 추정) | 프리페치 161개 — 오늘 impit 14/14 · playwright 6/6 · firefox 6/6 · server 8/8 · firefox-fresh 3/3 | 서버의 페이지 넘김 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Reformation | 서버(Render) | 753 | Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0). 데이터센터 헤드리스 크롬은 2회 모두 3/3, 파이어폭스는 첫 URL 만 — 새 창이면 3/3 | 프리페치 221개(저장 753 은 옛 수집분 포함) — 오늘 impit 0/16(blocked 403) · playwright 6/6 · firefox 2/6(blocked 403) · server 7/10(shell·blocked 403) · firefox-fresh 3/3 | 헤드리스 크롬 그룹으로 옮김(무료, 2회 측정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| The upside | 헤드리스(Actions) | 429 | Cloudflare 확인 화면 — 한 창으로 이어서 열면 첫 카테고리만 열리고 다음부터 403(헤드리스 크롬·파이어폭스 2회). 카테고리마다 쿠키 없는 새 창으로 열면 4/4 열림(68·56·30·68) | 헤드리스 11/25 70·0·0·0 (저장 429 는 옛 수집분) — 오늘 impit 0/16(blocked 403) · playwright 2/8(blocked 403) · firefox 2/8(blocked 403) · firefox-fresh 4/4 | 헤드리스 수집을 파이어폭스 + 카테고리마다 새 창(browser-collect 의 FRESH_CONTEXT=1 — 이미 있는 설정)으로. 새 창 측정은 1회 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| vineyardvines | 서버(Render) | 560 | 평 HTML 엔 상품이 없음(스크립트가 그림) — 서버는 리더 프록시로 tops·dresses·pants 만 · 크롬도 6~10개만(지연 로딩) | 프리페치 143~151개(저장 560 은 옛 수집분 포함) — 오늘 impit 0/16(no-cards) · playwright 6/6 · firefox 6/6 · server 3/10(rate-limit·shell 429) · firefox-fresh 3/3 | 헤드리스로 옮기고 스크롤·더 보기 처리(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| WHBM | 서버(Render) | 219 | Akamai 거부 — 우리 엔진 전부 403(Chico's 와 같은 회사). 서버는 리더 프록시 우회로만 — 오늘 낮엔 됐고 밤엔 6일 연속 2개 | 프리페치 6일 2개 · 카탈로그 11/18 이후 갱신 없음 — 오늘 impit 0/20(blocked 403) · playwright 0/10(blocked 403) · firefox 0/10(blocked 403) · server 10/10 · firefox-fresh 0/5(blocked 403) | 확장 담당으로 옮김 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 6회 |
+| Whitestuff | 서버(Render) | 184 | 서버 직접 fetch 가 'fetch failed'(Worker 도 404) → 리더 프록시로만 읽어 매일 114~267개로 흔들림. 평 HTML(impit)·크롬은 15/15 성공 | 프리페치 6일 184·182·190·223·114·267 — 오늘 impit 18/18 · playwright 6/6 · firefox 6/6 · server 3/12(rate-limit 429) · firefox-fresh 3/3 | 서버 fetch 를 브라우저 TLS 지문 fetch(impit 류)로 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
 
 ### ⛔ 어디서도 막힘 — 1개 브랜드 · 상품 81개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| Prana | 서버(Render) | 81 | Cloudflare 차단 화면(Attention Required · Sorry, you have been blocked) — impit·서버 전부 · 크롬·파이어폭스는 첫 URL 만 열리고 다음부터 403 | 서버 6일 연속 1개 · 카탈로그 9/22 이후 갱신 없음(두 달) — 오늘 impit 0/12(blocked 403) · playwright 1/4(blocked 403) · firefox 1/4(blocked 403) · server 0/8(blocked·shell 403) | 확장 담당으로 옮김(집 IP — 안 재 봄) 또는 유료(Cloudflare 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 5회 |
+| Prana | 서버(Render) | 81 | Cloudflare 차단 화면(Attention Required · Sorry, you have been blocked) — impit·서버 전부. 1차 러너에선 크롬·파이어폭스가 첫 URL 만 열렸고, 2차 러너에선 첫 URL 도 403(새 창 포함) | 서버 6일 연속 1개 · 카탈로그 9/22 이후 갱신 없음(두 달) — 오늘 impit 0/16(blocked 403) · playwright 1/8(blocked 403) · firefox 1/8(blocked 403) · server 0/8(blocked·shell 403) · firefox-fresh 0/4(blocked 403) | 확장 담당으로 옮김(집 IP — 안 재 봄) 또는 유료(Cloudflare 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 6회 |
 
 ### 🔗 URL 이 틀림·죽음 — 2개 브랜드 · 상품 786개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| Good American | 서버(Render) | 625 | URL 에 한국 지역(/en-kr/) — 미국 IP 에선 지역 없는 주소로 넘어감 · 서버는 카테고리당 10~53개 · 크롬은 43~353개 | 프리페치 216개(저장 625 는 옛 수집분 포함) — 오늘 impit 2/13(geo·no-cards) · playwright 3/3 · firefox 3/3 · server 4/10(rate-limit 429) | URL 에서 /en-kr 빼기 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 5회 |
-| Lucky Brand | 헤드리스(Actions) | 161 | blouses URL 이 검색 페이지('Search / Lucky Brand')로 열리고 수집 중 페이지가 바뀜(Execution context destroyed) | 헤드리스 65·90·0·67·36 — 오늘 impit 12/12 · playwright 1/2(shell) · firefox 1/2(shell) | blouses 카테고리 새 주소 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 3회 |
+| Good American | 서버(Render) | 625 | URL 에 한국 지역(/en-kr/) — 미국 IP 에선 지역 없는 주소로 넘어감 · 서버는 카테고리당 10~53개 · 크롬은 43~353개 | 프리페치 216개(저장 625 는 옛 수집분 포함) — 오늘 impit 2/16(geo·no-cards) · playwright 6/6 · firefox 5/6(blocked 403) · server 4/10(rate-limit 429) · firefox-fresh 2/3(blocked 403) | URL 에서 /en-kr 빼기 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 6회 |
+| Lucky Brand | 헤드리스(Actions) | 161 | blouses URL 이 검색 페이지('Search / Lucky Brand')로 열리고 수집 중 페이지가 바뀜(Execution context destroyed) | 헤드리스 65·90·0·67·36 — 오늘 impit 14/14 · playwright 2/4(shell) · firefox 2/4(shell) · firefox-fresh 1/2(shell) | blouses 카테고리 새 주소 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 4회 |
 
 ### 🔧 열리는데 잘못 읽음 — 12개 브랜드 · 상품 1,152개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| Athleta | 크롬 확장(집 PC) | 1 | Gap 계열: 페이지는 열리는데(데이터센터 크롬·파이어폭스 200) 수집기가 상품을 4~6개만 잡음 — 집 IP 확장도 1개 | 확장 1개(4개 URL 중 3개 0) — 오늘 impit 0/12(no-cards) · playwright 1/4(no-cards) · firefox 4/4 | Gap 계열 상품 목록 JSON(사이트가 그리드를 그릴 때 부르는 주소)으로 읽기 — 무료(추정, 안 재 봄) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Banana Republic | 크롬 확장(집 PC) | 1 | Gap 계열: 열리는데 수집기가 5개만 — 확장도 1개 | 확장 1개 — 오늘 impit 0/12(no-cards) · playwright 4/4 · firefox 4/4 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Bash | 서버(Render) | 50 | 차단 없음 — 서버가 카테고리당 4~10개만, 평 HTML 엔 URL 당 51~97개 · 크롬 34~65개 | 프리페치 50개(6일 34~56) — 오늘 impit 13/13 · playwright 3/3 · firefox 3/3 · server 4/10(shell) | 서버 목록 읽기 보완 또는 헤드리스(무료). URL 에 광고 추적 꼬리(_gl=…)가 붙어 있음 — 떼어도 됨 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
-| Carlhartt | 헤드리스(Actions) | 148 | 수집기가 메뉴·기획전 타일(/c/black-friday 등, 이름 'arrow icon')을 상품으로 잡음 | 헤드리스 148개 · 표본 5개가 전부 카테고리 링크 — 오늘 impit 10/12(no-cards) · playwright 2/2 · firefox 2/2 | 수집기에서 /c/ 경로 제외(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Dickies | 서버(Render) | 260 | 차단 없음 — 서버가 카테고리당 2~48개만 읽음(6일 내내 72개), 평 HTML 엔 URL 당 상품 링크 46~49개 · 크롬 50~90개 | 프리페치 72개(저장 260 은 옛 수집분 포함) — 오늘 impit 13/13 · playwright 3/3 · firefox 3/3 · server 6/10(shell) | 서버 목록 읽기(선택자·페이지 넘김) 보완 또는 헤드리스로 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
-| Gap | 크롬 확장(집 PC) | 6 | 열리는데 수집기가 11~12개만(기프트숍 배너) — 확장도 6개 | 확장 6개(전부 배너) — 오늘 impit 0/12(no-cards) · playwright 4/4 · firefox 4/4 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Monsoon | 서버(Render) | 30 | 차단 없음 — 서버가 카테고리당 0~22개, 평 HTML 엔 URL 당 40개 · 크롬 45개. URL 이 한국 지역(/kr/) | 프리페치 30개(6일 내내 29~30) — 오늘 impit 11/11 · playwright 3/3 · firefox 3/3 · server 3/8(rate-limit·shell 429) | 서버 목록 읽기 보완 또는 헤드리스(무료) · 지역을 /us/ 등으로(가격 통화) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
-| Nike | 헤드리스(Actions) | 490 | 헤드리스 표본 5개가 모두 필터 카테고리 링크(/w/…) — 상품 아님 의심 | 헤드리스 490개 — 오늘 impit 0/10(no-cards) · playwright 2/2 · firefox 2/2 | 수집기에서 /w/ 경로 제외, 상품(/t/…)만(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Old Navy | 크롬 확장(집 PC) | 7 | 열리는데 수집기가 10~11개만 — 확장도 7개(배너) | 확장 7개 — 오늘 impit 0/15(no-cards) · playwright 5/5 · firefox 5/5 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
-| Oysho | 크롬 확장(집 PC) | 20 | 확장 카탈로그 20개가 전부 하위 카테고리 타일(…-n5063) — 상품이 아님. 데이터센터 파이어폭스는 열림(3/3, 18~22개) | 확장 20개 — 오늘 impit 0/13(blocked) · playwright 0/3(blocked 403) · firefox 3/3 | 헤드리스 파이어폭스 + 수집기 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Athleta | 크롬 확장(집 PC) | 1 | Gap 계열: 페이지는 열리는데(데이터센터 크롬·파이어폭스 200) 수집기가 상품을 4~6개만 잡음 — 집 IP 확장도 1개 | 확장 1개(4개 URL 중 3개 0) — 오늘 impit 0/16(no-cards) · playwright 3/8(no-cards) · firefox 8/8 · firefox-fresh 4/4 | Gap 계열 상품 목록 JSON(사이트가 그리드를 그릴 때 부르는 주소)으로 읽기 — 무료(추정, 안 재 봄) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Banana Republic | 크롬 확장(집 PC) | 1 | Gap 계열: 열리는데 수집기가 5개만 — 확장도 1개 | 확장 1개 — 오늘 impit 0/16(no-cards) · playwright 8/8 · firefox 8/8 · firefox-fresh 4/4 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Bash | 서버(Render) | 50 | 차단 없음 — 서버가 카테고리당 4~10개만, 평 HTML 엔 URL 당 51~97개 · 크롬 34~65개 | 프리페치 50개(6일 34~56) — 오늘 impit 16/16 · playwright 6/6 · firefox 6/6 · server 4/10(shell) · firefox-fresh 3/3 | 서버 목록 읽기 보완 또는 헤드리스(무료). URL 에 광고 추적 꼬리(_gl=…)가 붙어 있음 — 떼어도 됨 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Carlhartt | 헤드리스(Actions) | 148 | 수집기가 메뉴·기획전 타일(/c/black-friday 등, 이름 'arrow icon')을 상품으로 잡음 | 헤드리스 148개 · 표본 5개가 전부 카테고리 링크 — 오늘 impit 12/14(no-cards) · playwright 4/4 · firefox 4/4 · firefox-fresh 2/2 | 수집기에서 /c/ 경로 제외(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Dickies | 서버(Render) | 260 | 차단 없음 — 서버가 카테고리당 2~48개만 읽음(6일 내내 72개), 평 HTML 엔 URL 당 상품 링크 46~49개 · 크롬 50~90개 | 프리페치 72개(저장 260 은 옛 수집분 포함) — 오늘 impit 16/16 · playwright 6/6 · firefox 5/6(blocked 403) · server 6/10(shell) · firefox-fresh 3/3 | 서버 목록 읽기(선택자·페이지 넘김) 보완 또는 헤드리스로 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Gap | 크롬 확장(집 PC) | 6 | 열리는데 수집기가 11~12개만(기프트숍 배너) — 확장도 6개 | 확장 6개(전부 배너) — 오늘 impit 0/16(no-cards) · playwright 8/8 · firefox 8/8 · firefox-fresh 4/4 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Monsoon | 서버(Render) | 30 | 차단 없음 — 서버가 카테고리당 0~22개, 평 HTML 엔 URL 당 40개 · 크롬 45개. URL 이 한국 지역(/kr/) | 프리페치 30개(6일 내내 29~30) — 오늘 impit 14/14 · playwright 6/6 · firefox 6/6 · server 3/8(rate-limit·shell 429) · firefox-fresh 3/3 | 서버 목록 읽기 보완 또는 헤드리스(무료) · 지역을 /us/ 등으로(가격 통화) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Nike | 헤드리스(Actions) | 490 | 헤드리스 표본 5개가 모두 필터 카테고리 링크(/w/…) — 상품 아님 의심 | 헤드리스 490개 — 오늘 impit 0/12(no-cards) · playwright 4/4 · firefox 4/4 · firefox-fresh 2/2 | 수집기에서 /w/ 경로 제외, 상품(/t/…)만(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Old Navy | 크롬 확장(집 PC) | 7 | 열리는데 수집기가 10~11개만 — 확장도 7개(배너) | 확장 7개 — 오늘 impit 0/20(no-cards) · playwright 10/10 · firefox 10/10 · firefox-fresh 5/5 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Oysho | 크롬 확장(집 PC) | 20 | 확장 카탈로그 20개가 전부 하위 카테고리 타일(…-n5063) — 상품이 아님. 데이터센터 파이어폭스는 열림(3/3, 18~22개) | 확장 20개 — 오늘 impit 0/16(blocked) · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스 + 수집기 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Sessun | 서버(Render) | 81 | 서버 목록 읽기가 일부 상품 대신 이미지 주소(static.sessun.com/…webp%20924w — srcset 조각)를 상품 링크로 저장 | 프리페치 81개 · 카탈로그 표본에 이미지 주소 섞임(오늘 상품 표본 3개가 전부 이미지 주소 → 404) — 오늘 impit 10/10 | 서버 목록 읽기에서 srcset 조각을 링크로 쓰지 않게(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
-| Vanessa bruno | 서버(Render) | 58 | 서버가 tops 6개 말고는 0개 — 같은 페이지 평 HTML 에 상품 링크 22~25개, 크롬도 21~25개 · URL 1개는 첫 화면으로 튕김 | 프리페치 6일 내내 6개(저장 58 은 옛 수집분) — 오늘 impit 6/15(no-cards·dead) · playwright 2/3(dead) · firefox 2/3(dead) · server 4/12(shell) | 서버 목록 읽기 보완 또는 헤드리스(무료) + 죽은 URL 교체 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| Vanessa bruno | 서버(Render) | 58 | 서버가 tops 6개 말고는 0개 — 같은 페이지 평 HTML 에 상품 링크 22~25개, 크롬도 21~25개 · URL 1개는 첫 화면으로 튕김 | 프리페치 6일 내내 6개(저장 58 은 옛 수집분) — 오늘 impit 6/18(no-cards·dead) · playwright 4/6(dead) · firefox 4/6(dead) · server 4/12(shell) · firefox-fresh 2/3(dead) | 서버 목록 읽기 보완 또는 헤드리스(무료) + 죽은 URL 교체 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
 
 
 ## 5. 상품 페이지 — 브랜드별
@@ -419,7 +444,7 @@ site-api = 사이트 자체 JSON(Shopify `.json`·Zara), wayback = 웹 아카이
 | Poetry | 헤드리스(Actions) | 303 | 접근 문제 없음 — 오늘 impit·크롬·파이어폭스 3/3 | 혼용률 240/303 — 오늘 impit 3/3 · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 | Reformation | 서버(Render) | 753 | Cloudflare — impit·사이트 JSON 403 · 크롬 3/3 · 웹 아카이브 3/3 | 혼용률 261/753 — 오늘 impit 0/6(blocked 403) · site-api 0/3(blocked 403) · wayback 3/3 · playwright 6/6 · firefox 2/6(blocked 403) | 크롬 보강 + 웹 아카이브(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | Spanx | 서버(Render) | 84 | 접근 문제 없음 — impit·크롬·파이어폭스 3/3 | 혼용률 66/84 — 오늘 impit 3/3 · site-api 0/3(dead 404) · wayback 2/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
-| The upside | 헤드리스(Actions) | 429 | Cloudflare — 브라우저는 첫 페이지만 | 혼용률 322/429 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 2/6(blocked 403) · firefox 2/6(blocked 403) | 확장 또는 새 창 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| The upside | 헤드리스(Actions) | 429 | Cloudflare — 한 창으로 이어 열면 첫 페이지만 | 혼용률 322/429 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 2/6(blocked 403) · firefox 2/6(blocked 403) | 보강도 페이지마다 새 창(1회 측정 결과는 상품 2차 실행 참고) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | WHBM | 서버(Render) | 219 | Akamai — 크롬·impit 403 · 파이어폭스 2/3 · 보관본 2/3 | 혼용률 75/219 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) | 파이어폭스 보강 + 웹 아카이브(무료, 러너마다 갈림) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | Whitestuff | 서버(Render) | 184 | 야간 보강의 직접 fetch 가 76개 '직접차단' · 오늘 impit·크롬·파이어폭스 3/3 읽음 | 혼용률 143/184 — 오늘 impit 3/3 · site-api 0/3(error) · wayback 0/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강 fetch 를 impit 류로(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 | Wilson | 크롬 확장(집 PC) | 52 | 접근 문제 없음 — 오늘 모든 엔진 3/3 읽음. 아직 보강이 안 돈 것 | 혼용률 28/52 — 오늘 impit 3/3 · site-api 0/3(geo) · wayback 2/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강 대상에 넣기(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
@@ -512,110 +537,111 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 - 집 IP(확장) 쪽은 오늘 새로 재지 않았다. 확장 담당 브랜드의 '확장에서 된다'는 카탈로그의 URL 별 저장 수와 갱신 시각(11/25)이 근거다.
 - '페이지 넘김 의심' 같은 원인은 표에 (추정)으로 적었다 — 측정은 '차단 없음'까지만 말한다.
 
-<details><summary>목록 URL 별 측정 — 한 엔진이라도 실패한 URL 289개(칸: 성공/잰 횟수 · 실패 원인 · HTTP)</summary>
+<details><summary>목록 URL 별 측정 — 한 엔진이라도 실패한 URL 293개(칸: 성공/잰 횟수 · 실패 원인 · HTTP)</summary>
 
 | 브랜드 | 카테고리 | URL | impit | playwright | firefox | firefox-fresh | server |
 |---|---|---|---|---|---|---|---|
-| &Other Stories | tops | stories.com/en-us/clothing/tops/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| &Other Stories | sweatshirts | stories.com/en-us/clothing/tops/sweatshirts-hoodies/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| &Other Stories | shirts | stories.com/en-us/clothing/blouses-shirts/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – | – |
-| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+n | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – | – |
-| Abercrombie & Fitch | sweatshirts | abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-le | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – | – |
+| &Other Stories | tops | stories.com/en-us/clothing/tops/ | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| &Other Stories | sweatshirts | stories.com/en-us/clothing/tops/sweatshirts-hoodies/ | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| &Other Stories | shirts | stories.com/en-us/clothing/blouses-shirts/ | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav | 0/4 blocked | 0/2 blocked 418 | 0/2 blocked | 0/1 blocked | – |
+| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+n | 0/4 blocked | 0/2 blocked 418 | 0/2 blocked | 0/1 blocked | – |
+| Abercrombie & Fitch | sweatshirts | abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-le | 0/4 blocked | 0/2 blocked 418 | 0/2 blocked | 0/1 blocked | – |
 | Abercrombie & Fitch | shirts | abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+na | 0/2 blocked | – | – | – | – |
 | Abercrombie & Fitch | dresses | abercrombie.com/shop/wd/womens-dresses-and-jumpsuits | 0/2 blocked | – | – | – | – |
 | Abercrombie & Fitch | pants | abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation- | 0/2 blocked | – | – | – | – |
-| Addidas | tops | adidas.com/us/women-tops?sort=newest-to-oldest | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Addidas | sweatshirts | adidas.com/us/women-hoodies_sweatshirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Addidas | dresses | adidas.com/us/women-skirts_dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Addidas | tops | adidas.com/us/women-tops?sort=newest-to-oldest | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Addidas | sweatshirts | adidas.com/us/women-hoodies_sweatshirts | 0/4 blocked 403 | 0/2 blocked·conn-drop 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Addidas | dresses | adidas.com/us/women-skirts_dresses | 0/4 blocked 403 | 0/2 blocked·conn-drop 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Addidas | pants | adidas.com/us/women-pants | 0/2 blocked 403 | – | – | – | – |
 | Alo | tops | aloyoga.com/collections/tops | 0/2 blocked 403 | – | – | – | – |
 | Alo | sweatshirts | aloyoga.com/collections/womens-sweatshirts-hoodies | 0/2 blocked 403 | – | – | – | – |
 | Alo | dresses | aloyoga.com/collections/dresses | 0/2 blocked 403 | – | – | – | – |
 | Alo | pants | aloyoga.com/collections/sweatpants | 0/2 blocked 403 | – | – | – | – |
-| Ann Taylor | tops | anntaylor.com/clothing/tops-and-blouses/cata000010/ | 3/3 | 1/1 | 0/1 blocked | – | – |
-| Ann Taylor | dresses | anntaylor.com/clothing/dresses/cata000012/ | 3/3 | 0/1 blocked | 0/1 blocked | – | – |
-| Ann Taylor | pants | anntaylor.com/clothing/pants/cata000014/ | 3/3 | 0/1 blocked | 0/1 blocked | – | – |
-| Anthropologie | tops | anthropologie.com/tees | 0/3 blocked 403 | 0/1 blocked 403 | 1/1 | – | – |
-| Anthropologie | sweatshirts | anthropologie.com/tops-sweatshirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Anthropologie | shirts | anthropologie.com/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Ann Taylor | tops | anntaylor.com/clothing/tops-and-blouses/cata000010/ | 4/4 | 2/2 | 0/2 blocked | 0/1 blocked | – |
+| Ann Taylor | dresses | anntaylor.com/clothing/dresses/cata000012/ | 4/4 | 0/2 blocked | 0/2 blocked | 0/1 blocked | – |
+| Ann Taylor | pants | anntaylor.com/clothing/pants/cata000014/ | 4/4 | 0/2 blocked | 0/2 blocked | 0/1 blocked | – |
+| Anthropologie | tops | anthropologie.com/tees | 0/4 blocked 403 | 0/2 blocked 403 | 2/2 | 0/1 blocked 403 | – |
+| Anthropologie | sweatshirts | anthropologie.com/tops-sweatshirts | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Anthropologie | shirts | anthropologie.com/tops | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Anthropologie | dresses | anthropologie.com/dresses | 0/2 blocked 403 | – | – | – | – |
 | Anthropologie | pants | anthropologie.com/bottoms | 0/2 blocked 403 | – | – | – | – |
 | Apiece Apart | tops | apieceapart.com/shop/tops | 0/2 shell | – | – | – | – |
 | Apiece Apart | dresses | apieceapart.com/shop/dresses | 0/2 shell | – | – | – | – |
 | Apiece Apart | pants | apieceapart.com/shop/pants | 0/2 shell | – | – | – | – |
-| Aritzia | tops | aritzia.com/us/en/clothing/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Aritzia | tops | aritzia.com/us/en/clothing/tshirts | 0/3 blocked 403 | 0/1 blocked 403 | 1/1 | – | – |
-| Aritzia | sweatshirts | aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Aritzia | tops | aritzia.com/us/en/clothing/tops | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Aritzia | tops | aritzia.com/us/en/clothing/tshirts | 0/4 blocked 403 | 0/2 blocked 403 | 2/2 | 0/1 blocked 403 | – |
+| Aritzia | sweatshirts | aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Aritzia | shirts | aritzia.com/us/en/clothing/shirts-blouses | 0/2 blocked 403 | – | – | – | – |
 | Aritzia | dresses | aritzia.com/us/en/clothing/dresses-3 | 0/2 blocked 403 | – | – | – | – |
 | Aritzia | pants | aritzia.com/us/en/clothing/sweatsuit-sets/sweat-pants | 0/2 blocked 403 | – | – | – | – |
-| Arket | tops | arket.com/en-ww/women/clothing/tops/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| Arket | tops | arket.com/en-ww/women/clothing/tops/t-shirts/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| Arket | sweatshirts | arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| Athleta | tops | athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Athleta | sweatshirts | athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops | 0/3 no-cards | 0/1 no-cards | 1/1 | – | – |
-| Athleta | dresses | athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745 | 0/3 no-cards | 0/1 no-cards | 1/1 | – | – |
-| Athleta | pants | athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&n | 0/3 no-cards | 0/1 no-cards | 1/1 | – | – |
-| Banana Republic | tops | bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AW | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Banana Republic | tops | bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOME | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Banana Republic | dresses | bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav% | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Banana Republic | pants | bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN% | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Bash | tops | ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE | 3/3 | 1/1 | 1/1 | – | 0/2 shell |
-| Bash | sweatshirts | ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0M | 3/3 | 1/1 | 1/1 | – | 0/2 shell |
-| Bash | shirts | ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0M | 3/3 | 1/1 | 1/1 | – | 0/2 shell |
+| Arket | tops | arket.com/en-ww/women/clothing/tops/ | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| Arket | tops | arket.com/en-ww/women/clothing/tops/t-shirts/ | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| Arket | sweatshirts | arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/ | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| Athleta | tops | athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Athleta | sweatshirts | athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops | 0/4 no-cards | 0/2 no-cards | 2/2 | 1/1 | – |
+| Athleta | dresses | athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745 | 0/4 no-cards | 0/2 no-cards | 2/2 | 1/1 | – |
+| Athleta | pants | athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&n | 0/4 no-cards | 1/2 no-cards | 2/2 | 1/1 | – |
+| Banana Republic | tops | bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AW | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Banana Republic | tops | bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOME | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Banana Republic | dresses | bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav% | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Banana Republic | pants | bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN% | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Bash | tops | ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE | 4/4 | 2/2 | 2/2 | 1/1 | 0/2 shell |
+| Bash | sweatshirts | ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0M | 4/4 | 2/2 | 2/2 | 1/1 | 0/2 shell |
+| Bash | shirts | ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0M | 4/4 | 2/2 | 2/2 | 1/1 | 0/2 shell |
 | Boldest | tops | kolonmall.com/boldest/List/133020162237 | 0/2 shell | – | – | – | – |
 | Boldest | pants | kolonmall.com/boldest/List/133020161437 | 0/2 shell | – | – | – | – |
 | Carlhartt | pants | carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017 | 0/2 no-cards | – | – | – | – |
-| Chico's | tops | chicos.com/store/category/tees-tanks/cat11199293 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
-| Chico's | sweatshirts | chicos.com/store/category/activewear/cat20059281 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
-| Chico's | shirts | chicos.com/store/category/blouses-shirts/cat11199294 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 blocked 403 |
-| Chico's | dresses | chicos.com/store/category/dresses/cat40004 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
-| Chico's | pants | chicos.com/store/category/pants/cat8289646 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 shell 403 |
+| Chico's | tops | chicos.com/store/category/tees-tanks/cat11199293 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 2/2 |
+| Chico's | sweatshirts | chicos.com/store/category/activewear/cat20059281 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 2/2 |
+| Chico's | shirts | chicos.com/store/category/blouses-shirts/cat11199294 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 0/2 blocked 403 |
+| Chico's | dresses | chicos.com/store/category/dresses/cat40004 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 2/2 |
+| Chico's | pants | chicos.com/store/category/pants/cat8289646 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 0/2 shell 403 |
 | Citizens of Humanity | dresses | citizensofhumanity.com/collections/dresses-jumpsuits | 0/2 no-cards | – | – | – | – |
 | Coldwatercreek | tops | coldwatercreek.com/clothing/knit-tops-tees | 0/2 blocked 403 | – | – | – | – |
 | Coldwatercreek | sweatshirts | coldwatercreek.com/clothing/sweatshirts | 0/2 blocked 403 | – | – | – | – |
 | Coldwatercreek | shirts | coldwatercreek.com/clothing/shirts-blouses | 0/2 blocked 403 | – | – | – | – |
 | Coldwatercreek | dresses | coldwatercreek.com/clothing/dresses | 0/2 blocked 403 | – | – | – | – |
 | Coldwatercreek | pants | coldwatercreek.com/clothing/pants-shorts | 0/2 blocked 403 | – | – | – | – |
-| Dickies | shirts | dickies.com/en-us/collections/womens-shirt-jackets | 3/3 | 1/1 | 1/1 | – | 0/2 shell |
+| Dickies | tops | dickies.com/collections/womens-tops | 4/4 | 2/2 | 1/2 blocked 403 | 1/1 | 2/2 |
+| Dickies | shirts | dickies.com/en-us/collections/womens-shirt-jackets | 4/4 | 2/2 | 2/2 | 1/1 | 0/2 shell |
 | Dickies | dresses | dickies.com/collections/womens-skirts-dresses | 2/2 | – | – | – | 0/2 shell |
-| Eileen fisher | tops | eileenfisher.com/shop/clothing/tops-tees | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Eileen fisher | tops | eileenfisher.com/shop/clothing/tanks-camis | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Eileen fisher | dresses | eileenfisher.com/shop/clothing/dresses-skirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Eileen fisher | tops | eileenfisher.com/shop/clothing/tops-tees | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Eileen fisher | tops | eileenfisher.com/shop/clothing/tanks-camis | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Eileen fisher | dresses | eileenfisher.com/shop/clothing/dresses-skirts | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Eileen fisher | pants | eileenfisher.com/shop/clothing/pants-jumpsuits | 0/2 blocked 403 | – | – | – | – |
 | Everlane | sweatshirts | everlane.com/collections/womens-active-lounge?__cf_chl_f_tk=Q8ynDAoxucPAizM7arSD | 0/2 no-cards | – | – | – | – |
 | Everlane | shirts | everlane.com/collections/womens-tops | 0/2 no-cards | – | – | – | – |
 | Everlane | dresses | everlane.com/collections/womens-dresses | 0/2 no-cards | – | – | – | – |
-| Fatface | tops | fatface.com/shop/womens/clothing/tops/t-shirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Fatface | sweatshirts | fatface.com/shop/womens/clothing/sweatshirts-and-hoodies | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Fatface | dresses | fatface.com/shop/womens/clothing/dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Fatface | tops | fatface.com/shop/womens/clothing/tops/t-shirts | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Fatface | sweatshirts | fatface.com/shop/womens/clothing/sweatshirts-and-hoodies | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Fatface | dresses | fatface.com/shop/womens/clothing/dresses | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Fatface | pants | fatface.com/shop/womens/clothing/all-trousers | 0/2 blocked 403 | – | – | – | – |
-| FP Movement | tops | freepeople.com/fpmovement/workout-tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| FP Movement | sweatshirts | freepeople.com/fpmovement/hoodies-sweatshirts/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| FP Movement | dresses | freepeople.com/fpmovement/one-pieces/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| FP Movement | tops | freepeople.com/fpmovement/workout-tops/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| FP Movement | sweatshirts | freepeople.com/fpmovement/hoodies-sweatshirts/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| FP Movement | dresses | freepeople.com/fpmovement/one-pieces/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | FP Movement | pants | freepeople.com/fpmovement/workout-bottoms/ | 0/2 blocked 403 | – | – | – | – |
-| Free People | tops | freepeople.com/tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Free People | sweatshirts | freepeople.com/sweatshirts-pullovers/?vis_nav=4 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Free People | shirts | freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Free People | tops | freepeople.com/tops/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Free People | sweatshirts | freepeople.com/sweatshirts-pullovers/?vis_nav=4 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Free People | shirts | freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Free People | dresses | freepeople.com/dresses/ | 0/2 blocked 403 | – | – | – | – |
 | Free People | pants | freepeople.com/pants/ | 0/2 blocked 403 | – | – | – | – |
-| Gap | tops | gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategori | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Gap | sweatshirts | gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Gap | dresses | gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresse | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Gap | pants | gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Garnet hill | tops | garnethill.com/clothing/categories/tops-tees/ | 0/3 shell | 0/1 blocked 403 | 1/1 | – | – |
-| Garnet hill | shirts | garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__a | 0/3 shell | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Garnet hill | dresses | garnethill.com/clothing/categories/dresses/ | 0/3 shell | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Gap | tops | gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategori | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Gap | sweatshirts | gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen% | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Gap | dresses | gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresse | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Gap | pants | gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen% | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Garnet hill | tops | garnethill.com/clothing/categories/tops-tees/ | 0/4 shell | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| Garnet hill | shirts | garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__a | 0/4 shell | 0/2 blocked 403 | 0/2 blocked 403 | 1/1 | – |
+| Garnet hill | dresses | garnethill.com/clothing/categories/dresses/ | 0/4 shell | 0/2 blocked 403 | 0/2 blocked 403 | 1/1 | – |
 | Garnet hill | pants | garnethill.com/clothing/categories/pants/ | 0/2 shell | – | – | – | – |
-| Good American | tops | goodamerican.com/en-kr/collections/tees-tanks | 0/3 geo | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
-| Good American | sweatshirts | goodamerican.com/collections/jeanius-sweats | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
-| Good American | shirts | goodamerican.com/en-kr/collections/womens-tops | 0/3 geo | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
+| Good American | tops | goodamerican.com/en-kr/collections/tees-tanks | 0/4 geo | 2/2 | 1/2 blocked 403 | 0/1 blocked 403 | 1/2 rate-limit 429 |
+| Good American | sweatshirts | goodamerican.com/collections/jeanius-sweats | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 2/2 |
+| Good American | shirts | goodamerican.com/en-kr/collections/womens-tops | 0/4 geo | 2/2 | 2/2 | 1/1 | 0/2 rate-limit 429 |
 | Good American | dresses | goodamerican.com/en-kr/collections/dresses | 2/2 | – | – | – | 0/2 rate-limit 429 |
 | Good American | pants | goodamerican.com/en-kr/collections/bottoms | 0/2 geo | – | – | – | 1/2 rate-limit 429 |
-| H&M | tops | www2.hm.com/en_us/women/products/tops.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| H&M | sweatshirts | www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| H&M | shirts | www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| H&M | tops | www2.hm.com/en_us/women/products/tops.html?sort=newProduct | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| H&M | sweatshirts | www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| H&M | shirts | www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
 | J crew | tops | jcrew.com/plp/womens/categories/clothing/tees-and-tanks | 0/2 no-cards | – | – | – | – |
 | J crew | sweatshirts | jcrew.com/plp/womens/categories/clothing/sweatshirts-and-sweatpants | 0/2 no-cards | – | – | – | – |
 | J crew | shirts | jcrew.com/plp/womens/categories/clothing/shirts-and-tops | 0/2 no-cards | – | – | – | – |
@@ -626,8 +652,8 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | Jager | sweatshirts | marksandspencer.com/l/women/knitwear/fs5/summer | 0/2 no-cards | – | – | – | – |
 | Jager | dresses | marksandspencer.com/l/brands/jaeger?filter=Categories%253DSubCategory_28994397%7 | 0/2 no-cards | – | – | – | – |
 | Jager | pants | marksandspencer.com/l/women/jeans | 0/2 no-cards | – | – | – | – |
-| James Perse | tops | jamesperse.com/collections/womens-t-shirts | 3/3 | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
-| James Perse | sweatshirts | jamesperse.com/collections/womens-sweat-tops-sweat-bottoms | 3/3 | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
+| James Perse | tops | jamesperse.com/collections/womens-t-shirts | 4/4 | 2/2 | 2/2 | 1/1 | 0/2 rate-limit 429 |
+| James Perse | sweatshirts | jamesperse.com/collections/womens-sweat-tops-sweat-bottoms | 4/4 | 2/2 | 2/2 | 1/1 | 1/2 rate-limit 429 |
 | James Perse | dresses | jamesperse.com/collections/womens-dresses-jumpsuits | 2/2 | – | – | – | 1/2 rate-limit 429 |
 | James Perse | pants | jamesperse.com/collections/womens-pants-denim | 2/2 | – | – | – | 0/2 rate-limit 429 |
 | Jigsaw | tops | jigsaw-online.com/collections/tops | 0/2 no-cards | – | – | – | – |
@@ -636,41 +662,41 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | Jigsaw | shirts | jigsaw-online.com/collections/shirts-blouses | 0/2 no-cards | – | – | – | – |
 | Jigsaw | dresses | jigsaw-online.com/collections/dresses | 0/2 no-cards | – | – | – | – |
 | Jigsaw | pants | jigsaw-online.com/collections/trousers | 0/2 no-cards | – | – | – | – |
-| Joules | tops | joules.com/shop/womens/clothing/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Joules | sweatshirts | joules.com/shop/womens/clothing/sweatshirts-and-hoodies | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Joules | shirts | joules.com/shop/womens/clothing/shirts-and-blouses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Joules | tops | joules.com/shop/womens/clothing/tops | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Joules | sweatshirts | joules.com/shop/womens/clothing/sweatshirts-and-hoodies | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Joules | shirts | joules.com/shop/womens/clothing/shirts-and-blouses | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Joules | dresses | joules.com/shop/womens/clothing/dresses | 0/2 blocked 403 | – | – | – | – |
 | Joules | pants | joules.com/shop/womens/clothing/all-trousers?p=2#1454.34375 | 0/2 blocked 403 | – | – | – | – |
-| L.L bean | tops | global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| L.L bean | sweatshirts | global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| L.L bean | shirts | global.llbean.com/llb/shop/516735/?prefn1=refinementGender&prefv1=Womens&nav=gnr | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
-| Lands end | tops | landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Lands end | sweatshirts | landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Lands end | shirts | landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| L.L bean | tops | global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| L.L bean | sweatshirts | global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| L.L bean | shirts | global.llbean.com/llb/shop/516735/?prefn1=refinementGender&prefv1=Womens&nav=gnr | 4/4 | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| Lands end | tops | landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Lands end | sweatshirts | landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Lands end | shirts | landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Lands end | dresses | landsend.com/shop/womens-dresses/S-xfg-xez-y5c-xec | 0/2 blocked 403 | – | – | – | – |
 | Lands end | pants | landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec | 0/2 blocked 403 | – | – | – | – |
 | Leset | sweatshirts | leset.com/collections/sweat-sets | 0/2 no-cards | – | – | – | – |
-| Loft | tops | loft.com/clothing/tees-tanks/cat2860023/ | 3/3 | 0/1 blocked | 0/1 blocked | – | – |
-| Loft | sweatshirts | loft.com/lou-grey/lou-grey-shop-all/cat1880002/ | 3/3 | 0/1 blocked | 1/1 | – | – |
-| Loft | shirts | loft.com/clothing/tops/catl000011/ | 3/3 | 0/1 blocked | 0/1 blocked | – | – |
-| Lucky Brand | shirts | luckybrand.com/women/clothing/shirts/blouses | 3/3 | 0/1 shell | 0/1 shell | – | – |
-| Lululemon | tops | shop.lululemon.com/c/women-t-shirts/n1wx7w | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – | – |
-| Lululemon | tops | shop.lululemon.com/c/women-tank-tops/n1uk4w | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – | – |
-| Lululemon | sweatshirts | shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6 | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – | – |
+| Loft | tops | loft.com/clothing/tees-tanks/cat2860023/ | 4/4 | 0/2 blocked | 0/2 blocked | 0/1 blocked | – |
+| Loft | sweatshirts | loft.com/lou-grey/lou-grey-shop-all/cat1880002/ | 4/4 | 0/2 blocked | 2/2 | 0/1 blocked | – |
+| Loft | shirts | loft.com/clothing/tops/catl000011/ | 4/4 | 0/2 blocked | 0/2 blocked | 0/1 blocked | – |
+| Lucky Brand | shirts | luckybrand.com/women/clothing/shirts/blouses | 4/4 | 0/2 shell | 0/2 shell | 0/1 shell | – |
+| Lululemon | tops | shop.lululemon.com/c/women-t-shirts/n1wx7w | 0/4 blocked 403 | 0/2 conn-drop | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Lululemon | tops | shop.lululemon.com/c/women-tank-tops/n1uk4w | 0/4 blocked 403 | 0/2 conn-drop | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Lululemon | sweatshirts | shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6 | 0/4 blocked 403 | 0/2 conn-drop | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Lululemon | dresses | shop.lululemon.com/c/women-dresses/n1mk31 | 0/2 blocked 403 | – | – | – | – |
 | Lululemon | pants | shop.lululemon.com/c/women-sweatpants/n1m8w7 | 0/2 blocked 403 | – | – | – | – |
-| Madewell | tops | madewell.com/kr/womens/clothing/tees/ | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Madewell | tops | madewell.com/kr/womens/clothing/tops-shirts/ | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Madewell | tops | madewell.com/kr/womens/clothing/tees/ | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Madewell | tops | madewell.com/kr/womens/clothing/tops-shirts/ | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
 | Madewell | pants | madewell.com/kr/womens/clothing/pants/ | 0/2 no-cards | – | – | – | – |
-| Mango | tops | shop.mango.com/us/en/c/women/t-shirts/8e23bdfb | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
-| Mango | tops | shop.mango.com/us/en/c/women/tops/227371cd | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
-| Mango | sweatshirts | shop.mango.com/us/en/c/women/knitwear/7e46863e | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
+| Mango | tops | shop.mango.com/us/en/c/women/t-shirts/8e23bdfb | 0/4 blocked 429 | 0/2 blocked 429 | 0/2 blocked 429 | 0/1 blocked 429 | – |
+| Mango | tops | shop.mango.com/us/en/c/women/tops/227371cd | 0/4 blocked 429 | 0/2 blocked 429 | 0/2 blocked 429 | 0/1 blocked 429 | – |
+| Mango | sweatshirts | shop.mango.com/us/en/c/women/knitwear/7e46863e | 0/4 blocked 429 | 0/2 blocked 429 | 0/2 blocked 429 | 0/1 blocked 429 | – |
 | Mango | shirts | shop.mango.com/us/en/c/women/shirts---blouses/b8003173 | 0/2 blocked 429 | – | – | – | – |
 | Mango | dresses | shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705 | 0/2 blocked 429 | – | – | – | – |
 | Mango | pants | shop.mango.com/us/en/c/women/pants/0bf28b3b | 0/2 blocked 429 | – | – | – | – |
-| Massimo Dutti | tops | massimodutti.com/us/women/t-shirts-n1444?celement=2242518 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
-| Massimo Dutti | tops | massimodutti.com/us/s/w-tops-n2889 | 0/3 blocked | 0/1 blocked 403 | 0/1 dead 404 | – | – |
-| Massimo Dutti | shirts | massimodutti.com/us/women/shirts-n1439?celement=1963012 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
+| Massimo Dutti | tops | massimodutti.com/us/women/t-shirts-n1444?celement=2242518 | 0/4 blocked | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| Massimo Dutti | tops | massimodutti.com/us/s/w-tops-n2889 | 0/4 blocked | 0/2 blocked 403 | 0/2 dead 404 | 1/1 | – |
+| Massimo Dutti | shirts | massimodutti.com/us/women/shirts-n1439?celement=1963012 | 0/4 blocked | 0/2 blocked 403 | 2/2 | 1/1 | – |
 | Massimo Dutti | dresses | massimodutti.com/us/women/dresses-n1494?celement=2158374 | 0/2 blocked | – | – | – | – |
 | Massimo Dutti | pants | massimodutti.com/us/women/trousers-n1476?celement=2158376 | 0/2 blocked | – | – | – | – |
 | Me+Em | tops | meandem.com/us/tops/t-shirts | 0/2 no-cards | – | – | – | – |
@@ -684,11 +710,11 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | Mint velvet | shirts | mintvelvet.com/collections/shirts-blouses | 0/2 no-cards | – | – | – | – |
 | Mint velvet | dresses | mintvelvet.com/collections/dresses | 0/2 no-cards | – | – | – | – |
 | Mint velvet | pants | mintvelvet.com/collections/trousers | 0/2 no-cards | – | – | – | – |
-| Monsoon | tops | monsoonlondon.com/kr/womens/womens-clothing/tops/ | 3/3 | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
-| Monsoon | sweatshirts | monsoonlondon.com/kr/womens/womens-clothing/knitwear/ | 3/3 | 1/1 | 1/1 | – | 0/2 shell·rate-limit 429 |
+| Monsoon | tops | monsoonlondon.com/kr/womens/womens-clothing/tops/ | 4/4 | 2/2 | 2/2 | 1/1 | 1/2 rate-limit 429 |
+| Monsoon | sweatshirts | monsoonlondon.com/kr/womens/womens-clothing/knitwear/ | 4/4 | 2/2 | 2/2 | 1/1 | 0/2 shell·rate-limit 429 |
 | Monsoon | pants | monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/ | 2/2 | – | – | – | 0/2 rate-limit·shell 429 |
-| Nike | tops | nike.com/w/womens-tops-t-shirts-5e1x6z9om13 | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Nike | sweatshirts | nike.com/w/womens-fleece-4xh6qz5e1x6 | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Nike | tops | nike.com/w/womens-tops-t-shirts-5e1x6z9om13 | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Nike | sweatshirts | nike.com/w/womens-fleece-4xh6qz5e1x6 | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
 | Nike | dresses | nike.com/w/womens-skirts-and-dresses-5e1x6z8y3qp | 0/2 no-cards | – | – | – | – |
 | Nike | pants | nike.com/w/womens-pants-and-tights-2kq19z5e1x6 | 0/2 no-cards | – | – | – | – |
 | Oasis | tops | oasisfashion.com/categories/womens-tops | 0/2 no-cards | – | – | – | – |
@@ -696,42 +722,42 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | Oasis | shirts | oasisfashion.com/categories/womens-tops-shirts-and-blouses | 0/2 no-cards | – | – | – | – |
 | Oasis | dresses | oasisfashion.com/categories/womens-dresses | 0/2 no-cards | – | – | – | – |
 | Oasis | pants | oasisfashion.com/categories/womens-skirts | 0/2 no-cards | – | – | – | – |
-| Old Navy | tops | oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2 | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Old Navy | sweatshirts | oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AW | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Old Navy | shirts | oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%8 | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Old Navy | dresses | oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen | 0/3 no-cards | 1/1 | 1/1 | – | – |
-| Old Navy | pants | oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Old Navy | tops | oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2 | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Old Navy | sweatshirts | oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AW | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Old Navy | shirts | oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%8 | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Old Navy | dresses | oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
+| Old Navy | pants | oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen% | 0/4 no-cards | 2/2 | 2/2 | 1/1 | – |
 | On | tops | on.com/en-us/shop/womens/apparel/tops-tshirts | 0/2 blocked·shell | – | – | – | – |
 | On | sweatshirts | on.com/en-us/shop/womens/apparel/hoodies-sweatshirts | 0/2 blocked·shell | – | – | – | – |
 | On | dresses | on.com/en-us/shop/womens/apparel/dresses | 0/2 blocked·shell | – | – | – | – |
 | On | pants | on.com/en-us/shop/womens/apparel/pants | 0/2 blocked·shell | – | – | – | – |
-| Oysho | tops | oysho.com/gb/womens-sports-t-shirts-n4764 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
-| Oysho | tops | oysho.com/gb/womens-sports-tops-n5484 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
+| Oysho | tops | oysho.com/gb/womens-sports-t-shirts-n4764 | 0/4 blocked | 0/2 blocked 403 | 2/2 | 1/1 | – |
+| Oysho | tops | oysho.com/gb/womens-sports-tops-n5484 | 0/4 blocked | 0/2 blocked 403 | 2/2 | 1/1 | – |
 | Oysho | sweatshirts | oysho.com/gb/womens-sweatshirts-n4922 | 0/2 blocked | – | – | – | – |
-| Oysho | dresses | oysho.com/gb/dresses-jumpsuits-n4954 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
+| Oysho | dresses | oysho.com/gb/dresses-jumpsuits-n4954 | 0/4 blocked | 0/2 blocked 403 | 2/2 | 1/1 | – |
 | Oysho | pants | oysho.com/gb/womens-pants-n4813 | 0/2 blocked | – | – | – | – |
-| Paige | tops | paige.com/collection/women-tees-and-tanks | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
-| Paige | sweatshirts | paige.com/collection/women-sweaters-and-sweatshirts | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
-| Paige | shirts | paige.com/collection/women-tops | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
+| Paige | tops | paige.com/collection/women-tees-and-tanks | 0/4 blocked 429 | 0/2 blocked 429 | 0/2 blocked 429 | 0/1 blocked 429 | – |
+| Paige | sweatshirts | paige.com/collection/women-sweaters-and-sweatshirts | 0/4 blocked 429 | 0/2 blocked 429 | 0/2 blocked 429 | 0/1 blocked 429 | – |
+| Paige | shirts | paige.com/collection/women-tops | 0/4 blocked 429 | 0/2 blocked 429 | 0/2 blocked 429 | 0/1 blocked 429 | – |
 | Paige | dresses | paige.com/collection/women-dresses | 0/2 blocked 429 | – | – | – | – |
 | Paige | pants | paige.com/collection/women-pants | 0/2 blocked 429 | – | – | – | – |
-| Patagonia | tops | patagonia.com/shop/womens/tops/t-shirts | 0/3 maintenance | 0/1 maintenance | 0/1 maintenance | – | – |
-| Patagonia | sweatshirts | patagonia.com/shop/womens/tops/sweatshirts-hoodies | 0/3 maintenance | 0/1 maintenance | 1/1 | – | – |
-| Patagonia | shirts | patagonia.com/shop/womens/tops/button-down | 0/3 maintenance | 0/1 maintenance | 0/1 maintenance | – | – |
+| Patagonia | tops | patagonia.com/shop/womens/tops/t-shirts | 0/4 maintenance | 0/2 maintenance | 0/2 maintenance | 0/1 maintenance | – |
+| Patagonia | sweatshirts | patagonia.com/shop/womens/tops/sweatshirts-hoodies | 0/4 maintenance | 0/2 maintenance | 2/2 | 0/1 maintenance | – |
+| Patagonia | shirts | patagonia.com/shop/womens/tops/button-down | 0/4 maintenance | 0/2 maintenance | 0/2 maintenance | 0/1 maintenance | – |
 | Patagonia | dresses | patagonia.com/shop/womens/dresses-jumpsuits | 0/2 maintenance | – | – | – | – |
 | Patagonia | pants | patagonia.com/shop/womens/bottoms | 0/2 maintenance | – | – | – | – |
-| Prana | tops | prana.com/women/tops.html | 0/3 blocked 403 | 1/1 | 1/1 | – | 0/2 blocked 403 |
-| Prana | sweatshirts | prana.com/women/tops/sweaters-hoodies.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 blocked 403 |
-| Prana | dresses | prana.com/women/dresses-skirts.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 blocked 403 |
-| Prana | pants | prana.com/women/bottoms.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 shell 403 |
-| Reformation | tops | thereformation.com/tops | 0/3 blocked 403 | 1/1 | 1/1 | – | 2/2 |
-| Reformation | sweatshirts | thereformation.com/the-sweater-shop.html | 0/3 blocked 403 | 1/1 | 0/1 blocked 403 | – | 0/2 shell 403 |
-| Reformation | shirts | thereformation.com/tops/button-ups | 0/3 blocked 403 | 1/1 | 0/1 blocked 403 | – | 2/2 |
+| Prana | tops | prana.com/women/tops.html | 0/4 blocked 403 | 1/2 blocked 403 | 1/2 blocked 403 | 0/1 blocked 403 | 0/2 blocked 403 |
+| Prana | sweatshirts | prana.com/women/tops/sweaters-hoodies.html | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 0/2 blocked 403 |
+| Prana | dresses | prana.com/women/dresses-skirts.html | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 0/2 blocked 403 |
+| Prana | pants | prana.com/women/bottoms.html | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 0/2 shell 403 |
+| Reformation | tops | thereformation.com/tops | 0/4 blocked 403 | 2/2 | 2/2 | 1/1 | 2/2 |
+| Reformation | sweatshirts | thereformation.com/the-sweater-shop.html | 0/4 blocked 403 | 2/2 | 0/2 blocked 403 | 1/1 | 0/2 shell 403 |
+| Reformation | shirts | thereformation.com/tops/button-ups | 0/4 blocked 403 | 2/2 | 0/2 blocked 403 | 1/1 | 2/2 |
 | Reformation | dresses | thereformation.com/dresses | 0/2 blocked 403 | – | – | – | 1/2 blocked 403 |
 | Reformation | pants | thereformation.com/clothing/pants | 0/2 blocked 403 | – | – | – | 2/2 |
-| Sezane | tops | sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Sezane | sweatshirts | sezane.com/us-en/collection/sweat-shirts-sailor-tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Sezane | dresses | sezane.com/us-en/collection/dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Sezane | tops | sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Sezane | sweatshirts | sezane.com/us-en/collection/sweat-shirts-sailor-tops | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Sezane | dresses | sezane.com/us-en/collection/dresses | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Sezane | pants | sezane.com/us-en/collection/bottoms/trousers | 0/2 blocked 403 | – | – | – | – |
 | Splendid | tops | splendid.com/collections/the-tee-shop | 0/2 shell | – | – | – | – |
 | Splendid | sweatshirts | splendid.com/collections/women-categories-sweats-sweatshirts | 0/2 no-cards | – | – | – | – |
@@ -742,26 +768,26 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | Sweaty betty | sweatshirts | sweatybetty.com/us/shop/tops/sweatshirts-and-hoodies | 0/2 no-cards | – | – | – | – |
 | Sweaty betty | dresses | sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits | 0/2 no-cards | – | – | – | – |
 | Sweaty betty | pants | sweatybetty.com/us/shop/bottoms | 0/2 no-cards | – | – | – | – |
-| The Great | tops | thisisthegreat.com/collections/the-great-knits | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
-| The Great | sweatshirts | thisisthegreat.com/collections/knit-shop-sweatshirts | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
-| The Great | shirts | thisisthegreat.com/collections/tops | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
+| The Great | tops | thisisthegreat.com/collections/the-great-knits | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 2/2 |
+| The Great | sweatshirts | thisisthegreat.com/collections/knit-shop-sweatshirts | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 2/2 |
+| The Great | shirts | thisisthegreat.com/collections/tops | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 2/2 |
 | The Great | dresses | thisisthegreat.com/collections/dresses | 0/2 no-cards | – | – | – | 2/2 |
 | The Great | pants | thisisthegreat.com/collections/knit-shop-sweatpants | 0/2 no-cards | – | – | – | 2/2 |
-| The upside | tops | theupside.com/shop/tops/ | 0/3 blocked 403 | 1/1 | 1/1 | – | – |
-| The upside | sweatshirts | theupside.com/shop/tops/knitwear/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| The upside | dresses | theupside.com/shop/all-in-one/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| The upside | pants | theupside.com/shop/bottoms/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| The white company | tops | thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts | 0/3 geo | 0/1 geo | 0/1 geo | – | – |
-| The white company | sweatshirts | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear | 0/3 geo | 0/1 dead 404 | 0/1 dead 404 | – | – |
-| The white company | dresses | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics | 0/3 geo | 0/1 dead 404 | 0/1 dead 404 | – | – |
-| Theory | tops | theory.com/women/t-shirts-and-tanks/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Theory | sweatshirts | theory.com/women/loungewear/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
-| Theory | shirts | theory.com/women/tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| The upside | tops | theupside.com/shop/tops/ | 0/4 blocked 403 | 2/2 | 2/2 | 1/1 | – |
+| The upside | sweatshirts | theupside.com/shop/tops/knitwear/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 1/1 | – |
+| The upside | dresses | theupside.com/shop/all-in-one/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 1/1 | – |
+| The upside | pants | theupside.com/shop/bottoms/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 1/1 | – |
+| The white company | tops | thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts | 0/4 geo | 0/2 geo | 0/2 geo | 0/1 geo | – |
+| The white company | sweatshirts | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear | 0/4 geo | 0/2 dead 404 | 0/2 dead 404 | 0/1 geo | – |
+| The white company | dresses | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics | 0/4 geo | 0/2 dead 404 | 0/2 dead 404 | 0/1 geo | – |
+| Theory | tops | theory.com/women/t-shirts-and-tanks/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Theory | sweatshirts | theory.com/women/loungewear/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
+| Theory | shirts | theory.com/women/tops/ | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | – |
 | Theory | dresses | theory.com/women/dresses/ | 0/2 blocked 403 | – | – | – | – |
 | Theory | pants | theory.com/women/pants/ | 0/2 blocked 403 | – | – | – | – |
-| Vanessa bruno | tops | vanessabruno.com/clothing/shirts-tops/t-shirt.html | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
-| Vanessa bruno | tops | vanessabruno.com/clothing/shirts-tops/top.html | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
-| Vanessa bruno | sweatshirts | vanessabruno.com/last-chance/knitwear.html | 0/3 dead | 0/1 dead | 0/1 dead | – | 0/2 shell |
+| Vanessa bruno | tops | vanessabruno.com/clothing/shirts-tops/t-shirt.html | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 2/2 |
+| Vanessa bruno | tops | vanessabruno.com/clothing/shirts-tops/top.html | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 2/2 |
+| Vanessa bruno | sweatshirts | vanessabruno.com/last-chance/knitwear.html | 0/4 dead | 0/2 dead | 0/2 dead | 0/1 dead | 0/2 shell |
 | Vanessa bruno | shirts | vanessabruno.com/clothing/shirts-tops.html | 2/2 | – | – | – | 0/2 shell |
 | Vanessa bruno | dresses | vanessabruno.com/clothing/dresses-jumpsuits.html | 2/2 | – | – | – | 0/2 shell |
 | Vanessa bruno | pants | vanessabruno.com/clothing/trousers.html | 2/2 | – | – | – | 0/2 shell |
@@ -771,9 +797,9 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | Velvet | shirts | velvet-tees.com/collections/womens-tops | 0/2 no-cards | – | – | – | – |
 | Velvet | dresses | velvet-tees.com/collections/dresses | 0/2 no-cards | – | – | – | – |
 | Velvet | pants | velvet-tees.com/collections/pants-shorts | 0/2 no-cards | – | – | – | – |
-| vineyardvines | tops | vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-c | 0/3 no-cards | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
-| vineyardvines | sweatshirts | vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--wome | 0/3 no-cards | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
-| vineyardvines | shirts | vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--w | 0/3 no-cards | 1/1 | 1/1 | – | 0/2 shell·rate-limit 429 |
+| vineyardvines | tops | vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-c | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 1/2 rate-limit 429 |
+| vineyardvines | sweatshirts | vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--wome | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 0/2 rate-limit 429 |
+| vineyardvines | shirts | vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--w | 0/4 no-cards | 2/2 | 2/2 | 1/1 | 0/2 shell·rate-limit 429 |
 | vineyardvines | dresses | vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens- | 0/2 no-cards | – | – | – | 0/2 rate-limit 429 |
 | vineyardvines | pants | vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--wom | 0/2 no-cards | – | – | – | 2/2 |
 | Vuori | tops | vuoriclothing.com/collections/womens-tanks | 0/2 no-cards | – | – | – | – |
@@ -782,17 +808,20 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | Vuori | sweatshirts | vuoriclothing.com/collections/womens-hoodies-and-sweatshirts | 0/2 no-cards | – | – | – | – |
 | Vuori | dresses | vuoriclothing.com/collections/womens-dresses-jumpsuits | 0/2 no-cards | – | – | – | – |
 | Vuori | pants | vuoriclothing.com/collections/womens-joggers | 0/2 no-cards | – | – | – | – |
-| WHBM | tops | whitehouseblackmarket.com/store/category/tees/cat4769286 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
-| WHBM | tops | whitehouseblackmarket.com/store/category/tops/cat210001 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
-| WHBM | shirts | whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
-| WHBM | dresses | whitehouseblackmarket.com/store/category/dresses/cat210002 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
-| WHBM | pants | whitehouseblackmarket.com/store/category/pants/cat210003 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
-| Whitestuff | tops | whitestuff.com/browse/collection/womens-t-shirts | 3/3 | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
-| Whitestuff | tops | whitestuff.com/browse/womens/tops-and-tees | 3/3 | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
-| Whitestuff | sweatshirts | whitestuff.com/browse/womens/knitwear | 3/3 | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
+| WHBM | tops | whitehouseblackmarket.com/store/category/tees/cat4769286 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 2/2 |
+| WHBM | tops | whitehouseblackmarket.com/store/category/tops/cat210001 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 2/2 |
+| WHBM | shirts | whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 2/2 |
+| WHBM | dresses | whitehouseblackmarket.com/store/category/dresses/cat210002 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 2/2 |
+| WHBM | pants | whitehouseblackmarket.com/store/category/pants/cat210003 | 0/4 blocked 403 | 0/2 blocked 403 | 0/2 blocked 403 | 0/1 blocked 403 | 2/2 |
+| Whitestuff | tops | whitestuff.com/browse/collection/womens-t-shirts | 4/4 | 2/2 | 2/2 | 1/1 | 1/2 rate-limit 429 |
+| Whitestuff | tops | whitestuff.com/browse/womens/tops-and-tees | 4/4 | 2/2 | 2/2 | 1/1 | 0/2 rate-limit 429 |
+| Whitestuff | sweatshirts | whitestuff.com/browse/womens/knitwear | 4/4 | 2/2 | 2/2 | 1/1 | 0/2 rate-limit 429 |
 | Whitestuff | shirts | whitestuff.com/browse/womens/shirts-and-blouses | 2/2 | – | – | – | 1/2 rate-limit 429 |
 | Whitestuff | dresses | whitestuff.com/browse/womens/dresses | 2/2 | – | – | – | 1/2 rate-limit 429 |
 | Whitestuff | pants | whitestuff.com/browse/womens/trousers-and-leggings | 2/2 | – | – | – | 0/2 rate-limit 429 |
+| Wilson | tops | wilson.com/en-us/sportswear/women/tops/tanks | 4/4 | 2/2 | 1/2 blocked 403 | 1/1 | – |
+| Wilson | tops | wilson.com/en-us/sportswear/women/tops/short-sleeve-tops | 4/4 | 2/2 | 2/2 | 0/1 blocked 403 | – |
+| Wilson | tops | wilson.com/en-us/sportswear/women/tops/long-sleeve-tops | 4/4 | 2/2 | 2/2 | 0/1 blocked 403 | – |
 | Z Supply | tops | zsupplyclothing.com/collections/tees-1 | 0/2 no-cards | – | – | – | – |
 | Z Supply | tops | zsupplyclothing.com/collections/tanks | 0/2 no-cards | – | – | – | – |
 | Z Supply | sweatshirts | zsupplyclothing.com/collections/sweatshirts-hoodies-pullovers | 0/2 no-cards | – | – | – | – |
@@ -824,4 +853,6 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | 45582267106 | 2026-11-25T09:08 | 172.208.124.x | impit, playwright, firefox | 90 |
 | 45582271538 | 2026-11-25T09:08 | 51.57.145.x | server | 75 |
 | 45582315366 | 2026-11-25T09:08 | 20.102.102.x | impit, site-api, wayback, playwright, firefox | 23 |
+| 45584342647 | 2026-11-25T09:21 | 20.55.223.x | impit, playwright, firefox, firefox-fresh | 84 |
+| 45584347742 | 2026-11-25T09:21 | 20.120.221.x | impit, playwright, firefox, firefox-fresh | 82 |
 

@@ -272,10 +272,10 @@
  "Garnet hill": {
   "listing": {
    "status": "partial",
-   "cause": "크롬 Akamai 403 · 평 HTML 은 상품이 없는 껍데기(36KB) · 파이어폭스는 첫 URL 만 · 확장도 URL 3개에서 4~9개",
+   "cause": "Akamai — 크롬 403 · 파이어폭스는 한 창이면 첫 URL 만, 새 창이면 3/3 열림. 그런데 열려도 상품 7~10개뿐이고 집 IP 확장도 URL 3개에서 4~9개 — 목록을 잘 못 읽음",
    "why": "확장 86·4·9·9",
-   "fix": "확장 수집기 확인(3개 URL 이 거의 빈손) — 접근은 집 IP",
-   "tier": 2
+   "fix": "파이어폭스 + 새 창으로 열고 수집기 확인(무료, 새 창 1회 측정)",
+   "tier": 1
   },
   "product": {
    "status": "blocked",
@@ -394,9 +394,9 @@
  "Massimo Dutti": {
   "listing": {
    "status": "home-only",
-   "cause": "평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2/3 열림",
+   "cause": "평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2회 모두 열림(한 창 2/3 — 1개 404, 새 창 3/3)",
    "why": "확장 603개",
-   "fix": "헤드리스 파이어폭스 — 오늘 2/3 · 11/24 111개(공용 링크 제외)",
+   "fix": "헤드리스 파이어폭스(+새 창) — 11/24 111개 · 오늘 2회",
    "tier": 1
   },
   "product": {
@@ -563,7 +563,7 @@
  "Prana": {
   "listing": {
    "status": "blocked",
-   "cause": "Cloudflare 차단 화면(Attention Required · Sorry, you have been blocked) — impit·서버 전부 · 크롬·파이어폭스는 첫 URL 만 열리고 다음부터 403",
+   "cause": "Cloudflare 차단 화면(Attention Required · Sorry, you have been blocked) — impit·서버 전부. 1차 러너에선 크롬·파이어폭스가 첫 URL 만 열렸고, 2차 러너에선 첫 URL 도 403(새 창 포함)",
    "why": "서버 6일 연속 1개 · 카탈로그 9/22 이후 갱신 없음(두 달)",
    "fix": "확장 담당으로 옮김(집 IP — 안 재 봄) 또는 유료(Cloudflare 대응)",
    "tier": 2
@@ -595,9 +595,9 @@
  "Reformation": {
   "listing": {
    "status": "partial",
-   "cause": "Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0) · 데이터센터 크롬은 3/3 열림",
+   "cause": "Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0). 데이터센터 헤드리스 크롬은 2회 모두 3/3, 파이어폭스는 첫 URL 만 — 새 창이면 3/3",
    "why": "프리페치 221개(저장 753 은 옛 수집분 포함)",
-   "fix": "헤드리스 크롬 그룹으로 옮김(무료) — 러너마다 갈리는지 2차 측정 참고",
+   "fix": "헤드리스 크롬 그룹으로 옮김(무료, 2회 측정)",
    "tier": 1
   },
   "product": {
@@ -839,17 +839,17 @@
  "The upside": {
   "listing": {
    "status": "partial",
-   "cause": "Cloudflare 확인 화면 — 헤드리스·파이어폭스 모두 첫 URL 만 열리고 다음 3개 403",
+   "cause": "Cloudflare 확인 화면 — 한 창으로 이어서 열면 첫 카테고리만 열리고 다음부터 403(헤드리스 크롬·파이어폭스 2회). 카테고리마다 쿠키 없는 새 창으로 열면 4/4 열림(68·56·30·68)",
    "why": "헤드리스 11/25 70·0·0·0 (저장 429 는 옛 수집분)",
-   "fix": "카테고리마다 새 창으로 열기(11/25 2차 측정 참고) · 안 되면 확장 또는 유료",
-   "tier": 2
+   "fix": "헤드리스 수집을 파이어폭스 + 카테고리마다 새 창(browser-collect 의 FRESH_CONTEXT=1 — 이미 있는 설정)으로. 새 창 측정은 1회",
+   "tier": 1
   },
   "product": {
    "status": "partial",
-   "cause": "Cloudflare — 브라우저는 첫 페이지만",
+   "cause": "Cloudflare — 한 창으로 이어 열면 첫 페이지만",
    "why": "혼용률 322/429",
-   "fix": "확장 또는 새 창",
-   "tier": 2
+   "fix": "보강도 페이지마다 새 창(1회 측정 결과는 상품 2차 실행 참고)",
+   "tier": 1
   }
  },
  "Lucky Brand": {
