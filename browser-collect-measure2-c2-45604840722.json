@@ -1,0 +1,1600 @@
+{
+ "when": "2026-11-25T12:08:11.694Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "chromium",
+  "firefox"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [
+  "The upside: Render browser 그룹 브랜드 — 엔진 firefox · 새 창으로 바꿔 돎",
+  "Carlhartt: Render browser 그룹 브랜드 — 엔진 chromium으로 바꿔 돎",
+  "Nike: Render browser 그룹 브랜드 — 엔진 chromium으로 바꿔 돎"
+ ],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "Nike",
+   "site": "nike.com.nike",
+   "engine": "chromium",
+   "engineSource": "extra-override",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 559,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 135,
+    "shirts": 27,
+    "sweatshirts": 78,
+    "pants": 286,
+    "dresses": 33
+   },
+   "perUrl": [
+    {
+     "url": "https://www.nike.com/w/womens-tops-t-shirts-5e1x6z9om13",
+     "count": 600,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Nike Sportswear Classic Women's Oversized T-Shirt",
+       "productUrl": "https://www.nike.com/t/sportswear-classic-womens-oversized-t-shirt-KUrHe1Hh/IX2180-698",
+       "price": ""
+      },
+      {
+       "name": "Nike AeroSwift Women's Dri-FIT ADV Cropped Running Tank Top",
+       "productUrl": "https://www.nike.com/t/aeroswift-womens-dri-fit-adv-cropped-running-tank-top-UeA0iuDw/IF3649-336",
+       "price": "$62.97"
+      },
+      {
+       "name": "Nike Swift Women's Dri-FIT Running Tank Top",
+       "productUrl": "https://www.nike.com/t/swift-womens-dri-fit-running-tank-top-de47Nnoy/IU1033-300",
+       "price": "$55"
+      }
+     ],
+     "rej": {
+      "total": 2942,
+      "noImage": 392,
+      "tinyImage": 1260,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 212,
+      "nonProduct": 11,
+      "landing": 0,
+      "siteMenu": 467
+     }
+    },
+    {
+     "url": "https://www.nike.com/w/womens-fleece-4xh6qz5e1x6",
+     "count": 600,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "IZ4487 010",
+       "productUrl": "https://www.nike.com/t/studio-fleece-medium-weight-womens-oversized-crew-Rv4S7NS6/IZ4487-010",
+       "price": "$85"
+      },
+      {
+       "name": "Caitlin Clark Women's Therma-FIT Pullover Basketball Hoodie",
+       "productUrl": "https://www.nike.com/t/caitlin-clark-womens-therma-fit-pullover-basketball-hoodie-oSRF0x1j/JA0095-491",
+       "price": "$90"
+      },
+      {
+       "name": "HQ6843 010",
+       "productUrl": "https://www.nike.com/t/brooklyn-nets-city-edition-womens-nike-nba-phoenix-fleece-premium-hoodie-x1zXSXsp/HQ6843-010",
+       "price": "$71.97"
+      }
+     ],
+     "rej": {
+      "total": 2597,
+      "noImage": 260,
+      "tinyImage": 956,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 342,
+      "nonProduct": 12,
+      "landing": 0,
+      "siteMenu": 427
+     }
+    },
+    {
+     "url": "https://www.nike.com/w/womens-skirts-and-dresses-5e1x6z8y3qp",
+     "count": 140,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Nike Sportswear Women's Oversized Jersey Mini Dress",
+       "productUrl": "https://www.nike.com/t/sportswear-womens-oversized-jersey-mini-dress-EmNBuqA9/IV5027-303",
+       "price": ""
+      },
+      {
+       "name": "Nike ACG \"Smith Summit\" Women's Skirt",
+       "productUrl": "https://www.nike.com/t/acg-smith-summit-womens-skirt-mCrz5D/IB4431-236",
+       "price": "$95.97"
+      },
+      {
+       "name": "Nike Club",
+       "productUrl": "https://www.nike.com/t/club-mens-pullover-fleece-hoodie-00eeWNwD/FN3859-451",
+       "price": "$65.97"
+      }
+     ],
+     "rej": {
+      "total": 435,
+      "noImage": 2,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 423
+     }
+    },
+    {
+     "url": "https://www.nike.com/w/womens-pants-and-tights-2kq19z5e1x6",
+     "count": 364,
+     "productShaped": 6,
+     "note": "",
+     "sample": [
+      {
+       "name": "Nike Sportswear Chill Knit Women's Mid-Rise Pants",
+       "productUrl": "https://www.nike.com/t/sportswear-chill-knit-womens-mid-rise-pants-yc81FyFZ/IM5511-658",
+       "price": ""
+      },
+      {
+       "name": "Nike Studio Fleece Medium Weight Women's Mid-Rise Wide-Leg Pants",
+       "productUrl": "https://www.nike.com/t/studio-fleece-medium-weight-womens-mid-rise-wide-leg-pants-sJj9p9GG/IW4771-303",
+       "price": "$65"
+      },
+      {
+       "name": "Nike Swift Women's High-Waisted 4\" Tight Running Shorts with Pockets",
+       "productUrl": "https://www.nike.com/t/swift-womens-high-waisted-4-tight-running-shorts-with-pockets-nhRdW7/HJ2258-630",
+       "price": "$60"
+      }
+     ],
+     "rej": {
+      "total": 2254,
+      "noImage": 278,
+      "tinyImage": 1003,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 148,
+      "nonProduct": 8,
+      "landing": 0,
+      "siteMenu": 453
+     }
+    }
+   ],
+   "secs": 664,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Nike Sportswear Classic Women's Oversized T-Shirt",
+     "productUrl": "https://www.nike.com/t/sportswear-classic-womens-oversized-t-shirt-KUrHe1Hh/IX2180-698"
+    },
+    {
+     "name": "Nike Sportswear Women's T-Shirt",
+     "productUrl": "https://www.nike.com/t/sportswear-womens-t-shirt-m5h5eyPD/JU5075-010"
+    },
+    {
+     "name": "JU5074 010",
+     "productUrl": "https://www.nike.com/t/sportswear-womens-loose-t-shirt-xj4G0tEe/JU5074-010"
+    },
+    {
+     "name": "JU5073 010",
+     "productUrl": "https://www.nike.com/t/sportswear-womens-loose-t-shirt-CJvGy0WA/JU5073-010"
+    },
+    {
+     "name": "JU5072 100",
+     "productUrl": "https://www.nike.com/t/sportswear-womens-loose-t-shirt-bThGrK0I/JU5072-100"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Carlhartt",
+   "site": "carhartt.com.carlhartt",
+   "engine": "chromium",
+   "engineSource": "extra-override",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 71,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "shirts": 18,
+    "tops": 25,
+    "sweatshirts": 24,
+    "pants": 4
+   },
+   "perUrl": [
+    {
+     "url": "https://www.carhartt.com/c/women-tops-tshirt",
+     "count": 24,
+     "productShaped": 24,
+     "note": "",
+     "sample": [
+      {
+       "name": "womens irvine relaxed t shirt",
+       "productUrl": "https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt",
+       "price": "$9.99"
+      },
+      {
+       "name": "Women's TENCEL™ Fiber Series Loose Floral T-Shirt",
+       "productUrl": "https://www.carhartt.com/product/107478/womens-tencel-fiber-series-loose-floral-t-shirt",
+       "price": "$16.49"
+      },
+      {
+       "name": "Women's TENCEL™ Fiber Series Loose Fit Long-Sleeve Logo Graphic T-Shirt",
+       "productUrl": "https://www.carhartt.com/product/106574/womens-tencel-fiber-series-loose-fit-long-sleeve-logo-graphic-t-shirt",
+       "price": "$17.49"
+      }
+     ],
+     "rej": {
+      "total": 889,
+      "noImage": 24,
+      "tinyImage": 24,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 15,
+      "nonProduct": 4,
+      "landing": 0,
+      "siteMenu": 798
+     }
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-hoodies-sweatshirts",
+     "count": 25,
+     "productShaped": 24,
+     "note": "",
+     "sample": [
+      {
+       "name": "womens iconic clarksburg logo sweatshirt",
+       "productUrl": "https://www.carhartt.com/product/102791/womens-iconic-clarksburg-logo-sweatshirt",
+       "price": "$44.99"
+      },
+      {
+       "name": "womens sawyer crewneck sweatshirt",
+       "productUrl": "https://www.carhartt.com/product/107415/womens-sawyer-crewneck-sweatshirt",
+       "price": "$44.99"
+      },
+      {
+       "name": "terms conditions",
+       "productUrl": "https://www.carhartt.com/terms-conditions",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 891,
+      "noImage": 24,
+      "tinyImage": 24,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 17,
+      "nonProduct": 4,
+      "landing": 0,
+      "siteMenu": 798
+     }
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-tops",
+     "count": 11,
+     "productShaped": 11,
+     "note": "",
+     "sample": [
+      {
+       "name": "womens paxton quilted shirt jac",
+       "productUrl": "https://www.carhartt.com/product/107872/womens-paxton-quilted-shirt-jac",
+       "price": "$94.99"
+      },
+      {
+       "name": "Women's Relaxed Fit Midweight Denim Long-Sleeve Over Shirt",
+       "productUrl": "https://www.carhartt.com/product/105492/womens-relaxed-fit-midweight-denim-long-sleeve-over-shirt",
+       "price": "$34.99"
+      },
+      {
+       "name": "Women's Loose Fit Lightweight Twill Short-Sleeve Plaid Shirt",
+       "productUrl": "https://www.carhartt.com/product/105260/womens-loose-fit-lightweight-twill-short-sleeve-plaid-shirt",
+       "price": "$20.00"
+      }
+     ],
+     "rej": {
+      "total": 847,
+      "noImage": 18,
+      "tinyImage": 11,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 5,
+      "nonProduct": 4,
+      "landing": 0,
+      "siteMenu": 798
+     }
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-bibs-overalls",
+     "count": 10,
+     "productShaped": 10,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Ashland Bib Overall",
+       "productUrl": "https://www.carhartt.com/product/106001/womens-ashland-bib-overall",
+       "price": "$99.99"
+      },
+      {
+       "name": "Women's Ashland Shortall",
+       "productUrl": "https://www.carhartt.com/product/106197/womens-ashland-shortall",
+       "price": "$39.99"
+      },
+      {
+       "name": "Women's Rugged Flex® Relaxed Fit Denim Bib Overall",
+       "productUrl": "https://www.carhartt.com/product/106002/womens-rugged-flex-relaxed-fit-denim-bib-overall",
+       "price": "$44.99"
+      }
+     ],
+     "rej": {
+      "total": 841,
+      "noImage": 18,
+      "tinyImage": 8,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 3,
+      "nonProduct": 4,
+      "landing": 0,
+      "siteMenu": 798
+     }
+    },
+    {
+     "url": "https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017",
+     "count": 1,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Relaxed Fit Fleece Joggers",
+       "productUrl": "https://www.carhartt.com/en-eu/p/relaxed-fit-fleece-joggers/105510",
+       "price": "31,99 €"
+      }
+     ],
+     "rej": {
+      "total": 254,
+      "noImage": 8,
+      "tinyImage": 1,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 244
+     }
+    }
+   ],
+   "secs": 289,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "womens irvine relaxed t shirt",
+     "productUrl": "https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt"
+    },
+    {
+     "name": "womens irvine loose ls logo t shirt",
+     "productUrl": "https://www.carhartt.com/product/107742/womens-irvine-loose-ls-logo-t-shirt"
+    },
+    {
+     "name": "womens irvine loose ls pocket t shirt",
+     "productUrl": "https://www.carhartt.com/product/107973/womens-irvine-loose-ls-pocket-t-shirt"
+    },
+    {
+     "name": "Women's Irvine Relaxed Floral Pocket T-Shirt",
+     "productUrl": "https://www.carhartt.com/product/107869/womens-irvine-relaxed-floral-pocket-t-shirt"
+    },
+    {
+     "name": "womens tencel fiber series loose t shirt",
+     "productUrl": "https://www.carhartt.com/product/106122/womens-tencel-fiber-series-loose-t-shirt"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Banana Republic",
+   "site": "bananarepublic.gap.com.bananarepublic",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 512,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 175,
+    "sweatshirts": 12,
+    "shirts": 74,
+    "pants": 136,
+    "dresses": 115
+   },
+   "perUrl": [
+    {
+     "url": "https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136",
+     "count": 106,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Ribbed Crew-Neck T-Shirt",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=851636032",
+       "price": ""
+      },
+      {
+       "name": "Vintage Cotton Crew-Neck T-Shirt",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=834994352",
+       "price": ""
+      },
+      {
+       "name": "Vintage Cotton Crew-Neck T-Shirt",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=834994342",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 726,
+      "noImage": 262,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 10,
+      "banner": 0,
+      "dup": 127,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 221
+     }
+    },
+    {
+     "url": "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136",
+     "count": 164,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Stretch-Satin Fringe Top",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1203518002",
+       "price": ""
+      },
+      {
+       "name": "Mesh Crew-Neck Top",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180984022",
+       "price": "$58.80"
+      },
+      {
+       "name": "Stretch-Satin Shirt",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1183797002",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 951,
+      "noImage": 387,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 174,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 221
+     }
+    },
+    {
+     "url": "https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136",
+     "count": 132,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Organza Maxi Shirt Dress",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180136002",
+       "price": ""
+      },
+      {
+       "name": "Stretch-Cotton Tie-Waist Maxi Dress",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180122022",
+       "price": ""
+      },
+      {
+       "name": "Mesh Long-Sleeve Maxi Dress",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180120002",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 812,
+      "noImage": 325,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 129,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 221
+     }
+    },
+    {
+     "url": "https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136",
+     "count": 136,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "High-Rise Wide-Leg Everywhere Ponte Pull-On Pant",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=826938012",
+       "price": ""
+      },
+      {
+       "name": "Mid-Rise Relaxed Corduroy Painter Pull-On Pant",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180270022",
+       "price": ""
+      },
+      {
+       "name": "Skinny Everywhere Ponte Pant",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=761465002",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 900,
+      "noImage": 345,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 10,
+      "banner": 0,
+      "dup": 188,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 221
+     }
+    }
+   ],
+   "secs": 163,
+   "dropped": 3,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Ribbed Crew-Neck T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=851636032"
+    },
+    {
+     "name": "Refined Crew-Neck T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=506573002"
+    },
+    {
+     "name": "Refined Baby T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=443576032"
+    },
+    {
+     "name": "Vintage Cotton Crew-Neck T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=834994042"
+    },
+    {
+     "name": "Vintage Cotton Funnel-Neck T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1183323002"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Reformation",
+   "site": "thereformation.com.reformation",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 535,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 159,
+    "pants": 150,
+    "shirts": 53,
+    "sweatshirts": 35,
+    "dresses": 138
+   },
+   "perUrl": [
+    {
+     "url": "https://www.thereformation.com/tops",
+     "count": 613,
+     "productShaped": 606,
+     "note": "",
+     "sample": [
+      {
+       "name": "going out tops",
+       "productUrl": "https://www.thereformation.com/tops/going-out-tops",
+       "price": ""
+      },
+      {
+       "name": "Alessandra Knit Top - Black",
+       "productUrl": "https://www.thereformation.com/products/alessandra-knit-top/1320998BLK.html",
+       "price": ""
+      },
+      {
+       "name": "Calie Tank - Red Stripe",
+       "productUrl": "https://www.thereformation.com/products/calie-tank/1310381EDS.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 4212,
+      "noImage": 455,
+      "tinyImage": 2621,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 237,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 285
+     }
+    },
+    {
+     "url": "https://www.thereformation.com/the-sweater-shop.html",
+     "count": 50,
+     "productShaped": 43,
+     "note": "",
+     "sample": [
+      {
+       "name": "cashmere",
+       "productUrl": "https://www.thereformation.com/sweaters/cashmere-sweaters",
+       "price": ""
+      },
+      {
+       "name": "Clara Cashmere Crew Cardigan - Black",
+       "productUrl": "https://www.thereformation.com/products/clara-cashmere-crew-cardigan/1312652BLK.html",
+       "price": "$148.50"
+      },
+      {
+       "name": "Powered by Onetrust",
+       "productUrl": "https://www.onetrust.com/solutions/consent-and-preferences/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 418,
+      "noImage": 10,
+      "tinyImage": 17,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 55,
+      "nonProduct": 0,
+      "landing": 1,
+      "siteMenu": 285
+     }
+    },
+    {
+     "url": "https://www.thereformation.com/tops/button-ups",
+     "count": 61,
+     "productShaped": 59,
+     "note": "",
+     "sample": [
+      {
+       "name": "Geometric",
+       "productUrl": "https://www.thereformation.com/on/demandware.store/Sites-reformation-us-Site/en_US/Search-ShowAjax",
+       "price": ""
+      },
+      {
+       "name": "Eli Oversized Silk Shirt - Black",
+       "productUrl": "https://www.thereformation.com/products/eli-oversized-silk-shirt/1319095BLK.html",
+       "price": ""
+      },
+      {
+       "name": "Will Oversized Shirt - Grass",
+       "productUrl": "https://www.thereformation.com/products/will-oversized-shirt/1309967RAS.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 896,
+      "noImage": 80,
+      "tinyImage": 450,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 20,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 285
+     }
+    },
+    {
+     "url": "https://www.thereformation.com/dresses",
+     "count": 600,
+     "productShaped": 592,
+     "note": "",
+     "sample": [
+      {
+       "name": "wedding guest dresses",
+       "productUrl": "https://www.thereformation.com/bridal/wedding-guest-dresses",
+       "price": ""
+      },
+      {
+       "name": "Emna Silk Dress - Black Bean",
+       "productUrl": "https://www.thereformation.com/products/emna-silk-dress/1320690KBE.html",
+       "price": ""
+      },
+      {
+       "name": "Valetta Two Piece - White",
+       "productUrl": "https://www.thereformation.com/products/valetta-two-piece/1315004WHT.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 3082,
+      "noImage": 349,
+      "tinyImage": 1513,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 335,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 285
+     }
+    },
+    {
+     "url": "https://www.thereformation.com/clothing/pants",
+     "count": 168,
+     "productShaped": 163,
+     "note": "",
+     "sample": [
+      {
+       "name": "trend pants",
+       "productUrl": "https://www.thereformation.com/clothing/pants/trend-pants",
+       "price": ""
+      },
+      {
+       "name": "Palmer Cropped Knit Pant - Black",
+       "productUrl": "https://www.thereformation.com/products/palmer-cropped-knit-pant/1317360BLK.html",
+       "price": ""
+      },
+      {
+       "name": "Fernando Linen Wide Leg Pant Es - Black",
+       "productUrl": "https://www.thereformation.com/products/fernando-linen-wide-leg-pant-es/1314660BLK.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1382,
+      "noImage": 192,
+      "tinyImage": 668,
+      "shortPath": 2,
+      "samePage": 4,
+      "banner": 0,
+      "dup": 63,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 285
+     }
+    }
+   ],
+   "secs": 713,
+   "dropped": 1,
+   "cut": false,
+   "sample": [
+    {
+     "name": "going out tops",
+     "productUrl": "https://www.thereformation.com/tops/going-out-tops"
+    },
+    {
+     "name": "sleeveless",
+     "productUrl": "https://www.thereformation.com/tops/sleeveless"
+    },
+    {
+     "name": "short sleeve",
+     "productUrl": "https://www.thereformation.com/tops/short-sleeve"
+    },
+    {
+     "name": "long sleeve",
+     "productUrl": "https://www.thereformation.com/tops/long-sleeve"
+    },
+    {
+     "name": "basic tops",
+     "productUrl": "https://www.thereformation.com/tops/basic-tops"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Gap",
+   "site": "gap.com.gap",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 473,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 134,
+    "sweatshirts": 122,
+    "pants": 81,
+    "dresses": 124,
+    "shirts": 12
+   },
+   "perUrl": [
+    {
+     "url": "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136",
+     "count": 201,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "info.do",
+       "productUrl": "https://www.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "Modern Crew T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=801470062",
+       "price": ""
+      },
+      {
+       "name": "Organic Cotton VintageSoft T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=886591062",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1454,
+      "noImage": 847,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 13,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    },
+    {
+     "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
+     "count": 205,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "GapSweats Guide",
+       "productUrl": "https://www.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "VintageSoft Baggy Sweatpants",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=732776172",
+       "price": ""
+      },
+      {
+       "name": "VintageSoft Oversized Mockneck Logo Sweatshirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=908994042",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1472,
+      "noImage": 862,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 11,
+      "banner": 0,
+      "dup": 1,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    },
+    {
+     "url": "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
+     "count": 203,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Lightweight CashSoft Rib Sweater Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1184693002",
+       "price": ""
+      },
+      {
+       "name": "Denim Mini Shift Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=912593002",
+       "price": ""
+      },
+      {
+       "name": "Voile Plaid Smocked-Waist Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=898006002",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1460,
+      "noImage": 854,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 1,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    },
+    {
+     "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS",
+     "count": 68,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "GapSweats Guide",
+       "productUrl": "https://www.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "Mid Rise VintageSoft Baggy Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903058012",
+       "price": ""
+      },
+      {
+       "name": "VintageSoft Terry Relaxed Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=844940042",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 788,
+      "noImage": 315,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 11,
+      "banner": 0,
+      "dup": 1,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    }
+   ],
+   "secs": 97,
+   "dropped": 4,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Organic Cotton VintageSoft T-Shirt",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=795346062"
+    },
+    {
+     "name": "Modern Crew T-Shirt",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=801470282"
+    },
+    {
+     "name": "Modern Crewneck Cardigan",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=839482052"
+    },
+    {
+     "name": "Modern Turtleneck",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=915375122"
+    },
+    {
+     "name": "Modern Rib T-Shirt",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=874457002"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Old Navy",
+   "site": "oldnavy.gap.com.oldnavy",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 693,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 297,
+    "sweatshirts": 103,
+    "shirts": 7,
+    "pants": 186,
+    "dresses": 100
+   },
+   "perUrl": [
+    {
+     "url": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
+     "count": 203,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "EveryWear Long-Sleeve T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=896721052",
+       "price": ""
+      },
+      {
+       "name": "Long-Sleeve Faux-Fur Cuff Tie-Front Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184157002",
+       "price": ""
+      },
+      {
+       "name": "Vintage Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=537388032",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1505,
+      "noImage": 444,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 328,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 520
+     }
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
+     "count": 205,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Loose Sherpa Quarter-Zip Pullover",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903179002",
+       "price": ""
+      },
+      {
+       "name": "Dynamic Fleece Half-Zip Hoodie Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=784416112",
+       "price": ""
+      },
+      {
+       "name": "SoComfy Funnel-Neck Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=900680052",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1490,
+      "noImage": 453,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 306,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 520
+     }
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
+     "count": 114,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Chiffon Short-Sleeve Ruffle Peplum Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1200253002",
+       "price": ""
+      },
+      {
+       "name": "Old Navy x Altuzarra Scarf Tank Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184424012",
+       "price": ""
+      },
+      {
+       "name": "Linen-Blend Short-Sleeve Smocked Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=886784022",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1027,
+      "noImage": 267,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 14,
+      "banner": 0,
+      "dup": 111,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 520
+     }
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
+     "count": 197,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "SoSoft Long-Sleeve V-Neck Mini Sweater Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=906372032",
+       "price": ""
+      },
+      {
+       "name": "Ruffle-Collar Boho Maxi Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=911124012",
+       "price": ""
+      },
+      {
+       "name": "Strappy Mini Shift Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=886708032",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1377,
+      "noImage": 433,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 217,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 520
+     }
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
+     "count": 157,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "High-Waisted SoComfy Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=777363022",
+       "price": ""
+      },
+      {
+       "name": "Dynamic Fleece Joggers",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=915334032",
+       "price": ""
+      },
+      {
+       "name": "Mid-Rise SoComfy Barrel Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=894218042",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1276,
+      "noImage": 356,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 237,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 520
+     }
+    }
+   ],
+   "secs": 138,
+   "dropped": 3,
+   "cut": false,
+   "sample": [
+    {
+     "name": "EveryWear Long-Sleeve T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=896721052"
+    },
+    {
+     "name": "Long-Sleeve Tie-Neck Top",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184155052"
+    },
+    {
+     "name": "Heavyweight Crew-Neck T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909479062"
+    },
+    {
+     "name": "Vintage Crew-Neck T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=537384532"
+    },
+    {
+     "name": "Snug Long-Sleeve Ribbed Henley T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909480002"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Athleta",
+   "site": "athleta.gap.com.athleta",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 403,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "sweatshirts": 95,
+    "tops": 134,
+    "shirts": 3,
+    "dresses": 22,
+    "pants": 149
+   },
+   "perUrl": [
+    {
+     "url": "https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops",
+     "count": 396,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Coaster Luxe Recover Sweatshirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=659287002",
+       "price": ""
+      },
+      {
+       "name": "Seasoft Full Zip",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=845212012",
+       "price": "$109.004"
+      },
+      {
+       "name": "Seasoft V-Neck Sweatshirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174523072",
+       "price": "$89.004"
+      }
+     ],
+     "rej": {
+      "total": 1947,
+      "noImage": 796,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 620,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 126
+     }
+    },
+    {
+     "url": "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts",
+     "count": 122,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Forever Fleece 1/4 Zip Sweatshirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177321022",
+       "price": ""
+      },
+      {
+       "name": "Coaster Luxe Open Cardigan",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177198022",
+       "price": ""
+      },
+      {
+       "name": "Coaster Luxe V-Neck Sweatshirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174524042",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 692,
+      "noImage": 248,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 189,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 128
+     }
+    },
+    {
+     "url": "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A",
+     "count": 41,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Crossroads Dress",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1178636012",
+       "price": ""
+      },
+      {
+       "name": "Featherweight Plissé Midi Skirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174505002",
+       "price": ""
+      },
+      {
+       "name": "Featherweight Plissé Midi Skirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174505012",
+       "price": "$84.99"
+      }
+     ],
+     "rej": {
+      "total": 221,
+      "noImage": 80,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 41,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 53
+     }
+    },
+    {
+     "url": "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A",
+     "count": 295,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "Salutation Stash High Rise 7/8 Legging",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=531321002",
+       "price": ""
+      },
+      {
+       "name": "Endless High Rise Barrel Pant",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174194032",
+       "price": "$119.00"
+      },
+      {
+       "name": "Salutation Stash High Rise 7\" Short",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=531907002",
+       "price": "$69.00"
+      }
+     ],
+     "rej": {
+      "total": 1484,
+      "noImage": 594,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 460,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 126
+     }
+    }
+   ],
+   "secs": 146,
+   "dropped": 3,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Coaster Luxe Recover Sweatshirt",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=659287002"
+    },
+    {
+     "name": "Momentum Flex Tee",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=845689172"
+    },
+    {
+     "name": "Coaster Luxe Recover Sweatshirt",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=659287502"
+    },
+    {
+     "name": "Move With Ease Top",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=784678392"
+    },
+    {
+     "name": "Signature Rib V-Neck Top",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174497152"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "The upside",
+   "site": "theupside.com.theupside",
+   "engine": "firefox",
+   "engineSource": "extra-override",
+   "fresh": true,
+   "storeMode": "replace",
+   "collected": 170,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 55,
+    "sweatshirts": 44,
+    "dresses": 15,
+    "pants": 56
+   },
+   "perUrl": [
+    {
+     "url": "https://www.theupside.com/shop/tops/",
+     "count": 58,
+     "productShaped": 58,
+     "note": "",
+     "sample": [
+      {
+       "name": "MAYA SAL DOUBLE LAYER BRA - SETTING SUN [USW426067]",
+       "productUrl": "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/",
+       "price": ""
+      },
+      {
+       "name": "PALACIO JETTA RACERBACK BRA - CHECK [USW426033]",
+       "productUrl": "https://www.theupside.com/palacio-jetta-racerback-bra-check-usw426033/",
+       "price": ""
+      },
+      {
+       "name": "SEAMLESS HALLE HALTER TOP - CREAM [USW326095]",
+       "productUrl": "https://www.theupside.com/seamless-halle-halter-top-cream-usw326095/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 2,
+      "noImage": 0,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 2
+     }
+    },
+    {
+     "url": "https://www.theupside.com/shop/tops/knitwear/",
+     "count": 45,
+     "productShaped": 45,
+     "note": "",
+     "sample": [
+      {
+       "name": "SAKINA SILK KNIT CARDIGAN - NATURAL [USW426131]",
+       "productUrl": "https://www.theupside.com/sakina-silk-knit-cardigan-natural-usw426131/",
+       "price": ""
+      },
+      {
+       "name": "CASTILLA CLEMENTINE KNIT CREW - OLIVE [USW126120]",
+       "productUrl": "https://www.theupside.com/castilla-clementine-knit-crew-olive-usw126120/",
+       "price": ""
+      },
+      {
+       "name": "SEBASTIAN CREW KNIT SWEATER - STRIPE [USW325069]",
+       "productUrl": "https://www.theupside.com/sebastian-crew-knit-sweater-stripe-usw325069/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 2,
+      "noImage": 0,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 2
+     }
+    },
+    {
+     "url": "https://www.theupside.com/shop/all-in-one/",
+     "count": 19,
+     "productShaped": 19,
+     "note": "",
+     "sample": [
+      {
+       "name": "COZUMEL CROCHET LORI DRESS - NAVY [USW426073]",
+       "productUrl": "https://www.theupside.com/cozumel-crochet-lori-dress-navy-usw426073/",
+       "price": ""
+      },
+      {
+       "name": "LORI KNIT MINI DRESS - NAVY [USW226021]",
+       "productUrl": "https://www.theupside.com/lori-knit-mini-dress-navy-usw226021/",
+       "price": ""
+      },
+      {
+       "name": "DEIJI KNIT DRESS - NAVY [USW425038]",
+       "productUrl": "https://www.theupside.com/deiji-knit-dress-navy-usw425038/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 2,
+      "noImage": 0,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 2
+     }
+    },
+    {
+     "url": "https://www.theupside.com/shop/bottoms/",
+     "count": 58,
+     "productShaped": 58,
+     "note": "",
+     "sample": [
+      {
+       "name": "PANTHERA 25IN MIDI PANT - LEOPARD [USW426162]",
+       "productUrl": "https://www.theupside.com/panthera-25in-midi-pant-leopard-usw426162/",
+       "price": ""
+      },
+      {
+       "name": "GAME KARINA PLEATED SKIRT - WHITE [USW426043]",
+       "productUrl": "https://www.theupside.com/game-karina-pleated-skirt-white-usw426043/",
+       "price": ""
+      },
+      {
+       "name": "SEAMLESS 4IN SPIN SHORT - PEACOCK [USW326118]",
+       "productUrl": "https://www.theupside.com/seamless-4in-spin-short-peacock-usw326118/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 2,
+      "noImage": 0,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 2
+     }
+    }
+   ],
+   "secs": 109,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "MAYA SAL DOUBLE LAYER BRA - SETTING SUN [USW426067]",
+     "productUrl": "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/"
+    },
+    {
+     "name": "CORVARA JAKARA PUFFER JACKET - CREME [USW426182]",
+     "productUrl": "https://www.theupside.com/corvara-jakara-puffer-jacket-creme-usw426182/"
+    },
+    {
+     "name": "HERMOSA AVA DOUBLE LAYER BRA - NAVY [USW426084]",
+     "productUrl": "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/"
+    },
+    {
+     "name": "PANTHERA AMELIA TANK TOP - LEOPARD [USW426080]",
+     "productUrl": "https://www.theupside.com/panthera-amelia-tank-top-leopard-usw426080/"
+    },
+    {
+     "name": "ARLO POINTELLE LONG SLEEVE TOP - BUTTER [USW426091]",
+     "productUrl": "https://www.theupside.com/arlo-pointelle-long-sleeve-top-butter-usw426091/"
+    }
+   ],
+   "verdict": "자동화 가능"
+  }
+ ]
+}
