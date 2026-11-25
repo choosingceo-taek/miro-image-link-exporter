@@ -1,4 +1,4 @@
-# 엑셀 4항목 채움률 (2026-11-25T12:30Z)
+# 엑셀 4항목 채움률 (2026-11-25T13:10Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
@@ -125,26 +125,26 @@
 
 <details><summary>정상 33개</summary>
 
-- Seasalt cornwall — 22시간 전 · 279개
-- Free People — 22시간 전 · 190개
-- Old Navy — 22시간 전 · 7개
-- Theory — 22시간 전 · 379개
-- Banana Republic — 22시간 전 · 1개
-- Madewell — 22시간 전 · 75개
-- Ann Taylor — 22시간 전 · 381개
-- Loft — 22시간 전 · 673개
-- The white company — 22시간 전 · 68개
+- Seasalt cornwall — 23시간 전 · 279개
+- Free People — 23시간 전 · 190개
+- Old Navy — 23시간 전 · 7개
+- Theory — 23시간 전 · 379개
+- Banana Republic — 23시간 전 · 1개
+- Madewell — 23시간 전 · 75개
+- Ann Taylor — 23시간 전 · 381개
+- Loft — 23시간 전 · 673개
+- The white company — 23시간 전 · 68개
 - L.L bean — 22시간 전 · 310개
 - Massimo Dutti — 22시간 전 · 603개
 - Sezane — 22시간 전 · 206개
 - Garnet hill — 22시간 전 · 108개
 - Athleta — 22시간 전 · 1개
-- Anthropologie — 21시간 전 · 270개
-- Paige — 21시간 전 · 60개
-- H&M — 21시간 전 · 744개
-- Eileen fisher — 21시간 전 · 545개
-- Oysho — 21시간 전 · 20개
-- Lululemon — 21시간 전 · 476개
+- Anthropologie — 22시간 전 · 270개
+- Paige — 22시간 전 · 60개
+- H&M — 22시간 전 · 744개
+- Eileen fisher — 22시간 전 · 545개
+- Oysho — 22시간 전 · 20개
+- Lululemon — 22시간 전 · 476개
 - Abercrombie & Fitch — 21시간 전 · 214개
 - Mango — 21시간 전 · 93개
 - Joules — 21시간 전 · 459개
@@ -153,11 +153,11 @@
 - Lands end — 21시간 전 · 469개
 - Aritzia — 21시간 전 · 800개
 - FP Movement — 21시간 전 · 58개
-- Arket — 20시간 전 · 285개
-- &Other Stories — 20시간 전 · 343개
-- Patagonia — 20시간 전 · 168개
-- Addidas — 20시간 전 · 408개
-- Wilson — 0시간 전 · 58개
+- Arket — 21시간 전 · 285개
+- &Other Stories — 21시간 전 · 343개
+- Patagonia — 21시간 전 · 168개
+- Addidas — 21시간 전 · 408개
+- Wilson — 1시간 전 · 58개
 
 </details>
 
@@ -433,7 +433,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-25T12:30Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-25T13:10Z)
 
 - 카탈로그 134개 · 상품 38526개 검사 · **문제 항목 41개**
 - 문제가 있는 브랜드 23개
