@@ -1,4 +1,16 @@
-2026-11-25T09:35Z 10
+# 접근 지도 — 134개 브랜드, 우리 수집기가 어디까지 닿는가
+
+만든 때 2026-11-25T09:36Z · 측정 실행 10회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
+
+이 문서는 `node scripts/build-access-map.mjs` 가 만든다. 같은 사실이 `access-map.json` 에 기계용으로 있다.
+판정 근거는 세 가지뿐이다 — ① 11/25 야간 리포트(서버 프리페치·헤드리스 수집·카탈로그 점검·혼용률 보강),
+② 오늘 새로 잰 측정(`try-engines-results-<실행>.json`, 실행 목록은 맨 아래), ③ 그 둘을 보고 사람이 적은 판정
+(`access-measure/verdicts.json`). 오늘 재지 않고 추정한 것은 표에 **(추정)** 이라고 적었다.
+
+## 1. 한눈에
+
+### 목록(카테고리) 페이지 — 상품 목록을 가져오는 단계
+
 | 상태 | 브랜드 | 상품(카탈로그) | 브랜드 이름 |
 |---|---:|---:|---|
 | ✅ 된다 | 84 | 23,496 | Addison bay, Aerie, ALC, Alo, American Eagle, Apiece Apart, Barbour, Bassike, Bellerose, Beyond yoga, Boden, Boldest, Buck Mason, CCC, Citizens of Humanity, Club monaco, Coldwatercreek, Cotton citizen, Cotton on, Damson Madder, Draper James, Eddie bauer, English factory, Evereve, Everlane, Faherty, Frame, Frank & Eileen, Gerard darel, Gestuz, Goldie, Greyson, Gymshark, Hobbs, J crew, J.jill, J.mclaughlin, Jager, Jigsaw, La Ligne, Leset, Lilla P, LNA, Marine Layer, Me+Em, Michael Stars, Mint velvet, Monrow, Ninety Percent, Nylora, Oak + Fort, Oasis, On, Outdoorvoices, Phase eight, Poetry, Project Social T, Rag & bone, Rails, rouje, Sanctuary, Scoth & soda, Sessun, Shopbop, Spanx, Splendid, Splits59, Stateside, Sundry, Sweaty betty, The Great, Thread & supply, Tuckernuck, Ulla Johnson, Varley, Velvet, Veronica Beard, Vince, Vuori, Whistles, Wrap, Xirena, Z Supply, Zara |
@@ -8,6 +20,9 @@
 | 🔗 URL 이 틀림·죽음 | 2 | 786 | Good American, Lucky Brand |
 | 🔧 열리는데 잘못 읽음 | 11 | 1,071 | Athleta, Banana Republic, Bash, Carlhartt, Dickies, Gap, Monsoon, Nike, Old Navy, Oysho, Vanessa bruno |
 | **합계** | **134** | **38,520** | |
+
+
+### 상품 페이지 — 혼용률·컬러를 읽는 단계
 
 | 상태 | 브랜드 | 상품(카탈로그) | 브랜드 이름 |
 |---|---:|---:|---|
@@ -20,7 +35,34 @@
 | 📭 사이트가 혼용률을 안 적음 | 1 | 232 | rouje |
 | **합계** | **134** | **38,520** | |
 
-28,312/38,520 10,208
+
+엑셀 혼용률 칸: 지금 28,312/38,520개가 채워져 있고 **10,208개가 비어 있다**(11/25 03:39 카탈로그 점검 기준).
+
+
+
+상태 이름 뜻:
+
+- ✅ 된다 — 지금 쓰는 길(서버·헤드리스·확장)로 매일 채워진다.
+- 🏠 집 IP(확장)에서만 — 데이터센터(Render·GitHub)에서는 막히거나 못 읽고, 담당자 PC 의 크롬 확장만 된다. 확장을 매일 돌려야 유지된다.
+- 🟠 일부만 — 카테고리 일부만, 또는 날마다(러너마다) 되다 말다 한다.
+- ⛔ 어디서도 막힘 — 우리가 가진 길이 모두 막혔다.
+- 🔗 URL 이 틀림·죽음 — 사이트가 아니라 담당자가 준 주소가 문제.
+- 🔧 열리는데 잘못 읽음 — 접근은 되는데 우리 수집기가 상품을 못 고르거나 엉뚱한 것을 고른다.
+- 📭 사이트가 혼용률을 안 적음(상품 페이지만).
+
+고치는 단계: **0** 이미 정상 → **1** 무료로 우리 쪽에서(엔진 바꾸기·사이트 JSON·선택자·웹 아카이브) → **2** 집 IP 가 필요(확장) → **3** 유료 차단 해제 서비스 → **4** 담당자가 새 URL 을 줘야 함.
+
+## 2. 무엇이 막는가 — 차단 주체
+
+"403" 은 증상일 뿐이다. 차단 업체는 응답에 흔적을 남긴다 — 쿠키 이름(`_abck`·`bm_sz` = Akamai, `datadome` = DataDome,
+`__cf_bm` = Cloudflare, `_px*` = HUMAN/PerimeterX), 응답 헤더(`server: AkamaiGHost`·`akamai-grn`, `cf-mitigated: challenge`,
+`x-datadome: protected`, `x-vercel-id`), 차단 화면의 제목과 문구(“Access Denied … Reference #”, “Just a moment…”,
+“Attention Required! | Cloudflare”, “Please enable JS and disable any ad blocker” + captcha-delivery.com,
+“Access to this page has been denied” + px-cloud.net, “Vercel Security Checkpoint”), 그리고 페이지가 불러오는 확인 스크립트 주소.
+아래 주체는 **그 흔적만으로** 정했다(브랜드 평판으로 짐작하지 않음). 근거 강도: **높음** = 차단 화면 자체에 그 업체 흔적 ·
+**중간** = 차단 응답에 그 업체 쿠키·헤더만 · **낮음** = CDN 헤더만. 판정 규칙과 시험은 `scripts/access-evidence.mjs` ·
+`scripts/test-access-evidence.mjs`.
+
 | 차단 주체 | 근거 강도 | 브랜드 | 그 브랜드의 대표 근거(측정 원본) |
 |---|---|---|---|
 | Akamai | 높음 | &Other Stories | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
@@ -57,6 +99,11 @@
 | Vercel | 높음 | Paige | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
 | 알 수 없음 | - | Abercrombie & Fitch | HTTP 200 · 제목 "Client Challenge" ·  |
 
+
+
+
+## 3. 담당자가 확인해야 할 URL
+
 | 브랜드 | 지금 URL | 근거 | 바꿀 것 |
 |---|---|---|---|
 | Addidas | https://www.adidas.com/us/women-tops?sort=newest-to-oldest | 확장이 이 URL 에서 0개(catalog-audit 11/25). 데이터센터는 차단이라 확인 못 함 | 정렬 파라미터 없는 /us/women-tops 로(추정) |
@@ -67,6 +114,14 @@
 | Oysho | https://www.oysho.com/gb/dresses-jumpsuits-n4954 | 확장이 0개(catalog-audit 11/25) | 담당자가 사이트에서 확인 |
 | The white company | https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts | 확장이 0개(catalog-audit 11/25) · 데이터센터는 /us/ 로 이동 | 담당자가 영국 사이트에서 현재 주소 확인 |
 | Vanessa bruno | https://www.vanessabruno.com/last-chance/knitwear.html | 11/25 impit 3회·크롬·파이어폭스: 첫 화면(/)으로 이동 | 담당자가 니트 카테고리 새 주소 확인 |
+
+
+## 4. 목록 페이지 — 브랜드별
+
+'근거(측정)' 칸의 `엔진 성공/잰 횟수(실패 원인 HTTP)` 는 오늘 그 브랜드의 목록 URL 들을 모든 실행에서 잰 합계다.
+엔진: impit = 브라우저 없이 크롬의 TLS 지문으로 HTML 만 받음(서버 프리페치와 가장 비슷한 길) · playwright = 헤드리스 크롬 ·
+firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키 없는 새 창 · server = Render 서버에 직접 물어봄(프리페치와 같은 길).
+목록은 "상품 5개 이상"을 성공으로 셌다(브라우저는 야간 수집과 같은 수집기 collector.js 기준, impit 은 HTML 의 상품 링크).
 
 
 ### ✅ 된다 — 84개 브랜드 · 상품 23,496개
@@ -232,6 +287,12 @@
 | Old Navy | 크롬 확장(집 PC) | 7 | 열리는데 수집기가 10~11개만 — 확장도 7개(배너) | 확장 7개 — 오늘 impit 0/15(no-cards) · playwright 5/5 · firefox 5/5 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
 | Oysho | 크롬 확장(집 PC) | 20 | 확장 카탈로그 20개가 전부 하위 카테고리 타일(…-n5063) — 상품이 아님. 데이터센터 파이어폭스는 열림(3/3, 18~22개) | 확장 20개 — 오늘 impit 0/13(blocked) · playwright 0/3(blocked 403) · firefox 3/3 | 헤드리스 파이어폭스 + 수집기 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
 | Vanessa bruno | 서버(Render) | 58 | 서버가 tops 6개 말고는 0개 — 같은 페이지 평 HTML 에 상품 링크 22~25개, 크롬도 21~25개 · URL 1개는 첫 화면으로 튕김 | 프리페치 6일 내내 6개(저장 58 은 옛 수집분) — 오늘 impit 6/15(no-cards·dead) · playwright 2/3(dead) · firefox 2/3(dead) · server 4/12(shell) | 서버 목록 읽기 보완 또는 헤드리스(무료) + 죽은 URL 교체 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+
+
+## 5. 상품 페이지 — 브랜드별
+
+상품은 "혼용률을 읽음"을 성공으로 셌다. 브랜드마다 카탈로그 앞쪽 상품 3개(같은 상품을 모든 엔진이 연다).
+site-api = 사이트 자체 JSON(Shopify `.json`·Zara), wayback = 웹 아카이브 보관본.
 
 
 ### ✅ 된다 — 91개 브랜드 · 상품 26,866개
@@ -403,297 +464,357 @@
 |---|---|---:|---|---|---|---|---|
 | rouje | 서버(Render) | 232 | 페이지는 모든 엔진으로 열리는데 혼용률 글이 없음(표본 3개) · 사이트 JSON(.json)은 꺼져 있음(404) | 혼용률 149/232 — 일부 상품만 적힘 — 오늘 impit 0/3(no-comp) · site-api 0/3(dead 404) · wayback 0/3(no-archive) · playwright 0/3(no-comp) · firefox 0/3(no-comp) | 없음(사이트가 안 적음) — 엑셀 '정보 없음' | 0 이미 정상 | 측정·판정 · 실행 1회 |
 
-| 브랜드 | 카테고리 | URL | impit(브라우저 없는 fetch) | 크롬(헤드리스) | 파이어폭스 | 서버(Render) |
-|---|---|---|---|---|---|---|
-| &Other Stories | tops | stories.com/en-us/clothing/tops/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| &Other Stories | sweatshirts | stories.com/en-us/clothing/tops/sweatshirts-hoodies/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| &Other Stories | shirts | stories.com/en-us/clothing/blouses-shirts/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – |
-| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+n | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – |
-| Abercrombie & Fitch | sweatshirts | abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-le | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – |
-| Abercrombie & Fitch | shirts | abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+na | 0/2 blocked | – | – | – |
-| Abercrombie & Fitch | dresses | abercrombie.com/shop/wd/womens-dresses-and-jumpsuits | 0/2 blocked | – | – | – |
-| Abercrombie & Fitch | pants | abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation- | 0/2 blocked | – | – | – |
-| Addidas | tops | adidas.com/us/women-tops?sort=newest-to-oldest | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Addidas | sweatshirts | adidas.com/us/women-hoodies_sweatshirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Addidas | dresses | adidas.com/us/women-skirts_dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Addidas | pants | adidas.com/us/women-pants | 0/2 blocked 403 | – | – | – |
-| Alo | tops | aloyoga.com/collections/tops | 0/2 blocked 403 | – | – | – |
-| Alo | sweatshirts | aloyoga.com/collections/womens-sweatshirts-hoodies | 0/2 blocked 403 | – | – | – |
-| Alo | dresses | aloyoga.com/collections/dresses | 0/2 blocked 403 | – | – | – |
-| Alo | pants | aloyoga.com/collections/sweatpants | 0/2 blocked 403 | – | – | – |
-| Ann Taylor | tops | anntaylor.com/clothing/tops-and-blouses/cata000010/ | 3/3 | 1/1 | 0/1 blocked | – |
-| Ann Taylor | dresses | anntaylor.com/clothing/dresses/cata000012/ | 3/3 | 0/1 blocked | 0/1 blocked | – |
-| Ann Taylor | pants | anntaylor.com/clothing/pants/cata000014/ | 3/3 | 0/1 blocked | 0/1 blocked | – |
-| Anthropologie | tops | anthropologie.com/tees | 0/3 blocked 403 | 0/1 blocked 403 | 1/1 | – |
-| Anthropologie | sweatshirts | anthropologie.com/tops-sweatshirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Anthropologie | shirts | anthropologie.com/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Anthropologie | dresses | anthropologie.com/dresses | 0/2 blocked 403 | – | – | – |
-| Anthropologie | pants | anthropologie.com/bottoms | 0/2 blocked 403 | – | – | – |
-| Apiece Apart | tops | apieceapart.com/shop/tops | 0/2 shell | – | – | – |
-| Apiece Apart | dresses | apieceapart.com/shop/dresses | 0/2 shell | – | – | – |
-| Apiece Apart | pants | apieceapart.com/shop/pants | 0/2 shell | – | – | – |
-| Aritzia | tops | aritzia.com/us/en/clothing/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Aritzia | tops | aritzia.com/us/en/clothing/tshirts | 0/3 blocked 403 | 0/1 blocked 403 | 1/1 | – |
-| Aritzia | sweatshirts | aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Aritzia | shirts | aritzia.com/us/en/clothing/shirts-blouses | 0/2 blocked 403 | – | – | – |
-| Aritzia | dresses | aritzia.com/us/en/clothing/dresses-3 | 0/2 blocked 403 | – | – | – |
-| Aritzia | pants | aritzia.com/us/en/clothing/sweatsuit-sets/sweat-pants | 0/2 blocked 403 | – | – | – |
-| Arket | tops | arket.com/en-ww/women/clothing/tops/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| Arket | tops | arket.com/en-ww/women/clothing/tops/t-shirts/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| Arket | sweatshirts | arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| Athleta | tops | athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories | 0/3 no-cards | 1/1 | 1/1 | – |
-| Athleta | sweatshirts | athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops | 0/3 no-cards | 0/1 no-cards | 1/1 | – |
-| Athleta | dresses | athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745 | 0/3 no-cards | 0/1 no-cards | 1/1 | – |
-| Athleta | pants | athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&n | 0/3 no-cards | 0/1 no-cards | 1/1 | – |
-| Banana Republic | tops | bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AW | 0/3 no-cards | 1/1 | 1/1 | – |
-| Banana Republic | tops | bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOME | 0/3 no-cards | 1/1 | 1/1 | – |
-| Banana Republic | dresses | bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav% | 0/3 no-cards | 1/1 | 1/1 | – |
-| Banana Republic | pants | bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN% | 0/3 no-cards | 1/1 | 1/1 | – |
-| Bash | tops | ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE | 3/3 | 1/1 | 1/1 | 0/2 shell |
-| Bash | sweatshirts | ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0M | 3/3 | 1/1 | 1/1 | 0/2 shell |
-| Bash | shirts | ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0M | 3/3 | 1/1 | 1/1 | 0/2 shell |
-| Boldest | tops | kolonmall.com/boldest/List/133020162237 | 0/2 shell | – | – | – |
-| Boldest | pants | kolonmall.com/boldest/List/133020161437 | 0/2 shell | – | – | – |
-| Carlhartt | pants | carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017 | 0/2 no-cards | – | – | – |
-| Chico's | tops | chicos.com/store/category/tees-tanks/cat11199293 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 2/2 |
-| Chico's | sweatshirts | chicos.com/store/category/activewear/cat20059281 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 2/2 |
-| Chico's | shirts | chicos.com/store/category/blouses-shirts/cat11199294 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 0/2 blocked 403 |
-| Chico's | dresses | chicos.com/store/category/dresses/cat40004 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 2/2 |
-| Chico's | pants | chicos.com/store/category/pants/cat8289646 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 0/2 shell 403 |
-| Citizens of Humanity | dresses | citizensofhumanity.com/collections/dresses-jumpsuits | 0/2 no-cards | – | – | – |
-| Coldwatercreek | tops | coldwatercreek.com/clothing/knit-tops-tees | 0/2 blocked 403 | – | – | – |
-| Coldwatercreek | sweatshirts | coldwatercreek.com/clothing/sweatshirts | 0/2 blocked 403 | – | – | – |
-| Coldwatercreek | shirts | coldwatercreek.com/clothing/shirts-blouses | 0/2 blocked 403 | – | – | – |
-| Coldwatercreek | dresses | coldwatercreek.com/clothing/dresses | 0/2 blocked 403 | – | – | – |
-| Coldwatercreek | pants | coldwatercreek.com/clothing/pants-shorts | 0/2 blocked 403 | – | – | – |
-| Dickies | shirts | dickies.com/en-us/collections/womens-shirt-jackets | 3/3 | 1/1 | 1/1 | 0/2 shell |
-| Dickies | dresses | dickies.com/collections/womens-skirts-dresses | 2/2 | – | – | 0/2 shell |
-| Eileen fisher | tops | eileenfisher.com/shop/clothing/tops-tees | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Eileen fisher | tops | eileenfisher.com/shop/clothing/tanks-camis | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Eileen fisher | dresses | eileenfisher.com/shop/clothing/dresses-skirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Eileen fisher | pants | eileenfisher.com/shop/clothing/pants-jumpsuits | 0/2 blocked 403 | – | – | – |
-| Everlane | sweatshirts | everlane.com/collections/womens-active-lounge?__cf_chl_f_tk=Q8ynDAoxucPAizM7arSD | 0/2 no-cards | – | – | – |
-| Everlane | shirts | everlane.com/collections/womens-tops | 0/2 no-cards | – | – | – |
-| Everlane | dresses | everlane.com/collections/womens-dresses | 0/2 no-cards | – | – | – |
-| Fatface | tops | fatface.com/shop/womens/clothing/tops/t-shirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Fatface | sweatshirts | fatface.com/shop/womens/clothing/sweatshirts-and-hoodies | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Fatface | dresses | fatface.com/shop/womens/clothing/dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Fatface | pants | fatface.com/shop/womens/clothing/all-trousers | 0/2 blocked 403 | – | – | – |
-| FP Movement | tops | freepeople.com/fpmovement/workout-tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| FP Movement | sweatshirts | freepeople.com/fpmovement/hoodies-sweatshirts/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| FP Movement | dresses | freepeople.com/fpmovement/one-pieces/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| FP Movement | pants | freepeople.com/fpmovement/workout-bottoms/ | 0/2 blocked 403 | – | – | – |
-| Free People | tops | freepeople.com/tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Free People | sweatshirts | freepeople.com/sweatshirts-pullovers/?vis_nav=4 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Free People | shirts | freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Free People | dresses | freepeople.com/dresses/ | 0/2 blocked 403 | – | – | – |
-| Free People | pants | freepeople.com/pants/ | 0/2 blocked 403 | – | – | – |
-| Gap | tops | gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategori | 0/3 no-cards | 1/1 | 1/1 | – |
-| Gap | sweatshirts | gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – |
-| Gap | dresses | gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresse | 0/3 no-cards | 1/1 | 1/1 | – |
-| Gap | pants | gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – |
-| Garnet hill | tops | garnethill.com/clothing/categories/tops-tees/ | 0/3 shell | 0/1 blocked 403 | 1/1 | – |
-| Garnet hill | shirts | garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__a | 0/3 shell | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Garnet hill | dresses | garnethill.com/clothing/categories/dresses/ | 0/3 shell | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Garnet hill | pants | garnethill.com/clothing/categories/pants/ | 0/2 shell | – | – | – |
-| Good American | tops | goodamerican.com/en-kr/collections/tees-tanks | 0/3 geo | 1/1 | 1/1 | 1/2 rate-limit 429 |
-| Good American | sweatshirts | goodamerican.com/collections/jeanius-sweats | 0/3 no-cards | 1/1 | 1/1 | 2/2 |
-| Good American | shirts | goodamerican.com/en-kr/collections/womens-tops | 0/3 geo | 1/1 | 1/1 | 0/2 rate-limit 429 |
-| Good American | dresses | goodamerican.com/en-kr/collections/dresses | 2/2 | – | – | 0/2 rate-limit 429 |
-| Good American | pants | goodamerican.com/en-kr/collections/bottoms | 0/2 geo | – | – | 1/2 rate-limit 429 |
-| H&M | tops | www2.hm.com/en_us/women/products/tops.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| H&M | sweatshirts | www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| H&M | shirts | www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| J crew | tops | jcrew.com/plp/womens/categories/clothing/tees-and-tanks | 0/2 no-cards | – | – | – |
-| J crew | sweatshirts | jcrew.com/plp/womens/categories/clothing/sweatshirts-and-sweatpants | 0/2 no-cards | – | – | – |
-| J crew | shirts | jcrew.com/plp/womens/categories/clothing/shirts-and-tops | 0/2 no-cards | – | – | – |
-| J crew | dresses | jcrew.com/plp/womens/categories/clothing/dresses-and-jumpsuits | 0/2 no-cards | – | – | – |
-| J crew | pants | jcrew.com/plp/womens/categories/clothing/pants | 0/2 no-cards | – | – | – |
-| Jager | tops | marksandspencer.com/l/brands/jaeger/fs5/t-shirts-3?filter=Categories%253DSubCate | 0/2 no-cards | – | – | – |
-| Jager | tops | marksandspencer.com/l/brands/jaeger?filter=Categories%253DSubCategory_28994397%7 | 0/2 no-cards | – | – | – |
-| Jager | sweatshirts | marksandspencer.com/l/women/knitwear/fs5/summer | 0/2 no-cards | – | – | – |
-| Jager | dresses | marksandspencer.com/l/brands/jaeger?filter=Categories%253DSubCategory_28994397%7 | 0/2 no-cards | – | – | – |
-| Jager | pants | marksandspencer.com/l/women/jeans | 0/2 no-cards | – | – | – |
-| James Perse | tops | jamesperse.com/collections/womens-t-shirts | 3/3 | 1/1 | 1/1 | 0/2 rate-limit 429 |
-| James Perse | sweatshirts | jamesperse.com/collections/womens-sweat-tops-sweat-bottoms | 3/3 | 1/1 | 1/1 | 1/2 rate-limit 429 |
-| James Perse | dresses | jamesperse.com/collections/womens-dresses-jumpsuits | 2/2 | – | – | 1/2 rate-limit 429 |
-| James Perse | pants | jamesperse.com/collections/womens-pants-denim | 2/2 | – | – | 0/2 rate-limit 429 |
-| Jigsaw | tops | jigsaw-online.com/collections/tops | 0/2 no-cards | – | – | – |
-| Jigsaw | tops | jigsaw-online.com/collections/t-shirts | 0/2 no-cards | – | – | – |
-| Jigsaw | sweatshirts | jigsaw-online.com/collections/knitwear | 0/2 no-cards | – | – | – |
-| Jigsaw | shirts | jigsaw-online.com/collections/shirts-blouses | 0/2 no-cards | – | – | – |
-| Jigsaw | dresses | jigsaw-online.com/collections/dresses | 0/2 no-cards | – | – | – |
-| Jigsaw | pants | jigsaw-online.com/collections/trousers | 0/2 no-cards | – | – | – |
-| Joules | tops | joules.com/shop/womens/clothing/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Joules | sweatshirts | joules.com/shop/womens/clothing/sweatshirts-and-hoodies | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Joules | shirts | joules.com/shop/womens/clothing/shirts-and-blouses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Joules | dresses | joules.com/shop/womens/clothing/dresses | 0/2 blocked 403 | – | – | – |
-| Joules | pants | joules.com/shop/womens/clothing/all-trousers?p=2#1454.34375 | 0/2 blocked 403 | – | – | – |
-| L.L bean | tops | global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| L.L bean | sweatshirts | global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| L.L bean | shirts | global.llbean.com/llb/shop/516735/?prefn1=refinementGender&prefv1=Womens&nav=gnr | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| Lands end | tops | landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Lands end | sweatshirts | landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Lands end | shirts | landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Lands end | dresses | landsend.com/shop/womens-dresses/S-xfg-xez-y5c-xec | 0/2 blocked 403 | – | – | – |
-| Lands end | pants | landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec | 0/2 blocked 403 | – | – | – |
-| Leset | sweatshirts | leset.com/collections/sweat-sets | 0/2 no-cards | – | – | – |
-| Loft | tops | loft.com/clothing/tees-tanks/cat2860023/ | 3/3 | 0/1 blocked | 0/1 blocked | – |
-| Loft | sweatshirts | loft.com/lou-grey/lou-grey-shop-all/cat1880002/ | 3/3 | 0/1 blocked | 1/1 | – |
-| Loft | shirts | loft.com/clothing/tops/catl000011/ | 3/3 | 0/1 blocked | 0/1 blocked | – |
-| Lucky Brand | shirts | luckybrand.com/women/clothing/shirts/blouses | 3/3 | 0/1 shell | 0/1 shell | – |
-| Lululemon | tops | shop.lululemon.com/c/women-t-shirts/n1wx7w | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – |
-| Lululemon | tops | shop.lululemon.com/c/women-tank-tops/n1uk4w | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – |
-| Lululemon | sweatshirts | shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6 | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – |
-| Lululemon | dresses | shop.lululemon.com/c/women-dresses/n1mk31 | 0/2 blocked 403 | – | – | – |
-| Lululemon | pants | shop.lululemon.com/c/women-sweatpants/n1m8w7 | 0/2 blocked 403 | – | – | – |
-| Madewell | tops | madewell.com/kr/womens/clothing/tees/ | 0/3 no-cards | 1/1 | 1/1 | – |
-| Madewell | tops | madewell.com/kr/womens/clothing/tops-shirts/ | 0/3 no-cards | 1/1 | 1/1 | – |
-| Madewell | pants | madewell.com/kr/womens/clothing/pants/ | 0/2 no-cards | – | – | – |
-| Mango | tops | shop.mango.com/us/en/c/women/t-shirts/8e23bdfb | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – |
-| Mango | tops | shop.mango.com/us/en/c/women/tops/227371cd | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – |
-| Mango | sweatshirts | shop.mango.com/us/en/c/women/knitwear/7e46863e | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – |
-| Mango | shirts | shop.mango.com/us/en/c/women/shirts---blouses/b8003173 | 0/2 blocked 429 | – | – | – |
-| Mango | dresses | shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705 | 0/2 blocked 429 | – | – | – |
-| Mango | pants | shop.mango.com/us/en/c/women/pants/0bf28b3b | 0/2 blocked 429 | – | – | – |
-| Massimo Dutti | tops | massimodutti.com/us/women/t-shirts-n1444?celement=2242518 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – |
-| Massimo Dutti | tops | massimodutti.com/us/s/w-tops-n2889 | 0/3 blocked | 0/1 blocked 403 | 0/1 dead 404 | – |
-| Massimo Dutti | shirts | massimodutti.com/us/women/shirts-n1439?celement=1963012 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – |
-| Massimo Dutti | dresses | massimodutti.com/us/women/dresses-n1494?celement=2158374 | 0/2 blocked | – | – | – |
-| Massimo Dutti | pants | massimodutti.com/us/women/trousers-n1476?celement=2158376 | 0/2 blocked | – | – | – |
-| Me+Em | tops | meandem.com/us/tops/t-shirts | 0/2 no-cards | – | – | – |
-| Me+Em | sweatshirts | meandem.com/us/tops/sweatshirts | 0/2 no-cards | – | – | – |
-| Me+Em | shirts | meandem.com/us/tops | 0/2 no-cards | – | – | – |
-| Me+Em | dresses | meandem.com/us/dresses | 0/2 no-cards | – | – | – |
-| Me+Em | pants | meandem.com/us/pants | 0/2 no-cards | – | – | – |
-| Mint velvet | tops | mintvelvet.com/collections/t-shirts | 0/2 no-cards | – | – | – |
-| Mint velvet | tops | mintvelvet.com/collections/tops | 0/2 no-cards | – | – | – |
-| Mint velvet | sweatshirts | mintvelvet.com/collections/sweatshirts-hoodies | 0/2 no-cards | – | – | – |
-| Mint velvet | shirts | mintvelvet.com/collections/shirts-blouses | 0/2 no-cards | – | – | – |
-| Mint velvet | dresses | mintvelvet.com/collections/dresses | 0/2 no-cards | – | – | – |
-| Mint velvet | pants | mintvelvet.com/collections/trousers | 0/2 no-cards | – | – | – |
-| Monsoon | tops | monsoonlondon.com/kr/womens/womens-clothing/tops/ | 3/3 | 1/1 | 1/1 | 1/2 rate-limit 429 |
-| Monsoon | sweatshirts | monsoonlondon.com/kr/womens/womens-clothing/knitwear/ | 3/3 | 1/1 | 1/1 | 0/2 shell·rate-limit 429 |
-| Monsoon | pants | monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/ | 2/2 | – | – | 0/2 rate-limit·shell 429 |
-| Nike | tops | nike.com/w/womens-tops-t-shirts-5e1x6z9om13 | 0/3 no-cards | 1/1 | 1/1 | – |
-| Nike | sweatshirts | nike.com/w/womens-fleece-4xh6qz5e1x6 | 0/3 no-cards | 1/1 | 1/1 | – |
-| Nike | dresses | nike.com/w/womens-skirts-and-dresses-5e1x6z8y3qp | 0/2 no-cards | – | – | – |
-| Nike | pants | nike.com/w/womens-pants-and-tights-2kq19z5e1x6 | 0/2 no-cards | – | – | – |
-| Oasis | tops | oasisfashion.com/categories/womens-tops | 0/2 no-cards | – | – | – |
-| Oasis | sweatshirts | oasisfashion.com/categories/womens-tops/facet/categoryTaxonomy/Hoodies%20&%20Swe | 0/2 no-cards | – | – | – |
-| Oasis | shirts | oasisfashion.com/categories/womens-tops-shirts-and-blouses | 0/2 no-cards | – | – | – |
-| Oasis | dresses | oasisfashion.com/categories/womens-dresses | 0/2 no-cards | – | – | – |
-| Oasis | pants | oasisfashion.com/categories/womens-skirts | 0/2 no-cards | – | – | – |
-| Old Navy | tops | oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2 | 0/3 no-cards | 1/1 | 1/1 | – |
-| Old Navy | sweatshirts | oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AW | 0/3 no-cards | 1/1 | 1/1 | – |
-| Old Navy | shirts | oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%8 | 0/3 no-cards | 1/1 | 1/1 | – |
-| Old Navy | dresses | oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen | 0/3 no-cards | 1/1 | 1/1 | – |
-| Old Navy | pants | oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – |
-| On | tops | on.com/en-us/shop/womens/apparel/tops-tshirts | 0/2 blocked·shell | – | – | – |
-| On | sweatshirts | on.com/en-us/shop/womens/apparel/hoodies-sweatshirts | 0/2 blocked·shell | – | – | – |
-| On | dresses | on.com/en-us/shop/womens/apparel/dresses | 0/2 blocked·shell | – | – | – |
-| On | pants | on.com/en-us/shop/womens/apparel/pants | 0/2 blocked·shell | – | – | – |
-| Oysho | tops | oysho.com/gb/womens-sports-t-shirts-n4764 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – |
-| Oysho | tops | oysho.com/gb/womens-sports-tops-n5484 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – |
-| Oysho | sweatshirts | oysho.com/gb/womens-sweatshirts-n4922 | 0/2 blocked | – | – | – |
-| Oysho | dresses | oysho.com/gb/dresses-jumpsuits-n4954 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – |
-| Oysho | pants | oysho.com/gb/womens-pants-n4813 | 0/2 blocked | – | – | – |
-| Paige | tops | paige.com/collection/women-tees-and-tanks | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – |
-| Paige | sweatshirts | paige.com/collection/women-sweaters-and-sweatshirts | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – |
-| Paige | shirts | paige.com/collection/women-tops | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – |
-| Paige | dresses | paige.com/collection/women-dresses | 0/2 blocked 429 | – | – | – |
-| Paige | pants | paige.com/collection/women-pants | 0/2 blocked 429 | – | – | – |
-| Patagonia | tops | patagonia.com/shop/womens/tops/t-shirts | 0/3 maintenance | 0/1 maintenance | 0/1 maintenance | – |
-| Patagonia | sweatshirts | patagonia.com/shop/womens/tops/sweatshirts-hoodies | 0/3 maintenance | 0/1 maintenance | 1/1 | – |
-| Patagonia | shirts | patagonia.com/shop/womens/tops/button-down | 0/3 maintenance | 0/1 maintenance | 0/1 maintenance | – |
-| Patagonia | dresses | patagonia.com/shop/womens/dresses-jumpsuits | 0/2 maintenance | – | – | – |
-| Patagonia | pants | patagonia.com/shop/womens/bottoms | 0/2 maintenance | – | – | – |
-| Prana | tops | prana.com/women/tops.html | 0/3 blocked 403 | 1/1 | 1/1 | 0/2 blocked 403 |
-| Prana | sweatshirts | prana.com/women/tops/sweaters-hoodies.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 0/2 blocked 403 |
-| Prana | dresses | prana.com/women/dresses-skirts.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 0/2 blocked 403 |
-| Prana | pants | prana.com/women/bottoms.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 0/2 shell 403 |
-| Reformation | tops | thereformation.com/tops | 0/3 blocked 403 | 1/1 | 1/1 | 2/2 |
-| Reformation | sweatshirts | thereformation.com/the-sweater-shop.html | 0/3 blocked 403 | 1/1 | 0/1 blocked 403 | 0/2 shell 403 |
-| Reformation | shirts | thereformation.com/tops/button-ups | 0/3 blocked 403 | 1/1 | 0/1 blocked 403 | 2/2 |
-| Reformation | dresses | thereformation.com/dresses | 0/2 blocked 403 | – | – | 1/2 blocked 403 |
-| Reformation | pants | thereformation.com/clothing/pants | 0/2 blocked 403 | – | – | 2/2 |
-| Sezane | tops | sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Sezane | sweatshirts | sezane.com/us-en/collection/sweat-shirts-sailor-tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Sezane | dresses | sezane.com/us-en/collection/dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Sezane | pants | sezane.com/us-en/collection/bottoms/trousers | 0/2 blocked 403 | – | – | – |
-| Splendid | tops | splendid.com/collections/the-tee-shop | 0/2 shell | – | – | – |
-| Splendid | sweatshirts | splendid.com/collections/women-categories-sweats-sweatshirts | 0/2 no-cards | – | – | – |
-| Splendid | shirts | splendid.com/collections/women-categories-tops | 0/2 no-cards | – | – | – |
-| Splendid | dresses | splendid.com/collections/women-categories-dresses | 0/2 no-cards | – | – | – |
-| Splendid | pants | splendid.com/collections/bottoms | 0/2 no-cards | – | – | – |
-| Sweaty betty | tops | sweatybetty.com/us/shop/tops | 0/2 no-cards | – | – | – |
-| Sweaty betty | sweatshirts | sweatybetty.com/us/shop/tops/sweatshirts-and-hoodies | 0/2 no-cards | – | – | – |
-| Sweaty betty | dresses | sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits | 0/2 no-cards | – | – | – |
-| Sweaty betty | pants | sweatybetty.com/us/shop/bottoms | 0/2 no-cards | – | – | – |
-| The Great | tops | thisisthegreat.com/collections/the-great-knits | 0/3 no-cards | 1/1 | 1/1 | 2/2 |
-| The Great | sweatshirts | thisisthegreat.com/collections/knit-shop-sweatshirts | 0/3 no-cards | 1/1 | 1/1 | 2/2 |
-| The Great | shirts | thisisthegreat.com/collections/tops | 0/3 no-cards | 1/1 | 1/1 | 2/2 |
-| The Great | dresses | thisisthegreat.com/collections/dresses | 0/2 no-cards | – | – | 2/2 |
-| The Great | pants | thisisthegreat.com/collections/knit-shop-sweatpants | 0/2 no-cards | – | – | 2/2 |
-| The upside | tops | theupside.com/shop/tops/ | 0/3 blocked 403 | 1/1 | 1/1 | – |
-| The upside | sweatshirts | theupside.com/shop/tops/knitwear/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| The upside | dresses | theupside.com/shop/all-in-one/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| The upside | pants | theupside.com/shop/bottoms/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| The white company | tops | thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts | 0/3 geo | 0/1 geo | 0/1 geo | – |
-| The white company | sweatshirts | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear | 0/3 geo | 0/1 dead 404 | 0/1 dead 404 | – |
-| The white company | dresses | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics | 0/3 geo | 0/1 dead 404 | 0/1 dead 404 | – |
-| Theory | tops | theory.com/women/t-shirts-and-tanks/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Theory | sweatshirts | theory.com/women/loungewear/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Theory | shirts | theory.com/women/tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
-| Theory | dresses | theory.com/women/dresses/ | 0/2 blocked 403 | – | – | – |
-| Theory | pants | theory.com/women/pants/ | 0/2 blocked 403 | – | – | – |
-| Vanessa bruno | tops | vanessabruno.com/clothing/shirts-tops/t-shirt.html | 0/3 no-cards | 1/1 | 1/1 | 2/2 |
-| Vanessa bruno | tops | vanessabruno.com/clothing/shirts-tops/top.html | 0/3 no-cards | 1/1 | 1/1 | 2/2 |
-| Vanessa bruno | sweatshirts | vanessabruno.com/last-chance/knitwear.html | 0/3 dead | 0/1 dead | 0/1 dead | 0/2 shell |
-| Vanessa bruno | shirts | vanessabruno.com/clothing/shirts-tops.html | 2/2 | – | – | 0/2 shell |
-| Vanessa bruno | dresses | vanessabruno.com/clothing/dresses-jumpsuits.html | 2/2 | – | – | 0/2 shell |
-| Vanessa bruno | pants | vanessabruno.com/clothing/trousers.html | 2/2 | – | – | 0/2 shell |
-| Velvet | tops | velvet-tees.com/collections/womens-tees | 0/2 no-cards | – | – | – |
-| Velvet | tops | velvet-tees.com/collections/tanks-camis | 0/2 no-cards | – | – | – |
-| Velvet | sweatshirts | velvet-tees.com/collections/hoodies-sweatshirts | 0/2 no-cards | – | – | – |
-| Velvet | shirts | velvet-tees.com/collections/womens-tops | 0/2 no-cards | – | – | – |
-| Velvet | dresses | velvet-tees.com/collections/dresses | 0/2 no-cards | – | – | – |
-| Velvet | pants | velvet-tees.com/collections/pants-shorts | 0/2 no-cards | – | – | – |
-| vineyardvines | tops | vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-c | 0/3 no-cards | 1/1 | 1/1 | 1/2 rate-limit 429 |
-| vineyardvines | sweatshirts | vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--wome | 0/3 no-cards | 1/1 | 1/1 | 0/2 rate-limit 429 |
-| vineyardvines | shirts | vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--w | 0/3 no-cards | 1/1 | 1/1 | 0/2 shell·rate-limit 429 |
-| vineyardvines | dresses | vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens- | 0/2 no-cards | – | – | 0/2 rate-limit 429 |
-| vineyardvines | pants | vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--wom | 0/2 no-cards | – | – | 2/2 |
-| Vuori | tops | vuoriclothing.com/collections/womens-tanks | 0/2 no-cards | – | – | – |
-| Vuori | tops | vuoriclothing.com/collections/womens-short-sleeve-tops | 0/2 no-cards | – | – | – |
-| Vuori | tops | vuoriclothing.com/collections/womens-long-sleeve-tops | 0/2 no-cards | – | – | – |
-| Vuori | sweatshirts | vuoriclothing.com/collections/womens-hoodies-and-sweatshirts | 0/2 no-cards | – | – | – |
-| Vuori | dresses | vuoriclothing.com/collections/womens-dresses-jumpsuits | 0/2 no-cards | – | – | – |
-| Vuori | pants | vuoriclothing.com/collections/womens-joggers | 0/2 no-cards | – | – | – |
-| WHBM | tops | whitehouseblackmarket.com/store/category/tees/cat4769286 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 2/2 |
-| WHBM | tops | whitehouseblackmarket.com/store/category/tops/cat210001 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 2/2 |
-| WHBM | shirts | whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 2/2 |
-| WHBM | dresses | whitehouseblackmarket.com/store/category/dresses/cat210002 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 2/2 |
-| WHBM | pants | whitehouseblackmarket.com/store/category/pants/cat210003 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | 2/2 |
-| Whitestuff | tops | whitestuff.com/browse/collection/womens-t-shirts | 3/3 | 1/1 | 1/1 | 1/2 rate-limit 429 |
-| Whitestuff | tops | whitestuff.com/browse/womens/tops-and-tees | 3/3 | 1/1 | 1/1 | 0/2 rate-limit 429 |
-| Whitestuff | sweatshirts | whitestuff.com/browse/womens/knitwear | 3/3 | 1/1 | 1/1 | 0/2 rate-limit 429 |
-| Whitestuff | shirts | whitestuff.com/browse/womens/shirts-and-blouses | 2/2 | – | – | 1/2 rate-limit 429 |
-| Whitestuff | dresses | whitestuff.com/browse/womens/dresses | 2/2 | – | – | 1/2 rate-limit 429 |
-| Whitestuff | pants | whitestuff.com/browse/womens/trousers-and-leggings | 2/2 | – | – | 0/2 rate-limit 429 |
-| Z Supply | tops | zsupplyclothing.com/collections/tees-1 | 0/2 no-cards | – | – | – |
-| Z Supply | tops | zsupplyclothing.com/collections/tanks | 0/2 no-cards | – | – | – |
-| Z Supply | sweatshirts | zsupplyclothing.com/collections/sweatshirts-hoodies-pullovers | 0/2 no-cards | – | – | – |
-| Z Supply | shirts | zsupplyclothing.com/collections/shirts-blouses | 0/2 no-cards | – | – | – |
-| Z Supply | dresses | zsupplyclothing.com/collections/dresses | 0/2 no-cards | – | – | – |
-| Z Supply | pants | zsupplyclothing.com/collections/bottoms | 0/2 no-cards | – | – | – |
-| Zara | tops | zara.com/us/en/woman-tshirts-l1362.html?v1=2420417 | 0/2 blocked | – | – | – |
-| Zara | tops | zara.com/us/en/woman-tops-l1322.html?v1=2635766 | 0/2 blocked | – | – | – |
-| Zara | sweatshirts | zara.com/us/en/woman-sweatshirts-l1320.html?v1=2467841 | 0/2 blocked | – | – | – |
-| Zara | shirts | zara.com/us/en/woman-shirts-l1217.html?v1=2420369 | 0/2 blocked | – | – | – |
-| Zara | dresses | zara.com/us/en/woman-dresses-l1066.html?v1=2420896 | 0/2 blocked | – | – | – |
-| Zara | pants | zara.com/us/en/woman-trousers-l1335.html?v1=2420795 | 0/2 blocked | – | – | – |
+
+## 6. 유료 서비스 시험 칸
+
+`scripts/try-engines.mjs` 에 업체 중립 엔진 `ext:<이름>` 을 넣었다. 업체 이름·주소·키는 저장소에 없다 — 실행할 때
+저장소 비밀 **`SCRAPE_API_CONFIG`** 로만 들어온다. 비밀이 없으면 그 엔진은 조용히 빠진다(지금 상태).
+
+담당자가 할 일:
+
+1. GitHub 저장소 → Settings → Secrets and variables → Actions → New repository secret
+2. 이름 `SCRAPE_API_CONFIG`, 값은 아래 모양의 JSON 한 줄(서비스 둘 이상을 견주려면 배열 `[ {...}, {...} ]`):
+
+```json
+{
+  "name": "trial-a",
+  "request": "https://<서비스 API 주소>?api_key={key}&url={url}",
+  "method": "GET",
+  "params": { "<서비스 옵션 이름>": "<값>" },
+  "headers": {},
+  "key": "<서비스가 준 키>",
+  "html": "body",
+  "upstreamStatus": "",
+  "success": { "status": [200] },
+  "timeoutSec": 120,
+  "maxRequests": 100,
+  "gapMs": 1000
+}
+```
+
+- `{url}` 자리에 대상 주소가 인코딩돼 들어간다(`{url_raw}` = 그대로). `{key}` 는 `request`·`headers`·`params`·`body` 어디에 써도 된다.
+- 키를 헤더로 받는 서비스: `"headers": { "<헤더 이름>": "{key}" }`. POST 로 받는 서비스: `"method": "POST", "body": { "url": "{url_raw}" }`.
+- 응답이 JSON 으로 HTML 을 감싸 주면 `"html": "json:<점 경로>"`(예: `json:data.html`), 대상 사이트의 상태 코드를 따로 주면
+  `"upstreamStatus": "header:<헤더 이름>"` 또는 `"json:<점 경로>"`.
+- `name` 은 리포트 열 제목(`ext:trial-a`)이 된다 — 업체 이름일 필요 없다. `maxRequests` 로 한 번 실행의 요청 수(=비용)를 묶는다.
+- 키·키가 든 헤더 값·API 호스트는 로그에서 가려지고(GitHub `add-mask`), 리포트·결과 JSON 에서는 `***` 로 바뀐다.
+  결과에는 대상 주소와 판정만 남는다. 가짜 API 로 시험: `node scripts/test-access-evidence.mjs`.
+
+시험 한 번: Actions → Diagnose stuck pages → Run workflow, 브랜치 `claude/dv-visibility-cross-device-igprlf`,
+mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firefox,ext`(유료 열만 보려면 `ext`).
+리포트 `try-engines-report-<실행>.md` 에 무료 엔진 열 옆에 `ext:<이름>` 열이 나온다. `targets-blocked.json` 은 지금 무료로는
+안 되는 목록·상품 주소만 모은 것이다(§7).
+
+## 7. 측정 방법과 한계
+
+- 모든 측정은 GitHub Actions 러너(미국 데이터센터 IP)에서 읽기만 했다. Worker 에 아무것도 쓰지 않았다(엔진 비교 도구는 저장 코드가 없다).
+- 사이트당 요청은 엔진마다 URL 3~5개, 같은 사이트 연속 요청은 1.5초 이상 띄웠다. 로그인·확인 화면 풀기는 하지 않았다.
+- 같은 URL 을 서로 다른 러너(IP)에서 2회 이상 쟀다. 목록 URL 623개 전부는 impit 으로 2회(서로 다른 IP) — 두 번의 판정이 623개 모두 같았다.
+  막힌·이상한 브랜드의 목록 URL 166개는 크롬·파이어폭스로 2회, 상품은 브랜드당 3개를 1~2회.
+- camoufox(탐지 회피용 파이어폭스)는 이번에도 모든 실행에서 시작하자마자 죽었다(SIGSEGV) — 결과 없음, 표에서 뺐다.
+- 데이터센터 결과는 러너마다 갈릴 수 있다(11/24 Chico's 상품 12/20 → 0/20). 한 번만 잰 칸은 표의 '실행 N회'로 보인다.
+- 서버(Render) 경고의 'reader fallback failed (HTTP 429)' 는 서버가 쓰는 외부 리더 프록시의 한도다 — 사이트 차단 근거로 세지 않았다.
+- 집 IP(확장) 쪽은 오늘 새로 재지 않았다. 확장 담당 브랜드의 '확장에서 된다'는 카탈로그의 URL 별 저장 수와 갱신 시각(11/25)이 근거다.
+- '페이지 넘김 의심' 같은 원인은 표에 (추정)으로 적었다 — 측정은 '차단 없음'까지만 말한다.
+
+<details><summary>목록 URL 별 측정 — 한 엔진이라도 실패한 URL 289개(칸: 성공/잰 횟수 · 실패 원인 · HTTP)</summary>
+
+| 브랜드 | 카테고리 | URL | impit | playwright | firefox | firefox-fresh | server |
+|---|---|---|---|---|---|---|---|
+| &Other Stories | tops | stories.com/en-us/clothing/tops/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| &Other Stories | sweatshirts | stories.com/en-us/clothing/tops/sweatshirts-hoodies/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| &Other Stories | shirts | stories.com/en-us/clothing/blouses-shirts/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – | – |
+| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+n | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – | – |
+| Abercrombie & Fitch | sweatshirts | abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-le | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – | – |
+| Abercrombie & Fitch | shirts | abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+na | 0/2 blocked | – | – | – | – |
+| Abercrombie & Fitch | dresses | abercrombie.com/shop/wd/womens-dresses-and-jumpsuits | 0/2 blocked | – | – | – | – |
+| Abercrombie & Fitch | pants | abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation- | 0/2 blocked | – | – | – | – |
+| Addidas | tops | adidas.com/us/women-tops?sort=newest-to-oldest | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Addidas | sweatshirts | adidas.com/us/women-hoodies_sweatshirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Addidas | dresses | adidas.com/us/women-skirts_dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Addidas | pants | adidas.com/us/women-pants | 0/2 blocked 403 | – | – | – | – |
+| Alo | tops | aloyoga.com/collections/tops | 0/2 blocked 403 | – | – | – | – |
+| Alo | sweatshirts | aloyoga.com/collections/womens-sweatshirts-hoodies | 0/2 blocked 403 | – | – | – | – |
+| Alo | dresses | aloyoga.com/collections/dresses | 0/2 blocked 403 | – | – | – | – |
+| Alo | pants | aloyoga.com/collections/sweatpants | 0/2 blocked 403 | – | – | – | – |
+| Ann Taylor | tops | anntaylor.com/clothing/tops-and-blouses/cata000010/ | 3/3 | 1/1 | 0/1 blocked | – | – |
+| Ann Taylor | dresses | anntaylor.com/clothing/dresses/cata000012/ | 3/3 | 0/1 blocked | 0/1 blocked | – | – |
+| Ann Taylor | pants | anntaylor.com/clothing/pants/cata000014/ | 3/3 | 0/1 blocked | 0/1 blocked | – | – |
+| Anthropologie | tops | anthropologie.com/tees | 0/3 blocked 403 | 0/1 blocked 403 | 1/1 | – | – |
+| Anthropologie | sweatshirts | anthropologie.com/tops-sweatshirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Anthropologie | shirts | anthropologie.com/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Anthropologie | dresses | anthropologie.com/dresses | 0/2 blocked 403 | – | – | – | – |
+| Anthropologie | pants | anthropologie.com/bottoms | 0/2 blocked 403 | – | – | – | – |
+| Apiece Apart | tops | apieceapart.com/shop/tops | 0/2 shell | – | – | – | – |
+| Apiece Apart | dresses | apieceapart.com/shop/dresses | 0/2 shell | – | – | – | – |
+| Apiece Apart | pants | apieceapart.com/shop/pants | 0/2 shell | – | – | – | – |
+| Aritzia | tops | aritzia.com/us/en/clothing/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Aritzia | tops | aritzia.com/us/en/clothing/tshirts | 0/3 blocked 403 | 0/1 blocked 403 | 1/1 | – | – |
+| Aritzia | sweatshirts | aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Aritzia | shirts | aritzia.com/us/en/clothing/shirts-blouses | 0/2 blocked 403 | – | – | – | – |
+| Aritzia | dresses | aritzia.com/us/en/clothing/dresses-3 | 0/2 blocked 403 | – | – | – | – |
+| Aritzia | pants | aritzia.com/us/en/clothing/sweatsuit-sets/sweat-pants | 0/2 blocked 403 | – | – | – | – |
+| Arket | tops | arket.com/en-ww/women/clothing/tops/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| Arket | tops | arket.com/en-ww/women/clothing/tops/t-shirts/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| Arket | sweatshirts | arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/ | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| Athleta | tops | athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Athleta | sweatshirts | athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops | 0/3 no-cards | 0/1 no-cards | 1/1 | – | – |
+| Athleta | dresses | athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745 | 0/3 no-cards | 0/1 no-cards | 1/1 | – | – |
+| Athleta | pants | athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&n | 0/3 no-cards | 0/1 no-cards | 1/1 | – | – |
+| Banana Republic | tops | bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AW | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Banana Republic | tops | bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOME | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Banana Republic | dresses | bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav% | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Banana Republic | pants | bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN% | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Bash | tops | ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE | 3/3 | 1/1 | 1/1 | – | 0/2 shell |
+| Bash | sweatshirts | ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0M | 3/3 | 1/1 | 1/1 | – | 0/2 shell |
+| Bash | shirts | ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0M | 3/3 | 1/1 | 1/1 | – | 0/2 shell |
+| Boldest | tops | kolonmall.com/boldest/List/133020162237 | 0/2 shell | – | – | – | – |
+| Boldest | pants | kolonmall.com/boldest/List/133020161437 | 0/2 shell | – | – | – | – |
+| Carlhartt | pants | carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017 | 0/2 no-cards | – | – | – | – |
+| Chico's | tops | chicos.com/store/category/tees-tanks/cat11199293 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
+| Chico's | sweatshirts | chicos.com/store/category/activewear/cat20059281 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
+| Chico's | shirts | chicos.com/store/category/blouses-shirts/cat11199294 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 blocked 403 |
+| Chico's | dresses | chicos.com/store/category/dresses/cat40004 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
+| Chico's | pants | chicos.com/store/category/pants/cat8289646 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 shell 403 |
+| Citizens of Humanity | dresses | citizensofhumanity.com/collections/dresses-jumpsuits | 0/2 no-cards | – | – | – | – |
+| Coldwatercreek | tops | coldwatercreek.com/clothing/knit-tops-tees | 0/2 blocked 403 | – | – | – | – |
+| Coldwatercreek | sweatshirts | coldwatercreek.com/clothing/sweatshirts | 0/2 blocked 403 | – | – | – | – |
+| Coldwatercreek | shirts | coldwatercreek.com/clothing/shirts-blouses | 0/2 blocked 403 | – | – | – | – |
+| Coldwatercreek | dresses | coldwatercreek.com/clothing/dresses | 0/2 blocked 403 | – | – | – | – |
+| Coldwatercreek | pants | coldwatercreek.com/clothing/pants-shorts | 0/2 blocked 403 | – | – | – | – |
+| Dickies | shirts | dickies.com/en-us/collections/womens-shirt-jackets | 3/3 | 1/1 | 1/1 | – | 0/2 shell |
+| Dickies | dresses | dickies.com/collections/womens-skirts-dresses | 2/2 | – | – | – | 0/2 shell |
+| Eileen fisher | tops | eileenfisher.com/shop/clothing/tops-tees | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Eileen fisher | tops | eileenfisher.com/shop/clothing/tanks-camis | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Eileen fisher | dresses | eileenfisher.com/shop/clothing/dresses-skirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Eileen fisher | pants | eileenfisher.com/shop/clothing/pants-jumpsuits | 0/2 blocked 403 | – | – | – | – |
+| Everlane | sweatshirts | everlane.com/collections/womens-active-lounge?__cf_chl_f_tk=Q8ynDAoxucPAizM7arSD | 0/2 no-cards | – | – | – | – |
+| Everlane | shirts | everlane.com/collections/womens-tops | 0/2 no-cards | – | – | – | – |
+| Everlane | dresses | everlane.com/collections/womens-dresses | 0/2 no-cards | – | – | – | – |
+| Fatface | tops | fatface.com/shop/womens/clothing/tops/t-shirts | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Fatface | sweatshirts | fatface.com/shop/womens/clothing/sweatshirts-and-hoodies | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Fatface | dresses | fatface.com/shop/womens/clothing/dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Fatface | pants | fatface.com/shop/womens/clothing/all-trousers | 0/2 blocked 403 | – | – | – | – |
+| FP Movement | tops | freepeople.com/fpmovement/workout-tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| FP Movement | sweatshirts | freepeople.com/fpmovement/hoodies-sweatshirts/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| FP Movement | dresses | freepeople.com/fpmovement/one-pieces/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| FP Movement | pants | freepeople.com/fpmovement/workout-bottoms/ | 0/2 blocked 403 | – | – | – | – |
+| Free People | tops | freepeople.com/tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Free People | sweatshirts | freepeople.com/sweatshirts-pullovers/?vis_nav=4 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Free People | shirts | freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Free People | dresses | freepeople.com/dresses/ | 0/2 blocked 403 | – | – | – | – |
+| Free People | pants | freepeople.com/pants/ | 0/2 blocked 403 | – | – | – | – |
+| Gap | tops | gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategori | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Gap | sweatshirts | gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Gap | dresses | gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresse | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Gap | pants | gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Garnet hill | tops | garnethill.com/clothing/categories/tops-tees/ | 0/3 shell | 0/1 blocked 403 | 1/1 | – | – |
+| Garnet hill | shirts | garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__a | 0/3 shell | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Garnet hill | dresses | garnethill.com/clothing/categories/dresses/ | 0/3 shell | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Garnet hill | pants | garnethill.com/clothing/categories/pants/ | 0/2 shell | – | – | – | – |
+| Good American | tops | goodamerican.com/en-kr/collections/tees-tanks | 0/3 geo | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
+| Good American | sweatshirts | goodamerican.com/collections/jeanius-sweats | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
+| Good American | shirts | goodamerican.com/en-kr/collections/womens-tops | 0/3 geo | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
+| Good American | dresses | goodamerican.com/en-kr/collections/dresses | 2/2 | – | – | – | 0/2 rate-limit 429 |
+| Good American | pants | goodamerican.com/en-kr/collections/bottoms | 0/2 geo | – | – | – | 1/2 rate-limit 429 |
+| H&M | tops | www2.hm.com/en_us/women/products/tops.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| H&M | sweatshirts | www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| H&M | shirts | www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| J crew | tops | jcrew.com/plp/womens/categories/clothing/tees-and-tanks | 0/2 no-cards | – | – | – | – |
+| J crew | sweatshirts | jcrew.com/plp/womens/categories/clothing/sweatshirts-and-sweatpants | 0/2 no-cards | – | – | – | – |
+| J crew | shirts | jcrew.com/plp/womens/categories/clothing/shirts-and-tops | 0/2 no-cards | – | – | – | – |
+| J crew | dresses | jcrew.com/plp/womens/categories/clothing/dresses-and-jumpsuits | 0/2 no-cards | – | – | – | – |
+| J crew | pants | jcrew.com/plp/womens/categories/clothing/pants | 0/2 no-cards | – | – | – | – |
+| Jager | tops | marksandspencer.com/l/brands/jaeger/fs5/t-shirts-3?filter=Categories%253DSubCate | 0/2 no-cards | – | – | – | – |
+| Jager | tops | marksandspencer.com/l/brands/jaeger?filter=Categories%253DSubCategory_28994397%7 | 0/2 no-cards | – | – | – | – |
+| Jager | sweatshirts | marksandspencer.com/l/women/knitwear/fs5/summer | 0/2 no-cards | – | – | – | – |
+| Jager | dresses | marksandspencer.com/l/brands/jaeger?filter=Categories%253DSubCategory_28994397%7 | 0/2 no-cards | – | – | – | – |
+| Jager | pants | marksandspencer.com/l/women/jeans | 0/2 no-cards | – | – | – | – |
+| James Perse | tops | jamesperse.com/collections/womens-t-shirts | 3/3 | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
+| James Perse | sweatshirts | jamesperse.com/collections/womens-sweat-tops-sweat-bottoms | 3/3 | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
+| James Perse | dresses | jamesperse.com/collections/womens-dresses-jumpsuits | 2/2 | – | – | – | 1/2 rate-limit 429 |
+| James Perse | pants | jamesperse.com/collections/womens-pants-denim | 2/2 | – | – | – | 0/2 rate-limit 429 |
+| Jigsaw | tops | jigsaw-online.com/collections/tops | 0/2 no-cards | – | – | – | – |
+| Jigsaw | tops | jigsaw-online.com/collections/t-shirts | 0/2 no-cards | – | – | – | – |
+| Jigsaw | sweatshirts | jigsaw-online.com/collections/knitwear | 0/2 no-cards | – | – | – | – |
+| Jigsaw | shirts | jigsaw-online.com/collections/shirts-blouses | 0/2 no-cards | – | – | – | – |
+| Jigsaw | dresses | jigsaw-online.com/collections/dresses | 0/2 no-cards | – | – | – | – |
+| Jigsaw | pants | jigsaw-online.com/collections/trousers | 0/2 no-cards | – | – | – | – |
+| Joules | tops | joules.com/shop/womens/clothing/tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Joules | sweatshirts | joules.com/shop/womens/clothing/sweatshirts-and-hoodies | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Joules | shirts | joules.com/shop/womens/clothing/shirts-and-blouses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Joules | dresses | joules.com/shop/womens/clothing/dresses | 0/2 blocked 403 | – | – | – | – |
+| Joules | pants | joules.com/shop/womens/clothing/all-trousers?p=2#1454.34375 | 0/2 blocked 403 | – | – | – | – |
+| L.L bean | tops | global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| L.L bean | sweatshirts | global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| L.L bean | shirts | global.llbean.com/llb/shop/516735/?prefn1=refinementGender&prefv1=Womens&nav=gnr | 3/3 | 0/1 blocked 403 | 1/1 | – | – |
+| Lands end | tops | landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Lands end | sweatshirts | landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Lands end | shirts | landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Lands end | dresses | landsend.com/shop/womens-dresses/S-xfg-xez-y5c-xec | 0/2 blocked 403 | – | – | – | – |
+| Lands end | pants | landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec | 0/2 blocked 403 | – | – | – | – |
+| Leset | sweatshirts | leset.com/collections/sweat-sets | 0/2 no-cards | – | – | – | – |
+| Loft | tops | loft.com/clothing/tees-tanks/cat2860023/ | 3/3 | 0/1 blocked | 0/1 blocked | – | – |
+| Loft | sweatshirts | loft.com/lou-grey/lou-grey-shop-all/cat1880002/ | 3/3 | 0/1 blocked | 1/1 | – | – |
+| Loft | shirts | loft.com/clothing/tops/catl000011/ | 3/3 | 0/1 blocked | 0/1 blocked | – | – |
+| Lucky Brand | shirts | luckybrand.com/women/clothing/shirts/blouses | 3/3 | 0/1 shell | 0/1 shell | – | – |
+| Lululemon | tops | shop.lululemon.com/c/women-t-shirts/n1wx7w | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – | – |
+| Lululemon | tops | shop.lululemon.com/c/women-tank-tops/n1uk4w | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – | – |
+| Lululemon | sweatshirts | shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6 | 0/3 blocked 403 | 0/1 conn-drop | 0/1 blocked 403 | – | – |
+| Lululemon | dresses | shop.lululemon.com/c/women-dresses/n1mk31 | 0/2 blocked 403 | – | – | – | – |
+| Lululemon | pants | shop.lululemon.com/c/women-sweatpants/n1m8w7 | 0/2 blocked 403 | – | – | – | – |
+| Madewell | tops | madewell.com/kr/womens/clothing/tees/ | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Madewell | tops | madewell.com/kr/womens/clothing/tops-shirts/ | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Madewell | pants | madewell.com/kr/womens/clothing/pants/ | 0/2 no-cards | – | – | – | – |
+| Mango | tops | shop.mango.com/us/en/c/women/t-shirts/8e23bdfb | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
+| Mango | tops | shop.mango.com/us/en/c/women/tops/227371cd | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
+| Mango | sweatshirts | shop.mango.com/us/en/c/women/knitwear/7e46863e | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
+| Mango | shirts | shop.mango.com/us/en/c/women/shirts---blouses/b8003173 | 0/2 blocked 429 | – | – | – | – |
+| Mango | dresses | shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705 | 0/2 blocked 429 | – | – | – | – |
+| Mango | pants | shop.mango.com/us/en/c/women/pants/0bf28b3b | 0/2 blocked 429 | – | – | – | – |
+| Massimo Dutti | tops | massimodutti.com/us/women/t-shirts-n1444?celement=2242518 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
+| Massimo Dutti | tops | massimodutti.com/us/s/w-tops-n2889 | 0/3 blocked | 0/1 blocked 403 | 0/1 dead 404 | – | – |
+| Massimo Dutti | shirts | massimodutti.com/us/women/shirts-n1439?celement=1963012 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
+| Massimo Dutti | dresses | massimodutti.com/us/women/dresses-n1494?celement=2158374 | 0/2 blocked | – | – | – | – |
+| Massimo Dutti | pants | massimodutti.com/us/women/trousers-n1476?celement=2158376 | 0/2 blocked | – | – | – | – |
+| Me+Em | tops | meandem.com/us/tops/t-shirts | 0/2 no-cards | – | – | – | – |
+| Me+Em | sweatshirts | meandem.com/us/tops/sweatshirts | 0/2 no-cards | – | – | – | – |
+| Me+Em | shirts | meandem.com/us/tops | 0/2 no-cards | – | – | – | – |
+| Me+Em | dresses | meandem.com/us/dresses | 0/2 no-cards | – | – | – | – |
+| Me+Em | pants | meandem.com/us/pants | 0/2 no-cards | – | – | – | – |
+| Mint velvet | tops | mintvelvet.com/collections/t-shirts | 0/2 no-cards | – | – | – | – |
+| Mint velvet | tops | mintvelvet.com/collections/tops | 0/2 no-cards | – | – | – | – |
+| Mint velvet | sweatshirts | mintvelvet.com/collections/sweatshirts-hoodies | 0/2 no-cards | – | – | – | – |
+| Mint velvet | shirts | mintvelvet.com/collections/shirts-blouses | 0/2 no-cards | – | – | – | – |
+| Mint velvet | dresses | mintvelvet.com/collections/dresses | 0/2 no-cards | – | – | – | – |
+| Mint velvet | pants | mintvelvet.com/collections/trousers | 0/2 no-cards | – | – | – | – |
+| Monsoon | tops | monsoonlondon.com/kr/womens/womens-clothing/tops/ | 3/3 | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
+| Monsoon | sweatshirts | monsoonlondon.com/kr/womens/womens-clothing/knitwear/ | 3/3 | 1/1 | 1/1 | – | 0/2 shell·rate-limit 429 |
+| Monsoon | pants | monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/ | 2/2 | – | – | – | 0/2 rate-limit·shell 429 |
+| Nike | tops | nike.com/w/womens-tops-t-shirts-5e1x6z9om13 | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Nike | sweatshirts | nike.com/w/womens-fleece-4xh6qz5e1x6 | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Nike | dresses | nike.com/w/womens-skirts-and-dresses-5e1x6z8y3qp | 0/2 no-cards | – | – | – | – |
+| Nike | pants | nike.com/w/womens-pants-and-tights-2kq19z5e1x6 | 0/2 no-cards | – | – | – | – |
+| Oasis | tops | oasisfashion.com/categories/womens-tops | 0/2 no-cards | – | – | – | – |
+| Oasis | sweatshirts | oasisfashion.com/categories/womens-tops/facet/categoryTaxonomy/Hoodies%20&%20Swe | 0/2 no-cards | – | – | – | – |
+| Oasis | shirts | oasisfashion.com/categories/womens-tops-shirts-and-blouses | 0/2 no-cards | – | – | – | – |
+| Oasis | dresses | oasisfashion.com/categories/womens-dresses | 0/2 no-cards | – | – | – | – |
+| Oasis | pants | oasisfashion.com/categories/womens-skirts | 0/2 no-cards | – | – | – | – |
+| Old Navy | tops | oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2 | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Old Navy | sweatshirts | oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AW | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Old Navy | shirts | oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%8 | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Old Navy | dresses | oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| Old Navy | pants | oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen% | 0/3 no-cards | 1/1 | 1/1 | – | – |
+| On | tops | on.com/en-us/shop/womens/apparel/tops-tshirts | 0/2 blocked·shell | – | – | – | – |
+| On | sweatshirts | on.com/en-us/shop/womens/apparel/hoodies-sweatshirts | 0/2 blocked·shell | – | – | – | – |
+| On | dresses | on.com/en-us/shop/womens/apparel/dresses | 0/2 blocked·shell | – | – | – | – |
+| On | pants | on.com/en-us/shop/womens/apparel/pants | 0/2 blocked·shell | – | – | – | – |
+| Oysho | tops | oysho.com/gb/womens-sports-t-shirts-n4764 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
+| Oysho | tops | oysho.com/gb/womens-sports-tops-n5484 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
+| Oysho | sweatshirts | oysho.com/gb/womens-sweatshirts-n4922 | 0/2 blocked | – | – | – | – |
+| Oysho | dresses | oysho.com/gb/dresses-jumpsuits-n4954 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – | – |
+| Oysho | pants | oysho.com/gb/womens-pants-n4813 | 0/2 blocked | – | – | – | – |
+| Paige | tops | paige.com/collection/women-tees-and-tanks | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
+| Paige | sweatshirts | paige.com/collection/women-sweaters-and-sweatshirts | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
+| Paige | shirts | paige.com/collection/women-tops | 0/3 blocked 429 | 0/1 blocked 429 | 0/1 blocked 429 | – | – |
+| Paige | dresses | paige.com/collection/women-dresses | 0/2 blocked 429 | – | – | – | – |
+| Paige | pants | paige.com/collection/women-pants | 0/2 blocked 429 | – | – | – | – |
+| Patagonia | tops | patagonia.com/shop/womens/tops/t-shirts | 0/3 maintenance | 0/1 maintenance | 0/1 maintenance | – | – |
+| Patagonia | sweatshirts | patagonia.com/shop/womens/tops/sweatshirts-hoodies | 0/3 maintenance | 0/1 maintenance | 1/1 | – | – |
+| Patagonia | shirts | patagonia.com/shop/womens/tops/button-down | 0/3 maintenance | 0/1 maintenance | 0/1 maintenance | – | – |
+| Patagonia | dresses | patagonia.com/shop/womens/dresses-jumpsuits | 0/2 maintenance | – | – | – | – |
+| Patagonia | pants | patagonia.com/shop/womens/bottoms | 0/2 maintenance | – | – | – | – |
+| Prana | tops | prana.com/women/tops.html | 0/3 blocked 403 | 1/1 | 1/1 | – | 0/2 blocked 403 |
+| Prana | sweatshirts | prana.com/women/tops/sweaters-hoodies.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 blocked 403 |
+| Prana | dresses | prana.com/women/dresses-skirts.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 blocked 403 |
+| Prana | pants | prana.com/women/bottoms.html | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 0/2 shell 403 |
+| Reformation | tops | thereformation.com/tops | 0/3 blocked 403 | 1/1 | 1/1 | – | 2/2 |
+| Reformation | sweatshirts | thereformation.com/the-sweater-shop.html | 0/3 blocked 403 | 1/1 | 0/1 blocked 403 | – | 0/2 shell 403 |
+| Reformation | shirts | thereformation.com/tops/button-ups | 0/3 blocked 403 | 1/1 | 0/1 blocked 403 | – | 2/2 |
+| Reformation | dresses | thereformation.com/dresses | 0/2 blocked 403 | – | – | – | 1/2 blocked 403 |
+| Reformation | pants | thereformation.com/clothing/pants | 0/2 blocked 403 | – | – | – | 2/2 |
+| Sezane | tops | sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Sezane | sweatshirts | sezane.com/us-en/collection/sweat-shirts-sailor-tops | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Sezane | dresses | sezane.com/us-en/collection/dresses | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Sezane | pants | sezane.com/us-en/collection/bottoms/trousers | 0/2 blocked 403 | – | – | – | – |
+| Splendid | tops | splendid.com/collections/the-tee-shop | 0/2 shell | – | – | – | – |
+| Splendid | sweatshirts | splendid.com/collections/women-categories-sweats-sweatshirts | 0/2 no-cards | – | – | – | – |
+| Splendid | shirts | splendid.com/collections/women-categories-tops | 0/2 no-cards | – | – | – | – |
+| Splendid | dresses | splendid.com/collections/women-categories-dresses | 0/2 no-cards | – | – | – | – |
+| Splendid | pants | splendid.com/collections/bottoms | 0/2 no-cards | – | – | – | – |
+| Sweaty betty | tops | sweatybetty.com/us/shop/tops | 0/2 no-cards | – | – | – | – |
+| Sweaty betty | sweatshirts | sweatybetty.com/us/shop/tops/sweatshirts-and-hoodies | 0/2 no-cards | – | – | – | – |
+| Sweaty betty | dresses | sweatybetty.com/us/shop/bottoms/dresses-and-jumpsuits | 0/2 no-cards | – | – | – | – |
+| Sweaty betty | pants | sweatybetty.com/us/shop/bottoms | 0/2 no-cards | – | – | – | – |
+| The Great | tops | thisisthegreat.com/collections/the-great-knits | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
+| The Great | sweatshirts | thisisthegreat.com/collections/knit-shop-sweatshirts | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
+| The Great | shirts | thisisthegreat.com/collections/tops | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
+| The Great | dresses | thisisthegreat.com/collections/dresses | 0/2 no-cards | – | – | – | 2/2 |
+| The Great | pants | thisisthegreat.com/collections/knit-shop-sweatpants | 0/2 no-cards | – | – | – | 2/2 |
+| The upside | tops | theupside.com/shop/tops/ | 0/3 blocked 403 | 1/1 | 1/1 | – | – |
+| The upside | sweatshirts | theupside.com/shop/tops/knitwear/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| The upside | dresses | theupside.com/shop/all-in-one/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| The upside | pants | theupside.com/shop/bottoms/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| The white company | tops | thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts | 0/3 geo | 0/1 geo | 0/1 geo | – | – |
+| The white company | sweatshirts | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear | 0/3 geo | 0/1 dead 404 | 0/1 dead 404 | – | – |
+| The white company | dresses | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics | 0/3 geo | 0/1 dead 404 | 0/1 dead 404 | – | – |
+| Theory | tops | theory.com/women/t-shirts-and-tanks/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Theory | sweatshirts | theory.com/women/loungewear/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Theory | shirts | theory.com/women/tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | – |
+| Theory | dresses | theory.com/women/dresses/ | 0/2 blocked 403 | – | – | – | – |
+| Theory | pants | theory.com/women/pants/ | 0/2 blocked 403 | – | – | – | – |
+| Vanessa bruno | tops | vanessabruno.com/clothing/shirts-tops/t-shirt.html | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
+| Vanessa bruno | tops | vanessabruno.com/clothing/shirts-tops/top.html | 0/3 no-cards | 1/1 | 1/1 | – | 2/2 |
+| Vanessa bruno | sweatshirts | vanessabruno.com/last-chance/knitwear.html | 0/3 dead | 0/1 dead | 0/1 dead | – | 0/2 shell |
+| Vanessa bruno | shirts | vanessabruno.com/clothing/shirts-tops.html | 2/2 | – | – | – | 0/2 shell |
+| Vanessa bruno | dresses | vanessabruno.com/clothing/dresses-jumpsuits.html | 2/2 | – | – | – | 0/2 shell |
+| Vanessa bruno | pants | vanessabruno.com/clothing/trousers.html | 2/2 | – | – | – | 0/2 shell |
+| Velvet | tops | velvet-tees.com/collections/womens-tees | 0/2 no-cards | – | – | – | – |
+| Velvet | tops | velvet-tees.com/collections/tanks-camis | 0/2 no-cards | – | – | – | – |
+| Velvet | sweatshirts | velvet-tees.com/collections/hoodies-sweatshirts | 0/2 no-cards | – | – | – | – |
+| Velvet | shirts | velvet-tees.com/collections/womens-tops | 0/2 no-cards | – | – | – | – |
+| Velvet | dresses | velvet-tees.com/collections/dresses | 0/2 no-cards | – | – | – | – |
+| Velvet | pants | velvet-tees.com/collections/pants-shorts | 0/2 no-cards | – | – | – | – |
+| vineyardvines | tops | vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-c | 0/3 no-cards | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
+| vineyardvines | sweatshirts | vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--wome | 0/3 no-cards | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
+| vineyardvines | shirts | vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--w | 0/3 no-cards | 1/1 | 1/1 | – | 0/2 shell·rate-limit 429 |
+| vineyardvines | dresses | vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens- | 0/2 no-cards | – | – | – | 0/2 rate-limit 429 |
+| vineyardvines | pants | vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--wom | 0/2 no-cards | – | – | – | 2/2 |
+| Vuori | tops | vuoriclothing.com/collections/womens-tanks | 0/2 no-cards | – | – | – | – |
+| Vuori | tops | vuoriclothing.com/collections/womens-short-sleeve-tops | 0/2 no-cards | – | – | – | – |
+| Vuori | tops | vuoriclothing.com/collections/womens-long-sleeve-tops | 0/2 no-cards | – | – | – | – |
+| Vuori | sweatshirts | vuoriclothing.com/collections/womens-hoodies-and-sweatshirts | 0/2 no-cards | – | – | – | – |
+| Vuori | dresses | vuoriclothing.com/collections/womens-dresses-jumpsuits | 0/2 no-cards | – | – | – | – |
+| Vuori | pants | vuoriclothing.com/collections/womens-joggers | 0/2 no-cards | – | – | – | – |
+| WHBM | tops | whitehouseblackmarket.com/store/category/tees/cat4769286 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
+| WHBM | tops | whitehouseblackmarket.com/store/category/tops/cat210001 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
+| WHBM | shirts | whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
+| WHBM | dresses | whitehouseblackmarket.com/store/category/dresses/cat210002 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
+| WHBM | pants | whitehouseblackmarket.com/store/category/pants/cat210003 | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – | 2/2 |
+| Whitestuff | tops | whitestuff.com/browse/collection/womens-t-shirts | 3/3 | 1/1 | 1/1 | – | 1/2 rate-limit 429 |
+| Whitestuff | tops | whitestuff.com/browse/womens/tops-and-tees | 3/3 | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
+| Whitestuff | sweatshirts | whitestuff.com/browse/womens/knitwear | 3/3 | 1/1 | 1/1 | – | 0/2 rate-limit 429 |
+| Whitestuff | shirts | whitestuff.com/browse/womens/shirts-and-blouses | 2/2 | – | – | – | 1/2 rate-limit 429 |
+| Whitestuff | dresses | whitestuff.com/browse/womens/dresses | 2/2 | – | – | – | 1/2 rate-limit 429 |
+| Whitestuff | pants | whitestuff.com/browse/womens/trousers-and-leggings | 2/2 | – | – | – | 0/2 rate-limit 429 |
+| Z Supply | tops | zsupplyclothing.com/collections/tees-1 | 0/2 no-cards | – | – | – | – |
+| Z Supply | tops | zsupplyclothing.com/collections/tanks | 0/2 no-cards | – | – | – | – |
+| Z Supply | sweatshirts | zsupplyclothing.com/collections/sweatshirts-hoodies-pullovers | 0/2 no-cards | – | – | – | – |
+| Z Supply | shirts | zsupplyclothing.com/collections/shirts-blouses | 0/2 no-cards | – | – | – | – |
+| Z Supply | dresses | zsupplyclothing.com/collections/dresses | 0/2 no-cards | – | – | – | – |
+| Z Supply | pants | zsupplyclothing.com/collections/bottoms | 0/2 no-cards | – | – | – | – |
+| Zara | tops | zara.com/us/en/woman-tshirts-l1362.html?v1=2420417 | 0/2 blocked | – | – | – | – |
+| Zara | tops | zara.com/us/en/woman-tops-l1322.html?v1=2635766 | 0/2 blocked | – | – | – | – |
+| Zara | sweatshirts | zara.com/us/en/woman-sweatshirts-l1320.html?v1=2467841 | 0/2 blocked | – | – | – | – |
+| Zara | shirts | zara.com/us/en/woman-shirts-l1217.html?v1=2420369 | 0/2 blocked | – | – | – | – |
+| Zara | dresses | zara.com/us/en/woman-dresses-l1066.html?v1=2420896 | 0/2 blocked | – | – | – | – |
+| Zara | pants | zara.com/us/en/woman-trousers-l1335.html?v1=2420795 | 0/2 blocked | – | – | – | – |
+
+</details>
+
+
+### 측정 실행
 
 | 실행 | 시각(UTC) | 나가는 IP | 엔진 | 대상 수 |
 |---|---|---|---|---:|

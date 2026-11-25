@@ -279,14 +279,38 @@ function section(key, VOC) {
 md = md.replace("{{LISTING_SECTIONS}}", section("listing", L_STATUS)).replace("{{PRODUCT_SECTIONS}}", section("product", P_STATUS));
 
 // URL 단위 근거(막힌·이상한 목록 URL 만)
+const UE = ["impit", "playwright", "firefox", "firefox-fresh", "server"];
 {
-  let s = `| 브랜드 | 카테고리 | URL | ${["impit", "playwright", "firefox", "server"].map((e) => ENG_KO[e]).join(" | ")} |\n|---|---|---|---|---|---|---|\n`;
+  let s = `| 브랜드 | 카테고리 | URL | ${UE.join(" | ")} |\n|---|---|---|${UE.map(() => "---").join("|")}|\n`;
+  let n = 0;
   for (const x of out) for (const u of x.listing.urls) {
-    const cells = ["impit", "playwright", "firefox", "server"].map((e) => u.engines[e] || "–");
+    const cells = UE.map((e) => u.engines[e] || "–");
     if (cells.every((c) => c === "–" || /^(\d+)\/\1$/.test(c))) continue;
+    n++;
     s += `| ${x.brand} | ${u.cat} | ${u.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 80)} | ${cells.join(" | ")} |\n`;
   }
-  md = md.replace("{{URL_TABLE}}", s);
+  md = md.replace("{{URL_SECTION}}", `<details><summary>목록 URL 별 측정 — 한 엔진이라도 실패한 URL ${n}개(칸: 성공/잰 횟수 · 실패 원인 · HTTP)</summary>\n\n${s}\n</details>\n`);
+}
+// 사람이 쓴 요약(핵심·차단 업체 설명)
+for (const [k, f] of [["{{KEY_POINTS}}", "key-points.md"], ["{{VENDOR_NOTES}}", "vendor-notes.md"]]) {
+  const p = join(ROOT, "access-measure", f);
+  md = md.replace(k, existsSync(p) ? readFileSync(p, "utf8").trim() + "\n" : "");
+}
+// 유료 서비스 시험용 대상: 무료 엔진이 하나도 못 연 목록 URL · 상품 URL
+{
+  const FREE_L = ["impit", "playwright", "firefox", "firefox-fresh", "server"], FREE_P = ["impit", "site-api", "wayback", "playwright", "firefox"];
+  const tgt = [];
+  for (const [url, o] of obs) {
+    const kind = kindOfUrl.get(url) || "product";
+    const engs = (kind === "listing" ? FREE_L : FREE_P).filter((e) => o[e]);
+    if (!engs.length || engs.some((e) => o[e].some((x) => x.cause === "ok"))) continue;
+    if (!engs.some((e) => o[e].some((x) => ["blocked", "rate-limit", "conn-drop", "timeout"].includes(x.cause)))) continue;   // 차단이 아닌 실패(죽은 주소 등)는 뺀다
+    const b = brandOfUrl.get(url);
+    tgt.push({ kind, brand: b, url, ...((urlsOf(b).find((x) => x.url === url) || {}).cat ? { cat: urlsOf(b).find((x) => x.url === url).cat } : {}) });
+  }
+  tgt.sort((a, b) => a.kind.localeCompare(b.kind) || a.brand.localeCompare(b.brand));
+  writeFileSync(join(ROOT, "access-measure/targets-blocked.json"), JSON.stringify(tgt, null, 1) + "\n");
+  console.log(`무료로 못 연 주소 ${tgt.length}개 → access-measure/targets-blocked.json`);
 }
 // 틀린 URL
 {
