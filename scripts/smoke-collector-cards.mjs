@@ -66,6 +66,20 @@ const PAGES = {
       </div>
     </div>`,
 
+  // Gap 계열: 모든 상품이 /browse/product.do 한 주소이고 상품 번호는 물음표 뒤(pid)에 있다.
+  // 같은 줄에 메뉴 타일(/c/…, 이름 'arrow icon' — Carhartt 에서 실제로 저장됐던 모양)과
+  // 이미지 파일 주소 링크(srcset 조각 — Sessun)를 섞어, 셋 다 상품으로 안 들어가는지 본다.
+  gapFamily: `
+    <div class="tiles">
+      <a href="/c/black-friday"><img src="https://cdn.x/promo-bf.jpg" width="400" height="300" alt="arrow icon"></a>
+      <a href="https://static.x.com/catalog/product/look-025.webp%20924w"><img src="https://static.x.com/catalog/product/look-025.webp" width="400" height="500" alt="Look 25"></a>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><a href="/browse/product.do?pid=885858002&cid=17076#pdp"><img src="https://assets.x.com/885858002.jpg" width="300" height="400" alt="Organic Cotton Vintage Tee"></a><div class="product-card-price">$24.95</div></div>
+      <div class="product-card"><a href="/browse/product.do?pid=791234012&cid=17076#pdp"><img src="https://assets.x.com/791234012.jpg" width="300" height="400" alt="Modern Rib Tank"></a><div class="product-card-price">$19.95</div></div>
+      <div class="product-card"><a href="/browse/product.do?pid=612345001&cid=17076"><img src="https://assets.x.com/612345001.jpg" width="300" height="400" alt="Linen Shirt"></a><div class="product-card-price">$49.95</div></div>
+    </div>`,
+
   // 안전장치: 그리드가 카드로 오인되면 옆 상품 사진을 가져간다. 그런 일이 없어야 한다.
   noImageAtAll: `
     <div class="list">
@@ -125,6 +139,16 @@ async function harvest(body) {
   }
 }
 
+// ── Gap 계열: 물음표 뒤 상품 번호 · 메뉴 타일 · 이미지 조각 ──
+{
+  const r = await harvest(PAGES.gapFamily);
+  const urls = (r.items || []).map((i) => i.productUrl).sort();
+  const want = ["612345001", "791234012", "885858002"].map((n) => `https://shop.example.com/browse/product.do?pid=${n}`);
+  if (JSON.stringify(urls) !== JSON.stringify(want)) {
+    fail(`Gap 계열 — 상품 3개가 각자 주소로 남아야 하고 타일·이미지 조각은 빠져야 한다: ${JSON.stringify(urls)} · 탈락 ${JSON.stringify(r.rej)}`);
+  }
+}
+
 // ── 안전장치: 사진이 없으면 없는 대로 버려야 한다 ──
 {
   const r = await harvest(PAGES.noImageAtAll);
@@ -136,4 +160,4 @@ async function harvest(body) {
 
 await browser.close();
 if (bad) { console.error(`\n카드 사진 찾기 ${bad}건 실패`); process.exit(1); }
-console.log("✅ 카드 사진 찾기 통과 — 투명 오버레이 링크 · 아이콘 우선 카드 · 과확장 방지");
+console.log("✅ 카드 사진 찾기 통과 — 투명 오버레이 링크 · 아이콘 우선 카드 · Gap 상품 번호·타일 제외 · 과확장 방지");
