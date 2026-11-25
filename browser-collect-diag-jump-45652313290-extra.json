@@ -1,0 +1,1122 @@
+{
+ "when": "2026-11-25T16:20:33.260Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "chromium"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "Gap",
+   "site": "gap.com.gap",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 30,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 9,
+    "sweatshirts": 5,
+    "pants": 8,
+    "dresses": 8
+   },
+   "perUrl": [
+    {
+     "url": "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136",
+     "count": 9,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "info.do",
+       "productUrl": "https://www.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "Modern Turtleneck",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=915375122",
+       "price": ""
+      },
+      {
+       "name": "Modern V-Neck T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=886594022",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 205,
+      "noImage": 89,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 13,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 90,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "info.do",
+       "productUrl": "https://www.gap.com/browse/info.do"
+      },
+      {
+       "name": "Organic Cotton VintageSoft T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=795346062"
+      },
+      {
+       "name": "Modern Crew T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=801470282"
+      },
+      {
+       "name": "Modern Crewneck Cardigan",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=839482052"
+      },
+      {
+       "name": "Modern Turtleneck",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=915375122"
+      },
+      {
+       "name": "Modern Rib T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=874457002"
+      },
+      {
+       "name": "Modern Crew T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=801470192"
+      },
+      {
+       "name": "Modern Crew T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=839665012"
+      },
+      {
+       "name": "Modern V-Neck T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=886594022"
+      }
+     ],
+     "debug": []
+    },
+    {
+     "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
+     "count": 9,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "GapSweats Guide",
+       "productUrl": "https://www.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "Adult VintageSoft Relaxed Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903064052",
+       "price": ""
+      },
+      {
+       "name": "VintageSoft Oversized Half-Zip Wedge Pullover",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903061142",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 510,
+      "noImage": 94,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 11,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "GapSweats Guide",
+       "productUrl": "https://www.gap.com/browse/info.do"
+      },
+      {
+       "name": "VintageSoft Terry Oversized Wedge Side-Slit Sweatshirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1180261062"
+      },
+      {
+       "name": "VintageSoft Terry Oversized Wedge Side-Slit Sweatshirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1180261142"
+      },
+      {
+       "name": "VintageSoft Relaxed Hoodie",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=523562322"
+      },
+      {
+       "name": "Adult VintageSoft Relaxed Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903064052"
+      },
+      {
+       "name": "Adult VintageSoft Relaxed Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903064172"
+      },
+      {
+       "name": "VintageSoft Oversized Mockneck Logo Sweatshirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=908994112"
+      },
+      {
+       "name": "Mid Rise VintageSoft Baggy Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903058062"
+      },
+      {
+       "name": "VintageSoft Oversized Half-Zip Wedge Pullover",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903061142"
+      }
+     ],
+     "debug": []
+    },
+    {
+     "url": "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
+     "count": 8,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Lightweight CashSoft Rib Sweater Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1184693002",
+       "price": ""
+      },
+      {
+       "name": "Denim V-Neck Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=912595002",
+       "price": ""
+      },
+      {
+       "name": "Drop-Waist Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=912731012",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 503,
+      "noImage": 90,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "Lightweight CashSoft Rib Sweater Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1184693002"
+      },
+      {
+       "name": "Denim Belted Mini Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=912594002"
+      },
+      {
+       "name": "Cap-Sleeve Knee-Length Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1183782002"
+      },
+      {
+       "name": "Denim Drop-Waist Mini Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1183588002"
+      },
+      {
+       "name": "Denim V-Neck Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=912595002"
+      },
+      {
+       "name": "Cap-Sleeve Knee-Length Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1183782022"
+      },
+      {
+       "name": "Bell-Sleeve Bias-Cut Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1184725012"
+      },
+      {
+       "name": "Drop-Waist Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=912731012"
+      }
+     ],
+     "debug": []
+    },
+    {
+     "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS",
+     "count": 9,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "GapSweats Guide",
+       "productUrl": "https://www.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "Adult VintageSoft Relaxed Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903064172",
+       "price": ""
+      },
+      {
+       "name": "Heavyweight Easy Baggy Sweatpant Jeans",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=672624012",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 511,
+      "noImage": 95,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 11,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "GapSweats Guide",
+       "productUrl": "https://www.gap.com/browse/info.do"
+      },
+      {
+       "name": "VintageSoft Terry Slim Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1200203022"
+      },
+      {
+       "name": "High Rise VintageSoft Relaxed Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=765568002"
+      },
+      {
+       "name": "Adult VintageSoft Relaxed Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903064052"
+      },
+      {
+       "name": "Adult VintageSoft Relaxed Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903064172"
+      },
+      {
+       "name": "VintageSoft Baggy Sweatpants",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=732776282"
+      },
+      {
+       "name": "Mid Rise VintageSoft Baggy Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903058062"
+      },
+      {
+       "name": "Mid Rise VintageSoft Baggy Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=903058052"
+      },
+      {
+       "name": "Heavyweight Easy Baggy Sweatpant Jeans",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=672624012"
+      }
+     ],
+     "debug": []
+    }
+   ],
+   "secs": 82,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "info.do",
+     "productUrl": "https://www.gap.com/browse/info.do"
+    },
+    {
+     "name": "Organic Cotton VintageSoft T-Shirt",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=795346062"
+    },
+    {
+     "name": "Modern Crew T-Shirt",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=801470282"
+    },
+    {
+     "name": "Modern Crewneck Cardigan",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=839482052"
+    },
+    {
+     "name": "Modern Turtleneck",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=915375122"
+    }
+   ],
+   "diag": "jump",
+   "finalItems": [
+    "https://www.gap.com/browse/info.do",
+    "https://www.gap.com/browse/product.do?pid=795346062",
+    "https://www.gap.com/browse/product.do?pid=801470282",
+    "https://www.gap.com/browse/product.do?pid=839482052",
+    "https://www.gap.com/browse/product.do?pid=915375122",
+    "https://www.gap.com/browse/product.do?pid=874457002",
+    "https://www.gap.com/browse/product.do?pid=801470192",
+    "https://www.gap.com/browse/product.do?pid=839665012",
+    "https://www.gap.com/browse/product.do?pid=886594022",
+    "https://www.gap.com/browse/product.do?pid=1180261062",
+    "https://www.gap.com/browse/product.do?pid=1180261142",
+    "https://www.gap.com/browse/product.do?pid=523562322",
+    "https://www.gap.com/browse/product.do?pid=903064052",
+    "https://www.gap.com/browse/product.do?pid=903064172",
+    "https://www.gap.com/browse/product.do?pid=908994112",
+    "https://www.gap.com/browse/product.do?pid=903058062",
+    "https://www.gap.com/browse/product.do?pid=903061142",
+    "https://www.gap.com/browse/product.do?pid=1184693002",
+    "https://www.gap.com/browse/product.do?pid=912594002",
+    "https://www.gap.com/browse/product.do?pid=1183782002",
+    "https://www.gap.com/browse/product.do?pid=1183588002",
+    "https://www.gap.com/browse/product.do?pid=912595002",
+    "https://www.gap.com/browse/product.do?pid=1183782022",
+    "https://www.gap.com/browse/product.do?pid=1184725012",
+    "https://www.gap.com/browse/product.do?pid=912731012",
+    "https://www.gap.com/browse/product.do?pid=1200203022",
+    "https://www.gap.com/browse/product.do?pid=765568002",
+    "https://www.gap.com/browse/product.do?pid=732776282",
+    "https://www.gap.com/browse/product.do?pid=903058052",
+    "https://www.gap.com/browse/product.do?pid=672624012"
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Old Navy",
+   "site": "oldnavy.gap.com.oldnavy",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 74,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 31,
+    "sweatshirts": 13,
+    "shirts": 1,
+    "pants": 23,
+    "dresses": 6
+   },
+   "perUrl": [
+    {
+     "url": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
+     "count": 25,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "Snug Long-Sleeve Ribbed T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909486072",
+       "price": ""
+      },
+      {
+       "name": "Long-Sleeve Oversized Turtleneck Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=908485052",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 668,
+      "noImage": 532,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 48,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do"
+      },
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits"
+      },
+      {
+       "name": "Image of Old Navy x Disney Cozy Ever After.",
+       "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-cozy-ever-after"
+      },
+      {
+       "name": "Image of two toddler models wearing Old Navy mix match go clothing.",
+       "productUrl": "https://oldnavy.gap.com/browse/toddler-girls/mix-and-match-shop"
+      },
+      {
+       "name": "Image of a baby model wearing the Old Navy Little Navy collection.",
+       "productUrl": "https://oldnavy.gap.com/browse/baby/little-navy"
+      },
+      {
+       "name": "Image of a family wearing Old Navy matching pajamas.",
+       "productUrl": "https://oldnavy.gap.com/browse/family-pajamas/matching-pajamas"
+      },
+      {
+       "name": "EveryWear Long-Sleeve T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=896721052"
+      },
+      {
+       "name": "Long-Sleeve Tie-Neck Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184155052"
+      },
+      {
+       "name": "Heavyweight Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909479062"
+      },
+      {
+       "name": "Vintage Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=537384532"
+      },
+      {
+       "name": "Snug Long-Sleeve Ribbed Henley T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909480002"
+      },
+      {
+       "name": "EveryWear Long-Sleeve T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=896721042"
+      },
+      {
+       "name": "Snug Long-Sleeve Ribbed T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909486072"
+      },
+      {
+       "name": "Snug Long-Sleeve Ribbed T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909486022"
+      },
+      {
+       "name": "Oversized EveryWear Long-Sleeve Tunic T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909488072"
+      },
+      {
+       "name": "Snug Long-Sleeve Ribbed T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909502022"
+      },
+      {
+       "name": "EveryWear Crew-Neck Graphic T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=916025132"
+      },
+      {
+       "name": "Vintage Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=537388032"
+      },
+      {
+       "name": "Bestee Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=893803002"
+      },
+      {
+       "name": "Loose Long-Sleeve Graphic T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1188641002"
+      },
+      {
+       "name": "Hello Kitty® Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184133002"
+      },
+      {
+       "name": "EveryWear Long-Sleeve Raglan Baseball T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1190033022"
+      },
+      {
+       "name": "EveryWear Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=908515002"
+      },
+      {
+       "name": "Vintage Long-Sleeve Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909499002"
+      },
+      {
+       "name": "Long-Sleeve Oversized Turtleneck Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=908485052"
+      }
+     ],
+     "debug": []
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
+     "count": 25,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "Dynamic Fleece Half-Zip Tunic Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903707012",
+       "price": ""
+      },
+      {
+       "name": "Bounce Fleece Crew-Neck Cropped Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=861644042",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 659,
+      "noImage": 537,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 38,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do"
+      },
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits"
+      },
+      {
+       "name": "Image of Old Navy x Disney Cozy Ever After.",
+       "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-cozy-ever-after"
+      },
+      {
+       "name": "Image of two toddler models wearing Old Navy mix match go clothing.",
+       "productUrl": "https://oldnavy.gap.com/browse/toddler-girls/mix-and-match-shop"
+      },
+      {
+       "name": "Image of a baby model wearing the Old Navy Little Navy collection.",
+       "productUrl": "https://oldnavy.gap.com/browse/baby/little-navy"
+      },
+      {
+       "name": "Image of a family wearing Old Navy matching pajamas.",
+       "productUrl": "https://oldnavy.gap.com/browse/family-pajamas/matching-pajamas"
+      },
+      {
+       "name": "Loose Sherpa Quarter-Zip Pullover",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903179002"
+      },
+      {
+       "name": "Loose Sherpa Quarter-Zip Pullover",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903179022"
+      },
+      {
+       "name": "Loose Sherpa Quarter-Zip Pullover",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903179032"
+      },
+      {
+       "name": "Loose Sherpa Quarter-Zip Pullover",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903179042"
+      },
+      {
+       "name": "Loose Sherpa Half-Zip Pullover",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903740012"
+      },
+      {
+       "name": "Performance Fleece Funnel Neck Pullover",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903183002"
+      },
+      {
+       "name": "Dynamic Fleece Half-Zip Tunic Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903707012"
+      },
+      {
+       "name": "SoComfy Full-Zip Hoodie Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=764231022"
+      },
+      {
+       "name": "Bounce Fleece Bubble-Hem Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903695042"
+      },
+      {
+       "name": "Old Navy x Disney Mickey Mouse Oversized Crew Sweatshirt for Adults",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=906133002"
+      },
+      {
+       "name": "Flag Logo Graphic Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=899744002"
+      },
+      {
+       "name": "Bounce Fleece Crew-Neck Cropped Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=861644022"
+      },
+      {
+       "name": "SoComfy Funnel-Neck Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909551002"
+      },
+      {
+       "name": "FIFA World Cup 26™ Argentina Oversized Graphic Sweatshirt for Women",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903553002"
+      },
+      {
+       "name": "FIFA World Cup 26™ Brazil Oversized Graphic Sweatshirt for Women",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903556002"
+      },
+      {
+       "name": "SoComfy Oversized Crew-Neck Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=894215042"
+      },
+      {
+       "name": "FIFA World Cup 26™ England Oversized Graphic Sweatshirt for Women",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903550002"
+      },
+      {
+       "name": "SoComfy Relaxed Tunic Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=890649062"
+      },
+      {
+       "name": "Bounce Fleece Crew-Neck Cropped Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=861644042"
+      }
+     ],
+     "debug": []
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
+     "count": 14,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "Long-Sleeve Ruffle-Neck A-Line Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184397012",
+       "price": ""
+      },
+      {
+       "name": "Fitted Sleeveless Button-Front Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1196178002",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 615,
+      "noImage": 511,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 14,
+      "banner": 0,
+      "dup": 22,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do"
+      },
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits"
+      },
+      {
+       "name": "Image of Old Navy x Disney Cozy Ever After.",
+       "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-cozy-ever-after"
+      },
+      {
+       "name": "Image of two toddler models wearing Old Navy mix match go clothing.",
+       "productUrl": "https://oldnavy.gap.com/browse/toddler-girls/mix-and-match-shop"
+      },
+      {
+       "name": "Image of a baby model wearing the Old Navy Little Navy collection.",
+       "productUrl": "https://oldnavy.gap.com/browse/baby/little-navy"
+      },
+      {
+       "name": "Image of a family wearing Old Navy matching pajamas.",
+       "productUrl": "https://oldnavy.gap.com/browse/family-pajamas/matching-pajamas"
+      },
+      {
+       "name": "Chiffon Short-Sleeve Ruffle Peplum Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1200253002"
+      },
+      {
+       "name": "Long-Sleeve Ruffle-Neck A-Line Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184397012"
+      },
+      {
+       "name": "Sleeveless Sheer Organza Peplum Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1195926022"
+      },
+      {
+       "name": "Long-Sleeve Statement Collar Button-Front Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=911351002"
+      },
+      {
+       "name": "Ruffle-Front Button-Down Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1185406002"
+      },
+      {
+       "name": "Lapel Collar Short-Sleeve Button-Front Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184391002"
+      },
+      {
+       "name": "Square-Neck Hourglass Denim Tank Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1196177002"
+      },
+      {
+       "name": "Fitted Sleeveless Button-Front Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1196178002"
+      }
+     ],
+     "debug": []
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
+     "count": 14,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "The Occasion by Old Navy Flutter-Sleeve Chiffon Maxi Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1199532002",
+       "price": ""
+      },
+      {
+       "name": "Sleeveless Fit & Flare Ponte Mini Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1196001002",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 609,
+      "noImage": 510,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 22,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do"
+      },
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits"
+      },
+      {
+       "name": "Image of Old Navy x Disney Cozy Ever After.",
+       "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-cozy-ever-after"
+      },
+      {
+       "name": "Image of two toddler models wearing Old Navy mix match go clothing.",
+       "productUrl": "https://oldnavy.gap.com/browse/toddler-girls/mix-and-match-shop"
+      },
+      {
+       "name": "Image of a baby model wearing the Old Navy Little Navy collection.",
+       "productUrl": "https://oldnavy.gap.com/browse/baby/little-navy"
+      },
+      {
+       "name": "Image of a family wearing Old Navy matching pajamas.",
+       "productUrl": "https://oldnavy.gap.com/browse/family-pajamas/matching-pajamas"
+      },
+      {
+       "name": "SoSoft Long-Sleeve V-Neck Mini Sweater Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=906372032"
+      },
+      {
+       "name": "The Occasion by Old Navy Flutter-Sleeve Chiffon Maxi Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1199532002"
+      },
+      {
+       "name": "Flutter-Sleeve Chiffon Maxi Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1199533002"
+      },
+      {
+       "name": "Mini Wrap Skirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=911184002"
+      },
+      {
+       "name": "Satin A-Line Maxi Skirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=911169012"
+      },
+      {
+       "name": "High-Neck Jersey Mini Swing Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=911012012"
+      },
+      {
+       "name": "Button-Down Fitted Denim Mini Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1194678002"
+      },
+      {
+       "name": "Sleeveless Fit & Flare Ponte Mini Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1196001002"
+      }
+     ],
+     "debug": []
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
+     "count": 26,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do",
+       "price": ""
+      },
+      {
+       "name": "High-Waisted SoComfy Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=777363012",
+       "price": ""
+      },
+      {
+       "name": "Mid-Rise SoComfy Barrel Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=894218002",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 666,
+      "noImage": 538,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 43,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50,
+      "offSite": 3
+     },
+     "items": [
+      {
+       "name": "Picks from our Giftfluencers",
+       "productUrl": "https://oldnavy.gap.com/browse/info.do"
+      },
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits"
+      },
+      {
+       "name": "Image of Old Navy x Disney Cozy Ever After.",
+       "productUrl": "https://oldnavy.gap.com/browse/now-trending/old-navy-x-disney-cozy-ever-after"
+      },
+      {
+       "name": "Image of two toddler models wearing Old Navy mix match go clothing.",
+       "productUrl": "https://oldnavy.gap.com/browse/toddler-girls/mix-and-match-shop"
+      },
+      {
+       "name": "Image of a baby model wearing the Old Navy Little Navy collection.",
+       "productUrl": "https://oldnavy.gap.com/browse/baby/little-navy"
+      },
+      {
+       "name": "Image of a family wearing Old Navy matching pajamas.",
+       "productUrl": "https://oldnavy.gap.com/browse/family-pajamas/matching-pajamas"
+      },
+      {
+       "name": "High-Waisted SoComfy Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=777363022"
+      },
+      {
+       "name": "Extra High-Waisted Performance Fleece Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=905200012"
+      },
+      {
+       "name": "High-Waisted SoComfy Jogger Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=777362002"
+      },
+      {
+       "name": "High-Waisted Bounce Fleece Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=583458122"
+      },
+      {
+       "name": "High-Waisted Bounce Fleece Jogger Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=766362042"
+      },
+      {
+       "name": "High-Waisted Fleece Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=901643032"
+      },
+      {
+       "name": "High-Waisted SoComfy Wide-Leg Cargo Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=911479002"
+      },
+      {
+       "name": "High-Waisted SoComfy Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=777363012"
+      },
+      {
+       "name": "SoSoft Terry Smocked-Waist Mini Skirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=895294002"
+      },
+      {
+       "name": "Relaxed Dynamic Fleece Shorts",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=861780012"
+      },
+      {
+       "name": "Mid-Rise Dynamic Fleece Textured Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=862657012"
+      },
+      {
+       "name": "High-Waisted Bounce Lite Drapey Wide-Leg Pleated Pants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903731022"
+      },
+      {
+       "name": "High-Waisted Bounce Fleece Jogger Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=766362092"
+      },
+      {
+       "name": "High-Waisted SoComfy Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=777363042"
+      },
+      {
+       "name": "Dynamic Fleece Pique Bubble-Hem Skirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903752012"
+      },
+      {
+       "name": "Dynamic Fleece Pique Bubble-Hem Skirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903752002"
+      },
+      {
+       "name": "High-Waisted Relaxed Shorts -- 5-inch inseam",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=876625002"
+      },
+      {
+       "name": "Relaxed Dynamic Fleece Shorts",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=861780002"
+      },
+      {
+       "name": "Mid-Rise Terry Cloth Shorts -- 2.5-inch inseam",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=894214032"
+      },
+      {
+       "name": "Mid-Rise SoComfy Barrel Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=894218002"
+      }
+     ],
+     "debug": []
+    }
+   ],
+   "secs": 98,
+   "dropped": 6,
+   "cut": false,
+   "sample": [
+    {
+     "name": "EveryWear Long-Sleeve T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=896721052"
+    },
+    {
+     "name": "Long-Sleeve Tie-Neck Top",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184155052"
+    },
+    {
+     "name": "Heavyweight Crew-Neck T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909479062"
+    },
+    {
+     "name": "Vintage Crew-Neck T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=537384532"
+    },
+    {
+     "name": "Snug Long-Sleeve Ribbed Henley T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909480002"
+    }
+   ],
+   "diag": "jump",
+   "finalItems": [
+    "https://oldnavy.gap.com/browse/product.do?pid=896721052",
+    "https://oldnavy.gap.com/browse/product.do?pid=1184155052",
+    "https://oldnavy.gap.com/browse/product.do?pid=909479062",
+    "https://oldnavy.gap.com/browse/product.do?pid=537384532",
+    "https://oldnavy.gap.com/browse/product.do?pid=909480002",
+    "https://oldnavy.gap.com/browse/product.do?pid=896721042",
+    "https://oldnavy.gap.com/browse/product.do?pid=909486072",
+    "https://oldnavy.gap.com/browse/product.do?pid=909486022",
+    "https://oldnavy.gap.com/browse/product.do?pid=909488072",
+    "https://oldnavy.gap.com/browse/product.do?pid=909502022",
+    "https://oldnavy.gap.com/browse/product.do?pid=916025132",
+    "https://oldnavy.gap.com/browse/product.do?pid=537388032",
+    "https://oldnavy.gap.com/browse/product.do?pid=893803002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1188641002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1184133002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1190033022",
+    "https://oldnavy.gap.com/browse/product.do?pid=908515002",
+    "https://oldnavy.gap.com/browse/product.do?pid=909499002",
+    "https://oldnavy.gap.com/browse/product.do?pid=908485052",
+    "https://oldnavy.gap.com/browse/product.do?pid=903179002",
+    "https://oldnavy.gap.com/browse/product.do?pid=903179022",
+    "https://oldnavy.gap.com/browse/product.do?pid=903179032",
+    "https://oldnavy.gap.com/browse/product.do?pid=903179042",
+    "https://oldnavy.gap.com/browse/product.do?pid=903740012",
+    "https://oldnavy.gap.com/browse/product.do?pid=903183002",
+    "https://oldnavy.gap.com/browse/product.do?pid=903707012",
+    "https://oldnavy.gap.com/browse/product.do?pid=764231022",
+    "https://oldnavy.gap.com/browse/product.do?pid=903695042",
+    "https://oldnavy.gap.com/browse/product.do?pid=906133002",
+    "https://oldnavy.gap.com/browse/product.do?pid=899744002",
+    "https://oldnavy.gap.com/browse/product.do?pid=861644022",
+    "https://oldnavy.gap.com/browse/product.do?pid=909551002",
+    "https://oldnavy.gap.com/browse/product.do?pid=903553002",
+    "https://oldnavy.gap.com/browse/product.do?pid=903556002",
+    "https://oldnavy.gap.com/browse/product.do?pid=894215042",
+    "https://oldnavy.gap.com/browse/product.do?pid=903550002",
+    "https://oldnavy.gap.com/browse/product.do?pid=890649062",
+    "https://oldnavy.gap.com/browse/product.do?pid=861644042",
+    "https://oldnavy.gap.com/browse/product.do?pid=1200253002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1184397012",
+    "https://oldnavy.gap.com/browse/product.do?pid=1195926022",
+    "https://oldnavy.gap.com/browse/product.do?pid=911351002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1185406002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1184391002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1196177002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1196178002",
+    "https://oldnavy.gap.com/browse/product.do?pid=906372032",
+    "https://oldnavy.gap.com/browse/product.do?pid=1199532002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1199533002",
+    "https://oldnavy.gap.com/browse/product.do?pid=911184002",
+    "https://oldnavy.gap.com/browse/product.do?pid=911169012",
+    "https://oldnavy.gap.com/browse/product.do?pid=911012012",
+    "https://oldnavy.gap.com/browse/product.do?pid=1194678002",
+    "https://oldnavy.gap.com/browse/product.do?pid=1196001002",
+    "https://oldnavy.gap.com/browse/product.do?pid=777363022",
+    "https://oldnavy.gap.com/browse/product.do?pid=905200012",
+    "https://oldnavy.gap.com/browse/product.do?pid=777362002",
+    "https://oldnavy.gap.com/browse/product.do?pid=583458122",
+    "https://oldnavy.gap.com/browse/product.do?pid=766362042",
+    "https://oldnavy.gap.com/browse/product.do?pid=901643032",
+    "https://oldnavy.gap.com/browse/product.do?pid=911479002",
+    "https://oldnavy.gap.com/browse/product.do?pid=777363012",
+    "https://oldnavy.gap.com/browse/product.do?pid=895294002",
+    "https://oldnavy.gap.com/browse/product.do?pid=861780012",
+    "https://oldnavy.gap.com/browse/product.do?pid=862657012",
+    "https://oldnavy.gap.com/browse/product.do?pid=903731022",
+    "https://oldnavy.gap.com/browse/product.do?pid=766362092",
+    "https://oldnavy.gap.com/browse/product.do?pid=777363042",
+    "https://oldnavy.gap.com/browse/product.do?pid=903752012",
+    "https://oldnavy.gap.com/browse/product.do?pid=903752002",
+    "https://oldnavy.gap.com/browse/product.do?pid=876625002",
+    "https://oldnavy.gap.com/browse/product.do?pid=861780002",
+    "https://oldnavy.gap.com/browse/product.do?pid=894214032",
+    "https://oldnavy.gap.com/browse/product.do?pid=894218002"
+   ],
+   "verdict": "자동화 가능"
+  }
+ ]
+}
