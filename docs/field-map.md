@@ -1,27 +1,27 @@
 # 상품 정보 현장 지도 (field map)
 
-> 만든 때 2026-11-25T12:52Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x)
+> 만든 때 2026-11-25T13:07Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
 > 만드는 법: `node scripts/build-field-map.mjs` — 측정은 `diagnose-page.yml` mode=fields(읽기만, 로그에 `STORE: 0`).
 
 ## 한눈에
 
-브랜드마다 카탈로그에서 상품 3개(앞·가운데·끝)를 골라 상품 페이지를 무료 엔진(impit → 파이어폭스)으로 열고, 항목마다 읽히는지와 어디서 읽히는지를 쟀다. 상품 페이지는 브랜드 101/134개에서 읽혔고(25개는 막힘, 8개는 표본 없음), 카탈로그 상품은 모두 38,520개다.
+브랜드마다 카탈로그에서 상품 3개(앞·가운데·끝)를 골라 상품 페이지를 무료 엔진(impit → 파이어폭스)으로 열고, 항목마다 읽히는지와 어디서 읽히는지를 쟀다. 상품 페이지는 브랜드 110/134개에서 읽혔고(24개는 막힘, 0개는 표본 없음), 카탈로그 상품은 모두 38,520개다.
 
 | 항목 | 읽히는 브랜드 | 그 브랜드의 카탈로그 상품(추정) | 읽혔는데 없음(브랜드) | 막힘(브랜드) | 주된 출처 |
 |---|---:|---:|---:|---:|---|
-| 상품명 | 97 | 27,259 (71%) | 4 | 25 | Shopify JSON 57 · JSON-LD 43 |
-| 사진 전부 | 97 | 27,259 (71%) | 4 | 25 | Shopify JSON 57 · JSON-LD 43 · 메타 태그 2 |
-| 판매가 | 97 | 27,259 (71%) | 4 | 25 | Shopify JSON 57 · JSON-LD 43 |
-| 정가(할인 시) | 26 | 8,031 (21%) | 75 | 25 | Shopify JSON 23 · JSON-LD 3 |
-| 통화 | 95 | 26,930 (70%) | 6 | 25 | JSON-LD 93 · 메타 태그 4 |
-| 이 상품 컬러 | 81 | 22,865 (59%) | 20 | 25 | 본문 70 · JSON-LD 12 |
-| 컬러 전부 | 71 | 19,670 (51%) | 30 | 25 | Shopify JSON 45 · JSON-LD 27 |
-| 사이즈 | 67 | 20,137 (52%) | 34 | 25 | Shopify JSON 53 · JSON-LD 15 |
-| 재고 사이즈 | 62 | 18,558 (48%) | 39 | 25 | Shopify JSON 51 · JSON-LD 12 |
-| 혼용률 | 90 | 25,366 (66%) | 11 | 25 | 본문 84 · JSON-LD 6 · 페이지 JSON 1 |
-| 설명 | 98 | 27,569 (72%) | 3 | 25 | Shopify JSON 54 · JSON-LD 44 · 메타 태그 8 |
-| 디테일 글머리표 | 81 | 23,488 (61%) | 20 | 25 | 본문 칸 74 · Shopify JSON 11 |
-| 상품 코드 | 96 | 26,834 (70%) | 5 | 25 | Shopify JSON 57 · JSON-LD 42 |
+| 상품명 | 105 | 30,009 (78%) | 5 | 24 | Shopify JSON 56 · JSON-LD 51 |
+| 사진 전부 | 103 | 29,332 (76%) | 7 | 24 | Shopify JSON 56 · JSON-LD 49 · 메타 태그 2 |
+| 판매가 | 104 | 29,839 (77%) | 6 | 24 | Shopify JSON 56 · JSON-LD 50 |
+| 정가(할인 시) | 26 | 8,031 (21%) | 84 | 24 | Shopify JSON 22 · JSON-LD 4 |
+| 통화 | 102 | 29,510 (77%) | 8 | 24 | JSON-LD 100 · 메타 태그 4 |
+| 이 상품 컬러 | 88 | 25,445 (66%) | 22 | 24 | 본문 75 · JSON-LD 14 |
+| 컬러 전부 | 73 | 20,689 (54%) | 37 | 24 | Shopify JSON 44 · JSON-LD 29 |
+| 사이즈 | 67 | 20,137 (52%) | 43 | 24 | Shopify JSON 52 · JSON-LD 15 |
+| 재고 사이즈 | 62 | 18,558 (48%) | 48 | 24 | Shopify JSON 50 · JSON-LD 12 |
+| 혼용률 | 98 | 27,922 (72%) | 12 | 24 | 본문 92 · JSON-LD 6 · 페이지 JSON 1 |
+| 설명 | 106 | 30,319 (79%) | 4 | 24 | Shopify JSON 53 · JSON-LD 52 · 메타 태그 9 |
+| 디테일 글머리표 | 87 | 25,857 (67%) | 23 | 24 | 본문 칸 82 · Shopify JSON 9 |
+| 상품 코드 | 104 | 29,584 (77%) | 6 | 24 | Shopify JSON 56 · JSON-LD 50 |
 
 - **측정한 것**: 표본 상품 페이지에서 그 항목이 읽혔는지·출처(칸마다 n/r). **추정한 것**: '카탈로그 상품' 열 — 표본 3개에서 읽히면 그 브랜드의 상품 전부가 같은 틀이라고 보고 더한 값이다.
 - '읽히는 브랜드' = 읽힌 표본의 절반 이상에서 그 항목이 나온 브랜드.
@@ -31,9 +31,9 @@
 | 항목 | 오늘 저장값(오버레이, 측정) | 페이지에서 읽히는 브랜드를 다 채우면(추정) |
 |---|---:|---:|
 | 사이즈 | 16,564/38,520 (43%) | 20,944/38,520 (54%) |
-| 컬러 | 25,159/38,520 (65%) | 28,644/38,520 (74%) |
-| 가격 | 24,052/38,520 (62%) | 30,342/38,520 (79%) |
-| 혼용률 | 28,622/38,520 (74%) | 32,247/38,520 (84%) |
+| 컬러 | 25,164/38,520 (65%) | 29,675/38,520 (77%) |
+| 가격 | 24,051/38,520 (62%) | 31,528/38,520 (82%) |
+| 혼용률 | 28,625/38,520 (74%) | 33,340/38,520 (87%) |
 
 가격은 카탈로그(목록 수집)에도 있어 화면에는 그쪽이 먼저 쓰인다 — 위 저장값은 오버레이(상품 페이지에서 읽은 값)만 센 것이다.
 
@@ -58,7 +58,7 @@
 | Mint velvet | 416 | 293 | 416 | 123 | 23 | ✅ 3/3 본문 | firefox/impit |
 | Spanx | 84 | 66 | 84 | 18 | 0 | ✅ 2/3 본문 | firefox/impit |
 | Wilson | 52 | 28 | 52 | 24 | 0 | ✅ 1/3 본문 | firefox/impit |
-| Poetry | 303 | 240 | 303 | 63 | 4 | 🔗 | nosample |
+| Poetry | 303 | 240 | 303 | 63 | 4 | ✅ 3/3 본문 | firefox/impit |
 | Whitestuff | 184 | 143 | 184 | 41 | 0 | ✅ 3/3 본문 | firefox/impit |
 | J crew | 215 | 63 | 215 | 152 | 0 | ✅ 2/2 본문 | firefox |
 | Massimo Dutti | 603 | 3 | 603 | 600 | 462 | ✅ 2/2 페이지 JSON | firefox |
@@ -73,18 +73,18 @@
 | Abercrombie & Fitch | 214 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Addidas | 408 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Addison bay | 141 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 메타 태그·JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 Shopify JSON |
-| Aerie | 101 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
+| Aerie | 101 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 2/3 본문 칸 | ✅ 3/3 JSON-LD |
 | ALC | 393 | 3/3 firefox/shopify-json/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 2/3 JSON-LD | ✅ 2/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 칸 | ✅ 3/3 Shopify JSON |
-| Alo | 190 | 3/3 firefox | ✅ 3/3 JSON-LD·Shopify JSON | ✅ 3/3 JSON-LD·Shopify JSON | ✅ 3/3 JSON-LD·Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD·Shopify JSON | ✅ 3/3 JSON-LD·Shopify JSON | ✅ 2/3 JSON-LD·Shopify JSON | ✅ 2/3 본문 | ✅ 3/3 JSON-LD·Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD·Shopify JSON |
+| Alo | 190 | 3/3 firefox | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 2/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 2/3 JSON-LD | ✅ 2/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | American Eagle | 178 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문·JSON-LD | ✅ 3/3 JSON-LD | ✅ 2/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Ann Taylor | 381 | 1/3 impit | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | 📭 0/1 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 본문 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 칸 | ✅ 1/1 JSON-LD |
 | Anthropologie | 270 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
-| Apiece Apart | 102 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
+| Apiece Apart | 102 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD |
 | Aritzia | 800 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Arket | 285 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
-| Athleta | 1 | 🔗 표본 없음 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 |
+| Athleta | 1 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Banana Republic | 1 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
-| Barbour | 170 | 🔗 표본 없음 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 |
+| Barbour | 170 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | 📭 0/3 | 📭 0/3 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Bash | 50 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 2/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Bassike | 318 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON |
 | Bellerose | 231 | 3/3 firefox | ✅ 3/3 Shopify JSON·JSON-LD | ✅ 3/3 Shopify JSON·JSON-LD | ✅ 3/3 Shopify JSON·JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | ✅ 1/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 2/3 본문 | ✅ 3/3 Shopify JSON·JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON·JSON-LD |
@@ -94,15 +94,15 @@
 | Buck Mason | 119 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 2/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 2/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Carlhartt | 148 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | CCC | 800 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
-| Chico's | 800 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
+| Chico's | 800 | 3/3 firefox | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Citizens of Humanity | 171 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Club monaco | 169 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
-| Coldwatercreek | 200 | 🔗 표본 없음 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 |
+| Coldwatercreek | 200 | 3/3 firefox | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 1/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Cotton citizen | 283 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON·본문 칸 | ✅ 3/3 Shopify JSON |
 | Cotton on | 470 | 3/3 firefox/impit | 📭 0/3 | 📭 0/3 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 2/3 메타 태그 | ✅ 3/3 본문 칸 | 📭 0/3 |
 | Damson Madder | 385 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 JSON-LD·메타 태그 | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 Shopify JSON |
 | Dickies | 260 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
-| Draper James | 147 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 2/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON |
+| Draper James | 147 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 2/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Eddie bauer | 200 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Eileen fisher | 545 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | English factory | 269 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON |
@@ -114,21 +114,21 @@
 | Frame | 189 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 Shopify JSON |
 | Frank & Eileen | 448 | 2/3 firefox/impit | ✅ 2/2 Shopify JSON | ✅ 2/2 Shopify JSON | ✅ 2/2 Shopify JSON | 📭 0/2 | ✅ 2/2 JSON-LD | ✅ 2/2 본문 | ✅ 2/2 Shopify JSON | ✅ 2/2 Shopify JSON | ✅ 2/2 Shopify JSON | ✅ 2/2 본문 | ✅ 2/2 Shopify JSON | ✅ 2/2 본문 칸 | ✅ 2/2 Shopify JSON |
 | Free People | 190 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
-| Gap | 6 | 🔗 표본 없음 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 |
+| Gap | 6 | 2/3 firefox | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | ✅ 2/2 본문 | 📭 0/2 | 📭 0/2 | 📭 0/2 |
 | Garnet hill | 108 | 2/3 firefox | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | 📭 0/2 | ✅ 2/2 JSON-LD | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | ✅ 1/2 본문 | ✅ 2/2 JSON-LD | ✅ 1/2 본문 칸 | ✅ 2/2 JSON-LD |
 | Gerard darel | 138 | 3/3 firefox/impit/shopify-json | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 2/3 JSON-LD | ✅ 2/3 본문 | ✅ 2/3 JSON-LD | ✅ 2/3 JSON-LD | ✅ 2/3 JSON-LD | ✅ 1/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸·Shopify JSON | ✅ 3/3 Shopify JSON |
 | Gestuz | 643 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Goldie | 139 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON |
 | Good American | 625 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Greyson | 93 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 Shopify JSON |
-| Gymshark | 274 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
+| Gymshark | 274 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 2/3 본문 칸 | ✅ 3/3 JSON-LD |
 | H&M | 744 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Hobbs | 353 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | J crew | 215 | 2/3 firefox | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | 📭 0/2 | ✅ 2/2 JSON-LD | ✅ 2/2 본문 | ✅ 2/2 JSON-LD | 📭 0/2 | 📭 0/2 | ✅ 2/2 본문 | ✅ 2/2 JSON-LD | ✅ 1/2 본문 칸 | ✅ 2/2 JSON-LD |
 | J.jill | 89 | 3/3 impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 2/3 본문 | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD |
 | J.mclaughlin | 516 | 2/3 firefox/impit | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | 📭 0/2 | ✅ 2/2 JSON-LD | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | ✅ 2/2 본문 | ✅ 2/2 JSON-LD | ✅ 2/2 본문 칸 | ✅ 2/2 JSON-LD |
 | Jager | 402 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
-| James Perse | 526 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 1/3 본문 칸 | ✅ 3/3 Shopify JSON |
+| James Perse | 526 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 Shopify JSON |
 | Jigsaw | 315 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Joules | 459 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | L.L bean | 310 | 3/3 firefox/impit | ✅ 2/3 JSON-LD | ✅ 2/3 JSON-LD | ✅ 2/3 JSON-LD | 📭 0/3 | ✅ 2/3 JSON-LD | ✅ 2/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 2/3 본문 | ✅ 3/3 메타 태그 | ✅ 3/3 본문 칸 | ✅ 2/3 JSON-LD |
@@ -147,7 +147,7 @@
 | Me+Em | 425 | 1/1 firefox | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | 📭 0/1 | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | 📭 0/1 | 📭 0/1 | ✅ 1/1 본문 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 칸 | 📭 0/1 |
 | Michael Stars | 203 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Mint velvet | 416 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 1/3 본문 칸 | ✅ 3/3 Shopify JSON |
-| Monrow | 200 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON·JSON-LD | ✅ 2/3 Shopify JSON | ✅ 3/3 Shopify JSON |
+| Monrow | 200 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON·JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Monsoon | 30 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Nation LTD | 525 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 2/3 본문 | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Nike | 490 | 1/1 firefox | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | 📭 0/1 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | 📭 0/1 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 칸 | ✅ 1/1 JSON-LD |
@@ -162,7 +162,7 @@
 | Paige | 60 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Patagonia | 168 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Phase eight | 400 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
-| Poetry | 303 | 🔗 표본 없음 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 |
+| Poetry | 303 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Prana | 81 | 1/3 firefox | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | 📭 0/1 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 | 📭 0/1 | 📭 0/1 | 📭 0/1 | ✅ 1/1 본문 | ✅ 1/1 메타 태그 | ✅ 1/1 본문 칸 | ✅ 1/1 JSON-LD |
 | Project Social T | 275 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 1/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Rag & bone | 244 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
@@ -171,16 +171,16 @@
 | rouje | 232 | 2/3 firefox/impit | ✅ 2/2 JSON-LD·Shopify JSON | ✅ 2/2 JSON-LD·Shopify JSON | ✅ 2/2 JSON-LD·Shopify JSON | ✅ 1/2 Shopify JSON | ✅ 2/2 JSON-LD | ✅ 2/2 본문 | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | ✅ 2/2 JSON-LD·Shopify JSON | ✅ 2/2 본문 칸 | ✅ 2/2 JSON-LD·Shopify JSON |
 | Sanctuary | 421 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 메타 태그 | ✅ 1/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 메타 태그·Shopify JSON | ✅ 3/3 Shopify JSON·본문 칸 | ✅ 3/3 Shopify JSON |
 | Scoth & soda | 378 | 2/3 firefox/impit | ✅ 2/2 Shopify JSON | ✅ 2/2 Shopify JSON | ✅ 2/2 Shopify JSON | ✅ 1/2 Shopify JSON | ✅ 2/2 JSON-LD | ✅ 2/2 본문 | ✅ 2/2 Shopify JSON | ✅ 2/2 Shopify JSON | ✅ 2/2 Shopify JSON | ✅ 2/2 본문 | ✅ 2/2 Shopify JSON | ✅ 2/2 본문 칸 | ✅ 2/2 Shopify JSON |
-| Seasalt cornwall | 279 | 🔗 표본 없음 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 |
+| Seasalt cornwall | 279 | 3/3 firefox/impit | ✅ 2/3 JSON-LD | ✅ 2/3 JSON-LD | ✅ 2/3 JSON-LD | 📭 0/3 | ✅ 2/3 JSON-LD | ✅ 2/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 2/3 본문 | ✅ 3/3 메타 태그·JSON-LD | ✅ 1/3 본문 칸 | ✅ 2/3 JSON-LD |
 | Sessun | 81 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Sezane | 206 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
 | Shopbop | 453 | 1/3 firefox | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | 📭 0/1 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 | ✅ 1/1 JSON-LD | 📭 0/1 | 📭 0/1 | ✅ 1/1 본문 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 칸 | ✅ 1/1 JSON-LD |
 | Spanx | 84 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 2/3 본문 | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD |
 | Splendid | 404 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | 📭 0/3 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON |
 | Splits59 | 162 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
-| Stateside | 335 | 3/3 impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 메타 태그 | ✅ 3/3 본문 | 📭 0/3 | ✅ 2/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 2/3 Shopify JSON |
+| Stateside | 335 | 3/3 impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 메타 태그 | ✅ 3/3 본문 | 📭 0/3 | ✅ 2/3 Shopify JSON | ✅ 2/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 칸 | ✅ 2/3 Shopify JSON |
 | Sundry | 246 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 2/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 Shopify JSON |
-| Sweaty betty | 405 | 🔗 표본 없음 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 |
+| Sweaty betty | 405 | 1/3 firefox | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | ✅ 1/1 JSON-LD | 📭 0/1 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 | 📭 0/1 | 📭 0/1 | 📭 0/1 | ✅ 1/1 본문 | ✅ 1/1 JSON-LD | ✅ 1/1 본문 칸 | ✅ 1/1 JSON-LD |
 | The Great | 240 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | The upside | 429 | 2/3 firefox | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 1/2 JSON-LD | ✅ 2/2 JSON-LD | 📭 0/2 | 📭 0/2 | 📭 0/2 | 📭 0/2 | ✅ 2/2 본문 | ✅ 2/2 JSON-LD | ✅ 2/2 본문 칸 | ✅ 2/2 JSON-LD |
 | The white company | 68 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
@@ -195,11 +195,11 @@
 | Vince | 381 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD |
 | vineyardvines | 560 | 2/3 firefox/impit | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 본문 | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 1/2 본문 | ✅ 2/2 JSON-LD | ✅ 2/2 본문 칸 | ✅ 2/2 JSON-LD |
 | Vuori | 219 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
-| WHBM | 219 | ⛔ 막힘 | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ | ⛔ |
+| WHBM | 219 | 2/3 firefox/impit | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | 📭 0/2 | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | ✅ 2/2 JSON-LD | 📭 0/2 | 📭 0/2 | ✅ 2/2 본문 | ✅ 2/2 JSON-LD | ✅ 1/2 본문 칸 | ✅ 2/2 JSON-LD |
 | Whistles | 217 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Whitestuff | 184 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | 📭 0/3 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Wilson | 52 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 본문 | ✅ 3/3 Shopify JSON | ✅ 2/3 본문 칸 | ✅ 3/3 Shopify JSON |
-| Wrap | 374 | 🔗 표본 없음 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 | 🔗 |
+| Wrap | 374 | 3/3 firefox/impit | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | 📭 0/3 | 📭 0/3 | 📭 0/3 | ✅ 2/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
 | Xirena | 333 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 Shopify JSON | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Z Supply | 216 | 3/3 firefox/impit | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 3/3 Shopify JSON | ✅ 1/3 본문 | ✅ 3/3 Shopify JSON | ✅ 1/3 본문 칸 | ✅ 3/3 Shopify JSON |
 | Zara | 499 | 3/3 firefox | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | 📭 0/3 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 JSON-LD | ✅ 3/3 본문 | ✅ 3/3 JSON-LD | ✅ 3/3 본문 칸 | ✅ 3/3 JSON-LD |
@@ -212,15 +212,11 @@
 - **Anthropologie** (270개) — impit blocked 403, firefox blocked 403 · 접근 지도: DataDome — 모든 엔진 403 · 보관본 없음
 - **Aritzia** (800개) — impit blocked 403, firefox blocked 403 · 접근 지도: Cloudflare — impit·크롬 403 · 파이어폭스는 러너마다 3개 중 0~1개 · 보관본은 사이트 공통 문구 때문에 거부
 - **Arket** (285개) — impit blocked 403, firefox blocked 403 · 접근 지도: 상품 페이지는 Akamai 가 모든 엔진 차단 · 웹 아카이브는 3/3 읽음
-- **Athleta** (1개) — 카탈로그에 상품 주소가 없음
+- **Athleta** (1개) — impit shell 200, firefox shell 200 · 접근 지도: 카탈로그에 상품이 없음(목록 문제) · 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
 - **Banana Republic** (1개) — impit shell 200, firefox shell 200 · 접근 지도: 카탈로그에 상품이 없음 · 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
-- **Barbour** (170개) — 카탈로그에 상품 주소가 없음
-- **Chico's** (800개) — impit blocked 403, firefox blocked 403 · 접근 지도: Akamai — 러너(IP)마다 갈림: 파이어폭스가 4개 러너에서 0/3·0/3·3/3·2/3(새 창은 3/3·0/3) · 크롬·impit 은 늘 403 · 보관본 1/3
-- **Coldwatercreek** (200개) — 카탈로그에 상품 주소가 없음
 - **Eileen fisher** (545개) — impit blocked 403, firefox blocked 403 · 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
 - **Fatface** (374개) — impit blocked 403, firefox blocked 403 · 접근 지도: Akamai — 모든 엔진 403 · 보관본 없음
 - **Free People** (190개) — impit blocked 403, firefox blocked 403 · 접근 지도: DataDome — 페이지는 모든 엔진 403 · 웹 아카이브 2/3
-- **Gap** (6개) — 카탈로그에 상품 주소가 없음
 - **Gestuz** (643개) — impit shell 200, firefox shell 200
 - **H&M** (744개) — impit blocked 403, firefox blocked 403 · 접근 지도: 상품 페이지는 Akamai 가 모든 엔진 403(파이어폭스 포함) · 보관본 없음
 - **Joules** (459개) — impit blocked 403, firefox blocked 403 · 접근 지도: Akamai — 페이지는 모든 엔진 403 · 웹 아카이브만 일부(11/25 야간 15개)
@@ -230,15 +226,10 @@
 - **Mango** (93개) — impit blocked 429, firefox blocked 429 · 접근 지도: Vercel 확인 화면 — 모든 엔진 · 파이어폭스 보강 11/25 39/39 차단
 - **Paige** (60개) — impit blocked 429, firefox blocked 429 · 접근 지도: Vercel 확인 화면 — 모든 엔진
 - **Patagonia** (168개) — impit shell 200, firefox shell 200 · 접근 지도: 같은 점검 화면 · 파이어폭스 2/3 읽음 · 보관본 1/3
-- **Poetry** (303개) — 카탈로그에 상품 주소가 없음
-- **Seasalt cornwall** (279개) — 카탈로그에 상품 주소가 없음
 - **Sessun** (81개) — impit blocked 404, firefox blocked 404 · 접근 지도: 카탈로그의 '상품 주소' 일부가 이미지 파일(404). 진짜 상품 주소(us.sessun.com/catalogue/…html)는 모든 엔진이 혼용률까지 읽음(2/2)
 - **Sezane** (206개) — impit blocked 403, firefox blocked 403 · 접근 지도: DataDome — 모든 엔진 · 보관본 일부(11/24 거부 다수)
-- **Sweaty betty** (405개) — 카탈로그에 상품 주소가 없음
 - **The white company** (68개) — impit blocked 200, firefox blocked 200 · 접근 지도: 같은 지역 이동 — 데이터센터 모든 엔진 · 파이어폭스 보강 11/25 63/68 차단
 - **Theory** (379개) — impit blocked 200, firefox blocked 403
-- **WHBM** (219개) — impit blocked 403, firefox blocked 403 · 접근 지도: Akamai — 러너마다 갈림: 파이어폭스 2/3·0/3·3/3·2/3 · 크롬·impit 403 · 보관본 2/3
-- **Wrap** (374개) — 카탈로그에 상품 주소가 없음
 
 ## 사람이 확인할 표본 (브랜드당 1개)
 
@@ -265,9 +256,8 @@
 - 사이즈 —
 - 혼용률 Cotton 86% / Recycled Polyester 14% · 사진 1장
 - 설명: An oversized, boyfriend crew sweatshirt in our coziest, softest everyday fleece.
-- 디테일: Real Deal: $29 (NEW!) Essential Waffle Mocknecks & Pants · Shop matching sets · Real Deal: $20 Real Me® Sports Bras & all leggings $25 & up · Shop now · Account · Favorites
+- 디테일: —
 - 페이지의 칸 제목: details · size & fit
-- 메모: 클릭해야 그려지는 디테일: impit 2줄 → 파이어폭스 22줄
 
 </details>
 
@@ -292,7 +282,7 @@
 - 사이즈 XXS, XS, S, M, L · 재고 XXS, XS, S, M
 - 혼용률 Silk 52% / Viscose 40% / Elastane 8% · 사진 3장
 - 설명: The Silk Blend Radiance Long Sleeve Top is a wardrobe must-have. It has an open-front silhouette that ties softly at the center for an effortless, barely-there 
-- 디테일: XXS (00-0) · XS (2-4) · S (4-6) · M (8-10) · L (12-14) · Shop the Look
+- 디테일: Designed for an easy, relaxed fit with an adjustable front tie.
 - 페이지의 칸 제목: highlights · details · description · fit
 
 </details>
@@ -331,8 +321,22 @@
 - 사이즈 XXS, XS, S, M, L, XL · 재고 XXS, XS, S, M, L, XL
 - 혼용률 Viscose 89% / Silk 11% · 사진 6장
 - 설명: 89% Rayon, 11% Silk Made in China Unlined, shirt collar, dropped shoulders, button closures at front and cuffs, rounded shirttail hem Dry clean only, iron low. 
-- 디테일: 89% Rayon, 11% Silk · Made in China · Unlined, shirt collar, dropped shoulders, button closures at front and cuffs, rounded shirttail hem · Dry clean only, iron low. Do not steam. This fabric is made from a delicate silk blend that requires special care to maintain, avoid steaming and spot cleaning with water. · Fits true to size. Select your usual size · Model is 5'10 and wearing a size small
+- 디테일: —
 - 페이지의 칸 제목: description · details
+
+</details>
+
+<details><summary><b>Barbour</b> — Rosalie T-Shirt White (firefox)</summary>
+
+- 주소: https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html
+- 가격 — · 통화 — · 코드 LTS0730WH11
+- 컬러 — · 컬러 전부 —
+- 사이즈 —
+- 혼용률 Cotton 100% · 사진 4장
+- 설명: The Barbour Rosalie T-Shirt is a minimalist essential with signature detailing.
+- 디테일: Outer: 100% Cotton · Left Chest 'B' Embroidery · Back Length: 60cm · Machine Wash 30°C - Mild Process · Wash with similar colours
+- 페이지의 칸 제목: description
+- 메모: 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
 
 </details>
 
@@ -383,9 +387,8 @@
 - 사이즈 XS, S, M, L, XL, 2XL · 재고 XS, L, XL
 - 혼용률 Polyester 94% / Elastane 6% · 사진 3장
 - 설명: Like that one tee you borrowed years ago... and never returned. Meet the soft, roomy, and lightweight Always Beyond Crew Tee 2.0. Wear it on repeat, and don't l
-- 디테일: CLOSE · Rib crew neckline · Short sleeve · Uniquely created to flatter every shape · Machine Wash Cold, Gentle Cycle, Tumble Dry Low · Machine Washable
+- 디테일: CLOSE · Machine Wash Cold, Gentle Cycle, Tumble Dry Low
 - 페이지의 칸 제목: product details · product fit
-- 메모: 클릭해야 그려지는 디테일: impit 5줄 → 파이어폭스 16줄
 
 </details>
 
@@ -451,8 +454,21 @@
 - 사이즈 6, 8, 10, 12, 14, 16, 18, 20, 22 · 재고 6, 8, 10, 12, 14, 16, 18, 20, 22
 - 혼용률 Cotton 100% · 사진 5장
 - 설명: Our ultimate Breton top remains a forever favourite. In sand and white stripes, this one features three-quarter-length sleeves, a boat neckline, and crossed oar
-- 디테일: Women's Fit & Style Guides · Men's Fit & Style Guides · Boy's Fit & Style Guides · Girl's Fit & Style Guides
+- 디테일: 100% Cotton · Crossed oars embroidered on the hem · Model is 5'10 and wears a size 8 · Delicate machine wash at 30 degrees
 - 페이지의 칸 제목: product details
+
+</details>
+
+<details><summary><b>Chico's</b> — Touch of Cool™ Foiled Mockneck Layering Tee (firefox)</summary>
+
+- 주소: https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249
+- 가격 $25 · 통화 USD · 코드 199761497294
+- 컬러 GRAY ONYX · 컬러 전부 GRAY ONYX
+- 사이즈 —
+- 혼용률 Viscose 95% / Elastane 5% · 사진 1장
+- 설명: Your favorite layering piece just got an upgrade with our Touch of Cool™ Foiled Mockneck Layering Tee. The fabric on this long sleeve, mockneck top is perfect f
+- 디테일: Lightweight fabric designed to feel incredibly comfy and cool to the touch. · Classic-fit, long-sleeved, mockneck tee. · Length: 26.5". · 95% Rayon, 5% Spandex. · Machine washable. · Imported.
+- 페이지의 칸 제목: details · product details
 
 </details>
 
@@ -478,6 +494,20 @@
 - 혼용률 Polyester 97% / Elastane 3% · 사진 1장
 - 설명: A seriously chic halter top done in wide-ribbed fabric with a slight sheen. Tuck it into dress pants or style it with your favorite jeans. For a monochromatic m
 - 디테일: Autumn Glaze: Model is 5'11" wearing a size S · Designed for a body-skimming fit · 97% polyester; 3% elastane · Slim fit with a 22" length; based on a size M · Pullover style · Halter neck with crisscross shoulder straps; center stitch detail
+
+</details>
+
+<details><summary><b>Coldwatercreek</b> — Wintertide Waffle Tee (firefox)</summary>
+
+- 주소: https://www.coldwatercreek.com/wintertide-waffle-tee/22279/
+- 가격 $79.95 · 통화 USD · 코드 22279
+- 컬러 options for Holly Grove Waffle Tee · 컬러 전부 —
+- 사이즈 —
+- 혼용률 — · 사진 1장
+- 설명: Alpine motifs give this light, waffle knit tee a folkloric feel. Embroidered at the shoulders and sleeves, with a split neck and curved hem.
+- 디테일: Misses 26" long; Petites 24"; Women’s 28" · Hits mid hip · Relaxed fit · Cotton/spandex · Machine wash · Imported
+- 페이지의 칸 제목: details · highlights · features · product description · fabric & care · fit
+- 메모: 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
 
 </details>
 
@@ -537,7 +567,7 @@
 
 - 주소: https://draperjames.com/products/top-with-lace-trim-in-burgundy
 - 가격 $128 · 통화 USD · 코드 TOW0783601
-- 컬러 options for Top in Sequin Check · 컬러 전부 —
+- 컬러 options for Top in Fringe · 컬러 전부 —
 - 사이즈 —
 - 혼용률 Polyester 100% · 사진 8장
 - 설명: Burgundy and lace were made for this time of year. This lined top brings a romantic finish to holiday outfitting without feeling overdone. Pair it with a skirt 
@@ -645,7 +675,21 @@
 - 설명: Waverly is the cool button-up we all want. A tailored front and a longer back create an easy fit and iconic yet understated look.
 - 디테일: Shirttail hem long enough to cover your bum · Tailored fit that drapes over your hips · Shaped like a pear with soft rounded shoulders · Chest pocket · Signature bust flattering button placement and long sleeves with button cuffs · Paloma is 5'9" with a 34" bust wearing a size S
 - 페이지의 칸 제목: description · fit
-- 메모: 클릭해야 그려지는 디테일: impit 11줄 → 파이어폭스 12줄
+- 메모: 클릭해야 그려지는 디테일: impit 10줄 → 파이어폭스 11줄
+
+</details>
+
+<details><summary><b>Gap</b> — Visit the Gap Gift Shop (firefox)</summary>
+
+- 주소: https://www.gap.com/browse/women/gift-shop
+- 가격 — · 통화 — · 코드 —
+- 컬러 — · 컬러 전부 —
+- 사이즈 —
+- 혼용률 Cotton 100% · 사진 0장
+- 설명: —
+- 디테일: —
+- 페이지의 칸 제목: details
+- 메모: 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
 
 </details>
 
@@ -697,7 +741,7 @@
 - 사이즈 XS, S, M, L, XL, 1XL, 2XL, 3XL · 재고 XS, S, M, L, XL, 1XL, 3XL
 - 혼용률 Cotton 100% · 사진 6장
 - 설명: The layered look, all in one. Made from 100% cotton lightweight jersey that feels soft and holds its shape, this two-in-one tee gives you the look of perfectly 
-- 디테일: 21" long from shoulder · p]:m-0"> · 100% Cotton · Machine wash cold on gentle cycle with like colors. Do not bleach. Tumble dry low, iron on low heat. Do not dry clean. · accordion#toggle" data-accordion-target="trigger" aria-expanded="false" aria-controls="product-size-fit-accordion-7939579150419" aria-label="Size & Fit"> · Standard
+- 디테일: 21" long from shoulder · p]:m-0"> · 100% Cotton · Machine wash cold on gentle cycle with like colors. Do not bleach. Tumble dry low, iron on low heat. Do not dry clean. · Model · Model is 5'6 wearing size XS
 - 페이지의 칸 제목: details · care · size & fit · fit
 
 </details>
@@ -855,7 +899,7 @@
 - 사이즈 XS, S, M, L, XL · 재고 XS, S, M, L, XL
 - 혼용률 Cotton 100% · 사진 10장
 - 설명: "The Margo T-Shirt is probably the most worn item in my wardrobe. It has a relaxed cut and looks great layered or on its own. I’ve convinced almost everyone in 
-- 디테일: How To Style
+- 디테일: Model 1: 5’9”, Wearing Size S. · Model 2: 5’8”, Wearing Size L. · Fits true to size, we recommend taking your normal size.
 
 </details>
 
@@ -984,7 +1028,7 @@
 - 사이즈 XXS, XS, S, M, L, XL · 재고 XXS, XS, M, L
 - 혼용률 Modal 49% / Cotton 48% / Elastane 3% · 사진 4장
 - 설명: This tank top is the kind of not-so-basic basic that you will continuously reach for. Grab this flattering tank to round out your collection of base layers.
-- 디테일: Made with the softest blend of Supima cotton and micro modal rib, with the perfect amount of stretch. · The scooped neckline and narrow fit make it a perfect layering piece, but it's a winner on its own. · 49% Micro Modal, 48% Supima Cotton, 3% Spandex
+- 디테일: The model is wearing a size Small and is 5’9”, 25” waist, 36” hips, 33” bust”,“Machine wash cold, tumble dry low or, lay flat to dry · Style #HT1595LR2
 
 </details>
 
@@ -1101,9 +1145,9 @@
 - 사이즈 —
 - 혼용률 Polyester 91% / Elastane 9% · 사진 3장
 - 설명: Layer up for low-impact training with this soft-touch long-sleeved T-shirt, featuring thumbholes for extra comfort.
-- 디테일: Miko is 176 cm / 5' 9.5" and is wearing a size S · Bust Measure around the fullest part across bust points, keeping the tape horizontal. · Waist Measure around the natural waistline, which is the narrowest part. · Hip Measure around the fullest part of the hip. · Cold machine wash · Do not bleach
+- 디테일: Miko is 176 cm / 5' 9.5" and is wearing a size S · Cold machine wash · Do not bleach · Do not dry clean · Do not iron · May be tumble dried cold
 - 페이지의 칸 제목: size & fit · fit
-- 메모: 클릭해야 그려지는 디테일: impit 14줄 → 파이어폭스 25줄
+- 메모: 클릭해야 그려지는 디테일: impit 11줄 → 파이어폭스 15줄
 
 </details>
 
@@ -1146,6 +1190,20 @@
 
 </details>
 
+<details><summary><b>Poetry</b> — Silk & cotton T-shirt, Midnight, large (firefox)</summary>
+
+- 주소: https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html
+- 가격 £89 · 통화 GBP · 코드 RW51.A
+- 컬러 Midnight · 컬러 전부 —
+- 사이즈 —
+- 혼용률 Silk 55% / Cotton 45% · 사진 0장
+- 설명: Silk & cotton T-shirt
+- 디테일: Machine wash · Our new luxurious and exceptionally soft silk and cotton jersey · Perfect chic T-shirt silhouette · Wide neck-trim · Small side-splits · Factory
+- 페이지의 칸 제목: details
+- 메모: 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
+
+</details>
+
 <details><summary><b>Prana</b> — Everyday Long Sleeve Tee (firefox)</summary>
 
 - 주소: https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical
@@ -1182,7 +1240,7 @@
 - 설명: The perfect tee. Cut for a classic, tailored fit, our essential short-sleeve T-shirt is crafted from organic Peruvian slub cotton with a heathered look and subt
 - 디테일: Slim fit · Size Small: Body length from high point shoulder 24 1/2", chest 33 1/2", sweep 36", sleeve length from center back neck 12 3/8" · Model is 5'9.5" wearing a size small · Slub pima cotton jersey · 100% pima cotton · Machine washable
 - 페이지의 칸 제목: size & fit · materials & care
-- 메모: 클릭해야 그려지는 디테일: impit 11줄 → 파이어폭스 15줄
+- 메모: 클릭해야 그려지는 디테일: impit 4줄 → 파이어폭스 10줄
 
 </details>
 
@@ -1252,6 +1310,20 @@
 
 </details>
 
+<details><summary><b>Seasalt cornwall</b> — Go to black friday page (firefox)</summary>
+
+- 주소: https://www.seasaltcornwall.com/black-friday-deals
+- 가격 — · 통화 — · 코드 —
+- 컬러 — · 컬러 전부 —
+- 사이즈 —
+- 혼용률 — · 사진 0장
+- 설명: Whether you’re looking for a new statement piece or a timeless classic, our Black Friday deals have your next wardrobe favourite for less.
+- 디테일: —
+- 페이지의 칸 제목: product details · fit
+- 메모: 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
+
+</details>
+
 <details><summary><b>Shopbop</b> — Designer Boutique (firefox)</summary>
 
 - 주소: https://www.shopbop.com/straight-leg-sweatpants-sprwmn/vp/v=1/1511586278.htm
@@ -1300,7 +1372,6 @@
 - 설명: Designed to be your most essential workout tank. Super soft baby rib fabric to hug your body and layer effortlessly. An update on our original Ashby Tank featur
 - 디테일: in partnership with Splits59 · Try before you buy · 5 days · Easily return what you don't have · Only pay for what you keep · Not right now
 - 페이지의 칸 제목: details · description
-- 메모: 클릭해야 그려지는 디테일: impit 13줄 → 파이어폭스 23줄
 
 </details>
 
@@ -1312,7 +1383,7 @@
 - 사이즈 XS, S, M, L, XL · 재고 XS, S, M, L, XL
 - 혼용률 Cotton 100% · 사진 5장
 - 설명: Style Information: Elevate your everyday style with this Cloud Jersey Lace-Up Polo Tee in crisp white. Crafted from soft, breathable cloud jersey fabric, this t
-- 디테일: 100% Sueded Supima Cotton · Made in the USA · Model wears size small. Review our SIZE CHART for sizing help information.
+- 디테일: Style Information: · #SP26-459-6178-WHT · 100% Sueded Supima Cotton · Made in the USA · Model wears size small. Review our SIZE CHART for sizing help information.
 - 페이지의 칸 제목: description
 
 </details>
@@ -1326,6 +1397,20 @@
 - 혼용률 Cotton 47% / Modal 47% / Elastane 6% · 사진 2장
 - 설명: Effortless layering meets everyday comfort with this classic 3/4 sleeve knit top. The fitted v-neck creates a flattering silhouette perfect for pairing with you
 - 디테일: —
+
+</details>
+
+<details><summary><b>Sweaty betty</b> — navigate sherpa longline puffer SB04475 Black.html (firefox)</summary>
+
+- 주소: https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html
+- 가격 $358.4 · 통화 USD · 코드 SB04475_Black
+- 컬러 black · 컬러 전부 —
+- 사이즈 —
+- 혼용률 Polyester 100% Nylon 100% · 사진 1장
+- 설명: Our bestselling puffer coat, now as a soft sherpa jacket. Part of our innovative HeatProtect collection with a ‘Super’ rating, thanks to the warm down filling (
+- 디테일: Our bestselling puffer coat, now as a soft sherpa jacket · Part of our innovative HeatProtect collection with a ‘Super’ rating, thanks to the warm down filling (650 fill power) · Loose, longline fit with funnel collar and two-way front zipper · Two side slip pockets · Front length: 111cm / 43.5” · Model wears size S and is 178cm/5'10" tall
+- 페이지의 칸 제목: product features · care
+- 메모: 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
 
 </details>
 
@@ -1363,7 +1448,7 @@
 - 사이즈 XS, S, M, L, XL · 재고 XS, S, M, L, XL
 - 혼용률 Lyocell 100% · 사진 20장
 - 설명: Style Description: This lightweight button-up, made from our breathable Tencel fabric, is perfect for layering on breezy days. With its relaxed fit and soft dra
-- 디테일: Copied to clipboard · GINGER SHIRT · $58.00 · Color: DEEP MAHOGANY · DEEP MAHOGANY · EGGNOG
+- 디테일: Copied to clipboard · We ship to all 50 states in the US · Please allow 1-3 business days to process order · Express 2 Day Air: Order by 12pm PT Mon–Fri; arrives in 2-4 business days · Unfortunately we DO NOT currently ship to PO Boxes · DUTY FEES ARE PRE-PAID
 
 </details>
 
@@ -1468,9 +1553,8 @@
 - 사이즈 XS, S, M, L, XL · 재고 XS, S, M, L, XL
 - 혼용률 — · 사진 2장
 - 설명: Shimmery metallic jacquard brings beautiful texture and understated shimmer to this standout top. A flattering V-neckline and smocked cuffs add feminine polish,
-- 디테일: Ask AI · Ella Jacquard Top · 81% nylon, 19% metallic · Gold metallic jacquard fabric · V-neckline · Smocked cuffs
+- 디테일: 81% nylon, 19% metallic · Gold metallic jacquard fabric · V-neckline · Smocked cuffs · 24" from top of shoulder to bottom hem, based on a size small · Imported
 - 페이지의 칸 제목: details · description · features
-- 메모: 클릭해야 그려지는 디테일: impit 10줄 → 파이어폭스 16줄
 
 </details>
 
@@ -1484,6 +1568,20 @@
 - 설명: Shop the Vuori AllTheFeels™ Layered Tank in Maraschino. This women's supportive tank top is made with Vuori BlissBlend™ fabric & moisture-wicking performance.
 - 디테일: Moisture Wicking · Buttery soft Vuori BlissBlend™ stretch knit for easy movement · Stretch to Fit; Form fitting though the body · Cropped · Model is 5'7 1/2" in size XS · 75% Polyamide (Recycled), 25% Elastane (Shell), 86% Polyester (Recycled), 14% Elastane (Liner)
 - 페이지의 칸 제목: product details · fit · fabric & care · product features
+
+</details>
+
+<details><summary><b>WHBM</b> — Satin Front Short Sleeve Tee (firefox)</summary>
+
+- 주소: https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643
+- 가격 $29.4 · 통화 USD · 코드 199761603442
+- 컬러 Ecru · 컬러 전부 Ecru
+- 사이즈 —
+- 혼용률 Polyester 96% / Elastane 4% Cotton 54% / Modal 41% / Elastane 5% · 사진 1장
+- 설명: We've combined two of your favorite fabrics into one versatile top. Crafted with a blend of satin + knit fabrics, this design features a satin front, elevating 
+- 디테일: Modern, effortless fit · Short sleeve · Crew neck · Regular length: 23 1/4” · Front: 96% Polyester, 4% Spandex · Back: 54% Cotton, 41% Modal, 5% Spandex
+- 페이지의 칸 제목: details · product details
+- 메모: 클릭해야 그려지는 디테일: impit 0줄 → 파이어폭스 9줄
 
 </details>
 
@@ -1527,6 +1625,20 @@
 
 </details>
 
+<details><summary><b>Wrap</b> — Striped jersey top, Blue stone, large (firefox)</summary>
+
+- 주소: https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html
+- 가격 $115 · 통화 USD · 코드 TH87.A
+- 컬러 Blue stone · 컬러 전부 —
+- 사이즈 —
+- 혼용률 — · 사진 0장
+- 설명: Striped jersey top
+- 디테일: Machine wash · Tencel cotton jersey · Slim-fit · All-over stripe · Round neckline · Full-length sleeves
+- 페이지의 칸 제목: details
+- 메모: 상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다
+
+</details>
+
 <details><summary><b>Xirena</b> — X2605 Tee Chocolate Cherry Troy Tee Chocolate Cherry Troy Tee (firefox)</summary>
 
 - 주소: https://www.xirena.com/products/chocolate-cherry-troy-tee
@@ -1561,7 +1673,7 @@
 - 사이즈 S, M, L, XL · 재고 S, M, L, XL
 - 혼용률 Cotton 100% · 사진 10장
 - 설명: REGULAR FIT - CREW NECK - REGULAR LENGTH - LONG SLEEVES T-shirt made from flexible stretch knit fabric with a compact, plush, opaque construction. Crew neck and
-- 디테일: Product Measurements · Check in-store availability · Due to the holiday season, orders placed from the 15th of November can be returned until 30th of December. · : 100% cotton · Chat · <button aria-label="Enlarge image Zara LONG-SLEEVE INTERLOCK T-SHIRT - Ecru" class="product-detail-zoomed-images__index-image-button product-detail-zoomed-
+- 디테일: Check in-store availability · Due to the holiday season, orders placed from the 15th of November can be returned until 30th of December. · : 100% cotton · OUTER SHELL · 100% cotton · Machine wash max. 30ºC/86ºF delicate cycle
 - 페이지의 칸 제목: description · composition · overview · care
 
 </details>

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T12:52:06.872Z",
+ "generated": "2026-11-25T13:07:48.288Z",
  "runs": [
   {
    "file": "field-measure-45598506233.json",
@@ -26,6 +26,14 @@
    "brands": 44
   },
   {
+   "file": "field-measure-45601690170.json",
+   "runId": "45601690170",
+   "at": "2026-11-25T11:09:33.273Z",
+   "ip": "4.236.91.x",
+   "part": "1/3",
+   "brands": 15
+  },
+  {
    "file": "field-measure-45601695189.json",
    "runId": "45601695189",
    "at": "2026-11-25T11:09:23.574Z",
@@ -40,6 +48,14 @@
    "ip": "134.138.58.x",
    "part": "3/3",
    "brands": 44
+  },
+  {
+   "file": "field-measure-45618009481.json",
+   "runId": "45618009481",
+   "at": "2026-11-25T12:53:14.228Z",
+   "ip": "20.57.38.x",
+   "part": "1/3",
+   "brands": 45
   }
  ],
  "fields": [
@@ -100,38 +116,38 @@
   {
    "key": "name",
    "label": "상품명",
-   "brands": 97,
-   "products": 27259,
-   "notStated": 4,
-   "blocked": 25,
+   "brands": 105,
+   "products": 30009,
+   "notStated": 5,
+   "blocked": 24,
    "sources": {
-    "shopify": 57,
-    "jsonld": 43
+    "shopify": 56,
+    "jsonld": 51
    }
   },
   {
    "key": "imgs",
    "label": "사진 전부",
-   "brands": 97,
-   "products": 27259,
-   "notStated": 4,
-   "blocked": 25,
+   "brands": 103,
+   "products": 29332,
+   "notStated": 7,
+   "blocked": 24,
    "sources": {
-    "shopify": 57,
-    "jsonld": 43,
+    "shopify": 56,
+    "jsonld": 49,
     "meta": 2
    }
   },
   {
    "key": "price",
    "label": "판매가",
-   "brands": 97,
-   "products": 27259,
-   "notStated": 4,
-   "blocked": 25,
+   "brands": 104,
+   "products": 29839,
+   "notStated": 6,
+   "blocked": 24,
    "sources": {
-    "shopify": 57,
-    "jsonld": 43
+    "shopify": 56,
+    "jsonld": 50
    }
   },
   {
@@ -139,47 +155,47 @@
    "label": "정가(할인 시)",
    "brands": 26,
    "products": 8031,
-   "notStated": 75,
-   "blocked": 25,
+   "notStated": 84,
+   "blocked": 24,
    "sources": {
-    "shopify": 23,
-    "jsonld": 3
+    "jsonld": 4,
+    "shopify": 22
    }
   },
   {
    "key": "cur",
    "label": "통화",
-   "brands": 95,
-   "products": 26930,
-   "notStated": 6,
-   "blocked": 25,
+   "brands": 102,
+   "products": 29510,
+   "notStated": 8,
+   "blocked": 24,
    "sources": {
     "meta": 4,
-    "jsonld": 93
+    "jsonld": 100
    }
   },
   {
    "key": "color",
    "label": "이 상품 컬러",
-   "brands": 81,
-   "products": 22865,
-   "notStated": 20,
-   "blocked": 25,
+   "brands": 88,
+   "products": 25445,
+   "notStated": 22,
+   "blocked": 24,
    "sources": {
-    "page": 70,
-    "jsonld": 12
+    "page": 75,
+    "jsonld": 14
    }
   },
   {
    "key": "colors",
    "label": "컬러 전부",
-   "brands": 71,
-   "products": 19670,
-   "notStated": 30,
-   "blocked": 25,
+   "brands": 73,
+   "products": 20689,
+   "notStated": 37,
+   "blocked": 24,
    "sources": {
-    "shopify": 45,
-    "jsonld": 27
+    "shopify": 44,
+    "jsonld": 29
    }
   },
   {
@@ -187,10 +203,10 @@
    "label": "사이즈",
    "brands": 67,
    "products": 20137,
-   "notStated": 34,
-   "blocked": 25,
+   "notStated": 43,
+   "blocked": 24,
    "sources": {
-    "shopify": 53,
+    "shopify": 52,
     "jsonld": 15
    }
   },
@@ -199,22 +215,22 @@
    "label": "재고 사이즈",
    "brands": 62,
    "products": 18558,
-   "notStated": 39,
-   "blocked": 25,
+   "notStated": 48,
+   "blocked": 24,
    "sources": {
-    "shopify": 51,
+    "shopify": 50,
     "jsonld": 12
    }
   },
   {
    "key": "comp",
    "label": "혼용률",
-   "brands": 90,
-   "products": 25366,
-   "notStated": 11,
-   "blocked": 25,
+   "brands": 98,
+   "products": 27922,
+   "notStated": 12,
+   "blocked": 24,
    "sources": {
-    "page": 84,
+    "page": 92,
     "jsonld": 6,
     "parts-json": 1
    }
@@ -222,53 +238,53 @@
   {
    "key": "desc",
    "label": "설명",
-   "brands": 98,
-   "products": 27569,
-   "notStated": 3,
-   "blocked": 25,
+   "brands": 106,
+   "products": 30319,
+   "notStated": 4,
+   "blocked": 24,
    "sources": {
-    "shopify": 54,
-    "jsonld": 44,
-    "meta": 8
+    "shopify": 53,
+    "jsonld": 52,
+    "meta": 9
    }
   },
   {
    "key": "feat",
    "label": "디테일 글머리표",
-   "brands": 81,
-   "products": 23488,
-   "notStated": 20,
-   "blocked": 25,
+   "brands": 87,
+   "products": 25857,
+   "notStated": 23,
+   "blocked": 24,
    "sources": {
-    "dom": 74,
-    "shopify": 11
+    "dom": 82,
+    "shopify": 9
    }
   },
   {
    "key": "sku",
    "label": "상품 코드",
-   "brands": 96,
-   "products": 26834,
-   "notStated": 5,
-   "blocked": 25,
+   "brands": 104,
+   "products": 29584,
+   "notStated": 6,
+   "blocked": 24,
    "sources": {
-    "shopify": 57,
-    "jsonld": 42
+    "shopify": 56,
+    "jsonld": 50
    }
   }
  ],
  "stored": {
   "items": 38520,
-  "comp": 28622,
-  "color": 25159,
+  "comp": 28625,
+  "color": 25164,
   "sizes": 16564,
-  "price": 24052
+  "price": 24051
  },
  "readableAfter": {
   "sizes": 20944,
-  "color": 28644,
-  "price": 30342,
-  "comp": 32247
+  "color": 29675,
+  "price": 31528,
+  "comp": 33340
  },
  "totalProducts": 38520,
  "brands": [
@@ -351,7 +367,7 @@
    "sampled": 3,
    "read": 0,
    "engines": [],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "blocked"
@@ -679,7 +695,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -762,7 +778,7 @@
     },
     "feat": {
      "s": "ok",
-     "n": 3,
+     "n": 2,
      "of": 3,
      "src": [
       "dom"
@@ -777,9 +793,7 @@
      ]
     }
    },
-   "notes": [
-    "클릭해야 그려지는 디테일: impit 2줄 → 파이어폭스 22줄"
-   ],
+   "notes": [],
    "state": "read",
    "heads": [
     "details",
@@ -802,14 +816,7 @@
      "comp": "Cotton 86% / Recycled Polyester 14%",
      "sku": "0743_3981_128",
      "desc": "An oversized, boyfriend crew sweatshirt in our coziest, softest everyday fleece.",
-     "feat": [
-      "Real Deal: $29 (NEW!) Essential Waffle Mocknecks & Pants",
-      "Shop matching sets",
-      "Real Deal: $20 Real Me® Sports Bras & all leggings $25 & up",
-      "Shop now",
-      "Account",
-      "Favorites"
-     ],
+     "feat": [],
      "imgs": 1
     },
     "fixture": {
@@ -1032,15 +1039,14 @@
    "engines": [
     "firefox"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
      "n": 3,
      "of": 3,
      "src": [
-      "jsonld",
-      "shopify"
+      "jsonld"
      ]
     },
     "imgs": {
@@ -1048,8 +1054,7 @@
      "n": 3,
      "of": 3,
      "src": [
-      "jsonld",
-      "shopify"
+      "jsonld"
      ]
     },
     "price": {
@@ -1057,8 +1062,7 @@
      "n": 3,
      "of": 3,
      "src": [
-      "jsonld",
-      "shopify"
+      "jsonld"
      ]
     },
     "priceOrig": {
@@ -1066,7 +1070,7 @@
      "n": 2,
      "of": 3,
      "src": [
-      "shopify"
+      "jsonld"
      ]
     },
     "cur": {
@@ -1090,8 +1094,7 @@
      "n": 3,
      "of": 3,
      "src": [
-      "jsonld",
-      "shopify"
+      "jsonld"
      ]
     },
     "sizes": {
@@ -1099,8 +1102,7 @@
      "n": 3,
      "of": 3,
      "src": [
-      "jsonld",
-      "shopify"
+      "jsonld"
      ]
     },
     "sizesIn": {
@@ -1108,8 +1110,7 @@
      "n": 2,
      "of": 3,
      "src": [
-      "jsonld",
-      "shopify"
+      "jsonld"
      ]
     },
     "comp": {
@@ -1125,8 +1126,7 @@
      "n": 3,
      "of": 3,
      "src": [
-      "jsonld",
-      "shopify"
+      "jsonld"
      ]
     },
     "feat": {
@@ -1142,8 +1142,7 @@
      "n": 3,
      "of": 3,
      "src": [
-      "jsonld",
-      "shopify"
+      "jsonld"
      ]
     }
    },
@@ -1187,12 +1186,7 @@
      "sku": "95139070311",
      "desc": "The Silk Blend Radiance Long Sleeve Top is a wardrobe must-have. It has an open-front silhouette that ties softly at the center for an effortless, barely-there ",
      "feat": [
-      "XXS (00-0)",
-      "XS (2-4)",
-      "S (4-6)",
-      "M (8-10)",
-      "L (12-14)",
-      "Shop the Look"
+      "Designed for an easy, relaxed fit with an adjustable front tie."
      ],
      "imgs": 3
     },
@@ -1659,7 +1653,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -1747,12 +1741,9 @@
      ]
     },
     "feat": {
-     "s": "ok",
-     "n": 3,
-     "of": 3,
-     "src": [
-      "dom"
-     ]
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sku": {
      "s": "ok",
@@ -1804,14 +1795,7 @@
      "comp": "Viscose 89% / Silk 11%",
      "sku": "9636844896476",
      "desc": "89% Rayon, 11% Silk Made in China Unlined, shirt collar, dropped shoulders, button closures at front and cuffs, rounded shirttail hem Dry clean only, iron low. ",
-     "feat": [
-      "89% Rayon, 11% Silk",
-      "Made in China",
-      "Unlined, shirt collar, dropped shoulders, button closures at front and cuffs, rounded shirttail hem",
-      "Dry clean only, iron low. Do not steam. This fabric is made from a delicate silk blend that requires special care to maintain, avoid steaming and spot cleaning with water.",
-      "Fits true to size. Select your usual size",
-      "Model is 5'10 and wearing a size small"
-     ],
+     "feat": [],
      "imgs": 6
     },
     "fixture": {
@@ -1988,53 +1972,57 @@
    "brand": "Athleta",
    "site": "athleta.gap.com.athleta",
    "total": 1,
-   "sampled": 0,
+   "sampled": 1,
    "read": 0,
    "engines": [],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "imgs": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "price": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "priceOrig": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "cur": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "color": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "colors": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "sizes": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "sizesIn": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "comp": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "desc": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "feat": {
-     "s": "nosample"
+     "s": "blocked"
     },
     "sku": {
-     "s": "nosample"
+     "s": "blocked"
     }
    },
-   "notes": [],
-   "state": "nosample",
+   "notes": [
+    "impit shell 200, firefox shell 200",
+    "접근 지도: 카탈로그에 상품이 없음(목록 문제)",
+    "상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다"
+   ],
+   "state": "blocked",
    "stored": {
     "items": 1,
     "withRow": 1,
@@ -2130,53 +2118,136 @@
    "brand": "Barbour",
    "site": "barbour.com.barbour",
    "total": 170,
-   "sampled": 0,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "sampled": 3,
+   "read": 3,
+   "engines": [
+    "firefox",
+    "impit"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "imgs": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "price": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "priceOrig": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "cur": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "color": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "colors": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizes": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizesIn": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "comp": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "feat": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "dom"
+     ]
     },
     "sku": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     }
    },
-   "notes": [],
-   "state": "nosample",
+   "notes": [
+    "상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다"
+   ],
+   "state": "read",
+   "heads": [
+    "description"
+   ],
+   "platform": "salesforce",
+   "sample": {
+    "url": "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html",
+    "name": "Rosalie T-Shirt White",
+    "engine": "firefox",
+    "read": {
+     "price": "",
+     "priceOrig": "",
+     "cur": "",
+     "color": "",
+     "colors": [],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "Cotton 100%",
+     "sku": "LTS0730WH11",
+     "desc": "The Barbour Rosalie T-Shirt is a minimalist essential with signature detailing.",
+     "feat": [
+      "Outer: 100% Cotton",
+      "Left Chest 'B' Embroidery",
+      "Back Length: 60cm",
+      "Machine Wash 30°C - Mild Process",
+      "Wash with similar colours"
+     ],
+     "imgs": 4
+    },
+    "fixture": {
+     "file": "barbour.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 170,
     "withRow": 170,
@@ -2745,7 +2816,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -2849,9 +2920,7 @@
      ]
     }
    },
-   "notes": [
-    "클릭해야 그려지는 디테일: impit 5줄 → 파이어폭스 16줄"
-   ],
+   "notes": [],
    "state": "read",
    "heads": [
     "product details",
@@ -2888,11 +2957,7 @@
      "desc": "Like that one tee you borrowed years ago... and never returned. Meet the soft, roomy, and lightweight Always Beyond Crew Tee 2.0. Wear it on repeat, and don't l",
      "feat": [
       "CLOSE",
-      "Rib crew neckline",
-      "Short sleeve",
-      "Uniquely created to flatter every shape",
-      "Machine Wash Cold, Gentle Cycle, Tumble Dry Low",
-      "Machine Washable"
+      "Machine Wash Cold, Gentle Cycle, Tumble Dry Low"
      ],
      "imgs": 3
     },
@@ -2930,7 +2995,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -3120,7 +3185,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -3633,7 +3698,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -3779,10 +3844,10 @@
      "sku": "14189",
      "desc": "Our ultimate Breton top remains a forever favourite. In sand and white stripes, this one features three-quarter-length sleeves, a boat neckline, and crossed oar",
      "feat": [
-      "Women's Fit & Style Guides",
-      "Men's Fit & Style Guides",
-      "Boy's Fit & Style Guides",
-      "Girl's Fit & Style Guides"
+      "100% Cotton",
+      "Crossed oars embroidered on the hem",
+      "Model is 5'10 and wears a size 8",
+      "Delicate machine wash at 30 degrees"
      ],
      "imgs": 5
     },
@@ -3794,13 +3859,13 @@
    },
    "stored": {
     "items": 800,
-    "withRow": 798,
-    "comp": 753,
-    "color": 472,
+    "withRow": 800,
+    "comp": 755,
+    "color": 474,
     "sizes": 349,
-    "price": 497,
-    "tried": 798,
-    "in5d": 416,
+    "price": 496,
+    "tried": 800,
+    "in5d": 419,
     "blocked": 0,
     "blockedIn5d": 0,
     "none": 4,
@@ -3809,7 +3874,7 @@
      "(예전)": 1
     },
     "oldestT": 1788473174148,
-    "newestT": 1795603813695,
+    "newestT": 1795605625241,
     "emptyIn5d": 45
    }
   },
@@ -3818,55 +3883,147 @@
    "site": "chicos.com.chicos",
    "total": 800,
    "sampled": 3,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "read": 3,
+   "engines": [
+    "firefox"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "imgs": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "price": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "priceOrig": {
-     "s": "blocked"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "cur": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "color": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "colors": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "sizes": {
-     "s": "blocked"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizesIn": {
-     "s": "blocked"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "comp": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "feat": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "dom"
+     ]
     },
     "sku": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     }
    },
-   "notes": [
-    "impit blocked 403, firefox blocked 403",
-    "접근 지도: Akamai — 러너(IP)마다 갈림: 파이어폭스가 4개 러너에서 0/3·0/3·3/3·2/3(새 창은 3/3·0/3) · 크롬·impit 은 늘 403 · 보관본 1/3"
+   "notes": [],
+   "state": "read",
+   "heads": [
+    "details",
+    "product details"
    ],
-   "state": "blocked",
+   "sample": {
+    "url": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249",
+    "name": "Touch of Cool™ Foiled Mockneck Layering Tee",
+    "engine": "firefox",
+    "read": {
+     "price": "$25",
+     "priceOrig": "",
+     "cur": "USD",
+     "color": "GRAY ONYX",
+     "colors": [
+      "GRAY ONYX"
+     ],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "Viscose 95% / Elastane 5%",
+     "sku": "199761497294",
+     "desc": "Your favorite layering piece just got an upgrade with our Touch of Cool™ Foiled Mockneck Layering Tee. The fabric on this long sleeve, mockneck top is perfect f",
+     "feat": [
+      "Lightweight fabric designed to feel incredibly comfy and cool to the touch.",
+      "Classic-fit, long-sleeved, mockneck tee.",
+      "Length: 26.5\".",
+      "95% Rayon, 5% Spandex.",
+      "Machine washable.",
+      "Imported."
+     ],
+     "imgs": 1
+    },
+    "fixture": {
+     "file": "chicos.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 800,
     "withRow": 800,
@@ -4242,53 +4399,149 @@
    "brand": "Coldwatercreek",
    "site": "coldwatercreek.com.coldwatercreek",
    "total": 200,
-   "sampled": 0,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "sampled": 3,
+   "read": 3,
+   "engines": [
+    "firefox"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "imgs": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "price": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "priceOrig": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "cur": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "color": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "colors": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizes": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizesIn": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "comp": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "feat": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "dom"
+     ]
     },
     "sku": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     }
    },
-   "notes": [],
-   "state": "nosample",
+   "notes": [
+    "상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다"
+   ],
+   "state": "read",
+   "heads": [
+    "details",
+    "highlights",
+    "features",
+    "product description",
+    "fabric & care",
+    "fit"
+   ],
+   "sample": {
+    "url": "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/",
+    "name": "Wintertide Waffle Tee",
+    "engine": "firefox",
+    "read": {
+     "price": "$79.95",
+     "priceOrig": "",
+     "cur": "USD",
+     "color": "options for Holly Grove Waffle Tee",
+     "colors": [],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "",
+     "sku": "22279",
+     "desc": "Alpine motifs give this light, waffle knit tee a folkloric feel. Embroidered at the shoulders and sleeves, with a split neck and curved hem.",
+     "feat": [
+      "Misses 26\" long; Petites 24\"; Women’s 28\"",
+      "Hits mid hip",
+      "Relaxed fit",
+      "Cotton/spandex",
+      "Machine wash",
+      "Imported"
+     ],
+     "imgs": 1
+    },
+    "fixture": {
+     "file": "coldwatercreek.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 200,
     "withRow": 200,
@@ -5039,7 +5292,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -5131,7 +5384,7 @@
      "n": 3,
      "of": 3,
      "src": [
-      "shopify"
+      "dom"
      ]
     },
     "sku": {
@@ -5154,7 +5407,7 @@
      "price": "$128",
      "priceOrig": "",
      "cur": "USD",
-     "color": "options for Top in Sequin Check",
+     "color": "options for Top in Fringe",
      "colors": [],
      "sizes": [],
      "sizesIn": null,
@@ -6034,7 +6287,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -6600,7 +6853,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -6705,7 +6958,7 @@
     }
    },
    "notes": [
-    "클릭해야 그려지는 디테일: impit 11줄 → 파이어폭스 12줄"
+    "클릭해야 그려지는 디테일: impit 10줄 → 파이어폭스 11줄"
    ],
    "state": "read",
    "heads": [
@@ -6851,53 +7104,113 @@
    "brand": "Gap",
    "site": "gap.com.gap",
    "total": 6,
-   "sampled": 0,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "sampled": 3,
+   "read": 2,
+   "engines": [
+    "firefox"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "imgs": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "price": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "priceOrig": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "cur": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "color": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "colors": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "sizes": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "sizesIn": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "comp": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "feat": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "sku": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 2
     }
    },
-   "notes": [],
-   "state": "nosample",
+   "notes": [
+    "상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다"
+   ],
+   "state": "read",
+   "heads": [
+    "details"
+   ],
+   "sample": {
+    "url": "https://www.gap.com/browse/women/gift-shop",
+    "name": "Visit the Gap Gift Shop",
+    "engine": "firefox",
+    "read": {
+     "price": "",
+     "priceOrig": "",
+     "cur": "",
+     "color": "",
+     "colors": [],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "Cotton 100%",
+     "sku": "",
+     "desc": "",
+     "feat": [],
+     "imgs": 0
+    },
+    "fixture": {
+     "file": "gap.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 6,
     "withRow": 6,
@@ -7262,7 +7575,7 @@
    "sampled": 3,
    "read": 0,
    "engines": [],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "blocked"
@@ -7524,7 +7837,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -7676,8 +7989,8 @@
       "p]:m-0\">",
       "100% Cotton",
       "Machine wash cold on gentle cycle with like colors. Do not bleach. Tumble dry low, iron on low heat. Do not dry clean.",
-      "accordion#toggle\" data-accordion-target=\"trigger\" aria-expanded=\"false\" aria-controls=\"product-size-fit-accordion-7939579150419\" aria-label=\"Size & Fit\">",
-      "Standard"
+      "Model",
+      "Model is 5'6 wearing size XS"
      ],
      "imgs": 6
     },
@@ -7889,7 +8202,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -7975,7 +8288,7 @@
     },
     "feat": {
      "s": "ok",
-     "n": 3,
+     "n": 2,
      "of": 3,
      "src": [
       "dom"
@@ -8488,7 +8801,7 @@
    "engines": [
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -8963,7 +9276,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -9054,12 +9367,9 @@
      ]
     },
     "feat": {
-     "s": "ok",
-     "n": 1,
-     "of": 3,
-     "src": [
-      "dom"
-     ]
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sku": {
      "s": "ok",
@@ -9823,7 +10133,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -9960,7 +10270,9 @@
      "sku": "LT017A-CTN",
      "desc": "\"The Margo T-Shirt is probably the most worn item in my wardrobe. It has a relaxed cut and looks great layered or on its own. I’ve convinced almost everyone in ",
      "feat": [
-      "How To Style"
+      "Model 1: 5’9”, Wearing Size S.",
+      "Model 2: 5’8”, Wearing Size L.",
+      "Fits true to size, we recommend taking your normal size."
      ],
      "imgs": 10
     },
@@ -10346,7 +10658,7 @@
    "sampled": 3,
    "read": 0,
    "engines": [],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "blocked"
@@ -10814,7 +11126,7 @@
    "sampled": 3,
    "read": 0,
    "engines": [],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "blocked"
@@ -10889,7 +11201,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -11230,7 +11542,7 @@
    "engines": [
     "firefox"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -11757,7 +12069,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -11847,10 +12159,10 @@
     },
     "feat": {
      "s": "ok",
-     "n": 2,
+     "n": 3,
      "of": 3,
      "src": [
-      "shopify"
+      "dom"
      ]
     },
     "sku": {
@@ -11895,9 +12207,8 @@
      "sku": "HT1595LR2_DUSTY COCOA",
      "desc": "This tank top is the kind of not-so-basic basic that you will continuously reach for.\nGrab this flattering tank to round out your collection of base layers.",
      "feat": [
-      "Made with the softest blend of Supima cotton and micro modal rib, with the perfect amount of stretch.",
-      "The scooped neckline and narrow fit make it a perfect layering piece, but it's a winner on its own.",
-      "49% Micro Modal, 48% Supima Cotton, 3% Spandex"
+      "The model is wearing a size Small and is 5’9”, 25” waist, 36” hips, 33” bust”,“Machine wash cold, tumble dry low or, lay flat to dry",
+      "Style #HT1595LR2"
      ],
      "imgs": 4
     },
@@ -12283,7 +12594,7 @@
    "engines": [
     "firefox"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -12447,13 +12758,13 @@
    },
    "stored": {
     "items": 490,
-    "withRow": 487,
-    "comp": 411,
-    "color": 481,
+    "withRow": 490,
+    "comp": 412,
+    "color": 484,
     "sizes": 0,
     "price": 0,
-    "tried": 487,
-    "in5d": 139,
+    "tried": 490,
+    "in5d": 142,
     "blocked": 0,
     "blockedIn5d": 0,
     "none": 21,
@@ -12463,8 +12774,8 @@
      "fetch": 1
     },
     "oldestT": 1791505758714,
-    "newestT": 1795603818879,
-    "emptyIn5d": 76
+    "newestT": 1795605386881,
+    "emptyIn5d": 78
    }
   },
   {
@@ -12846,7 +13157,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -13321,7 +13632,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -13420,7 +13731,7 @@
     }
    },
    "notes": [
-    "클릭해야 그려지는 디테일: impit 14줄 → 파이어폭스 25줄"
+    "클릭해야 그려지는 디테일: impit 11줄 → 파이어폭스 15줄"
    ],
    "state": "read",
    "heads": [
@@ -13451,11 +13762,11 @@
      "desc": "Layer up for low-impact training with this soft-touch long-sleeved T-shirt, featuring thumbholes for extra comfort.",
      "feat": [
       "Miko is 176 cm / 5' 9.5\" and is wearing a size S",
-      "Bust Measure around the fullest part across bust points, keeping the tape horizontal.",
-      "Waist Measure around the natural waistline, which is the narrowest part.",
-      "Hip Measure around the fullest part of the hip.",
       "Cold machine wash",
-      "Do not bleach"
+      "Do not bleach",
+      "Do not dry clean",
+      "Do not iron",
+      "May be tumble dried cold"
      ],
      "imgs": 3
     },
@@ -13795,7 +14106,7 @@
    "sampled": 3,
    "read": 0,
    "engines": [],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "blocked"
@@ -14103,53 +14414,143 @@
    "brand": "Poetry",
    "site": "poetryfashion.co.uk.poetry",
    "total": 303,
-   "sampled": 0,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "sampled": 3,
+   "read": 3,
+   "engines": [
+    "firefox",
+    "impit"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "imgs": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "price": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "priceOrig": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "cur": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "color": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "colors": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizes": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizesIn": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "comp": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "feat": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "dom"
+     ]
     },
     "sku": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     }
    },
-   "notes": [],
-   "state": "nosample",
+   "notes": [
+    "상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다"
+   ],
+   "state": "read",
+   "heads": [
+    "details"
+   ],
+   "platform": "salesforce",
+   "sample": {
+    "url": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html",
+    "name": "Silk & cotton T-shirt, Midnight, large",
+    "engine": "firefox",
+    "read": {
+     "price": "£89",
+     "priceOrig": "",
+     "cur": "GBP",
+     "color": "Midnight",
+     "colors": [],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "Silk 55% / Cotton 45%",
+     "sku": "RW51.A",
+     "desc": "Silk & cotton T-shirt",
+     "feat": [
+      "Machine wash",
+      "Our new luxurious and exceptionally soft silk and cotton jersey",
+      "Perfect chic T-shirt silhouette",
+      "Wide neck-trim",
+      "Small side-splits",
+      "Factory"
+     ],
+     "imgs": 0
+    },
+    "fixture": {
+     "file": "poetry.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 303,
     "withRow": 303,
@@ -14521,7 +14922,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -14617,7 +15018,7 @@
     }
    },
    "notes": [
-    "클릭해야 그려지는 디테일: impit 11줄 → 파이어폭스 15줄"
+    "클릭해야 그려지는 디테일: impit 4줄 → 파이어폭스 10줄"
    ],
    "state": "read",
    "heads": [
@@ -15559,53 +15960,141 @@
    "brand": "Seasalt cornwall",
    "site": "seasaltcornwall.com.seasaltcornwall",
    "total": 279,
-   "sampled": 0,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "sampled": 3,
+   "read": 3,
+   "engines": [
+    "firefox",
+    "impit"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "imgs": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "price": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "priceOrig": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "cur": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "color": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "colors": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizes": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizesIn": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "comp": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "meta",
+      "jsonld"
+     ]
     },
     "feat": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 3,
+     "src": [
+      "dom"
+     ]
     },
     "sku": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     }
    },
-   "notes": [],
-   "state": "nosample",
+   "notes": [
+    "상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다"
+   ],
+   "state": "read",
+   "heads": [
+    "product details",
+    "fit"
+   ],
+   "platform": "magento",
+   "sample": {
+    "url": "https://www.seasaltcornwall.com/black-friday-deals",
+    "name": "Go to black friday page",
+    "engine": "firefox",
+    "read": {
+     "price": "",
+     "priceOrig": "",
+     "cur": "",
+     "color": "",
+     "colors": [],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "",
+     "sku": "",
+     "desc": "Whether you’re looking for a new statement piece or a timeless classic, our Black Friday deals have your next wardrobe favourite for less.",
+     "feat": [],
+     "imgs": 0
+    },
+    "fixture": {
+     "file": "seasaltcornwall.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 279,
     "withRow": 279,
@@ -15633,7 +16122,7 @@
    "sampled": 3,
    "read": 0,
    "engines": [],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "blocked"
@@ -16299,7 +16788,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -16406,9 +16895,7 @@
      ]
     }
    },
-   "notes": [
-    "클릭해야 그려지는 디테일: impit 13줄 → 파이어폭스 23줄"
-   ],
+   "notes": [],
    "state": "read",
    "heads": [
     "details",
@@ -16488,7 +16975,7 @@
    "engines": [
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -16577,7 +17064,7 @@
     },
     "feat": {
      "s": "ok",
-     "n": 3,
+     "n": 2,
      "of": 3,
      "src": [
       "dom"
@@ -16626,6 +17113,8 @@
      "sku": "SP26-459-6178-WHT",
      "desc": "Style Information:\nElevate your everyday style with this Cloud Jersey Lace-Up Polo Tee in crisp white. Crafted from soft, breathable cloud jersey fabric, this t",
      "feat": [
+      "Style Information:",
+      "#SP26-459-6178-WHT",
       "100% Sueded Supima Cotton",
       "Made in the USA",
       "Model wears size small. Review our SIZE CHART for sizing help information."
@@ -16830,53 +17319,149 @@
    "brand": "Sweaty betty",
    "site": "sweatybetty.com.sweatybetty",
    "total": 405,
-   "sampled": 0,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "sampled": 3,
+   "read": 1,
+   "engines": [
+    "firefox"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "jsonld"
+     ]
     },
     "imgs": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "jsonld"
+     ]
     },
     "price": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "jsonld"
+     ]
     },
     "priceOrig": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 1
     },
     "cur": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "jsonld"
+     ]
     },
     "color": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "page"
+     ]
     },
     "colors": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 1
     },
     "sizes": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 1
     },
     "sizesIn": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 1
     },
     "comp": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "jsonld"
+     ]
     },
     "feat": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "dom"
+     ]
     },
     "sku": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 1,
+     "of": 1,
+     "src": [
+      "jsonld"
+     ]
     }
    },
-   "notes": [],
-   "state": "nosample",
+   "notes": [
+    "상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다"
+   ],
+   "state": "read",
+   "heads": [
+    "product features",
+    "care"
+   ],
+   "platform": "salesforce",
+   "state_json": [
+    "__PRELOADED_STATE__"
+   ],
+   "sample": {
+    "url": "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html",
+    "name": "navigate sherpa longline puffer SB04475 Black.html",
+    "engine": "firefox",
+    "read": {
+     "price": "$358.4",
+     "priceOrig": "",
+     "cur": "USD",
+     "color": "black",
+     "colors": [],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "Polyester 100%\nNylon 100%",
+     "sku": "SB04475_Black",
+     "desc": "Our bestselling puffer coat, now as a soft sherpa jacket. Part of our innovative HeatProtect collection with a ‘Super’ rating, thanks to the warm down filling (",
+     "feat": [
+      "Our bestselling puffer coat, now as a soft sherpa jacket",
+      "Part of our innovative HeatProtect collection with a ‘Super’ rating, thanks to the warm down filling (650 fill power)",
+      "Loose, longline fit with funnel collar and two-way front zipper",
+      "Two side slip pockets",
+      "Front length: 111cm / 43.5”",
+      "Model wears size S and is 178cm/5'10\" tall"
+     ],
+     "imgs": 1
+    },
+    "fixture": {
+     "file": "sweatybetty.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 405,
     "withRow": 405,
@@ -17080,7 +17665,7 @@
    "engines": [
     "firefox"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -17388,7 +17973,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -17532,11 +18117,11 @@
      "desc": "Style Description:\nThis lightweight button-up, made from our breathable Tencel fabric, is perfect for layering on breezy days. With its relaxed fit and soft dra",
      "feat": [
       "Copied to clipboard",
-      "GINGER SHIRT",
-      "$58.00",
-      "Color: DEEP MAHOGANY",
-      "DEEP MAHOGANY",
-      "EGGNOG"
+      "We ship to all 50 states in the US",
+      "Please allow 1-3 business days to process order",
+      "Express 2 Day Air: Order by 12pm PT Mon–Fri; arrives in 2-4 business days",
+      "Unfortunately we DO NOT currently ship to PO Boxes",
+      "DUTY FEES ARE PRE-PAID"
      ],
      "imgs": 20
     },
@@ -18267,7 +18852,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -18808,7 +19393,7 @@
     "firefox",
     "impit"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -18915,9 +19500,7 @@
      ]
     }
    },
-   "notes": [
-    "클릭해야 그려지는 디테일: impit 10줄 → 파이어폭스 16줄"
-   ],
+   "notes": [],
    "state": "read",
    "heads": [
     "details",
@@ -18958,12 +19541,12 @@
      "sku": "2W002201",
      "desc": "Shimmery metallic jacquard brings beautiful texture and understated shimmer to this standout top. A flattering V-neckline and smocked cuffs add feminine polish,",
      "feat": [
-      "Ask AI",
-      "Ella Jacquard Top",
       "81% nylon, 19% metallic",
       "Gold metallic jacquard fabric",
       "V-neckline",
-      "Smocked cuffs"
+      "Smocked cuffs",
+      "24\" from top of shoulder to bottom hem, based on a size small",
+      "Imported"
      ],
      "imgs": 2
     },
@@ -19190,55 +19773,150 @@
    "site": "whitehouseblackmarket.com.whbm",
    "total": 219,
    "sampled": 3,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "read": 2,
+   "engines": [
+    "firefox",
+    "impit"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "jsonld"
+     ]
     },
     "imgs": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "jsonld"
+     ]
     },
     "price": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "jsonld"
+     ]
     },
     "priceOrig": {
-     "s": "blocked"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "cur": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "jsonld"
+     ]
     },
     "color": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "jsonld"
+     ]
     },
     "colors": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "jsonld"
+     ]
     },
     "sizes": {
-     "s": "blocked"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "sizesIn": {
-     "s": "blocked"
+     "s": "none",
+     "n": 0,
+     "of": 2
     },
     "comp": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "jsonld"
+     ]
     },
     "feat": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 1,
+     "of": 2,
+     "src": [
+      "dom"
+     ]
     },
     "sku": {
-     "s": "blocked"
+     "s": "ok",
+     "n": 2,
+     "of": 2,
+     "src": [
+      "jsonld"
+     ]
     }
    },
    "notes": [
-    "impit blocked 403, firefox blocked 403",
-    "접근 지도: Akamai — 러너마다 갈림: 파이어폭스 2/3·0/3·3/3·2/3 · 크롬·impit 403 · 보관본 2/3"
+    "클릭해야 그려지는 디테일: impit 0줄 → 파이어폭스 9줄"
    ],
-   "state": "blocked",
+   "state": "read",
+   "heads": [
+    "details",
+    "product details"
+   ],
+   "sample": {
+    "url": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643",
+    "name": "Satin Front Short Sleeve Tee",
+    "engine": "firefox",
+    "read": {
+     "price": "$29.4",
+     "priceOrig": "",
+     "cur": "USD",
+     "color": "Ecru",
+     "colors": [
+      "Ecru"
+     ],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "Polyester 96% / Elastane 4%\nCotton 54% / Modal 41% / Elastane 5%",
+     "sku": "199761603442",
+     "desc": "We've combined two of your favorite fabrics into one versatile top. Crafted with a blend of satin + knit fabrics, this design features a satin front, elevating ",
+     "feat": [
+      "Modern, effortless fit",
+      "Short sleeve",
+      "Crew neck",
+      "Regular length: 23 1/4”",
+      "Front: 96% Polyester, 4% Spandex",
+      "Back: 54% Cotton, 41% Modal, 5% Spandex"
+     ],
+     "imgs": 1
+    },
+    "fixture": {
+     "file": "whbm.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 219,
     "withRow": 219,
@@ -19777,53 +20455,143 @@
    "brand": "Wrap",
    "site": "wraplondon.com.wrap",
    "total": 374,
-   "sampled": 0,
-   "read": 0,
-   "engines": [],
-   "runId": "45598506233",
+   "sampled": 3,
+   "read": 3,
+   "engines": [
+    "firefox",
+    "impit"
+   ],
+   "runId": "45618009481",
    "cells": {
     "name": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "imgs": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "price": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "priceOrig": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "cur": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "color": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "colors": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizes": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "sizesIn": {
-     "s": "nosample"
+     "s": "none",
+     "n": 0,
+     "of": 3
     },
     "comp": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 2,
+     "of": 3,
+     "src": [
+      "page"
+     ]
     },
     "desc": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     },
     "feat": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "dom"
+     ]
     },
     "sku": {
-     "s": "nosample"
+     "s": "ok",
+     "n": 3,
+     "of": 3,
+     "src": [
+      "jsonld"
+     ]
     }
    },
-   "notes": [],
-   "state": "nosample",
+   "notes": [
+    "상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다"
+   ],
+   "state": "read",
+   "heads": [
+    "details"
+   ],
+   "platform": "salesforce",
+   "sample": {
+    "url": "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html",
+    "name": "Striped jersey top, Blue stone, large",
+    "engine": "firefox",
+    "read": {
+     "price": "$115",
+     "priceOrig": "",
+     "cur": "USD",
+     "color": "Blue stone",
+     "colors": [],
+     "sizes": [],
+     "sizesIn": null,
+     "comp": "",
+     "sku": "TH87.A",
+     "desc": "Striped jersey top",
+     "feat": [
+      "Machine wash",
+      "Tencel cotton jersey",
+      "Slim-fit",
+      "All-over stripe",
+      "Round neckline",
+      "Full-length sleeves"
+     ],
+     "imgs": 0
+    },
+    "fixture": {
+     "file": "wrap.html.gz",
+     "shopFile": "",
+     "engine": "firefox"
+    }
+   },
    "stored": {
     "items": 374,
     "withRow": 374,
@@ -20216,7 +20984,7 @@
    "engines": [
     "firefox"
    ],
-   "runId": "45598506233",
+   "runId": "45618009481",
    "cells": {
     "name": {
      "s": "ok",
@@ -20359,12 +21127,12 @@
      "sku": "04174639",
      "desc": "REGULAR FIT - CREW NECK - REGULAR LENGTH - LONG SLEEVES\nT-shirt made from flexible stretch knit fabric with a compact, plush, opaque construction. Crew neck and",
      "feat": [
-      "Product Measurements",
       "Check in-store availability",
       "Due to the holiday season, orders placed from the 15th of November can be returned until 30th of December.",
       ": 100% cotton",
-      "Chat",
-      "<button aria-label=\"Enlarge image Zara LONG-SLEEVE INTERLOCK T-SHIRT - Ecru\" class=\"product-detail-zoomed-images__index-image-button product-detail-zoomed-"
+      "OUTER SHELL",
+      "100% cotton",
+      "Machine wash max. 30ºC/86ºF delicate cycle"
      ],
      "imgs": 10
     },
@@ -20376,20 +21144,20 @@
    },
    "stored": {
     "items": 499,
-    "withRow": 494,
+    "withRow": 499,
     "comp": 120,
     "color": 118,
     "sizes": 0,
     "price": 0,
-    "tried": 494,
-    "in5d": 494,
+    "tried": 499,
+    "in5d": 499,
     "blocked": 0,
     "blockedIn5d": 0,
     "none": 0,
     "noneNv": {},
     "oldestT": 1795577356298,
-    "newestT": 1795603825378,
-    "emptyIn5d": 374
+    "newestT": 1795605390529,
+    "emptyIn5d": 379
    }
   }
  ]

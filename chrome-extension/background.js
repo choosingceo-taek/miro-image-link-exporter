@@ -947,7 +947,9 @@ function dtSections(body) {
   const rx = /<(button|summary|h[1-6]|dt|span|div|p|label|li|strong|b)\b([^>]*)>([\s\S]{1,300}?)<\/\1>/gi;
   let m;
   while ((m = rx.exec(body))) {
-    const kind = dtHeadKind(dtText(m[3]));
+    // "Composition: …" 처럼 쌍점으로 끝나는 굵은 글·span 은 칸 제목이 아니라 한 줄 안의 이름표다(Mint Velvet: <li><strong>Composition: </strong>…).
+    const ht = dtText(m[3]);
+    const kind = (/^(?:strong|b|span|label)$/i.test(m[1]) && /[:：]\s*$/.test(ht)) ? "" : dtHeadKind(ht);
     if (kind) { heads.push({ kind, at: m.index, end: m.index + m[0].length }); rx.lastIndex = m.index + m[0].length; }
     else rx.lastIndex = m.index + 1 + m[1].length;
   }
