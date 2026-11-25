@@ -182,6 +182,11 @@ if (finalState) {
     fail("SmokeBrand 탭 결과 로그가 기대(3/4, 막힘 1)와 다르다");
   }
 
+  // 상품 상세(1.7.24): 막힌 상품(봇 확인 화면)의 상세는 저장하지 않는다. 오버레이에는 상세 칸이 섞이지 않는다.
+  if (rec.detailPosts.some((o) => Object.keys(o.body).some((u) => u.includes("/b/item/")))) fail("막힌 상품의 상세가 저장됐다");
+  else ok("막힌 상품의 상세는 저장하지 않았다");
+  if (rec.overlayPosts.some((o) => Object.values(o.body).some((v) => v && (v.desc || v.feat || v.imgs)))) fail("상세가 오버레이에 섞였다");
+
   if (rec.other.length) fail("예상 밖의 요청: " + rec.other.join(" | "));
 }
 

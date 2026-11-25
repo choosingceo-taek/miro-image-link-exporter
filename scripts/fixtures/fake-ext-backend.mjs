@@ -9,7 +9,7 @@
 // 진짜 화면을 주는 것을 그대로 흉내 낸다.
 //
 //   /r/...  Render (blocked-brands.json · category-links.json · brands.json)
-//   /w/?..  Worker (catalogs · store=catalog · catalog · comps · store=overlay)
+//   /w/?..  Worker (catalogs · store=catalog · catalog · comps · store=overlay · details · store=details)
 //   /a/...  SmokeBrand — 경우별 상품 6개
 //   /b/...  GiveupBrand — fetch·탭 모두 막히는 상품 7개 (TAB_GIVEUP 확인용)
 import { createServer } from "node:http";
@@ -99,6 +99,7 @@ export function startFakeBackend(port) {
     catalogs: {},         // site → items (store=catalog 로 저장된 것)
     catalogPosts: [],     // store=catalog 요청 원문
     overlayPosts: [],     // { site, body } — store=overlay 요청
+    detailPosts: [],      // { site, body } — store=details 요청(상품 상세)
     other: [],            // 예상 밖의 요청
   };
   const aItems = Object.entries(A).map(([slug, v]) => [slug, v.name]);
@@ -147,6 +148,18 @@ export function startFakeBackend(port) {
       if (q.get("store") === "overlay" && req.method === "POST") {
         return readBody().then((b) => {
           rec.overlayPosts.push({ site: q.get("site"), body: JSON.parse(b) });
+          json({ ok: true });
+        });
+      }
+      // 상품 상세(detail:<site>) — 확장 1.7.24 부터 상세를 따로 읽고 쓴다. 처음엔 비어 있다.
+      if (q.has("details")) {
+        const site = q.get("details");
+        const last = [...rec.detailPosts].reverse().find((o) => o.site === site);
+        return json(last ? last.body : {});
+      }
+      if (q.get("store") === "details" && req.method === "POST") {
+        return readBody().then((b) => {
+          rec.detailPosts.push({ site: q.get("site"), body: JSON.parse(b) });
           json({ ok: true });
         });
       }
