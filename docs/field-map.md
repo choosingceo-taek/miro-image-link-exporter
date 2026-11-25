@@ -1,6 +1,6 @@
 # 상품 정보 현장 지도 (field map)
 
-> 만든 때 2026-11-25T14:51Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
+> 만든 때 2026-11-25T15:57Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
 > 만드는 법: `node scripts/build-field-map.mjs` — 측정은 `diagnose-page.yml` mode=fields(읽기만, 로그에 `STORE: 0`).
 
 ## 한눈에
@@ -94,13 +94,20 @@
 
 ### 운영에 이미 저장된 혼용률 — 지금 규칙으로 다시 읽으면
 
-어긋남이 나온 브랜드의 카탈로그 상품을 전부 impit 으로 다시 열어(읽기만 — 로그 `STORE: 0`, 실행 45632693720), Worker 오버레이에 저장된 값과 고친 추출기의 값을 견줬다. **세지만 고치지 않았다** — 운영 값은 다음 야간 보강이 새 규칙으로 다시 쓸 때 바뀐다(담당자 승인 뒤).
+어긋남이 나온 브랜드의 카탈로그 상품을 전부 impit 으로 다시 열어(읽기만 — 로그 `STORE: 0`, 실행 45632693720 · 45632699869), Worker 오버레이에 저장된 값과 고친 추출기의 값을 견줬다. **세지만 고치지 않았다** — 운영 값은 다음 야간 보강이 새 규칙으로 다시 쓸 때 바뀐다(담당자 승인 뒤).
 
 | 브랜드 | 상품 | 다시 읽힘 | 저장값 있음 | 같음 | 다름 — 덧붙은 줄(장식·주머니감 등)만 빠짐 | 다름 — 값이 바뀜 | 다름 — 지금 규칙은 빈 칸 |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | Oasis | 133 | 133 | 120 | 115 | 2 | 1 | 2 |
 | Rag & bone | 244 | 239 | 241 | 224 | 2 | 10 | 0 |
 | Boden | 331 | 317 | 309 | 266 | 19 | 23 | 1 |
+| Bellerose | 231 | 231 | 214 | 174 | 7 | 17 | 16 |
+| CCC | 358 | 355 | 338 | 310 | 25 | 0 | 0 |
+| Jigsaw | 315 | 315 | 304 | 276 | 10 | 17 | 1 |
+| Jager | 400 | 400 | 381 | 353 | 3 | 25 | 0 |
+| The Great | 240 | 240 | 238 | 198 | 0 | 39 | 1 |
+| Tuckernuck | 376 | 376 | 339 | 321 | 13 | 2 | 3 |
+| Z Supply | 216 | 216 | 216 | 63 | 0 | 5 | 148 |
 
 보기(브랜드·갈래마다 2개, 그리고 HTML 을 받아 사람이 판정한 것 전부 — scripts/fixtures/witness/recheck-verdicts.json):
 
@@ -123,6 +130,36 @@
 | Boden | https://us.boden.com/products/women-ruffle-v-neck-lace-top-deep-wisteria-t2180red | 값이 바뀜 | Viscose 100% / Cotton 75% / Nylon 25% | Viscose 100% | 지금 규칙이 맞음 — Main 100% viscose · Lace 75% cotton, 25% nylon — 저장값은 레이스를 겉감 줄에 붙였다(합 200%). |
 | Boden | https://us.boden.com/products/women-honor-column-velvet-midi-dress-harbour-blue-d1849blu | 값이 바뀜 | Polyester 100% | Polyester 90% / Elastane 10% ‖ Polyester 100% | 지금 규칙이 맞음 — Main 60% recycled polyester, 30% polyester, 10% elastane · Bodice lining 100% recycled polyester — 저장값은 안감만. |
 | Boden | https://us.boden.com/products/women-louise-cord-midi-shirt-dress-storm-blue-d1786blu | 지금 규칙은 빈 칸 | Cotton 100% | Cotton 100% | 저장값이 맞음 — Main 100% cotton — 저장값이 맞다. 재확인 실행에서 빈 칸이었던 것은 그때 impit 이 페이지 본문을 못 받은 탓(같은 규칙으로 이 HTML 은 Cotton 100%). |
+| Bellerose | https://bellerose.com/products/women-t-shirts-fiores-dusty-rose | 값이 바뀜 | Cotton 100% / Wool 100% | Cotton 100% | — |
+| Bellerose | https://bellerose.com/products/women-t-shirts-flawy-tempete | 값이 바뀜 | Lyocell 63% / Elastane 6% / Cotton 31% | Lyocell 63% / Elastane 6% / Cotton 31% ‖ Cotton 100% | — |
+| Bellerose | https://bellerose.com/products/women-knitwear-anglet-stripe-a-bw262940-k1356s | 지금 규칙은 빈 칸 | Cotton 63% / Polyester 37% | (빈 칸) | — |
+| Bellerose | https://bellerose.com/products/women-sweatshirts-tood-combo-b | 지금 규칙은 빈 칸 | Wool 100% / Elastane 4% | (빈 칸) | — |
+| Bellerose | https://bellerose.com/products/women-knitwear-anglet-anthracite | 덧붙은 줄만 빠짐 | Cotton 100% ‖ Leather 100% | Cotton 100% | — |
+| Bellerose | https://bellerose.com/products/women-shirts-gastoo-white | 덧붙은 줄만 빠짐 | Cotton 100% ‖ Leather 100% | Cotton 100% | — |
+| CCC | https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes | 덧붙은 줄만 빠짐 | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | — |
+| CCC | https://www.crewclothing.co.uk/products/star-embroidered-sweat-in-navy | 덧붙은 줄만 빠짐 | Cotton 66% / Polyester 34% ‖ Cotton 59% / Polyester 39% / Elastane 2% | Cotton 66% / Polyester 34% | — |
+| Jigsaw | https://www.jigsaw-online.com/products/v-neck-sheer-top-cream | 값이 바뀜 | Lyocell 85% / Polyester 15% / Viscose 100% | Lyocell 85% / Polyester 15% ‖ Viscose 100% | — |
+| Jigsaw | https://www.jigsaw-online.com/products/tiger-orchid-knit-tank-blue | 값이 바뀜 | Cotton 100% / Silk 100% | Cotton 100% ‖ Silk 100% | — |
+| Jigsaw | https://www.jigsaw-online.com/products/fine-rib-half-sleeve-henley-navy | 덧붙은 줄만 빠짐 | Cotton 97% / Elastane 3% ‖ Lyocell 58% / Cotton 42% | Cotton 97% / Elastane 3% | — |
+| Jigsaw | https://www.jigsaw-online.com/products/modal-lace-v-cami-black | 덧붙은 줄만 빠짐 | Modal 92% / Elastane 8% ‖ Nylon 90% / Elastane 10% | Modal 92% / Elastane 8% | — |
+| Jigsaw | https://www.jigsaw-online.com/products/chaplin-fluid-twill-trouser-black | 지금 규칙은 빈 칸 | Polyester 54% / Wool 44% / Elastane 2% ‖ Polyester 100% | (빈 칸) | — |
+| Jager | https://www.marksandspencer.com/studio-crew-neck-sweatshirt/p/clp23087631?color=LILAC#intid=pid_pg1pip48g2r13c1%7Cprodflag_submsg-The%20Sports%20Edit | 덧붙은 줄만 빠짐 | Cotton 80% / Polyester 20% ‖ Cotton 97% / Elastane 3% | Cotton 80% / Polyester 20% | — |
+| Jager | https://www.marksandspencer.com/cotton-rich-striped-sweatshirt/p/clp23089070#intid=pid_pg1pip48g2r23c2%7Cprodflag_30%25%20off | 덧붙은 줄만 빠짐 | Cotton 66% / Polyester 34% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 66% / Polyester 34% | — |
+| Jager | https://www.marksandspencer.com/pure-cotton-printed-sweatshirt/p/clp61232148#intid=pid_pg3pip48g2r6c1 | 값이 바뀜 | Cotton 100% / Cotton 95% / Elastane 5% | Cotton 100% ‖ Cotton 95% / Elastane 5% | — |
+| Jager | https://www.marksandspencer.com/velvet-high-neck-lace-insert-blouse/p/clp61267182#intid=pid_pg1pip48g2r6c2%7Cprodflag_20%25%20off | 값이 바뀜 | Polyester 93% / Elastane 7% / Polyester 100% | Polyester 93% / Elastane 7% ‖ Polyester 100% | — |
+| The Great | https://thisisthegreat.com/products/the-oversized-ruffle-peplum-tee-heather-grey | 값이 바뀜 | Cotton 90% / Polyester 10% | Modal 90% / Cotton 10% | — |
+| The Great | https://thisisthegreat.com/products/the-slouchy-v-neck-tee-true-white | 값이 바뀜 | Cotton 100% | Modal 100% | — |
+| The Great | https://thisisthegreat.com/collections/tops/products/the-orchard-top-harbor-wash | 지금 규칙은 빈 칸 | Cotton 80% / Hemp 20% | (빈 칸) | — |
+| Tuckernuck | https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top | 덧붙은 줄만 빠짐 | Cotton 100% ‖ Polyester 100% | Cotton 100% | — |
+| Tuckernuck | https://tnuck.com/products/navy-paisley-ellery-top | 덧붙은 줄만 빠짐 | Viscose 100% ‖ Polyester 100% | Viscose 100% | — |
+| Tuckernuck | https://tnuck.com/products/metallic-deja-pants | 지금 규칙은 빈 칸 | Polyester 100% | (빈 칸) | — |
+| Tuckernuck | https://tnuck.com/products/vibrant-stripe-mini-skirt | 지금 규칙은 빈 칸 | Viscose 68% / Polyester 32% | (빈 칸) | — |
+| Tuckernuck | https://tnuck.com/products/red-mini-delaney-dress | 값이 바뀜 | Cotton 97% / Elastane 3% / Polyester 96% / Elastane 4% | Cotton 97% / Elastane 3% ‖ Polyester 96% / Elastane 4% | — |
+| Tuckernuck | https://tnuck.com/products/chocolate-brown-knit-anne-midi-dress | 값이 바뀜 | Cotton 100% / Polyester 95% / Elastane 5% | Cotton 100% ‖ Polyester 95% / Elastane 5% | — |
+| Z Supply | https://zsupplyclothing.com/products/arlet-stripe-thermal-top | 지금 규칙은 빈 칸 | Cotton 60% / Polyester 40% | (빈 칸) | — |
+| Z Supply | https://zsupplyclothing.com/products/sloane-linen-cropped-tank | 지금 규칙은 빈 칸 | Linen 55% / Viscose 45% | (빈 칸) | — |
+| Z Supply | https://zsupplyclothing.com/products/night-out-top | 값이 바뀜 | Cotton 100% | Nylon 88% / Elastane 12% ‖ Viscose 95% / Elastane 5% | — |
+| Z Supply | https://zsupplyclothing.com/products/after-party-dress | 값이 바뀜 | Cotton 100% | Polyester 100% | — |
 
 재확인 실행은 커밋 a819ae5 의 규칙으로 쟀다. 그 뒤에 고친 두 가지(금속사 Metal/Metallic 을 섬유로 앎 — Oasis, 겉감 줄이 있으면 부위 이름 없는 줄도 뺌 — Rag & bone)는 위 표의 갈래 수에는 없고, 판정한 줄의 '지금 규칙' 값에만 들어 있다(scripts/fixtures/detail-pages 에 같은 HTML 로 시험).
 
