@@ -30,11 +30,18 @@ const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-li
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
 const tq = "&token=" + encodeURIComponent(TOKEN);
 const PER = Math.max(1, Number(process.env.PER) || 3);
-const FIREFOX = process.env.FIREFOX !== "0";
+// (PER 는 RECHECK 때 브랜드 상품 전부를 보려고 크게 줄 수 있다 — 예: 400)
+const FIREFOX = process.env.FIREFOX !== "0" && process.env.RECHECK !== "1";
 const RUN_ID = process.env.RUN_ID || process.env.GITHUB_RUN_ID || "local";
 const OUT_JSON = process.env.OUT_JSON || `field-measure-${RUN_ID}.json`;
 const OUT_MD = process.env.OUT_MD || `field-measure-${RUN_ID}.md`;
-const FIX_DIR = join(ROOT, process.env.FIX_DIR || "scripts/fixtures/pages");
+// URLS(쉼표로 나눈 상품 주소): 브랜드마다 고르지 않고 이 주소들만 연다 — 읽힌 페이지는 전부 시험 자료로 남긴다(scripts/fixtures/witness).
+//   혼용률 '두 번째 증인'에서 어긋난 표본을 사람이 HTML 로 판정하려고 쓴다.
+// RECHECK=1: 브랜드(BRANDS)의 상품을 PER 개까지 impit 으로만 다시 읽어, 저장된 혼용률(오버레이)과 지금 규칙의 값을 견준다.
+//   시험 자료는 남기지 않는다. 운영에 틀린 값이 몇 개 저장돼 있는지 어림하는 데 쓴다(쓰기 없음).
+const URLS = String(process.env.URLS || "").split(",").map((x) => x.trim()).filter((x) => /^https?:\/\//.test(x));
+const RECHECK = process.env.RECHECK === "1";
+const FIX_DIR = join(ROOT, process.env.FIX_DIR || (URLS.length ? "scripts/fixtures/witness" : "scripts/fixtures/pages"));
 const DEADLINE = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 95) * 60_000;
 const NAV_MS = 45_000;
 
@@ -222,8 +229,9 @@ for (const c of brands) {
   catch (e) { B.error = "카탈로그 못 읽음"; save(); continue; }
   B.total = items.length;
   // 오버레이의 시도 기록 — 야간 보강이 언제 무엇을 적었나.
+  let ov = {};
   try {
-    const ov = await (await fetch(`${WORKER}/?comps=${encodeURIComponent(c.site)}${tq}`, { signal: AbortSignal.timeout(30000) })).json();
+    ov = await (await fetch(`${WORKER}/?comps=${encodeURIComponent(c.site)}${tq}`, { signal: AbortSignal.timeout(30000) })).json();
     const now = Date.now(), DAY = 86400000;
     const s = { items: items.length, withRow: 0, comp: 0, color: 0, sizes: 0, price: 0, tried: 0, in5d: 0, blocked: 0, blockedIn5d: 0, none: 0, noneNv: {}, oldestT: 0, newestT: 0, emptyIn5d: 0 };
     for (const p of items) {
@@ -253,13 +261,14 @@ for (const c of brands) {
   // 주소 규칙에 하나도 안 걸리는 브랜드는 이름이 있는 항목에서 고른다(그 사실을 B.byName 으로 남긴다).
   let cand = items.filter((p) => p && p.productUrl && looksLikeProduct(p.productUrl) && String(p.name || "").trim());
   if (!cand.length) { cand = items.filter((p) => p && p.productUrl && String(p.name || "").trim()); B.byName = true; }
+  if (URLS.length) { const want = new Set(URLS); cand = items.filter((p) => p && want.has(p.productUrl)); if (!cand.length) { out.brands.pop(); continue; } }
   const idx = cand.length <= PER ? cand.map((_, i) => i) : [...new Set(Array.from({ length: PER }, (_, k) => Math.round((k * (cand.length - 1)) / (PER - 1 || 1))))];
   B.picked = idx.length;
   B.notProduct = items.length - items.filter((p) => p && looksLikeProduct(p.productUrl)).length;
   let fixtureSaved = false;
   for (let k = 0; k < idx.length; k++) {
     const p = cand[idx[k]];
-    const P = { url: p.productUrl, name: p.name, engines: {} };
+    const P = { url: p.productUrl, name: p.name, engines: {}, stored: String(((ov || {})[p.productUrl] || {}).comp || "") };
     B.products.push(P);
     // Shopify JSON
     const sj = await shopifyJs(p.productUrl);
@@ -305,8 +314,8 @@ for (const c of brands) {
       P.clickOnly = { featImpit: (di.feat || []).length, featFirefox: (d.feat || []).length, descImpit: (di.desc || "").length, descFirefox: (d.desc || "").length };
     }
     // 시험 자료(브랜드당 1개)
-    if (best && !fixtureSaved) {
-      const slug = norm(B.brand).slice(0, 40) || norm(c.site);
+    if (best && !RECHECK && (!fixtureSaved || URLS.length)) {
+      const slug = (norm(B.brand).slice(0, 40) || norm(c.site)) + (URLS.length ? "-" + norm(p.productUrl.split(/[?#]/)[0].split("/").filter(Boolean).pop()).slice(0, 40) : "");
       const file = `${slug}.html.gz`;
       writeFileSync(join(FIX_DIR, file), gzipSync(trimForFixture(best.body), { level: 9 }));
       let shopFile = "";

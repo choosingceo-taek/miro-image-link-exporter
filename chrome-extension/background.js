@@ -388,6 +388,8 @@ function compFromText(text) {
   if (!groups.length) return '';
   const sum = (g) => g.items.reduce((n, c) => n + Number(c.match(/(\d+)%/)[1]), 0);
   // 겉감(main) 줄이 있으면 장식(minor) 줄은 뺀다. 겉감이 온전하지 않으면 빈 값(worker 와 같은 규칙).
+  // 사이트 공통 '원단 안내'(FABRIC GUIDE · glossary) 안의 조성은 이 상품의 것이 아니다(Goldie).
+  for (let i = groups.length - 1; i >= 0; i--) if (/(?:fabric|material)s?\s+guide|glossary/i.test(src.slice(Math.max(0, groups[i].start - 120), groups[i].start))) groups.splice(i, 1);
   for (const g of groups) g.role = partRole(src, g.start);
   if (groups.some((g) => g.role === 'main')) {
     if (!groups.some((g) => g.role === 'main' && sum(g) >= 95 && sum(g) <= 105)) return '';
@@ -429,7 +431,9 @@ function compWindow(s) {
   while ((m = rx.exec(s))) {
     if (bare.has(m.index)) continue;
     if (!first) first = m;
-    if (COMP_HEAD_RX.test(s.slice(Math.max(0, m.index - 40), m.index))) { headed = m; break; }
+    // 사이트 공통 '원단 안내'(FABRIC GUIDE · glossary) 칸의 제목은 이 상품의 소재 제목이 아니다 — 2026-11-25 Goldie:
+    // 'FABRIC GUIDE … FABRICATION 100% Peruvian pima' 가 상품 글머리표의 '50% cotton, 50% polyester' 를 이겼다.
+    if (COMP_HEAD_RX.test(s.slice(Math.max(0, m.index - 40), m.index)) && !/(?:fabric|material)s?\s+guide|glossary/i.test(s.slice(Math.max(0, m.index - 90), m.index))) { headed = m; break; }
   }
   const pick = headed || first;
   if (!pick) return '';
@@ -444,6 +448,8 @@ function compFromHtml(html) {
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<nav\b[\s\S]*?<\/nav>/gi, ' ')
     .replace(/<template\b[\s\S]*?<\/template>/gi, ' ')
+    // 추천 상품 칸이 따로 만든 태그일 때(<product-recommendations>) — 다른 상품의 소재가 든다.
+    .replace(/<([a-z]+-[a-z-]*recommend[a-z-]*)\b[\s\S]*?<\/\1>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ');

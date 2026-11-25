@@ -301,5 +301,15 @@
     "not": "holiday season"
    }
   }
+ },
+ {
+  "brand": "Goldie",
+  "file": "goldie.html.gz",
+  "url": "https://www.goldietees.com/products/allure-tee",
+  "name": "Allure Tee",
+  "why": "<h1>Allure Tee · 상품 글: '… reversible essential … 50% cotton, 50% polyester'. 아래 사이트 공통 'FABRIC GUIDE' 아코디언의 'FABRICATION 100% Peruvian pima'(원단 종류 안내)는 이 상품의 혼용률이 아니다. 추천 칸은 <product-recommendations> 태그.",
+  "expect": {
+   "comp": "Cotton 50% / Polyester 50%"
+  }
  }
 ]

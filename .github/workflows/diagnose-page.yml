@@ -241,6 +241,9 @@ jobs:
           PER: ${{ github.event.inputs.per }}
           RUN_ID: ${{ github.run_id }}
           TIME_MIN: "95"
+          # urls = 이 상품 주소만 열고 전부 시험 자료로(scripts/fixtures/witness) · dump=1 = RECHECK(저장된 혼용률과 지금 규칙 견주기, impit 만)
+          URLS: ${{ github.event.inputs.urls }}
+          RECHECK: ${{ github.event.inputs.dump == '1' && '1' || '' }}
         run: node scripts/field-measure.mjs
       - name: Commit report
         if: always()
@@ -248,7 +251,7 @@ jobs:
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- 'field-measure-*.json' 'field-measure-*.md' scripts/fixtures/pages || true
+          git add -A -- 'field-measure-*.json' 'field-measure-*.md' scripts/fixtures/pages scripts/fixtures/witness || true
           git commit -m "field-measure: product field map (read-only)" || echo "no changes"
           for i in 1 2 3 4 5; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
