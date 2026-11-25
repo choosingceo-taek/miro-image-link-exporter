@@ -1,13 +1,13 @@
-# 엑셀 4항목 채움률 (2026-11-25T12:09Z)
+# 엑셀 4항목 채움률 (2026-11-25T12:21Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
-| 가격 | 31456/38520 | 82% |
-| 컬러 | 25166/38520 | 65% |
-| 사이즈 | 16566/38520 | 43% |
-| 혼용률 | 28648/38520 | 74% |
+| 가격 | 31456/38526 | 82% |
+| 컬러 | 25173/38526 | 65% |
+| 사이즈 | 16567/38526 | 43% |
+| 혼용률 | 28649/38526 | 74% |
 
 **가격·혼용률 모두 80% 이상인 브랜드 75개** (시연에 안전)
 
@@ -23,7 +23,7 @@
 | Lands end | 469 | 87% | 3% | 0% | 88% |
 | Shopbop | 453 | 100% | 100% | 0% | 98% |
 | Frank & Eileen | 448 | 100% | 100% | 100% | 99% |
-| Evereve | 444 | 100% | 100% | 100% | 94% |
+| Evereve | 444 | 100% | 100% | 100% | 95% |
 | Me+Em | 425 | 99% | 100% | 0% | 91% |
 | Sanctuary | 421 | 100% | 100% | 100% | 98% |
 | Sweaty betty | 405 | 100% | 100% | 0% | 95% |
@@ -110,7 +110,7 @@
 | The white company | extension | 68 | 85% | 0% | 0% | 0% |
 | Paige | extension | 60 | 92% | 98% | 0% | 63% |
 | FP Movement | extension | 58 | 76% | 7% | 0% | 12% |
-| Wilson | extension | 52 | 85% | 75% | 77% | 54% |
+| Wilson | extension | 58 | 76% | 78% | 69% | 48% |
 | Bash | server | 50 | 44% | 100% | 0% | 94% |
 | Oysho | extension | 20 | 0% | 0% | 0% | 10% |
 
@@ -134,23 +134,22 @@
 - Ann Taylor — 22시간 전 · 381개
 - Loft — 22시간 전 · 673개
 - The white company — 22시간 전 · 68개
-- L.L bean — 21시간 전 · 310개
-- Massimo Dutti — 21시간 전 · 603개
-- Sezane — 21시간 전 · 206개
-- Garnet hill — 21시간 전 · 108개
+- L.L bean — 22시간 전 · 310개
+- Massimo Dutti — 22시간 전 · 603개
+- Sezane — 22시간 전 · 206개
+- Garnet hill — 22시간 전 · 108개
 - Athleta — 21시간 전 · 1개
 - Anthropologie — 21시간 전 · 270개
 - Paige — 21시간 전 · 60개
 - H&M — 21시간 전 · 744개
-- Wilson — 21시간 전 · 52개
 - Eileen fisher — 21시간 전 · 545개
 - Oysho — 21시간 전 · 20개
 - Lululemon — 21시간 전 · 476개
-- Abercrombie & Fitch — 20시간 전 · 214개
-- Mango — 20시간 전 · 93개
-- Joules — 20시간 전 · 459개
-- Fatface — 20시간 전 · 374개
-- Gap — 20시간 전 · 6개
+- Abercrombie & Fitch — 21시간 전 · 214개
+- Mango — 21시간 전 · 93개
+- Joules — 21시간 전 · 459개
+- Fatface — 21시간 전 · 374개
+- Gap — 21시간 전 · 6개
 - Lands end — 20시간 전 · 469개
 - Aritzia — 20시간 전 · 800개
 - FP Movement — 20시간 전 · 58개
@@ -158,6 +157,7 @@
 - &Other Stories — 20시간 전 · 343개
 - Patagonia — 20시간 전 · 168개
 - Addidas — 20시간 전 · 408개
+- Wilson — 0시간 전 · 58개
 
 </details>
 
@@ -168,7 +168,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 28648/38520개 (74%) · 미완 브랜드 124개
+- 전체 28649/38526개 (74%) · 미완 브랜드 124개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -200,8 +200,8 @@
 | &Other Stories | extension | 143/343 (42%) |
 | Sessun | server | 34/81 (42%) |
 | Buck Mason | server | 57/119 (48%) |
+| Wilson | extension | 28/58 (48%) |
 | Arket | extension | 145/285 (51%) |
-| Wilson | extension | 28/52 (54%) |
 | Dickies | server | 144/260 (55%) |
 | Mango | extension | 54/93 (58%) |
 | Aritzia | extension | 503/800 (63%) |
@@ -251,13 +251,13 @@
 | Draper James | server | 136/147 (93%) |
 | J.jill | server | 83/89 (93%) |
 | CCC | browser | 755/800 (94%) |
-| Evereve | server | 419/444 (94%) |
 | Boden | server | 311/331 (94%) |
 | Vuori | server | 206/219 (94%) |
 | Whistles | server | 205/217 (94%) |
 | Outdoorvoices | server | 118/126 (94%) |
 | Apiece Apart | browser | 96/102 (94%) |
 | Bash | server | 47/50 (94%) |
+| Evereve | server | 420/444 (95%) |
 | Sweaty betty | browser | 385/405 (95%) |
 | Jager | server | 383/402 (95%) |
 | L.L bean | extension | 293/310 (95%) |
@@ -353,13 +353,13 @@
 | Joules | extension | 330/459 (72%) | £65 |
 | Addidas | extension | 295/408 (72%) | $80 |
 | FP Movement | extension | 44/58 (76%) | $48.00 |
+| Wilson | extension | 44/58 (76%) | $15 |
 | Madewell | extension | 60/75 (80%) | $100 |
 | Free People | extension | 155/190 (82%) | $98.00 |
 | The upside | browser | 358/429 (83%) |  |
 | Whistles | server | 183/217 (84%) | $ 51.75 |
 | Chico's | server | 683/800 (85%) | $29.00 |
 | The white company | extension | 58/68 (85%) | £56.00 |
-| Wilson | extension | 44/52 (85%) | $15 |
 | Lands end | extension | 409/469 (87%) |  |
 
 
@@ -433,10 +433,10 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-25T12:09Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-25T12:21Z)
 
-- 카탈로그 134개 · 상품 38520개 검사 · **문제 항목 38개**
-- 문제가 있는 브랜드 22개
+- 카탈로그 134개 · 상품 38526개 검사 · **문제 항목 41개**
+- 문제가 있는 브랜드 23개
 
 > 출처는 item.src 가 있으면 그대로, 없으면 경로를 카테고리 링크와 대조해 추정한 값입니다.
 
@@ -480,6 +480,13 @@
   - [최상위 경로(랜딩 페이지로 보임)] tops · Header Submenu Image — https://www.theupside.com/tanks-tees/
   - [상품 페이지가 아닌 경로] tops · Meet Eddie Nelson, the Founder of Bred Breathwork — https://www.theupside.com/journal/
   - [상품 페이지가 아닌 경로] tops · International Yoga Day with Sarah Callaham Margetts, Owner of The Body Method — https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method
+
+## Wilson — 3/58개 (extension)
+
+- **3개** · https://www.wilson.com/en-us/sportswear/women/tops/tanks
+  - [배너 문구가 상품명] tops · gifts for her — https://www.wilson.com/en-us/collections/gifts-for-her
+  - [배너 문구가 상품명] tops · gifts for him — https://www.wilson.com/en-us/collections/gifts-for-him
+  - [배너 문구가 상품명] tops · GIFT SHOP — https://www.wilson.com/en-us/collections/holiday-gift-shop
 
 ## Madewell — 2/75개 (extension)
 
@@ -643,18 +650,6 @@
   - 표본: t-shirt CORTOT — https://ba-sh.com/fr/en/p/t-shirt-cortot-encre-3667436089664.html
   - 표본: t-shirt ROSTA — https://ba-sh.com/fr/en/p/t-shirt-rosta-grischine-3667436069260.html
 
-## Wilson — 52개 (extension)
-
--    4개 · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops
--    4개 · https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts
--    7개 · https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops
--    7개 · https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings
--   11개 · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits
--   19개 · https://www.wilson.com/en-us/sportswear/women/tops/tanks
-  - 표본: Wilson Sporting Goods Baseball Holiday Gift Shop — https://www.wilson.com/en-us/collections/deals-baseball
-  - 표본: Wilson Sporting Goods Custom Basketballs — https://custom.wilson.com/en-us/custom/basketballs
-  - 표본: Wilson Sporting Goods Fastpitch Holiday Gift Shop — https://www.wilson.com/en-us/collections/deals-fastpitch
-
 ## FP Movement — 58개 (extension)
 
 -    4개 · https://www.freepeople.com/fpmovement/hoodies-sweatshirts/
@@ -677,4 +672,16 @@
   - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/hei-t-shirt-54829.html
   - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/camomille-crop-t-shirt-54405.html
   - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/camomille-t-shirt-45499.html
+
+## Wilson — 58개 (extension)
+
+-    4개 · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops
+-    4개 · https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts
+-    7개 · https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops
+-    7개 · https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings
+-   11개 · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits
+-   25개 · https://www.wilson.com/en-us/sportswear/women/tops/tanks
+  - 표본: Wilson Sporting Goods Baseball Holiday Gift Shop — https://www.wilson.com/en-us/collections/deals-baseball
+  - 표본: Wilson Sporting Goods Custom Basketballs — https://custom.wilson.com/en-us/custom/basketballs
+  - 표본: Wilson Sporting Goods Fastpitch Holiday Gift Shop — https://www.wilson.com/en-us/collections/deals-fastpitch
 

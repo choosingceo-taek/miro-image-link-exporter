@@ -1,7 +1,7 @@
 {
- "when": "2026-11-25T12:09:25.237Z",
- "scanned": 38520,
- "flagged": 38,
+ "when": "2026-11-25T12:21:45.852Z",
+ "scanned": 38526,
+ "flagged": 41,
  "report": [
   {
    "brand": "Aritzia",
@@ -199,6 +199,39 @@
        "productUrl": "https://www.theupside.com/journal/international-yoga-day-with-sarah-callaham-margetts-owner-of-the-body-method",
        "category": "tops",
        "reason": "상품 페이지가 아닌 경로"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "brand": "Wilson",
+   "site": "wilson.com.wilson",
+   "group": "extension",
+   "total": 58,
+   "badCount": 3,
+   "bySrc": [
+    {
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
+     "count": 3,
+     "rows": [
+      {
+       "name": "gifts for her",
+       "productUrl": "https://www.wilson.com/en-us/collections/gifts-for-her",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "gifts for him",
+       "productUrl": "https://www.wilson.com/en-us/collections/gifts-for-him",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
+      },
+      {
+       "name": "GIFT SHOP",
+       "productUrl": "https://www.wilson.com/en-us/collections/holiday-gift-shop",
+       "category": "tops",
+       "reason": "배너 문구가 상품명"
       }
      ]
     }
@@ -846,52 +879,6 @@
    ]
   },
   {
-   "brand": "Wilson",
-   "site": "wilson.com.wilson",
-   "group": "extension",
-   "total": 52,
-   "perSrc": [
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops",
-     "n": 4
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts",
-     "n": 4
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops",
-     "n": 7
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings",
-     "n": 7
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits",
-     "n": 11
-    },
-    {
-     "src": "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
-     "n": 19
-    }
-   ],
-   "sample": [
-    {
-     "name": "Wilson Sporting Goods Baseball Holiday Gift Shop",
-     "productUrl": "https://www.wilson.com/en-us/collections/deals-baseball"
-    },
-    {
-     "name": "Wilson Sporting Goods Custom Basketballs",
-     "productUrl": "https://custom.wilson.com/en-us/custom/basketballs"
-    },
-    {
-     "name": "Wilson Sporting Goods Fastpitch Holiday Gift Shop",
-     "productUrl": "https://www.wilson.com/en-us/collections/deals-fastpitch"
-    }
-   ]
-  },
-  {
    "brand": "FP Movement",
    "site": "freepeople.com.fpmovement",
    "group": "extension",
@@ -976,6 +963,52 @@
     {
      "name": "Clothing T-shirt - VANESSABRUNO",
      "productUrl": "https://www.vanessabruno.com/p/camomille-t-shirt-45499.html"
+    }
+   ]
+  },
+  {
+   "brand": "Wilson",
+   "site": "wilson.com.wilson",
+   "group": "extension",
+   "total": 58,
+   "perSrc": [
+    {
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops",
+     "n": 4
+    },
+    {
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts",
+     "n": 4
+    },
+    {
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops",
+     "n": 7
+    },
+    {
+     "src": "https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings",
+     "n": 7
+    },
+    {
+     "src": "https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits",
+     "n": 11
+    },
+    {
+     "src": "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
+     "n": 25
+    }
+   ],
+   "sample": [
+    {
+     "name": "Wilson Sporting Goods Baseball Holiday Gift Shop",
+     "productUrl": "https://www.wilson.com/en-us/collections/deals-baseball"
+    },
+    {
+     "name": "Wilson Sporting Goods Custom Basketballs",
+     "productUrl": "https://custom.wilson.com/en-us/custom/basketballs"
+    },
+    {
+     "name": "Wilson Sporting Goods Fastpitch Holiday Gift Shop",
+     "productUrl": "https://www.wilson.com/en-us/collections/deals-fastpitch"
     }
    ]
   }
@@ -1092,199 +1125,199 @@
   {
    "name": "Seasalt cornwall",
    "items": 279,
-   "age": 22.043357222222223,
+   "age": 22.24908361111111,
    "missing": false
   },
   {
    "name": "Free People",
    "items": 190,
-   "age": 21.92385,
+   "age": 22.12957638888889,
    "missing": false
   },
   {
    "name": "Old Navy",
    "items": 7,
-   "age": 21.883735277777777,
+   "age": 22.089461666666665,
    "missing": false
   },
   {
    "name": "Theory",
    "items": 379,
-   "age": 21.756479166666665,
+   "age": 21.962205555555556,
    "missing": false
   },
   {
    "name": "Banana Republic",
    "items": 1,
-   "age": 21.69117,
+   "age": 21.896896388888887,
    "missing": false
   },
   {
    "name": "Madewell",
    "items": 75,
-   "age": 21.651468055555554,
+   "age": 21.857194444444445,
    "missing": false
   },
   {
    "name": "Ann Taylor",
    "items": 381,
-   "age": 21.62277361111111,
+   "age": 21.8285,
    "missing": false
   },
   {
    "name": "Loft",
    "items": 673,
-   "age": 21.573134166666666,
+   "age": 21.778860555555557,
    "missing": false
   },
   {
    "name": "The white company",
    "items": 68,
-   "age": 21.544923055555557,
+   "age": 21.750649444444445,
    "missing": false
   },
   {
    "name": "L.L bean",
    "items": 310,
-   "age": 21.461485833333334,
+   "age": 21.667212222222222,
    "missing": false
   },
   {
    "name": "Massimo Dutti",
    "items": 603,
-   "age": 21.393025277777777,
+   "age": 21.598751666666665,
    "missing": false
   },
   {
    "name": "Sezane",
    "items": 206,
-   "age": 21.364258055555556,
+   "age": 21.569984444444444,
    "missing": false
   },
   {
    "name": "Garnet hill",
    "items": 108,
-   "age": 21.31333777777778,
+   "age": 21.519064166666666,
    "missing": false
   },
   {
    "name": "Athleta",
    "items": 1,
-   "age": 21.265965277777777,
+   "age": 21.47169166666667,
    "missing": false
   },
   {
    "name": "Anthropologie",
    "items": 270,
-   "age": 21.11739861111111,
+   "age": 21.323125,
    "missing": false
   },
   {
    "name": "Paige",
    "items": 60,
-   "age": 21.06069638888889,
+   "age": 21.266422777777777,
    "missing": false
   },
   {
    "name": "H&M",
    "items": 744,
-   "age": 20.886205555555556,
-   "missing": false
-  },
-  {
-   "name": "Wilson",
-   "items": 52,
-   "age": 20.699459722222223,
+   "age": 21.091931944444443,
    "missing": false
   },
   {
    "name": "Eileen fisher",
    "items": 545,
-   "age": 20.657082222222222,
+   "age": 20.86280861111111,
    "missing": false
   },
   {
    "name": "Oysho",
    "items": 20,
-   "age": 20.55290638888889,
+   "age": 20.758632777777777,
    "missing": false
   },
   {
    "name": "Lululemon",
    "items": 476,
-   "age": 20.504111944444446,
+   "age": 20.709838333333334,
    "missing": false
   },
   {
    "name": "Abercrombie & Fitch",
    "items": 214,
-   "age": 20.447377222222222,
+   "age": 20.65310361111111,
    "missing": false
   },
   {
    "name": "Mango",
    "items": 93,
-   "age": 20.39477722222222,
+   "age": 20.60050361111111,
    "missing": false
   },
   {
    "name": "Joules",
    "items": 459,
-   "age": 20.347351944444444,
+   "age": 20.553078333333332,
    "missing": false
   },
   {
    "name": "Fatface",
    "items": 374,
-   "age": 20.34595638888889,
+   "age": 20.551682777777778,
    "missing": false
   },
   {
    "name": "Gap",
    "items": 6,
-   "age": 20.29771361111111,
+   "age": 20.50344,
    "missing": false
   },
   {
    "name": "Lands end",
    "items": 469,
-   "age": 20.280815,
+   "age": 20.486541388888888,
    "missing": false
   },
   {
    "name": "Aritzia",
    "items": 800,
-   "age": 20.23666138888889,
+   "age": 20.44238777777778,
    "missing": false
   },
   {
    "name": "FP Movement",
    "items": 58,
-   "age": 20.19123611111111,
+   "age": 20.3969625,
    "missing": false
   },
   {
    "name": "Arket",
    "items": 285,
-   "age": 20.14505888888889,
+   "age": 20.350785277777778,
    "missing": false
   },
   {
    "name": "&Other Stories",
    "items": 343,
-   "age": 20.110130555555557,
+   "age": 20.315856944444445,
    "missing": false
   },
   {
    "name": "Patagonia",
    "items": 168,
-   "age": 20.0892375,
+   "age": 20.29496388888889,
    "missing": false
   },
   {
    "name": "Addidas",
    "items": 408,
-   "age": 20.07658222222222,
+   "age": 20.282308611111112,
+   "missing": false
+  },
+  {
+   "name": "Wilson",
+   "items": 58,
+   "age": 0.10438805555555555,
    "missing": false
   }
  ],
@@ -1570,6 +1603,14 @@
    "sample": "$48.00"
   },
   {
+   "brand": "Wilson",
+   "group": "extension",
+   "total": 58,
+   "withPrice": 44,
+   "pct": 76,
+   "sample": "$15"
+  },
+  {
    "brand": "Madewell",
    "group": "extension",
    "total": 75,
@@ -1616,14 +1657,6 @@
    "withPrice": 58,
    "pct": 85,
    "sample": "£56.00"
-  },
-  {
-   "brand": "Wilson",
-   "group": "extension",
-   "total": 52,
-   "withPrice": 44,
-   "pct": 85,
-   "sample": "$15"
   },
   {
    "brand": "Lands end",
@@ -2560,18 +2593,18 @@
    "pct": 48
   },
   {
+   "brand": "Wilson",
+   "group": "extension",
+   "total": 58,
+   "withComp": 28,
+   "pct": 48
+  },
+  {
    "brand": "Arket",
    "group": "extension",
    "total": 285,
    "withComp": 145,
    "pct": 51
-  },
-  {
-   "brand": "Wilson",
-   "group": "extension",
-   "total": 52,
-   "withComp": 28,
-   "pct": 54
   },
   {
    "brand": "Dickies",
@@ -2917,13 +2950,6 @@
    "pct": 94
   },
   {
-   "brand": "Evereve",
-   "group": "server",
-   "total": 444,
-   "withComp": 419,
-   "pct": 94
-  },
-  {
    "brand": "Boden",
    "group": "server",
    "total": 331,
@@ -2964,6 +2990,13 @@
    "total": 50,
    "withComp": 47,
    "pct": 94
+  },
+  {
+   "brand": "Evereve",
+   "group": "server",
+   "total": 444,
+   "withComp": 420,
+   "pct": 95
   },
   {
    "brand": "Sweaty betty",
@@ -3506,9 +3539,9 @@
    "group": "server",
    "total": 444,
    "price": 444,
-   "color": 443,
-   "sizes": 442,
-   "comp": 419
+   "color": 444,
+   "sizes": 443,
+   "comp": 420
   },
   {
    "brand": "Everlane",
@@ -4440,9 +4473,9 @@
   {
    "brand": "Wilson",
    "group": "extension",
-   "total": 52,
+   "total": 58,
    "price": 44,
-   "color": 39,
+   "color": 45,
    "sizes": 40,
    "comp": 28
   },
