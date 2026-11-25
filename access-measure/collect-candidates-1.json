@@ -18,14 +18,6 @@
    "engine": "firefox"
   },
   {
-   "brand": "Ann Taylor",
-   "engine": "impit"
-  },
-  {
-   "brand": "Loft",
-   "engine": "impit"
-  },
-  {
    "brand": "Seasalt cornwall",
    "engine": "chromium"
   },
@@ -40,11 +32,7 @@
     "https://www.madewell.com/kr/womens/clothing/tees/",
     "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
     "https://www.madewell.com/kr/womens/clothing/dresses/",
-    "https://www.madewell.com/kr/womens/clothing/pants/",
-    "https://www.madewell.com/womens/clothing/tees/",
-    "https://www.madewell.com/womens/clothing/tops-shirts/",
-    "https://www.madewell.com/womens/clothing/dresses/",
-    "https://www.madewell.com/womens/clothing/pants/"
+    "https://www.madewell.com/kr/womens/clothing/pants/"
    ]
   },
   {
@@ -60,22 +48,6 @@
    "brand": "Oysho",
    "engine": "firefox",
    "fresh": true
-  },
-  {
-   "brand": "Garnet hill",
-   "engine": "firefox",
-   "fresh": true
-  },
-  {
-   "brand": "The white company",
-   "engine": "firefox",
-   "fresh": true,
-   "urls": [
-    "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts",
-    "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/loungewear",
-    "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/dresses-and-tunics",
-    "https://www.thewhitecompany.com/us/Clothing/c/clothing"
-   ]
   }
  ]
 }

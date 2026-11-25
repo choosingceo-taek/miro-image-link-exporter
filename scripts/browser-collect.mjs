@@ -488,7 +488,19 @@ for (const g of targets) {
           );
           if (sig) { note = sig; break; }
         }
-        const res = (await page.evaluate(COLLECTOR)) || {};
+        // 수집 도중 사이트가 스스로 페이지를 바꾸면(지역·쿠키 확인 뒤 다시 불러오기 등) 실행 중이던
+        // 수집기가 통째로 사라진다("Execution context was destroyed"). 2026-11-25 Oysho 첫 두 카테고리가
+        // 이렇게 0개였다(다른 러너에선 27·29개). 새 페이지가 뜨길 기다려 한 번만 다시 돈다.
+        let res;
+        try {
+          res = (await page.evaluate(COLLECTOR)) || {};
+        } catch (e) {
+          if (!/Execution context was destroyed|navigat/i.test(String((e && e.message) || e))) throw e;
+          await page.waitForLoadState("domcontentloaded", { timeout: NAV_MS }).catch(() => {});
+          await page.waitForTimeout(2500);
+          res = (await page.evaluate(COLLECTOR)) || {};
+          note = (note ? note + " · " : "") + `수집 중 페이지가 바뀌어 다시 읽음(${page.url().slice(0, 100)})`;
+        }
         lastRej = res.rej || lastRej;
         let added = 0;
         for (const it of res.items || []) {
