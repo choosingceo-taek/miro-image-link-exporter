@@ -386,5 +386,15 @@
    "comp": "Viscose 100%"
   },
   "shop": "faherty-sunseekerdresssausalitosunset.shop.json.gz"
+ },
+ {
+  "brand": "Tuckernuck (main · combo · embroidery)",
+  "file": "tuckernuck-kaiya.html.gz",
+  "url": "https://tnuck.com/products/cream-kaiya-floral-top",
+  "name": "Kaiya Floral Top",
+  "why": "'Material: 100% Cotton (main), 73% Cotton, 27% Nylon (combo), 100% Viscose (embroidery)' — 괄호 속 부위가 값 뒤에 붙는다. 겉감(main)만.",
+  "expect": {
+   "comp": "Cotton 100%"
+  }
  }
 ]

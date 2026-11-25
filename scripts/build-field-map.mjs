@@ -11,8 +11,12 @@
 //   🔗 표본 없음    카탈로그에 상품 주소가 없다(목록 수집 문제 — 목록 담당).
 // '읽힘' = 이 상품의 이름이 화면 글에 있는 페이지(productRead). 차단 화면·빈 껍데기는 읽힘이 아니다.
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
+import { gunzipSync } from "node:zlib";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+
+import { witnessOf } from "./comp-witness.mjs";
+import { detailOf, compOf } from "./detail-core.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const files = process.argv.slice(2).length ? process.argv.slice(2)
@@ -168,6 +172,56 @@ for (const name of TIER1) {
   md += `| ${esc(r.brand)} | ${r.total} | ${s.comp ?? "—"} | ${s.tried ?? "—"} | ${s.emptyIn5d ?? "—"} | ${s.none ?? "—"} | ${cellText(c)} | ${r.engines.join("/") || r.state} |\n`;
 }
 md += `\n`;
+
+// ── 혼용률 두 번째 증인 ──────────────────────────────────────────────
+// 같은 페이지의 글머리표·설명 속 "퍼센트+섬유" 줄과 혼용률 칸을 견준다(scripts/comp-witness.mjs). 어긋난 표본은 증인 측정이
+// HTML 을 남겼고(scripts/fixtures/witness), 사람이 읽고 판정했다(scripts/fixtures/witness/verdicts.json).
+{
+  const verdicts = existsSync(join(ROOT, "scripts/fixtures/witness/verdicts.json")) ? JSON.parse(readFileSync(join(ROOT, "scripts/fixtures/witness/verdicts.json"), "utf8")) : {};
+  const wfile = readdirSync(ROOT).filter((f) => /^field-witness-\d+\.json$/.test(f)).sort().pop();
+  const nowOf = new Map();
+  if (wfile) {
+    for (const b of JSON.parse(readFileSync(join(ROOT, wfile), "utf8")).brands) for (const p of b.products || []) {
+      if (!p.fixture) { nowOf.set(p.url, { now: null, stored: p.stored }); continue; }
+      const html = gunzipSync(readFileSync(join(ROOT, "scripts/fixtures/witness", p.fixture.file))).toString("utf8");
+      nowOf.set(p.url, { now: compOf(html, p.url).comp, stored: p.stored });
+    }
+  }
+  const seen = new Map();
+  for (const b of byBrand.values()) for (const p of b.products || []) if (p.read) seen.set(p.url, { brand: b.brand, p });
+  let withW = 0;
+  const dis = [];
+  for (const { brand, p } of seen.values()) {
+    const w = witnessOf(p.got.comp, p.got.feat, p.got.desc);
+    if (!w) continue;
+    withW++;
+    if (!w.agree) dis.push({ brand, url: p.url, comp: p.got.comp, w, v: verdicts[p.url], n: nowOf.get(p.url) });
+  }
+  // 시험 자료(사람이 기대값을 적은 실제 페이지)도 지금 규칙으로 같은 비교
+  let fxN = 0, fxDis = [];
+  const exp = existsSync(join(ROOT, "scripts/fixtures/detail-pages/expected.json")) ? JSON.parse(readFileSync(join(ROOT, "scripts/fixtures/detail-pages/expected.json"), "utf8")) : [];
+  for (const f of [...new Map(exp.map((c) => [c.file, c])).values()]) {
+    const html = gunzipSync(readFileSync(join(ROOT, "scripts/fixtures/detail-pages", f.file))).toString("utf8");
+    const shop = f.shop ? JSON.parse(gunzipSync(readFileSync(join(ROOT, "scripts/fixtures/detail-pages", f.shop))).toString("utf8")) : null;
+    const d = detailOf(html, f.url, shop);
+    const w = witnessOf(compOf(html, f.url).comp, d.feat, d.desc);
+    if (!w) continue;
+    fxN++;
+    if (!w.agree) fxDis.push({ brand: f.brand, url: f.url, comp: compOf(html, f.url).comp, w });
+  }
+  const RIGHT = { bullet: "글머리표가 맞음", comp: "comp 가 맞음", neither: "둘 다 아님(페이지 표기 오류)", unread: "페이지 못 읽음" };
+  md += `### 혼용률 두 번째 증인 — 글머리표와 견준 결과\n\n`;
+  md += `같은 페이지를 두 번 읽은 것이다: 혼용률 칸(comp — JSON-LD·본문 창·페이지 JSON)과 디테일 글머리표·설명 속 '퍼센트+섬유' 줄(제목 붙은 본문 칸). `;
+  md += `측정 표본 중 글머리표에 소재 줄이 있는 ${withW}개 가운데 **${dis.length}개가 어긋났다**(측정 당시 규칙). 어긋난 표본은 증인 측정(${wfile ? wfile.match(/\d+/)[0] : "—"}, 읽기만)이 HTML 을 다시 받아 남겼고(scripts/fixtures/witness), `;
+  md += `판정은 그 HTML 을 사람이 읽고 적었다. '운영 저장값'은 같은 실행이 Worker 오버레이에서 읽은 값(쓰기 없음), '지금 규칙'은 이번에 고친 추출기로 같은 HTML 을 다시 읽은 값.\n\n`;
+  md += `| 브랜드 | 상품 | 측정 때 comp | 글머리표·설명의 소재 줄 | 판정(페이지 기준) | 운영 저장값 | 지금 규칙 | 근거 |\n|---|---|---|---|---|---|---|---|\n`;
+  for (const x of dis) {
+    const v = x.v || {};
+    md += `| ${esc(x.brand)} | ${x.url} | ${esc(x.comp) || "(빈 칸)"} | ${esc([...new Set(x.w.witness.map((t) => t.text))].join(" ¶ ")).slice(0, 220)} | ${RIGHT[v.right] || "판정 없음"} | ${x.n ? (esc(x.n.stored) || "(빈 칸)") : "—"} | ${x.n ? (x.n.now === null ? "(못 읽음)" : esc(x.n.now) || "(빈 칸)") : "—"} | ${esc(v.why || x.w.verdict || "")} |\n`;
+  }
+  md += `\n시험 자료(사람이 기대값을 적은 실제 페이지 ${exp.length ? new Set(exp.map((c) => c.file)).size : 0}개)를 지금 규칙으로 같은 비교: 소재 줄이 있는 ${fxN}개 중 어긋남 ${fxDis.length}개` +
+    (fxDis.length ? ` — ${fxDis.map((x) => `${esc(x.brand)}(comp ${esc(x.comp) || "빈 칸"} · 줄 ${esc(x.w.witness[0].text).slice(0, 60)})`).join(" · ")}` : "") + `.\n\n`;
+}
 
 md += `## 브랜드별 (${rows.length})\n\n`;
 md += `칸: ✅ 읽힌 수/읽힌 표본 · 출처 — 📭 읽혔는데 없음 — ⛔ 막힘 — 🔗 표본 없음\n\n`;

@@ -337,7 +337,7 @@ function bareRunAt(src) {
 // 부위 이름 — 겉감(main)이 보이면 장식(trim·rib·주머니 안감 …) 줄은 혼용률이 아니다. 2026-11-25 Boden:
 // "Main: 50% recycled polyester, 30% polyester, 20% elastane · Trims: 100% polyester" 에서 겉감이 같은 섬유 두 번
 // (재생 폴리 + 폴리)이라 조각으로 끊기고, 온전한 한 벌인 장식 줄 "Polyester 100%" 만 남아 저장됐다.
-const PART_MINOR_RX = /(?<![A-Za-z])(?:trims?|trimming|rib(?:bing|bed)?|pocket(?:\s+lining)?|pocketing|contrast|embroidery|lace|cuffs?|collar|binding|piping|insert|applique|appliqué|패치|배색)(?![A-Za-z])[^%]{0,24}$/i;
+const PART_MINOR_RX = /(?<![A-Za-z])(?:trims?|trimming|rib(?:bing|bed)?|pocket(?:\s+lining)?|pocketing|contrast|combo|embroidery|lace|cuffs?|collar|binding|piping|insert|applique|appliqué|패치|배색)(?![A-Za-z])[^%]{0,24}$/i;
 const PART_LINING_RX = /(?<![A-Za-z])(?:lining|lined|안감)(?![A-Za-z])[^%]{0,24}$/i;
 const PART_MAIN_RX = /(?<![A-Za-z])(?:main|shell|outer|body|self|base\s+fabric|겉감)(?![A-Za-z])[^%]{0,24}$/i;
 function partRole(src, at, end) {

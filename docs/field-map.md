@@ -1,6 +1,6 @@
 # 상품 정보 현장 지도 (field map)
 
-> 만든 때 2026-11-25T13:07Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
+> 만든 때 2026-11-25T13:44Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
 > 만드는 법: `node scripts/build-field-map.mjs` — 측정은 `diagnose-page.yml` mode=fields(읽기만, 로그에 `STORE: 0`).
 
 ## 한눈에
@@ -62,6 +62,32 @@
 | Whitestuff | 184 | 143 | 184 | 41 | 0 | ✅ 3/3 본문 | firefox/impit |
 | J crew | 215 | 63 | 215 | 152 | 0 | ✅ 2/2 본문 | firefox |
 | Massimo Dutti | 603 | 3 | 603 | 600 | 462 | ✅ 2/2 페이지 JSON | firefox |
+
+### 혼용률 두 번째 증인 — 글머리표와 견준 결과
+
+같은 페이지를 두 번 읽은 것이다: 혼용률 칸(comp — JSON-LD·본문 창·페이지 JSON)과 디테일 글머리표·설명 속 '퍼센트+섬유' 줄(제목 붙은 본문 칸). 측정 표본 중 글머리표에 소재 줄이 있는 195개 가운데 **17개가 어긋났다**(측정 당시 규칙). 어긋난 표본은 증인 측정(45623658964, 읽기만)이 HTML 을 다시 받아 남겼고(scripts/fixtures/witness), 판정은 그 HTML 을 사람이 읽고 적었다. '운영 저장값'은 같은 실행이 Worker 오버레이에서 읽은 값(쓰기 없음), '지금 규칙'은 이번에 고친 추출기로 같은 HTML 을 다시 읽은 값.
+
+| 브랜드 | 상품 | 측정 때 comp | 글머리표·설명의 소재 줄 | 판정(페이지 기준) | 운영 저장값 | 지금 규칙 | 근거 |
+|---|---|---|---|---|---|---|---|
+| Faherty | https://fahertybrand.com/products/sunseeker-dress-sausalito-sunset | (빈 칸) | Material: 70% LIVA REVIVA™ Viscose, 30% CIRCULOSE® Viscose | 글머리표가 맞음 | (빈 칸) | Viscose 100% | 같은 섬유(비스코스) 둘 — 예전 규칙은 둘째 비스코스에서 끊어 조각만 남아 빈 칸. 지금 규칙은 더해 Viscose 100%. |
+| Oak + Fort | https://oakandfort.ca/products/knit-sleeveless-midi-dress-dr-15785-w | (빈 칸) | 55% Cotton, 43% Polyester, 2% Spandex / Exclusive of trims | 글머리표가 맞음 | Cotton 55% / Polyester 43% / Elastane 2% | Cotton 55% / Polyester 43% / Elastane 2% | 창 안에 추천 카드의 '100% WOOL …'·'100% Merino Wool' 가 함께 있어 비웠다. 지금 규칙은 소재 제목 바로 뒤 줄을 고른다. 운영 저장값은 이미 옳다(다른 경로). |
+| Oak + Fort | https://oakandfort.ca/products/striped-cotton-poplin-pajama-style-pant-pt-13613-w | (빈 칸) | 100% Cotton/ Exclusive of trims | 글머리표가 맞음 | Cotton 100% | Cotton 100% | 위와 같은 모양. 지금 규칙 Cotton 100%. 운영 저장값은 이미 옳다. |
+| Rag & bone | https://www.rag-bone.com/p/rb-miramar-dahlia-flare-pant-RC7525H7MPO.html | Viscose 72% / Nylon 23% / Elastane 5% Cotton 100% | Body: 72% rayon, 23% polyamide, 5% elastane; Pocketing: 100% cotton | 글머리표가 맞음 | Viscose 72% / Nylon 23% / Elastane 5% / Cotton 100% | Viscose 72% / Nylon 23% / Elastane 5% | comp 가 주머니감 줄을 덧붙였다. 운영 저장값은 한 줄 합 200%('… / Cotton 100%') 로 틀림. 지금 규칙 Viscose 72% / Nylon 23% / Elastane 5%. |
+| Boden | https://us.boden.com/products/women-lace-trim-v-neck-velvet-top-beetroot-red-t2259red | Polyester 100% | Main: 50% recycled polyester, 30% polyester, 20% elastane ¶ Trims: 100% polyester | 글머리표가 맞음 | Polyester 100% | Polyester 80% / Elastane 20% | comp 가 장식(Trims) 줄을 집었다. 운영 저장값 Polyester 100% — 틀림. 지금 규칙 Polyester 80% / Elastane 20%. |
+| Jager | https://www.marksandspencer.com/cotton-rich-cord-wide-leg-trousers/p/clp23084829#intid=pid_pg4pip48g2r20c2%7Cprodflag_Online%20Only | Cotton 99% / Elastane 1% Polyester 65% / Cotton 35% | Main - 99% cotton, 1% elastane, Pocketing - 65% polyester, 35% cotton | 글머리표가 맞음 | Cotton 99% / Elastane 1% / Polyester 65% / Cotton 35% | Cotton 99% / Elastane 1% | comp 가 주머니감을 덧붙였다. 운영 저장값은 한 줄 합 200% — 틀림. 지금 규칙 Cotton 99% / Elastane 1%. |
+| Oasis | https://www.oasisfashion.com/product/oasis-volume-sleeve-sweatshirt-with-cotton-collar_baa13417?colour=antique+rose | Cotton 100% Cotton 98% / Elastane 2% | Shell: 100% Cotton. Trim: 98% Cotton. 2% Elastane. Machine washable. Model wears size 10. | 글머리표가 맞음 | Cotton 100% Cotton 98% / Elastane 2% | Cotton 100% | comp 가 장식 줄을 둘째 줄로 붙였다. 운영 저장값 'Cotton 100% ‖ Cotton 98% / Elastane 2%' — 둘째 줄 틀림. 지금 규칙 Cotton 100%. |
+| Outdoorvoices | https://www.outdoorvoices.com/products/w-waffle-baby-tee-white | (빈 칸) | Fitted baby tee in new waffle knit fabric - made of 100% cotton. | 페이지 못 읽음 | Cotton 100% | (못 읽음) | 증인 측정에서는 impit·파이어폭스 모두 껍데기라 HTML 을 못 남겼다. 측정 표본의 설명 글로는 글머리표가 맞다(추정). |
+| Tuckernuck | https://tnuck.com/products/cream-kaiya-floral-top | (빈 칸) | Material: 100% Cotton (main), 73% Cotton, 27% Nylon (combo), 100% Viscose (embroidery) | 글머리표가 맞음 | — | — | 세 조성이라 비웠다. 지금 규칙(괄호 부위 · combo 는 배색)으로 Cotton 100% — 측정 시험 자료(scripts/fixtures/pages/tuckernuck.html.gz)에서 확인. |
+| Tuckernuck | https://tnuck.com/products/blue-shira-embroidered-midi-dress | (빈 칸) | Material: 100% Cotton (outer), 100% Viscose (embroidery), 100% Polyester (lace) | 글머리표가 맞음 | (빈 칸) | Cotton 100% | 세 조성이라 비웠다. 지금 규칙은 괄호 속 부위로 겉감만: Cotton 100%. |
+| Z Supply | https://zsupplyclothing.com/products/downhome-pant | (빈 칸) | Silky Pointelle: 95% Polyester, 5% Spandex | 글머리표가 맞음 | Cotton 100% | (빈 칸) | 운영 저장값 Cotton 100% 는 메뉴 글('100% Cotton Shop')을 읽은 것 — 틀림. 지금 규칙은 빈 칸(메뉴 조각과 섞여 판단 보류). 옳은 값은 Polyester 95% / Elastane 5%. |
+| Everlane | https://www.everlane.com/products/womens-boyfriend-shirt-cotton-optic-white-black | (빈 칸) | 100% Organic Cotton | 글머리표가 맞음 | (빈 칸) | Cotton 100% | 측정 때는 빈 칸. 지금 규칙 Cotton 100%. 운영 저장값도 빈 칸. |
+| Goldie | https://www.goldietees.com/products/allure-tee | Cotton 100% | 50% cotton, 50% polyester | 글머리표가 맞음 | Cotton 50% / Polyester 50% | Cotton 50% / Polyester 50% | 측정 때 comp 는 원단 안내 칸을 읽었다. 운영 저장값은 이미 옳다(Cotton 50% / Polyester 50%). 지금 규칙도 옳다. |
+| Hobbs | https://www.hobbs.com/us/product/middleton-pants-with-wool-/0224-8631-9044L00-GREY-BLACK.html | Wool 59% / Polyester 30% / Polyamide 7% / Other Fibres 3% / Elastane 1% | Fabric: 59% Wool 30% Polyester 7% Polyamide 3% Other fibres 1% Elastane ¶ Lining: Pocket Lining: 100% Polyester ¶ Fabric Composition: 59% Wool 30% Polyester 7% Polyamide 3% Other fibres 1% Elastane | comp 가 맞음 | Wool 59% / Polyester 30% / Polyamide 7% / Other Fibres 3% / Elastane 1% | Wool 59% / Polyester 30% / Polyamide 7% / Other Fibres 3% / Elastane 1% | comp(JSON-LD)가 'Other Fibres 3%' 까지 옳다. 증인(글머리표 해석)이 'Other fibres' 를 섬유로 몰라 97% 로 읽었을 뿐. |
+| Jigsaw | https://www.jigsaw-online.com/products/jersey-blake-trouser-black | Cotton 60% / Polyester 38% / Elastane 2% Cotton 100% | Main : 60% Cotton, 38% Polyester, ¶ Lining : 100% Cotton | comp 가 맞음 | Cotton 60% / Polyester 38% / Elastane 2% Cotton 100% | Cotton 60% / Polyester 38% / Elastane 2% Cotton 100% | comp(겉감+안감 두 줄)가 옳다. 측정 글머리표가 2% Elastane 앞에서 잘렸다. |
+| The Great | https://thisisthegreat.com/collections/knit-shop-sweatshirts/products/the-slouch-sweatshirt-dark-slate | Modal 100% | 100% Cotton | 글머리표가 맞음 | Modal 100% | Cotton 100% | 측정·운영 저장값 Modal 100% 는 틀림(다른 상품 글로 보임). 지금 규칙 Cotton 100%. |
+| Vince | https://www.vince.com/product/pima-cotton-crew-neck-t-shirt-V017384404REDOCHRE.html | Pima Cotton 100% | Our tees are informed by the desire to feel comfortable in one's own skin, which is why we've crafted this one from 100% Pima cotton — a fiber beloved for its i | comp 가 맞음 | Pima Cotton 100% | Pima Cotton 100% | 같은 값 — comp 는 'Pima Cotton', 증인은 'Cotton' 으로 이름만 다르게 적었다. |
+
+시험 자료(사람이 기대값을 적은 실제 페이지 21개)를 지금 규칙으로 같은 비교: 소재 줄이 있는 15개 중 어긋남 0개.
 
 ## 브랜드별 (134)
 
