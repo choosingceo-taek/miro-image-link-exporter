@@ -35,6 +35,12 @@ const mk = (i, desc, feat) => ({ url: `https://b.example/p/${i}`, name: NAMES[i]
     .concat([6, 7, 8, 9].map((i) => mk(i, `Other ${i} description text here.`, [])));
   eq("같은 이름 여러 색 — 통과", detailApply({ desc: "The Alder tee in soft slub jersey." }, detailFlags([], items)).rec.desc, "The Alder tee in soft slub jersey.");
 }
+// ③-b 이름 꼬리만 다른 색 변형(Everlane "… | Peyote | No Pocket")도 한 상품으로 센다.
+{
+  const items = ["Peyote", "Bone", "Black", "Navy", "Sage", "Rust"].map((c, i) => ({ url: `https://b.example/p/v${i}`, name: `The Box-Cut Tee in Essential Cotton | ${c} | No Pocket`, desc: "With over 1M sold, this tee is a big deal." }))
+    .concat([6, 7, 8, 9].map((i) => mk(i, `Other ${i} description text here.`, [])));
+  eq("이름 꼬리만 다른 색 변형 — 통과", detailApply({ desc: "With over 1M sold, this tee is a big deal." }, detailFlags([], items)).rec.desc, "With over 1M sold, this tee is a big deal.");
+}
 // ④ 글머리표: 12개 모두에 붙은 줄은 빼고, 상품마다 다른 줄은 남긴다. 줄을 다 빼면 칸이 사라진다.
 {
   const items = NAMES.map((_, i) => mk(i, "", ["Free shipping over $100", `Length ${60 + i} cm`, i % 2 ? "Relaxed fit" : "Slim fit"]));

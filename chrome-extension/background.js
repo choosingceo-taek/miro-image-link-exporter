@@ -1232,7 +1232,10 @@ function detailOf(html, url, shop) {
 // ── 상세 가드 규칙 시작 — chrome-extension/background.js 에 글자 그대로 복사돼 있다(test-detail-guard 가 비교)
 const DETAIL_GUARD = { DESC_MIN: 5, DESC_SHARE: 0.5, FEAT_MIN: 10, FEAT_SHARE: 0.8 };
 const dgNorm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9가-힣%]+/g, ' ').trim();
-const dgName = (s) => dgNorm(s).replace(/\b(?:xs|s|m|l|xl|xxl|petite|tall|plus)\b/g, ' ').replace(/\s+/g, ' ').trim();
+// 같은 상품의 다른 색은 이름 꼬리만 다르다("The Box-Cut Tee | Peyote | No Pocket" · "Kim Tee - Navy") — 꼬리를 떼고 센다.
+// (Everlane DRY 45607xxxxx: 박스컷 티 20색의 같은 설명을 '사이트 공통 문구'로 잘못 보류했다)
+const dgName = (s) => dgNorm(String(s || '').split(/\s+[|\u2013\u2014]\s+|\s+-\s+/)[0])
+  .replace(/\b(?:xs|s|m|l|xl|xxl|petite|tall|plus)\b/g, ' ').replace(/\s+/g, ' ').trim();
 
 // stored·incoming: [{url, name, desc, feat}] (같은 상품은 이번 값으로 본다).
 // 돌려주는 것: { holdDesc: Set(설명 정규화 키), dropFeat: Set(글머리표 정규화 키), stats }
