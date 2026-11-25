@@ -88,16 +88,23 @@
 { "brands": [ { "brand": "Veronica Beard", "engine": "chromium", "evidence": "측정 근거" } ] }
 ```
 
-- `engine` 은 `chromium` 또는 `firefox`. 파이어폭스 브랜드가 하나라도 있으면 워크플로가 파이어폭스도 설치합니다.
+- `engine` 은 `chromium` · `firefox` · `impit`(브라우저 없이 크롬의 접속 지문으로 HTML 만 받아 같은 수집기로 읽음) ·
+  `api`(사이트의 목록 JSON — 지금은 Aritzia 만, `scripts/listing-api.mjs`). 파이어폭스 브랜드가 하나라도 있으면 워크플로가 파이어폭스도 설치합니다.
+- `"fresh": true` — 카테고리마다 쿠키가 빈 새 창(첫 페이지만 열리고 다음부터 막히는 사이트).
+- `"store": "merge"` — 통째 교체 대신 합치기. 서버가 쌓아 온 카탈로그를 줄이지 않게 서버 담당 브랜드에 씁니다.
+- 야간은 **두 잡**이 동시에 돕니다: Render 그룹(→ `browser-collect-report.*`)과 추가 브랜드(→ `browser-collect-extra-report.*`).
+  시간 예산은 잡 시작부터 105분(설치가 오래 걸리면 그만큼 줄어듦).
+- 측정은 수동 실행에 `report_tag` 와 `store=0` 을 주고 돌립니다(`extra_file` 로 후보 파일 지정). 결과는
+  `browser-collect-<tag>-<실행>.json/.md` 로 따로 남고 운영 리포트는 건드리지 않습니다. `report_tag` 가 있는데 `store` 가 0 이 아니면 시작하지 않습니다.
 - 카테고리 URL 은 Render `category-links.json` 에서 가져옵니다. 거기에 없으면 `"urls": [...]` 로 직접 적습니다.
   둘 다 없으면 그 브랜드는 건너뛰고 리포트에 이유를 남깁니다.
-- Render `browser` 그룹에 이미 있는 브랜드를 적으면 무시합니다(그쪽 크롬 수집이 그대로 돕니다).
+- Render `browser` 그룹에 이미 있는 브랜드를 적으면 새로 더하지 않고 그 브랜드의 엔진·새 창 설정만 바꿉니다(예: The upside).
 - **저장 조건이 더 엄격합니다.** 이 브랜드들의 카탈로그는 평소 서버가 채운 것이라, 약한 밤에 덮지 않게:
   - 20개 이상 모였을 때만(일반 브랜드는 5개)
   - 지금 저장본 개수의 절반 이상일 때만 — 절반 아래면 아예 보내지 않고 이전 저장본을 둡니다
     (Worker 의 축소 가드도 절반 아래면 통째 교체를 막지만, 그때는 옛 상품과 섞어 저장합니다)
   - 지금 저장본 개수를 못 읽으면 보내지 않습니다
-- 넣을 때는 **근거를 함께** 적습니다(`evidence`). 측정 기록: `browser-collect-firefox-measure.md`.
+- 넣을 때는 **근거를 함께** 적습니다(`evidence`). 측정 기록: `browser-collect-firefox-measure.md` · `docs/listing-doors.md` · `access-measure/RUNS.md`.
 - 수동 실행의 `engine` 입력을 비우면 예약 실행과 같이 브랜드별 엔진으로 돕니다. `chromium`·`firefox`
   를 적으면 모든 브랜드를 그 엔진으로 돕니다(비교 측정용 — 이때는 `store=0`).
 
