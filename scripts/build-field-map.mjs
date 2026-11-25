@@ -262,7 +262,7 @@ md += `\n`;
     md += `\n보기(브랜드·갈래마다 2개, 그리고 HTML 을 받아 사람이 판정한 것 전부 — scripts/fixtures/witness/recheck-verdicts.json):\n\n`;
     md += `| 브랜드 | 상품 | 갈래 | 운영 저장값 | 지금 규칙 | 판정(HTML 을 읽고) |\n|---|---|---|---|---|---|\n`;
     for (const e of ex) md += `| ${esc(e.brand)} | ${e.url} | ${K[e.kind]} | ${esc(e.st.replace(/\n/g, " ‖ "))} | ${esc(((e.v && e.v.now) || e.now).replace(/\n/g, " ‖ ")) || "(빈 칸)"} | ${e.v ? esc(`${e.v.right === "now" ? "지금 규칙이 맞음" : e.v.right === "stored" ? "저장값이 맞음" : "둘 다 아님"} — ${e.v.why}`) : "—"} |\n`;
-    md += `\n재확인 실행은 커밋 a819ae5 의 규칙으로 쟀다. 그 뒤에 고친 두 가지(금속사 Metal/Metallic 을 섬유로 앎 — Oasis, 겉감 줄이 있으면 부위 이름 없는 줄도 뺌 — Rag & bone)는 위 표의 갈래 수에는 없고, 판정한 줄의 '지금 규칙' 값에만 들어 있다(scripts/fixtures/detail-pages 에 같은 HTML 로 시험).\n\n`;
+    md += `\n재확인 실행 4565… 은 커밋 4520b4b(이 지도의 혼용률 규칙 전부)로 쟀다. 4563… 실행(a819ae5 규칙)은 같은 브랜드의 새 실행이 있어 표에서 뺐다. '값이 바뀜'·'빈 칸'은 HTML 을 받아 판정한 줄 말고는 규칙만으로 본 것이다 — 저장값이 맞고 지금 규칙이 틀린 경우도 있을 수 있어, 운영에 다시 쓰기 전에 판정 줄을 더 늘려 보는 것이 안전하다.\n\n**운영 값이 지금도 옛 규칙으로 다시 쓰이고 있다.** main 브랜치의 야간 보강(enrich-comp.yml, 이날 오후에도 여러 번 실행)이 옛 규칙으로 저장한다. 같은 The Great 상품의 저장값이 14:19 재확인에서는 'Cotton 100%'(맞음)였는데 16:03 재확인에서는 'Modal 100%'(창 이름 'Modal spinner' 를 읽은 틀린 값)로 바뀌어 있었다(78개). Z Supply 의 'Cotton 100%'(메뉴 '100% Cotton Shop') 도 같은 모양이다. 이 브랜치의 규칙이 main 에 들어가기 전까지는 틀린 값이 계속 다시 쓰인다.\n\n`;
   }
 }
 
