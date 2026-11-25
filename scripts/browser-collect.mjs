@@ -193,7 +193,15 @@ const MAX_PER_BRAND = 750;
 // 확장과 같은 수집기 코드를 문자열로 읽어 page.evaluate 에 넣는다.
 const collectorSrc = readFileSync(join(ROOT, "chrome-extension", "collector.js"), "utf8");
 // cap: 카테고리당 쓰는 수(PER_CATEGORY)보다 조금 넉넉히 — 공용 링크를 빼고도 150개가 남게.
-const COLLECTOR = `(async () => { ${collectorSrc}\n return await pageCollector({ cap: 200 }); })()`;
+// DIAG(측정 전용 — report_tag 실행에서만): old = 2026-11-25 바뀌기 전 수집기(scripts/fixtures) ·
+// jump = 지금 규칙 + 예전 스크롤 · debug = 지금 수집기 + 버린 링크 목록. DIAG 가 있으면 리포트 JSON 에
+// URL 별 모든 상품 주소(items)와 버린 링크(debug), 브랜드 최종 목록(finalItems)을 남긴다.
+const DIAG = ["old", "jump", "debug"].includes(String(process.env.DIAG || "").toLowerCase()) ? String(process.env.DIAG).toLowerCase() : "";
+const OLD_SRC = DIAG === "old" ? readFileSync(join(ROOT, "scripts", "fixtures", "collector-before-2026-11-25.js"), "utf8") : "";
+const COLLECTOR = DIAG === "old"
+  ? `(async () => { ${OLD_SRC}\n return await pageCollector(); })()`
+  : `(async () => { ${collectorSrc}\n return await pageCollector({ cap: 200${DIAG === "jump" ? ", jump: true" : ""}${DIAG === "debug" ? ", debug: true" : ""} }); })()`;
+const diagDebug = new Map();   // url → 버린 링크(debug) 모음
 
 // 확장(background.js)의 siteKeyOf / 야간 프리페치의 siteKey 와 동일한 규칙.
 function siteKeyOf(name, url) {
@@ -511,6 +519,11 @@ for (const g of targets) {
           }
         }
         lastRej = res.rej || lastRej;
+        if (DIAG && Array.isArray(res.debug)) {
+          const m = diagDebug.get(url) || new Map();
+          for (const d of res.debug) m.set(d.why + " " + d.url, d);
+          diagDebug.set(url, m);
+        }
         let added = 0;
         for (const it of res.items || []) {
           if (!it || !it.productUrl || listing.has(norm(it.productUrl))) continue;
@@ -566,7 +579,8 @@ for (const g of targets) {
     // 상품 주소 모양(/product/ · /p/ · 상품 번호 등 — access-evidence.mjs 의 판정)인 것의 수.
     // 수집 수와 크게 다르면 메뉴·기획전 링크가 섞였거나, 그 사이트 상품 주소가 판정 규칙 밖이라는 뜻이다(참고용).
     const productShaped = all.filter((it) => looksLikeProduct(it.productUrl)).length;
-    perUrl.push({ url, count: byUrl.size, productShaped, note, sample, ...(lastRej ? { rej: lastRej } : {}) });
+    perUrl.push({ url, count: byUrl.size, productShaped, note, sample, ...(lastRej ? { rej: lastRej } : {}),
+      ...(DIAG ? { items: all.map((it) => ({ name: it.name, productUrl: it.productUrl })), debug: [...((diagDebug.get(url) || new Map()).values())] } : {}) });
     console.log(`   ${byUrl.size ? "·" : "✕"} ${byUrl.size}개  ${url}${note ? "  ← " + note : ""}`);
   }
   // 끊겨서 못 돈 카테고리도 perUrl 에 남긴다. 리포트 JSON 은 다음 실행이 설정 파일을 못 받았을 때
@@ -614,6 +628,7 @@ for (const g of targets) {
     collected: items.length, stored, storeErr, cats, perUrl, secs, dropped, cut,
     // 무엇이 잡혔는지 눈으로 확인할 수 있게 표본을 남긴다(선택자 오작동 진단용).
     sample: items.slice(0, 5).map((it) => ({ name: it.name, productUrl: it.productUrl })),
+    ...(DIAG ? { diag: DIAG, finalItems: items.map((it) => it.productUrl) } : {}),
   });
   const blockedUrls = perUrl.filter((u) => /차단|HTTP 40|HTTP 42/.test(u.note)).length;
   console.log(

@@ -48,6 +48,10 @@ on:
         description: "추가 브랜드 파일(비우면 browser-extra-brands.json). 측정용 후보 파일은 store=0 과 함께"
         required: false
         default: ""
+      diag:
+        description: "측정 전용(report_tag 와 함께): old(바뀌기 전 수집기) | jump(지금 규칙 + 예전 스크롤) | debug(버린 링크 목록) — 비우면 보통"
+        required: false
+        default: ""
       report_tag:
         description: "주면 리포트를 browser-collect-<tag>-<실행번호>.json/.md 로 따로 남긴다(측정 실행 — 운영 리포트를 덮지 않음)"
         required: false
@@ -155,6 +159,7 @@ jobs:
           FRESH_CONTEXT: ${{ github.event.inputs.fresh_context || '0' }}
           EXTRA_BRANDS_FILE: ${{ github.event.inputs.extra_file }}
           EXTRA_MODE: ${{ matrix.part == 'main' && 'skip' || 'only' }}
+          DIAG: ${{ github.event.inputs.diag }}
           REPORT_TAG: ${{ github.event.inputs.report_tag && format('{0}-{1}{2}', github.event.inputs.report_tag, github.run_id, matrix.part == 'extra' && '-extra' || '') || (matrix.part == 'extra' && 'extra-report' || '') }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: |
@@ -166,6 +171,7 @@ jobs:
           echo "시간 예산: ${DEADLINE_MIN}분"
           echo "STORE: $STORE · 잡: ${{ matrix.part }}(EXTRA_MODE=$EXTRA_MODE) · REPORT_TAG: ${REPORT_TAG:-(운영 리포트)} · EXTRA: ${EXTRA_BRANDS_FILE:-browser-extra-brands.json}"
           # 측정 실행이 저장까지 하면 운영 카탈로그를 바꾼다 — 막는다.
+          if [ -n "$DIAG" ] && [ -z "$REPORT_TAG" ]; then echo "::error::diag 는 report_tag(측정 실행)와 함께만"; exit 1; fi
           if [ -n "$REPORT_TAG" ] && [ "$STORE" != "0" ]; then echo "::error::report_tag(측정 실행)는 store=0 으로만 돌린다"; exit 1; fi
           node scripts/browser-collect.mjs
       - name: Upload report

@@ -9,6 +9,21 @@
 // 더 작게 준다 — 끝없이 이어지는 목록(Nike·Reformation)에서 한 카테고리에 10분 넘게 쓰던 것을 막는다.
 async function pageCollector(opts) {
   const CAP = Math.max(20, Number(opts && opts.cap) || 600);
+  // 측정용(평소엔 안 씀): jump = 예전처럼 맨 아래로 한 번에 뛰고 끝의 화면만 센다(스크롤 방식 비교용) ·
+  // debug = 메뉴·경로 규칙·다른 사이트로 버린 링크 중 사진이 붙은 것을 이름·주소와 함께 돌려준다.
+  const JUMP = !!(opts && opts.jump), DEBUG = !!(opts && opts.debug);
+  const dbg = new Map();
+  const note = (why, a, href) => {
+    if (!DEBUG || dbg.size >= 600) return;
+    const key = why + ' ' + href.origin + href.pathname + href.search;
+    if (dbg.has(key)) return;
+    const c = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
+    const img = bestImage(a) || bestImage(c);
+    if (!img) return;
+    const im = a.querySelector('img') || c.querySelector('img');
+    const name = ((im && im.alt) || a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+    dbg.set(key, { why, url: href.origin + href.pathname + href.search, name });
+  };
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const guessCategory = (u, name) => {
     const n = ' ' + String(name || '').toLowerCase() + ' ';
@@ -242,7 +257,7 @@ async function pageCollector(opts) {
       let href; try { href = new URL(a.href, location.href); } catch (e) { return; }
       if (!/^https?:/.test(href.protocol)) return;
       rej.total++;
-      if (inSiteMenu(a)) { rej.siteMenu++; return; }
+      if (inSiteMenu(a)) { rej.siteMenu++; note('siteMenu', a, href); return; }
       const card = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
       // 카드를 못 짚었으면 한두 단계 위까지 올라가 본다.
       // Apiece Apart 는 카드 전체를 덮는 투명 링크(<a class="absolute inset-0">)를 쓰는데,
@@ -279,8 +294,8 @@ async function pageCollector(opts) {
       }
       const path = href.pathname.replace(/\/+$/, '');
       if (path.length < 8) { rej.shortPath++; return; }
-      if (NON_PRODUCT_PATH.test(path) || nonProductShape(path)) { rej.nonProduct++; return; }
-      if (siteOf(href.hostname) !== siteOf(location.hostname)) { rej.offSite++; return; }
+      if (NON_PRODUCT_PATH.test(path) || nonProductShape(path)) { rej.nonProduct++; note('nonProduct', a, href); return; }
+      if (siteOf(href.hostname) !== siteOf(location.hostname)) { rej.offSite++; note('offSite', a, href); return; }
       const idq = idQuery(href);
       if (path === here && !idq) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
       if (here.startsWith(path + '/')) { rej.samePage++; return; }   // 상위 카테고리(브레드크럼)
@@ -372,6 +387,21 @@ async function pageCollector(opts) {
   // 200개 가까이 있는 페이지(2026-11-25 진단)에서 30개 안팎만 남던 원인으로 보인다.
   const acc = new Map();
   const keep = (list) => { for (const it of list) if (!acc.has(it.productUrl)) acc.set(it.productUrl, it); };
+  if (JUMP) {
+    // 예전 방식 그대로(측정 비교용): 맨 아래로 뛰기 + 더 보기, 끝에 맨 위에서 한 번 센 것만.
+    let st = 0, last = -1;
+    for (let i = 0; i < 80; i++) {
+      window.scrollTo(0, document.documentElement.scrollHeight);
+      await sleep(700);
+      const btn = findLoadMore();
+      if (btn) { try { btn.click(); } catch (e) {} await sleep(1500); }
+      const n = harvest().length;
+      if (n === last) { if (++st >= (btn ? 6 : 5)) break; } else { st = 0; last = n; }
+    }
+    window.scrollTo(0, 0);
+    await sleep(250);
+    return { items: harvest(), nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej }, debug: [...dbg.values()] };
+  }
   keep(harvest());
   let stable = 0, lastCount = -1;
   for (let i = 0; i < 140 && acc.size < CAP; i++) {
@@ -392,5 +422,5 @@ async function pageCollector(opts) {
   await sleep(250);
   keep(harvest());
   const out = [...acc.values()];
-  return { items: out, nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej } };
+  return { items: out, nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej }, ...(DEBUG ? { debug: [...dbg.values()] } : {}) };
 }
