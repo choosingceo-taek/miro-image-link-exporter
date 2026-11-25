@@ -235,9 +235,12 @@ md += `\n`;
     md += `### 운영에 이미 저장된 혼용률 — 지금 규칙으로 다시 읽으면\n\n`;
     md += `어긋남이 나온 브랜드의 카탈로그 상품을 전부 impit 으로 다시 열어(읽기만 — 로그 \`STORE: 0\`, 실행 ${files.map((f) => f.match(/\d+/)[0]).join(" · ")}), `;
     md += `Worker 오버레이에 저장된 값과 고친 추출기의 값을 견줬다. **세지만 고치지 않았다** — 운영 값은 다음 야간 보강이 새 규칙으로 다시 쓸 때 바뀐다(담당자 승인 뒤).\n\n`;
-    md += `| 브랜드 | 상품 | 다시 읽힘 | 저장값 있음 | 같음 | 다름 — 덧붙은 줄(장식·주머니감 등)만 빠짐 | 다름 — 값이 바뀜 | 다름 — 지금 규칙은 빈 칸 |\n|---|---:|---:|---:|---:|---:|---:|---:|\n`;
+    md += `| 브랜드 | 실행 | 상품 | 다시 읽힘 | 저장값 있음 | 같음 | 다름 — 덧붙은 줄(장식·주머니감 등)만 빠짐 | 다름 — 값이 바뀜 | 다름 — 지금 규칙은 빈 칸 |\n|---|---|---:|---:|---:|---:|---:|---:|---:|\n`;
     const ex = [];
-    for (const f of files) for (const B of JSON.parse(readFileSync(join(ROOT, f), "utf8")).brands) {
+    // 같은 브랜드를 여러 번 재확인했으면 가장 새 실행(파일 이름의 실행 번호가 큰 것)만 센다.
+    const latest = new Map();
+    for (const f of files) for (const B of JSON.parse(readFileSync(join(ROOT, f), "utf8")).brands) latest.set(B.brand, { ...B, run: f.match(/\d+/)[0] });
+    for (const B of latest.values()) {
       const ps = B.products || [];
       const c = { read: 0, st: 0, same: 0, extra: 0, changed: 0, empty: 0 };
       for (const p of ps) {
@@ -253,7 +256,7 @@ md += `\n`;
         else { c.changed++; kind = "changed"; }
         if (rv[p.url] || ex.filter((e) => e.brand === B.brand && e.kind === kind).length < 2) ex.push({ brand: B.brand, url: p.url, st, now, kind, v: rv[p.url] });
       }
-      md += `| ${esc(B.brand)} | ${ps.length} | ${c.read} | ${c.st} | ${c.same} | ${c.extra} | ${c.changed} | ${c.empty} |\n`;
+      md += `| ${esc(B.brand)} | ${B.run} | ${ps.length} | ${c.read} | ${c.st} | ${c.same} | ${c.extra} | ${c.changed} | ${c.empty} |\n`;
     }
     const K = { extra: "덧붙은 줄만 빠짐", changed: "값이 바뀜", empty: "지금 규칙은 빈 칸" };
     md += `\n보기(브랜드·갈래마다 2개, 그리고 HTML 을 받아 사람이 판정한 것 전부 — scripts/fixtures/witness/recheck-verdicts.json):\n\n`;
