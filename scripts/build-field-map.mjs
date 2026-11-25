@@ -144,6 +144,16 @@ for (const [k, label] of [["sizes", "사이즈"], ["color", "컬러"], ["price",
 }
 md += `\n가격은 카탈로그(목록 수집)에도 있어 화면에는 그쪽이 먼저 쓰인다 — 위 저장값은 오버레이(상품 페이지에서 읽은 값)만 센 것이다.\n\n`;
 
+md += `### 이 지도를 바탕으로 바꾼 것 (작업 브랜치에만 — 운영 반영은 담당자 승인 뒤)\n\n`;
+md += `- **상품 상세 추출기**(worker/fabric-extractor.js 의 '상품 상세(detail) 추출' 구간): 설명 · 디테일 글머리표 · 사진 전부 · 컬러 전부 · `;
+md += `상품 코드 · 통화 · 재고 사이즈, 그리고 사이즈·가격·정가·컬러를 위 표의 출처 순서(Shopify JSON → JSON-LD → 메타 → 제목 붙은 본문 칸)로 읽는다.\n`;
+md += `- **지키는 규칙**: 메뉴·사이트 머리/꼬리·추천 칸("Pair it with", "You may also like")·리뷰 칸의 글은 빼고, 제목 칸의 경계(부모 칸이 닫히는 곳)에서 멈춘다. `;
+md += `이 상품의 이름이 화면에 그려진 페이지에서만 믿는다. 브랜드 상품 대부분에 똑같이 붙는 글(배송 안내·브랜드 소개)은 저장 직전 가드가 뺀다(scripts/detail-guard.mjs).\n`;
+md += `- **길이 상한**: 설명 1,500자 · 글머리표 25줄(줄당 220자) · 사진 20장 · 컬러 30개 · 사이즈 40개 · 상품 코드 60자. 글은 사이트에 적힌 그대로(공백만 정리, 번역·고쳐 쓰기 없음).\n`;
+md += `- **저장**: Worker 의 별도 칸 detail:<사이트>(혼용률 오버레이와 나눔 — 이유는 worker/README.md). 엑셀 추출·상세 보기 때만 받는다.\n`;
+md += `- **연결**: 야간 보강(enrich-comp.mjs) · 크롬 보강(enrich-comp-browser.mjs) · 확장 1.7.24(background.js) · 리서치 앱(상세 보기, 엑셀 추가 열: 판매가 · 정가 · 사이즈 · 컬러 전부 · 설명 · 디테일 · 이미지 링크).\n`;
+md += `- **혼용률 보완**: Massimo Dutti 형(소재가 페이지 JSON parts/components 에만) · JSON-LD 소재가 옳지 않으면 본문으로(Buck Mason) · 평 fetch 가 TLS 지문으로 막히면 impit 으로 다시(Whitestuff·J.Crew 형).\n\n`;
+
 // ── 무료로 읽히는데 야간 보강이 못 채운 브랜드(접근 지도 단계 1) — 오버레이 기록으로 본 이유 ──
 const TIER1 = ["Buck Mason", "Dickies", "Everlane", "Mint velvet", "Spanx", "Wilson", "Poetry", "Whitestuff", "J crew", "Massimo Dutti"];
 md += `### 무료로 읽히는데 혼용률이 빈 브랜드 — 야간 보강이 왜 못 채웠나\n\n`;
