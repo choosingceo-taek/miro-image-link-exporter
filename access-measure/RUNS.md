@@ -20,3 +20,4 @@
 | 45584347742 | 09:19 | targets-listing-b.json | 같음 | 2차 목록 b |
 
 1차 목록 a·b 에서 camoufox 는 시작하자마자 SIGSEGV(exit 139) — 11/24 와 같다. 2차부터 뺐다.
+| 45591302346 | 10:03 | targets-product-extra2.json (상품 26) | impit,playwright,firefox,firefox-fresh | 상품 2차 · Sessun 진짜 주소 · 새 창 |
