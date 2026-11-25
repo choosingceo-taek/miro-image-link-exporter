@@ -1,28 +1,28 @@
-# 엑셀 항목 보강 결과 (2026-11-25T12:10Z)
+# 엑셀 항목 보강 결과 (2026-11-25T12:22Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
 > 이 숫자는 **방금 쓴 값을 낙관적으로** 센 것이다 — KV 가 최종 일관성이라 쓴 직후에는
 > 안 읽히는 일이 있어 일부러 그렇게 뒀다. 안정된 뒤의 실제 숫자는 `preflight.md` 를 본다.
 
-**지금 두 열이 다 채워져 나오는 브랜드: 29/134개** (상품 9900/38520개)
+**지금 두 열이 다 채워져 나오는 브랜드: 28/134개** (상품 9456/38526개)
 
 패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.
 
-ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder · Evereve · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Marine Layer · Nation LTD · Ninety Percent · Rag & bone · Sanctuary · Seasalt cornwall · Shopbop · Sweaty betty · The Great · Theory · Ulla Johnson · Varley · Veronica Beard · Vince · Xirena · vineyardvines
+ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Marine Layer · Nation LTD · Ninety Percent · Rag & bone · Sanctuary · Seasalt cornwall · Shopbop · Sweaty betty · The Great · Theory · Ulla Johnson · Varley · Veronica Beard · Vince · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 76% · 컬러웨이 67%.
-기준 95% 까지 10871개, 목표 99% 까지 12412개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 65%.
+기준 95% 까지 11427개, 목표 99% 까지 12968개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
-목표 항목: comp · 상품 38520개
+목표 항목: comp · 상품 38526개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 29165 | 76% | +1 |
-| 컬러웨이 | 25723 | 67% | +1 |
+| 혼용률 | 28628 | 74% | +0 |
+| 컬러웨이 | 25173 | 65% | +0 |
 
-- 검색 인덱스 재구축: 17995개
+- 검색 인덱스 재구축: 18001개
 
 백필은 브랜드당 800개·한 회차 40000개 상한이다. 목표 항목이 다 찬 상품과
 5일 안에 시도해 본 상품은 건너뛴다 — 사이트가 안 적는 값을 영원히 다시 읽지 않기 위해서다.
@@ -59,8 +59,8 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Sessun | — | 34/81 (42%) | 0/81 (0%) | 혼용률 +0 컬러 +0 |  |
 | Loft | — | 284/673 (42%) | 323/673 (48%) | 혼용률 +0 컬러 +0 |  |
 | Buck Mason | — | 57/119 (48%) | 118/119 (99%) | 혼용률 +0 컬러 +0 |  |
+| Wilson | — | 28/58 (48%) | 45/58 (78%) | 혼용률 +0 컬러 +0 |  |
 | Arket | — | 145/285 (51%) | 145/285 (51%) | 혼용률 +0 컬러 +0 |  |
-| Wilson | — | 28/52 (54%) | 39/52 (75%) | 혼용률 +0 컬러 +0 |  |
 | Dickies | — | 144/260 (55%) | 260/260 (100%) | 혼용률 +0 컬러 +0 |  |
 | Mango | — | 54/93 (58%) | 0/93 (0%) | 혼용률 +0 컬러 +0 |  |
 | Aritzia | — | 503/800 (63%) | 3/800 (0%) | 혼용률 +0 컬러 +0 |  |
@@ -119,6 +119,7 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Whistles | — | 205/217 (94%) | 216/217 (100%) | 혼용률 +0 컬러 +0 |  |
 | Eddie bauer | — | 189/200 (95%) | 175/200 (88%) | 혼용률 +0 컬러 +0 |  |
 | L.L bean | — | 293/310 (95%) | 256/310 (83%) | 혼용률 +0 컬러 +0 |  |
+| Evereve | ✅ | 420/444 (95%) | 444/444 (100%) | 혼용률 +0 컬러 +0 |  |
 | Faherty | ✅ | 161/170 (95%) | 169/170 (99%) | 혼용률 +0 컬러 +0 |  |
 | Citizens of Humanity | ✅ | 162/171 (95%) | 171/171 (100%) | 혼용률 +0 컬러 +0 |  |
 | Vanessa bruno | ✅ | 55/58 (95%) | 58/58 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -164,7 +165,6 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Nation LTD | ✅ | 525/525 (100%) | 525/525 (100%) | 혼용률 +0 컬러 +0 |  |
 | Old Navy | — | 7/7 (100%) | 0/7 (0%) | 혼용률 +0 컬러 +0 |  |
 | Z Supply | — | 216/216 (100%) | 190/216 (88%) | 혼용률 +0 컬러 +0 |  |
-| Evereve | ✅ | 957/444 (216%) | 1000/444 (225%) | 혼용률 +1 컬러 +1 | 성공 쇼피JSON 1·페이지 1 |
 
 ## 웹 아카이브 층
 
@@ -172,7 +172,6 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 
 | 브랜드 | 시도 상품 | 혼용률(지금 페이지) | 혼용률(보관본) | 보관본 없음 | 보관본 거부 | 주소 거부 | 아카이브 오류 | 상한·최근 물음 | 걸린 시간 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Evereve | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1s |
 
 사유별 개수: 없음
 
