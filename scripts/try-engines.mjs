@@ -9,6 +9,7 @@
 //   wayback           웹 아카이브(archive.org)에 보관된 같은 상품 페이지를 읽는다 — 차단과 무관 · 상품만
 //   playwright        지금 쓰는 헤드리스 크롬(기준선)
 //   firefox           그냥 Playwright 파이어폭스(지문 주입 없음, 파이어폭스 자기 UA 그대로)
+//   firefox-fresh     파이어폭스, 페이지마다 쿠키가 빈 새 창(첫 URL 만 열리고 뒤가 막히는 현상 가리기) — 기본 목록에는 없음
 //   firefox-fp        파이어폭스 + fingerprint-injector 만(Crawlee 크롤러 없이) — 기본 목록에는 없음
 //   patchright        자동화 흔적을 지운 Playwright 패치판
 //   crawlee-chromium  Crawlee PlaywrightCrawler + 지문 생성·주입(fingerprint-suite) + 세션 풀
@@ -353,6 +354,19 @@ async function runFirefox(urls, put) {
   await browser.close();
 }
 
+// 파이어폭스, 페이지마다 쿠키가 빈 새 창. 11/25 측정에서 Prana·The upside·Reformation·Anthropologie 가
+// 브랜드의 첫 URL 만 열리고 다음부터 403 이었다 — 첫 방문 뒤 받은 봇 판정 쿠키 때문인지 가리려는 것.
+async function runFirefoxFresh(urls, put) {
+  const { firefox } = await import("playwright");
+  const browser = await firefox.launch();
+  for (const url of urls) {
+    const ctx = await browser.newContext({ locale: "en-US" });
+    await readAll(ctx, [url], put);
+    await ctx.close().catch(() => {});
+  }
+  await browser.close();
+}
+
 // 파이어폭스 + 지문 생성·주입을 크롤러 없이 컨텍스트에 바로 붙인다(enrich-comp-browser 의 firefox-fp 와 같은 코드).
 // crawlee-firefox 의 효과가 이것만으로 나오는지 보려는 것.
 async function runFirefoxFp(urls, put) {
@@ -556,6 +570,7 @@ async function runExt(name, urls, put) {
 const RUN = {
   playwright: (u, put) => runPlainBrowser("playwright", u, put),
   firefox: (u, put) => runFirefox(u, put),
+  "firefox-fresh": (u, put) => runFirefoxFresh(u, put),
   "firefox-fp": (u, put) => runFirefoxFp(u, put),
   patchright: (u, put) => runPlainBrowser("patchright", u, put),
   "crawlee-chromium": (u, put) => runCrawlee("chromium", u, put),
