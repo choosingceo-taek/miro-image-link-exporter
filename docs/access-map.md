@@ -1,6 +1,6 @@
 # 접근 지도 — 134개 브랜드, 우리 수집기가 어디까지 닿는가
 
-만든 때 2026-11-25T10:25Z · 측정 실행 16회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
+만든 때 2026-11-25T14:42Z · 측정 실행 16회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
 
 이 문서는 `node scripts/build-access-map.mjs` 가 만든다. 같은 사실이 `access-map.json` 에 기계용으로 있다.
 판정 근거는 세 가지뿐이다 — ① 11/25 야간 리포트(서버 프리페치·헤드리스 수집·카탈로그 점검·혼용률 보강),
@@ -13,12 +13,12 @@
 
 | 상태 | 브랜드 | 상품(카탈로그) | 브랜드 이름 |
 |---|---:|---:|---|
-| ✅ 된다 | 83 | 23,415 | Addison bay, Aerie, ALC, Alo, American Eagle, Apiece Apart, Barbour, Bassike, Bellerose, Beyond yoga, Boden, Boldest, Buck Mason, CCC, Citizens of Humanity, Club monaco, Coldwatercreek, Cotton citizen, Cotton on, Damson Madder, Draper James, Eddie bauer, English factory, Evereve, Everlane, Faherty, Frame, Frank & Eileen, Gerard darel, Gestuz, Goldie, Greyson, Gymshark, Hobbs, J crew, J.jill, J.mclaughlin, Jager, Jigsaw, La Ligne, Leset, Lilla P, LNA, Marine Layer, Me+Em, Michael Stars, Mint velvet, Monrow, Ninety Percent, Nylora, Oak + Fort, Oasis, On, Outdoorvoices, Phase eight, Poetry, Project Social T, Rag & bone, Rails, rouje, Sanctuary, Scoth & soda, Shopbop, Spanx, Splendid, Splits59, Stateside, Sundry, Sweaty betty, The Great, Thread & supply, Tuckernuck, Ulla Johnson, Varley, Velvet, Veronica Beard, Vince, Vuori, Whistles, Wrap, Xirena, Z Supply, Zara |
-| 🏠 집 IP(확장)에서만 | 27 | 8,982 | &Other Stories, Abercrombie & Fitch, Addidas, Ann Taylor, Anthropologie, Aritzia, Arket, Eileen fisher, Fatface, FP Movement, Free People, H&M, Joules, L.L bean, Lands end, Loft, Lululemon, Madewell, Mango, Massimo Dutti, Paige, Patagonia, Seasalt cornwall, Sezane, The white company, Theory, Wilson |
-| 🟠 일부만 | 9 | 4,104 | Chico's, Garnet hill, James Perse, Nation LTD, Reformation, The upside, vineyardvines, WHBM, Whitestuff |
+| ✅ 된다 | 97 | 26,646 | Addison bay, Aerie, ALC, Alo, American Eagle, Apiece Apart, Athleta, Banana Republic, Barbour, Bash, Bassike, Bellerose, Beyond yoga, Boden, Boldest, Buck Mason, Carlhartt, CCC, Citizens of Humanity, Club monaco, Coldwatercreek, Cotton citizen, Cotton on, Damson Madder, Draper James, Eddie bauer, English factory, Evereve, Everlane, Faherty, Frame, Frank & Eileen, Gap, Gerard darel, Gestuz, Goldie, Greyson, Gymshark, H&M, Hobbs, J crew, J.jill, J.mclaughlin, Jager, Jigsaw, La Ligne, Leset, Lilla P, LNA, Marine Layer, Me+Em, Michael Stars, Mint velvet, Monrow, Nike, Ninety Percent, Nylora, Oak + Fort, Oasis, Old Navy, On, Outdoorvoices, Phase eight, Poetry, Project Social T, Rag & bone, Rails, Reformation, rouje, Sanctuary, Scoth & soda, Seasalt cornwall, Sessun, Shopbop, Spanx, Splendid, Splits59, Stateside, Sundry, Sweaty betty, The Great, The upside, Thread & supply, Tuckernuck, Ulla Johnson, Vanessa bruno, Varley, Velvet, Veronica Beard, Vince, Vuori, Whistles, Whitestuff, Wrap, Xirena, Z Supply, Zara |
+| 🏠 집 IP(확장)에서만 | 25 | 7,959 | &Other Stories, Abercrombie & Fitch, Addidas, Ann Taylor, Anthropologie, Aritzia, Arket, Eileen fisher, Fatface, FP Movement, Free People, Joules, L.L bean, Lands end, Loft, Lululemon, Madewell, Mango, Massimo Dutti, Paige, Patagonia, Sezane, The white company, Theory, Wilson |
+| 🟠 일부만 | 6 | 2,738 | Chico's, Garnet hill, James Perse, Nation LTD, vineyardvines, WHBM |
 | ⛔ 어디서도 막힘 | 1 | 81 | Prana |
 | 🔗 URL 이 틀림·죽음 | 2 | 786 | Good American, Lucky Brand |
-| 🔧 열리는데 잘못 읽음 | 12 | 1,152 | Athleta, Banana Republic, Bash, Carlhartt, Dickies, Gap, Monsoon, Nike, Old Navy, Oysho, Sessun, Vanessa bruno |
+| 🔧 열리는데 잘못 읽음 | 3 | 310 | Dickies, Monsoon, Oysho |
 | **합계** | **134** | **38,520** | |
 
 
@@ -188,7 +188,7 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 ✅ 행에서 impit 이 0 이어도 문제가 아니다 — 그 사이트는 상품을 스크립트로 그리고, 서버는 Shopify JSON 같은 다른 길로 읽는다(야간 수치가 근거).
 
 
-### ✅ 된다 — 83개 브랜드 · 상품 23,415개
+### ✅ 된다 — 97개 브랜드 · 상품 26,646개
 
 | 브랜드 | 담당 | 상품 | 혼용률 | 근거 |
 |---|---|---:|---:|---|
@@ -198,13 +198,17 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 | Alo | 서버(Render) | 190 | 89% | 서버 프리페치 11/25 190개(6일 190·198·201·193·215·216) — 오늘 impit 0/8 · 11/25 야간 실측(규칙 판정) |
 | American Eagle | 헤드리스(Actions) | 178 | 99% | 헤드리스 11/25 178개 · URL 30·30·30·30·30·30 — 오늘 impit 12/12 · 11/25 야간 실측(규칙 판정) |
 | Apiece Apart | 헤드리스(Actions) | 102 | 94% | 헤드리스 11/25 102개 · URL 39·39·24 — 오늘 impit 0/6 · 11/25 야간 실측(규칙 판정) |
+| Athleta | 크롬 확장(집 PC) | 1 | 0% | 11/25 측정 2회 403개(확장 1) — 같은 원인 — 오늘 impit 0/16 · playwright 3/8 · firefox 8/8 · firefox-fresh 4/4 · 측정·판정 |
+| Banana Republic | 크롬 확장(집 PC) | 1 | 0% | 11/25 측정 2회 511개(확장 1) — 같은 원인 — 오늘 impit 0/16 · playwright 8/8 · firefox 8/8 · firefox-fresh 4/4 · 측정·판정 |
 | Barbour | 헤드리스(Actions) | 170 | 90% | 헤드리스 11/25 170개 · URL 41·41·41·34·38 — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
+| Bash | 서버(Render) | 50 | 94% | 11/25 측정 2회 295개 · URL 35~107(서버 4~24) — 오늘 impit 16/16 · playwright 6/6 · firefox 6/6 · server 4/10 · firefox-fresh 3/3 · 측정·판정 |
 | Bassike | 서버(Render) | 318 | 97% | 서버 프리페치 11/25 318개(6일 318·320·278·320·320·324) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Bellerose | 서버(Render) | 231 | 91% | 서버 프리페치 11/25 231개(6일 231·171·172·172·172·169) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Beyond yoga | 서버(Render) | 175 | 98% | 서버 프리페치 11/25 175개(6일 175·175·178·178·178·179) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Boden | 서버(Render) | 331 | 94% | 서버 프리페치 11/25 331개(6일 331·341·344·343·342·343) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Boldest | 헤드리스(Actions) | 136 | 100% | 헤드리스 11/25 136개 · URL 71·65 — 오늘 impit 0/4 · 11/25 야간 실측(규칙 판정) |
 | Buck Mason | 서버(Render) | 119 | 48% | 서버 프리페치 11/25 119개(6일 119·120·120·120·119·118) — 오늘 impit 12/12 · 11/25 야간 실측(규칙 판정) |
+| Carlhartt | 헤드리스(Actions) | 148 | 73% | 11/25 측정 4회 71개 — 전부 /product/ 상품(이전 148개 중 다수가 /c/ 메뉴 타일) — 오늘 impit 12/14 · playwright 4/4 · firefox 4/4 · firefox-fresh 2/2 · 측정·판정 |
 | CCC | 헤드리스(Actions) | 800 | 94% | 헤드리스 11/25 240개 · URL 53·53·53·53·53 — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Citizens of Humanity | 서버(Render) | 171 | 95% | 서버 프리페치 11/25 171개(6일 171·171·171·171·171·171) — 오늘 impit 6/8 · 11/25 야간 실측(규칙 판정) |
 | Club monaco | 서버(Render) | 169 | 82% | 서버 프리페치 11/25 169개(6일 169·169·171·171·171·172) — 오늘 impit 6/6 · 11/25 야간 실측(규칙 판정) |
@@ -220,11 +224,13 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 | Faherty | 서버(Render) | 170 | 95% | 서버 프리페치 11/25 170개(6일 170·170·172·172·175·177) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Frame | 서버(Render) | 189 | 89% | 서버 프리페치 11/25 189개(6일 189·190·191·191·191·190) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Frank & Eileen | 서버(Render) | 448 | 99% | 프리페치 445~446개(11/25 하루만 80 — 같은 날 낮 서버 측정은 카테고리당 33~99개) — 오늘 impit 16/16 · playwright 6/6 · firefox 6/6 · server 10/10 · firefox-fresh 3/3 · 측정·판정 |
+| Gap | 크롬 확장(집 PC) | 6 | 0% | 11/25 측정 2회 472개(확장 6) — 원인은 ?pid= 상품 번호를 버린 것 + 가상 스크롤(수집기 고침) — 오늘 impit 0/16 · playwright 8/8 · firefox 8/8 · firefox-fresh 4/4 · 측정·판정 |
 | Gerard darel | 헤드리스(Actions) | 138 | 97% | 헤드리스 11/25 138개 · URL 23·50·33·38 — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Gestuz | 헤드리스(Actions) | 643 | 93% | 헤드리스 11/25 643개 · URL 135·116·116·62·181·97 — 오늘 impit 12/12 · 11/25 야간 실측(규칙 판정) |
 | Goldie | 서버(Render) | 139 | 99% | 서버 프리페치 11/25 139개(6일 139·139·138·138·138·138) — 오늘 impit 4/4 · 11/25 야간 실측(규칙 판정) |
 | Greyson | 서버(Render) | 93 | 96% | 서버 프리페치 11/25 93개(6일 93·93·93·93·93·93) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Gymshark | 서버(Render) | 274 | 99% | 서버 프리페치 11/25 274개(6일 274·275·277·280·285·290) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
+| H&M | 크롬 확장(집 PC) | 744 | 0% | 11/25 저장 안 함 측정 4회 745개 · URL 156~176(확장 145~150) — 오늘 impit 16/16 · playwright 0/6 · firefox 6/6 · firefox-fresh 3/3 · 측정·판정 |
 | Hobbs | 서버(Render) | 353 | 91% | 서버 프리페치 11/25 353개(6일 353·352·352·353·352·351) — 오늘 impit 6/6 · 11/25 야간 실측(규칙 판정) |
 | J crew | 헤드리스(Actions) | 215 | 29% | 헤드리스 11/25 215개 · URL 59·46·62·57·73 — 오늘 impit 0/10 · 11/25 야간 실측(규칙 판정) |
 | J.jill | 서버(Render) | 89 | 93% | 서버 프리페치 11/25 89개(6일 89·89·89·90·88·89) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
@@ -240,10 +246,12 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 | Michael Stars | 서버(Render) | 203 | 83% | 서버 프리페치 11/25 203개(6일 203·209·209·209·209·199) — 오늘 impit 12/12 · 11/25 야간 실측(규칙 판정) |
 | Mint velvet | 서버(Render) | 416 | 70% | 서버 프리페치 11/25 416개(6일 416·416·417·417·417·417) — 오늘 impit 0/12 · 11/25 야간 실측(규칙 판정) |
 | Monrow | 서버(Render) | 200 | 93% | 서버 프리페치 11/25 200개(6일 200·198·197·197·197·197) — 오늘 impit 6/6 · 11/25 야간 실측(규칙 판정) |
+| Nike | 헤드리스(Actions) | 490 | 82% | 11/25 측정 4회 487~559개 — 표본이 /t/ 상품 — 오늘 impit 0/12 · playwright 4/4 · firefox 4/4 · firefox-fresh 2/2 · 측정·판정 |
 | Ninety Percent | 서버(Render) | 156 | 99% | 서버 프리페치 11/25 156개(6일 156·156·156·156·156·156) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Nylora | 서버(Render) | 237 | 96% | 서버 프리페치 11/25 237개(6일 237·236·236·236·236·233) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Oak + Fort | 서버(Render) | 336 | 100% | 서버 프리페치 11/25 336개(6일 336·337·336·337·337·337) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Oasis | 서버(Render) | 133 | 90% | 서버 프리페치 11/25 133개(6일 133·120·130·144·138·120) — 오늘 impit 0/10 · 11/25 야간 실측(규칙 판정) |
+| Old Navy | 크롬 확장(집 PC) | 7 | 100% | 11/25 측정 2회 693개(확장 7) — 같은 원인 — 오늘 impit 0/20 · playwright 10/10 · firefox 10/10 · firefox-fresh 5/5 · 측정·판정 |
 | On | 헤드리스(Actions) | 263 | 92% | 헤드리스 11/25 263개 · URL 165·73·19·60 — 오늘 impit 0/8 · 11/25 야간 실측(규칙 판정) |
 | Outdoorvoices | 서버(Render) | 126 | 94% | 서버 프리페치 11/25 126개(6일 126·121·121·121·121·121) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Phase eight | 서버(Render) | 400 | 93% | 서버 프리페치 11/25 400개(6일 400·400·400·400·400·401) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
@@ -251,9 +259,12 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 | Project Social T | 서버(Render) | 275 | 91% | 서버 프리페치 11/25 275개(6일 275·275·275·275·275·275) — 오늘 impit 14/14 · 11/25 야간 실측(규칙 판정) |
 | Rag & bone | 서버(Render) | 244 | 99% | 서버 프리페치 11/25 244개(6일 244·241·237·238·240·244) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Rails | 서버(Render) | 290 | 85% | 서버 프리페치 11/25 290개(6일 290·290·289·289·289·289) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
+| Reformation | 서버(Render) | 753 | 35% | 11/25 측정 2회 535개(서버 하루 221) — 오늘 impit 0/16 · playwright 6/6 · firefox 2/6 · server 7/10 · firefox-fresh 3/3 · 측정·판정 |
 | rouje | 서버(Render) | 232 | 64% | 서버 프리페치 11/25 232개(6일 232·232·232·232·232·232) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Sanctuary | 서버(Render) | 421 | 98% | 서버 프리페치 11/25 421개(6일 421·421·421·421·422·422) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Scoth & soda | 서버(Render) | 378 | 96% | 서버 프리페치 11/25 378개(6일 378·379·382·384·385·387) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
+| Seasalt cornwall | 크롬 확장(집 PC) | 279 | 95% | 11/25 측정 2회 276개 · URL 141·91·58·88·53(확장 131·50·1·65·32) — 오늘 impit 16/16 · playwright 6/6 · firefox 6/6 · firefox-fresh 3/3 · 측정·판정 |
+| Sessun | 서버(Render) | 81 | 42% | 11/25 측정 2회 211개 · 진짜 상품 주소(서버 81, 사진 주소 조각 섞임) — 오늘 impit 10/10 · 측정·판정 |
 | Shopbop | 헤드리스(Actions) | 453 | 86% | 헤드리스 11/25 453개 · URL 237·242·240·246 — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Spanx | 서버(Render) | 84 | 79% | 서버 프리페치 11/25 84개(6일 84·79·79·81·80·80) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Splendid | 서버(Render) | 404 | 84% | 프리페치 403~404개(Shopify 경로) · 평 HTML 은 스크립트가 그림 — 오늘 impit 0/10 · 측정·판정 |
@@ -262,65 +273,63 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 | Sundry | 서버(Render) | 246 | 96% | 서버 프리페치 11/25 246개(6일 246·246·246·246·246·246) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Sweaty betty | 헤드리스(Actions) | 405 | 95% | 헤드리스 11/25 78개 · URL 36·36·23·39 — 오늘 impit 0/8 · 11/25 야간 실측(규칙 판정) |
 | The Great | 서버(Render) | 240 | 97% | 프리페치 11/25 240개(앞 5일 111~119로 흔들림) · 낮 서버 측정 카테고리당 16~84 · 크롬 42~267 — 오늘 impit 0/16 · playwright 6/6 · firefox 6/6 · server 10/10 · firefox-fresh 3/3 · 측정·판정 |
+| The upside | 헤드리스(Actions) | 429 | 75% | 11/25 측정 4회 170~231개 · 4개 URL 모두 열림(야간 크롬 70·0·0·0) — 오늘 impit 0/16 · playwright 2/8 · firefox 2/8 · firefox-fresh 4/4 · 측정·판정 |
 | Thread & supply | 서버(Render) | 258 | 97% | 서버 프리페치 11/25 258개(6일 258·258·258·258·258·258) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Tuckernuck | 서버(Render) | 376 | 88% | 서버 프리페치 11/25 376개(6일 376·379·378·379·378·382) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Ulla Johnson | 서버(Render) | 307 | 97% | 서버 프리페치 11/25 307개(6일 307·308·309·309·308·308) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
+| Vanessa bruno | 서버(Render) | 58 | 95% | 11/25 측정 2회 207개(서버 6) — knitwear 엑셀 주소는 여전히 첫 화면으로 튕김(URL 표) — 오늘 impit 6/18 · playwright 4/6 · firefox 4/6 · server 4/12 · firefox-fresh 2/3 · 측정·판정 |
 | Varley | 서버(Render) | 285 | 97% | 서버 프리페치 11/25 285개(6일 285·284·295·295·292·292) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Velvet | 서버(Render) | 352 | 100% | 서버 프리페치 11/25 352개(6일 352·352·352·352·352·352) — 오늘 impit 0/12 · 11/25 야간 실측(규칙 판정) |
 | Veronica Beard | 서버(Render) | 375 | 93% | 서버 프리페치 11/25 339개(6일 339·338·337·338·337·0) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Vince | 서버(Render) | 381 | 99% | 서버 프리페치 11/25 381개(6일 381·384·385·385·385·385) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Vuori | 서버(Render) | 219 | 94% | 서버 프리페치 11/25 219개(6일 219·219·219·219·219·219) — 오늘 impit 0/12 · 11/25 야간 실측(규칙 판정) |
 | Whistles | 서버(Render) | 217 | 94% | 서버 프리페치 11/25 217개(6일 217·217·216·218·214·214) — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
+| Whitestuff | 서버(Render) | 184 | 78% | 11/25 측정 4회 652~664개(서버 114~267) — 오늘 impit 18/18 · playwright 6/6 · firefox 6/6 · server 3/12 · firefox-fresh 3/3 · 측정·판정 |
 | Wrap | 헤드리스(Actions) | 374 | 90% | 헤드리스 11/25 374개 · URL 100·115·63·48·91 — 오늘 impit 10/10 · 11/25 야간 실측(규칙 판정) |
 | Xirena | 서버(Render) | 333 | 96% | 서버 프리페치 11/25 333개(6일 333·332·321·321·321·271) — 오늘 impit 8/8 · 11/25 야간 실측(규칙 판정) |
 | Z Supply | 서버(Render) | 216 | 100% | 서버 프리페치 11/25 216개(6일 216·215·206·208·207·207) — 오늘 impit 0/12 · 11/25 야간 실측(규칙 판정) |
 | Zara | 서버(Render) | 499 | 0% | 서버 프리페치 499개(Zara 전용 경로) · 평 HTML 은 Akamai 빈 확인 화면이지만 서버 길은 영향 없음 — 오늘 impit 0/12 · 측정·판정 |
 
-### 🏠 집 IP(확장)에서만 — 27개 브랜드 · 상품 8,982개
+### 🏠 집 IP(확장)에서만 — 25개 브랜드 · 상품 7,959개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| &Other Stories | 크롬 확장(집 PC) | 343 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 343개(URL 4/5 · tops 12개) — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스(browser-extra-brands) 또는 서버 HTML 로 옮김 — 11/24 파이어폭스 수집 475개 · 오늘 impit·파이어폭스 전부 성공 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| &Other Stories | 크롬 확장(집 PC) | 343 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 343개(URL 4/5 · tops 12개) — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스(browser-extra-brands) 또는 서버 HTML 로 옮김 — 11/24 파이어폭스 수집 475개 · 오늘 impit·파이어폭스 전부 성공 · 11/25 파이어폭스 측정 6회 470~479개(확장 343)이지만 sweatshirts 6(확장 12)·셔츠 96~99(102) 미달 — 추가 안 함 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Abercrombie & Fitch | 크롬 확장(집 PC) | 214 | 업체 불명 'Client Challenge' 확인 화면(쿠키 _fs_ch_st_*) · 크롬은 HTTP 418 | 확장 214개(6/6 URL) — 오늘 impit 0/18(blocked) · playwright 0/6(blocked 418) · firefox 0/6(blocked) · firefox-fresh 0/3(blocked) | 확장 유지. 서버에 A&F 전용 카탈로그 API 코드(abercrombie-catalog)가 있다 — 데이터센터에서 되는지 안 재 봄(추정) | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
 | Addidas | 크롬 확장(집 PC) | 408 | Akamai 거부(“Reference Error … unable to give you access”) — 모든 엔진 | 확장 408개(URL 3/4) — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked·conn-drop 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 · 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| Ann Taylor | 크롬 확장(집 PC) | 381 | 브라우저는 PerimeterX 차단 화면(“Access to this page has been denied” + px-cloud.net) · 평 HTML(impit)은 상품 250개 넘게 보임 | 확장 381개 — 오늘 impit 12/12 · playwright 2/6(blocked) · firefox 0/6(blocked) · firefox-fresh 0/3(blocked) | 서버 HTML 수집(브라우저 TLS 지문 fetch)으로 옮김 — 오늘 impit 9/9 URL 에서 상품 링크 252~261개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Ann Taylor | 크롬 확장(집 PC) | 381 | 브라우저는 PerimeterX 차단 화면(“Access to this page has been denied” + px-cloud.net) · 평 HTML(impit)은 상품 250개 넘게 보임 | 확장 381개 — 오늘 impit 12/12 · playwright 2/6(blocked) · firefox 0/6(blocked) · firefox-fresh 0/3(blocked) | 서버 HTML 수집(브라우저 TLS 지문 fetch)으로 옮김 — 오늘 impit 9/9 URL 에서 상품 링크 252~261개 · 11/25 impit 2회 모두 PerimeterX 확인 화면(/px?url=…)으로 넘어감 — 오늘은 안 열림, 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Anthropologie | 크롬 확장(집 PC) | 270 | DataDome 차단(x-datadome: protected · 쿠키 datadome · captcha-delivery) — 파이어폭스는 첫 URL 만 열리고 다음부터 403 | 확장 270개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 · 유료(DataDome 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| Aritzia | 크롬 확장(집 PC) | 800 | Cloudflare 확인 화면(Just a moment… · cf-mitigated: challenge) — 파이어폭스는 3개 중 1개만 | 확장 800개(6/6 URL) — 오늘 impit 0/18(blocked 403) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 서버에 Aritzia 검색 API(Algolia) 코드가 이미 있다 — 데이터센터에서 되면 무료(오늘 안 잼, 추정) · 아니면 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| Arket | 크롬 확장(집 PC) | 285 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 285개(URL 4/5) — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스 또는 서버 HTML — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 373개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Aritzia | 크롬 확장(집 PC) | 800 | Cloudflare 확인 화면(Just a moment… · cf-mitigated: challenge) — 파이어폭스는 3개 중 1개만 | 확장 800개(6/6 URL) — 오늘 impit 0/18(blocked 403) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 서버에 Aritzia 검색 API(Algolia) 코드가 이미 있다 — 데이터센터에서 되면 무료(오늘 안 잼, 추정) · 아니면 확장 유지 · 11/25 Algolia 검색 API(데이터센터) 측정 4회 509~510개 — 열리지만 확장 800 에 못 미쳐 추가 안 함(scripts/listing-api.mjs 에 경로는 있음) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Arket | 크롬 확장(집 PC) | 285 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 285개(URL 4/5) — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스 또는 서버 HTML — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 373개 · 11/25 파이어폭스 측정 6회 370~381개(확장 285)이지만 t-shirts 56~63·셔츠 114~117 로 확장(63·119)에 조금 못 미쳐 추가 안 함 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Eileen fisher | 크롬 확장(집 PC) | 545 | Akamai 거부 화면(Access Denied · Reference #) — 모든 엔진 | 확장 545개 — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
 | Fatface | 크롬 확장(집 PC) | 374 | Akamai 거부 — 모든 엔진 | 확장 374개(URL 3/4) — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
 | FP Movement | 크롬 확장(집 PC) | 58 | DataDome 차단 — 모든 엔진 | 확장 58개 · 표본이 카테고리 타일(수집기가 잘못 잡음 의심) — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 + 확장 수집기 선택자 확인 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
 | Free People | 크롬 확장(집 PC) | 190 | DataDome 차단 — 모든 엔진 | 확장 190개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 · 유료(DataDome 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| H&M | 크롬 확장(집 PC) | 744 | 크롬만 Akamai 403 — 평 HTML(impit)에 상품 링크 323개, 파이어폭스도 열림 | 확장 744개 — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 744개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Joules | 크롬 확장(집 PC) | 459 | Akamai 거부 — 모든 엔진(Fatface 와 같은 플랫폼) | 확장 459개(URL 4/5) — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| L.L bean | 크롬 확장(집 PC) | 310 | 크롬만 Cloudflare 차단(Attention Required) — 평 HTML·파이어폭스는 열림 | 확장 310개 — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13(상품 링크 244~276)·파이어폭스 3/3 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| L.L bean | 크롬 확장(집 PC) | 310 | 크롬만 Cloudflare 차단(Attention Required) — 평 HTML·파이어폭스는 열림 | 확장 310개 — 오늘 impit 16/16 · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13(상품 링크 244~276)·파이어폭스 3/3 · 11/25 파이어폭스 측정 6회 296개(확장 310) · tees 109(확장 126) 미달 · 한 번에 14분 — 추가 안 함 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Lands end | 크롬 확장(집 PC) | 469 | Akamai 거부 — 모든 엔진 | 확장 469개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| Loft | 크롬 확장(집 PC) | 673 | 브라우저는 PerimeterX 차단 화면 · 평 HTML(impit)은 상품 링크 171개 | 확장 673개 — 오늘 impit 16/16 · playwright 0/6(blocked) · firefox 2/6(blocked) · firefox-fresh 0/3(blocked) | 서버 HTML 수집으로 옮김 — 오늘 impit 13/13 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Loft | 크롬 확장(집 PC) | 673 | 브라우저는 PerimeterX 차단 화면 · 평 HTML(impit)은 상품 링크 171개 | 확장 673개 — 오늘 impit 16/16 · playwright 0/6(blocked) · firefox 2/6(blocked) · firefox-fresh 0/3(blocked) | 서버 HTML 수집으로 옮김 — 오늘 impit 13/13 · 11/25 impit 2회 모두 오류 페이지(demandware)로 넘어감 — 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Lululemon | 크롬 확장(집 PC) | 476 | Akamai 거부 — 모든 엔진(크롬은 접속 끊김) | 확장 476개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(conn-drop) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 · 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| Madewell | 크롬 확장(집 PC) | 75 | 차단 없음 — 데이터센터 크롬·파이어폭스 3/3(22~26개). 평 HTML 엔 상품이 적음(스크립트가 그림) | 확장 75개(URL 35·26·6·8) — 오늘 impit 4/14(no-cards) · playwright 6/6 · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 크롬 그룹으로 옮김(무료). URL 이 한국 지역(/kr/)이라 가격이 원화일 수 있음 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Madewell | 크롬 확장(집 PC) | 75 | 차단 없음 — 데이터센터 크롬·파이어폭스 3/3(22~26개). 평 HTML 엔 상품이 적음(스크립트가 그림) | 확장 75개(URL 35·26·6·8) — 오늘 impit 4/14(no-cards) · playwright 6/6 · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 크롬 그룹으로 옮김(무료). URL 이 한국 지역(/kr/)이라 가격이 원화일 수 있음 · 11/25 크롬 측정 6회 6개 — 데이터센터에선 상품 대신 공용 기획전 링크만 보임. /kr 를 빼도 같음 — 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Mango | 크롬 확장(집 PC) | 93 | Vercel 보안 확인 화면(Vercel Security Checkpoint, HTTP 429) — 모든 엔진 · 확장도 URL 당 14~16개만 | 확장 93개 — 오늘 impit 0/18(blocked 429) · playwright 0/6(blocked 429) · firefox 0/6(blocked 429) · firefox-fresh 0/3(blocked 429) | 확장 유지 + 확장 수집기의 더 보기/스크롤 확인 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| Massimo Dutti | 크롬 확장(집 PC) | 603 | 평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2회 모두 열림(한 창 2/3 — 1개 404, 새 창 3/3) | 확장 603개 — 오늘 impit 0/16(blocked) · playwright 0/6(blocked 403) · firefox 4/6(dead 404) · firefox-fresh 3/3 | 헤드리스 파이어폭스(+새 창) — 11/24 111개 · 오늘 2회 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Massimo Dutti | 크롬 확장(집 PC) | 603 | 평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2회 모두 열림(한 창 2/3 — 1개 404, 새 창 3/3) | 확장 603개 — 오늘 impit 0/16(blocked) · playwright 0/6(blocked 403) · firefox 4/6(dead 404) · firefox-fresh 3/3 | 헤드리스 파이어폭스(+새 창) — 11/24 111개 · 오늘 2회 · 11/25 파이어폭스+새 창 측정 6회 114~228개(확장 603) — 미달, 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Paige | 크롬 확장(집 PC) | 60 | Vercel 보안 확인 화면(HTTP 429) — 모든 엔진 | 확장 60개(URL 당 8~24) — 오늘 impit 0/16(blocked 429) · playwright 0/6(blocked 429) · firefox 0/6(blocked 429) · firefox-fresh 0/3(blocked 429) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
 | Patagonia | 크롬 확장(집 PC) | 168 | 데이터센터에는 '시스템 점검 중' 정적 화면(server: AkamaiNetStorage) — 진짜 점검이 아니라 봇에게 보내는 화면으로 보임(낮음) · 파이어폭스 1/3 | 확장 168개 — 오늘 impit 0/16(maintenance) · playwright 0/6(maintenance) · firefox 2/6(maintenance) · firefox-fresh 0/3(maintenance) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| Seasalt cornwall | 크롬 확장(집 PC) | 279 | 차단 없음 — 데이터센터 모든 엔진 성공 | 확장 279개 — 오늘 impit 16/16 · playwright 6/6 · firefox 6/6 · firefox-fresh 3/3 | 서버(HTML) 그룹으로 옮김 — 오늘 impit 13/13 · 크롬·파이어폭스 59~60개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Sezane | 크롬 확장(집 PC) | 206 | DataDome 차단(CloudFront 앞단) — 모든 엔진 | 확장 206개(URL 1개는 1개만) — 오늘 impit 0/14(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| The white company | 크롬 확장(집 PC) | 68 | 지역: /uk/ 주소가 미국 IP 에서 /us/ 로 넘어가 '미국으로 배송 못 함' 화면 — 차단 아님 | 확장 68개(URL 2/3) — 오늘 impit 0/12(geo) · playwright 0/6(geo·dead 404) · firefox 0/6(geo·dead 404) · firefox-fresh 0/3(geo) | 영국 지역 쿠키·파라미터로 열어 보기(무료, 안 재 봄) · 안 되면 영국 IP(유료 서비스의 국가 지정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| The white company | 크롬 확장(집 PC) | 68 | 지역: /uk/ 주소가 미국 IP 에서 /us/ 로 넘어가 '미국으로 배송 못 함' 화면 — 차단 아님 | 확장 68개(URL 2/3) — 오늘 impit 0/12(geo) · playwright 0/6(geo·dead 404) · firefox 0/6(geo·dead 404) · firefox-fresh 0/3(geo) | 영국 지역 쿠키·파라미터로 열어 보기(무료, 안 재 봄) · 안 되면 영국 IP(유료 서비스의 국가 지정) · 11/25 /us/ 주소로 파이어폭스 측정 2회 0개 — 지역 문제 그대로, 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 | Theory | 크롬 확장(집 PC) | 379 | Akamai 거부 — 모든 엔진 | 확장 379개 — 오늘 impit 0/16(blocked 403) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) · firefox-fresh 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 4회 |
-| Wilson | 크롬 확장(집 PC) | 52 | 차단 없음 — 데이터센터 모든 엔진 성공(크롬·파이어폭스 24~28개 > 확장 4~19개) | 확장 52개 — 오늘 impit 18/18 · playwright 6/6 · firefox 5/6(blocked 403) · firefox-fresh 1/3(blocked 403) | 헤드리스 크롬 그룹으로 옮김(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| Wilson | 크롬 확장(집 PC) | 52 | 차단 없음 — 데이터센터 모든 엔진 성공(크롬·파이어폭스 24~28개 > 확장 4~19개) | 확장 52개 — 오늘 impit 18/18 · playwright 6/6 · firefox 5/6(blocked 403) · firefox-fresh 1/3(blocked 403) | 헤드리스 크롬 그룹으로 옮김(무료) · 11/25 크롬 측정 6회 83~96개(확장 52)이지만 tanks 14~16(확장 19) 미달 — 추가 안 함 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 
-### 🟠 일부만 — 9개 브랜드 · 상품 4,104개
+### 🟠 일부만 — 6개 브랜드 · 상품 2,738개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
 | Chico's | 서버(Render) | 800 | Akamai 거부 — impit·크롬 늘 403. 파이어폭스는 러너에 따라 첫 카테고리만 열리고(11/24·11/25 각 1회, 73개) 나머지 403, 새 창으로도 403 — IP 단위로 첫 요청 뒤 막는 것으로 보임. 서버는 리더 프록시(r.jina.ai) 우회로 가끔 성공(6일 중 3일) — 그 우회는 429 한도 | 프리페치 6일 3·3·262·251·3·208 · 카탈로그 11/22 이후 갱신 없음 — 오늘 impit 0/25(blocked 403) · playwright 0/10(blocked 403) · firefox 1/15(blocked 403) · server 6/10(blocked·shell 403) · firefox-fresh 0/10(blocked 403) | 확장 담당으로 옮김(집 IP) — 또는 유료(Akamai 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 7회 |
-| Garnet hill | 크롬 확장(집 PC) | 108 | Akamai — 크롬 403 · 파이어폭스는 한 창이면 첫 URL 만, 새 창이면 3/3 열림. 그런데 열려도 상품 7~10개뿐이고 집 IP 확장도 URL 3개에서 4~9개 — 목록을 잘 못 읽음 | 확장 86·4·9·9 — 오늘 impit 0/14(shell) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) · firefox-fresh 3/3 | 파이어폭스 + 새 창으로 열고 수집기 확인(무료, 새 창 1회 측정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| James Perse | 서버(Render) | 526 | 차단 없음 — 서버가 매일 142~155개, 저장 526 은 옛 수집분. 페이지당 상품 링크 13~22개라 페이지 넘김을 못 따라가는 것으로 보임(추정) | 프리페치 142개 — 오늘 impit 18/18 · playwright 6/6 · firefox 6/6 · server 6/12(rate-limit 429) · firefox-fresh 3/3 | 서버의 페이지 넘김 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
-| Nation LTD | 서버(Render) | 525 | 차단 없음 — 서버가 매일 161~164개, 저장 525 는 옛 수집분 · 페이지당 22~52개(페이지 넘김 의심, 추정) | 프리페치 161개 — 오늘 impit 14/14 · playwright 6/6 · firefox 6/6 · server 8/8 · firefox-fresh 3/3 | 서버의 페이지 넘김 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
-| Reformation | 서버(Render) | 753 | Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0). 데이터센터 헤드리스 크롬은 2회 모두 3/3, 파이어폭스는 첫 URL 만 — 새 창이면 3/3 | 프리페치 221개(저장 753 은 옛 수집분 포함) — 오늘 impit 0/16(blocked 403) · playwright 6/6 · firefox 2/6(blocked 403) · server 7/10(shell·blocked 403) · firefox-fresh 3/3 | 헤드리스 크롬 그룹으로 옮김(무료, 2회 측정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
-| The upside | 헤드리스(Actions) | 429 | Cloudflare 확인 화면 — 한 창으로 이어서 열면 첫 카테고리만 열리고 다음부터 403(헤드리스 크롬·파이어폭스 2회). 카테고리마다 쿠키 없는 새 창으로 열면 4/4 열림(68·56·30·68) | 헤드리스 11/25 70·0·0·0 (저장 429 는 옛 수집분) — 오늘 impit 0/16(blocked 403) · playwright 2/8(blocked 403) · firefox 2/8(blocked 403) · firefox-fresh 4/4 | 헤드리스 수집을 파이어폭스 + 카테고리마다 새 창(browser-collect 의 FRESH_CONTEXT=1 — 이미 있는 설정)으로. 새 창 목록 1회(4/4) · 상품 2회(3/3·3/3) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| vineyardvines | 서버(Render) | 560 | 평 HTML 엔 상품이 없음(스크립트가 그림) — 서버는 리더 프록시로 tops·dresses·pants 만 · 크롬도 6~10개만(지연 로딩) | 프리페치 143~151개(저장 560 은 옛 수집분 포함) — 오늘 impit 0/16(no-cards) · playwright 6/6 · firefox 6/6 · server 3/10(rate-limit·shell 429) · firefox-fresh 3/3 | 헤드리스로 옮기고 스크롤·더 보기 처리(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Garnet hill | 크롬 확장(집 PC) | 108 | Akamai — 크롬 403 · 파이어폭스는 한 창이면 첫 URL 만, 새 창이면 3/3 열림. 그런데 열려도 상품 7~10개뿐이고 집 IP 확장도 URL 3개에서 4~9개 — 목록을 잘 못 읽음 | 확장 86·4·9·9 — 오늘 impit 0/14(shell) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) · firefox-fresh 3/3 | 파이어폭스 + 새 창으로 열고 수집기 확인(무료, 새 창 1회 측정) · 11/25 파이어폭스+새 창 측정 2회 — 첫 URL 10개, 나머지 0 — 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
+| James Perse | 서버(Render) | 526 | 차단 없음 — 서버가 매일 142~155개, 저장 526 은 옛 수집분. 페이지당 상품 링크 13~22개라 페이지 넘김을 못 따라가는 것으로 보임(추정) | 프리페치 142개 — 오늘 impit 18/18 · playwright 6/6 · firefox 6/6 · server 6/12(rate-limit 429) · firefox-fresh 3/3 | 서버의 페이지 넘김 확인(무료) · 11/25 크롬 측정 2회 182개 · tanks 11(서버 40) — 서버(products.json 한 번에 전체)가 더 많이 읽음. '페이지 넘김' 추정은 틀림 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Nation LTD | 서버(Render) | 525 | 차단 없음 — 서버가 매일 161~164개, 저장 525 는 옛 수집분 · 페이지당 22~52개(페이지 넘김 의심, 추정) | 프리페치 161개 — 오늘 impit 14/14 · playwright 6/6 · firefox 6/6 · server 8/8 · firefox-fresh 3/3 | 서버의 페이지 넘김 확인(무료) · 11/25 크롬 측정 2회 72~74개 · tops 30~32(서버 97) — 서버가 더 많이 읽음. '페이지 넘김' 추정은 틀림 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| vineyardvines | 서버(Render) | 560 | 평 HTML 엔 상품이 없음(스크립트가 그림) — 서버는 리더 프록시로 tops·dresses·pants 만 · 크롬도 6~10개만(지연 로딩) | 프리페치 143~151개(저장 560 은 옛 수집분 포함) — 오늘 impit 0/16(no-cards) · playwright 6/6 · firefox 6/6 · server 3/10(rate-limit·shell 429) · firefox-fresh 3/3 | 헤드리스로 옮기고 스크롤·더 보기 처리(무료, 추정) · 11/25 크롬 측정 4회 73~134개 · tees 11~21(서버 93) — 서버 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
 | WHBM | 서버(Render) | 219 | Akamai 거부 — Chico's 와 같은 회사·같은 모양: impit·크롬 403, 파이어폭스는 러너에 따라 첫 카테고리만(21개), 새 창도 403. 서버는 리더 프록시 우회로만 — 11/25 낮엔 5/5, 밤엔 6일 연속 2개 | 프리페치 6일 2개 · 카탈로그 11/18 이후 갱신 없음 — 오늘 impit 0/25(blocked 403) · playwright 0/10(blocked 403) · firefox 1/15(blocked 403) · server 10/10 · firefox-fresh 0/10(blocked 403) | 확장 담당으로 옮김 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 7회 |
-| Whitestuff | 서버(Render) | 184 | 서버 직접 fetch 가 'fetch failed'(Worker 도 404) → 리더 프록시로만 읽어 매일 114~267개로 흔들림. 평 HTML(impit)·크롬은 15/15 성공 | 프리페치 6일 184·182·190·223·114·267 — 오늘 impit 18/18 · playwright 6/6 · firefox 6/6 · server 3/12(rate-limit 429) · firefox-fresh 3/3 | 서버 fetch 를 브라우저 TLS 지문 fetch(impit 류)로 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
 
 ### ⛔ 어디서도 막힘 — 1개 브랜드 · 상품 81개
 
@@ -332,25 +341,16 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| Good American | 서버(Render) | 625 | URL 에 한국 지역(/en-kr/) — 미국 IP 에선 지역 없는 주소로 넘어감 · 서버는 카테고리당 10~53개 · 크롬은 43~353개 | 프리페치 216개(저장 625 는 옛 수집분 포함) — 오늘 impit 2/16(geo·no-cards) · playwright 6/6 · firefox 5/6(blocked 403) · server 4/10(rate-limit 429) · firefox-fresh 2/3(blocked 403) | URL 에서 /en-kr 빼기 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 6회 |
-| Lucky Brand | 헤드리스(Actions) | 161 | blouses URL 이 검색 페이지('Search / Lucky Brand')로 열리고 수집 중 페이지가 바뀜(Execution context destroyed) | 헤드리스 65·90·0·67·36 — 오늘 impit 14/14 · playwright 2/4(shell) · firefox 2/4(shell) · firefox-fresh 1/2(shell) | blouses 카테고리 새 주소 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 4회 |
+| Good American | 서버(Render) | 625 | URL 에 한국 지역(/en-kr/) — 미국 IP 에선 지역 없는 주소로 넘어감 · 서버는 카테고리당 10~53개 · 크롬은 43~353개 | 프리페치 216개(저장 625 는 옛 수집분 포함) — 오늘 impit 2/16(geo·no-cards) · playwright 6/6 · firefox 5/6(blocked 403) · server 4/10(rate-limit 429) · firefox-fresh 2/3(blocked 403) | URL 에서 /en-kr 빼기 · 11/25 크롬 측정 4회 398~646개(서버 216)이지만 jeanius-sweats 13(서버 35) 미달(1차 43) — 서버 유지 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 6회 |
+| Lucky Brand | 헤드리스(Actions) | 161 | blouses URL 이 검색 페이지('Search / Lucky Brand')로 열리고 수집 중 페이지가 바뀜(Execution context destroyed) | 헤드리스 65·90·0·67·36 — 오늘 impit 14/14 · playwright 2/4(shell) · firefox 2/4(shell) · firefox-fresh 1/2(shell) | blouses 카테고리 새 주소 · 11/25 대체 주소(/women/clothing/shirts·/tops)도 읽는 중 다른 페이지로 넘어감 — 제안 없음 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 4회 |
 
-### 🔧 열리는데 잘못 읽음 — 12개 브랜드 · 상품 1,152개
+### 🔧 열리는데 잘못 읽음 — 3개 브랜드 · 상품 310개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| Athleta | 크롬 확장(집 PC) | 1 | Gap 계열: 페이지는 열리는데(데이터센터 크롬·파이어폭스 200) 수집기가 상품을 4~6개만 잡음 — 집 IP 확장도 1개 | 확장 1개(4개 URL 중 3개 0) — 오늘 impit 0/16(no-cards) · playwright 3/8(no-cards) · firefox 8/8 · firefox-fresh 4/4 | Gap 계열 상품 목록 JSON(사이트가 그리드를 그릴 때 부르는 주소)으로 읽기 — 무료(추정, 안 재 봄) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| Banana Republic | 크롬 확장(집 PC) | 1 | Gap 계열: 열리는데 수집기가 5개만 — 확장도 1개 | 확장 1개 — 오늘 impit 0/16(no-cards) · playwright 8/8 · firefox 8/8 · firefox-fresh 4/4 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| Bash | 서버(Render) | 50 | 차단 없음 — 서버가 카테고리당 4~10개만, 평 HTML 엔 URL 당 51~97개 · 크롬 34~65개 | 프리페치 50개(6일 34~56) — 오늘 impit 16/16 · playwright 6/6 · firefox 6/6 · server 4/10(shell) · firefox-fresh 3/3 | 서버 목록 읽기 보완 또는 헤드리스(무료). URL 에 광고 추적 꼬리(_gl=…)가 붙어 있음 — 떼어도 됨 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
-| Carlhartt | 헤드리스(Actions) | 148 | 수집기가 메뉴·기획전 타일(/c/black-friday 등, 이름 'arrow icon')을 상품으로 잡음 | 헤드리스 148개 · 표본 5개가 전부 카테고리 링크 — 오늘 impit 12/14(no-cards) · playwright 4/4 · firefox 4/4 · firefox-fresh 2/2 | 수집기에서 /c/ 경로 제외(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| Dickies | 서버(Render) | 260 | 차단 없음 — 서버가 카테고리당 2~48개만 읽음(6일 내내 72개), 평 HTML 엔 URL 당 상품 링크 46~49개 · 크롬 50~90개 | 프리페치 72개(저장 260 은 옛 수집분 포함) — 오늘 impit 16/16 · playwright 6/6 · firefox 5/6(blocked 403) · server 6/10(shell) · firefox-fresh 3/3 | 서버 목록 읽기(선택자·페이지 넘김) 보완 또는 헤드리스로 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
-| Gap | 크롬 확장(집 PC) | 6 | 열리는데 수집기가 11~12개만(기프트숍 배너) — 확장도 6개 | 확장 6개(전부 배너) — 오늘 impit 0/16(no-cards) · playwright 8/8 · firefox 8/8 · firefox-fresh 4/4 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| Monsoon | 서버(Render) | 30 | 차단 없음 — 서버가 카테고리당 0~22개, 평 HTML 엔 URL 당 40개 · 크롬 45개. URL 이 한국 지역(/kr/) | 프리페치 30개(6일 내내 29~30) — 오늘 impit 14/14 · playwright 6/6 · firefox 6/6 · server 3/8(rate-limit·shell 429) · firefox-fresh 3/3 | 서버 목록 읽기 보완 또는 헤드리스(무료) · 지역을 /us/ 등으로(가격 통화) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
-| Nike | 헤드리스(Actions) | 490 | 헤드리스 표본 5개가 모두 필터 카테고리 링크(/w/…) — 상품 아님 의심 | 헤드리스 490개 — 오늘 impit 0/12(no-cards) · playwright 4/4 · firefox 4/4 · firefox-fresh 2/2 | 수집기에서 /w/ 경로 제외, 상품(/t/…)만(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| Old Navy | 크롬 확장(집 PC) | 7 | 열리는데 수집기가 10~11개만 — 확장도 7개(배너) | 확장 7개 — 오늘 impit 0/20(no-cards) · playwright 10/10 · firefox 10/10 · firefox-fresh 5/5 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| Oysho | 크롬 확장(집 PC) | 20 | 확장 카탈로그 20개가 전부 하위 카테고리 타일(…-n5063) — 상품이 아님. 데이터센터 파이어폭스는 열림(3/3, 18~22개) | 확장 20개 — 오늘 impit 0/16(blocked) · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스 + 수집기 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
-| Sessun | 서버(Render) | 81 | 서버 목록 읽기가 일부 상품 대신 이미지 주소(static.sessun.com/…webp%20924w — srcset 조각)를 상품 링크로 저장 | 프리페치 81개 · 카탈로그 표본에 이미지 주소 섞임(오늘 상품 표본 3개가 전부 이미지 주소 → 404) — 오늘 impit 10/10 | 서버 목록 읽기에서 srcset 조각을 링크로 쓰지 않게(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
-| Vanessa bruno | 서버(Render) | 58 | 서버가 tops 6개 말고는 0개 — 같은 페이지 평 HTML 에 상품 링크 22~25개, 크롬도 21~25개 · URL 1개는 첫 화면으로 튕김 | 프리페치 6일 내내 6개(저장 58 은 옛 수집분) — 오늘 impit 6/18(no-cards·dead) · playwright 4/6(dead) · firefox 4/6(dead) · server 4/12(shell) · firefox-fresh 2/3(dead) | 서버 목록 읽기 보완 또는 헤드리스(무료) + 죽은 URL 교체 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Dickies | 서버(Render) | 260 | 차단 없음 — 서버가 카테고리당 2~48개만 읽음(6일 내내 72개), 평 HTML 엔 URL 당 상품 링크 46~49개 · 크롬 50~90개 | 프리페치 72개(저장 260 은 옛 수집분 포함) — 오늘 impit 16/16 · playwright 6/6 · firefox 5/6(blocked 403) · server 6/10(shell) · firefox-fresh 3/3 | 서버 목록 읽기(선택자·페이지 넘김) 보완 또는 헤드리스로 — 무료 · 11/25 크롬 측정 4회 101~102개(서버 하루 72)이지만 hoodies 44(서버 48) 미달 — 서버 유지, 원인은 docs/server-listing-notes.md | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Monsoon | 서버(Render) | 30 | 차단 없음 — 서버가 카테고리당 0~22개, 평 HTML 엔 URL 당 40개 · 크롬 45개. URL 이 한국 지역(/kr/) | 프리페치 30개(6일 내내 29~30) — 오늘 impit 14/14 · playwright 6/6 · firefox 6/6 · server 3/8(rate-limit·shell 429) · firefox-fresh 3/3 | 서버 목록 읽기 보완 또는 헤드리스(무료) · 지역을 /us/ 등으로(가격 통화) · 11/25 impit 1차 2회 174개(서버 30)였으나 2차 2회 0개(상품 그리드가 메뉴 칸 안에 있어 걸러짐 — 수집기 고침) · 고친 코드로 2회 재측정 전이라 추가 안 함 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 6회 |
+| Oysho | 크롬 확장(집 PC) | 20 | 확장 카탈로그 20개가 전부 하위 카테고리 타일(…-n5063) — 상품이 아님. 데이터센터 파이어폭스는 열림(3/3, 18~22개) | 확장 20개 — 오늘 impit 0/16(blocked) · playwright 0/6(blocked 403) · firefox 6/6 · firefox-fresh 3/3 | 헤드리스 파이어폭스 + 수집기 확인(무료) · 11/25 파이어폭스+새 창 측정 4회 448개(확장 20개는 타일) — 열리지만 한 번에 46분이라 야간 예산에 못 넣음. 확장 쪽 타일은 수집기 규칙(-n숫자 카테고리)으로 걸러짐 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 4회 |
 
 
 ## 5. 상품 페이지 — 브랜드별
