@@ -1,0 +1,148 @@
+{
+ "when": "2026-11-25T16:35:16.730Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "chromium"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "Gap",
+   "site": "gap.com.gap",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 0,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {},
+   "perUrl": [
+    {
+     "url": "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136",
+     "count": 0,
+     "productShaped": 0,
+     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
+     "sample": [],
+     "items": [],
+     "debug": []
+    },
+    {
+     "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
+     "count": 0,
+     "productShaped": 0,
+     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
+     "sample": [],
+     "items": [],
+     "debug": []
+    },
+    {
+     "url": "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
+     "count": 0,
+     "productShaped": 0,
+     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
+     "sample": [],
+     "items": [],
+     "debug": []
+    },
+    {
+     "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS",
+     "count": 0,
+     "productShaped": 0,
+     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
+     "sample": [],
+     "items": [],
+     "debug": []
+    }
+   ],
+   "secs": 480,
+   "dropped": 0,
+   "cut": false,
+   "sample": [],
+   "diag": "old",
+   "finalItems": [],
+   "verdict": "확장 필요(봇 차단)"
+  },
+  {
+   "brand": "Old Navy",
+   "site": "oldnavy.gap.com.oldnavy",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 0,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {},
+   "perUrl": [
+    {
+     "url": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
+     "count": 0,
+     "productShaped": 0,
+     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
+     "sample": [],
+     "items": [],
+     "debug": []
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
+     "count": 0,
+     "productShaped": 0,
+     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
+     "sample": [],
+     "items": [],
+     "debug": []
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
+     "count": 0,
+     "productShaped": 0,
+     "note": "상품 0개 · 최종주소 https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click · 제목 \"\" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · \"\"",
+     "sample": [],
+     "rej": {
+      "total": 0,
+      "noImage": 0,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0
+     },
+     "items": [],
+     "debug": []
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
+     "count": 0,
+     "productShaped": 0,
+     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
+     "sample": [],
+     "items": [],
+     "debug": []
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
+     "count": 0,
+     "productShaped": 0,
+     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
+     "sample": [],
+     "items": [],
+     "debug": []
+    }
+   ],
+   "secs": 592,
+   "dropped": 0,
+   "cut": false,
+   "sample": [],
+   "diag": "old",
+   "finalItems": [],
+   "verdict": "확장 필요(봇 차단)"
+  }
+ ]
+}
