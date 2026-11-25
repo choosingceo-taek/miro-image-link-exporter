@@ -8,6 +8,8 @@
   — 브랜드·상품 검색, 여러 브랜드를 한 엑셀로 추출. 크롬·엣지 확장(`chrome-extension/`) 팝업의
   **🔎 상품 리서치 열기** / **옆 패널로 열기** 로도 열립니다.
 - 세팅·설치·사용법: **[MANUAL.md](./MANUAL.md)** (리서치 앱은 PART F)
+- 브랜드별로 어디까지 수집되는지·무엇이 막는지·고치는 법: **[docs/access-map.md](./docs/access-map.md)**
+  (기계용 `access-map.json`, 만들기 `node scripts/build-access-map.mjs`)
 
 기능: **사진+링크 → 이미지 삽입 엑셀(.xlsx)/CSV**, 그리고 (선택) **링크된 의상 상품 페이지의
 원단 정보(혼용률·소재) 자동 정리 + 소재 통계·차트 엑셀**.
