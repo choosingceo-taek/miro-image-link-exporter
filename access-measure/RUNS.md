@@ -23,3 +23,4 @@
 | 45591302346 | 10:03 | targets-product-extra2.json (상품 26) | impit,playwright,firefox,firefox-fresh | 상품 2차 · Sessun 진짜 주소 · 새 창 |
 | 45593253005 | 10:15 | targets-listing-retry.json (Chico's·WHBM·Prana 목록 14) | impit,firefox,firefox-fresh | 다른 러너 재측정 |
 | 45593259314 | 10:15 | targets-product-extra2.json | impit,firefox,firefox-fresh | 상품 2차 반복(다른 러너) |
+| 45593253005·45593259314 결과 | | | | Chico's·WHBM 파이어폭스는 이 러너에서도 첫 페이지만(73·21), 새 창 403 · The upside·Reformation 상품은 새 창 3/3(2회째) · Prana 전부 403 |
