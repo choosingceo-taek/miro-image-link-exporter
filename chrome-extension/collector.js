@@ -333,17 +333,33 @@ async function pageCollector() {
   // 스크롤 + "더 보기" 클릭을 상품 수가 늘지 않을 때까지 반복(무한스크롤·버튼형 모두 대응).
   // 예전에는 500ms×3회(=1.5초)만 안 늘면 끝냈는데, 다음 묶음을 받아오는 데 2~3초 걸리는
   // 사이트에서는 그 사이에 멈춰 버렸다. 기다림을 늘려 실제로 다 받을 때까지 본다.
+  //
+  // 한 화면씩 내려가며 그때마다 본 상품을 모두 모아 둔다(누적). 예전에는 맨 아래로 한 번에
+  // 뛰고, 끝에서 맨 위로 돌아와 '그 순간 화면에 있는 것'만 셌다. 그런데 화면 밖 카드를 지웠다가
+  // 다시 그리는 그리드(가상 스크롤)는 한 번에 뛰면 중간 줄이 아예 그려지지 않고, 맨 위로
+  // 돌아오면 아래쪽 카드가 사라진다 — Gap·Old Navy·Banana Republic 이 사진 달린 상품 카드
+  // 200개 가까이 있는 페이지(2026-11-25 진단)에서 30개 안팎만 남던 원인으로 보인다.
+  const acc = new Map();
+  const keep = (list) => { for (const it of list) if (!acc.has(it.productUrl)) acc.set(it.productUrl, it); };
+  keep(harvest());
   let stable = 0, lastCount = -1;
-  for (let i = 0; i < 80; i++) {
-    window.scrollTo(0, document.documentElement.scrollHeight);
-    await sleep(700);
+  for (let i = 0; i < 140 && acc.size < 600; i++) {
+    const doc = document.documentElement;
+    const atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 80;
+    if (atBottom) window.scrollTo(0, doc.scrollHeight);
+    else window.scrollBy(0, Math.max(400, Math.round(window.innerHeight * 0.85)));
+    await sleep(atBottom ? 700 : 350);
     const btn = findLoadMore();
     if (btn) { try { btn.click(); } catch (e) {} await sleep(1500); }
-    const n = harvest().length;
+    keep(harvest());
+    const n = acc.size;
+    // 아직 내려가는 중이면 멈추지 않는다 — 바닥에서 더 늘지 않을 때만 끝낸다.
+    if (!atBottom) { stable = 0; lastCount = n; continue; }
     if (n === lastCount) { if (++stable >= (btn ? 6 : 5)) break; } else { stable = 0; lastCount = n; }
   }
   window.scrollTo(0, 0);
   await sleep(250);
-  const out = harvest();
+  keep(harvest());
+  const out = [...acc.values()];
   return { items: out, nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej } };
 }

@@ -533,7 +533,7 @@ for (const g of targets) {
     // 상품 주소 모양(/product/ · /p/ · 상품 번호 등 — access-evidence.mjs 의 판정)인 것의 수.
     // 수집 수와 크게 다르면 메뉴·기획전 링크가 섞였거나, 그 사이트 상품 주소가 판정 규칙 밖이라는 뜻이다(참고용).
     const productShaped = all.filter((it) => looksLikeProduct(it.productUrl)).length;
-    perUrl.push({ url, count: byUrl.size, productShaped, note, sample });
+    perUrl.push({ url, count: byUrl.size, productShaped, note, sample, ...(lastRej ? { rej: lastRej } : {}) });
     console.log(`   ${byUrl.size ? "·" : "✕"} ${byUrl.size}개  ${url}${note ? "  ← " + note : ""}`);
   }
   // 끊겨서 못 돈 카테고리도 perUrl 에 남긴다. 리포트 JSON 은 다음 실행이 설정 파일을 못 받았을 때
