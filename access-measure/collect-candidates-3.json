@@ -13,7 +13,7 @@
   },
   {
    "brand": "Bash",
-   "engine": "impit",
+   "engine": "chromium",
    "store": "merge"
   },
   {
@@ -24,11 +24,7 @@
     "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/",
     "https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/",
     "https://www.monsoonlondon.com/kr/womens/dresses/",
-    "https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/",
-    "https://www.monsoonlondon.com/us/womens/womens-clothing/tops/",
-    "https://www.monsoonlondon.com/us/womens/womens-clothing/knitwear/",
-    "https://www.monsoonlondon.com/us/womens/dresses/",
-    "https://www.monsoonlondon.com/us/womens/womens-clothing/trousers-shorts/"
+    "https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/"
    ]
   },
   {
@@ -57,12 +53,12 @@
   },
   {
    "brand": "James Perse",
-   "engine": "impit",
+   "engine": "chromium",
    "store": "merge"
   },
   {
    "brand": "Nation LTD",
-   "engine": "impit",
+   "engine": "chromium",
    "store": "merge"
   },
   {
@@ -74,11 +70,7 @@
     "https://www.goodamerican.com/en-kr/collections/womens-tops",
     "https://www.goodamerican.com/en-kr/collections/dresses",
     "https://www.goodamerican.com/en-kr/collections/bottoms",
-    "https://www.goodamerican.com/collections/jeanius-sweats",
-    "https://www.goodamerican.com/collections/tees-tanks",
-    "https://www.goodamerican.com/collections/womens-tops",
-    "https://www.goodamerican.com/collections/dresses",
-    "https://www.goodamerican.com/collections/bottoms"
+    "https://www.goodamerican.com/collections/jeanius-sweats"
    ]
   }
  ]

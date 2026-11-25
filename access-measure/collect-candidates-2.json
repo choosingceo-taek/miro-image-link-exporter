@@ -34,15 +34,6 @@
    "brand": "Reformation",
    "engine": "chromium",
    "store": "merge"
-  },
-  {
-   "brand": "Lucky Brand",
-   "engine": "chromium",
-   "urls": [
-    "https://www.luckybrand.com/women/clothing/shirts/blouses",
-    "https://www.luckybrand.com/women/clothing/shirts",
-    "https://www.luckybrand.com/women/clothing/tops"
-   ]
   }
  ]
 }
