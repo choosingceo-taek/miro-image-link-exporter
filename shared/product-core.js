@@ -109,6 +109,52 @@
     return m;
   };
 
+  // ── 엑셀 추가 열(상품 상세) ─────────────────────────────────────
+  // 기존 열(브랜드·썸네일·URL·상품명·[컬러웨이]·[혼용률])과 그 순서·95% 기준은 그대로 두고, 그 뒤에 붙인다.
+  // 이 열들은 '확인 필요' 표시를 하지 않는다 — 빈 칸 = 아직 안 모였거나 사이트가 안 적음.
+  // 값은 사이트에 적힌 글 그대로다(설명·디테일은 Worker 의 detail:<site> 에서 — 내보낼 때만 받는다).
+  const EXTRA_COLS = [
+    { header: '판매가', key: 'price', width: 12 },
+    { header: '정가', key: 'priceOrig', width: 12 },
+    { header: '사이즈', key: 'sizes', width: 24 },
+    { header: '컬러 전부', key: 'colors', width: 28 },
+    { header: '설명', key: 'desc', width: 60 },
+    { header: '디테일', key: 'feat', width: 50 },
+    { header: '이미지 링크', key: 'imgs', width: 60 },
+  ];
+  const exportCols = (showColor, showComp) => colsFor(showColor, showComp).concat(EXTRA_COLS);
+  // 추가 열의 열 문자(기존 열 뒤부터).
+  function extraColFor(cols) {
+    const m = {};
+    const keys = new Set(EXTRA_COLS.map((c) => c.key));
+    cols.forEach((c, n) => { if (keys.has(c.key)) m[c.key] = colLetter(n); });
+    return m;
+  }
+  // 한 상품의 추가 열 값. d = 상세 저장값(detail:<site> 의 한 상품) 또는 없음.
+  function extraValues(r, d) {
+    const x = d || {};
+    const list = (v, sep) => (Array.isArray(v) ? v.map((t) => String(t).trim()).filter(Boolean).join(sep) : cleanVal(v));
+    // 사이즈: 재고 사이즈를 알면 품절 사이즈에 (품절)을 붙인다.
+    let sizes = cleanVal(r.sizes);
+    if (Array.isArray(x.sizesIn) && sizes) {
+      const inStock = new Set(x.sizesIn.map((t) => String(t).trim().toLowerCase()));
+      sizes = sizes.split(/\s*,\s*/).map((t) => (inStock.has(t.toLowerCase()) ? t : t + '(품절)')).join(', ');
+    }
+    const imgs = Array.isArray(x.imgs) && x.imgs.length ? x.imgs : (r.imageUrl ? [r.imageUrl] : []);
+    return {
+      price: cleanVal(r.price), priceOrig: cleanVal(r.priceOrig), sizes,
+      colors: list(x.colors, ', '), desc: cleanVal(x.desc), feat: list(x.feat, '\n'), imgs: list(imgs, '\n'),
+    };
+  }
+  // 상세 저장값(상품URL → 상세)을 상품에 붙인다(표기가 조금 달라도 같은 상품으로 — urlKey).
+  function attachDetails(items, detailMap) {
+    const m = new Map();
+    for (const [u, d] of Object.entries(detailMap || {})) if (d) m.set(urlKey(u), d);
+    let n = 0;
+    for (const p of items || []) { const d = m.get(urlKey(p.productUrl)); if (d) { p.detail = d; n++; } }
+    return n;
+  }
+
   function rowValues(r, brandGuess, rowCol, showColor, showComp) {
     const vals = { brand: r.brand || brandGuess || '', name: r.name || '' };
     // 이미 모아 둔 값만 쓴다 — 여기서 상품 페이지를 읽으면 수십 개 상품에
@@ -336,6 +382,7 @@
     cleanVal, validComp, validColor, urlKey, guessCat,
     NEED, NO_INFO, FABRIC_GATE,
     compReady, colorReady, colsFor, rowColFor, rowValues, colLetter,
+    EXTRA_COLS, exportCols, extraColFor, extraValues, attachDetails,
     mergeOverlay,
     SEARCH_MIN, SEARCH_CAP, searchIndex, fromIndex, applyOverlay,
     SEGMENTS, segMapOf, segsOf, inSeg, segState,

@@ -72,6 +72,8 @@ jobs:
         run: node scripts/test-extension-manifest.mjs
       - name: Run product-detail extractor test (rules · real page fixtures · extension copy)
         run: node scripts/test-detail.mjs
+      - name: Run excel extra columns test (price · sizes · all colours · description · details · images)
+        run: node scripts/test-export-detail.mjs
       - name: Run product-detail store-time guard test (site boilerplate repeated across a brand)
         run: node scripts/test-detail-guard.mjs
       - name: Run enrich product-detail / impit layer test (fake Worker · fake impit)
