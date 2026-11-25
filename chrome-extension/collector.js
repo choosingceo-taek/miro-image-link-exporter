@@ -19,10 +19,12 @@ async function pageCollector(opts) {
     if (dbg.has(key)) return;
     const c = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
     const img = bestImage(a) || bestImage(c);
-    if (!img) return;
     const im = a.querySelector('img') || c.querySelector('img');
     const name = ((im && im.alt) || a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
-    dbg.set(key, { why, url: href.origin + href.pathname + href.search, name });
+    // 메뉴 칸이면 어느 칸인지도 적는다(태그·class 앞부분) — 상품이 메뉴로 잘못 걸렸는지 가리려고.
+    const box = why === 'siteMenu' ? a.closest('nav, footer, header, [role="navigation"], [role="contentinfo"], [role="menu"], [role="menubar"], [role="banner"]') : null;
+    dbg.set(key, { why, url: href.origin + href.pathname + href.search, name, img: !!img,
+      ...(box ? { box: (box.tagName.toLowerCase() + '.' + String(box.className || '').split(/\s+/).slice(0, 2).join('.')).slice(0, 60) } : {}) });
   };
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const guessCategory = (u, name) => {
