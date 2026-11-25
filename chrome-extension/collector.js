@@ -97,6 +97,29 @@ async function pageCollector() {
     'loyalty', 'rewards', 'affiliates?',
   ];
   const NON_PRODUCT_PATH = new RegExp('/(?:' + NON_PRODUCT_SEGMENTS.join('|') + ')(?:/|$)', 'i');
+  // 경로 모양만 봐도 상품이 아닌 링크(2026-11-25 접근 지도에서 실제로 상품으로 저장돼 있던 것들).
+  //  · 카테고리 경로 /c/… · /w/… — Carhartt 메뉴 타일(/c/black-friday, 이름 'arrow icon'),
+  //    Nike 필터 링크(/w/womens-…). 상품 표시(/p/ · /t/ · /product/)가 함께 있으면 상품으로 둔다.
+  //    '/categories/' 는 일부러 넣지 않았다 — J.Crew 는 진짜 상품이 /m/womens/categories/…/MQ341 이다.
+  //  · Inditex(Oysho·Massimo Dutti) 카테고리 주소 끝 '-n5063' — 상품은 '-l0581…'·'-c0p…' 모양이다.
+  //  · 이미지 파일 주소 — srcset 조각('…/x.webp%20924w')이 링크로 잡힌 경우(Sessun).
+  const CATEGORY_PATH = /\/(?:c|w)\/[^/]/i;
+  const PRODUCT_MARK = /\/(?:p|t|product|products)\//i;
+  const INDITEX_CATEGORY = /-n\d{3,5}$/i;
+  const IMAGE_FILE = /\.(?:jpe?g|png|webp|gif|avif|svg)(?:%20\d+[wx])?$/i;
+  const nonProductShape = (path) =>
+    (CATEGORY_PATH.test(path + '/') && !PRODUCT_MARK.test(path + '/')) ||
+    INDITEX_CATEGORY.test(path) || IMAGE_FILE.test(path);
+  // 상품 번호가 경로가 아니라 물음표 뒤에 있는 사이트(Gap 계열 /browse/product.do?pid=…).
+  // 예전에는 물음표 뒤를 모두 버려서 그 사이트의 상품이 전부 같은 주소 하나로 합쳐졌다 —
+  // Gap·Old Navy·Athleta·Banana Republic 이 집 IP 에서도 상품 1개만 남던 원인.
+  // 경로가 .do·.jsp 같은 프로그램 주소일 때만 상품 번호 이름표(pid 등) 하나를 남긴다.
+  const ID_PARAMS = ['pid', 'productid', 'product_id', 'styleid', 'itemid'];
+  const idQuery = (u) => {
+    if (!/\.(?:do|jsp|aspx?|php|cfm)$/i.test(u.pathname)) return '';
+    for (const [k, v] of u.searchParams) if (ID_PARAMS.includes(k.toLowerCase()) && v) return '?' + k + '=' + encodeURIComponent(v);
+    return '';
+  };
 
   // ── 가격 ────────────────────────────────────────────────────────────
   // 통화가 앞에 붙는 표기($128, ₩89,000, USD 128)와 뒤에 붙는 표기(129,00 zł, 1 290 kr)를
@@ -214,10 +237,11 @@ async function pageCollector() {
       }
       const path = href.pathname.replace(/\/+$/, '');
       if (path.length < 8) { rej.shortPath++; return; }
-      if (NON_PRODUCT_PATH.test(path)) { rej.nonProduct++; return; }
-      if (path === here) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
+      if (NON_PRODUCT_PATH.test(path) || nonProductShape(path)) { rej.nonProduct++; return; }
+      const idq = idQuery(href);
+      if (path === here && !idq) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
       if (here.startsWith(path + '/')) { rej.samePage++; return; }   // 상위 카테고리(브레드크럼)
-      const key = href.origin + path;
+      const key = href.origin + path + idq;
       if (seen.has(key)) { rej.dup++; return; }
       seen.add(key);
       const nameEl = card.querySelector('h1,h2,h3,h4,[class*="name"],[class*="title"],[class*="Name"],[class*="Title"]');
@@ -246,7 +270,7 @@ async function pageCollector() {
       }
       items.push({
         name: name || decodeURIComponent(path.split('/').pop() || '').replace(/[-_]+/g, ' '),
-        imageUrl: src, productUrl: href.origin + href.pathname,
+        imageUrl: src, productUrl: href.origin + href.pathname + idq,
         price: pr.price, priceOrig: pr.priceOrig, category: guessCategory(href.pathname, name),
       });
     });

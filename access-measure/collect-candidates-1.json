@@ -1,0 +1,81 @@
+{
+ "_설명": "측정용 후보(저장 안 함 · report_tag 실행 전용). 운영 파일은 browser-extra-brands.json — 측정으로 기준을 넘은 브랜드만 그리로 옮긴다.",
+ "brands": [
+  {
+   "brand": "H&M",
+   "engine": "firefox"
+  },
+  {
+   "brand": "Arket",
+   "engine": "firefox"
+  },
+  {
+   "brand": "&Other Stories",
+   "engine": "firefox"
+  },
+  {
+   "brand": "L.L bean",
+   "engine": "firefox"
+  },
+  {
+   "brand": "Ann Taylor",
+   "engine": "impit"
+  },
+  {
+   "brand": "Loft",
+   "engine": "impit"
+  },
+  {
+   "brand": "Seasalt cornwall",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Wilson",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Madewell",
+   "engine": "chromium",
+   "urls": [
+    "https://www.madewell.com/kr/womens/clothing/tees/",
+    "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
+    "https://www.madewell.com/kr/womens/clothing/dresses/",
+    "https://www.madewell.com/kr/womens/clothing/pants/",
+    "https://www.madewell.com/womens/clothing/tees/",
+    "https://www.madewell.com/womens/clothing/tops-shirts/",
+    "https://www.madewell.com/womens/clothing/dresses/",
+    "https://www.madewell.com/womens/clothing/pants/"
+   ]
+  },
+  {
+   "brand": "Massimo Dutti",
+   "engine": "firefox",
+   "fresh": true
+  },
+  {
+   "brand": "Aritzia",
+   "engine": "api"
+  },
+  {
+   "brand": "Oysho",
+   "engine": "firefox",
+   "fresh": true
+  },
+  {
+   "brand": "Garnet hill",
+   "engine": "firefox",
+   "fresh": true
+  },
+  {
+   "brand": "The white company",
+   "engine": "firefox",
+   "fresh": true,
+   "urls": [
+    "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts",
+    "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/loungewear",
+    "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/dresses-and-tunics",
+    "https://www.thewhitecompany.com/us/Clothing/c/clothing"
+   ]
+  }
+ ]
+}

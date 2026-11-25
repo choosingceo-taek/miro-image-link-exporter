@@ -1,0 +1,48 @@
+{
+ "_설명": "측정용 후보(저장 안 함 · report_tag 실행 전용). 운영 파일은 browser-extra-brands.json — 측정으로 기준을 넘은 브랜드만 그리로 옮긴다.",
+ "brands": [
+  {
+   "brand": "Gap",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Old Navy",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Athleta",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Banana Republic",
+   "engine": "chromium"
+  },
+  {
+   "brand": "The upside",
+   "engine": "firefox",
+   "fresh": true
+  },
+  {
+   "brand": "Carlhartt",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Nike",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Reformation",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Lucky Brand",
+   "engine": "chromium",
+   "urls": [
+    "https://www.luckybrand.com/women/clothing/shirts/blouses",
+    "https://www.luckybrand.com/women/clothing/shirts",
+    "https://www.luckybrand.com/women/clothing/tops"
+   ]
+  }
+ ]
+}

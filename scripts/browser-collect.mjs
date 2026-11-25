@@ -18,11 +18,14 @@
 //   MAX_PAGES   카테고리당 최대 페이지(기본 8)
 //   HEADFUL     "1" 이면 headless 끔(로컬 디버깅용)
 //   CHROMIUM_PATH  미리 설치된 크롬 실행 경로(선택)
-//   ENGINE      chromium | firefox. 주면 모든 브랜드를 그 엔진으로 돈다(측정용).
+//   ENGINE      chromium | firefox | impit. 주면 모든 브랜드를 그 엔진으로 돈다(측정용).
+//               impit = 브라우저 없이 크롬의 TLS 지문으로 HTML 만 받아(impit 패키지) 그 HTML 을
+//               크롬 창에 그대로 넣고 같은 수집기를 돌린다. 크롬 창은 사이트에 직접 접속하지 않는다.
 //               비우면 브랜드별 기본 — Render browser 그룹은 chromium, 추가 브랜드 파일은 적힌 엔진.
 //   FIREFOX_PATH   미리 설치된 파이어폭스 실행 경로(선택)
 //   FRESH_CONTEXT  "1" 이면 카테고리 URL 마다 쿠키가 빈 새 창으로 연다(측정용, 기본 끔)
 //   EXTRA_BRANDS_FILE  추가 브랜드 파일 경로(기본 저장소 루트의 browser-extra-brands.json)
+//   REPORT_TAG  주면 리포트를 browser-collect-<TAG>.json/.md 로 쓴다(측정 실행 — 운영 리포트를 덮지 않게)
 //   RENDER_URL / WORKER_URL / WORKER_TOKEN
 //   DEADLINE_MIN   시간 예산(분, 기본 85 · 최소 5). 이 시각 뒤로는 새 브랜드를 시작하지 않는다
 //
@@ -37,6 +40,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { chromium, firefox } from "playwright";
+import { API_READERS } from "./listing-api.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const REPORT_DIR = process.env.REPORT_DIR || ROOT;
@@ -60,7 +64,7 @@ const DRY_PLAN = process.env.DRY_PLAN === "1";
 // 두 엔진은 실행·창 옵션만 다르고 나머지(수집기 주입·페이지 넘김·저장)는 똑같이 쓴다.
 // 파이어폭스에는 크롬 user-agent·크롬 전용 실행 인자를 넣지 않는다 — 크롬인 척하면
 // 오히려 어긋난 지문이 돼서 막힌다. 언어·시간대·창 크기만 맞춘다.
-const ENGINES = ["chromium", "firefox"];
+const ENGINES = ["chromium", "firefox", "impit", "api"];
 const ENGINE_ENV = (process.env.ENGINE || "").trim().toLowerCase();
 if (ENGINE_ENV && !ENGINES.includes(ENGINE_ENV)) {
   console.error(`ENGINE 은 ${ENGINES.join(" | ")} 중 하나여야 합니다(받은 값: ${process.env.ENGINE})`);
@@ -68,6 +72,8 @@ if (ENGINE_ENV && !ENGINES.includes(ENGINE_ENV)) {
 }
 const COMMON_CONTEXT = { viewport: { width: 1440, height: 1000 }, locale: "en-US", timezoneId: "America/New_York" };
 function engineOptions(name) {
+  // impit 은 문서를 impit 으로 받고 화면만 크롬으로 그린다 — 크롬과 같은 창 옵션.
+  if (name === "impit" || name === "api") return engineOptions("chromium");
   if (name === "firefox") {
     return {
       launch: {
@@ -117,15 +123,61 @@ async function contextFor(name) {
   contexts.set(name, { browser, context });
   return context;
 }
+
+// ── impit 엔진 ──
+// 2026-11-25 측정: H&M·Ann Taylor·Loft 등은 헤드리스 크롬이면 403/차단 화면인데, 브라우저 없이
+// 크롬의 TLS 지문으로 HTML 만 받으면(impit) 상품 링크 수백 개가 그대로 들어 있었다.
+// 그래서 문서(HTML)만 impit 으로 받고, 그 HTML 을 크롬 창에 넣어 같은 수집기(collector.js)를 돌린다.
+//  · 창 안의 다른 요청(스크립트·CSS·폰트·XHR)은 모두 막는다 — 사이트에 크롬으로 접속하지 않는다.
+//  · 이미지는 빈 300×400 그림으로 대신 채운다. 막으면 깨진 그림 크기가 작게 잡혀 수집기가 아이콘으로
+//    보고 버린다. 이미지 '주소'는 HTML 의 src/srcset 에서 그대로 읽으므로 상품 사진 주소는 진짜다.
+const PLACEHOLDER_IMG = '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400"></svg>';
+let impitClient = null;
+const impitFinal = new Map();   // 요청 주소 → impit 이 따라간 최종 주소(지역 이동 등 진단용)
+async function impitFetchHtml(url) {
+  if (!impitClient) {
+    const { Impit } = await import("impit");
+    impitClient = new Impit({ browser: "chrome", followRedirects: true, timeout: NAV_MS });
+  }
+  const r = await impitClient.fetch(url, {
+    headers: { "Accept-Language": "en-US,en;q=0.9", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" },
+  });
+  const body = await r.text();
+  if (r.url && r.url !== url) impitFinal.set(url, r.url);
+  return { status: r.status, body };
+}
+async function routeThroughImpit(page) {
+  await page.route("**/*", async (route) => {
+    const req = route.request();
+    const type = req.resourceType();
+    if (type === "document" && req.frame() === page.mainFrame()) {
+      try {
+        const { status, body } = await impitFetchHtml(req.url());
+        return route.fulfill({ status, contentType: "text/html; charset=utf-8", body });
+      } catch (e) {
+        return route.abort("failed");
+      }
+    }
+    if (type === "image") return route.fulfill({ status: 200, contentType: "image/svg+xml", body: PLACEHOLDER_IMG });
+    return route.abort();
+  });
+}
 // FRESH_CONTEXT=1: 카테고리 URL 마다 쿠키가 빈 새 창(context)으로 연다.
 // 2026-11-24 파이어폭스 측정에서 Chico's·WHBM 이 브랜드의 첫 카테고리만 열리고 두 번째부터
 // 403 이었다 — 첫 방문 뒤 받은 봇 판정 쿠키 때문인지 확인하려는 선택이다(기본은 끔).
 const FRESH_CONTEXT = process.env.FRESH_CONTEXT === "1";
-async function pageFor(name) {
+// fresh: 브랜드별 '새 창' 설정(추가 브랜드 파일의 "fresh": true). FRESH_CONTEXT 는 모든 브랜드에 건다.
+async function pageFor(name, fresh = false) {
   const shared = await contextFor(name);
-  if (!FRESH_CONTEXT) return { page: await shared.newPage(), done: async () => {} };
-  const ctx = await newContext(name, contexts.get(name).browser);
-  return { page: await ctx.newPage(), done: () => ctx.close().catch(() => {}) };
+  let page, done = async () => {};
+  if (!FRESH_CONTEXT && !fresh) page = await shared.newPage();
+  else {
+    const ctx = await newContext(name, contexts.get(name).browser);
+    page = await ctx.newPage();
+    done = () => ctx.close().catch(() => {});
+  }
+  if (name === "impit") await routeThroughImpit(page);
+  return { page, done };
 }
 
 const PER_CATEGORY = 150;    // 확장(background.js)과 동일
@@ -186,7 +238,8 @@ function targetsFromLastReport() {
       .map((r) => ({
         brand: r.brand, site: r.site, urls: r.perUrl.map((u) => u.url).filter(Boolean),
         // 지난 실행에서 브랜드별로 정해 둔 엔진(추가 브랜드 파일)을 이어 쓴다.
-        ...(r.engineSource === "extra" && ENGINES.includes(r.engine) ? { engine: r.engine, source: "extra" } : {}),
+        ...(/^extra/.test(r.engineSource || "") && ENGINES.includes(r.engine)
+          ? { engine: r.engine, source: "extra", fresh: !!r.fresh, storeMode: r.storeMode === "merge" ? "merge" : "replace" } : {}),
       }));
   } catch (e) { return []; }
 }
@@ -194,6 +247,9 @@ function targetsFromLastReport() {
 let configNote = "";
 const extraNotes = [];   // 추가 브랜드 파일을 읽다가 건너뛴 사유
 // 추가 브랜드 파일. 형식: { "brands": [ { "brand": "Prana", "engine": "firefox", "urls": [선택], "evidence": "…" } ] }
+//   fresh: true      카테고리 URL 마다 쿠키가 빈 새 창(첫 페이지만 열리고 다음부터 403 인 사이트)
+//   store: "merge"   저장할 때 통째로 갈아끼우지 않고 합친다 — 서버 프리페치가 채워 온 카탈로그
+//                    (옛 수집분이 쌓여 있다)를 이 수집이 줄이지 않게. 기본은 "replace".
 function loadExtras() {
   const file = process.env.EXTRA_BRANDS_FILE || join(ROOT, "browser-extra-brands.json");
   if (!existsSync(file)) return [];
@@ -209,7 +265,7 @@ function loadExtras() {
     const engine = String(x.engine || "chromium").toLowerCase();
     if (!ENGINES.includes(engine)) { extraNotes.push(`${brand}: 모르는 엔진 "${x.engine}" — 건너뜀`); continue; }
     const urls = (Array.isArray(x.urls) ? x.urls : []).filter((u) => /^https?:\/\//i.test(u));
-    out.push({ brand, engine, urls });
+    out.push({ brand, engine, urls, fresh: x.fresh === true, storeMode: x.store === "merge" ? "merge" : "replace" });
   }
   return out;
 }
@@ -265,13 +321,22 @@ async function buildTargets() {
     for (const x of loadExtras()) {
       const key = x.brand.toLowerCase();
       if (only.length && !only.includes(key)) continue;
-      // Render browser 그룹에 이미 있는 브랜드는 그쪽(크롬)을 따른다 — 같은 카탈로그를 두 번 덮지 않게.
-      if (inGroup.has(key)) { extraNotes.push(`${x.brand}: Render browser 그룹에 이미 있어 추가 항목을 무시함`); continue; }
+      // Render browser 그룹에 이미 있는 브랜드는 새로 더하지 않고 그 항목의 엔진·새 창 설정만 바꾼다
+      // (같은 카탈로그를 두 번 돌지 않게). 예: The upside — 크롬 한 창이면 첫 카테고리만 열린다.
+      if (inGroup.has(key)) {
+        const g = groups.find((y) => y.brand.toLowerCase() === key);
+        if (g) {
+          Object.assign(g, { engine: x.engine, fresh: x.fresh, source: "extra-override" });
+          if (x.urls.length) g.urls = x.urls;
+          extraNotes.push(`${x.brand}: Render browser 그룹 브랜드 — 엔진 ${x.engine}${x.fresh ? " · 새 창" : ""}으로 바꿔 돎`);
+        }
+        continue;
+      }
       const urls = x.urls.length ? x.urls : catUrls(x.brand);
       if (!urls.length) { extraNotes.push(`${x.brand}: 카테고리 URL 이 없어 건너뜀(category-links.json 에도, 추가 파일에도 없음)`); continue; }
       const b = byName.get(key);
       const name = (b && b.name) || x.brand;
-      const t = { brand: name, site: siteKeyOf(name, (b && b.url) || urls[0]), urls, engine: x.engine, source: "extra" };
+      const t = { brand: name, site: siteKeyOf(name, (b && b.url) || urls[0]), urls, engine: x.engine, source: "extra", fresh: x.fresh, storeMode: x.storeMode };
       const i = groups.findIndex((g) => g.brand.toLowerCase() === key);   // BRANDS 로 이미 고른 경우
       if (i >= 0) groups[i] = t; else groups.push(t);
     }
@@ -348,9 +413,28 @@ for (const g of targets) {
   const brandItems = new Map();
   const seenIn = new Map();   // productUrl → 몇 개의 카테고리 페이지에서 나왔나
   const perUrl = [];
-  for (const url of g.urls) {
+  // api 엔진: 사이트가 자기 목록을 그릴 때 부르는 JSON(검색 API)을 직접 읽는다 — 페이지를 열지 않는다.
+  // URL 대신 그 API 의 카테고리 이름을 돈다(scripts/listing-api.mjs).
+  if (g.engine === "api") {
+    const reader = API_READERS[g.brand.toLowerCase()];
+    if (!reader) perUrl.push({ url: "api", count: 0, note: "이 브랜드용 API 읽기가 없음(scripts/listing-api.mjs)" });
+    else {
+      for (const part of reader.parts) {
+        let got = [], note = "";
+        try { got = await reader.read(part); } catch (e) { note = "오류: " + String((e && e.message) || e).slice(0, 90); }
+        for (const it of got.slice(0, PER_CATEGORY)) {
+          if (!brandItems.has(it.productUrl)) brandItems.set(it.productUrl, { ...it, src: reader.label(part) });
+          seenIn.set(it.productUrl, (seenIn.get(it.productUrl) || 0) + 1);
+        }
+        perUrl.push({ url: reader.label(part), count: got.length, note: note || (got.length ? "" : "상품 0개"),
+          sample: got.slice(0, 3).map((it) => ({ name: it.name, productUrl: it.productUrl, price: it.price })) });
+        console.log(`   ${got.length ? "·" : "✕"} ${got.length}개  ${reader.label(part)}${note ? "  ← " + note : ""}`);
+      }
+    }
+  }
+  for (const url of g.engine === "api" ? [] : g.urls) {
     if (pastHard()) { cut = true; break; }
-    const { page, done: closeCtx } = await pageFor(g.engine);
+    const { page, done: closeCtx } = await pageFor(g.engine, !!g.fresh);
     let note = "";
     let lastRej = null;
     const byUrl = new Map();
@@ -437,7 +521,12 @@ for (const g of targets) {
       if (!brandItems.has(it.productUrl)) brandItems.set(it.productUrl, it);
       seenIn.set(it.productUrl, (seenIn.get(it.productUrl) || 0) + 1);
     }
-    perUrl.push({ url, count: byUrl.size, note });
+    if (g.engine === "impit" && impitFinal.has(url) && norm(impitFinal.get(url)) !== norm(url)) {
+      note = (note ? note + " · " : "") + `impit 최종주소 ${impitFinal.get(url).slice(0, 120)}`;
+    }
+    // URL 마다 표본 3개 — 사람이 사이트에서 직접 대조할 수 있게(측정 기록용).
+    const sample = [...byUrl.values()].slice(0, 3).map((it) => ({ name: it.name, productUrl: it.productUrl, price: it.price }));
+    perUrl.push({ url, count: byUrl.size, note, sample });
     console.log(`   ${byUrl.size ? "·" : "✕"} ${byUrl.size}개  ${url}${note ? "  ← " + note : ""}`);
   }
   // 끊겨서 못 돈 카테고리도 perUrl 에 남긴다. 리포트 JSON 은 다음 실행이 설정 파일을 못 받았을 때
@@ -461,13 +550,13 @@ for (const g of targets) {
   if (cut) storeErr = "마감으로 중단 — 저장 안 함(이전 저장본 유지)";
   // 추가 브랜드는 평소 서버 프리페치가 채우는 카탈로그다. 파이어폭스가 약한 밤에 그걸 덮지 않게
   // 더 엄격하게 본다(아래 extraStoreBlock).
-  const extraBlock = STORE && !cut && g.source === "extra" ? await extraStoreBlock(g.site, items.length) : "";
+  const extraBlock = STORE && !cut && /^extra/.test(g.source || "") ? await extraStoreBlock(g.site, items.length) : "";
   if (extraBlock) storeErr = extraBlock;
   if (STORE && !cut && !extraBlock && items.length >= 5) {
     try {
       const legacy = g.site.slice(0, g.site.lastIndexOf("."));
       const r = await fetch(
-        `${WORKER}/?store=catalog&replace=1&legacy=${encodeURIComponent(legacy)}&token=${encodeURIComponent(TOKEN)}`,
+        `${WORKER}/?store=catalog${g.storeMode === "merge" ? "" : "&replace=1"}&legacy=${encodeURIComponent(legacy)}&token=${encodeURIComponent(TOKEN)}`,
         {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ site: g.site, brand: g.brand, items }),
@@ -481,6 +570,7 @@ for (const g of targets) {
   const secs = Math.round((Date.now() - t0) / 1000);
   results.push({
     brand: g.brand, site: g.site, engine: g.engine, engineSource: g.source || (ENGINE_ENV ? "env" : "default"),
+    fresh: !!(g.fresh || FRESH_CONTEXT), storeMode: g.storeMode || "replace",
     collected: items.length, stored, storeErr, cats, perUrl, secs, dropped, cut,
     // 무엇이 잡혔는지 눈으로 확인할 수 있게 표본을 남긴다(선택자 오작동 진단용).
     sample: items.slice(0, 5).map((it) => ({ name: it.name, productUrl: it.productUrl })),
@@ -526,9 +616,12 @@ if (deferred.length) {
 for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요(봇 차단)", blk], ["🔧 보완 필요", fix]]) {
   md += `## ${title} (${rows.length})\n\n`;
   for (const r of rows) {
-    md += `- **${r.brand}** [${r.engine}] — ${r.collected}개 ${JSON.stringify(r.cats)}` +
+    md += `- **${r.brand}** [${r.engine}${r.fresh ? "·새 창" : ""}] — ${r.collected}개 ${JSON.stringify(r.cats)}` +
       (r.dropped ? ` · 공용 링크 ${r.dropped}개 제외` : "") + ` (${r.secs}s)\n`;
-    for (const u of r.perUrl) if (u.note) md += `  - ${u.count}개 · ${u.url} ← ${u.note}\n`;
+    for (const u of r.perUrl) {
+      md += `  - ${u.count}개 · ${u.url}${u.note ? " ← " + u.note : ""}\n`;
+      for (const sm of u.sample || []) md += `    - ${sm.name}${sm.price ? " (" + sm.price + ")" : ""} — ${sm.productUrl}\n`;
+    }
     for (const sm of r.sample || []) md += `  - 표본: ${sm.name} — ${sm.productUrl}\n`;
   }
   md += `\n`;
@@ -538,6 +631,7 @@ for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요
 // 지난 리포트에 없어서, 미루는 순간 다음 대체 실행 목록에서 빠졌다.
 const carry = targets.filter((t) => deferred.some((d) => d.brand === t.brand) && !results.some((r) => r.brand === t.brand));
 const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, engine: t.engine, engineSource: t.source || (ENGINE_ENV ? "env" : "default"), collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
-writeFileSync(join(REPORT_DIR, "browser-collect-report.json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, engine: ENGINE_ENV || "per-brand", engines: enginesUsed, freshContext: FRESH_CONTEXT, configNote, extraNotes, deferred, results: keep }, null, 1));
-writeFileSync(join(REPORT_DIR, "browser-collect-report.md"), md);
+const REPORT_BASE = process.env.REPORT_TAG ? `browser-collect-${String(process.env.REPORT_TAG).replace(/[^\w.-]/g, "")}` : "browser-collect-report";
+writeFileSync(join(REPORT_DIR, REPORT_BASE + ".json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, engine: ENGINE_ENV || "per-brand", engines: enginesUsed, freshContext: FRESH_CONTEXT, configNote, extraNotes, deferred, results: keep }, null, 1));
+writeFileSync(join(REPORT_DIR, REPORT_BASE + ".md"), md);
 console.log(`\n자동화 가능 ${auto.length} / 확장 필요 ${blk.length} / 보완 필요 ${fix.length}`);
