@@ -27,7 +27,60 @@
 
 ## 2. 브랜드별 결과
 
-BRAND_TABLE
+### 2-1. 넣은 브랜드 (`browser-extra-brands.json` — main 에 합치면 매일)
+
+전 = 11/25 저장본·야간(확장 ext · 서버 srv · 헤드리스 hl)의 카테고리 URL 별 수. 후 = 저장 안 함 측정, 서로 다른 러너 2회 이상.
+
+| 브랜드 | 엔진 | 전(URL 별) | 후(URL 별) | 실행 | 표본 3개(사이트에서 확인용) |
+|---|---|---|---|---|---|
+| H&M | 파이어폭스 | ext 150·150·149·150·145 | 156~172·168~173·171~175·172~176·157~166 (745) | 45598942983·45598957772·45605800257·45605806955 | productpage.1370920002 · 1368807009 · 1359326003 (`www2.hm.com/en_us/productpage.<번호>.html`) |
+| Seasalt cornwall | 크롬 | ext 131·50·1·65·32 | 141·91·58·88·53 (276) | 45620020752·45620027222 | Isla Semi-Fitted Shirt `/isla-patterned-organic-cotton-shirt` · Golden Light Knitted Vest `/golden-light-fair-isle-knitted-vest` · Stone Circle Fair Isle Jumper `/stone-circle-fair-isle-jumper` |
+| Gap | 크롬 | ext 6(배너) | 201·205·203·68 (472) | 45604830101·45604840722 | Modern V-Neck T-Shirt `product.do?pid=886594042` · Modern Boatneck T-Shirt `pid=915374002` · VintageSoft Oversized Mockneck Zip Jacket `pid=1188195042` |
+| Old Navy | 크롬 | ext 7 | 203·200~205·114·197·157 (693) | 같음 | Vintage Crew-Neck T-Shirt `pid=537388222` · Snug Long-Sleeve Ribbed T-Shirt `pid=909502002` · Fitted Performance Fleece Full-Zip Jacket `pid=903184012` |
+| Athleta | 크롬 | ext 1 | 395·122·41·295 (403) | 같음 | Luxe Velvet Built In Bra Tank `pid=1184499002` · Seasoft V-Neck Sweatshirt `pid=1174523072` · Coaster Luxe Open Cardigan `pid=1177198022` |
+| Banana Republic | 크롬 | ext 1 | 106·164·131·136 (511) | 같음 | French Terry Stand-Collar Sweatshirt `pid=1180234022` · Vintage Cotton Crew-Neck T-Shirt `pid=834994342` · The Everyday Shirt in Cotton Poplin `pid=709387252` |
+| The upside | 파이어폭스+새 창(엔진만 바꿈) | hl 70·0·0·0 | 58~119·45~46·19·58~119 | 45604830101·45604840722·45620020752·45620027222 | Palacio Jetta Racerback Bra `/palacio-jetta-racerback-bra-check-usw426033/` · Seamless Halle Halter Top `/seamless-halle-halter-top-cream-usw326095/` · Castilla Clementine Knit Crew `/castilla-clementine-knit-crew-olive-usw126120/` |
+| Reformation | 크롬 · 합치기 | srv 57·1·27·0~56·36 | 613·50·61·600·168 (535, 상한 전) | 45604830101·45604840722 | Bia Top `/products/bia-top/1321186FDL.html` · Calie Tank `/products/calie-tank/1310381EDS.html` · Clara Cashmere Crew Cardigan `/products/clara-cashmere-crew-cardigan/1312652BLK.html` |
+| Sessun | impit · 합치기 | srv 하루 81(사진 주소 조각 섞임) | 47·27·17·25·95 (211) | 45604834917·45604846574 | Serge `/catalogue/t-shirts/serge-navy.html` · Serge co `/catalogue/t-shirts/serge-co-black.html` · Chebbi `/catalogue/sweatshirts/chebbi-black-granit.html` |
+| Whitestuff | impit · 합치기 | srv 60·60·1~48·42·73·28 | 110·157·170·111·127·131 (664) | 45598952305·45598969872·45604834917·45604846574 | Nelly Embroidered T-Shirt `/p/7267/nelly-embroidered-t-shirt/BRIL_WHITE` · Iris Linen Tee `/p/9491/442987-iris-linen-tee/IVORY_PR` · Lizzie Long Sleeve Embroidery Top `/p/9510/448922-…/NAVY_MULTI` |
+| Bash | 크롬 · 합치기 | srv 4·4·4·10~24·7 | 35·38·97·107·76 (295) | 45604834917·45604846574 | T-shirt IONI `/fr/en/p/t-shirt-ioni-kaki-3667436072215.html` · Tank top SHADEY `/p/tank-top-shadey-champagne-3667436159237.html` · BAPY Sweatshirt `/p/bapy-sweatshirt-ecru-3667436160745.html` |
+| Vanessa bruno | 크롬 · 합치기 | srv tops 6 · 나머지 0 | tops 4+2 · knit(엑셀 주소) 9 · 셔츠 77 · 원피스 41 · 바지 25 (207) | 45604834917·45604846574 | Camomille t-shirt `/p/camomille-t-shirt-45499.html` · Glendon t-shirt `/p/glendon-t-shirt-52710.html` · Glycine tank top `/p/glycine-tank-top-53999.html` |
+
+### 2-2. 수집기 규칙으로 고친 Render 그룹 브랜드(엔진 그대로)
+
+| 브랜드 | 전 | 후 | 실행 | 표본 |
+|---|---|---|---|---|
+| Carhartt | hl 77·78·62·61·25(표본 5개가 전부 /c/ 메뉴 타일) | 24·25·11·10·1 — 전부 `/product/` | 45598948052·45598964123·45604830101·45604840722·45620020752·45620027222 | Women's TENCEL Loose Floral T-Shirt `/product/107478/…` · TENCEL Long-Sleeve Logo T-Shirt `/product/106574/…` · TENCEL Full-Zip Sweatshirt `/product/106837/…` |
+| Nike | hl 150·174·139·86(표본 5개가 /w/ 필터 링크) | 216·216·140·216 — `/t/` 상품 | 같음 | Jordan Flight Fleece Corset `/t/…/IM6788-010` · Sportswear T-Shirt `/t/…/IM3777-437` · ACG "Wolf Tree" Pants `/t/…/HJ0241-009` |
+| Oysho(확장 쪽) | 확장 20개 전부 `-n5063` 카테고리 타일 | 수집기 규칙으로 타일이 걸러짐(확장 재설치 뒤 적용). 데이터센터 파이어폭스로는 448개 읽히지만 한 번에 46분이라 넣지 않음 | 45605800257·45605806955·45620020752·45620027222 | Extra-fine lyocell-blend T-shirt `/gb/…-l37581348` · Half-zip sweatshirt `/gb/…-l36923158` · Perfect-adapt long jumpsuit `/gb/…-l30792232` |
+
+### 2-3. 넣지 않은 브랜드와 이유(모두 측정)
+
+| 브랜드 | 이유 |
+|---|---|
+| Arket · &Other Stories · L.L bean · Wilson | 열리고 브랜드 합계는 확장보다 많거나 비슷하지만(370~381 · 470~479 · 296 · 83~96) **URL 하나 이상이 확장 저장 수보다 적음**(Arket 셔츠 114~117 < 119, Stories sweatshirts 6 < 12, L.L.Bean tees 109 < 126, Wilson tanks 14~16 < 19). 확장 쪽 수에 메뉴·공용 링크가 섞여 있을 가능성이 있지만(추정) 규칙대로 넣지 않음 |
+| Ann Taylor · Loft | 지도 측정 땐 impit 이 열렸으나 이번 2회는 PerimeterX 확인 화면·오류 페이지로 넘어감 |
+| Massimo Dutti | 파이어폭스+새 창 114~228개 < 확장 603 |
+| Madewell | 데이터센터 크롬으론 상품 대신 공용 기획전 링크만 보임(6개) |
+| Garnet hill | 첫 URL 10개, 나머지 0 |
+| Oysho | 열리고 448개지만 46분 — 야간 시간 예산에 못 넣음 |
+| Aritzia | 사이트의 검색 API(Algolia)는 데이터센터에서 열림(4회 509~510개) — 확장 800 에 못 미침. `api` 엔진(`scripts/listing-api.mjs`)은 준비돼 있음 |
+| The white company | `/us/` 주소로도 0개 — 지역 문제 그대로 |
+| Dickies · Good American · James Perse · Nation LTD · vineyardvines | 헤드리스가 일부 카테고리에서 서버보다 적음(Dickies hoodies 44<48, Good American jeanius-sweats 13<35, James Perse tanks 11<40, Nation tops 30<97, vineyardvines tees 21<93) — 서버 유지 |
+| Monsoon | 1차 impit 174개(서버 30) → 2차 0개(그리드가 메뉴 칸 안에 있어 새 규칙에 걸림 — 고침). 고친 코드로 2회 재측정을 못 해 넣지 않음 |
+| Lucky Brand | 대체 주소도 읽는 중 다른 페이지로 넘어감 — URL 표 참고 |
+
+### 2-4. 새 수집기 규칙이 Render 그룹(이미 매일 도는 23개)에 준 영향 — 3차 측정(run 45620020752·45620027222)
+
+대부분 URL 마다 3~6개씩 줄었습니다 — 매 페이지 똑같이 붙던 메뉴·공용 링크가 빠진 것으로 봅니다(추정, 표본은 진짜 상품).
+눈에 띄게 줄어든 곳은 owner 가 확인할 필요가 있습니다:
+
+- **Leset sweat-sets 176 → 5** — 이 페이지는 세트(컬렉션) 타일을 보여 주는데, 새 `/collections/` 규칙이 그 타일을 상품에서 뺐습니다. 이전 176개가 진짜 상품이었는지 세트 타일이었는지는 확인 못 함
+- **Sweaty betty 36·36·23·39 → 27·27·13·26**, **Me+Em t-shirts 64 → 48 · sweatshirts 22 → 7**, **J crew 59~73 → 32~62**, **Shopbop 237~246 → 207~214** — 표본은 진짜 상품. 빠진 것이 메뉴 링크인지 상품인지 확인 못 함
+- Carhartt 148 → 71 은 메뉴 타일이 빠진 것(측정 표본으로 확인)
+
+Worker 는 이전 저장본의 절반 아래로 줄면 갈아끼우지 않고 합치므로(축소 가드) 카탈로그가 한 번에 크게 줄지는 않습니다.
+이 브랜치의 수집기는 한 화면씩 내려가며 읽어 시간이 늘었습니다(Render 그룹 55분 → 86분). 그래서 야간 시간 예산을 '잡 시작부터 105분'으로 바꿨습니다.
 
 ## 3. URL 문제 — 바꿀 주소 제안 (owner 결정 필요 · 엑셀 URL 은 바꾸지 않았음)
 
