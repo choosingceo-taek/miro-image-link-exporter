@@ -12,3 +12,7 @@
 | 45578722275 | 08:43 | 상품 · 20 브랜드 × 3 | impit,site-api,wayback,playwright,firefox,camoufox | 1차 P-a |
 | 45578730036 | 08:43 | 상품 · 23 브랜드 × 3 | 같음 | 1차 P-b |
 | 45578744223 | 08:43 | 카탈로그 134개 훑기(엔진 없음) | - | URL별 저장 수 |
+| 45580608846 | 08:55 | targets-listing-all.json (목록 623) | impit | 2차(다른 러너) · 판정 규칙 보완 뒤 |
+| 45582267106 | 09:06 | 상품 · 33 브랜드 × 3 | impit,playwright,firefox | 2차 상품(camoufox 는 1차에서 두 번 다 시작하자마자 SIGSEGV — 뺌) |
+| 45582271538 | 09:06 | targets-listing-server.json | server | 2차 서버 경고 |
+| 45582315366 | 09:06 | targets-product-extra.json (상품 23 · 카탈로그에서 못 고른 브랜드) | impit,site-api,wayback,playwright,firefox | 1차 |
