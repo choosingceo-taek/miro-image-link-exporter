@@ -1,0 +1,1617 @@
+{
+ "when": "2026-11-25T11:19:25.265Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "impit",
+  "chromium"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "Nation LTD",
+   "site": "nation.la.nationltd",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 4,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 3,
+    "pants": 1
+   },
+   "perUrl": [
+    {
+     "url": "https://nation.la/collections/tops",
+     "count": 4,
+     "note": "",
+     "sample": [
+      {
+       "name": "Nation Los Angeles Best Selling Tops",
+       "productUrl": "https://nation.la/collections/best-selling-tops",
+       "price": ""
+      },
+      {
+       "name": "Nation Los Angeles Short Sleeves",
+       "productUrl": "https://nation.la/collections/short-sleeve",
+       "price": ""
+      },
+      {
+       "name": "Tanks",
+       "productUrl": "https://nation.la/collections/sleeveless-tops",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://nation.la/collections/sweatshirts",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://nation.la/collections/sweatshirts · 제목 \"Sweatshirts – Cozy, Stylish & Versatile | Nation Los Angeles\" · 링크 80/이미지 1 · 탈락[total=80 noImage=79 tinyImage=0 shortPath=1 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · \"The Black Friday Sale Is on | 30% Off Sitewide Free Standard Shipping with orders $175+ SHOP NOW New Clothing Core Icons\"",
+     "sample": []
+    },
+    {
+     "url": "https://nation.la/collections/dresses",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://nation.la/collections/dresses · 제목 \"Dresses – Effortless, Ethical & Chic | Nation Los Angeles\" · 링크 74/이미지 2 · 탈락[total=74 noImage=73 tinyImage=0 shortPath=1 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · \"The Black Friday Sale Is on | 30% Off Sitewide Free Standard Shipping with orders $175+ SHOP NOW New Clothing Core Icons\"",
+     "sample": []
+    },
+    {
+     "url": "https://nation.la/collections/sweatpants",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://nation.la/collections/sweatpants · 제목 \"Sweatpants – Comfy, Stylish & Relaxed | Nation Los Angeles\" · 링크 52/이미지 1 · 탈락[total=52 noImage=51 tinyImage=0 shortPath=1 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · \"The Black Friday Sale Is on | 30% Off Sitewide Free Standard Shipping with orders $175+ SHOP NOW New Clothing Core Icons\"",
+     "sample": []
+    }
+   ],
+   "secs": 62,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Nation Los Angeles Best Selling Tops",
+     "productUrl": "https://nation.la/collections/best-selling-tops"
+    },
+    {
+     "name": "Nation Los Angeles Short Sleeves",
+     "productUrl": "https://nation.la/collections/short-sleeve"
+    },
+    {
+     "name": "Tanks",
+     "productUrl": "https://nation.la/collections/sleeveless-tops"
+    },
+    {
+     "name": "Nation Los Angeles Long Sleeves",
+     "productUrl": "https://nation.la/collections/long-sleeves"
+    }
+   ],
+   "verdict": "보완 필요(수집 0~소량)"
+  },
+  {
+   "brand": "Sessun",
+   "site": "en.sessun.com.sessun",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 211,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "shirts": 47,
+    "sweatshirts": 27,
+    "tops": 17,
+    "dresses": 25,
+    "pants": 95
+   },
+   "perUrl": [
+    {
+     "url": "https://en.sessun.com/catalogue/t-shirts.html",
+     "count": 58,
+     "note": "",
+     "sample": [
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/ready-to-wear.html",
+       "price": ""
+      },
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/coats.html",
+       "price": ""
+      },
+      {
+       "name": "Our bags",
+       "productUrl": "https://en.sessun.com/catalogue/bags.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://en.sessun.com/catalogue/sweatshirts.html",
+     "count": 38,
+     "note": "",
+     "sample": [
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/ready-to-wear.html",
+       "price": ""
+      },
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/coats.html",
+       "price": ""
+      },
+      {
+       "name": "Our bags",
+       "productUrl": "https://en.sessun.com/catalogue/bags.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://en.sessun.com/catalogue/tops-and-bodies.html",
+     "count": 28,
+     "note": "",
+     "sample": [
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/ready-to-wear.html",
+       "price": ""
+      },
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/coats.html",
+       "price": ""
+      },
+      {
+       "name": "Our bags",
+       "productUrl": "https://en.sessun.com/catalogue/bags.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://en.sessun.com/catalogue/dresses.html",
+     "count": 36,
+     "note": "",
+     "sample": [
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/ready-to-wear.html",
+       "price": ""
+      },
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/coats.html",
+       "price": ""
+      },
+      {
+       "name": "Our bags",
+       "productUrl": "https://en.sessun.com/catalogue/bags.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://en.sessun.com/catalogue/trousers.html",
+     "count": 106,
+     "note": "",
+     "sample": [
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/ready-to-wear.html",
+       "price": ""
+      },
+      {
+       "name": "Our coats",
+       "productUrl": "https://en.sessun.com/catalogue/coats.html",
+       "price": ""
+      },
+      {
+       "name": "Our bags",
+       "productUrl": "https://en.sessun.com/catalogue/bags.html",
+       "price": ""
+      }
+     ]
+    }
+   ],
+   "secs": 138,
+   "dropped": 11,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Dorel",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/dorel-ambrune.html"
+    },
+    {
+     "name": "Sergio",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/sergio-rosee.html"
+    },
+    {
+     "name": "Dimentica",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/dimentica-fleur-de-sel.html"
+    },
+    {
+     "name": "Erico",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/erico-lava.html"
+    },
+    {
+     "name": "Serge",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/serge-red-muse.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Monsoon",
+   "site": "monsoonlondon.com.monsoon",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 174,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "shirts": 30,
+    "tops": 20,
+    "dresses": 56,
+    "sweatshirts": 57,
+    "pants": 11
+   },
+   "perUrl": [
+    {
+     "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/",
+     "count": 50,
+     "note": "impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/tops-blouses/",
+     "sample": [
+      {
+       "name": "New",
+       "productUrl": "https://www.monsoonlondon.com/us/new-in/",
+       "price": ""
+      },
+      {
+       "name": "Women",
+       "productUrl": "https://www.monsoonlondon.com/us/women/",
+       "price": ""
+      },
+      {
+       "name": "Party",
+       "productUrl": "https://www.monsoonlondon.com/us/occasionwear/",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/",
+     "count": 66,
+     "note": "impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/knitwear/",
+     "sample": [
+      {
+       "name": "New",
+       "productUrl": "https://www.monsoonlondon.com/us/new-in/",
+       "price": ""
+      },
+      {
+       "name": "Women",
+       "productUrl": "https://www.monsoonlondon.com/us/women/",
+       "price": ""
+      },
+      {
+       "name": "Party",
+       "productUrl": "https://www.monsoonlondon.com/us/occasionwear/",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.monsoonlondon.com/kr/womens/dresses/",
+     "count": 62,
+     "note": "impit 최종주소 https://www.monsoonlondon.com/us/womens/dresses/",
+     "sample": [
+      {
+       "name": "New",
+       "productUrl": "https://www.monsoonlondon.com/us/new-in/",
+       "price": ""
+      },
+      {
+       "name": "Women",
+       "productUrl": "https://www.monsoonlondon.com/us/women/",
+       "price": ""
+      },
+      {
+       "name": "Party",
+       "productUrl": "https://www.monsoonlondon.com/us/occasionwear/",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/",
+     "count": 15,
+     "note": "impit 최종주소 https://www.monsoonlondon.com/us/womens/womens-clothing/pants-shorts/",
+     "sample": [
+      {
+       "name": "New",
+       "productUrl": "https://www.monsoonlondon.com/us/new-in/",
+       "price": ""
+      },
+      {
+       "name": "Women",
+       "productUrl": "https://www.monsoonlondon.com/us/women/",
+       "price": ""
+      },
+      {
+       "name": "Party",
+       "productUrl": "https://www.monsoonlondon.com/us/occasionwear/",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.monsoonlondon.com/us/womens/womens-clothing/tops/",
+     "count": 50,
+     "note": "impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/tops-blouses/",
+     "sample": [
+      {
+       "name": "New",
+       "productUrl": "https://www.monsoonlondon.com/us/new-in/",
+       "price": ""
+      },
+      {
+       "name": "Women",
+       "productUrl": "https://www.monsoonlondon.com/us/women/",
+       "price": ""
+      },
+      {
+       "name": "Party",
+       "productUrl": "https://www.monsoonlondon.com/us/occasionwear/",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.monsoonlondon.com/us/womens/womens-clothing/knitwear/",
+     "count": 68,
+     "note": "impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/knitwear/",
+     "sample": [
+      {
+       "name": "New",
+       "productUrl": "https://www.monsoonlondon.com/us/new-in/",
+       "price": ""
+      },
+      {
+       "name": "Women",
+       "productUrl": "https://www.monsoonlondon.com/us/women/",
+       "price": ""
+      },
+      {
+       "name": "Party",
+       "productUrl": "https://www.monsoonlondon.com/us/occasionwear/",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.monsoonlondon.com/us/womens/dresses/",
+     "count": 62,
+     "note": "",
+     "sample": [
+      {
+       "name": "New",
+       "productUrl": "https://www.monsoonlondon.com/us/new-in/",
+       "price": ""
+      },
+      {
+       "name": "Women",
+       "productUrl": "https://www.monsoonlondon.com/us/women/",
+       "price": ""
+      },
+      {
+       "name": "Party",
+       "productUrl": "https://www.monsoonlondon.com/us/occasionwear/",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.monsoonlondon.com/us/womens/womens-clothing/trousers-shorts/",
+     "count": 15,
+     "note": "impit 최종주소 https://www.monsoonlondon.com/us/womens/womens-clothing/pants-shorts/",
+     "sample": [
+      {
+       "name": "New",
+       "productUrl": "https://www.monsoonlondon.com/us/new-in/",
+       "price": ""
+      },
+      {
+       "name": "Women",
+       "productUrl": "https://www.monsoonlondon.com/us/women/",
+       "price": ""
+      },
+      {
+       "name": "Party",
+       "productUrl": "https://www.monsoonlondon.com/us/occasionwear/",
+       "price": ""
+      }
+     ]
+    }
+   ],
+   "secs": 385,
+   "dropped": 4,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Jen Lace Jersey Blouse, Pink (BLUSH), large",
+     "productUrl": "https://www.monsoonlondon.com/us/jen-lace-jersey-blouse-pink-10091060046.html"
+    },
+    {
+     "name": "Imogen Lace Blouson Blouse, Ivory (IVORY), large",
+     "productUrl": "https://www.monsoonlondon.com/us/imogen-lace-blouson-blouse-ivory-10081370016.html"
+    },
+    {
+     "name": "Claudia Floral Devoré Top, Black (BLACK), large",
+     "productUrl": "https://www.monsoonlondon.com/us/claudia-floral-devore-top-black-10081200001.html"
+    },
+    {
+     "name": "Buffy Bow Scallop Velvet Top, Red (BURGUNDY), large",
+     "productUrl": "https://www.monsoonlondon.com/us/buffy-bow-scallop-velvet-top-red-10090490055.html"
+    },
+    {
+     "name": "Elsa Check Print Blouson Blouse, Brown (BROWN), large",
+     "productUrl": "https://www.monsoonlondon.com/us/elsa-check-print-blouson-blouse-brown-10064400012.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "vineyardvines",
+   "site": "vineyardvines.com.vineyardvines",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 73,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "sweatshirts": 8,
+    "tops": 14,
+    "shirts": 14,
+    "pants": 22,
+    "dresses": 15
+   },
+   "perUrl": [
+    {
+     "url": "https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9",
+     "count": 11,
+     "note": "",
+     "sample": [
+      {
+       "name": "Deluxe Turtleneck",
+       "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/deluxe-turtleneck/2K005106.html",
+       "price": "$68.00"
+      },
+      {
+       "name": "Deluxe Ruffle Mockneck",
+       "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/deluxe-long-sleeve-ruffle-trim-crewneck/2K005709.html",
+       "price": "$68.00"
+      },
+      {
+       "name": "Slim Rib Turtleneck",
+       "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/tencel-rib-turtle-neck-tee/2K005706.html",
+       "price": "$68.00"
+      }
+     ]
+    },
+    {
+     "url": "https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3",
+     "count": 12,
+     "note": "",
+     "sample": [
+      {
+       "name": "Dreamcloth® Fair Isle Relaxed Shep Shirt®",
+       "productUrl": "https://www.vineyardvines.com/product/womens-shep-shirts/fair-isle-dreamcloth-relaxed-shep-shirt/2K004143.html",
+       "price": "$158.00"
+      },
+      {
+       "name": "Dreamcloth® Joggers",
+       "productUrl": "https://www.vineyardvines.com/product/womens-pants/dreamcloth-joggers/2P001633.html",
+       "price": "$128.00"
+      },
+      {
+       "name": "Dreamcloth® Embroidered Shep Shirt®",
+       "productUrl": "https://www.vineyardvines.com/product/womens-shep-shirts/dreamcloth-embroidered-shep-shirt/2K004315.html",
+       "price": "$168.00"
+      }
+     ]
+    },
+    {
+     "url": "https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7",
+     "count": 14,
+     "note": "",
+     "sample": [
+      {
+       "name": "Birdie Cropped Embellished Button-Down",
+       "productUrl": "https://www.vineyardvines.com/product/womens-woven-tops/cropped-birdie-embellished-button-down/2W002187.html",
+       "price": "$128.00"
+      },
+      {
+       "name": "Birdie Cropped Button-Down",
+       "productUrl": "https://www.vineyardvines.com/product/womens-woven-tops/birdie-cropped-button-down/2W002193.html",
+       "price": "$98.00"
+      },
+      {
+       "name": "Birdie Embroidered Button-Down",
+       "productUrl": "https://www.vineyardvines.com/product/womens-woven-tops/birdie-embroidered-button-down/2W002250.html",
+       "price": "$128.00"
+      }
+     ]
+    },
+    {
+     "url": "https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2",
+     "count": 20,
+     "note": "",
+     "sample": [
+      {
+       "name": "Blythe Plaid Dress",
+       "productUrl": "https://www.vineyardvines.com/product/womens-dresses/blythe-plaid-dress/2Q012145.html",
+       "price": "$198.00"
+      },
+      {
+       "name": "Blythe Ponte Dress",
+       "productUrl": "https://www.vineyardvines.com/product/womens-dresses/blythe-ponte-dress/2Q011846.html",
+       "price": "$178.00"
+      },
+      {
+       "name": "Sophie Harbor Dress",
+       "productUrl": "https://www.vineyardvines.com/product/womens-dresses/printed-sophie-harbor-dress/2Q012107.html",
+       "price": "$198.00"
+      }
+     ]
+    },
+    {
+     "url": "https://www.vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--womens-clothing--8",
+     "count": 16,
+     "note": "",
+     "sample": [
+      {
+       "name": "Peyton Plaid Ponte Pants",
+       "productUrl": "https://www.vineyardvines.com/product/womens-pants/peyton-tartan-pants/2P001641.html",
+       "price": "$128.00"
+      },
+      {
+       "name": "Plaid Peyton Pants",
+       "productUrl": "https://www.vineyardvines.com/product/womens-pants/plaid-peyton-pants/2P001704.html",
+       "price": "$128.00"
+      },
+      {
+       "name": "Peyton Jacquard Pants",
+       "productUrl": "https://www.vineyardvines.com/product/womens-pants/peyton-jacquard-pants/2P001698.html",
+       "price": "$138.00"
+      }
+     ]
+    }
+   ],
+   "secs": 96,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Deluxe Turtleneck",
+     "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/deluxe-turtleneck/2K005106.html"
+    },
+    {
+     "name": "Deluxe Ruffle Mockneck",
+     "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/deluxe-long-sleeve-ruffle-trim-crewneck/2K005709.html"
+    },
+    {
+     "name": "Slim Rib Turtleneck",
+     "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/tencel-rib-turtle-neck-tee/2K005706.html"
+    },
+    {
+     "name": "Women's Santa Sleigh Pups Long-Sleeve Pocket Tee",
+     "productUrl": "https://www.vineyardvines.com/product/womens-t-shirts/santa-sleigh-pups-long-sleeve-pocket-tee/2V003573.html"
+    },
+    {
+     "name": "Women's Doodle Sleigh Long-Sleeve Pocket Tee",
+     "productUrl": "https://www.vineyardvines.com/product/womens-t-shirts/doodle-sleigh-long-sleeve-pocket-tee/2V003574.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Whitestuff",
+   "site": "whitestuff.com.whitestuff",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 652,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 228,
+    "pants": 130,
+    "shirts": 107,
+    "sweatshirts": 69,
+    "dresses": 118
+   },
+   "perUrl": [
+    {
+     "url": "https://www.whitestuff.com/browse/collection/womens-t-shirts",
+     "count": 120,
+     "note": "",
+     "sample": [
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/christmas",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/collection/40-off-selected-styles",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/womens",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/tops-and-tees",
+     "count": 168,
+     "note": "",
+     "sample": [
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/christmas",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/collection/40-off-selected-styles",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/mens",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/knitwear",
+     "count": 177,
+     "note": "",
+     "sample": [
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/christmas",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/collection/40-off-selected-styles",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/mens",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/shirts-and-blouses",
+     "count": 121,
+     "note": "",
+     "sample": [
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/christmas",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/collection/40-off-selected-styles",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/mens",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/dresses",
+     "count": 138,
+     "note": "",
+     "sample": [
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/christmas",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/collection/40-off-selected-styles",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/mens",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/trousers-and-leggings",
+     "count": 141,
+     "note": "",
+     "sample": [
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/christmas",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/collection/40-off-selected-styles",
+       "price": "£20"
+      },
+      {
+       "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+       "productUrl": "https://www.whitestuff.com/browse/mens",
+       "price": ""
+      }
+     ]
+    }
+   ],
+   "secs": 162,
+   "dropped": 10,
+   "cut": false,
+   "sample": [
+    {
+     "name": "40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS",
+     "productUrl": "https://www.whitestuff.com/browse/womens"
+    },
+    {
+     "name": "KIM BUTTON THROUGH TEE",
+     "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI"
+    },
+    {
+     "name": "DK BROWN swatch",
+     "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/DK_BROWN"
+    },
+    {
+     "name": "CLARA TEXTURE CREW NECK TEE",
+     "productUrl": "https://www.whitestuff.com/p/7087/clara-texture-crew-neck-tee/MID_BLUE"
+    },
+    {
+     "name": "CLARA LS TEXTURE TEE",
+     "productUrl": "https://www.whitestuff.com/p/8276/447077-clara-ls-texture-tee/PLUM_MLT"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Vanessa bruno",
+   "site": "vanessabruno.com.vanessabruno",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 79,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 33,
+    "sweatshirts": 9,
+    "shirts": 16,
+    "dresses": 12,
+    "pants": 9
+   },
+   "perUrl": [
+    {
+     "url": "https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html",
+     "count": 24,
+     "note": "",
+     "sample": [
+      {
+       "name": "private sale.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale.html",
+       "price": ""
+      },
+      {
+       "name": "cabas tote bags.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/cabas-tote-bags.html",
+       "price": ""
+      },
+      {
+       "name": "coats jackets.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/coats-jackets.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/shirts-tops/top.html",
+     "count": 22,
+     "note": "",
+     "sample": [
+      {
+       "name": "private sale.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale.html",
+       "price": ""
+      },
+      {
+       "name": "cabas tote bags.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/cabas-tote-bags.html",
+       "price": ""
+      },
+      {
+       "name": "coats jackets.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/coats-jackets.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.vanessabruno.com/last-chance/knitwear.html",
+     "count": 20,
+     "note": "",
+     "sample": [
+      {
+       "name": "private sale.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale.html",
+       "price": ""
+      },
+      {
+       "name": "cabas tote bags.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/cabas-tote-bags.html",
+       "price": ""
+      },
+      {
+       "name": "coats jackets.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/coats-jackets.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/knitwear.html",
+     "count": 53,
+     "note": "",
+     "sample": [
+      {
+       "name": "private sale.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale.html",
+       "price": ""
+      },
+      {
+       "name": "cabas tote bags.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/cabas-tote-bags.html",
+       "price": ""
+      },
+      {
+       "name": "coats jackets.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/coats-jackets.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/shirts-tops.html",
+     "count": 61,
+     "note": "",
+     "sample": [
+      {
+       "name": "private sale.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale.html",
+       "price": ""
+      },
+      {
+       "name": "cabas tote bags.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/cabas-tote-bags.html",
+       "price": ""
+      },
+      {
+       "name": "coats jackets.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/coats-jackets.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/dresses-jumpsuits.html",
+     "count": 55,
+     "note": "",
+     "sample": [
+      {
+       "name": "private sale.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale.html",
+       "price": ""
+      },
+      {
+       "name": "cabas tote bags.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/cabas-tote-bags.html",
+       "price": ""
+      },
+      {
+       "name": "coats jackets.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/coats-jackets.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/trousers.html",
+     "count": 29,
+     "note": "",
+     "sample": [
+      {
+       "name": "private sale.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale.html",
+       "price": ""
+      },
+      {
+       "name": "cabas tote bags.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/cabas-tote-bags.html",
+       "price": ""
+      },
+      {
+       "name": "coats jackets.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale/coats-jackets.html",
+       "price": ""
+      }
+     ]
+    }
+   ],
+   "secs": 156,
+   "dropped": 20,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Clothing T-shirt - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/hei-t-shirt-54829.html"
+    },
+    {
+     "name": "Clothing T-shirt - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/camomille-crop-t-shirt-54405.html"
+    },
+    {
+     "name": "Clothing T-shirt - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/camomille-t-shirt-45499.html"
+    },
+    {
+     "name": "Clothing T-shirt - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/glendon-t-shirt-52710.html"
+    },
+    {
+     "name": "Clothing Top - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/harry-sleeveless-jacket-54407.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Dickies",
+   "site": "dickies.com.dickies",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 102,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 28,
+    "pants": 60,
+    "shirts": 10,
+    "sweatshirts": 3,
+    "dresses": 1
+   },
+   "perUrl": [
+    {
+     "url": "https://www.dickies.com/collections/womens-tops",
+     "count": 90,
+     "note": "",
+     "sample": [
+      {
+       "name": "DK00TJ150BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk",
+       "price": "$48.99"
+      },
+      {
+       "name": "DK0852830BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk",
+       "price": "$24.49"
+      },
+      {
+       "name": "DK0WS4500BV-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv",
+       "price": "$11.89"
+      }
+     ]
+    },
+    {
+     "url": "https://www.dickies.com/en-us/collections/womens-hoodies",
+     "count": 50,
+     "note": "",
+     "sample": [
+      {
+       "name": "DK00TJ150BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk",
+       "price": "$48.99"
+      },
+      {
+       "name": "DK0852830BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk",
+       "price": "$24.49"
+      },
+      {
+       "name": "DK0WS4500BV-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv",
+       "price": "$11.89"
+      }
+     ]
+    },
+    {
+     "url": "https://www.dickies.com/en-us/collections/womens-shirt-jackets",
+     "count": 49,
+     "note": "",
+     "sample": [
+      {
+       "name": "DK00TJ150BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk",
+       "price": "$48.99"
+      },
+      {
+       "name": "DK0852830BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk",
+       "price": "$24.49"
+      },
+      {
+       "name": "DK0WS4500BV-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv",
+       "price": "$11.89"
+      }
+     ]
+    },
+    {
+     "url": "https://www.dickies.com/collections/womens-skirts-dresses",
+     "count": 52,
+     "note": "",
+     "sample": [
+      {
+       "name": "DK00TJ150BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk",
+       "price": "$48.99"
+      },
+      {
+       "name": "DK0852830BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk",
+       "price": "$24.49"
+      },
+      {
+       "name": "DK0WS4500BV-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv",
+       "price": "$11.89"
+      }
+     ]
+    },
+    {
+     "url": "https://www.dickies.com/collections/womens-pants",
+     "count": 91,
+     "note": "",
+     "sample": [
+      {
+       "name": "DK00TJ150BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk",
+       "price": "$48.99"
+      },
+      {
+       "name": "DK0852830BK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk",
+       "price": "$24.49"
+      },
+      {
+       "name": "DK0WS4500BV-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv",
+       "price": "$11.89"
+      }
+     ]
+    }
+   ],
+   "secs": 81,
+   "dropped": 46,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Juniors Snap Front Top",
+     "productUrl": "https://www.dickies.com/en-us/products/juniors-snap-front-top-7dkz5b0066clbwb"
+    },
+    {
+     "name": "Juniors Lace Babydoll Tank",
+     "productUrl": "https://www.dickies.com/en-us/products/juniors-lace-babydoll-tank-7dkz5b0046clmp"
+    },
+    {
+     "name": "Junior's Short Sleeve Oversized Stripe Tee",
+     "productUrl": "https://www.dickies.com/en-us/products/jr-ss-oversized-stripe-tee-whn"
+    },
+    {
+     "name": "Junior's Short Sleeve Oversized Stripe Tee",
+     "productUrl": "https://www.dickies.com/en-us/products/jr-ss-oversized-stripe-tee-whr"
+    },
+    {
+     "name": "Juniors Longline Baby Tee",
+     "productUrl": "https://www.dickies.com/en-us/products/juniors-longline-baby-tee-7dkz9e0193clnbl"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Good American",
+   "site": "goodamerican.com.goodamerican",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 646,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 226,
+    "pants": 187,
+    "sweatshirts": 87,
+    "dresses": 116,
+    "shirts": 30
+   },
+   "perUrl": [
+    {
+     "url": "https://www.goodamerican.com/en-kr/collections/tees-tanks",
+     "count": 136,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.goodamerican.com/en-kr/collections/womens-tops",
+     "count": 353,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.goodamerican.com/en-kr/collections/dresses",
+     "count": 93,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.goodamerican.com/en-kr/collections/bottoms",
+     "count": 101,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/en-kr/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.goodamerican.com/collections/jeanius-sweats",
+     "count": 43,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.goodamerican.com/collections/tees-tanks",
+     "count": 134,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.goodamerican.com/collections/womens-tops",
+     "count": 353,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.goodamerican.com/collections/dresses",
+     "count": 93,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://www.goodamerican.com/collections/bottoms",
+     "count": 101,
+     "note": "",
+     "sample": [
+      {
+       "name": "New In",
+       "productUrl": "https://www.goodamerican.com/collections/new-arrivals",
+       "price": ""
+      },
+      {
+       "name": "Leather & Better Than Leather",
+       "productUrl": "https://www.goodamerican.com/collections/leather-better-than-leather",
+       "price": ""
+      },
+      {
+       "name": "Everyday Layers",
+       "productUrl": "https://www.goodamerican.com/collections/everyday-layers",
+       "price": ""
+      }
+     ]
+    }
+   ],
+   "secs": 223,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "New In",
+     "productUrl": "https://www.goodamerican.com/collections/new-arrivals"
+    },
+    {
+     "name": "Leather & Better Than Leather",
+     "productUrl": "https://www.goodamerican.com/collections/leather-better-than-leather"
+    },
+    {
+     "name": "Everyday Layers",
+     "productUrl": "https://www.goodamerican.com/collections/everyday-layers"
+    },
+    {
+     "name": "Always Fits",
+     "productUrl": "https://www.goodamerican.com/collections/always-fits"
+    },
+    {
+     "name": "Soft Tech Denim",
+     "productUrl": "https://www.goodamerican.com/collections/soft-tech-denim"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Bash",
+   "site": "ba-sh.com.bash",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 32,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 8,
+    "sweatshirts": 5,
+    "shirts": 4,
+    "dresses": 7,
+    "pants": 8
+   },
+   "perUrl": [
+    {
+     "url": "https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.",
+     "count": 5,
+     "note": "",
+     "sample": [
+      {
+       "name": "event",
+       "productUrl": "https://ba-sh.com/fr/en/event/",
+       "price": ""
+      },
+      {
+       "name": "T-shirt IONI",
+       "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-ioni-grischine-3667436152573.html",
+       "price": ""
+      },
+      {
+       "name": "t-shirt CORTOT",
+       "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-cortot-encre-3667436089664.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.",
+     "count": 5,
+     "note": "",
+     "sample": [
+      {
+       "name": "event",
+       "productUrl": "https://ba-sh.com/fr/en/event/",
+       "price": ""
+      },
+      {
+       "name": "CRUSH SWEATSHIRT",
+       "productUrl": "https://ba-sh.com/fr/en/p/crush-sweatshirt-chocolat-3667436148194.html",
+       "price": ""
+      },
+      {
+       "name": "CRUSH SWEATSHIRT",
+       "productUrl": "https://ba-sh.com/fr/en/p/crush-sweatshirt-beige-3667436126765.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ.",
+     "count": 9,
+     "note": "",
+     "sample": [
+      {
+       "name": "event",
+       "productUrl": "https://ba-sh.com/fr/en/event/",
+       "price": ""
+      },
+      {
+       "name": "TOP CRISTA",
+       "productUrl": "https://ba-sh.com/fr/en/p/top-crista-noir-3667436126727.html",
+       "price": ""
+      },
+      {
+       "name": "shirt TONIA",
+       "productUrl": "https://ba-sh.com/fr/en/p/shirt-tonia-bleu-3667436073298.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/ready-to-wear/dresses/?_gl=1*15p7q1u*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTYkajQxJGwwJGg1MzYzNDQ3NzQ.",
+     "count": 9,
+     "note": "",
+     "sample": [
+      {
+       "name": "event",
+       "productUrl": "https://ba-sh.com/fr/en/event/",
+       "price": ""
+      },
+      {
+       "name": "dress DELORA",
+       "productUrl": "https://ba-sh.com/fr/en/p/dress-delora-noir-3667436088711.html",
+       "price": ""
+      },
+      {
+       "name": "DRESS DAPY",
+       "productUrl": "https://ba-sh.com/fr/en/p/dress-dapy-ecru-3667436126802.html",
+       "price": ""
+      }
+     ]
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/trousers-jeans/?_gl=1*6jfisz*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MzUkajIyJGwwJGg1MzYzNDQ3NzQ.",
+     "count": 9,
+     "note": "",
+     "sample": [
+      {
+       "name": "event",
+       "productUrl": "https://ba-sh.com/fr/en/event/",
+       "price": ""
+      },
+      {
+       "name": "PANTS FAIMI",
+       "productUrl": "https://ba-sh.com/fr/en/p/pants-faimi-blackstone-3667436126895.html",
+       "price": ""
+      },
+      {
+       "name": "leggings DYAS",
+       "productUrl": "https://ba-sh.com/fr/en/p/leggings-dyas-ecru-3667436126857.html",
+       "price": ""
+      }
+     ]
+    }
+   ],
+   "secs": 249,
+   "dropped": 1,
+   "cut": false,
+   "sample": [
+    {
+     "name": "T-shirt IONI",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-ioni-grischine-3667436152573.html"
+    },
+    {
+     "name": "t-shirt CORTOT",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-cortot-encre-3667436089664.html"
+    },
+    {
+     "name": "t-shirt ROSTA",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-rosta-grischine-3667436069260.html"
+    },
+    {
+     "name": "t-shirt TAKE",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-take-encre-3667436069628.html"
+    },
+    {
+     "name": "CRUSH SWEATSHIRT",
+     "productUrl": "https://ba-sh.com/fr/en/p/crush-sweatshirt-chocolat-3667436148194.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "James Perse",
+   "site": "jamesperse.com.jamesperse",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 0,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {},
+   "perUrl": [
+    {
+     "url": "https://www.jamesperse.com/collections/womens-t-shirts",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-t-shirts · 제목 \"Women's T-Shirts | James Perse Los Angeles\" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · \"End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING \"",
+     "sample": []
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-tanks",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-tanks · 제목 \"Women's Tanks | James Perse Los Angeles\" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · \"End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING \"",
+     "sample": []
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms · 제목 \"Women's Sweat Tops & Sweat Bottoms | James Perse Los Angeles\" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · \"End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING \"",
+     "sample": []
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-tops",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-tops · 제목 \"Women's Tops | James Perse Los Angeles\" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · \"End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING \"",
+     "sample": []
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-dresses-jumpsuits",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-dresses-jumpsuits · 제목 \"Women's Dresses & Jumpsuits | James Perse Los Angeles\" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · \"End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING \"",
+     "sample": []
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-pants-denim",
+     "count": 0,
+     "note": "상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-pants-denim · 제목 \"Women's Pants & Denim | James Perse Los Angeles\" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · \"End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING \"",
+     "sample": []
+    }
+   ],
+   "secs": 93,
+   "dropped": 0,
+   "cut": false,
+   "sample": [],
+   "verdict": "보완 필요(수집 0~소량)"
+  }
+ ]
+}
