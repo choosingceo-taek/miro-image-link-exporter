@@ -24,3 +24,20 @@
 | 45593253005 | 10:15 | targets-listing-retry.json (Chico's·WHBM·Prana 목록 14) | impit,firefox,firefox-fresh | 다른 러너 재측정 |
 | 45593259314 | 10:15 | targets-product-extra2.json | impit,firefox,firefox-fresh | 상품 2차 반복(다른 러너) |
 | 45593253005·45593259314 결과 | | | | Chico's·WHBM 파이어폭스는 이 러너에서도 첫 페이지만(73·21), 새 창 403 · The upside·Reformation 상품은 새 창 3/3(2회째) · Prana 전부 403 |
+
+## 목록 문 열기 측정(2026-11-25 오후) — `browser-collect.yml` report_tag 실행, 저장 안 함
+
+모두 `store=0` · `report_tag` 실행(로그 첫 줄 `STORE: 0 · REPORT_TAG: …` 과 `저장 OFF — 조사만` 으로 확인).
+결과는 `browser-collect-<tag>-<실행>[-extra].json/.md` 로 커밋된다(운영 리포트 `browser-collect-report.*` 는 건드리지 않음).
+
+| 실행 | 대상 | 코드 | 메모 |
+|---|---|---|---|
+| 45598559769·564211·568833·586399·591172·597529 | 1차(같은 후보) | 설치 오류 | `--no-save` 를 두 번 따로 받아 playwright 가 지워짐 → 수집 시작 전 종료(아무것도 안 읽음·안 씀) |
+| 45598942983·45598957772 | 후보 1(확장 담당 14) | impit 엔진·pid·경로 규칙 | 1차 |
+| 45598948052·45598964123 | 후보 2(Gap 계열·Upside·Carhartt·Nike·Reformation·Lucky) | 같음 | 1차 |
+| 45598952305·45598969872 | 후보 3(서버 담당 10) | 같음 | 1차 |
+| 45604830101·45604840722 | 후보 2 | + 메뉴 칸 제외 · 누적 스크롤 | 2차 |
+| 45604834917·45604846574 | 후보 3 | 같음 | 2차 |
+| 45605800257·45605806955 | 후보 1 | + 페이지 바뀌면 다시 읽기 · 두 잡 | 2차 |
+| 45620020752·45620027222 | 야간과 같은 모양(두 잡 · 후보 최종 파일) | + 상한 200 · 메뉴 칸 안 상품 그리드 | 3차 |
+| 45603042651 (diagnose-page, mode=page · 읽기만) | Gap·BR·Old Navy·Reformation 목록 구조 | — | `diagnose-page.md` |
