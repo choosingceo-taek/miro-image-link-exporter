@@ -254,7 +254,8 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
         const d = detailOf("", url, pr);
         const out = {
           comp: asComp(compFromText(String(pr.body_html || pr.description || "").replace(/<[^>]+>/g, " "))),
-          color: (d.colors || []).slice(0, 4).join(" / "),
+          // 컬러 옵션이 없으면(컬러마다 따로 된 상품 — Boden) 이름 꼬리의 컬러(dtTitleColor).
+          color: (d.colors || []).slice(0, 4).join(" / ") || d.color || "",
           sizes: (d.sizes || []).slice(0, 30).join(", "),
           price: d.price || "",
           priceOrig: d.priceOrig || "",

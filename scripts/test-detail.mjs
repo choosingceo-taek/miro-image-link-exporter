@@ -104,6 +104,20 @@ const ld = (o) => `<script type="application/ld+json">${JSON.stringify({ "@conte
   eq("parts: 겉감·안감 두 줄", compFromPartsJson(lined, "").map((c) => `${c.line}:${c.material} ${c.percent}`), ["0:Wool 100", "1:Viscose 100"]);
 }
 
+{
+  // 글머리표 정리: 단추 줄 · 매장 안내 · 이름표만 있는 줄 · 쌍점으로 시작하는 조각(2026-11-25 Zara 표본 모양)
+  const html = `<html><body><h1>Interlock Tee</h1><h3>Composition &amp; care</h3><ul>
+    <li><button><span>Check in-store availability</span></button></li>
+    <li>Due to the holiday season, orders placed from the 15th of November can be returned until 30th of December.</li>
+    <li>: 100% cotton</li><li>OUTER SHELL</li><li>100% cotton</li><li>LINING</li><li>Machine wash max. 30ºC</li></ul></body></html>`;
+  eq("글머리표 정리 — 이름표+값은 한 줄로, 단추·반품 안내·조각·짝 없는 이름표는 뺌", detailOf(html, "https://x/").feat,
+    ["OUTER SHELL: 100% cotton", "Machine wash max. 30ºC"]);
+  // 겉감·장식: 겉감(같은 섬유 둘)이 온전하면 겉감, 장식 줄만으로는 답하지 않는다(Boden).
+  eq("혼용률: Main 이 Trims 를 이긴다", compOf("<p>Main: 50% recycled polyester, 30% polyester, 20% elastane</p><p>Trims: 100% polyester</p>", "").comp, "Polyester 80% / Elastane 20%");
+  eq("혼용률: 겉감이 조각이면 장식 줄을 답하지 않는다", compOf("<p>Main: 50% polyester and other stuff</p><p>Trims: 100% polyester</p>", "").comp, "");
+  eq("혼용률: 겉감+안감 두 줄은 그대로", compOf("<p>Shell: 100% wool</p><p>Lining: 100% viscose</p><p>Rib: 95% cotton, 5% elastane</p>", "").comp, "Wool 100%\nViscose 100%");
+}
+
 // ── 확장 복사본 ──────────────────────────────────────────────────────
 {
   const ext = readFileSync(join(ROOT, "chrome-extension/background.js"), "utf8");

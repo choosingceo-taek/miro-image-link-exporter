@@ -1208,6 +1208,21 @@ function bareRunAt(src) {
   }
   return out;
 }
+// 부위 이름 — 겉감(main)이 보이면 장식(trim·rib·주머니 안감 …) 줄은 혼용률이 아니다. 2026-11-25 Boden:
+// "Main: 50% recycled polyester, 30% polyester, 20% elastane · Trims: 100% polyester" 에서 겉감이 같은 섬유 두 번
+// (재생 폴리 + 폴리)이라 조각으로 끊기고, 온전한 한 벌인 장식 줄 "Polyester 100%" 만 남아 저장됐다.
+const PART_MINOR_RX = /(?<![A-Za-z])(?:trims?|trimming|rib(?:bing|bed)?|pocket(?:\s+lining)?|pocketing|contrast|embroidery|lace|cuffs?|collar|binding|piping|insert|applique|appliqué|패치|배색)(?![A-Za-z])[^%]{0,24}$/i;
+const PART_LINING_RX = /(?<![A-Za-z])(?:lining|lined|안감)(?![A-Za-z])[^%]{0,24}$/i;
+const PART_MAIN_RX = /(?<![A-Za-z])(?:main|shell|outer|body|self|base\s+fabric|겉감)(?![A-Za-z])[^%]{0,24}$/i;
+function partRole(src, at) {
+  const before = src.slice(Math.max(0, at - 40), at);
+  if (PART_MINOR_RX.test(before)) return 'minor';
+  if (PART_LINING_RX.test(before)) return 'lining';
+  if (PART_MAIN_RX.test(before)) return 'main';
+  return '';
+}
+// 같은 섬유가 쉼표·빗금만 사이에 두고 곧바로 다시 나오면(재생 폴리 + 폴리) 한 벌 안의 같은 섬유다 — 더한다.
+const SAME_FIBRE_GAP_RX = /^[\s,;\/&+]*(?:and\s+)?$/i;
 function compFromText(text) {
   // 한 옷에 원단이 두 가지인 경우가 있다 — 겉감/안감, 몸판/배색, 색상별 사양.
   //   "Shell: 100% Cotton. Lining: 100% Polyester"
@@ -1229,6 +1244,12 @@ function compFromText(text) {
     if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
     // "20% off cotton tees" 같은 판촉 문구를 소재로 읽지 않는다.
     if (mods && MOD_BAD_RX.test(mods)) continue;
+    // 같은 섬유가 곧바로 다시 나오면(재생 폴리 + 폴리) 더한다(SAME_FIBRE_GAP_RX).
+    if (cur.length && seen.has(material) && total + pct <= 105 && SAME_FIBRE_GAP_RX.test(src.slice(gEnd, m.index))) {
+      cur.find((c) => c.material === material).percent += pct;
+      total += pct; gEnd = m.index + m[0].length;
+      continue;
+    }
     // 같은 섬유가 다시 나오거나 합이 100 을 넘기려 하면 한 벌이 끝난 것이다.
     if (cur.length && (seen.has(material) || total + pct > 105)) flush();
     if (!cur.length) gStart = m.index;
@@ -1241,6 +1262,15 @@ function compFromText(text) {
   }
   flush();
   if (!groups.length) return [];
+  // 겉감(main) 줄이 있으면 장식(minor) 줄은 뺀다. 겉감이 온전한 한 벌이 아니면 아무것도 돌려주지 않는다 —
+  // 장식 줄만 남겨 그것을 상품 소재로 저장하는 것보다 빈 칸이 낫다.
+  for (const g of groups) g.role = partRole(src, g.start);
+  if (groups.some((g) => g.role === 'main')) {
+    const mains = groups.filter((g) => g.role === 'main');
+    const mainWhole = mains.some((g) => { const t = g.items.reduce((n, c) => n + c.percent, 0); return t >= 95 && t <= 105; });
+    if (!mainWhole) return [];
+    for (let i = groups.length - 1; i >= 0; i--) if (groups[i].role === 'minor') groups.splice(i, 1);
+  }
 
   const asLine = (g) => g.items.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
   // 온전한 한 벌(합 95~105)만 남긴다. 어중간한 조각은 다른 상품에서 새어 든 것이다.
@@ -1584,7 +1614,7 @@ function dtHeadKind(t) {
 }
 // 사이트 공통 안내(배송·반품·사이즈 안내·결제)는 상품 디테일이 아니다 — 글머리표에서 뺀다.
 // 값이 붙은 가격("$48")·판매 문구·공유 단추·태그 조각도 상품 디테일이 아니다(추천 칸이 새어 든 모양 — 11/25 현장 측정).
-const DT_JUNK_RX = /\b(?:free\s+(?:shipping|returns?|delivery)|shipping|delivery|returns?(?:\s+(?:policy|within)|\s+\d+\s+days)|exchanges?|klarna|afterpay|interest-free|gift\s*card|sign\s+(?:in|up)|log\s*in|add\s+to\s+(?:bag|cart)|size\s+guide|find\s+(?:in|your)\s+(?:store|size)|write\s+a\s+review|newsletter|promo\s+code|subscribe|select\s+(?:a\s+)?size|notify\s+me|out\s+of\s+stock|pair\s+it\s+with|shop\s+(?:the\s+look|women|men|now|all)|wishlist|instagram|facebook|pinterest|tiktok|learn\s+more|contact\s+us|have\s+a\s+question|close\s+dialog|opens\s+in\s+a\s+new\s+window|choosing\s+a\s+selection|use\s+code|\d+%\s+off|sale|qty)\b|[$£€]\s?\d|<\/?[a-z]+[\s>]|="/i;
+const DT_JUNK_RX = /\b(?:free\s+(?:shipping|returns?|delivery)|shipping|delivery|returns?(?:\s+(?:policy|within)|\s+\d+\s+days)|exchanges?|klarna|afterpay|interest-free|gift\s*card|sign\s+(?:in|up)|log\s*in|add\s+to\s+(?:bag|cart)|size\s+guide|find\s+(?:in|your)\s+(?:store|size)|write\s+a\s+review|newsletter|promo\s+code|subscribe|select\s+(?:a\s+)?size|notify\s+me|out\s+of\s+stock|pair\s+it\s+with|shop\s+(?:the\s+look|women|men|now|all)|wishlist|instagram|facebook|pinterest|tiktok|learn\s+more|contact\s+us|have\s+a\s+question|close\s+dialog|opens\s+in\s+a\s+new\s+window|choosing\s+a\s+selection|use\s+code|\d+%\s+off|sale|qty|in-store\s+availability|check\s+(?:in-store|availability|stock)|orders?\s+placed|can\s+be\s+returned|returned\s+until)\b|[$£€]\s?\d|<\/?[a-z]+[\s>]|="/i;
 // 사이즈 단추·숫자만 있는 줄("10" · "XL" · "XXS XS S M L")
 const DT_SIZE_LINE_RX = /^(?:(?:\d{1,3}|x{0,3}[sml]|xxs|one\s+size|os|petite|tall)(?:\s+|$))+$/i;
 
@@ -1626,7 +1656,8 @@ function dtSections(body) {
   for (let i = 0; i < heads.length; i++) {
     const h = heads[i];
     const chunk = dtChunk(body, h.end, i + 1 < heads.length ? heads[i + 1].at : body.length);
-    const lis = [...chunk.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map((x) => dtText(x[1]).replace(/\n/g, ' ').replace(/^[•·\-*\s]+/, '').trim())
+    // 단추·링크 하나만 든 줄("Check in-store availability")은 상품 디테일이 아니다.
+    const lis = [...chunk.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].filter((x) => !/^\s*<(button|a)\b[\s\S]*<\/\1>\s*$/i.test(x[1])).map((x) => dtText(x[1]).replace(/\n/g, ' ').replace(/^[•·\-*\s]+/, '').trim())
       .filter((t) => t.length >= 2 && t.length <= 400 && !dtJunk(t));
     let got = 0;
     if (lis.length) { feat.push(...lis); got += lis.length; }
@@ -1859,6 +1890,43 @@ function compFromPartsJson(html, url) {
   return pick.lines.flatMap((l, n) => l.map((c) => ({ ...c, line: n })));
 }
 
+// 부위 이름표만 있는 줄("OUTER SHELL")과 이름표 없이 쌍점으로 시작하는 값 조각(": 100% cotton")을 정리한다.
+// 이름표 바로 뒤에 값 줄이 오면 한 줄로 붙인다("OUTER SHELL: 100% cotton"). 짝이 없는 이름표·조각은 버린다 —
+// 혼용률 줄은 이름표와 값이 함께 있을 때만 디테일로 남긴다(2026-11-25 Zara 표본).
+const DT_PART_LABEL_RX = /^(?:outer\s+shell|shell|main(?:\s+fabric)?|body|lining|trims?|outer|inner|filling|padding|composition|materials?|fabric)\s*[:：]?$/i;
+function dtJoinLabels(list) {
+  const out = [];
+  for (let i = 0; i < list.length; i++) {
+    const t = String(list[i] || '').trim();
+    if (DT_PART_LABEL_RX.test(t)) {
+      const next = String(list[i + 1] || '').trim().replace(/^[:：]\s*/, '');
+      if (next && /\d{1,3}\s?%/.test(next) && !DT_PART_LABEL_RX.test(next)) { out.push(t.replace(/\s*[:：]$/, '') + ': ' + next); i++; }
+      continue;
+    }
+    if (/^[:：\-\u2013]\s*\S/.test(t)) continue;
+    out.push(t);
+  }
+  return out;
+}
+
+// 상품명 꼬리의 컬러 — 컬러마다 따로 된 상품(Boden: "Lace Trim V-Neck Velvet Top-Beetroot Red",
+// 주소 …-beetroot-red-t2259red)은 컬러 옵션도 JSON-LD color 도 없이 이름 끝에만 컬러를 적는다.
+// 꼬리를 주소(상품 핸들)에서도 똑같이 찾을 수 있을 때만 컬러로 본다 — 이름 끝의 아무 낱말이나 컬러로 읽지 않게.
+function dtTitleColor(name, url) {
+  const n = String(name || '').trim();
+  const m = n.match(/(?:\s[-\u2013\u2014|]\s|-)([A-Za-z][A-Za-z '&\/]{1,30})$/);
+  if (!m) return '';
+  const tail = m[1].trim();
+  const slug = tail.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  let path = '';
+  try { path = new URL(url).pathname.toLowerCase(); } catch (e) { return ''; }
+  if (!slug || slug.length < 3 || !new RegExp('(?:^|[-/])' + slug + '(?:[-/.]|$)').test(path)) return '';
+  // "Crew-Neck" · "Velvet V-Neck" · "Cap-Sleeve" 처럼 옷 모양 낱말이 꼬리면 컬러가 아니다. 앞부분은 여러 낱말이어야 한다.
+  if (/^(?:neck|sleeves?|shirt|tee|top|dress|length|line|fit|leg|rise|back|front|waist|up|down|in|out|on|off|zip|button|wrap|pocket|collar|hem|knit|cut|crop(?:ped)?|tie|ups?)\b/i.test(tail)) return '';
+  const head = n.slice(0, n.length - m[0].length);
+  return /\s/.test(head) && n.length > tail.length + 3 ? tail : '';
+}
+
 // 한 상품 페이지의 상세 정보. html(없어도 됨)·shop(Shopify JSON, 없어도 됨)·url.
 // 배열은 이미 상한으로 잘려 있다. src = 항목별 출처(shopify·jsonld·meta·dom).
 function detailOf(html, url, shop) {
@@ -1886,8 +1954,9 @@ function detailOf(html, url, shop) {
   pick('cur', [['jsonld', ld.cur], ['meta', mt.cur], ['shopify', sp.cur]]);
   pick('price', [['shopify', sp.price], ['jsonld', ld.price], ['meta', mt.price]]);
   pick('priceOrig', [['shopify', sp.priceOrig], ['jsonld', ld.priceOrig], ['meta', mt.priceOrig]]);
-  pick('color', [['jsonld', ld.color], ['meta', mt.color]]);
+  pick('color', [['jsonld', ld.color], ['meta', mt.color], ['title', dtTitleColor(out.name || ld.name || sp.name, url)]]);
   if (out.desc) out.desc = dtClip(out.desc, DETAIL_CAP.desc);
+  if (out.feat) out.feat = dtJoinLabels(out.feat);
   if (out.feat) {
     out.feat = dtUniq(out.feat.map((t) => dtClip(t.replace(/\s+/g, ' '), DETAIL_CAP.featLen)))
       .filter((t) => !dtJunk(t)).slice(0, DETAIL_CAP.feat);

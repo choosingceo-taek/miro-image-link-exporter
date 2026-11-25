@@ -50,6 +50,10 @@ const CASES = [
   ["소재: 폴리에스테르 65%, 레이온 35%", "Polyester 65% / Viscose 35%"],
   ["Shell: 100% Recycled Polyester", "Polyester 100%"],
   ["55% Linen / 45% Tencel", "Linen 55% / Lyocell 45%"],
+  // 겉감(같은 섬유 둘: 재생 폴리 + 폴리)이 장식(Trims) 줄을 이긴다 — 2026-11-25 Boden.
+  ["Main: 50% recycled polyester, 30% polyester, 20% elastane. Trims: 100% polyester", "Polyester 80% / Elastane 20%"],
+  ["Main: 50% polyester blend. Trims: 100% polyester", ""],
+  ["Shell: 100% Wool. Rib: 95% Cotton, 5% Elastane", "Wool 100%"],
 
   // ── 실제로 못 뽑던 본문 (2026-08-05 진단에서 나온 그대로) ──
   // 퍼센트와 섬유 이름 사이에 수식어가 끼면 예전에는 통째로 놓쳤다.
