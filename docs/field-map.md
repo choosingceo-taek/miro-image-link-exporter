@@ -1,6 +1,6 @@
 # 상품 정보 현장 지도 (field map)
 
-> 만든 때 2026-11-25T13:44Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
+> 만든 때 2026-11-25T14:46Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
 > 만드는 법: `node scripts/build-field-map.mjs` — 측정은 `diagnose-page.yml` mode=fields(읽기만, 로그에 `STORE: 0`).
 
 ## 한눈에
@@ -88,6 +88,35 @@
 | Vince | https://www.vince.com/product/pima-cotton-crew-neck-t-shirt-V017384404REDOCHRE.html | Pima Cotton 100% | Our tees are informed by the desire to feel comfortable in one's own skin, which is why we've crafted this one from 100% Pima cotton — a fiber beloved for its i | comp 가 맞음 | Pima Cotton 100% | Pima Cotton 100% | 같은 값 — comp 는 'Pima Cotton', 증인은 'Cotton' 으로 이름만 다르게 적었다. |
 
 시험 자료(사람이 기대값을 적은 실제 페이지 21개)를 지금 규칙으로 같은 비교: 소재 줄이 있는 15개 중 어긋남 0개.
+
+### 운영에 이미 저장된 혼용률 — 지금 규칙으로 다시 읽으면
+
+어긋남이 나온 브랜드의 카탈로그 상품을 전부 impit 으로 다시 열어(읽기만 — 로그 `STORE: 0`, 실행 45632693720), Worker 오버레이에 저장된 값과 고친 추출기의 값을 견줬다. **세지만 고치지 않았다** — 운영 값은 다음 야간 보강이 새 규칙으로 다시 쓸 때 바뀐다(담당자 승인 뒤).
+
+| 브랜드 | 상품 | 다시 읽힘 | 저장값 있음 | 같음 | 다름 — 덧붙은 줄(장식·주머니감 등)만 빠짐 | 다름 — 값이 바뀜 | 다름 — 지금 규칙은 빈 칸 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Oasis | 133 | 133 | 120 | 115 | 2 | 1 | 2 |
+| Rag & bone | 244 | 239 | 241 | 224 | 2 | 10 | 0 |
+| Boden | 331 | 317 | 309 | 266 | 19 | 23 | 1 |
+
+보기(브랜드·갈래마다 2개, 그리고 HTML 을 받아 사람이 판정한 것 전부 — scripts/fixtures/witness/recheck-verdicts.json):
+
+| 브랜드 | 상품 | 갈래 | 운영 저장값 | 지금 규칙 | 판정(HTML 을 읽고) |
+|---|---|---|---|---|---|
+| Oasis | https://www.oasisfashion.com/product/oasis-volume-sleeve-sweatshirt-with-cotton-collar_baa13417?colour=antique+rose | 덧붙은 줄만 빠짐 | Cotton 100% Cotton 98% / Elastane 2% | Cotton 100% | — |
+| Oasis | https://www.oasisfashion.com/product/oasis-volume-sleeve-sweatshirt-with-satin-scarf_baa13419?colour=grey+marl | 덧붙은 줄만 빠짐 | Cotton 100% Cotton 98% / Elastane 2% | Cotton 100% | — |
+| Oasis | https://www.oasisfashion.com/product/blue-vanilla-gold-long-sleeve-turtleneck-blouse_p-db13ef21-179d-4465-a045-5c809ad99f0c?colour=Gold | 지금 규칙은 빈 칸 | Polyester 100% | (빈 칸) | — |
+| Oasis | https://www.oasisfashion.com/product/coast-coast-muse-burnout-velvet-long-sleeve-maxi-dress-with-gold-trim_bcc14057?colour=olive | 지금 규칙은 빈 칸 | Polyester 96% / Elastane 4% | (빈 칸) | — |
+| Oasis | https://www.oasisfashion.com/product/coast-devore-mesh-angel-sleeve-bridesmaid-dress_bcc13796?colour=navy | 값이 바뀜 | Polyester 90% / Elastane 5% Elastane 5% / Polyester 100% | Polyester 90% / Elastane 10% Polyester 100% | — |
+| Rag & bone | https://www.rag-bone.com/p/vintage-terry-tee-RE9J26PT3VW_960.html | 값이 바뀜 | Cotton 78% / Polyester 22% / Elastane 2% | Cotton 78% / Polyester 22% | — |
+| Rag & bone | https://www.rag-bone.com/p/lucy-merino-wool-henley-RG4F26F6MMN_110.html | 값이 바뀜 | Wool 100% / Cotton 100% | Wool 100% Cotton 100% | — |
+| Rag & bone | https://www.rag-bone.com/p/ariana-satin-slip-dress-RA5D26S3MSW.html | 덧붙은 줄만 빠짐 | Polyester 100% Viscose 100% | Polyester 100% | — |
+| Rag & bone | https://www.rag-bone.com/p/melanie-track-pant-RAFJ26F7MTA_001.html | 덧붙은 줄만 빠짐 | Wool 100% Polyester 100% | Wool 100% | — |
+| Boden | https://us.boden.com/products/women-lace-trim-v-neck-velvet-top-beetroot-red-t2259red | 값이 바뀜 | Polyester 100% | Polyester 80% / Elastane 20% | — |
+| Boden | https://us.boden.com/products/women-carmen-lace-trim-insert-top-deep-aurora-blue-t2243blu | 덧붙은 줄만 빠짐 | Polyester 99% / Elastane 1% Cotton 100% | Polyester 99% / Elastane 1% | — |
+| Boden | https://us.boden.com/products/women-carmen-lace-trim-insert-top-pink-violet-t2243pnt | 덧붙은 줄만 빠짐 | Polyester 99% / Elastane 1% Cotton 100% | Polyester 99% / Elastane 1% | — |
+| Boden | https://us.boden.com/products/women-tulle-mix-velvet-top-dark-chocolate-t2257brn | 값이 바뀜 | Polyester 100% | Polyester 90% / Elastane 10% | — |
+| Boden | https://us.boden.com/products/women-louise-cord-midi-shirt-dress-storm-blue-d1786blu | 지금 규칙은 빈 칸 | Cotton 100% | (빈 칸) | — |
 
 ## 브랜드별 (134)
 

@@ -223,6 +223,46 @@ md += `\n`;
     (fxDis.length ? ` — ${fxDis.map((x) => `${esc(x.brand)}(comp ${esc(x.comp) || "빈 칸"} · 줄 ${esc(x.w.witness[0].text).slice(0, 60)})`).join(" · ")}` : "") + `.\n\n`;
 }
 
+// ── 운영 저장값 재확인 ──────────────────────────────────────────────
+// 어긋남이 나온 브랜드의 상품을 전부(최대 400) impit 으로 다시 읽어, Worker 오버레이에 저장된 혼용률과 지금 규칙의 값을 견줬다
+// (diagnose-page.yml mode=fields, dump=1 → RECHECK · 읽기만). 결과 파일은 field-recheck-<실행>.json.
+{
+  const files = readdirSync(ROOT).filter((f) => /^field-recheck-\d+\.json$/.test(f)).sort();
+  const rv = existsSync(join(ROOT, "scripts/fixtures/witness/recheck-verdicts.json")) ? JSON.parse(readFileSync(join(ROOT, "scripts/fixtures/witness/recheck-verdicts.json"), "utf8")) : {};
+  if (files.length) {
+    const nz = (s) => String(s || "").replace(/[ \t]+/g, " ").trim();
+    const lines = (s) => nz(s).split(/\n/).map((x) => x.trim()).filter(Boolean);
+    md += `### 운영에 이미 저장된 혼용률 — 지금 규칙으로 다시 읽으면\n\n`;
+    md += `어긋남이 나온 브랜드의 카탈로그 상품을 전부 impit 으로 다시 열어(읽기만 — 로그 \`STORE: 0\`, 실행 ${files.map((f) => f.match(/\d+/)[0]).join(" · ")}), `;
+    md += `Worker 오버레이에 저장된 값과 고친 추출기의 값을 견줬다. **세지만 고치지 않았다** — 운영 값은 다음 야간 보강이 새 규칙으로 다시 쓸 때 바뀐다(담당자 승인 뒤).\n\n`;
+    md += `| 브랜드 | 상품 | 다시 읽힘 | 저장값 있음 | 같음 | 다름 — 덧붙은 줄(장식·주머니감 등)만 빠짐 | 다름 — 값이 바뀜 | 다름 — 지금 규칙은 빈 칸 |\n|---|---:|---:|---:|---:|---:|---:|---:|\n`;
+    const ex = [];
+    for (const f of files) for (const B of JSON.parse(readFileSync(join(ROOT, f), "utf8")).brands) {
+      const ps = B.products || [];
+      const c = { read: 0, st: 0, same: 0, extra: 0, changed: 0, empty: 0 };
+      for (const p of ps) {
+        const st = nz(p.stored), now = nz(p.got && p.got.comp);
+        if (st) c.st++;
+        if (!p.read) continue;
+        c.read++;
+        if (!st) continue;
+        if (st === now) { c.same++; continue; }
+        let kind;
+        if (!now) { c.empty++; kind = "empty"; }
+        else if (lines(now).every((l) => lines(st).includes(l))) { c.extra++; kind = "extra"; }
+        else { c.changed++; kind = "changed"; }
+        if (rv[p.url] || ex.filter((e) => e.brand === B.brand && e.kind === kind).length < 2) ex.push({ brand: B.brand, url: p.url, st, now, kind, v: rv[p.url] });
+      }
+      md += `| ${esc(B.brand)} | ${ps.length} | ${c.read} | ${c.st} | ${c.same} | ${c.extra} | ${c.changed} | ${c.empty} |\n`;
+    }
+    const K = { extra: "덧붙은 줄만 빠짐", changed: "값이 바뀜", empty: "지금 규칙은 빈 칸" };
+    md += `\n보기(브랜드·갈래마다 2개, 그리고 HTML 을 받아 사람이 판정한 것 전부 — scripts/fixtures/witness/recheck-verdicts.json):\n\n`;
+    md += `| 브랜드 | 상품 | 갈래 | 운영 저장값 | 지금 규칙 | 판정(HTML 을 읽고) |\n|---|---|---|---|---|---|\n`;
+    for (const e of ex) md += `| ${esc(e.brand)} | ${e.url} | ${K[e.kind]} | ${esc(e.st).replace(/\n/g, " ‖ ")} | ${esc(e.now).replace(/\n/g, " ‖ ") || "(빈 칸)"} | ${e.v ? esc(`${e.v.right === "now" ? "지금 규칙이 맞음" : e.v.right === "stored" ? "저장값이 맞음" : "둘 다 아님"} — ${e.v.why}`) : "—"} |\n`;
+    md += `\n`;
+  }
+}
+
 md += `## 브랜드별 (${rows.length})\n\n`;
 md += `칸: ✅ 읽힌 수/읽힌 표본 · 출처 — 📭 읽혔는데 없음 — ⛔ 막힘 — 🔗 표본 없음\n\n`;
 md += `| 브랜드 | 상품 | 읽힘 | ${FIELDS.map(([, l]) => l).join(" | ")} |\n|---|---:|---|${FIELDS.map(() => "---").join("|")}|\n`;
