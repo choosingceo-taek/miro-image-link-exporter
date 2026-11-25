@@ -16,3 +16,7 @@
 | 45582267106 | 09:06 | 상품 · 33 브랜드 × 3 | impit,playwright,firefox | 2차 상품(camoufox 는 1차에서 두 번 다 시작하자마자 SIGSEGV — 뺌) |
 | 45582271538 | 09:06 | targets-listing-server.json | server | 2차 서버 경고 |
 | 45582315366 | 09:06 | targets-product-extra.json (상품 23 · 카탈로그에서 못 고른 브랜드) | impit,site-api,wayback,playwright,firefox | 1차 |
+| 45584342647 | 09:19 | targets-listing-a.json | impit,playwright,firefox,firefox-fresh | 2차 목록 a(다른 러너) · 페이지마다 새 창 엔진 추가 |
+| 45584347742 | 09:19 | targets-listing-b.json | 같음 | 2차 목록 b |
+
+1차 목록 a·b 에서 camoufox 는 시작하자마자 SIGSEGV(exit 139) — 11/24 와 같다. 2차부터 뺐다.
