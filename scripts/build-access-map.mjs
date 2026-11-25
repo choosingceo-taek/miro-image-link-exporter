@@ -43,7 +43,8 @@ for (const r of runs) {
   for (const [eng, byUrl] of Object.entries(r.results || {})) {
     for (const [url, x] of Object.entries(byUrl)) {
       if (!x || x.v === "skip") continue;
-      if (eng === "camoufox") continue;   // 모든 실행에서 시작하자마자 SIGSEGV — 잰 것이 없다(측정 방법 절에 적음)
+      if (eng === "camoufox") continue;
+      if (eng === "site-api" && /JSON 주소를 모름/.test(x.note || "")) continue;   // 그 사이트용 JSON 길이 없음 — 잰 것이 아님   // 모든 실행에서 시작하자마자 SIGSEGV — 잰 것이 없다(측정 방법 절에 적음)
       const kind = kindOfUrl.get(url) || "product";
       const ev = x.ev || {};
       const o = { run: r.id, ip: (r.meta || {}).ip || "", at: ((r.meta || {}).at || r.at || "").slice(0, 16), v: x.v, status: ev.status || 0,

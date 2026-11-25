@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T10:25:24.552Z",
+ "generated": "2026-11-25T10:25:54.527Z",
  "note": "docs/access-map.md 와 같은 사실. listing=목록(카테고리) 페이지, product=상품 페이지. basis 가 '규칙'인 행은 사람이 따로 보지 않은 판정.",
  "vocabulary": {
   "listing": {
@@ -495,23 +495,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -582,7 +565,6 @@
       "url": "https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-dark-brown-1358924005/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -592,7 +574,6 @@
       "url": "https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-cream-1358924002/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -602,7 +583,6 @@
       "url": "https://www.stories.com/en-us/product/scuba-zip-up-jacket-dark-greenwhite-1323866001/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -842,23 +822,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -924,7 +887,6 @@
       "url": "https://www.abercrombie.com/shop/wd/p/essential-polished-body-skimming-tee-62050821",
       "engines": {
        "impit": "0/2 blocked",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 418",
        "firefox": "0/2 blocked"
@@ -934,7 +896,6 @@
       "url": "https://www.abercrombie.com/shop/wd/p/double-lined-long-sleeve-baby-tee-61005323",
       "engines": {
        "impit": "0/2 blocked",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 418",
        "firefox": "0/2 blocked"
@@ -944,7 +905,6 @@
       "url": "https://www.abercrombie.com/shop/wd/p/essential-baby-tee-56537321",
       "engines": {
        "impit": "0/2 blocked",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 418",
        "firefox": "0/2 blocked"
@@ -1179,23 +1139,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -1266,7 +1209,6 @@
       "url": "https://www.adidas.com/us/essentials-small-logo-feel-cozy-sweatshirt/IX7943.html",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked·timeout 403",
        "firefox": "0/2 blocked 403"
@@ -1276,7 +1218,6 @@
       "url": "https://www.adidas.com/us/essentials-small-logo-feel-cozy-sweatshirt/IX7940.html",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked·timeout 403",
        "firefox": "0/2 blocked 403"
@@ -1286,7 +1227,6 @@
       "url": "https://www.adidas.com/us/knit-essentials-boucle-crew-sweatshirt/LI0121.html",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -2564,23 +2504,6 @@
        "DataDome"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -2679,7 +2602,6 @@
       "url": "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -2690,7 +2612,6 @@
       "url": "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -2701,7 +2622,6 @@
       "url": "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -3074,23 +2994,6 @@
        "Cloudflare"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -3194,7 +3097,6 @@
       "url": "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -3205,7 +3107,6 @@
       "url": "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "2/4 geo",
@@ -3216,7 +3117,6 @@
       "url": "https://www.aritzia.com/intl/en/product/ezra-top/125956.html",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -3454,23 +3354,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 3,
       "n": 3,
@@ -3540,7 +3423,6 @@
       "url": "https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -3550,7 +3432,6 @@
       "url": "https://www.arket.com/en-ww/product/pearl-heavyweight-t-shirt-light-beige-1135758046/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -3560,7 +3441,6 @@
       "url": "https://www.arket.com/en-ww/product/alba-heavyweight-t-shirt-white-1283090001/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -4084,23 +3964,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45582315366"
-      ],
-      "ips": [
-       "20.102.102.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 2,
       "n": 2,
@@ -4162,7 +4025,6 @@
       "url": "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -4172,7 +4034,6 @@
       "url": "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -5529,23 +5390,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 3,
@@ -5611,7 +5455,6 @@
       "url": "https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -5621,7 +5464,6 @@
       "url": "https://www.carhartt.com/product/107742/womens-irvine-loose-ls-logo-t-shirt",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 no-comp",
        "firefox": "0/1 no-comp"
@@ -5631,7 +5473,6 @@
       "url": "https://www.carhartt.com/product/107973/womens-irvine-loose-ls-pocket-t-shirt",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 no-comp",
        "firefox": "0/1 no-comp"
@@ -6138,7 +5979,7 @@
     "status": "partial",
     "tier": 1,
     "cause": "Akamai — 러너(IP)마다 갈림: 파이어폭스가 4개 러너에서 0/3·0/3·3/3·2/3(새 창은 3/3·0/3) · 크롬·impit 은 늘 403 · 보관본 1/3",
-    "why": "혼용률 0/800 — 지금은 상품 보강 대상에 없음",
+    "why": "혼용률 0/800 — 11/25 야간 보강(fetch·크롬)에 시도 기록 없음(크롬 차단 이력 11/16)",
     "basis": "측정·판정",
     "fix": "파이어폭스 보강 대상에 넣고 막히면 다음 실행에 다시(무료, 러너 운 — 하루 몇십 개 수준 예상) · 안정적으로는 확장 또는 유료",
     "label": "🟠 일부만",
@@ -6170,23 +6011,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      },
      "wayback": {
       "ok": 1,
@@ -6291,7 +6115,6 @@
       "url": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "2/4 blocked 403",
@@ -6302,7 +6125,6 @@
       "url": "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541?inseam=regular&sizeType=regular&color=6635&catId=cat11199293&collectionId=category&parentId=196533518997",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/3 blocked 403",
        "firefox": "2/4 blocked 403",
@@ -6313,7 +6135,6 @@
       "url": "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172?inseam=regular&sizeType=regular&color=5125&catId=cat11199293&collectionId=category&parentId=199761624959",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "1/4 blocked 403",
@@ -6755,23 +6576,6 @@
        "Cloudflare"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45582315366"
-      ],
-      "ips": [
-       "20.102.102.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -6836,7 +6640,6 @@
       "url": "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/",
       "engines": {
        "impit": "0/1 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 no-comp",
        "firefox": "0/1 no-comp"
@@ -6846,7 +6649,6 @@
       "url": "https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/",
       "engines": {
        "impit": "0/1 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -6856,7 +6658,6 @@
       "url": "https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/",
       "engines": {
        "impit": "0/1 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -9018,23 +8819,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -9104,7 +8888,6 @@
       "url": "https://www.fatface.com/style/su990707/y56442",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -9114,7 +8897,6 @@
       "url": "https://www.fatface.com/style/su990707/g78330",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -9124,7 +8906,6 @@
       "url": "https://www.fatface.com/style/sv022065/v60690",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -9361,23 +9142,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 1,
-      "urlsOk": 0,
-      "urls": 1,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 1,
@@ -9439,7 +9203,6 @@
       "url": "https://itunes.apple.com/us/app/free-people/id659532790",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 no-comp",
        "firefox": "0/1 no-comp"
@@ -10056,23 +9819,6 @@
        "DataDome"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 2,
       "n": 3,
@@ -10143,7 +9889,6 @@
       "url": "https://www.freepeople.com/shop/we-the-free-nolan-swit/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -10153,7 +9898,6 @@
       "url": "https://www.freepeople.com/shop/we-the-free-tinsley-long-sleeve-top/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -10163,7 +9907,6 @@
       "url": "https://www.freepeople.com/shop/we-the-free-surplus-cuff-top/",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -10585,23 +10328,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -10700,7 +10426,6 @@
       "url": "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762",
       "engines": {
        "impit": "0/4 no-comp",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 no-comp",
@@ -10711,7 +10436,6 @@
       "url": "https://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763",
       "engines": {
        "impit": "0/4 no-comp",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -10722,7 +10446,6 @@
       "url": "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213",
       "engines": {
        "impit": "0/4 no-comp",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -11861,23 +11584,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -11947,7 +11653,6 @@
       "url": "https://www2.hm.com/en_us/productpage.1368126003.html",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -11957,7 +11662,6 @@
       "url": "https://www2.hm.com/en_us/productpage.1368126004.html",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -11967,7 +11671,6 @@
       "url": "https://www2.hm.com/en_us/productpage.1375905003.html",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -12262,23 +11965,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45582315366"
-      ],
-      "ips": [
-       "20.102.102.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 3,
@@ -12341,7 +12027,6 @@
       "url": "https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -12351,7 +12036,6 @@
       "url": "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -12361,7 +12045,6 @@
       "url": "https://www.jcrew.com/m/womens/categories/clothing/sweaters/crewneck/ME829",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -13354,23 +13037,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 3,
@@ -13441,7 +13107,6 @@
       "url": "https://www.joules.com/style/su928251/g50944",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -13451,7 +13116,6 @@
       "url": "https://www.joules.com/style/su924374/y97347",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -13461,7 +13125,6 @@
       "url": "https://www.joules.com/style/su796903/g49585",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -14889,23 +14552,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -14972,7 +14618,6 @@
       "url": "https://www.loft.com/gifts/shop-all-gifts/cat3860003/",
       "engines": {
        "impit": "0/1 geo",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked",
        "firefox": "0/1 blocked"
@@ -14982,7 +14627,6 @@
       "url": "https://www.loft.com/clothing/sweaters/catl000012/",
       "engines": {
        "impit": "0/1 geo",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked",
        "firefox": "0/1 blocked"
@@ -14992,7 +14636,6 @@
       "url": "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html",
       "engines": {
        "impit": "0/1 geo",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked",
        "firefox": "0/1 blocked"
@@ -15241,23 +14884,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45582315366"
-      ],
-      "ips": [
-       "20.102.102.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 2,
@@ -15320,7 +14946,6 @@
       "url": "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -15330,7 +14955,6 @@
       "url": "https://www.luckybrand.com/lace-yoke-henley/169956.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -15550,23 +15174,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 3,
@@ -15634,7 +15241,6 @@
       "url": "https://shop.lululemon.com/p/little-ribbed-tee/b5a7hl0ba8",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 timeout",
        "firefox": "0/2 blocked 403"
@@ -15644,7 +15250,6 @@
       "url": "https://shop.lululemon.com/p/the-classic-jersey-tee/rf5usypnim",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/2 timeout",
        "firefox": "0/2 blocked 403"
@@ -15654,7 +15259,6 @@
       "url": "https://shop.lululemon.com/p/forever-favourite-tee/g4tzotd8xm",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 timeout",
        "firefox": "0/2 blocked 403"
@@ -16179,23 +15783,6 @@
        "Vercel"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 3,
@@ -16266,7 +15853,6 @@
       "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/100-cotton-round-neck-t-shirt/37091331/01/00",
       "engines": {
        "impit": "0/2 blocked 429",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 429",
        "firefox": "0/2 blocked 429"
@@ -16276,7 +15862,6 @@
       "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/long-sleeved-boat-neck-t-shirt/37094103/32/00",
       "engines": {
        "impit": "0/2 blocked 429",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 429",
        "firefox": "0/2 blocked 429"
@@ -16286,7 +15871,6 @@
       "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/long-sleeved-boat-neck-t-shirt/37094103/07/00",
       "engines": {
        "impit": "0/2 blocked 429",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 blocked 429",
        "firefox": "0/2 blocked 429"
@@ -16655,23 +16239,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -16740,7 +16307,6 @@
       "url": "https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106",
       "engines": {
        "impit": "0/2 blocked",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 no-comp"
@@ -16750,7 +16316,6 @@
       "url": "https://www.massimodutti.com/us/buttoned-henley-tshirt-l06863575",
       "engines": {
        "impit": "0/2 blocked",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "2/2"
@@ -16760,7 +16325,6 @@
       "url": "https://www.massimodutti.com/us/cotton-blend-bib-detail-tshirt-l06615918",
       "engines": {
        "impit": "0/2 blocked",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 no-comp"
@@ -16930,23 +16494,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45582315366"
-      ],
-      "ips": [
-       "20.102.102.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 2,
       "n": 2,
@@ -17008,7 +16555,6 @@
       "url": "https://www.meandem.com/us/piped-fitted-t-shirt-soft-white-rich-olive-green",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -17018,7 +16564,6 @@
       "url": "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-black",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -20087,23 +19632,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 3,
@@ -20171,7 +19699,6 @@
       "url": "https://www.patagonia.com/product/womens-i-voted-sticker-easy-cut-tee/37364.html",
       "engines": {
        "impit": "0/2 maintenance",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 maintenance",
        "firefox": "0/2 maintenance"
@@ -20181,7 +19708,6 @@
       "url": "https://www.patagonia.com/product/womens-in-spired-easy-cut-tee/37366.html",
       "engines": {
        "impit": "0/2 maintenance",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 maintenance",
        "firefox": "2/2"
@@ -20191,7 +19717,6 @@
       "url": "https://www.patagonia.com/product/womens-long-sleeved-capilene-cool-merino-blend-shirt/44555.html",
       "engines": {
        "impit": "0/2 maintenance",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 maintenance",
        "firefox": "2/2"
@@ -20462,23 +19987,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45582315366"
-      ],
-      "ips": [
-       "20.102.102.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -20540,7 +20048,6 @@
       "url": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -20550,7 +20057,6 @@
       "url": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -20560,7 +20066,6 @@
       "url": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -20856,23 +20361,6 @@
        "Cloudflare"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 3,
@@ -20978,7 +20466,6 @@
       "url": "https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "2/3 blocked 403",
        "firefox": "2/4 blocked 403",
@@ -20989,7 +20476,6 @@
       "url": "https://www.prana.com/p/everyday-short-sleeve-tee/2063791.html?dwvar_2063791_color=Nautical",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -21000,7 +20486,6 @@
       "url": "https://www.prana.com/p/cambria-cove-button-up-top/2179031.html?dwvar_2179031_color=Dawn%20Heather",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -22764,23 +22249,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -22882,7 +22350,6 @@
       "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-025.webp%20924w",
       "engines": {
        "impit": "0/2 dead·blocked 404/503",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 dead 404",
        "firefox": "0/2 dead 404"
@@ -22892,7 +22359,6 @@
       "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-028.webp%20924w",
       "engines": {
        "impit": "0/2 dead 404",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 dead 404",
        "firefox": "0/2 dead 404"
@@ -22902,7 +22368,6 @@
       "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Chebbi_blazer_blue-Karty_bluenim-027.webp%20924w",
       "engines": {
        "impit": "0/2 dead 404",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 dead 404",
        "firefox": "0/2 dead 404"
@@ -23136,23 +22601,6 @@
        "DataDome"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 3,
@@ -23223,7 +22671,6 @@
       "url": "https://www.sezane.com/us-en/product/leon-t-shirt/white",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -23233,7 +22680,6 @@
       "url": "https://www.sezane.com/us-en/product/leon-t-shirt/navy",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -23243,7 +22689,6 @@
       "url": "https://www.sezane.com/us-en/product/leon-t-shirt/black",
       "engines": {
        "impit": "0/2 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/2 blocked 403",
        "firefox": "0/2 blocked 403"
@@ -24309,23 +23754,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45582315366"
-      ],
-      "ips": [
-       "20.102.102.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 1,
       "n": 2,
@@ -24388,7 +23816,6 @@
       "url": "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -24398,7 +23825,6 @@
       "url": "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_Black.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -24872,23 +24298,6 @@
        "Cloudflare"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -24989,7 +24398,6 @@
       "url": "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "3/3",
        "firefox": "4/4",
@@ -25000,7 +24408,6 @@
       "url": "https://www.theupside.com/corvara-jakara-puffer-jacket-creme-usw426182/",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "1/4 blocked 403",
@@ -25011,7 +24418,6 @@
       "url": "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "0/4 blocked 403",
@@ -25243,23 +24649,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -25333,7 +24722,6 @@
       "url": "https://www.thewhitecompany.com/uk/Fleeceback-Turn-Up-Cuff-Jogger/p/A07214",
       "engines": {
        "impit": "0/2 geo",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/2 geo",
        "firefox": "0/2 geo"
@@ -25343,7 +24731,6 @@
       "url": "https://www.thewhitecompany.com/uk/Zip-Through-Hoodie-with-Cotton/p/A17245",
       "engines": {
        "impit": "0/2 geo",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/2 dead 404",
        "firefox": "0/2 dead 404"
@@ -25353,7 +24740,6 @@
       "url": "https://www.thewhitecompany.com/uk/Ultimate-Leggings/p/LLCNG",
       "engines": {
        "impit": "0/2 geo",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/2 geo",
        "firefox": "0/2 geo"
@@ -27523,23 +26909,6 @@
        "Akamai"
       ]
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 2,
       "n": 3,
@@ -27643,7 +27012,6 @@
       "url": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/3 blocked 403",
        "firefox": "3/4 blocked 403",
@@ -27654,7 +27022,6 @@
       "url": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/3 blocked 403",
        "firefox": "3/4 blocked 403",
@@ -27665,7 +27032,6 @@
       "url": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526",
       "engines": {
        "impit": "0/4 blocked 403",
-       "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/3 blocked 403",
        "firefox": "1/4 blocked 403",
@@ -28097,23 +27463,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 3,
@@ -28175,7 +27524,6 @@
       "url": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 error",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -28185,7 +27533,6 @@
       "url": "https://www.whitestuff.com/p/8750/447966-amelia-embroidered-top/MID_PLUM",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 error",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -28195,7 +27542,6 @@
       "url": "https://www.whitestuff.com/p/8647/447994-clara-ls-tee/DK_BLUE",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 error",
        "playwright": "1/1",
        "firefox": "1/1"
@@ -28696,23 +28042,6 @@
       ],
       "by": []
      },
-     "site-api": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45582315366"
-      ],
-      "ips": [
-       "20.102.102.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "wayback": {
       "ok": 0,
       "n": 2,
@@ -28776,7 +28105,6 @@
       "url": "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 no-comp",
        "firefox": "0/1 no-comp"
@@ -28786,7 +28114,6 @@
       "url": "https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
        "firefox": "1/1"
