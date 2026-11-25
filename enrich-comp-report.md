@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-11-25T16:29Z)
+# 엑셀 항목 보강 결과 (2026-11-25T16:33Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -11,16 +11,16 @@
 
 ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Marine Layer · Nation LTD · Ninety Percent · Rag & bone · Sanctuary · Seasalt cornwall · Shopbop · Sweaty betty · The Great · Theory · Ulla Johnson · Varley · Veronica Beard · Vince · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 77% · 컬러웨이 65%.
-기준 95% 까지 11727개, 목표 99% 까지 13287개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 65%.
+기준 95% 까지 11838개, 목표 99% 까지 13398개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 39019개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 30165 | 77% | +3 |
-| 컬러웨이 | 25342 | 65% | +10 |
+| 혼용률 | 28695 | 74% | +2 |
+| 컬러웨이 | 25231 | 65% | +2 |
 
 - 검색 인덱스 재구축: 18004개
 
@@ -35,36 +35,38 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | The white company | — | 0/68 (0%) | 0/68 (0%) | 혼용률 +0 컬러 +0 |  |
-| H&M | — | 0/745 (0%) | 5/745 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 13·직접차단 13·보관본없음 13 |
+| H&M | — | 0/745 (0%) | 5/745 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 12·직접차단 12·보관본없음 12 |
+| Lululemon | — | 1/512 (0%) | 1/512 (0%) | 혼용률 +0 컬러 +0 |  |
 | Fatface | — | 1/374 (0%) | 1/374 (0%) | 혼용률 +0 컬러 +0 |  |
-| Lululemon | — | 2/512 (0%) | 1/512 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 4·직접차단 4·보관본없음 3·아카이브거부 1 |
-| Massimo Dutti | — | 4/606 (1%) | 3/606 (0%) | 혼용률 +1 컬러 +1 | 성공 아카이브 1 / 실패 정보없음 18·직접차단 18·보관본없음 12·아카이브거부 5 |
-| Sezane | — | 2/203 (1%) | 8/203 (4%) | 혼용률 +0 컬러 +0 | 실패 정보없음 8·직접차단 8·보관본없음 6·아카이브거부 1 |
-| Addidas | — | 6/537 (1%) | 6/537 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 7·직접차단 7·보관본없음 7 |
+| Anthropologie | — | 1/263 (0%) | 1/263 (0%) | 혼용률 +0 컬러 +0 |  |
+| Sezane | — | 1/203 (0%) | 2/203 (1%) | 혼용률 +0 컬러 +0 |  |
+| Massimo Dutti | — | 4/606 (1%) | 3/606 (0%) | 혼용률 +0 컬러 +0 |  |
 | Chico's | — | 9/800 (1%) | 8/800 (1%) | 혼용률 +0 컬러 +0 |  |
-| Anthropologie | — | 3/263 (1%) | 3/263 (1%) | 혼용률 +1 컬러 +1 | 성공 아카이브 1 / 실패 정보없음 21·직접차단 21·보관본없음 19·아카이브거부 1 |
+| Addidas | — | 8/537 (1%) | 8/537 (1%) | 혼용률 +2 컬러 +2 | 성공 아카이브 2 / 실패 정보없음 6·직접차단 6·보관본없음 4 |
 | Garnet hill | — | 2/108 (2%) | 0/108 (0%) | 혼용률 +0 컬러 +0 |  |
+| Free People | — | 5/189 (3%) | 5/189 (3%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 7/168 (4%) | 6/168 (4%) | 혼용률 +0 컬러 +0 |  |
 | Joules | — | 24/536 (4%) | 24/536 (4%) | 혼용률 +0 컬러 +0 |  |
 | Prana | — | 4/81 (5%) | 4/81 (5%) | 혼용률 +0 컬러 +0 |  |
-| Free People | — | 11/189 (6%) | 8/189 (4%) | 혼용률 +1 컬러 +1 | 성공 아카이브 1 / 실패 정보없음 7·직접차단 7·보관본없음 6 |
+| FP Movement | — | 5/72 (7%) | 3/72 (4%) | 혼용률 +0 컬러 +0 |  |
 | Oysho | — | 2/20 (10%) | 0/20 (0%) | 혼용률 +0 컬러 +0 |  |
 | Zara | — | 120/499 (24%) | 118/499 (24%) | 혼용률 +0 컬러 +0 |  |
 | J crew | — | 63/215 (29%) | 207/215 (96%) | 혼용률 +0 컬러 +0 |  |
 | Coldwatercreek | — | 67/200 (34%) | 118/200 (59%) | 혼용률 +0 컬러 +0 |  |
 | WHBM | — | 75/219 (34%) | 76/219 (35%) | 혼용률 +0 컬러 +0 |  |
 | Reformation | — | 261/753 (35%) | 299/753 (40%) | 혼용률 +0 컬러 +0 |  |
+| &Other Stories | — | 176/472 (37%) | 115/472 (24%) | 혼용률 +0 컬러 +0 |  |
 | Sessun | — | 34/81 (42%) | 0/81 (0%) | 혼용률 +0 컬러 +0 |  |
 | Loft | — | 283/672 (42%) | 319/672 (47%) | 혼용률 +0 컬러 +0 |  |
 | Arket | — | 174/382 (46%) | 176/382 (46%) | 혼용률 +0 컬러 +0 |  |
 | Buck Mason | — | 57/119 (48%) | 118/119 (99%) | 혼용률 +0 컬러 +0 |  |
-| FP Movement | — | 37/72 (51%) | 6/72 (8%) | 혼용률 +0 컬러 +0 | 실패 정보없음 1·직접차단 1·보관본없음 1 |
 | Paige | — | 32/61 (52%) | 60/61 (98%) | 혼용률 +0 컬러 +0 |  |
 | Wilson | — | 28/51 (55%) | 38/51 (75%) | 혼용률 +0 컬러 +0 |  |
 | Dickies | — | 144/260 (55%) | 260/260 (100%) | 혼용률 +0 컬러 +0 |  |
+| Mango | — | 52/88 (59%) | 0/88 (0%) | 혼용률 +0 컬러 +0 |  |
+| Abercrombie & Fitch | — | 140/224 (63%) | 2/224 (1%) | 혼용률 +0 컬러 +0 |  |
 | Aritzia | — | 503/800 (63%) | 3/800 (0%) | 혼용률 +0 컬러 +0 |  |
 | rouje | — | 149/232 (64%) | 226/232 (97%) | 혼용률 +0 컬러 +0 |  |
-| &Other Stories | — | 311/472 (66%) | 206/472 (44%) | 혼용률 +0 컬러 +5 | 성공 아카이브 5 / 실패 정보없음 30·직접차단 30·보관본없음 12·아카이브거부 7·아카이브오류 6 |
 | Mint velvet | — | 293/416 (70%) | 134/416 (32%) | 혼용률 +0 컬러 +0 |  |
 | Everlane | — | 315/443 (71%) | 0/443 (0%) | 혼용률 +0 컬러 +0 |  |
 | Carlhartt | — | 108/148 (73%) | 77/148 (52%) | 혼용률 +0 컬러 +0 |  |
@@ -81,6 +83,7 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Leset | — | 275/326 (84%) | 319/326 (98%) | 혼용률 +0 컬러 +0 |  |
 | Rails | — | 246/290 (85%) | 58/290 (20%) | 혼용률 +0 컬러 +0 |  |
 | Good American | — | 532/625 (85%) | 625/625 (100%) | 혼용률 +0 컬러 +0 |  |
+| Lands end | — | 404/463 (87%) | 18/463 (4%) | 혼용률 +0 컬러 +0 |  |
 | Cotton citizen | — | 248/283 (88%) | 283/283 (100%) | 혼용률 +0 컬러 +0 |  |
 | Alo | — | 169/190 (89%) | 190/190 (100%) | 혼용률 +0 컬러 +0 |  |
 | Madewell | — | 67/75 (89%) | 75/75 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -162,88 +165,32 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Nation LTD | ✅ | 525/525 (100%) | 525/525 (100%) | 혼용률 +0 컬러 +0 |  |
 | Old Navy | — | 7/7 (100%) | 0/7 (0%) | 혼용률 +0 컬러 +0 |  |
 | Z Supply | — | 216/216 (100%) | 190/216 (88%) | 혼용률 +0 컬러 +0 |  |
-| Abercrombie & Fitch | — | 425/224 (190%) | 7/224 (3%) | 혼용률 +0 컬러 +0 | 실패 정보없음 19·직접차단 19·보관본없음 19 |
-| Lands end | — | 881/463 (190%) | 21/463 (5%) | 혼용률 +0 컬러 +2 | 성공 아카이브 2 / 실패 정보없음 10·직접차단 10·보관본없음 7·아카이브거부 1 |
-| Mango | — | 585/88 (665%) | 0/88 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 6·직접차단 6·보관본없음 6 |
 
 ## 웹 아카이브 층
 
-조회 143/250개(브랜드당 40) · 요청 178회 · 429 0 · 5xx 0 · 네트워크 오류 9 · 쿼리 포함 주소로만 찾은 것 0 · **이 실행 도중 층을 껐다: 연속 실패 4회(마지막: fetch failed)**
+조회 18/250개(브랜드당 40) · 요청 20회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
 
 | 브랜드 | 시도 상품 | 혼용률(지금 페이지) | 혼용률(보관본) | 보관본 없음 | 보관본 거부 | 주소 거부 | 아카이브 오류 | 상한·최근 물음 | 걸린 시간 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| &Other Stories | 30 | 0 | 5 | 12 | 7 | 0 | 6 | 0 | 716s |
-| Anthropologie | 21 | 0 | 1 | 19 | 1 | 0 | 0 | 0 | 293s |
-| Abercrombie & Fitch | 19 | 0 | 0 | 19 | 0 | 0 | 0 | 0 | 211s |
-| Massimo Dutti | 18 | 0 | 1 | 12 | 5 | 0 | 0 | 0 | 521s |
-| H&M | 13 | 0 | 0 | 13 | 0 | 0 | 0 | 0 | 145s |
-| Lands end | 10 | 0 | 2 | 7 | 1 | 0 | 0 | 0 | 222s |
-| Sezane | 8 | 0 | 0 | 6 | 1 | 1 | 0 | 0 | 426s |
-| Free People | 7 | 0 | 1 | 6 | 0 | 0 | 0 | 0 | 199s |
-| Addidas | 7 | 0 | 0 | 7 | 0 | 0 | 0 | 0 | 27s |
-| Mango | 6 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 113s |
-| Lululemon | 4 | 0 | 0 | 3 | 1 | 0 | 0 | 0 | 127s |
-| FP Movement | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 75s |
+| H&M | 12 | 0 | 0 | 12 | 0 | 0 | 0 | 0 | 66s |
+| Addidas | 6 | 0 | 2 | 4 | 0 | 0 | 0 | 0 | 79s |
 
-사유별 개수: 보관본 없음 111 · 찾음 10 · 보관본에 혼용률 없음 5 · 혼용률 여러 벌(목록) 8 · 주소: 카테고리 이름 주소 1 · 보관본도 차단·빈 화면 1 · 보관본 열기 실패 1 · 상품 표시 없음 1 · 아카이브 오류 6
+사유별 개수: 보관본 없음 16 · 찾음 2
 
 <details><summary>사유별 예시(최대 5개)</summary>
 
 **보관본 없음**
 
-- Addidas — https://www.adidas.com/us/woven-skirt/KU0501.html
-- Addidas — https://www.adidas.com/us/all-szn-rib-skirt/KA6984.html
-- Addidas — https://www.adidas.com/us/pleather-adibreak-skirt/KQ6439.html
-- Addidas — https://www.adidas.com/us/tennis-climacool-match-skirt/KA4117.html
-- Addidas — https://www.adidas.com/us/performance-texture-skort/KD9254.html
+- Addidas — https://www.adidas.com/us/originals-tank-dress/KR5417.html
+- Addidas — https://www.adidas.com/us/adidas-kit-small-logo-rib-dress/KT0275.html
+- Addidas — https://www.adidas.com/us/adidas-originals-sport-dress/KT7085.html
+- Addidas — https://www.adidas.com/us/mesh-skirt/KU0508.html
+- H&M — https://www2.hm.com/en_us/productpage.1370450003.html
 
 **찾음**
 
-- Anthropologie — https://www.anthropologie.com/shop/strut-this-winnie-tank — 20260808 · Polyester 76% / Elastane 24%
-- Free People — https://www.freepeople.com/shop/breezy-plaid-midi-skirt-set/ — 20260812 · Polyester 100%
-- Lands end — https://www.landsend.com/products/womens-plus-size-flannel-boyfriend-fit-long-sleeve-shirt/id_353328 — 20260401 · Cotton 100%
-- Lands end — https://www.landsend.com/products/anyweather-fleece-quarter-zip-pullover/id_332859 — 20250930 · Polyester 100%
-- Massimo Dutti — https://www.massimodutti.com/us/barrel-fit-jeans-with-pleat-detail-l05093893 — 20261012 · Cotton 100%
-
-**보관본에 혼용률 없음**
-
-- Anthropologie — https://www.anthropologie.com/shop/hutch-fringed-chevron-dress
-- Lands end — https://www.landsend.com/products/womens-wide-wale-corduroy-shirt-jacket/id_400590
-- Massimo Dutti — https://www.massimodutti.com/us/soft-leather-loafer-l11529850
-- Massimo Dutti — https://www.massimodutti.com/us/leather-heel-shoe-l11456850
-- Massimo Dutti — https://www.massimodutti.com/us/mock-neck-knit-sweater-with-zip-l01405226
-
-**혼용률 여러 벌(목록)**
-
-- Lululemon — https://shop.lululemon.com/p/uv-protective-lightweight-half-zip/pvjs83rza5 — {"rootProducts":1,"listProducts":0,"itemList":0,"og":true,"h1":1,"blocks":4,"prices":3,"carts":1,"sigs":["elastane 14/polyester 86","elastane 15/nylon 85/polyester 100","elastane 14/nylon 85/polyester 86","elastane 15/polyester 100"],"title":"UV-Protective Lightweight Half Zip / Women&#x27;s Hoodies &a","types":["ProductGroup","Brand","AggregateRating","Product","Offer","Organization"]}
-- &Other Stories — https://www.stories.com/en-us/product/boxy-t-shirt-black-1223613002/ — {"rootProducts":1,"listProducts":0,"itemList":0,"og":false,"h1":2,"blocks":3,"prices":67,"carts":0,"sigs":["cotton 100","cotton 100/wool 100","wool 100"],"title":"Boxy T-Shirt - Black - T-shirts - &amp; Other Stories US","types":["Product","Brand","Thing","Offer","Organization","BreadcrumbList"]}
-- &Other Stories — https://www.stories.com/en-us/product/wool-blend-knitted-t-shirt-dark-grey-melange-1319342004/ — {"rootProducts":1,"listProducts":0,"itemList":0,"og":false,"h1":2,"blocks":6,"prices":50,"carts":0,"sigs":["cotton 44/wool 56","cotton 100","cotton 100/wool 100","wool 100"],"title":"Rib-Knit T-shirt - Dark Grey Melange - &amp; Other Stories U","types":["Product","Brand","Thing","Offer","Organization","BreadcrumbList"]}
-- &Other Stories — https://www.stories.com/en-us/product/oversized-cotton-t-shirt-white-1329849004/ — {"rootProducts":1,"listProducts":0,"itemList":0,"og":false,"h1":1,"blocks":5,"prices":50,"carts":0,"sigs":["cotton 100","cotton 100/silk 100","cotton 100/silk 100/wool 100","silk 100"],"title":"Oversized Cotton T-Shirt - White - &amp; Other Stories US","types":["Product","Brand","Thing","Offer","Organization","BreadcrumbList"]}
-- &Other Stories — https://www.stories.com/en-us/product/wool-blend-knitted-t-shirt-white-1319342002/ — {"rootProducts":1,"listProducts":0,"itemList":0,"og":false,"h1":2,"blocks":6,"prices":50,"carts":0,"sigs":["cotton 43/wool 57","cotton 100","cotton 100/wool 100","wool 100"],"title":"Rib-Knit T-shirt - White - Sweaters - &amp; Other Stories US","types":["Product","Brand","Thing","Offer","Organization","BreadcrumbList"]}
-
-**주소: 카테고리 이름 주소**
-
-- Sezane — https://www.sezane.com/us-en/product/lisandro-trousers/black
-
-**보관본도 차단·빈 화면**
-
-- Massimo Dutti — https://www.massimodutti.com/us/slim-fit-100-cotton-shirt-l00140171
-
-**보관본 열기 실패**
-
-- Massimo Dutti — https://www.massimodutti.com/us/soft-leather-pointed-toe-ballet-flat-l11524850 — HTTP 404
-
-**상품 표시 없음**
-
-- Sezane — https://www.sezane.com/us-en/last-chance/fall-winter-last-chance — {"rootProducts":0,"listProducts":0,"itemList":0,"og":false,"h1":1,"blocks":0,"prices":0,"carts":0,"sigs":[],"title":"Last Chance Autumn-Winter / Womenswear / Sézane","types":["WebSite","SearchAction","EntryPoint","BreadcrumbList","ListItem"]}
-
-**아카이브 오류**
-
-- &Other Stories — https://www.stories.com/en-us/product/linen-mini-dress-black-1270022001/ — fetch failed
-- &Other Stories — https://www.stories.com/en-us/product/linen-mini-dress-pink-1284435006/ — 아카이브 층 꺼짐: 연속 실패 4회(마지막: fetch failed)
-- &Other Stories — https://www.stories.com/en-us/product/pleated-cotton-linen-trousers-white-1332946001/ — 아카이브 층 꺼짐: 연속 실패 4회(마지막: fetch failed)
-- &Other Stories — https://www.stories.com/en-us/product/ribbed-tank-top-grey-1313938002/ — 아카이브 층 꺼짐: 연속 실패 4회(마지막: fetch failed)
-- &Other Stories — https://www.stories.com/en-us/product/ribbed-t-shirt-redlilacstriped-1333289001/ — 아카이브 층 꺼짐: 연속 실패 4회(마지막: fetch failed)
+- Addidas — https://www.adidas.com/us/ultimate365-frilled-skort/JP0093.html — 20251208 · Polyester 100%
+- Addidas — https://www.adidas.com/us/ultimate365-solid-dress/JC9249.html — 20260519 · Polyester 100%
 
 </details>
 
