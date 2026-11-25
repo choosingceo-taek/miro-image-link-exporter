@@ -78,5 +78,60 @@ for (const [label, path, price, want] of LANDING) {
   if (got !== want) { bad++; console.error(`❌ ${label}: ${path} (가격 "${price}") → 기대 ${want} 실제 ${got}`); }
 }
 
+// 경로 모양 규칙(카테고리 /c/·/w/ · Inditex '-n숫자' · 이미지 파일)과 물음표 뒤 상품 번호.
+// 수집기 소스에서 그 부분만 떼어 그대로 돌린다 — 테스트용 사본을 따로 두지 않는다.
+const shapeSrc = col.slice(col.indexOf("const CATEGORY_PATH"), col.indexOf("  // 상품 번호가 경로가 아니라"));
+const idSrc = col.slice(col.indexOf("const ID_PARAMS"), col.indexOf("  const harvest"));
+const { nonProductShape, idQuery } = new Function(shapeSrc + idSrc + "\n return { nonProductShape, idQuery };")();
+const SHAPE = [
+  // 버려야 하는 것 — 2026-11-25 저장본·야간 표본에 실제로 있던 주소
+  ["Carhartt 메뉴 타일", "https://www.carhartt.com/c/black-friday", true],
+  ["Carhartt 하위 카테고리", "https://www.carhartt.com/c/women-tops-tshirt", true],
+  ["Carhartt EU 카테고리", "https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017", true],
+  ["Nike 필터 링크", "https://www.nike.com/w/womens-tops-t-shirts-5e1x6z9om13", true],
+  ["Oysho 하위 카테고리 타일", "https://www.oysho.com/gb/womens-sports-t-shirts-n5063", true],
+  ["Massimo Dutti 카테고리", "https://www.massimodutti.com/us/women/shirts-n1439", true],
+  ["Sessun srcset 조각", "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-025.webp%20924w", true],
+  ["이미지 파일", "https://cdn.example.com/media/catalog/top-123.jpg", true],
+  // 남겨야 하는 것
+  ["Nike 상품", "https://www.nike.com/t/sportswear-chill-knit-womens-t-shirt-abc/FN3684-010", false],
+  ["Carhartt 상품", "https://www.carhartt.com/product/105510/womens-relaxed-fit-tee", false],
+  ["Carhartt EU 상품", "https://www.carhartt.com/en-eu/p/relaxed-fit-fleece-joggers/105510", false],
+  ["Hybris 상품(/c/ 와 /p/ 함께)", "https://www.thewhitecompany.com/uk/Clothing/c/tops/p/ABC123", false],
+  ["J.Crew 상품(categories 아래)", "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334", false],
+  ["Massimo Dutti 상품", "https://www.massimodutti.com/us/linen-shirt-l05812529", false],
+  ["Oysho 상품", "https://www.oysho.com/gb/seamless-t-shirt-c0p123456789.html", false],
+  ["낱말 c 로 시작하는 조각", "https://shop.example.com/collections/cotton-tee", false],
+];
+for (const [label, url, want] of SHAPE) {
+  const got = nonProductShape(new URL(url).pathname.replace(/\/+$/, ""));
+  if (got !== want) { bad++; console.error(`❌ ${label}: ${url} → 기대 ${want} 실제 ${got}`); }
+}
+// 접근 지도에 실린 진짜 상품 주소(브랜드마다 표본 3개)는 하나도 버리면 안 된다.
+// (Sessun 의 이미지 조각은 상품이 아니라서 제외 — 위에서 '버려야 함'으로 본다)
+let real = 0;
+try {
+  const map = JSON.parse(readFileSync(join(ROOT, "access-map.json"), "utf8"));
+  for (const b of map.brands || []) {
+    for (const u of (b.product && b.product.urls) || []) {
+      if (/static\.sessun\.com/.test(u.url)) continue;
+      real++;
+      const path = new URL(u.url).pathname.replace(/\/+$/, "");
+      if (nonProductShape(path)) { bad++; console.error(`❌ 진짜 상품을 버림: ${b.brand} ${u.url}`); }
+    }
+  }
+} catch (e) { bad++; console.error("❌ access-map.json 을 못 읽음: " + e.message); }
+const IDQ = [
+  ["Gap 상품 번호", "https://www.gap.com/browse/product.do?pid=885858002&cid=17076#pdp-page-content", "?pid=885858002"],
+  ["Athleta 상품 번호", "https://athleta.gap.com/browse/product.do?vid=1&pid=5409160220002", "?pid=5409160220002"],
+  ["보통 상품 주소는 물음표 뒤를 버림", "https://www.example.com/products/tee?variant=123&pid=9", ""],
+  ["프로그램 주소라도 번호가 없으면 버림", "https://www.example.com/browse/category.do?cid=17076", ""],
+];
+for (const [label, url, want] of IDQ) {
+  const got = idQuery(new URL(url));
+  if (got !== want) { bad++; console.error(`❌ ${label}: ${url} → 기대 "${want}" 실제 "${got}"`); }
+}
+console.log(`경로 모양 ${SHAPE.length}건 · 실제 상품 표본 ${real}건 · 물음표 상품 번호 ${IDQ.length}건 확인`);
+
 if (bad) { console.error(`\n비상품 판별 ${bad}건 실패`); process.exit(1); }
 console.log(`✅ 비상품 판별 통과 — 경로 ${CASES.length}건 · 최상위 ${LANDING.length}건 (수집기·점검 두 규칙 일치)`);

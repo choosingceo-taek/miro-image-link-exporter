@@ -63,7 +63,7 @@ const srv = createServer((req, res) => {
     if (u.searchParams.get("catalogs")) return state.catalogsFail ? j({ error: "down" }, 500) : j({ ok: true, list: state.catalogs });
     return j({ error: "unknown" }, 400);
   }
-  if (p.startsWith("/img/")) { res.writeHead(404); return res.end(); }
+  if (p.startsWith("/img/")) { state.imgHits = (state.imgHits || 0) + 1; res.writeHead(404); return res.end(); }
   // 가짜 쇼핑몰 목록 페이지: /<brand>/c/<cat>
   const m = p.match(/^\/([a-z]+)\/c\/([a-z]+)$/);
   if (m) {
@@ -304,7 +304,7 @@ try {
     const file = join(dir, "extra.json");
     writeFileSync(file, JSON.stringify({ brands: [
       { brand: "kilo", engine: "firefox" },                       // 이름 대소문자가 달라도 찾는다
-      { brand: "Alpha", engine: "firefox" },                      // Render 그룹과 중복 → 무시
+      { brand: "Alpha", engine: "firefox", fresh: true },         // Render 그룹과 중복 → 엔진·새 창만 바꿈
       { brand: "Lima", engine: "firefox" },                       // 카테고리 URL 없음 → 건너뜀
       { brand: "Papa", engine: "firefox", urls: [`${BASE}/papa/c/tops`] },   // URL 직접 지정
       { brand: "November", engine: "firefox" },
@@ -319,9 +319,10 @@ try {
       if (names !== "Alpha,Kilo,November,Oscar,Papa") fail(`[${L}] 대상이 예상과 다르다: ${names}`);
       if (!t("Kilo") || t("Kilo").engine !== "firefox" || t("Kilo").source !== "extra" || t("Kilo").urls.length !== 4) fail(`[${L}] Kilo: ${JSON.stringify(t("Kilo"))}`);
       else ok("추가 브랜드는 category-links.json 의 URL 로, 적힌 엔진(firefox)으로 대상에 들어간다");
-      if (!t("Alpha") || t("Alpha").engine !== "chromium" || t("Alpha").source) fail(`[${L}] 중복 Alpha 가 Render 그룹 그대로가 아니다: ${JSON.stringify(t("Alpha"))}`);
-      else if (!p.extraNotes.some((n) => /^Alpha: Render browser 그룹에 이미 있어/.test(n))) fail(`[${L}] 중복 무시 안내가 없다: ${p.extraNotes}`);
-      else ok("Render 그룹과 겹치는 추가 항목은 무시(크롬 유지) · 안내를 남긴다");
+      if (!t("Alpha") || t("Alpha").engine !== "firefox" || t("Alpha").source !== "extra-override" || !t("Alpha").fresh ||
+          p.targets.filter((x) => x.brand === "Alpha").length !== 1) fail(`[${L}] 겹치는 Alpha 가 한 번만, 바뀐 엔진·새 창으로 돌지 않는다: ${JSON.stringify(p.targets.filter((x) => x.brand === "Alpha"))}`);
+      else if (!p.extraNotes.some((n) => /^Alpha: Render browser 그룹 브랜드 — 엔진 firefox · 새 창/.test(n))) fail(`[${L}] 엔진 변경 안내가 없다: ${p.extraNotes}`);
+      else ok("Render 그룹과 겹치는 추가 항목은 새로 더하지 않고 그 브랜드의 엔진·새 창만 바꾼다 · 안내를 남긴다");
       if (t("Lima") || !p.extraNotes.some((n) => /^Lima: 카테고리 URL 이 없어 건너뜀/.test(n))) fail(`[${L}] URL 없는 Lima 처리: ${p.extraNotes}`);
       else ok("카테고리 URL 이 없는 추가 브랜드는 건너뛰고 안내를 남긴다");
       if (!t("Papa") || t("Papa").urls[0] !== `${BASE}/papa/c/tops`) fail(`[${L}] 직접 지정한 URL 을 안 쓴다: ${JSON.stringify(t("Papa"))}`);
@@ -367,6 +368,42 @@ try {
     if (st2 !== "Alpha" || !rk2 || !/저장된 개수를 확인 못 함/.test(rk2.storeErr)) fail(`[${L}] 개수 확인 실패 때 저장: ${st2} · ${rk2 && rk2.storeErr}`);
     else ok("저장된 개수를 확인 못 하면 추가 브랜드는 저장하지 않는다(Render 그룹은 평소대로)");
     rmSync(dir, { recursive: true, force: true });
+  }
+
+  // ── 7. impit 엔진 · 브랜드별 새 창 · 합치기 저장 ──
+  // impit: HTML 만 크롬 TLS 지문 fetch 로 받고, 크롬 창은 사이트에 직접 접속하지 않는다(이미지도 안 받음).
+  {
+    const L = "impit·새 창·합치기";
+    let hasImpit = true;
+    try { await import("impit"); } catch (e) { hasImpit = false; }
+    if (!hasImpit) fail(`[${L}] impit 패키지가 없다 — npm i --no-save impit@0.14.9`);
+    else {
+      setBrands([["Romeo", ["tops"]]]);
+      config.links.Sierra = { tops: ["tops", "shirts", "pants", "dresses"].map((c) => `${BASE}/sierra/c/${c}`) };
+      config.brands.push({ name: "Sierra", url: `${BASE}/sierra` });
+      const dir = mkdtempSync(join(tmpdir(), "bc-impit-"));
+      const file = join(dir, "extra.json");
+      writeFileSync(file, JSON.stringify({ brands: [
+        { brand: "Sierra", engine: "impit", fresh: true, store: "merge" },
+        { brand: "Romeo", engine: "impit" },   // Render 그룹 브랜드를 impit 으로
+      ] }));
+      state.catalogs = [{ site: "localhost.sierra", count: 30 }, { site: "localhost.romeo", count: 0 }];
+      state.imgHits = 0;
+      const r = await collect(L, { EXTRA_BRANDS_FILE: file, ENGINE: "" });
+      const rs = res(r.json, "Sierra"), rr = res(r.json, "Romeo");
+      if (!rs || rs.collected !== 24 || rs.engine !== "impit" || !rs.fresh || rs.storeMode !== "merge") fail(`[${L}] Sierra: ${JSON.stringify(rs && { c: rs.collected, e: rs.engine, f: rs.fresh, m: rs.storeMode, p: rs.perUrl })}`);
+      else ok("impit 엔진 — HTML 만 받아 같은 수집기로 4개 카테고리 24개를 모은다(새 창 · 리포트에 엔진 적힘)");
+      const ss = r.stores.find((x) => x.brand === "Sierra");
+      if (!ss || /replace=1/.test(ss.query)) fail(`[${L}] store:"merge" 인데 통째 교체로 저장했다: ${JSON.stringify(ss)}`);
+      else ok("store:\"merge\" 브랜드는 replace=1 없이(합치기) 저장한다");
+      if (!rr || rr.collected !== 6 || rr.engine !== "impit") fail(`[${L}] Romeo(Render 그룹 → impit): ${JSON.stringify(rr && { c: rr.collected, e: rr.engine })}`);
+      if (state.imgHits) fail(`[${L}] impit 브랜드인데 크롬 창이 사이트에 이미지를 요청했다(${state.imgHits}번)`);
+      else ok("impit 엔진의 크롬 창은 사이트에 직접 요청하지 않는다(이미지 요청 0)");
+      const sm = (rs && rs.perUrl[0] && rs.perUrl[0].sample) || [];
+      if (sm.length !== 3 || !/^http:\/\/localhost:\d+\/sierra\/products\//.test(sm[0].productUrl)) fail(`[${L}] URL 별 표본 3개가 없다: ${JSON.stringify(sm)}`);
+      else ok("리포트에 URL 마다 표본 3개(이름·주소)를 남긴다");
+      rmSync(dir, { recursive: true, force: true });
+    }
   }
 } finally {
   srv.close();
