@@ -1,0 +1,4541 @@
+{
+ "runId": "45601690170",
+ "at": "2026-11-25T11:09:33.273Z",
+ "ip": "4.236.91.x",
+ "part": "1/3",
+ "brands": [
+  {
+   "brand": "Abercrombie & Fitch",
+   "site": "abercrombie.com.abercrombiefitch",
+   "products": [
+    {
+     "url": "https://www.abercrombie.com/shop/wd/p/essential-polished-body-skimming-tee-62050821",
+     "name": "Essential Polished Skimming Tee, White view 1",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 3036,
+       "final": "https://www.abercrombie.com/shop/us/p/essential-polished-body-skimming-tee-62050821?originalStore=wd"
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 17312,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.abercrombie.com/shop/wd/p/san-francisco-49ers-sunday-hoodie-60773433",
+     "name": "San Francisco 49ers Sunday Hoodie, Red - 49ers view 1",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 3036,
+       "final": "https://www.abercrombie.com/shop/us/p/san-francisco-49ers-sunday-hoodie-60773433?originalStore=wd"
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 16864,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.abercrombie.com/shop/wd/p/ypb-studioflex-curve-love-78-length-legging-63389823",
+     "name": "YPB studioFLEX Curve Love 7/8-Length Legging, Espresso With White view 1",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 3036,
+       "final": "https://www.abercrombie.com/shop/us/p/ypb-studioflex-curve-love-78-length-legging-63389823?originalStore=wd"
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 16956,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    }
+   ],
+   "overlay": {
+    "items": 214,
+    "withRow": 214,
+    "comp": 136,
+    "color": 2,
+    "sizes": 0,
+    "price": 0,
+    "tried": 214,
+    "in5d": 212,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1790866078751,
+    "newestT": 1795579885940,
+    "emptyIn5d": 78
+   },
+   "total": 214,
+   "picked": 3,
+   "notProduct": 2
+  },
+  {
+   "brand": "Aerie",
+   "site": "ae.com.aerie",
+   "products": [
+    {
+     "url": "https://www.ae.com/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-crewneck-sweatshirt/0743_3981_128",
+     "name": "Aerie Go-To Boyfriend Crewneck Sweatshirt",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 618415,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1012394,
+       "clicked": 1
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Aerie Go-To Boyfriend Crewneck Sweatshirt",
+      "imgs": [
+       "https://s7d2.scene7.com/is/image/aeo/0743_3981_128_of"
+      ],
+      "price": "$29",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Dusk",
+      "colors": [
+       "Dusk"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 86% / Recycled Polyester 14%",
+      "desc": "An oversized, boyfriend crew sweatshirt in our coziest, softest everyday fleece.",
+      "feat": [],
+      "sku": "0743_3981_128"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "jsonld"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "material",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "size & fit"
+      ],
+      "domDesc": false,
+      "swatches": 45,
+      "sizeBtns": 16,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1012394
+     },
+     "clickOnly": {
+      "featImpit": 2,
+      "featFirefox": 0,
+      "descImpit": 80,
+      "descFirefox": 80
+     },
+     "fixture": {
+      "file": "aerie.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.ae.com/us/en/p/aerie/clothing/dresses-skirts/aerie-happy-snit-skirt/0703_2409_073",
+     "name": "Aerie Happy Snit Skirt",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 594877,
+       "final": ""
+      }
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Aerie Happy Snit Skirt",
+      "imgs": [
+       "https://s7d2.scene7.com/is/image/aeo/0703_2409_073_of"
+      ],
+      "price": "$32.97",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "True Black",
+      "colors": [
+       "True Black"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 59% / Modal 39% / Elastane 2%",
+      "desc": "Designed in our lightweight jersey.",
+      "feat": [
+       "Body skimming, column fit",
+       "Maxi length"
+      ],
+      "sku": "0703_2409_073"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "jsonld"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "material",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "size & fit"
+      ],
+      "domDesc": false,
+      "swatches": 7,
+      "sizeBtns": 12,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 594877
+     }
+    },
+    {
+     "url": "https://www.ae.com/us/en/p/aerie/bottoms/joggers-sweatpants/offline-by-aerie-weekend-away-foldover-flare-pant/1703_2136_343",
+     "name": "OFFLINE By Aerie Weekend Away Foldover Flare Pant",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 612236,
+       "final": ""
+      }
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "OFFLINE By Aerie Weekend Away Foldover Flare Pant",
+      "imgs": [
+       "https://s7d2.scene7.com/is/image/aeo/1703_2136_343_l1"
+      ],
+      "price": "$32.97",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Dried Sage",
+      "colors": [
+       "Dried Sage"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Recycled Polyester 43% / Polyester 43% / Elastane 14%",
+      "desc": "THE RUNDOWN: Lightweight, super-soft, & brushed for extra coziness, these trousers are as much of a travel essential as your toothbrush.",
+      "feat": [
+       "THE FIT: Regular rise. Fit + Flare: hugs the leg until below the knee then flares out for a trendy look."
+      ],
+      "sku": "1703_2136_343"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "jsonld"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "material",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "size & fit"
+      ],
+      "domDesc": false,
+      "swatches": 11,
+      "sizeBtns": 22,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 612236
+     }
+    }
+   ],
+   "overlay": {
+    "items": 101,
+    "withRow": 101,
+    "comp": 92,
+    "color": 88,
+    "sizes": 0,
+    "price": 61,
+    "tried": 101,
+    "in5d": 31,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1786312668819,
+    "newestT": 1795579886144,
+    "emptyIn5d": 9
+   },
+   "total": 101,
+   "picked": 3,
+   "notProduct": 4
+  },
+  {
+   "brand": "Alo",
+   "site": "aloyoga.com.alo",
+   "products": [
+    {
+     "url": "https://www.aloyoga.com/products/w31085p-silk-blend-radiance-long-sleeve-top-black",
+     "name": "Silk Blend Radiance Long Sleeve Top - Black",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 12442,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 668431,
+       "clicked": 1
+      }
+     },
+     "shopify": {
+      "ok": false,
+      "status": 403
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Silk Blend Radiance Long Sleeve Top - Black",
+      "imgs": [
+       "https://www.aloyoga.com/cdn/shop/files/W31085P_01_b2_s1_a3_dSU26_m122_jpg.png?v=1780601313&width=600",
+       "https://www.aloyoga.com/cdn/shop/files/W31085P_07997_b1_s1_a1_dSU26_m18.jpg?v=1780411117&width=600",
+       "https://www.aloyoga.com/cdn/shop/files/W31085P_05594_b1_s1_a2_dSU26_m177.jpg?v=1780411118&width=600"
+      ],
+      "price": "$198",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Black",
+      "colors": [
+       "Black",
+       "Sandy Beige",
+       "White"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "sizesIn": [
+       "XXS",
+       "XS",
+       "S",
+       "M"
+      ],
+      "comp": "Silk 52% / Viscose 40% / Elastane 8%",
+      "desc": "The Silk Blend Radiance Long Sleeve Top is a wardrobe must-have. It has an open-front silhouette that ties softly at the center for an effortless, barely-there feel that drapes naturally against the body. Lightweight with a subtle sheen, it layers seamlessly over the Radiance Bra or can be worn on its own for a fun night out look. Wear it with another piece from the Radiance collection or with your favorite mini skirt for a sleek look.",
+      "feat": [
+       "Designed for an easy, relaxed fit with an adjustable front tie."
+      ],
+      "sku": "95139070311"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "highlights",
+       "details",
+       "description",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 12,
+      "sizeBtns": 41,
+      "priceEls": 4,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 668431
+     },
+     "fixture": {
+      "file": "alo.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.aloyoga.com/products/w3678r-thermal-weekend-escape-mock-neck-long-sleeve-black",
+     "name": "Waffle Weekend Escape Mock Neck Long Sleeve - Black",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 475845,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 712759,
+       "clicked": 5
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 4,
+      "variants": 5,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 266
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Waffle Weekend Escape Mock Neck Long Sleeve - Black",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/2185/2813/files/W3678R_01_b1_s1_a4_dWT26_m174.jpg?v=1793043652",
+       "https://cdn.shopify.com/s/files/1/2185/2813/files/W3678R_01_b1_s1_ai_dWT26_m174.jpg?v=1793043652",
+       "https://cdn.shopify.com/s/files/1/2185/2813/files/W3678R_01_b1_s1_a2_dWT26_m174.jpg?v=1793043652",
+       "https://cdn.shopify.com/s/files/1/2185/2813/files/W3678R_01_b1_s1_a3_dWT26_m174.jpg?v=1793043651"
+      ],
+      "price": "$96",
+      "priceOrig": "$138",
+      "cur": "USD",
+      "color": "Black",
+      "colors": [
+       "Black"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "sizesIn": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "comp": "",
+      "desc": "For on the mountain, après-ski and getting cozy anywhere, the Waffle Weekend Escape Mock Neck Long Sleeve is the luxe essential layer you need. Lightweight, breathable waffle knit ensures a comfy, warm fit. Layer up the wintery vibes with a beanie and puffer jacket.",
+      "feat": [
+       "Designed with snug ribbing at the cuffs and hem—size down if you prefer a closer fit"
+      ],
+      "sku": "W3678R01"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability",
+        "priceSpecification"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "highlights",
+       "details",
+       "description",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 18,
+      "sizeBtns": 28,
+      "priceEls": 3,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 712759
+     }
+    },
+    {
+     "url": "https://www.aloyoga.com/products/w5604r-7-8-high-waist-airbrush-legging-parisian-pink",
+     "name": "7/8 High-Waist Airbrush Legging - Parisian Pink",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 478273,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 714581,
+       "clicked": 3
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 6,
+      "options": [
+       "Color",
+       "Size",
+       "Length"
+      ],
+      "hasAvail": true,
+      "descLen": 529
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "7/8 High-Waist Airbrush Legging - Parisian Pink",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/2185/2813/products/W5604R_03604_b1_s1_a1_m18.jpg?v=1614111428",
+       "https://cdn.shopify.com/s/files/1/2185/2813/products/W5604R_03604_b1_s1_a2_m18.jpg?v=1614111428",
+       "https://cdn.shopify.com/s/files/1/2185/2813/products/W5604R_03604_b1_s1_a3_m18.jpg?v=1614111429",
+       "https://cdn.shopify.com/s/files/1/2185/2813/products/W5604R_03604_b1_s1_a4_2_m18.jpg?v=1614111429",
+       "https://cdn.shopify.com/s/files/1/2185/2813/products/W5604R_03604_b1_s1_a4_3_m18.jpg?v=1614111429",
+       "https://cdn.shopify.com/s/files/1/2185/2813/products/W5604R_03604_b2_s1_a1_m18.jpg?v=1614111429"
+      ],
+      "price": "$82",
+      "priceOrig": "$118",
+      "cur": "USD",
+      "color": "Parisian Pink",
+      "colors": [
+       "Parisian Pink"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Nylon 87% / Elastane 13%",
+      "desc": "Meet the legging that deserves a place in your rotation. Crafted from our signature Airbrush fabric, the Airbrush 7/8 Legging feels like a second skin and looks like you meant to wear them out. They have a high-rise fit that sits just right and smooths and sculpts through every move you make. This style also has a four-way stretch that flows from studio sessions to coffee breaks with ease. Trust us when we say you’ll be obsessed. Our 7/8 length is perfect for petite girls or for taller girls who want to show a little ankle.",
+      "feat": [
+       "True to size—designed with medium compression for a smoothing, sculpted fit.",
+       "24” Inseam"
+      ],
+      "sku": "W5604R03604"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability",
+        "priceSpecification"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "highlights",
+       "details",
+       "description",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 17,
+      "sizeBtns": 34,
+      "priceEls": 1,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 714581
+     }
+    }
+   ],
+   "overlay": {
+    "items": 190,
+    "withRow": 190,
+    "comp": 169,
+    "color": 190,
+    "sizes": 190,
+    "price": 190,
+    "tried": 190,
+    "in5d": 28,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 3,
+    "noneNv": {
+     "(예전)": 3
+    },
+    "oldestT": 1786306421862,
+    "newestT": 1795579887802,
+    "emptyIn5d": 21
+   },
+   "total": 190,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Apiece Apart",
+   "site": "apieceapart.com.apieceapart",
+   "products": [
+    {
+     "url": "https://www.apieceapart.com/products/fabi-chill-button-down-1",
+     "name": "fabi chill button down 1",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 228845,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 303712,
+       "clicked": 2
+      }
+     },
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Fabi Chill Button Down",
+      "imgs": [
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20260516_AAR27Lookbook_Shot_7_6867copy2.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20260516_AAR27Lookbook_Shot_7_6867copy.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20260516_AAR27Lookbook_Shot_7_6870copy2.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20260516_AAR27Lookbook_Shot_7_6874copy2.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20260516_AAR27Lookbook_Shot_7_6883copy.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/APA-R27-1620RST-Fabi_Chill_Button_Down-Ribbon_Stripecopy.jpg"
+      ],
+      "price": "$375",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Stripe",
+      "colors": [
+       "Stripe"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "comp": "Viscose 89% / Silk 11%",
+      "desc": "89% Rayon, 11% Silk Made in China Unlined, shirt collar, dropped shoulders, button closures at front and cuffs, rounded shirttail hem Dry clean only, iron low. Do not steam. This fabric is made from a delicate silk blend that requires special care to maintain, avoid steaming and spot cleaning with water. Fits true to size. Select your usual size Model is 5'10 and wearing a size small",
+      "feat": [],
+      "sku": "9636844896476"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [
+       "__NEXT_DATA__"
+      ],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 303712
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 386,
+      "descFirefox": 386
+     },
+     "fixture": {
+      "file": "apieceapart.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.apieceapart.com/products/bali-tank-dress-13",
+     "name": "bali tank dress 13",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 231371,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Bali Tank Dress",
+      "imgs": [
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20260826_AASS27_Lookbook__Shot_57_2968copy.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20260826_AASS27_Lookbook__Shot_57_2977copy.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20260826_AASS27_Lookbook__Shot_57_2984copy.jpg"
+      ],
+      "price": "$495",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Orange",
+      "colors": [
+       "Orange"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL"
+      ],
+      "sizesIn": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL"
+      ],
+      "comp": "Cotton 100%",
+      "desc": "100% Organic Cotton Made in India Elastic at neckline and waist, fitted at the bodice, slits at both sides of skirt, side pockets Hand wash cold, lay flat to dry, or dry clean Fits true to size. Select your usual size Model is 5'10 and wearing a size small",
+      "feat": [],
+      "sku": "9636845420764"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [
+       "__NEXT_DATA__"
+      ],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 231371
+     }
+    },
+    {
+     "url": "https://www.apieceapart.com/products/spa-pleat-pant-copy",
+     "name": "spa pleat pant copy",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 235018,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Spa Pleat Pant",
+      "imgs": [
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20250827AASS26Lookbook_Shot_91_15794copy_76a7a109-70a3-4a3f-9552-b2d2e47d8b03.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20250827AASS26Lookbook_Shot_91_15806copy_bd57c115-4ba3-443e-b595-e9121ad4181d.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/20250827AASS26Lookbook_Shot_91_15821copy_14d85805-c6bf-455e-962a-eb31e16c956a.jpg",
+       "https://manage.apieceapart.com/sites/default/files/shopify/products/images/4022WCO-Spa_Pleat_Pant-Rosewatercopy.jpg"
+      ],
+      "price": "$295",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Pink",
+      "colors": [
+       "Pink"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "XL",
+       "2XL"
+      ],
+      "comp": "Cotton 100%",
+      "desc": "100% Organic Cotton Made in India Elastic waistband, front pleats, dropped crotch, barrel shape leg, front slant pockets, back patch pockets Inseam: 25\" Machine wash cold on gentle cycle with like colors, lay flat to dry Roomy fit. Option to size down for a slimmer look Model is 5'10 and wearing a size small",
+      "feat": [],
+      "sku": "15498317136092"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "material",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [
+       "__NEXT_DATA__"
+      ],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 235018
+     }
+    }
+   ],
+   "overlay": {
+    "items": 102,
+    "withRow": 102,
+    "comp": 96,
+    "color": 101,
+    "sizes": 0,
+    "price": 0,
+    "tried": 102,
+    "in5d": 66,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 5,
+    "noneNv": {
+     "(예전)": 5
+    },
+    "oldestT": 1793752164433,
+    "newestT": 1795579993610,
+    "emptyIn5d": 6
+   },
+   "total": 102,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Athleta",
+   "site": "athleta.gap.com.athleta",
+   "products": [
+    {
+     "url": "https://athleta.gap.com/browse/product.do",
+     "name": "Momentum Flex Tee",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 500188,
+       "final": "https://athleta.gap.com/browse/GeneralNoResults.do?"
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 734380,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    }
+   ],
+   "overlay": {
+    "items": 1,
+    "withRow": 1,
+    "comp": 0,
+    "color": 0,
+    "sizes": 0,
+    "price": 0,
+    "tried": 1,
+    "in5d": 1,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795580460253,
+    "newestT": 1795580460253,
+    "emptyIn5d": 1
+   },
+   "total": 1,
+   "byName": true,
+   "picked": 1,
+   "notProduct": 1
+  },
+  {
+   "brand": "Barbour",
+   "site": "barbour.com.barbour",
+   "products": [
+    {
+     "url": "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html",
+     "name": "Rosalie T-Shirt White",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 310124,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 263927,
+       "clicked": 0
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Rosalie T-Shirt",
+      "imgs": [
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dwac42a3e2/images/LTS0730WH11/LTS0730WH11_01front.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dw337c0425/images/LTS0730WH11/LTS0730WH11_03getthelook.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dweb66b13d/images/LTS0730WH11/LTS0730WH11_04back.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dw33360946/images/LTS0730WH11/LTS0730WH11_05detaila.jpg?sw=1500&q=70&strip=false"
+      ],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 100%",
+      "desc": "The Barbour Rosalie T-Shirt is a minimalist essential with signature detailing.",
+      "feat": [
+       "Outer: 100% Cotton",
+       "Left Chest 'B' Embroidery",
+       "Back Length: 60cm",
+       "Machine Wash 30°C - Mild Process",
+       "Wash with similar colours"
+      ],
+      "sku": "LTS0730WH11"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "description"
+      ],
+      "domDesc": false,
+      "swatches": 2,
+      "sizeBtns": 14,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 263927
+     },
+     "clickOnly": {
+      "featImpit": 5,
+      "featFirefox": 5,
+      "descImpit": 79,
+      "descFirefox": 79
+     },
+     "fixture": {
+      "file": "barbour.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.barbour.com/row/ellen-shirt-LSH1796RU51.html",
+     "name": "Ellen Shirt Rustic",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 315149,
+       "final": ""
+      }
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Ellen Shirt",
+      "imgs": [
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dw29faf029/images/LSH1796RU51/LSH1796RU51_1.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dw310253c9/images/LSH1796RU51/LSH1796RU51_2.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dwdc0e133b/images/LSH1796RU51/LSH1796RU51_3.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dwcb147900/images/LSH1796RU51/LSH1796RU51_4a.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dwd9ed523d/images/LSH1796RU51/LSH1796RU51_4b.jpg?sw=1500&q=70&strip=false"
+      ],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 100%",
+      "desc": "Designed for effortless everyday dressing, the Barbour Ellen Shirt is crafted from breathable cotton popin with a relaxed fit that makes layering easy.",
+      "feat": [
+       "Outer: 100% Cotton",
+       "Back Length: 77cm",
+       "Machine Machine wash 30°C",
+       "Wash with similar colours"
+      ],
+      "sku": "LSH1796RU51"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "description"
+      ],
+      "domDesc": false,
+      "swatches": 2,
+      "sizeBtns": 15,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 315149
+     }
+    },
+    {
+     "url": "https://www.barbour.com/row/hinton-flared-jeans-LTR0430BE13.html",
+     "name": "Hinton Flared Jeans Original Ecru",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 309576,
+       "final": ""
+      }
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Hinton Flared Jeans",
+      "imgs": [
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dw730fec87/images/LTR0430BE13/LTR0430BE13_01front.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dw91b020d4/images/LTR0430BE13/LTR0430BE13_03getthelook.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dw1ea1c85d/images/LTR0430BE13/LTR0430BE13_04back.jpg?sw=1500&q=70&strip=false",
+       "https://www.barbour.com/dw/image/v2/blcl_prd/on/demandware.static/-/Sites-master-catalog/default/dw9aec03a6/images/LTR0430BE13/LTR0430BE13_05detaila.jpg?sw=1500&q=70&strip=false"
+      ],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 99% / Elastane 1%",
+      "desc": "These jeans offer contemporary comfort with timeless appeal, perfect for dressing up or down.",
+      "feat": [
+       "Outer: 99% Cotton,1% Elastane",
+       "Barbour leather patch at waistband, branded jean shanks and rivets.",
+       "Inside leg: 80cm",
+       "Machine Wash 30°C - Mild Process",
+       "Wash with similar colours"
+      ],
+      "sku": "LTR0430BE13"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "description"
+      ],
+      "domDesc": false,
+      "swatches": 1,
+      "sizeBtns": 14,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 309576
+     }
+    }
+   ],
+   "overlay": {
+    "items": 170,
+    "withRow": 170,
+    "comp": 153,
+    "color": 0,
+    "sizes": 0,
+    "price": 0,
+    "tried": 170,
+    "in5d": 170,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 17,
+    "noneNv": {
+     "chromium,fetch": 17
+    },
+    "oldestT": 1795546395411,
+    "newestT": 1795580465958,
+    "emptyIn5d": 17
+   },
+   "total": 170,
+   "byName": true,
+   "picked": 3,
+   "notProduct": 170
+  },
+  {
+   "brand": "Beyond yoga",
+   "site": "beyondyoga.com.beyondyoga",
+   "products": [
+    {
+     "url": "https://beyondyoga.com/products/always-beyond-crew-tee-2-0-cabernet-heather-007b4-0026",
+     "name": "Always Beyond Crew Tee 2.0",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 580675,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 944476,
+       "clicked": 2
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 3,
+      "variants": 6,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 255
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Always Beyond Crew Tee 2.0",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/MT_007B4-0026_GLO_CM_FV_MML.jpg?v=1792772886",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/MT_007B4-0026_GLO_CM_BV_MML.jpg?v=1792772886",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/MT_007B4-0026_GLO_CM_SV_MML.jpg?v=1792772886"
+      ],
+      "price": "$66",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "",
+      "colors": [
+       "Cabernet Heather"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "L",
+       "XL"
+      ],
+      "comp": "Polyester 94% / Elastane 6%",
+      "desc": "Like that one tee you borrowed years ago... and never returned. Meet the soft, roomy, and lightweight Always Beyond Crew Tee 2.0. Wear it on repeat, and don't let it out of your sight.",
+      "feat": [
+       "CLOSE",
+       "Machine Wash Cold, Gentle Cycle, Tumble Dry Low"
+      ],
+      "sku": ""
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 89,
+      "sizeBtns": 155,
+      "priceEls": 13,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 944476
+     },
+     "clickOnly": {
+      "featImpit": 2,
+      "featFirefox": 2,
+      "descImpit": 184,
+      "descFirefox": 184
+     },
+     "fixture": {
+      "file": "beyondyoga.html.gz",
+      "shopFile": "beyondyoga.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://beyondyoga.com/products/luxefleece-2-0-oversized-crewneck-polar-blue-00aag-0010",
+     "name": "LuxeFleece 2.0™ Oversized Crewneck",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 592822,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 4,
+      "variants": 6,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 331
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "LuxeFleece 2.0™ Oversized Crewneck",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/WT_00AAG-0010_GLO_CM_FV.jpg?v=1790798349",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/WT_00AAG-0010_GLO_CM_BV.jpg?v=1790798349",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/WT_00AAG-0010_GLO_CM_SV.jpg?v=1790798349",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/WT_00AAG-0010_GLO_CM_D1.jpg?v=1790798349"
+      ],
+      "price": "$128",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "",
+      "colors": [
+       "Polar Blue"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "comp": "Cotton 80% / Polyester 20%",
+      "desc": "The Oversized Crewneck is crafted in our new, softer-than-ever LuxeFleece 2.0™ fabric and has an oversized fit inspired by your favorite vintage find. It’s made for layering, lounging, and everything in between.\nStyle is oversized. We recommend sizing down for a more classic fit.",
+      "feat": [
+       "CLOSE"
+      ],
+      "sku": "CC70078"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 35,
+      "sizeBtns": 25,
+      "priceEls": 0,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 592822
+     }
+    },
+    {
+     "url": "https://beyondyoga.com/products/spacedye-out-of-pocket-high-waisted-midi-legging-blue-gem-heather-sd3452",
+     "name": "Spacedye™ Out Of Pocket High Waisted Midi Legging",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 626702,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 7,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 553
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Spacedye™ Out Of Pocket High Waisted Midi Legging",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/SD3452_blue-gem-heather_08756.jpg?v=1750297531",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/SD3452_blue-gem-heather_08801.jpg?v=1750297531",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/SD3452_blue-gem-heather_08755.jpg?v=1750297531",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/SD3452_blue-gem-heather_08825.jpg?v=1750297531",
+       "https://cdn.shopify.com/s/files/1/0265/6141/3219/files/SD3452_blue-gem-heather_08806.jpg?v=1750297531"
+      ],
+      "price": "$69.99",
+      "priceOrig": "$108",
+      "cur": "USD",
+      "color": "",
+      "colors": [
+       "Blue Gem Heather"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "sizesIn": [
+       "XS"
+      ],
+      "comp": "Polyester 87% / Elastane 13%",
+      "desc": "All your essentials at hand in the comfiest, most flattering pocket legging ever. This must-have active legging is made from our buttery soft Spacedye, featuring our fan-favorite 5” high waistband, midi length, and pockets at the hip for phone, cards, whatever you need on the go. Featuring gentle, non-restrictive support for working out that's comfy enough for chilling out, too. Keep your look (and things) together with this new legging for active and beyond.",
+      "feat": [
+       "CLOSE",
+       "Machine Wash Cold, Gentle Cycle, Tumble Dry Low"
+      ],
+      "sku": "SD3452"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details",
+       "product fit"
+      ],
+      "domDesc": false,
+      "swatches": 38,
+      "sizeBtns": 31,
+      "priceEls": 0,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 626702
+     }
+    }
+   ],
+   "overlay": {
+    "items": 175,
+    "withRow": 175,
+    "comp": 172,
+    "color": 175,
+    "sizes": 174,
+    "price": 175,
+    "tried": 175,
+    "in5d": 10,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785842889268,
+    "newestT": 1795580473146,
+    "emptyIn5d": 3
+   },
+   "total": 175,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Chico's",
+   "site": "chicos.com.chicos",
+   "products": [
+    {
+     "url": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249",
+     "name": "Touch of Cool™ Foiled Mockneck Layering Tee",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 623,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 403,
+       "len": 518,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.chicos.com/store/product/printed-metallic-crinkle-clip-dot-ruffled-blouse/570422433?inseam=regular&sizeType=regular&color=001&catId=cat11199294&collectionId=category&queryId=c6f79d5a1bbc0a981c717e4593a53507&indexName=prod_chs_products&parentId=199761600533",
+     "name": "Printed Metallic Crinkle Clip-Dot Ruffled Blouse",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 629,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 403,
+       "len": 524,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.chicos.com/store/product/shimmering-christmas-cheer-long-sleeve-layering-tee/570423126?inseam=regular&sizeType=regular&color=001&catId=cat40002&collectionId=category&queryId=49f1a0ea3acddb548ed9a0a72a0e1bab&indexName=prod_chs_products&parentId=199761629558",
+     "name": "Shimmering Christmas Cheer Long Sleeve Layering Tee",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 632,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 403,
+       "len": 527,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    }
+   ],
+   "overlay": {
+    "items": 800,
+    "withRow": 800,
+    "comp": 9,
+    "color": 8,
+    "sizes": 0,
+    "price": 0,
+    "tried": 800,
+    "in5d": 800,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795225196765,
+    "newestT": 1795580615406,
+    "emptyIn5d": 791
+   },
+   "total": 800,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Coldwatercreek",
+   "site": "coldwatercreek.com.coldwatercreek",
+   "products": [
+    {
+     "url": "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/",
+     "name": "Wintertide Waffle Tee",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 6062,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1261011,
+       "clicked": 2
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Wintertide Waffle Tee",
+      "imgs": [
+       "https://cdn11.bigcommerce.com/s-lulfv0vz2b/images/stencil/1280x1280/products/11648/180275/wintertide-waffle-tee__sapphire-multi_0__44841.1795033649.jpg?c=1"
+      ],
+      "price": "$79.95",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options for Holly Grove Waffle Tee",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Alpine motifs give this light, waffle knit tee a folkloric feel. Embroidered at the shoulders and sleeves, with a split neck and curved hem.",
+      "feat": [
+       "Misses 26\" long; Petites 24\"; Women’s 28\"",
+       "Hits mid hip",
+       "Relaxed fit",
+       "Cotton/spandex",
+       "Machine wash",
+       "Imported"
+      ],
+      "sku": "22279"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 3,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "lowPrice",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "highlights",
+       "features",
+       "product description",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 49,
+      "sizeBtns": 25,
+      "priceEls": 11,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1261011
+     },
+     "fixture": {
+      "file": "coldwatercreek.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.coldwatercreek.com/solstice-northcountry-flannel-shirt/25916/",
+     "name": "Solstice NorthCountry Flannel Shirt",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 6146,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 986750,
+       "clicked": 2
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Solstice NorthCountry Flannel Shirt",
+      "imgs": [
+       "https://cdn11.bigcommerce.com/s-lulfv0vz2b/images/stencil/1280x1280/products/15430/173781/solstice-northcountry-flannel-shirt__antique-white-multi_0__12088.1789707269.jpg?c=1"
+      ],
+      "price": "$69.95",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options for Moose Plaid Flannel Shirt",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 100%",
+      "desc": "Our signature, lightweight brushed flannel shirt in a black-and-antique-white plaid.",
+      "feat": [
+       "Button front",
+       "Long button-cuff sleeves",
+       "Side-slit straight hem",
+       "Misses 28\"; Petites 27\"; Women's 30\"",
+       "low hip",
+       "Relaxed fit",
+       "Lightweight yarn-dyed 100% cotton",
+       "Machine wash",
+       "Imported"
+      ],
+      "sku": "25916"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "lowPrice",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "highlights",
+       "features",
+       "product description",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 42,
+      "sizeBtns": 25,
+      "priceEls": 11,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 986750
+     }
+    },
+    {
+     "url": "https://www.coldwatercreek.com/terra-jacobean-pants/25617/",
+     "name": "Terra Jacobean Pants",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 6059,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1103039,
+       "clicked": 2
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Terra Jacobean Pants",
+      "imgs": [
+       "https://cdn11.bigcommerce.com/s-lulfv0vz2b/images/stencil/1280x1280/products/15221/160613/terra-jacobean-pants__amber-multi_0__11435.1777439637.jpg?c=1"
+      ],
+      "price": "$39.95",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options for Terra Promenade Pants",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Pull-on pants in an expressive print of sun-washed botanicals feature soft, drapey rayon fabric for everyday comfort. The elastic drawstring waist and on-seam pockets add functional ease, while the straight leg silhouette works well with tees, tanks or casual tops throughout the week.",
+      "feat": [
+       "Misses 29\" inseam; Petites 26\"; Women's 29\"",
+       "High rise sits at the waist",
+       "Straight leg with 19\" opening",
+       "On-seam pockets",
+       "Rayon",
+       "Machine wash",
+       "Imported"
+      ],
+      "sku": "25617"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 3,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "lowPrice",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "highlights",
+       "features",
+       "product description",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 44,
+      "sizeBtns": 25,
+      "priceEls": 11,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1103039
+     }
+    }
+   ],
+   "overlay": {
+    "items": 200,
+    "withRow": 200,
+    "comp": 67,
+    "color": 118,
+    "sizes": 0,
+    "price": 0,
+    "tried": 200,
+    "in5d": 200,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 132,
+    "noneNv": {
+     "chromium,fetch,firefox": 117,
+     "firefox": 1,
+     "chromium,fetch": 14
+    },
+    "oldestT": 1795546689573,
+    "newestT": 1795580971753,
+    "emptyIn5d": 133
+   },
+   "total": 200,
+   "byName": true,
+   "picked": 3,
+   "notProduct": 200
+  },
+  {
+   "brand": "CCC",
+   "site": "crewclothing.co.uk.ccc",
+   "products": [
+    {
+     "url": "https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes",
+     "name": "Ultimate Breton in Sand and White Stripes",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 650971,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 611747,
+       "clicked": 1
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 9,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 455
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Ultimate Breton in Sand and White Stripes",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WAAE001_NEUTWHITE_e93394e8-ac5f-4884-81ec-31c11b364d3e.jpg?v=1792676348",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WAAE001_NEUTWHITE_1_e1858576-1759-4af8-b1bd-8d3cce40006b.jpg?v=1792676348",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WAAE001_NEUTWHITE_2_e049ef93-4392-4cdc-a994-cf89383c08a8.jpg?v=1792676348",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WAAE001_NEUTWHITE_3_680be3da-c9ca-45e0-9c04-5553708a113d.jpg?v=1792676348",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WAAE001_NEUTWHITE_5_036e8d88-4c86-410d-9391-bafe01ef6479.jpg?v=1792676348"
+      ],
+      "price": "$39",
+      "priceOrig": "",
+      "cur": "GBP",
+      "color": "Sand and White Stripes",
+      "colors": [],
+      "sizes": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18",
+       "20",
+       "22"
+      ],
+      "sizesIn": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18",
+       "20",
+       "22"
+      ],
+      "comp": "Cotton 100%",
+      "desc": "Our ultimate Breton top remains a forever favourite. In sand and white stripes, this one features three-quarter-length sleeves, a boat neckline, and crossed oars embroidery on the hem. The soft cotton fabric and curved hemline help it drape beautifully, too. We love to style ours with jeans for a perfectly polished weekend look.\n• 100% Cotton\n• Crossed oars embroidered on the hem\n• Model is 5'10 and wears a size 8\n• Delicate machine wash at 30 degrees",
+      "feat": [
+       "100% Cotton",
+       "Crossed oars embroidered on the hem",
+       "Model is 5'10 and wears a size 8",
+       "Delicate machine wash at 30 degrees"
+      ],
+      "sku": "14189"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 9,
+      "sizeBtns": 20,
+      "priceEls": 16,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 611747
+     },
+     "clickOnly": {
+      "featImpit": 4,
+      "featFirefox": 4,
+      "descImpit": 455,
+      "descFirefox": 455
+     },
+     "fixture": {
+      "file": "ccc.html.gz",
+      "shopFile": "ccc.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.crewclothing.co.uk/products/amelia-linen-blend-shift-dress-in-blue-hibiscus",
+     "name": "Amelia Linen-Blend Shift Dress in Blue Hibiscus",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 635126,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 7,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 531
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Amelia Linen-Blend Shift Dress in Blue Hibiscus",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYJ063_BLUEHIB_72d24ba2-379d-4f57-b9ac-d0250f8b3760.jpg?v=1792675887",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYJ063_BLUEHIB_1_49672d5d-fc1c-4536-a1db-3e78330f8666.jpg?v=1792675888",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYJ063_BLUEHIB_2_0813617e-e572-4050-8d8a-e59ffdefa5c6.jpg?v=1792675888",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYJ063_BLUEHIB_3_3c15423c-2500-414f-ae51-ff1622859768.jpg?v=1792675888",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYJ063_BLUEHIB_5_0aa6abea-5c4a-4029-a079-0df72b21f8c3.jpg?v=1792675888"
+      ],
+      "price": "$29",
+      "priceOrig": "$89",
+      "cur": "GBP",
+      "color": "Blue Hibiscus",
+      "colors": [],
+      "sizes": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18"
+      ],
+      "sizesIn": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18"
+      ],
+      "comp": "Viscose 52% / Polyester 29% / Linen 19%",
+      "desc": "A relaxed, easy-fit shift dress in soft blue with a subtle hibiscus print, crafted from a lightweight linen-viscose blend for breathability and effortless movement. Designed with a classic shirt collar and open V-neck, it features a single front pleat for subtle shaping. Perfect for holiday days or relaxed summer wear, style with sandals and a straw bag for a fuss-free, sunshine-ready outfit.\n• 52% Viscose, 29% Polyester, 19% Linen\n• Shirt collar with open V-neck\n• Model is 5'10 and wears a size 8\n• Machine wash at 40 degrees",
+      "feat": [
+       "52% Viscose, 29% Polyester, 19% Linen",
+       "Shirt collar with open V-neck",
+       "Model is 5'10 and wears a size 8",
+       "Machine wash at 40 degrees"
+      ],
+      "sku": "13979"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 7,
+      "sizeBtns": 15,
+      "priceEls": 14,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 635126
+     }
+    },
+    {
+     "url": "https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-pink-and-white",
+     "name": "Half Zip Sweatshirt in Pink and White",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 635087,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 7,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 585
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Half Zip Sweatshirt in Pink and White",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WXF004_WHTPINKS_642055da-e571-4b26-974e-19b560c50891.jpg?v=1792676422",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WXF004_WHTPINKS_1_a84652cd-668e-4fd5-9c66-2275344d1c3f.jpg?v=1792676423",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WXF004_WHTPINKS_2_140d82d7-b35c-4db6-8790-a2ef51de8b7a.jpg?v=1792676423",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WXF004_WHTPINKS_3_e5759ef3-fb86-45ab-afe2-1478357231e9.jpg?v=1792676423",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WXF004_WHTPINKS_5_93546890-bd2b-4298-a76f-f4122d095a11.jpg?v=1792676423"
+      ],
+      "price": "$22",
+      "priceOrig": "$59",
+      "cur": "GBP",
+      "color": "Pink and White",
+      "colors": [],
+      "sizes": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18"
+      ],
+      "sizesIn": [
+       "10"
+      ],
+      "comp": "Cotton 66% / Polyester 34%\nPolyester 51% / Cotton 48% / Elastane 1%",
+      "desc": "The super-soft half-zip sweatshirt in white and pink stripes. We love how comfortable it feels to wear, thanks to its raglan sleeves, cotton-mix fabric, and half-zip construction. It boasts handy hidden pockets and crossed oars embroidery, too. Pairing well with denim, this one makes the perfect light layer for the weekend.\n• Body: 66% Cotton, 34% Polyester\n• Rib: 51% Polyester, 48% Cotton, 1% Elastane\n• Branded zip pull\n• Functional pockets\n• Ribbed inner collar, cuffs and hem\n• Washed for softness\n• Contrasting crossed oars embroidered on the chest\n• Machine wash at 30 degrees",
+      "feat": [
+       "Body: 66% Cotton, 34% Polyester",
+       "Rib: 51% Polyester, 48% Cotton, 1% Elastane",
+       "Branded zip pull",
+       "Functional pockets",
+       "Ribbed inner collar, cuffs and hem",
+       "Washed for softness",
+       "Contrasting crossed oars embroidered on the chest",
+       "Machine wash at 30 degrees"
+      ],
+      "sku": "13433"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 7,
+      "sizeBtns": 15,
+      "priceEls": 14,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 635087
+     }
+    }
+   ],
+   "overlay": {
+    "items": 800,
+    "withRow": 800,
+    "comp": 755,
+    "color": 474,
+    "sizes": 349,
+    "price": 496,
+    "tried": 800,
+    "in5d": 419,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 4,
+    "noneNv": {
+     "chromium,fetch": 3,
+     "(예전)": 1
+    },
+    "oldestT": 1788473174148,
+    "newestT": 1795605625241,
+    "emptyIn5d": 45
+   },
+   "total": 800,
+   "picked": 3,
+   "notProduct": 442
+  },
+  {
+   "brand": "Draper James",
+   "site": "draperjames.com.draperjames",
+   "products": [
+    {
+     "url": "https://draperjames.com/products/top-with-lace-trim-in-burgundy",
+     "name": "Top with Lace Trim",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 588725,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1264648,
+       "clicked": 1
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 8,
+      "variants": 6,
+      "options": [
+       "Product Color",
+       "Product Size"
+      ],
+      "hasAvail": true,
+      "descLen": 406
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Top with Lace Trim",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/TOW0783_BURGUNDY_83117_7f88980c-34da-4d46-9935-6ba03cf4056a.jpg?v=1793313670",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/TOW0783_BURGUNDY_83083_73893747-e23a-4698-98bb-cece4757ba20.jpg?v=1793313670",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/TOW0783_BURGUNDY_83111_999929c0-d0e5-446e-9169-1ca28bc5ece3.jpg?v=1793313670",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/TOW0783_BURGUNDY_83128_7bebc4d0-764e-4559-9f03-6bcd1bd5b174.jpg?v=1793313669",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/TOW0783_BURGUNDY_83134_dcdcf5e0-3a90-4840-8138-907c699d257a.jpg?v=1793313670",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/TOW0783_BURGUNDY_83155_f94526bb-8cf0-49d8-a382-76a5ae716361.jpg?v=1793313669",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/TOW0783_BURGUNDY_8_a4f7ac26-5ea7-40f8-bc91-bc62488539d0.jpg?v=1793313670",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/TOW0783_BURGUNDY_9_6d14376d-84cf-48bb-9dad-a4077af4e167.jpg?v=1793313670"
+      ],
+      "price": "$128",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options for Top in Fringe",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Polyester 100%",
+      "desc": "Burgundy and lace were made for this time of year. This lined top brings a romantic finish to holiday outfitting without feeling overdone. Pair it with a skirt for dinner or denim when you want the mood with a little less formality.",
+      "feat": [
+       "Zipper",
+       "Lined",
+       "Shell: 100% Polyester Lining: 100% Polyester",
+       "Body Length: 24\"",
+       "Machine wash cold. With like colors. Do not bleach. Do not tumble dry. Line dry. Cool iron",
+       "TOW0783"
+      ],
+      "sku": "TOW0783601"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "description",
+        "image",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability",
+        "priceSpecification"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 139,
+      "sizeBtns": 289,
+      "priceEls": 63,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1264648
+     },
+     "clickOnly": {
+      "featImpit": 6,
+      "featFirefox": 6,
+      "descImpit": 232,
+      "descFirefox": 232
+     },
+     "fixture": {
+      "file": "draperjames.html.gz",
+      "shopFile": "draperjames.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://draperjames.com/products/claire-denim-v-neck-mod-dress",
+     "name": "Claire Denim V-Neck Mod Dress",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 588415,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 8,
+      "variants": 6,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 680
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Claire Denim V-Neck Mod Dress",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/7274MFSR3M_Dark_Blue_71355.jpg?v=1788740952",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/7274MFSR3M_Dark_Blue_71367.jpg?v=1788740952",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/7274MFSR3M_Dark_Blue_71376.jpg?v=1788740952",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/7274MFSR3M_Dark_Blue_71356.jpg?v=1788740952",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/7274MFSR3M_Dark_Blue_71361.jpg?v=1788740952",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/7274MFSR3M_Dark_Blue_8.jpg?v=1788740952",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/7274MFSR3M_Dark_Blue_9.jpg?v=1788740952",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/7274MFSR3M_Dark_Blue_10.jpg?v=1788740952"
+      ],
+      "price": "$98",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options",
+      "colors": [
+       "Dark Wash"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "comp": "Cotton 58% / Polyester 20% / Viscose 21% / Elastane 1%",
+      "desc": "Effortless refinement meets everyday versatility in this polished denim shift dress. Cut from a smooth, classic medium-wash denim, this sleeveless style features a flattering V-neckline, precise center-seam detailing, and functional front patch pockets. Designed with a structured yet airy mini silhouette, it layers perfectly over turtlenecks when temperatures drop or stands beautifully on its own. Pair it with suede knee-high boots for an elevated fall look or keep it casual with white sneakers for weekend errands.",
+      "feat": [
+       "Front Pockets",
+       "V-Neck",
+       "Pullover",
+       "Mod Dress",
+       "58% Cotton, 20% Recycled Polyester, 21% Rayon, 1% Spandex",
+       "Body Length: 35\" HPS",
+       "Machine Wash. Tumble Dry Low.",
+       "7274MFSR3M"
+      ],
+      "sku": "7274MFSR3M401"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "description",
+        "image",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability",
+        "priceSpecification"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 35,
+      "sizeBtns": 60,
+      "priceEls": 43,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 588415
+     }
+    },
+    {
+     "url": "https://draperjames.com/products/satin-pants-in-dark-green",
+     "name": "Satin Pants in Dark Green",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 587631,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 6,
+      "options": [
+       "Color",
+       "Product Size"
+      ],
+      "hasAvail": true,
+      "descLen": 414
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Satin Pants in Dark Green",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/K6161HSN_GREEN_83275_ed066007-d7f8-4454-8850-bc6cc8df6478.jpg?v=1793313663",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/K6161HSN_GREEN_83287_a7b6b580-618b-49ac-8b39-0226da18c962.jpg?v=1793313662",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/K6161HSN_GREEN_83291_89babe2f-db60-4b2b-a802-fc8fb3f64598.jpg?v=1793313662",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/K6161HSN_GREEN_83299_a5e715d2-2b93-43e0-98e0-334b1b13ab26.jpg?v=1793313663",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/K6161HSN_GREEN_8_788c820d-cc25-498b-b9f0-54951cd913e7.jpg?v=1793313663",
+       "https://cdn.shopify.com/s/files/1/0062/4354/9297/files/K6161HSN_GREEN_9_94742ccf-343f-494a-a837-bd81eb512082.jpg?v=1793313663"
+      ],
+      "price": "$98",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options",
+      "colors": [
+       "Dark Green"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Polyester 97% / Elastane 3%",
+      "desc": "Green satin was made for a festive calendar. This pull-on pair brings rich color and an easy drape to holiday outfits, whether you style it with a simple sweater or go all in with a dressier top. Comfortable enough to linger over dinner, special enough for the invitation.\n========",
+      "feat": [
+       "Pull On",
+       "Elastic Waistband",
+       "97% Polyester, 3% Spandex",
+       "Bottom Inseam: 31\"",
+       "Machine wash color with light colors, tumble dry low",
+       "K6161HSN"
+      ],
+      "sku": "K6161HSN300"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "description",
+        "image",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability",
+        "priceSpecification"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 41,
+      "sizeBtns": 60,
+      "priceEls": 43,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 587631
+     }
+    }
+   ],
+   "overlay": {
+    "items": 147,
+    "withRow": 147,
+    "comp": 136,
+    "color": 134,
+    "sizes": 127,
+    "price": 147,
+    "tried": 147,
+    "in5d": 24,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785827908885,
+    "newestT": 1795581126166,
+    "emptyIn5d": 11
+   },
+   "total": 147,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Sessun",
+   "site": "en.sessun.com.sessun",
+   "products": [
+    {
+     "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-025.webp%20924w",
+     "name": "WXL Otto Almond Carlea Black 025.Webp%20924w",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1130,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1128,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Yuki_forestlux-034_RTCH.webp%20924w",
+     "name": "WXL Yuki Forestlux 034 RTCH.Webp%20924w",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1130,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1128,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Oliveira_lilastone-007.webp%20924w",
+     "name": "Oliveira",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1130,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1128,
+       "clicked": 0
+      }
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    }
+   ],
+   "overlay": {
+    "items": 81,
+    "withRow": 81,
+    "comp": 34,
+    "color": 0,
+    "sizes": 0,
+    "price": 34,
+    "tried": 81,
+    "in5d": 81,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795546722734,
+    "newestT": 1795581166360,
+    "emptyIn5d": 47
+   },
+   "total": 81,
+   "picked": 3,
+   "notProduct": 34
+  },
+  {
+   "brand": "Faherty",
+   "site": "fahertybrand.com.faherty",
+   "products": [
+    {
+     "url": "https://fahertybrand.com/products/silk-velvet-harriet-top-moonward-plaid",
+     "name": "Silk Velvet Harriet Top - Moonward Plaid",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1402257,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1882834,
+       "clicked": 2
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 7,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 401
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Silk Velvet Harriet Top - Moonward Plaid",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/A_WTH2607-MWP_Silk_Velvet_Harriet_Top_OM_FRONT_CROP_1_Web.jpg?v=1791940515",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/WTH2607-MWP_Silk_Velvet_Harriet_Top_OM_BACK_CROP_1_Web.jpg?v=1791940509",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/WTH2607-MWP_Silk_Velvet_Harriet_Top_OM_DETAIL_1_Web.jpg?v=1791940507",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/WTH2607-MWP_Silk_Velvet_Harriet_Top_OM_EDITORIAL_1_Web.jpg?v=1791940509",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/WTH2607-MWP_Silk_Velvet_Harriet_Top_OM_FULL_BODY_1_Web.jpg?v=1791940522"
+      ],
+      "price": "$198",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Moonward Plaid",
+      "colors": [
+       "Moonward Plaid"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "sizesIn": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "comp": "Viscose 85% / Silk 15%",
+      "desc": "Made from a silky velvet blend, this top has extra fabric at the neckline that folds and drapes softly instead of sitting flat against the chest. It's fully lined, so it layers easily under a blazer or wears well on its own for a night out.",
+      "feat": [
+       "Detail: Cowl neck top. Lined.",
+       "Material: 85% Viscose, 15% Silk; Recycled Polyester lining",
+       "Model: Aude is 5'9\" wearing size Small",
+       "Care: Dry clean only",
+       "WTH2607-MWP"
+      ],
+      "sku": "WTH2607-MWP"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "details",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 16,
+      "sizeBtns": 42,
+      "priceEls": 37,
+      "strike": true,
+      "galleryImgs": 5,
+      "len": 1882834
+     },
+     "clickOnly": {
+      "featImpit": 5,
+      "featFirefox": 5,
+      "descImpit": 240,
+      "descFirefox": 240
+     },
+     "fixture": {
+      "file": "faherty.html.gz",
+      "shopFile": "faherty.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://fahertybrand.com/products/sunseeker-dress-sausalito-sunset",
+     "name": "Sunseeker Dress - Sausalito Sunset",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1430384,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 7,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 598
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Sunseeker Dress - Sausalito Sunset",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/SU25-FAHERTY-WOMENS-WDU2529-LIE-SunseekerDress-SausalitoSunset_OM_EDITORIAL_1.jpg?v=1752808097",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/SU25-FAHERTY-WOMENS-WDU2529-LIE-SunseekerDress-SausalitoSunset_OM_DETAIL1_1.jpg?v=1752808097",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/SU25-FAHERTY-WOMENS-WDU2529-LIE-SunseekerDress-SausalitoSunset_OM_FULL_BODY_1.jpg?v=1752808097",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/SU25-FAHERTY-WOMENS-WDU2529-LIE-SunseekerDress-SausalitoSunset_BACK_OM_WS_1.jpg?v=1752808097",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/SU25-FAHERTY-WOMENS-WDU2529-LIE-SunseekerDress-SausalitoSunset_FRONT_OM_WS_1.jpg?v=1752808097",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/PrintDress.jpg?v=1752808097"
+      ],
+      "price": "$99",
+      "priceOrig": "$198",
+      "cur": "USD",
+      "color": "Sausalito Sunset",
+      "colors": [
+       "Sausalito Sunset"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "This flowy maxi dress features graceful sleeveless styling and delicate shirring at the waistline for a flattering fit that moves with you. The beautifully saturated and vintage-inspired floral print adds a touch of sophistication, making it perfect for everything from garden parties to dinner alfresco.",
+      "feat": [
+       "Fit: Fitted, Length: 49½\"",
+       "Detail: Sleeveless dress with hidden elastic at armhole and neckline. Smocking at waistband.",
+       "Material: 70% LIVA REVIVA™ Viscose, 30% CIRCULOSE® Viscose",
+       "Model: Chi is 5'9\" wearing size Medium",
+       "Care: Hand wash cold separately. Line dry. Cool iron when needed",
+       "WDU2529-LIE"
+      ],
+      "sku": "WDU2529-LIE"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability",
+        "priceSpecification"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 22,
+      "sizeBtns": 31,
+      "priceEls": 13,
+      "strike": true,
+      "galleryImgs": 6,
+      "len": 1430384
+     }
+    },
+    {
+     "url": "https://fahertybrand.com/products/twill-tide-slim-straight-pant-pebble-shore-stripe",
+     "name": "Twill Tide Slim Straight Pant - Pebble Shore Stripe",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1469922,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 10,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 823
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Twill Tide Slim Straight Pant - Pebble Shore Stripe",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/FA25-FAHERTY-Womens-WBF2530-EBB-TwillTideSlimStraightPant-PebbleShoreStripe-_OM_FULL_BODY_1.jpg?v=1756999329",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/FA25-FAHERTY-Womens-WBF2530-EBB-TwillTideSlimStraightPant-PebbleShoreStripe-_OM_DETAIL2_1.jpg?v=1756999329",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/FA25-FAHERTY-Womens-WBF2530-EBB-TwillTideSlimStraightPant-PebbleShoreStripe-_OM_FRONT_CROP_1.jpg?v=1756999329",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/FA25-FAHERTY-Womens-WBF2530-EBB-TwillTideSlimStraightPant-PebbleShoreStripe-_OM_BACK_CROP_1.jpg?v=1756999329",
+       "https://cdn.shopify.com/s/files/1/0359/8357/files/FA25-FAHERTY-Womens-WBF2530-EBB-TwillTideSlimStraightPant-PebbleShoreStripe-_OM_EDITORIAL_1.jpg?v=1756999329"
+      ],
+      "price": "$69",
+      "priceOrig": "$198",
+      "cur": "USD",
+      "color": "Pebble Shore Stripe",
+      "colors": [
+       "Pebble Shore Stripe"
+      ],
+      "sizes": [
+       "24",
+       "25",
+       "26",
+       "27",
+       "28",
+       "29",
+       "30",
+       "31",
+       "32",
+       "33"
+      ],
+      "sizesIn": [
+       "25",
+       "27",
+       "28",
+       "29",
+       "30",
+       "31",
+       "32"
+      ],
+      "comp": "Cotton 98% / Elastane 2%",
+      "desc": "These twill pants are the answer for days when you want to look put-together without sacrificing comfort. Woven with a touch of stretch, they move with you—whether you’re chasing down your morning latte, hopping on a flight, or heading out for sunset drinks. The slim-straight fit keeps things flattering and easy, so you can wear them with sneakers, sandals, or boots and never overthink it.",
+      "feat": [
+       "Fit: Fitted, 32\" Inseam",
+       "Detail: Slim straight twill pants with front zipper/button closure. Front coin pockets and back welt pocket with button at wearers right.",
+       "Material: 98% Organic Cotton 2% Elastane",
+       "Model: Lovisa is 5'9 wearing size 26",
+       "Care: Close all fastening before wash. Turn inside out. Machine wash cold with like colors. Delicate cycle. Do not bleach. Tumble dry low. Remove promptly. Cool iron when needed.",
+       "WBF2530-EBB"
+      ],
+      "sku": "WBF2530-EBB"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability",
+        "priceSpecification"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 28,
+      "sizeBtns": 34,
+      "priceEls": 16,
+      "strike": true,
+      "galleryImgs": 5,
+      "len": 1469922
+     }
+    }
+   ],
+   "overlay": {
+    "items": 170,
+    "withRow": 170,
+    "comp": 161,
+    "color": 169,
+    "sizes": 169,
+    "price": 170,
+    "tried": 170,
+    "in5d": 11,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 1,
+    "noneNv": {
+     "(예전)": 1
+    },
+    "oldestT": 1785827916951,
+    "newestT": 1795581298417,
+    "emptyIn5d": 9
+   },
+   "total": 170,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Frank & Eileen",
+   "site": "frankandeileen.com.frankeileen",
+   "products": [
+    {
+     "url": "https://www.frankandeileen.com/products/waverly-pine-vintage-jersey",
+     "name": "WAVERLY Pine, Vintage Jersey",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 707869,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1354477,
+       "clicked": 1
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 4,
+      "variants": 5,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 129
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "WAVERLY Pine, Vintage Jersey",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/2030/0075/files/112-LABWAVERLY-PINE-ETVILLAGE-2007-PALOMA-26FA-SEPT_6479_sRGB_1.jpg?v=1790962777",
+       "https://cdn.shopify.com/s/files/1/2030/0075/files/112-LABWAVERLY-PINE-ETVILLAGE-2007-PALOMA-26FA-SEPT_6501_sRGB_1.jpg?v=1790962780",
+       "https://cdn.shopify.com/s/files/1/2030/0075/files/112-LABWAVERLY-PINE-ETVILLAGE-2007-PALOMA-26FA-SEPT_6488_sRGB_1.jpg?v=1790962783",
+       "https://cdn.shopify.com/s/files/1/2030/0075/files/LABWAVERLY-PINE-26FA_01.png?v=1786646458"
+      ],
+      "price": "$268",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Pine / XS - $268",
+      "colors": [
+       "Pine"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "M"
+      ],
+      "comp": "Cotton 100%",
+      "desc": "Waverly is the cool button-up we all want. A tailored front and a longer back create an easy fit and iconic yet understated look.",
+      "feat": [
+       "Shirttail hem long enough to cover your bum",
+       "Tailored fit that drapes over your hips",
+       "Shaped like a pear with soft rounded shoulders",
+       "Chest pocket",
+       "Signature bust flattering button placement and long sleeves with button cuffs",
+       "Paloma is 5'9\" with a 34\" bust wearing a size S",
+       "This style was made using a small batch garment-dye process, giving each piece a unique look that will evolve and fade over time",
+       "Style Code: LABWAVERLY-PINE",
+       "This durable, open-end yarn is lightweight and breathable with a tactile, lived-in look and feel. Formerly known as Heritage Jersey, Vintage Jersey is part of our Part of our California Heritage Collection.",
+       "100% Cotton, made in California.",
+       "We recommend washing separately in cold water before the first wear to prevent any color transfer. After that, machine wash cold with like colors and tumble dry low."
+      ],
+      "sku": "LABWAVERLY-PINE"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 48,
+      "sizeBtns": 95,
+      "priceEls": 19,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1354477
+     },
+     "clickOnly": {
+      "featImpit": 10,
+      "featFirefox": 11,
+      "descImpit": 129,
+      "descFirefox": 129
+     },
+     "fixture": {
+      "file": "frankeileen.html.gz",
+      "shopFile": "frankeileen.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.frankandeileen.com/products/silvio-magenta-superluxe",
+     "name": "SILVIO Magenta, Italian Superluxe",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 404,
+       "len": 494362,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 404,
+       "len": 715070,
+       "clicked": 0
+      }
+     },
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.frankandeileen.com/products/murphy-black-super-stretch",
+     "name": "MURPHY Black, Super Stretch",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 697223,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 4,
+      "variants": 5,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 220
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "MURPHY Black, Super Stretch",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/2030/0075/files/10-LAB119HJ-WHT-LAB600-BLK-Simone-25-CORE_1282_sRGB.jpg?v=1758676379",
+       "https://cdn.shopify.com/s/files/1/2030/0075/files/10-LAB119HJ-WHT-LAB600-BLK-Simone-25-CORE_1293_sRGB.jpg?v=1758676379",
+       "https://cdn.shopify.com/s/files/1/2030/0075/files/10-LAB119HJ-WHT-LAB600-BLK-Simone-25-CORE_1288_sRGB.jpg?v=1758676379",
+       "https://cdn.shopify.com/s/files/1/2030/0075/products/LAB600-BLK_0014.png?v=1758676379"
+      ],
+      "price": "$228",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Black",
+      "colors": [
+       "Black"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "comp": "Cotton 88% / Elastane 12%",
+      "desc": "The Billion Dollar Pant exudes pulled-together polish with all the stretchy comfort of leggings. Outrageously flattering with a seam down the leg, cropped, and close-fitting, look like a billion dollars in one easy pant.",
+      "feat": [
+       "Cropped hand-cut raw hem",
+       "Pull-on style with faux fly",
+       "Delicate front seam on legs, front slant pockets and faux back pockets create a flatteringly smooth silhouette",
+       "High-rise fit",
+       "Inseam 24.5\", front rise 11.5\", leg opening 11\"",
+       "Simone is 5'8\" wearing a size S",
+       "Super Stretch, 88% Cotton 12% Spandex",
+       "This ring-spun yarn is super stretchy, which means you can choose whatever size you want….really! Whether you choose a tighter fit or go large, this flexible fabric gives plenty of support and looks stylishly structured.",
+       "Turn this garment inside out, machine wash on cold, and tumble dry on low",
+       "Made in Sunny California"
+      ],
+      "sku": "LAB600-BLK"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description"
+      ],
+      "domDesc": false,
+      "swatches": 3,
+      "sizeBtns": 92,
+      "priceEls": 9,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 697223
+     }
+    }
+   ],
+   "overlay": {
+    "items": 448,
+    "withRow": 448,
+    "comp": 442,
+    "color": 448,
+    "sizes": 447,
+    "price": 448,
+    "tried": 448,
+    "in5d": 7,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785827918956,
+    "newestT": 1795581310584,
+    "emptyIn5d": 6
+   },
+   "total": 448,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Gap",
+   "site": "gap.com.gap",
+   "products": [
+    {
+     "url": "https://www.gap.com/browse/women/gift-shop",
+     "name": "Visit the Gap Gift Shop",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 841942,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1187920,
+       "clicked": 0
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 100%",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 0,
+       "group": 0,
+       "fields": []
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 4,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 1187920
+     },
+     "fixture": {
+      "file": "gap.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 6,
+    "withRow": 6,
+    "comp": 0,
+    "color": 0,
+    "sizes": 0,
+    "price": 0,
+    "tried": 6,
+    "in5d": 6,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795581331193,
+    "newestT": 1795581331193,
+    "emptyIn5d": 6
+   },
+   "total": 6,
+   "byName": true,
+   "picked": 3,
+   "notProduct": 6
+  }
+ ]
+}
