@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-11-25T16:49Z)
+# 엑셀 항목 보강 결과 (2026-11-25T17:52Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -12,15 +12,15 @@
 ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Marine Layer · Nation LTD · Ninety Percent · Rag & bone · Sanctuary · Seasalt cornwall · Shopbop · Sweaty betty · The Great · Theory · Ulla Johnson · Varley · Veronica Beard · Vince · Xirena · vineyardvines
 
 전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 65%.
-기준 95% 까지 11836개, 목표 99% 까지 13396개 더 채워야 합니다.
+기준 95% 까지 11835개, 목표 99% 까지 13395개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 39019개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 28697 | 74% | +0 |
-| 컬러웨이 | 25233 | 65% | +0 |
+| 혼용률 | 28698 | 74% | +1 |
+| 컬러웨이 | 25234 | 65% | +1 |
 
 - 검색 인덱스 재구축: 18004개
 
@@ -43,7 +43,7 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Massimo Dutti | — | 4/606 (1%) | 3/606 (0%) | 혼용률 +0 컬러 +0 |  |
 | Chico's | — | 9/800 (1%) | 8/800 (1%) | 혼용률 +0 컬러 +0 |  |
 | Garnet hill | — | 2/108 (2%) | 0/108 (0%) | 혼용률 +0 컬러 +0 |  |
-| Addidas | — | 10/537 (2%) | 10/537 (2%) | 혼용률 +0 컬러 +0 | 실패 정보없음 3·직접차단 3·보관본없음 3 |
+| Addidas | — | 11/537 (2%) | 11/537 (2%) | 혼용률 +1 컬러 +1 | 성공 아카이브 1 / 실패 정보없음 1·직접차단 3·오류 2·보관본없음 2 |
 | Free People | — | 5/189 (3%) | 5/189 (3%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 7/168 (4%) | 6/168 (4%) | 혼용률 +0 컬러 +0 |  |
 | Joules | — | 24/536 (4%) | 24/536 (4%) | 혼용률 +0 컬러 +0 |  |
@@ -168,24 +168,28 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 
 ## 웹 아카이브 층
 
-조회 10/250개(브랜드당 40) · 요청 10회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
+조회 10/250개(브랜드당 40) · 요청 11회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
 
 | 브랜드 | 시도 상품 | 혼용률(지금 페이지) | 혼용률(보관본) | 보관본 없음 | 보관본 거부 | 주소 거부 | 아카이브 오류 | 상한·최근 물음 | 걸린 시간 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| H&M | 7 | 0 | 0 | 7 | 0 | 0 | 0 | 0 | 31s |
-| Addidas | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 15s |
+| H&M | 7 | 0 | 0 | 7 | 0 | 0 | 0 | 0 | 27s |
+| Addidas | 3 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 49s |
 
-사유별 개수: 보관본 없음 10
+사유별 개수: 보관본 없음 9 · 찾음 1
 
 <details><summary>사유별 예시(최대 5개)</summary>
 
 **보관본 없음**
 
-- Addidas — https://www.adidas.com/us/ultimate365-seersucker-skort/KC4503.html
-- Addidas — https://www.adidas.com/us/performance-texture-skort/KD9255.html
-- Addidas — https://www.adidas.com/us/ultimate365-climacool-dress/KF9470.html
-- H&M — https://www2.hm.com/en_us/productpage.1295947026.html
-- H&M — https://www2.hm.com/en_us/productpage.1363975001.html
+- Addidas — https://www.adidas.com/us/adicolor-satin-wide-leg-track-pants/KD2541.html
+- H&M — https://www2.hm.com/en_us/productpage.1385590001.html
+- H&M — https://www2.hm.com/en_us/productpage.1349388002.html
+- H&M — https://www2.hm.com/en_us/productpage.1364459001.html
+- H&M — https://www2.hm.com/en_us/productpage.1364459002.html
+
+**찾음**
+
+- Addidas — https://www.adidas.com/us/ultimate365-solid-knit-skort/KE3676.html — 20260417 · Polyester 85% / Elastane 15%
 
 </details>
 
