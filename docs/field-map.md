@@ -264,6 +264,7 @@
 <details><summary><b>Addison bay</b> — Smooth Sport Elm Active Tank in Cypress product link (firefox)</summary>
 
 - 주소: https://addisonbay.com/products/elm-active-tank?variant=42369871478866
+- 이름: 페이지 "Smooth Sport Elm Active Tank" · 카탈로그 "Smooth Sport Elm Active Tank in Cypress product link"(목록 수집이 붙인 이름)
 - 가격 $78 · 통화 USD · 코드 R26AB0604C
 - 컬러 cypress · 컬러 전부 Cypress
 - 사이즈 XX-Small, X-Small, Small, Medium, Large, X-Large, XX-Large · 재고 XX-Small, X-Small, Small, Medium, Large, X-Large, XX-Large
@@ -342,6 +343,7 @@
 <details><summary><b>Apiece Apart</b> — fabi chill button down 1 (firefox)</summary>
 
 - 주소: https://www.apieceapart.com/products/fabi-chill-button-down-1
+- 이름: 페이지 "Fabi Chill Button Down" · 카탈로그 "fabi chill button down 1"(목록 수집이 붙인 이름)
 - 가격 $375 · 통화 USD · 코드 9636844896476
 - 컬러 Stripe · 컬러 전부 Stripe
 - 사이즈 XXS, XS, S, M, L, XL · 재고 XXS, XS, S, M, L, XL
@@ -355,6 +357,7 @@
 <details><summary><b>Barbour</b> — Rosalie T-Shirt White (firefox)</summary>
 
 - 주소: https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html
+- 이름: 페이지 "Rosalie T-Shirt" · 카탈로그 "Rosalie T-Shirt White"(목록 수집이 붙인 이름)
 - 가격 — · 통화 — · 코드 LTS0730WH11
 - 컬러 — · 컬러 전부 —
 - 사이즈 —
@@ -421,6 +424,7 @@
 <details><summary><b>Boden</b> — Lace Trim V-Neck Velvet Top-Black (firefox)</summary>
 
 - 주소: https://us.boden.com/products/women-lace-trim-v-neck-velvet-top-beetroot-red-t2259red
+- 이름: 페이지 "Lace Trim V-Neck Velvet Top-Beetroot Red" · 카탈로그 "Lace Trim V-Neck Velvet Top-Black"(목록 수집이 붙인 이름)
 - 가격 $99 · 통화 USD · 코드 P-T2259RED
 - 컬러 — · 컬러 전부 —
 - 사이즈 0, 2, 4, 6, 8, 10, 12, 14, 16/18, 20/22 · 재고 0, 4, 6, 8, 10, 12, 14, 16/18, 20/22
@@ -448,6 +452,7 @@
 <details><summary><b>Buck Mason</b> — White Field Spec Boyfriend Crop Tee (firefox)</summary>
 
 - 주소: https://www.buckmason.com/products/white-field-spec-boyfriend-crop-tee
+- 이름: 페이지 "White Field-Spec Boyfriend Crop Tee" · 카탈로그 "White Field Spec Boyfriend Crop Tee"(목록 수집이 붙인 이름)
 - 가격 $62 · 통화 USD · 코드 7475653673043
 - 컬러 white · 컬러 전부 white
 - 사이즈 XS, S, M, L, XL, XXL · 재고 XS, S, M, L, XL, XXL
@@ -461,6 +466,7 @@
 <details><summary><b>Carlhartt</b> — womens irvine relaxed t shirt (firefox)</summary>
 
 - 주소: https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt
+- 이름: 페이지 "Women's Irvine Relaxed T-Shirt" · 카탈로그 "womens irvine relaxed t shirt"(목록 수집이 붙인 이름)
 - 가격 $9.99 · 통화 USD · 코드 107391
 - 컬러 — · 컬러 전부 —
 - 사이즈 —
@@ -735,6 +741,7 @@
 <details><summary><b>Gerard darel</b> — t shirt bara det03e2069100 (firefox)</summary>
 
 - 주소: https://gerarddarel.com/en-us/products/t-shirt-bara_det03e2069100
+- 이름: 페이지 "T-shirt en coton épais - BARA" · 카탈로그 "t shirt bara det03e2069100"(목록 수집이 붙인 이름)
 - 가격 $66.5 · 정가 $95 · 통화 USD · 코드 DET03E206\1
 - 컬러 Black · 컬러 전부 Black
 - 사이즈 T0, T1, T2, T3, T4 · 재고 T1, T3, T4
@@ -762,6 +769,7 @@
 <details><summary><b>Good American</b> — the combo layered tee Regular price$88.00 30% Off with code HOLIDAY (firefox)</summary>
 
 - 주소: https://www.goodamerican.com/products/the-combo-layered-tee-chalk-with-chalk
+- 이름: 페이지 "THE COMBO LAYERED TEE / CHALK WITH CHALK" · 카탈로그 "the combo layered tee Regular price$88.00 30% Off with code HOLIDAY"(목록 수집이 붙인 이름)
 - 가격 $88 · 통화 USD · 코드 GT0842-CHCH
 - 컬러 oklch(1 0 0) · 컬러 전부 CHALK WITH CHALK
 - 사이즈 XS, S, M, L, XL, 1XL, 2XL, 3XL · 재고 XS, S, M, L, XL, 1XL, 3XL
@@ -814,6 +822,7 @@
 <details><summary><b>J crew</b> — CY803 (firefox)</summary>
 
 - 주소: https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CY803
+- 이름: 페이지 "Scoopneck tank top in cupro blend" · 카탈로그 "CY803"(목록 수집이 붙인 이름)
 - 가격 $58.8 · 통화 USD · 코드 CY803-BR8844
 - 컬러 PEPPERCORN · 컬러 전부 NAVY, PALE PINK, BLACK, PEPPERCORN
 - 사이즈 —
@@ -841,6 +850,7 @@
 <details><summary><b>J.mclaughlin</b> — Model wearing Signature Tee in Grand Heraldic Tassel by J.McLaughlin with a gold chain pattern and white pants (firefox)</summary>
 
 - 주소: https://www.jmclaughlin.com/products/signature-tee-grand-heraldic-tassel-cream-gold
+- 이름: 페이지 "Cream/Gold Grand Heraldic Tassel Signature Tee / Women's Tops / J.McLaughlin" · 카탈로그 "Model wearing Signature Tee in Grand Heraldic Tassel by J.McLaughlin with a gold chain pattern and white pants"(목록 수집이 붙인 이름)
 - 가격 $178 · 통화 USD · 코드 0003616800-CREAM/GOLD
 - 컬러 — · 컬러 전부 —
 - 사이즈 —
@@ -907,6 +917,7 @@
 <details><summary><b>La Ligne</b> — Picture of Mabel Tank (firefox)</summary>
 
 - 주소: https://lalignenyc.com/products/mabel-tank-spice
+- 이름: 페이지 "Mabel Tank in Spice" · 카탈로그 "Picture of Mabel Tank"(목록 수집이 붙인 이름)
 - 가격 $125 · 통화 USD · 코드 8404915447
 - 컬러 Spice · 컬러 전부 Spice, Smoky quartz, Midnight, Chocolate, Olive, Ivory
 - 사이즈 XXS, XS, S, M, L, XL · 재고 XXS, XS, S, M, L, XL
@@ -957,6 +968,7 @@
 <details><summary><b>Lucky Brand</b> — BRUSHED BOAT NECK BANDED TOP, image 4 (firefox)</summary>
 
 - 주소: https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html
+- 이름: 페이지 "BRUSHED BOAT NECK BANDED TOP" · 카탈로그 "BRUSHED BOAT NECK BANDED TOP, image 4"(목록 수집이 붙인 이름)
 - 가격 $35.7 · 통화 USD · 코드 170762
 - 컬러 JET BLACK · 컬러 전부 —
 - 사이즈 —
@@ -970,6 +982,7 @@
 <details><summary><b>Madewell</b> — OB685 (impit)</summary>
 
 - 주소: https://www.madewell.com/kr/p/OB685/
+- 이름: 페이지 "The Easy Shirt in 100% Cotton Poplin" · 카탈로그 "OB685"(목록 수집이 붙인 이름)
 - 가격 ₩164440 · 통화 KRW · 코드 OB685
 - 컬러 DARK CHICORY · 컬러 전부 DARK CHICORY
 - 사이즈 —
@@ -996,6 +1009,7 @@
 <details><summary><b>Massimo Dutti</b> — Asymmetrical long-sleeved burgundy top set with side draping, beige wide-leg pants with pockets, and black shoes. (firefox)</summary>
 
 - 주소: https://www.massimodutti.com/us/asymmetric-long-sleeve-flowing-top-l06873575
+- 이름: 페이지 "Asymmetric long sleeve flowing top" · 카탈로그 "Asymmetrical long-sleeved burgundy top set with side draping, beige wide-leg pants with pockets, and black shoes."(목록 수집이 붙인 이름)
 - 가격 $90 · 통화 USD · 코드 65268623
 - 컬러 BURGUNDY · 컬러 전부 BURGUNDY
 - 사이즈 XS, S, M, L, XL
@@ -1087,6 +1101,7 @@
 <details><summary><b>Nike</b> — Nike Air Max 2017 (firefox)</summary>
 
 - 주소: https://www.nike.com/t/air-max-2017-mens-shoes-BVqnkV/849559-001
+- 이름: 페이지 "Nike Air Max 2017 Men's Shoes" · 카탈로그 "Nike Air Max 2017"(목록 수집이 붙인 이름)
 - 가격 $139.97 · 통화 USD · 코드 BVqnkV
 - 컬러 White/Black · 컬러 전부 Black/Anthracite/White
 - 사이즈 6, 6.5, 7, 7.5, 8.5, 9, 9.5, 10, 10.5, 11 · 재고 6, 6.5, 7, 7.5, 8.5, 9, 9.5, 10, 10.5, 11
@@ -1139,6 +1154,7 @@
 <details><summary><b>Oasis</b> — Product Volume Sleeve Sweatshirt With Cotton Collar antique rose (firefox)</summary>
 
 - 주소: https://www.oasisfashion.com/product/oasis-volume-sleeve-sweatshirt-with-cotton-collar_baa13417?colour=antique+rose
+- 이름: 페이지 "Volume Sleeve Sweatshirt With Cotton Collar" · 카탈로그 "Product Volume Sleeve Sweatshirt With Cotton Collar antique rose"(목록 수집이 붙인 이름)
 - 가격 £15 · 정가 £39 · 통화 GBP · 코드 BAA13417-434-14
 - 컬러 Pink · 컬러 전부 Pink
 - 사이즈 —
@@ -1166,6 +1182,7 @@
 <details><summary><b>On</b> — On Studio Long-T Clay Women – Low-impact training Tops and t-shirts (firefox)</summary>
 
 - 주소: https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013
+- 이름: 페이지 "Women's Studio Long-T" · 카탈로그 "On Studio Long-T Clay Women – Low-impact training Tops and t-shirts"(목록 수집이 붙인 이름)
 - 가격 $70 · 통화 USD · 코드 1WG1037
 - 컬러 Cassis · 컬러 전부 Cassis, Black, Clay
 - 사이즈 —
@@ -1180,6 +1197,7 @@
 <details><summary><b>Outdoorvoices</b> — Waffle Baby Tee in White – front close-up (shopify-json)</summary>
 
 - 주소: https://www.outdoorvoices.com/products/w-waffle-baby-tee-white
+- 이름: 페이지 "Waffle Baby Tee" · 카탈로그 "Waffle Baby Tee in White – front close-up"(목록 수집이 붙인 이름)
 - 가격 $58 · 통화 — · 코드 W310003-WFL-WHK
 - 컬러 — · 컬러 전부 White, Dusty Pink
 - 사이즈 S, XS, M, L, XL · 재고 XS, S, M, L, XL
@@ -1219,6 +1237,7 @@
 <details><summary><b>Poetry</b> — Silk & cotton T-shirt, Midnight, large (firefox)</summary>
 
 - 주소: https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html
+- 이름: 페이지 "Silk & cotton T-shirt" · 카탈로그 "Silk & cotton T-shirt, Midnight, large"(목록 수집이 붙인 이름)
 - 가격 £89 · 통화 GBP · 코드 RW51.A
 - 컬러 Midnight · 컬러 전부 —
 - 사이즈 —
@@ -1259,6 +1278,7 @@
 <details><summary><b>Rag & bone</b> — The Slub Tee W272C32CH 101 (firefox)</summary>
 
 - 주소: https://www.rag-bone.com/p/the-slub-tee-W272C32CH_101.html
+- 이름: 페이지 "The Slub Tee" · 카탈로그 "The Slub Tee W272C32CH 101"(목록 수집이 붙인 이름)
 - 가격 $98 · 통화 USD · 코드 W272C32CH_101
 - 컬러 Black · 컬러 전부 —
 - 사이즈 —
@@ -1286,6 +1306,7 @@
 <details><summary><b>Reformation</b> — Veya Silk Top $111 $148.00 $148 (firefox)</summary>
 
 - 주소: https://www.thereformation.com/products/veya-silk-top/1319462ALO.html?dwvar_1319462ALO_color=ALO
+- 이름: 페이지 "Veya Silk Top" · 카탈로그 "Veya Silk Top $111 $148.00 $148"(목록 수집이 붙인 이름)
 - 가격 $111 · 통화 USD · 코드 1319462ALO
 - 컬러 Almond · 컬러 전부 —
 - 사이즈 —
@@ -1299,6 +1320,7 @@
 <details><summary><b>rouje</b> — OLIVE Top (firefox)</summary>
 
 - 주소: https://www.rouje.com/products/olive-lace-pointelle-long-sleeve-top-navy
+- 이름: 페이지 "Haut OLIVE" · 카탈로그 "OLIVE Top"(목록 수집이 붙인 이름)
 - 가격 €85 · 통화 EUR · 코드 OLIVE-COTESTEMPETE-34
 - 컬러 Taille · 컬러 전부 —
 - 사이즈 —
@@ -1353,6 +1375,7 @@
 <details><summary><b>Shopbop</b> — Designer Boutique (firefox)</summary>
 
 - 주소: https://www.shopbop.com/straight-leg-sweatpants-sprwmn/vp/v=1/1511586278.htm
+- 이름: 페이지 "Straight Leg Sweatpants" · 카탈로그 "Designer Boutique"(목록 수집이 붙인 이름)
 - 가격 $275 · 통화 USD · 코드 SPRWM30279
 - 컬러 Black · 컬러 전부 Black
 - 사이즈 —
@@ -1366,6 +1389,7 @@
 <details><summary><b>Spanx</b> — SPANX AirEssentials® Turtleneck Tunic / Very Black (firefox)</summary>
 
 - 주소: https://spanx.com/products/spanx-airessentials-turtleneck-tunic?v=48683236458707&bau-context=standard&Color=Very+Black
+- 이름: 페이지 "SPANX AirEssentials® Turtleneck Tunic" · 카탈로그 "SPANX AirEssentials® Turtleneck Tunic / Very Black"(목록 수집이 붙인 이름)
 - 가격 $69 · 통화 USD · 코드 196992332813
 - 컬러 Very Black · 컬러 전부 Very Black, Timeless Navy, Umber Root
 - 사이즈 XS · 재고 XS
@@ -1391,6 +1415,7 @@
 <details><summary><b>Splits59</b> — Ashby Rib Tank With Piping (firefox)</summary>
 
 - 주소: https://www.splits59.com/products/ashby-rib-tank-with-piping
+- 이름: 페이지 "Ashby Rib Tank with Piping - White/Black" · 카탈로그 "Ashby Rib Tank With Piping"(목록 수집이 붙인 이름)
 - 가격 $78 · 통화 USD · 코드 B2181_WHITE/BLACK
 - 컬러 options for Mel Airweight Lite Tank · 컬러 전부 Black/Creme, Pine Green/Creme, White/Black
 - 사이즈 XS, S, M, L, XL · 재고 XS, S, M, XL
@@ -1429,6 +1454,7 @@
 <details><summary><b>Sweaty betty</b> — navigate sherpa longline puffer SB04475 Black.html (firefox)</summary>
 
 - 주소: https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html
+- 이름: 페이지 "Navigate Sherpa Longline Puffer" · 카탈로그 "navigate sherpa longline puffer SB04475 Black.html"(목록 수집이 붙인 이름)
 - 가격 $358.4 · 통화 USD · 코드 SB04475_Black
 - 컬러 black · 컬러 전부 —
 - 사이즈 —
@@ -1507,6 +1533,7 @@
 <details><summary><b>Vanessa bruno</b> — Clothing T-shirt - VANESSABRUNO (firefox)</summary>
 
 - 주소: https://www.vanessabruno.com/p/hei-t-shirt-54829.html
+- 이름: 페이지 "Hei T-shirt" · 카탈로그 "Clothing T-shirt - VANESSABRUNO"(목록 수집이 붙인 이름)
 - 가격 €125 · 통화 EUR · 코드 04W054508
 - 컬러 Navy Blue · 컬러 전부 —
 - 사이즈 —
@@ -1520,6 +1547,7 @@
 <details><summary><b>Varley</b> — Neilsen Sleeveless Knit Top - color Peacoat (firefox)</summary>
 
 - 주소: https://www.varley.com/products/neilsen-sleeveless-knit-top?variant=67295821496493&color=Peacoat&size=XXS
+- 이름: 페이지 "Neilsen Sleeveless Knit Top" · 카탈로그 "Neilsen Sleeveless Knit Top - color Peacoat"(목록 수집이 붙인 이름)
 - 가격 $118 · 통화 USD · 코드 197959920067
 - 컬러 Peacoat · 컬러 전부 Peacoat
 - 사이즈 XXS, XS, S, M, L, XL
@@ -1654,6 +1682,7 @@
 <details><summary><b>Wrap</b> — Striped jersey top, Blue stone, large (firefox)</summary>
 
 - 주소: https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html
+- 이름: 페이지 "Striped jersey top" · 카탈로그 "Striped jersey top, Blue stone, large"(목록 수집이 붙인 이름)
 - 가격 $115 · 통화 USD · 코드 TH87.A
 - 컬러 Blue stone · 컬러 전부 —
 - 사이즈 —
@@ -1668,6 +1697,7 @@
 <details><summary><b>Xirena</b> — X2605 Tee Chocolate Cherry Troy Tee Chocolate Cherry Troy Tee (firefox)</summary>
 
 - 주소: https://www.xirena.com/products/chocolate-cherry-troy-tee
+- 이름: 페이지 "Chocolate Cherry Troy Tee" · 카탈로그 "X2605 Tee Chocolate Cherry Troy Tee Chocolate Cherry Troy Tee"(목록 수집이 붙인 이름)
 - 가격 $210 · 통화 USD · 코드 X6BJX045
 - 컬러 Chocolate Cherry · 컬러 전부 Chocolate Cherry
 - 사이즈 X-Small, Small, Medium, Large, X-Large · 재고 X-Small, Large, X-Large

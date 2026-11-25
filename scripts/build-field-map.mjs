@@ -79,7 +79,7 @@ function rowOf(b) {
   if (s) {
     const g = s.got || {};
     out.sample = {
-      url: s.url, name: s.name, engine: s.engine,
+      url: s.url, name: s.name, pageName: (s.got && s.got.name) || "", engine: s.engine,
       read: {
         price: g.price || "", priceOrig: g.priceOrig || "", cur: g.cur || "", color: g.color || "", colors: (g.colors || []).slice(0, 6),
         sizes: (g.sizes || []).slice(0, 10), sizesIn: g.sizesIn ? g.sizesIn.slice(0, 10) : null, comp: g.comp || "", sku: g.sku || "",
@@ -237,6 +237,8 @@ for (const r of rows.filter((x) => x.sample)) {
   const s = r.sample, g = s.read;
   md += `<details><summary><b>${esc(r.brand)}</b> — ${esc(s.name)} (${s.engine})</summary>\n\n`;
   md += `- 주소: ${s.url}\n`;
+  // 카탈로그 이름(목록 수집이 붙인 것)과 페이지의 상품명이 다르면 둘 다 보인다 — Boden 은 목록 카드의 다른 색 이름이 붙어 있었다.
+  if (s.pageName && s.pageName !== s.name) md += `- 이름: 페이지 \"${esc(s.pageName)}\" · 카탈로그 \"${esc(s.name)}\"(목록 수집이 붙인 이름)\n`;
   md += `- 가격 ${esc(g.price) || "—"}${g.priceOrig ? ` · 정가 ${esc(g.priceOrig)}` : ""} · 통화 ${g.cur || "—"} · 코드 ${esc(g.sku) || "—"}\n`;
   md += `- 컬러 ${esc(g.color) || "—"} · 컬러 전부 ${esc(g.colors.join(", ")) || "—"}\n`;
   md += `- 사이즈 ${esc(g.sizes.join(", ")) || "—"}${g.sizesIn ? ` · 재고 ${esc(g.sizesIn.join(", ")) || "(없음)"}` : ""}\n`;

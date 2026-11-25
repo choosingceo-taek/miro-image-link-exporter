@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T13:44:33.371Z",
+ "generated": "2026-11-25T13:44:50.093Z",
  "runs": [
   {
    "file": "field-measure-45598506233.json",
@@ -628,6 +628,7 @@
    "sample": {
     "url": "https://addisonbay.com/products/elm-active-tank?variant=42369871478866",
     "name": "Smooth Sport Elm Active Tank in Cypress product link",
+    "pageName": "Smooth Sport Elm Active Tank",
     "engine": "firefox",
     "read": {
      "price": "$78",
@@ -802,6 +803,7 @@
    "sample": {
     "url": "https://www.ae.com/us/en/p/aerie/tops/sweatshirts-hoodies/aerie-go-to-boyfriend-crewneck-sweatshirt/0743_3981_128",
     "name": "Aerie Go-To Boyfriend Crewneck Sweatshirt",
+    "pageName": "Aerie Go-To Boyfriend Crewneck Sweatshirt",
     "engine": "firefox",
     "read": {
      "price": "$29",
@@ -970,6 +972,7 @@
    "sample": {
     "url": "https://alcltd.com/products/drew-top-deep-mulberry",
     "name": "Drew Silk Devoré Camisole Top",
+    "pageName": "Drew Silk Devoré Camisole Top",
     "engine": "firefox",
     "read": {
      "price": "$350",
@@ -1158,6 +1161,7 @@
    "sample": {
     "url": "https://www.aloyoga.com/products/w31085p-silk-blend-radiance-long-sleeve-top-black",
     "name": "Silk Blend Radiance Long Sleeve Top - Black",
+    "pageName": "Silk Blend Radiance Long Sleeve Top - Black",
     "engine": "firefox",
     "read": {
      "price": "$198",
@@ -1334,6 +1338,7 @@
    "sample": {
     "url": "https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_603",
     "name": "AE Cozy Crew Neck Long Sleeve T-Shirt",
+    "pageName": "AE Cozy Crew Neck Long Sleeve T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "$15",
@@ -1501,6 +1506,7 @@
    "sample": {
     "url": "https://www.anntaylor.com/clothing/suits/cata000013/wide-leg-pant-ponte/858659.html",
     "name": "The Wide-Leg Pant in Ponte",
+    "pageName": "The Wide-Leg Pant in Ponte",
     "engine": "impit",
     "read": {
      "price": "$64.5",
@@ -1767,6 +1773,7 @@
    "sample": {
     "url": "https://www.apieceapart.com/products/fabi-chill-button-down-1",
     "name": "fabi chill button down 1",
+    "pageName": "Fabi Chill Button Down",
     "engine": "firefox",
     "read": {
      "price": "$375",
@@ -2221,6 +2228,7 @@
    "sample": {
     "url": "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html",
     "name": "Rosalie T-Shirt White",
+    "pageName": "Rosalie T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "",
@@ -2387,6 +2395,7 @@
    "sample": {
     "url": "https://ba-sh.com/fr/en/p/t-shirt-ioni-grischine-3667436152573.html",
     "name": "T-shirt IONI",
+    "pageName": "T-shirt IONI",
     "engine": "firefox",
     "read": {
      "price": "€75",
@@ -2558,6 +2567,7 @@
    "sample": {
     "url": "https://www.bassike.com/products/mesh-boxy-seam-detail-t-shirt-r26wft144-washed-ink",
     "name": "Mesh Boxy Seam Detail T-Shirt",
+    "pageName": "Mesh Boxy Seam Detail T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "$185",
@@ -2744,6 +2754,7 @@
    "sample": {
     "url": "https://bellerose.com/products/women-t-shirts-vice-casper-bw271333-t1473",
     "name": "Vice white crew-neck t-shirt (262 / W / CASPER)",
+    "pageName": "Vice white crew-neck t-shirt (262 / W / CASPER)",
     "engine": "firefox",
     "read": {
      "price": "$59",
@@ -2930,6 +2941,7 @@
    "sample": {
     "url": "https://beyondyoga.com/products/always-beyond-crew-tee-2-0-cabernet-heather-007b4-0026",
     "name": "Always Beyond Crew Tee 2.0",
+    "pageName": "Always Beyond Crew Tee 2.0",
     "engine": "firefox",
     "read": {
      "price": "$66",
@@ -3107,6 +3119,7 @@
    "sample": {
     "url": "https://us.boden.com/products/women-lace-trim-v-neck-velvet-top-beetroot-red-t2259red",
     "name": "Lace Trim V-Neck Velvet Top-Black",
+    "pageName": "Lace Trim V-Neck Velvet Top-Beetroot Red",
     "engine": "firefox",
     "read": {
      "price": "$99",
@@ -3294,6 +3307,7 @@
    "sample": {
     "url": "https://www.kolonmall.com/Brands/boldest/Product/2ATAX27116BKS",
     "name": "와플 긴팔 티셔츠",
+    "pageName": "와플 긴팔 티셔츠",
     "engine": "firefox",
     "read": {
      "price": "₩79000",
@@ -3463,6 +3477,7 @@
    "sample": {
     "url": "https://www.buckmason.com/products/white-field-spec-boyfriend-crop-tee",
     "name": "White Field Spec Boyfriend Crop Tee",
+    "pageName": "White Field-Spec Boyfriend Crop Tee",
     "engine": "firefox",
     "read": {
      "price": "$62",
@@ -3639,6 +3654,7 @@
    "sample": {
     "url": "https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt",
     "name": "womens irvine relaxed t shirt",
+    "pageName": "Women's Irvine Relaxed T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "$9.99",
@@ -3811,6 +3827,7 @@
    "sample": {
     "url": "https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes",
     "name": "Ultimate Breton in Sand and White Stripes",
+    "pageName": "Ultimate Breton in Sand and White Stripes",
     "engine": "firefox",
     "read": {
      "price": "$39",
@@ -3994,6 +4011,7 @@
    "sample": {
     "url": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249",
     "name": "Touch of Cool™ Foiled Mockneck Layering Tee",
+    "pageName": "Touch of Cool™ Foiled Mockneck Layering Tee",
     "engine": "firefox",
     "read": {
      "price": "$25",
@@ -4165,6 +4183,7 @@
    "sample": {
     "url": "https://citizensofhumanity.com/products/ilaria-draped-top-cream",
     "name": "Ilaria Draped Japanese hammered Satin Top in Cream",
+    "pageName": "Ilaria Draped Japanese hammered Satin Top in Cream",
     "engine": "firefox",
     "read": {
      "price": "$328",
@@ -4342,6 +4361,7 @@
    "sample": {
     "url": "https://www.clubmonaco.com/products/shiny-wide-rib-halter-top-295906738-353",
     "name": "Shiny Wide Rib Halter Top",
+    "pageName": "Shiny Wide Rib Halter Top",
     "engine": "firefox",
     "read": {
      "price": "$44",
@@ -4514,6 +4534,7 @@
    "sample": {
     "url": "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/",
     "name": "Wintertide Waffle Tee",
+    "pageName": "Wintertide Waffle Tee",
     "engine": "firefox",
     "read": {
      "price": "$79.95",
@@ -4693,6 +4714,7 @@
    "sample": {
     "url": "https://cottoncitizen.com/products/standard-oversized-tee-vintage-carmine",
     "name": "Standard Oversized Tee",
+    "pageName": "Standard Oversized Tee",
     "engine": "firefox",
     "read": {
      "price": "$72",
@@ -4854,6 +4876,7 @@
    "sample": {
     "url": "https://cottonon.com/US/90s-high-v-neck-%C2%BE-sleeve/2062142-01.html",
     "name": "90S High V Neck ¾ Sleeve, BLACK",
+    "pageName": "",
     "engine": "firefox",
     "read": {
      "price": "",
@@ -5027,6 +5050,7 @@
    "sample": {
     "url": "https://damsonmadder.com/products/quiet-company-ecru",
     "name": "Quiet Company - Ecru",
+    "pageName": "Quiet Company - Ecru",
     "engine": "firefox",
     "read": {
      "price": "$40",
@@ -5221,6 +5245,7 @@
    "sample": {
     "url": "https://www.dickies.com/products/womens-everyday-short-sleeve-t-shirt-clc",
     "name": "Women's Everyday Short Sleeve T-Shirt",
+    "pageName": "Women's Everyday Short Sleeve T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "$17.49",
@@ -5402,6 +5427,7 @@
    "sample": {
     "url": "https://draperjames.com/products/top-with-lace-trim-in-burgundy",
     "name": "Top with Lace Trim",
+    "pageName": "Top with Lace Trim",
     "engine": "firefox",
     "read": {
      "price": "$128",
@@ -5577,6 +5603,7 @@
    "sample": {
     "url": "https://www.eddiebauer.com/products/wr-ls-favorite-crew-solid-eb001067w",
     "name": "Women's Fav Long Sleeve Crew Neck Tee",
+    "pageName": "Women's Fav Long Sleeve Crew Neck Tee",
     "engine": "firefox",
     "read": {
      "price": "$21",
@@ -5847,6 +5874,7 @@
    "sample": {
     "url": "https://shopenglishfactory.com/products/pinstripe-balloon-sleeve-shirt-sa037t",
     "name": "Pinstripe Balloon Sleeve Shirt",
+    "pageName": "Pinstripe Balloon Sleeve Shirt",
     "engine": "firefox",
     "read": {
      "price": "$97",
@@ -6032,6 +6060,7 @@
    "sample": {
     "url": "https://evereve.com/products/tourist-tee-white",
     "name": "Tourist Tee",
+    "pageName": "Tourist Tee",
     "engine": "firefox",
     "read": {
      "price": "$38",
@@ -6215,6 +6244,7 @@
    "sample": {
     "url": "https://www.everlane.com/products/womens-organic-cotton-box-cut-tee-peyote",
     "name": "The Box-Cut Tee in Essential Cotton | Peyote | No Pocket",
+    "pageName": "The Box-Cut Tee in Essential Cotton | Peyote | No Pocket",
     "engine": "firefox",
     "read": {
      "price": "$20",
@@ -6405,6 +6435,7 @@
    "sample": {
     "url": "https://fahertybrand.com/products/silk-velvet-harriet-top-moonward-plaid",
     "name": "Silk Velvet Harriet Top - Moonward Plaid",
+    "pageName": "Silk Velvet Harriet Top - Moonward Plaid",
     "engine": "firefox",
     "read": {
      "price": "$198",
@@ -6624,6 +6655,7 @@
    "sample": {
     "url": "https://itunes.apple.com/us/app/free-people/id659532790",
     "name": "Download on the App Store",
+    "pageName": "",
     "engine": "firefox",
     "read": {
      "price": "",
@@ -6790,6 +6822,7 @@
    "sample": {
     "url": "https://frame-store.com/products/the-wave-tie-top-wp27jkt017-mahg",
     "name": "The Wave Tie Top -- Mahogany",
+    "pageName": "The Wave Tie Top -- Mahogany",
     "engine": "firefox",
     "read": {
      "price": "$378",
@@ -6969,6 +7002,7 @@
    "sample": {
     "url": "https://www.frankandeileen.com/products/waverly-pine-vintage-jersey",
     "name": "WAVERLY Pine, Vintage Jersey",
+    "pageName": "WAVERLY Pine, Vintage Jersey",
     "engine": "firefox",
     "read": {
      "price": "$268",
@@ -7190,6 +7224,7 @@
    "sample": {
     "url": "https://www.gap.com/browse/women/gift-shop",
     "name": "Visit the Gap Gift Shop",
+    "pageName": "",
     "engine": "firefox",
     "read": {
      "price": "",
@@ -7339,6 +7374,7 @@
    "sample": {
     "url": "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762",
     "name": "Essential Long-Sleeve Tee",
+    "pageName": "Essential Long-Sleeve Tee",
     "engine": "firefox",
     "read": {
      "price": "$44",
@@ -7510,6 +7546,7 @@
    "sample": {
     "url": "https://gerarddarel.com/en-us/products/t-shirt-bara_det03e2069100",
     "name": "t shirt bara det03e2069100",
+    "pageName": "T-shirt en coton épais - BARA",
     "engine": "firefox",
     "read": {
      "price": "$66.5",
@@ -7767,6 +7804,7 @@
    "sample": {
     "url": "https://www.goldietees.com/products/allure-tee",
     "name": "Allure Tee",
+    "pageName": "Allure Tee",
     "engine": "firefox",
     "read": {
      "price": "$125",
@@ -7953,6 +7991,7 @@
    "sample": {
     "url": "https://www.goodamerican.com/products/the-combo-layered-tee-chalk-with-chalk",
     "name": "the combo layered tee Regular price$88.00 30% Off with code HOLIDAY",
+    "pageName": "THE COMBO LAYERED TEE | CHALK WITH CHALK",
     "engine": "firefox",
     "read": {
      "price": "$88",
@@ -8139,6 +8178,7 @@
    "sample": {
     "url": "https://greysonclothiers.com/products/croc-halley-long-sleeve-top",
     "name": "Croc Halley Long Sleeve Top",
+    "pageName": "Croc Halley Long Sleeve Top",
     "engine": "firefox",
     "read": {
      "price": "$140",
@@ -8318,6 +8358,7 @@
    "sample": {
     "url": "https://row.gymshark.com/products/gymshark-vital-sweetheart-neck-crop-top-ls-tops-black-ss26",
     "name": "Vital Sweetheart Neck Crop Top",
+    "pageName": "Vital Sweetheart Neck Crop Top",
     "engine": "firefox",
     "read": {
      "price": "$30",
@@ -8570,6 +8611,7 @@
    "sample": {
     "url": "https://www.hobbs.com/us/product/tamsin-ribbed-long-sleeve-top/0226-2361-3647L00-VIOLET-BLUE.html",
     "name": "Tamsin Ribbed Long Sleeve Top",
+    "pageName": "Tamsin Ribbed Long Sleeve Top",
     "engine": "firefox",
     "read": {
      "price": "$73.5",
@@ -8741,6 +8783,7 @@
    "sample": {
     "url": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CY803",
     "name": "CY803",
+    "pageName": "Scoopneck tank top in cupro blend",
     "engine": "firefox",
     "read": {
      "price": "$58.8",
@@ -8901,6 +8944,7 @@
    "sample": {
     "url": "https://www.jjill.com/product/printed-smocked-detail-top?color=CW3",
     "name": "Printed Smocked-Detail Top",
+    "pageName": "Printed Smocked-Detail Top",
     "engine": "impit",
     "read": {
      "price": "$79",
@@ -9055,6 +9099,7 @@
    "sample": {
     "url": "https://www.jmclaughlin.com/products/signature-tee-grand-heraldic-tassel-cream-gold",
     "name": "Model wearing Signature Tee in Grand Heraldic Tassel by J.McLaughlin with a gold chain pattern and white pants",
+    "pageName": "Cream/Gold Grand Heraldic Tassel Signature Tee | Women's Tops | J.McLaughlin",
     "engine": "firefox",
     "read": {
      "price": "$178",
@@ -9220,6 +9265,7 @@
    "sample": {
     "url": "https://www.marksandspencer.com/textured-striped-t-shirt/p/clp61248347#intid=pid_pg1pip4g2r1c1",
     "name": "Textured Striped T-Shirt",
+    "pageName": "Textured Striped T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "£69",
@@ -9390,6 +9436,7 @@
    "sample": {
     "url": "https://www.jamesperse.com/products/sheer-slub-long-sleeve-crew-coastal-wua3361",
     "name": "Sheer Slub Long Sleeve Crew - Coastal",
+    "pageName": "Sheer Slub Long Sleeve Crew - Coastal",
     "engine": "firefox",
     "read": {
      "price": "$105",
@@ -9570,6 +9617,7 @@
    "sample": {
     "url": "https://www.jigsaw-online.com/products/metallic-jersey-top-navy",
     "name": "Metallic Jersey Top | Navy",
+    "pageName": "Metallic Jersey Top | Navy",
     "engine": "firefox",
     "read": {
      "price": "$82",
@@ -9814,6 +9862,7 @@
    "sample": {
     "url": "https://global.llbean.com/llb/shop/509870/",
     "name": "Gifts for Her",
+    "pageName": "",
     "engine": "firefox",
     "read": {
      "price": "",
@@ -9985,6 +10034,7 @@
    "sample": {
     "url": "https://lalignenyc.com/products/mabel-tank-spice",
     "name": "Picture of Mabel Tank",
+    "pageName": "Mabel Tank in Spice",
     "engine": "firefox",
     "read": {
      "price": "$125",
@@ -10243,6 +10293,7 @@
    "sample": {
     "url": "https://leset.com/products/the-margo-white",
     "name": "The Margo",
+    "pageName": "The Margo",
     "engine": "firefox",
     "read": {
      "price": "$78",
@@ -10423,6 +10474,7 @@
    "sample": {
     "url": "https://lillap.com/products/high-neck-tank-1",
     "name": "High Neck Tank",
+    "pageName": "High Neck Tank",
     "engine": "firefox",
     "read": {
      "price": "$68",
@@ -10598,6 +10650,7 @@
    "sample": {
     "url": "https://www.lnaclothing.com/products/cw2218-timeless-ribbed-tank-fiery-red",
     "name": "Timeless Ribbed Tank - Fiery Red",
+    "pageName": "Timeless Ribbed Tank - Fiery Red",
     "engine": "firefox",
     "read": {
      "price": "$68",
@@ -10839,6 +10892,7 @@
    "sample": {
     "url": "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html",
     "name": "BRUSHED BOAT NECK BANDED TOP, image 4",
+    "pageName": "BRUSHED BOAT NECK BANDED TOP",
     "engine": "firefox",
     "read": {
      "price": "$35.7",
@@ -11074,6 +11128,7 @@
    "sample": {
     "url": "https://www.madewell.com/kr/p/OB685/",
     "name": "OB685",
+    "pageName": "The Easy Shirt in 100% Cotton Poplin",
     "engine": "impit",
     "read": {
      "price": "₩164440",
@@ -11308,6 +11363,7 @@
    "sample": {
     "url": "https://www.marinelayer.com/products/lexi-rib-sun-in-crew-tee-5",
     "name": "Lexi Rib Sun-In Crew Tee",
+    "pageName": "Lexi Rib Sun-In Crew Tee",
     "engine": "firefox",
     "read": {
      "price": "$58",
@@ -11484,6 +11540,7 @@
    "sample": {
     "url": "https://www.massimodutti.com/us/asymmetric-long-sleeve-flowing-top-l06873575",
     "name": "Asymmetrical long-sleeved burgundy top set with side draping, beige wide-leg pants with pockets, and black shoes.",
+    "pageName": "Asymmetric long sleeve flowing top",
     "engine": "firefox",
     "read": {
      "price": "$90",
@@ -11646,6 +11703,7 @@
    "sample": {
     "url": "https://www.meandem.com/us/ss27kn364001039xxs-charcoal-melange",
     "name": "Slim Knit Top",
+    "pageName": "Slim Knit Top",
     "engine": "firefox",
     "read": {
      "price": "$345",
@@ -11818,6 +11876,7 @@
    "sample": {
     "url": "https://www.michaelstars.com/products/kailee-v-neck-long-sleeve-tee-46013",
     "name": "Kailee V-Neck Long Sleeve Tee",
+    "pageName": "Kailee V-Neck Long Sleeve Tee",
     "engine": "firefox",
     "read": {
      "price": "$88",
@@ -12004,6 +12063,7 @@
    "sample": {
     "url": "https://mintvelvet.com/products/black-jersey-draped-sleeveless-top",
     "name": "Black Jersey Draped Sleeveless Top",
+    "pageName": "Black Jersey Draped Sleeveless Top",
     "engine": "firefox",
     "read": {
      "price": "$69",
@@ -12180,6 +12240,7 @@
    "sample": {
     "url": "https://www.monrow.com/products/supimaluxe-rib-scoop-neck-tank-dustycocoa",
     "name": "Supimaluxe Rib Scoop Neck Tank",
+    "pageName": "Supimaluxe Rib Scoop Neck Tank",
     "engine": "firefox",
     "read": {
      "price": "$78",
@@ -12351,6 +12412,7 @@
    "sample": {
     "url": "https://www.monsoonlondon.com/ie/magdalena-sleeveless-paisley-top-yellow-10063060005.html",
     "name": "Magdalena Sleeveless Paisley Top Yellow",
+    "pageName": "Magdalena Sleeveless Paisley Top Yellow",
     "engine": "firefox",
     "read": {
      "price": "€32",
@@ -12524,6 +12586,7 @@
    "sample": {
     "url": "https://nation.la/products/maxine-long-sleeve-heather-grey",
     "name": "Maxine Long Sleeve",
+    "pageName": "Maxine Long Sleeve",
     "engine": "firefox",
     "read": {
      "price": "$198",
@@ -12707,6 +12770,7 @@
    "sample": {
     "url": "https://www.nike.com/t/air-max-2017-mens-shoes-BVqnkV/849559-001",
     "name": "Nike Air Max 2017",
+    "pageName": "Nike Air Max 2017 Men's Shoes",
     "engine": "firefox",
     "read": {
      "price": "$139.97",
@@ -12905,6 +12969,7 @@
    "sample": {
     "url": "https://ninetypercent.com/products/verity-wide-neckline-vest-in-chalk-aw26",
     "name": "Verity Wide Neckline Vest In Chalk",
+    "pageName": "Verity Wide Neckline Vest In Chalk",
     "engine": "firefox",
     "read": {
      "price": "$36",
@@ -13091,6 +13156,7 @@
    "sample": {
     "url": "https://nylora.com/products/sara-top-charcoal",
     "name": "SARA TOP CHARCOAL",
+    "pageName": "SARA TOP CHARCOAL",
     "engine": "firefox",
     "read": {
      "price": "$128",
@@ -13274,6 +13340,7 @@
    "sample": {
     "url": "https://oakandfort.ca/products/lace-cami-top-kt-17996-w",
     "name": "VELVET LACE CAMI TOP",
+    "pageName": "VELVET LACE CAMI TOP",
     "engine": "firefox",
     "read": {
      "price": "$128",
@@ -13445,6 +13512,7 @@
    "sample": {
     "url": "https://www.oasisfashion.com/product/oasis-volume-sleeve-sweatshirt-with-cotton-collar_baa13417?colour=antique+rose",
     "name": "Product Volume Sleeve Sweatshirt With Cotton Collar antique rose",
+    "pageName": "Volume Sleeve Sweatshirt With Cotton Collar",
     "engine": "firefox",
     "read": {
      "price": "£15",
@@ -13583,6 +13651,7 @@
    "sample": {
     "url": "https://oldnavy.gap.com/browse/toddler-girls/mix-and-match-shop",
     "name": "Image of two toddler models wearing Old Navy mix match go clothing.",
+    "pageName": "",
     "engine": "impit",
     "read": {
      "price": "",
@@ -13744,6 +13813,7 @@
    "sample": {
     "url": "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013",
     "name": "On Studio Long-T Clay Women – Low-impact training Tops and t-shirts",
+    "pageName": "Women's Studio Long-T",
     "engine": "firefox",
     "read": {
      "price": "$70",
@@ -13919,6 +13989,7 @@
    "sample": {
     "url": "https://www.outdoorvoices.com/products/w-waffle-baby-tee-white",
     "name": "Waffle Baby Tee in White – front close-up",
+    "pageName": "Waffle Baby Tee",
     "engine": "shopify-json",
     "read": {
      "price": "$58",
@@ -14060,6 +14131,7 @@
    "sample": {
     "url": "https://www.oysho.com/gb/womens-base-layer-n5063",
     "name": "womens base layer n5063",
+    "pageName": "",
     "engine": "firefox",
     "read": {
      "price": "",
@@ -14363,6 +14435,7 @@
    "sample": {
     "url": "https://www.phase-eight.com/row/product/hannah-high-neck-sequin-top-502514258.html",
     "name": "Hannah High Neck Sequin Top",
+    "pageName": "Hannah High Neck Sequin Top",
     "engine": "firefox",
     "read": {
      "price": "$112",
@@ -14523,6 +14596,7 @@
    "sample": {
     "url": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html",
     "name": "Silk & cotton T-shirt, Midnight, large",
+    "pageName": "Silk & cotton T-shirt",
     "engine": "firefox",
     "read": {
      "price": "£89",
@@ -14687,6 +14761,7 @@
    "sample": {
     "url": "https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical",
     "name": "Everyday Long Sleeve Tee",
+    "pageName": "Everyday Long Sleeve Tee",
     "engine": "firefox",
     "read": {
      "price": "$33.6",
@@ -14861,6 +14936,7 @@
    "sample": {
     "url": "https://www.projectsocialt.com/products/the-temptress-off-shoulder-grey",
     "name": "The Temptress Velvet Mesh Off The Shoulder Top",
+    "pageName": "The Temptress Velvet Mesh Off The Shoulder Top",
     "engine": "firefox",
     "read": {
      "price": "$65",
@@ -15029,6 +15105,7 @@
    "sample": {
     "url": "https://www.rag-bone.com/p/the-slub-tee-W272C32CH_101.html",
     "name": "The Slub Tee W272C32CH 101",
+    "pageName": "The Slub Tee",
     "engine": "firefox",
     "read": {
      "price": "$98",
@@ -15199,6 +15276,7 @@
    "sample": {
     "url": "https://www.rails.com/products/alixa-top-onyx-blurred-floral",
     "name": "ALIXA TOP - ONYX BLURRED FLORAL",
+    "pageName": "ALIXA TOP - ONYX BLURRED FLORAL",
     "engine": "firefox",
     "read": {
      "price": "$238",
@@ -15365,6 +15443,7 @@
    "sample": {
     "url": "https://www.thereformation.com/products/veya-silk-top/1319462ALO.html?dwvar_1319462ALO_color=ALO",
     "name": "Veya Silk Top $111 $148.00 $148",
+    "pageName": "Veya Silk Top",
     "engine": "firefox",
     "read": {
      "price": "$111",
@@ -15532,6 +15611,7 @@
    "sample": {
     "url": "https://www.rouje.com/products/olive-lace-pointelle-long-sleeve-top-navy",
     "name": "OLIVE Top",
+    "pageName": "Haut OLIVE",
     "engine": "firefox",
     "read": {
      "price": "€85",
@@ -15706,6 +15786,7 @@
    "sample": {
     "url": "https://www.sanctuaryclothing.com/products/sparkle-boatneck-long-sleeve-tee-black",
     "name": "Sparkle Boatneck Long Sleeve Tee Black",
+    "pageName": "Sparkle Boatneck Long Sleeve Tee Black",
     "engine": "firefox",
     "read": {
      "price": "$41",
@@ -15896,6 +15977,7 @@
    "sample": {
     "url": "https://scotchandsoda.com/products/loose-embroidered-t-shirt-u9a01764t-u014-meteorite",
     "name": "Loose Embroidered T-Shirt",
+    "pageName": "Loose Embroidered T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "$68",
@@ -16074,6 +16156,7 @@
    "sample": {
     "url": "https://www.seasaltcornwall.com/black-friday-deals",
     "name": "Go to black friday page",
+    "pageName": "",
     "engine": "firefox",
     "read": {
      "price": "",
@@ -16375,6 +16458,7 @@
    "sample": {
     "url": "https://www.shopbop.com/straight-leg-sweatpants-sprwmn/vp/v=1/1511586278.htm",
     "name": "Designer Boutique",
+    "pageName": "Straight Leg Sweatpants",
     "engine": "firefox",
     "read": {
      "price": "$275",
@@ -16547,6 +16631,7 @@
    "sample": {
     "url": "https://spanx.com/products/spanx-airessentials-turtleneck-tunic?v=48683236458707&bau-context=standard&Color=Very+Black",
     "name": "SPANX AirEssentials® Turtleneck Tunic | Very Black",
+    "pageName": "SPANX AirEssentials® Turtleneck Tunic",
     "engine": "firefox",
     "read": {
      "price": "$69",
@@ -16714,6 +16799,7 @@
    "sample": {
     "url": "https://splendid.com/products/josie-layered-long-sleeve-tee",
     "name": "Josie Layered Long Sleeve Tee",
+    "pageName": "Josie Layered Long Sleeve Tee",
     "engine": "firefox",
     "read": {
      "price": "$78",
@@ -16905,6 +16991,7 @@
    "sample": {
     "url": "https://www.splits59.com/products/ashby-rib-tank-with-piping",
     "name": "Ashby Rib Tank With Piping",
+    "pageName": "Ashby Rib Tank with Piping - White/Black",
     "engine": "firefox",
     "read": {
      "price": "$78",
@@ -17088,6 +17175,7 @@
    "sample": {
     "url": "https://shopstateside.us/products/cloud-jersey-lace-up-polo-tee-in-white",
     "name": "Cloud Jersey Lace-Up Polo Tee in White",
+    "pageName": "Cloud Jersey Lace-Up Polo Tee in White",
     "engine": "impit",
     "read": {
      "price": "$88.8",
@@ -17264,6 +17352,7 @@
    "sample": {
     "url": "https://sundryclothing.com/products/sundry-3-4-sleeve-knit-top-in-cocoa",
     "name": "Sundry 3/4 Sleeve Knit Top in Cocoa",
+    "pageName": "Sundry 3/4 Sleeve Knit Top in Cocoa",
     "engine": "firefox",
     "read": {
      "price": "$54",
@@ -17434,6 +17523,7 @@
    "sample": {
     "url": "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html",
     "name": "navigate sherpa longline puffer SB04475 Black.html",
+    "pageName": "Navigate Sherpa Longline Puffer",
     "engine": "firefox",
     "read": {
      "price": "$358.4",
@@ -17605,6 +17695,7 @@
    "sample": {
     "url": "https://thisisthegreat.com/products/the-turtleneck-almost-black",
     "name": "The Turtleneck. Solid -- Almost Black",
+    "pageName": "The Turtleneck. Solid -- Almost Black",
     "engine": "firefox",
     "read": {
      "price": "$125",
@@ -17770,6 +17861,7 @@
    "sample": {
     "url": "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/",
     "name": "MAYA SAL DOUBLE LAYER BRA - SETTING SUN [USW426067]",
+    "pageName": "MAYA SAL DOUBLE LAYER BRA - SETTING SUN [USW426067]",
     "engine": "firefox",
     "read": {
      "price": "$99.99",
@@ -18086,6 +18178,7 @@
    "sample": {
     "url": "https://threadandsupply.com/products/ginger-shirt-copy",
     "name": "GINGER SHIRT",
+    "pageName": "GINGER SHIRT",
     "engine": "firefox",
     "read": {
      "price": "$58",
@@ -18272,6 +18365,7 @@
    "sample": {
     "url": "https://tnuck.com/products/cream-kaiya-floral-top",
     "name": "Cream Kaiya Floral Top",
+    "pageName": "Cream Kaiya Floral Top",
     "engine": "firefox",
     "read": {
      "price": "$350",
@@ -18458,6 +18552,7 @@
    "sample": {
     "url": "https://ullajohnson.com/products/senna-smocked-coverup-top-nostalgia-playground",
     "name": "Senna Smocked Coverup Top - Nostalgia Playground",
+    "pageName": "Senna Smocked Coverup Top - Nostalgia Playground",
     "engine": "firefox",
     "read": {
      "price": "$250",
@@ -18623,6 +18718,7 @@
    "sample": {
     "url": "https://www.vanessabruno.com/p/hei-t-shirt-54829.html",
     "name": "Clothing T-shirt - VANESSABRUNO",
+    "pageName": "Hei T-shirt",
     "engine": "firefox",
     "read": {
      "price": "€125",
@@ -18792,6 +18888,7 @@
    "sample": {
     "url": "https://www.varley.com/products/neilsen-sleeveless-knit-top?variant=67295821496493&color=Peacoat&size=XXS",
     "name": "Neilsen Sleeveless Knit Top - color Peacoat",
+    "pageName": "Neilsen Sleeveless Knit Top",
     "engine": "firefox",
     "read": {
      "price": "$118",
@@ -18966,6 +19063,7 @@
    "sample": {
     "url": "https://velvet-tees.com/products/taylor-feather-printed-jersey-mock-neck-tee",
     "name": "TAYLOR PRINTED TEE",
+    "pageName": "TAYLOR PRINTED TEE",
     "engine": "firefox",
     "read": {
      "price": "$128",
@@ -19157,6 +19255,7 @@
    "sample": {
     "url": "https://veronicabeard.com/products/wyeth-zebra-turtleneck-top-ochre-black",
     "name": "Wyeth Zebra Turtleneck Top",
+    "pageName": "Wyeth Zebra Turtleneck Top",
     "engine": "firefox",
     "read": {
      "price": "$228",
@@ -19335,6 +19434,7 @@
    "sample": {
     "url": "https://www.vince.com/product/pima-cotton-crew-neck-t-shirt-V017384404REDOCHRE.html",
     "name": "Pima Cotton Crew Neck T-Shirt",
+    "pageName": "Pima Cotton Crew Neck T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "$118",
@@ -19514,6 +19614,7 @@
    "sample": {
     "url": "https://www.vineyardvines.com/product/womens-woven-tops/ella-jacquard-top/2W002201.html",
     "name": "Ella Jacquard Top",
+    "pageName": "Ella Jacquard Top",
     "engine": "firefox",
     "read": {
      "price": "$88.8",
@@ -19703,6 +19804,7 @@
    "sample": {
     "url": "https://vuoriclothing.com/products/womens-vuori-allthefeels-layered-tank-maraschino",
     "name": "Vuori AllTheFeels™ Layered Tank",
+    "pageName": "Vuori AllTheFeels™ Layered Tank",
     "engine": "firefox",
     "read": {
      "price": "$78",
@@ -19887,6 +19989,7 @@
    "sample": {
     "url": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643",
     "name": "Satin Front Short Sleeve Tee",
+    "pageName": "Satin Front Short Sleeve Tee",
     "engine": "firefox",
     "read": {
      "price": "$29.4",
@@ -20057,6 +20160,7 @@
    "sample": {
     "url": "https://www.whistles.com/us/product/rosa-double-trim-t-shirt-30980.html",
     "name": "White Rosa Double Trim T-Shirt",
+    "pageName": "White Rosa Double Trim T-Shirt",
     "engine": "firefox",
     "read": {
      "price": "$51.75",
@@ -20218,6 +20322,7 @@
    "sample": {
     "url": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI",
     "name": "KIM BUTTON THROUGH TEE",
+    "pageName": "KIM BUTTON THROUGH TEE",
     "engine": "firefox",
     "read": {
      "price": "£29.4",
@@ -20392,6 +20497,7 @@
    "sample": {
     "url": "https://www.wilson.com/en-us/products/everyday-brami-ww00015",
     "name": "Everyday Brami",
+    "pageName": "Everyday Brami",
     "engine": "firefox",
     "read": {
      "price": "$34",
@@ -20564,6 +20670,7 @@
    "sample": {
     "url": "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html",
     "name": "Striped jersey top, Blue stone, large",
+    "pageName": "Striped jersey top",
     "engine": "firefox",
     "read": {
      "price": "$115",
@@ -20739,6 +20846,7 @@
    "sample": {
     "url": "https://www.xirena.com/products/chocolate-cherry-troy-tee",
     "name": "X2605 Tee Chocolate Cherry Troy Tee Chocolate Cherry Troy Tee",
+    "pageName": "Chocolate Cherry Troy Tee",
     "engine": "firefox",
     "read": {
      "price": "$210",
@@ -20921,6 +21029,7 @@
    "sample": {
     "url": "https://zsupplyclothing.com/products/arlet-stripe-thermal-top",
     "name": "Arlet Stripe Thermal Top",
+    "pageName": "Arlet Stripe Thermal Top",
     "engine": "firefox",
     "read": {
      "price": "$54",
@@ -21099,6 +21208,7 @@
    "sample": {
     "url": "https://www.zara.com/us/en/long-sleeve-interlock-t-shirt-p04174639.html?v1=616513999",
     "name": "LONG-SLEEVE INTERLOCK T-SHIRT",
+    "pageName": "LONG-SLEEVE INTERLOCK T-SHIRT",
     "engine": "firefox",
     "read": {
      "price": "$29.9",
