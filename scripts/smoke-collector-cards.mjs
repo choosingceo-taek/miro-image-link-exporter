@@ -115,6 +115,12 @@ const PAGES = {
       window.addEventListener('scroll', draw); draw();
     </script>`,
 
+  // 상품 그리드 전체가 <nav> 같은 칸 안에 있는 사이트(Monsoon) — 가격 붙은 카드가 많으면 메뉴가 아니다.
+  gridInNav: `
+    <div role="navigation" class="page-wrap"><div class="grid">
+      ${Array.from({ length: 10 }, (_, i) => `<div class="product-tile"><a href="/us/womens/tea-dress-${i}-123${i}.html"><img src="https://cdn.x/m${i}.jpg" width="300" height="400" alt="Tea Dress ${i}"></a><span>$${60 + i}.00</span></div>`).join("")}
+    </div></div>`,
+
   // 안전장치: 그리드가 카드로 오인되면 옆 상품 사진을 가져간다. 그런 일이 없어야 한다.
   noImageAtAll: `
     <div class="list">
@@ -198,6 +204,13 @@ async function harvest(body) {
   const r = await harvest(PAGES.virtualGrid);
   const n = (r.items || []).filter((i) => /product\.do\?pid=1000\d\d$/.test(i.productUrl)).length;
   if (n !== 60) fail(`가상 스크롤 그리드 — 60개 중 ${n}개만 모았다(한 화면씩 내려가며 누적해야 한다) · 탈락 ${JSON.stringify(r.rej)}`);
+}
+
+// ── 메뉴 칸 안의 상품 그리드 ──
+{
+  const r = await harvest(PAGES.gridInNav);
+  const n = (r.items || []).filter((i) => /tea-dress-\d-123\d\.html$/.test(i.productUrl)).length;
+  if (n !== 10) fail(`메뉴 칸(role=navigation) 안의 상품 그리드 — 10개 중 ${n}개만 남았다 · 탈락 ${JSON.stringify(r.rej)}`);
 }
 
 // ── 안전장치: 사진이 없으면 없는 대로 버려야 한다 ──

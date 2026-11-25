@@ -201,15 +201,32 @@ async function pageCollector(opts) {
   // /collections/holiday-launch, Old Navy 'Picks from our Giftfluencers', Banana Republic 'sign in').
   // 상품 그리드는 이런 칸 안에 있지 않다. 다만 상품 카드 안에도 <header> 를 쓰는 사이트가 있어서,
   // <header> 는 카드·목록·본문(main) 밖에 있는 '사이트 머리글'일 때만 메뉴로 본다.
+  // 단, 그 칸 안에 가격이 붙은 카드가 8개 이상이면 메뉴가 아니라 상품 그리드다 — Monsoon 은
+  // 상품 그리드 전체가 이런 칸 안에 들어 있어 이 규칙만으로는 상품 150개가 통째로 버려졌다
+  // (2026-11-25 run 45604834917). 한 번 판정한 칸은 기억해 둔다(harvest 마다 새로).
+  let menuBoxes = new Map();
+  const isMenuBox = (box) => {
+    if (menuBoxes.has(box)) return menuBoxes.get(box);
+    let priced = 0;
+    for (const x of box.querySelectorAll('a[href]')) {
+      const c = x.closest('article,li,[class*="card" i],[class*="product" i],[class*="tile" i]');
+      if (c && c !== box && box.contains(c) && PRICE_RX.test(c.textContent || '') && ++priced >= 8) break;
+    }
+    const menu = priced < 8;
+    menuBoxes.set(box, menu);
+    return menu;
+  };
   const inSiteMenu = (a) => {
-    if (a.closest('nav, footer, [role="navigation"], [role="contentinfo"], [role="menu"], [role="menubar"]')) return true;
+    const n = a.closest('nav, footer, [role="navigation"], [role="contentinfo"], [role="menu"], [role="menubar"]');
+    if (n) return isMenuBox(n);
     const h = a.closest('header, [role="banner"]');
-    return !!(h && !h.closest('main, article, li, [class*="product" i], [class*="card" i], [class*="tile" i]'));
+    return !!(h && !h.closest('main, article, li, [class*="product" i], [class*="card" i], [class*="tile" i]') && isMenuBox(h));
   };
 
   const harvest = () => {
     const here = location.pathname.replace(/\/+$/, '');
     const seen = new Set(), items = [];
+    menuBoxes = new Map();
     for (const k of Object.keys(rej)) rej[k] = 0;
     document.querySelectorAll('a[href]').forEach((a) => {
       let href; try { href = new URL(a.href, location.href); } catch (e) { return; }
