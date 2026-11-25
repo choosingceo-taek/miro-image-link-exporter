@@ -71,6 +71,7 @@ export const MARKERS = [
   ["akamai-deny", /errors(\.|&#46;)edgesuite(\.|&#46;)net|Reference&#32;&#35;\d+(&#46;|\.)[0-9a-f]+|Reference #\d+\.[0-9a-f]+\.\d+|Reference Error: \d+\.[0-9a-f]+\.\d+/i, "Akamai", "block"],
   ["akamai-challenge", /\/_sec\/cp_challenge|sec-if-cpt-container|bm-verify=|ak_bmsc_challenge/i, "Akamai", "block"],
   ["px-challenge", /px-captcha|_pxCaptcha|captcha\.px-cdn\.net|Press &amp; Hold|Press & Hold to confirm/i, "HUMAN(PerimeterX)", "block"],
+  ["px-block", /<title>\s*Access to this page has been denied\.?\s*<\/title>/i, "HUMAN(PerimeterX)", "block"],
   ["px-script", /client\.perimeterx\.net|px-cloud\.net|px-cdn\.net|window\._pxAppId|\/_px\/|\/px\/client\/main\.min\.js/i, "HUMAN(PerimeterX)", "present"],
   ["datadome-challenge", /geo\.captcha-delivery\.com|ct\.captcha-delivery\.com|var dd=\{['"]rt['"]/i, "DataDome", "block"],
   ["datadome-script", /js\.datadome\.co|datadome\.co\/tags\.js|window\.ddjskey/i, "DataDome", "present"],

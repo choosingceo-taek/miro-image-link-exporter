@@ -258,7 +258,8 @@ function watchRequests(page) {
   return reqs;
 }
 async function cookieNames(page) {
-  try { return [...new Set((await page.context().cookies()).map((c) => c.name))]; } catch (e) { return []; }
+  // 이 페이지 주소의 쿠키만 — 한 창(context)에 여러 사이트를 차례로 열므로, 주소 없이 부르면 앞 사이트의 쿠키까지 섞인다.
+  try { return [...new Set((await page.context().cookies(page.url())).map((c) => c.name))]; } catch (e) { return []; }
 }
 
 // 브라우저 페이지 공통(상품): 열고, 접힌 소재 탭을 펼치고, 소재가 그려질 때까지 최대 6초
