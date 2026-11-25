@@ -84,7 +84,9 @@ async function pageCollector(opts) {
   // 목록 페이지 상단에는 하위 카테고리 타일("Tanks & Camis. Click to shop.")과
   // 로고·브레드크럼이 이미지와 함께 있어서, 그냥 두면 상품인 척 섞여 들어온다.
   // 'Logo Tee' 같은 진짜 상품을 죽이지 않도록, 로고는 "이름이 로고로 끝나는 짧은 링크"만 막는다.
-  const BANNER_NAME = /click to shop|shop the look|discover now|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|^.{0,24}\blogo\s*$/i;
+  // 앱 내려받기·선물 가게 타일도 같은 부류다(FP Movement·Free People 'Download on the App Store',
+  // L.L.Bean 'Gifts for Her' — 2026-11-25 저장본·측정 표본에 실제로 있던 것).
+  const BANNER_NAME = /click to shop|shop the look|discover now|download on the app store|get it on google play|\bgift (?:shop|guide|ideas)\b|^\s*gifts? for\b|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|^.{0,24}\blogo\s*$/i;
   // 상품 페이지가 아닌 경로. 점검(scripts/audit-catalogs.mjs)이 사후에 잡아내는 것과
   // 같은 목록이다 — 잡아낼 수 있으면 애초에 담지 않는 게 맞다. 실제로 The white
   // company 는 /magazine/ 아래 기사 9개가 상품으로 들어가 있었다.
@@ -113,6 +115,14 @@ async function pageCollector(opts) {
   const nonProductShape = (path) =>
     (CATEGORY_PATH.test(path + '/') && !PRODUCT_MARK.test(path + '/')) ||
     INDITEX_CATEGORY.test(path) || IMAGE_FILE.test(path);
+  // 다른 사이트로 가는 링크는 상품이 아니다(앱 스토어 itunes.apple.com 등).
+  // 하위 도메인은 같은 사이트로 본다(www2.hm.com·athleta.gap.com·global.llbean.com) — 끝 두 마디로 비교하고,
+  // co.uk 처럼 나라 도메인이 두 마디인 경우는 세 마디로 본다.
+  const siteOf = (host) => {
+    const p = String(host || '').toLowerCase().split('.').filter(Boolean);
+    const n = p.length >= 3 && p[p.length - 1].length === 2 && /^(?:co|com|org|net|ac|gov|ne|or)$/.test(p[p.length - 2]) ? 3 : 2;
+    return p.slice(-n).join('.');
+  };
   // 상품 번호가 경로가 아니라 물음표 뒤에 있는 사이트(Gap 계열 /browse/product.do?pid=…).
   // 예전에는 물음표 뒤를 모두 버려서 그 사이트의 상품이 전부 같은 주소 하나로 합쳐졌다 —
   // Gap·Old Navy·Athleta·Banana Republic 이 집 IP 에서도 상품 1개만 남던 원인.
@@ -194,7 +204,7 @@ async function pageCollector(opts) {
 
   // 0개로 끝났을 때 "왜 다 걸러졌는지" 세어 둔다. 추측 대신 숫자로 원인을 좁힌다.
   const rej = { total: 0, noImage: 0, tinyImage: 0, shortPath: 0, samePage: 0, banner: 0, dup: 0,
-    nonProduct: 0, landing: 0, siteMenu: 0 };
+    nonProduct: 0, landing: 0, siteMenu: 0, offSite: 0 };
 
   // 사이트 머리글·메뉴·바닥글 안의 링크는 상품이 아니다(2026-11-25 측정에서 실제로 잡힌 것:
   // The upside 'Header Submenu Image' /active/tops/sports-bras/, Reformation 메뉴의
@@ -270,6 +280,7 @@ async function pageCollector(opts) {
       const path = href.pathname.replace(/\/+$/, '');
       if (path.length < 8) { rej.shortPath++; return; }
       if (NON_PRODUCT_PATH.test(path) || nonProductShape(path)) { rej.nonProduct++; return; }
+      if (siteOf(href.hostname) !== siteOf(location.hostname)) { rej.offSite++; return; }
       const idq = idQuery(href);
       if (path === here && !idq) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
       if (here.startsWith(path + '/')) { rej.samePage++; return; }   // 상위 카테고리(브레드크럼)
