@@ -12,7 +12,7 @@
 ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Marine Layer · Nation LTD · Ninety Percent · Rag & bone · Sanctuary · Seasalt cornwall · Shopbop · Sweaty betty · The Great · Theory · Ulla Johnson · Varley · Veronica Beard · Vince · Xirena · vineyardvines
 
 전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 65%.
-기준 95% 까지 11838개, 목표 99% 까지 13398개 더 채워야 합니다.
+기준 95% 까지 11836개, 목표 99% 까지 13396개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 39019개
@@ -44,6 +44,7 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Chico's | — | 9/800 (1%) | 8/800 (1%) | 혼용률 +0 컬러 +0 |  |
 | Addidas | — | 8/537 (1%) | 8/537 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 6·직접차단 6·보관본없음 6 |
 | Garnet hill | — | 2/108 (2%) | 0/108 (0%) | 혼용률 +0 컬러 +0 |  |
+| Addidas | — | 10/537 (2%) | 10/537 (2%) | 혼용률 +2 컬러 +2 | 성공 아카이브 2 / 실패 정보없음 2·직접차단 4·오류 2·보관본없음 2 |
 | Free People | — | 5/189 (3%) | 5/189 (3%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 7/168 (4%) | 6/168 (4%) | 혼용률 +0 컬러 +0 |  |
 | Joules | — | 24/536 (4%) | 24/536 (4%) | 혼용률 +0 컬러 +0 |  |
