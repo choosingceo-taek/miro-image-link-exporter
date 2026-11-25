@@ -43,6 +43,7 @@ for (const r of runs) {
   for (const [eng, byUrl] of Object.entries(r.results || {})) {
     for (const [url, x] of Object.entries(byUrl)) {
       if (!x || x.v === "skip") continue;
+      if (eng === "camoufox") continue;   // 모든 실행에서 시작하자마자 SIGSEGV — 잰 것이 없다(측정 방법 절에 적음)
       const kind = kindOfUrl.get(url) || "product";
       const ev = x.ev || {};
       const o = { run: r.id, ip: (r.meta || {}).ip || "", at: ((r.meta || {}).at || r.at || "").slice(0, 16), v: x.v, status: ev.status || 0,
@@ -182,7 +183,7 @@ function autoListing(b) {
 function autoProduct(b) {
   const f = field.get(b) || {};
   const pct = f.total ? Math.round((f.comp / f.total) * 100) : 0;
-  if (pct >= 85) return { status: "works", tier: 0, cause: "", why: `혼용률 ${f.comp}/${f.total}(${pct}%)`, basis: "야간 리포트(규칙)" };
+  if (pct >= 80) return { status: "works", tier: 0, cause: "", why: `혼용률 ${f.comp}/${f.total}(${pct}%)`, basis: "야간 리포트(규칙)" };
   return { status: "partial", tier: 1, cause: "", why: `혼용률 ${pct}% — 판정 파일 필요`, basis: "규칙" };
 }
 

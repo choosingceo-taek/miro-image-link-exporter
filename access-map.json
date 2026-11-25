@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T09:20:42.198Z",
+ "generated": "2026-11-25T09:35:15.080Z",
  "note": "docs/access-map.md 와 같은 사실. listing=목록(카테고리) 페이지, product=상품 페이지. basis 가 '규칙'인 행은 사람이 따로 보지 않은 판정.",
  "vocabulary": {
   "listing": {
@@ -215,12 +215,13 @@
     }
    },
    "listing": {
-    "status": "partial",
+    "status": "home-only",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "크롬만 Akamai 403 — HTML·파이어폭스는 열림",
+    "why": "확장 343개(URL 4/5 · tops 12개)",
+    "basis": "측정·판정",
+    "fix": "헤드리스 파이어폭스(browser-extra-brands) 또는 서버 HTML 로 옮김 — 11/24 파이어폭스 수집 475개 · 오늘 impit·파이어폭스 전부 성공",
+    "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -285,23 +286,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -311,8 +295,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -321,8 +304,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -331,8 +313,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -352,13 +333,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 42% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "home-only",
+    "tier": 2,
+    "cause": "상품 페이지는 Akamai 가 모든 엔진 차단(파이어폭스는 200 확인 화면) · 보관본 없음",
+    "why": "혼용률 143/343 은 확장 몫",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강 유지. 데이터센터 무료 길 없음 → 유료(Akamai 대응) 시험 대상",
+    "label": "🏠 집 IP(확장)에서만",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -457,23 +439,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -484,8 +449,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -495,8 +459,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -506,8 +469,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -564,9 +526,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 214개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "업체 불명 'Client Challenge' 확인 화면(쿠키 _fs_ch_st_*) · 크롬은 HTTP 418",
+    "why": "확장 214개(6/6 URL)",
+    "basis": "측정·판정",
+    "fix": "확장 유지. 서버에 A&F 전용 카탈로그 API 코드(abercrombie-catalog)가 있다 — 데이터센터에서 되는지 안 재 봄(추정)",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -624,28 +587,11 @@
        "74.235.103.x"
       ],
       "causes": [
-       "geo"
+       "blocked"
       ],
       "status": [
        200
       ],
-      "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
       "by": []
      }
     },
@@ -656,8 +602,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 418",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -666,8 +611,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 418",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -676,8 +620,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 418",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -704,13 +647,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 64% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "home-only",
+    "tier": 2,
+    "cause": "같은 확인 화면",
+    "why": "혼용률 136/214 확장 몫 · 보관본 없음",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강",
+    "label": "🏠 집 IP(확장)에서만",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -796,28 +740,11 @@
        "13.86.110.x"
       ],
       "causes": [
-       "geo"
+       "blocked"
       ],
       "status": [
        200
       ],
-      "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
       "by": []
      }
     },
@@ -829,8 +756,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 418",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -840,8 +766,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 418",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -851,8 +776,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 418",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      }
     ]
@@ -903,13 +827,14 @@
     }
    },
    "listing": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "home-only",
+    "tier": 2,
+    "cause": "Akamai 거부(“Reference Error … unable to give you access”) — 모든 엔진",
+    "why": "확장 408개(URL 3/4)",
+    "basis": "측정·판정",
+    "fix": "확장 유지 · 유료(Akamai 대응) 시험 대상",
+    "label": "🏠 집 IP(확장)에서만",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -977,23 +902,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -1003,8 +911,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -1013,8 +920,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -1023,8 +929,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -1037,13 +942,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 1% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "Akamai — 모든 엔진 403, 보관본 거의 없음(11/25 성공 2)",
+    "why": "혼용률 4/408 — 확장 탭 보강도 아직 못 채움",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강을 adidas 에 돌리기(집 IP) 또는 유료",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -1141,23 +1047,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -1168,8 +1057,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -1179,8 +1067,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -1190,8 +1077,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -1462,23 +1348,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -1488,8 +1357,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -1498,8 +1366,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -1982,12 +1849,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 381개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "브라우저는 PerimeterX 차단 화면(“Access to this page has been denied” + px-cloud.net) · 평 HTML(impit)은 상품 250개 넘게 보임",
+    "why": "확장 381개",
+    "basis": "측정·판정",
+    "fix": "서버 HTML 수집(브라우저 TLS 지문 fetch)으로 옮김 — 오늘 impit 9/9 URL 에서 상품 링크 252~261개",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 9,
@@ -2054,23 +1922,6 @@
       "by": [
        "HUMAN(PerimeterX)"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -2080,8 +1931,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -2090,8 +1940,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -2100,8 +1949,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      }
     ]
@@ -2110,8 +1958,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "혼용률 349/381(92%)",
-    "basis": "야간 리포트(규칙)",
+    "why": "혼용률 349/381(92%) — 확장 몫",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {},
@@ -2171,9 +2019,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 270개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "DataDome 차단(x-datadome: protected · 쿠키 datadome · captcha-delivery) — 파이어폭스는 첫 URL 만 열리고 다음부터 403",
+    "why": "확장 270개",
+    "basis": "측정·판정",
+    "fix": "확장 유지 · 유료(DataDome 대응) 시험 대상",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -2245,23 +2094,6 @@
       "by": [
        "DataDome"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -2271,8 +2103,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -2281,8 +2112,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -2291,8 +2121,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -2312,13 +2141,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 1% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "DataDome — 모든 엔진 403 · 보관본 없음",
+    "why": "혼용률 4/270",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강(집 IP) 또는 유료",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -2416,23 +2246,6 @@
       "by": [
        "DataDome"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -2443,8 +2256,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -2454,8 +2266,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -2465,8 +2276,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -2638,12 +2448,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 800개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "Cloudflare 확인 화면(Just a moment… · cf-mitigated: challenge) — 파이어폭스는 3개 중 1개만",
+    "why": "확장 800개(6/6 URL)",
+    "basis": "측정·판정",
+    "fix": "서버에 Aritzia 검색 API(Algolia) 코드가 이미 있다 — 데이터센터에서 되면 무료(오늘 안 잼, 추정) · 아니면 확장 유지",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -2713,23 +2524,6 @@
       "by": [
        "Cloudflare"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -2739,8 +2533,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -2749,8 +2542,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -2759,8 +2551,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -2787,13 +2578,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 63% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "home-only",
+    "tier": 2,
+    "cause": "Cloudflare — 모든 엔진 차단 · 보관본은 사이트 공통 문구 때문에 거부",
+    "why": "혼용률 501/800 확장 몫",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강",
+    "label": "🏠 집 IP(확장)에서만",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -2893,23 +2685,6 @@
       "by": [
        "Cloudflare"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -2920,8 +2695,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -2931,8 +2705,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 geo"
       }
      },
      {
@@ -2942,8 +2715,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -2998,12 +2770,13 @@
     }
    },
    "listing": {
-    "status": "partial",
+    "status": "home-only",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "크롬만 Akamai 403 — HTML·파이어폭스는 열림",
+    "why": "확장 285개(URL 4/5)",
+    "basis": "측정·판정",
+    "fix": "헤드리스 파이어폭스 또는 서버 HTML — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 373개",
+    "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -3068,23 +2841,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -3094,8 +2850,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3104,8 +2859,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3114,8 +2868,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3137,9 +2890,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 50% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "상품 페이지는 Akamai 가 모든 엔진 차단 · 웹 아카이브는 3/3 읽음",
+    "why": "혼용률 143/285",
+    "basis": "측정·판정",
+    "fix": "야간 보강의 웹 아카이브 층을 Arket 에 돌리기(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -3239,23 +2993,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -3266,8 +3003,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -3277,8 +3013,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -3288,8 +3023,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -3337,12 +3071,13 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "Gap 계열: 페이지는 열리는데(데이터센터 크롬·파이어폭스 200) 수집기가 상품을 4~6개만 잡음 — 집 IP 확장도 1개",
+    "why": "확장 1개(4개 URL 중 3개 0)",
+    "basis": "측정·판정",
+    "fix": "Gap 계열 상품 목록 JSON(사이트가 그리드를 그릴 때 부르는 주소)으로 읽기 — 무료(추정, 안 재 봄)",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -3406,23 +3141,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 4,
-      "urlsOk": 0,
-      "urls": 4,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -3432,8 +3150,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3442,8 +3159,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "0/1 no-cards",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3452,8 +3168,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "0/1 no-cards",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3462,19 +3177,18 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "0/1 no-cards",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "카탈로그에 상품이 없음(목록 문제)",
+    "why": "상품 1개",
+    "basis": "측정·판정",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {},
     "urls": []
@@ -3505,12 +3219,13 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "Gap 계열: 열리는데 수집기가 5개만 — 확장도 1개",
+    "why": "확장 1개",
+    "basis": "측정·판정",
+    "fix": "Gap 계열 목록 JSON(추정)",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -3573,23 +3288,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 4,
-      "urlsOk": 0,
-      "urls": 4,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -3599,8 +3297,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3609,8 +3306,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3619,8 +3315,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -3629,19 +3324,18 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "카탈로그에 상품이 없음",
+    "why": "상품 1개",
+    "basis": "측정·판정",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {},
     "urls": []
@@ -3944,13 +3638,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "서버 프리페치 11/25 50개(6일 50·56·34·43·35·43)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "misread",
+    "tier": 1,
+    "cause": "차단 없음 — 서버가 카테고리당 4~10개만, 평 HTML 엔 URL 당 51~97개 · 크롬 34~65개",
+    "why": "프리페치 50개(6일 34~56)",
+    "basis": "측정·판정",
+    "fix": "서버 목록 읽기 보완 또는 헤드리스(무료). URL 에 광고 추적 꼬리(_gl=…)가 붙어 있음 — 떼어도 됨",
+    "label": "🔧 열리는데 잘못 읽음",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 13,
@@ -4013,23 +3708,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 4,
       "n": 10,
@@ -4059,7 +3737,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 shell"
       }
      },
@@ -4070,7 +3747,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 shell"
       }
      },
@@ -4081,7 +3757,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 shell"
       }
      },
@@ -4871,9 +4546,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 48% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "접근 문제 없음 — 오늘 impit·크롬·파이어폭스·아카이브 3/3",
+    "why": "혼용률 57/119",
+    "basis": "측정·판정",
+    "fix": "야간 보강이 아직 못 돎/5일 재시도 제한(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -4908,7 +4584,7 @@
        "13.86.110.x"
       ],
       "causes": [
-       "blocked"
+       "dead"
       ],
       "status": [
        404
@@ -4971,23 +4647,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -4995,33 +4654,30 @@
       "url": "https://www.buckmason.com/products/white-field-spec-boyfriend-crop-tee",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
       "url": "https://www.buckmason.com/products/natural-navy-stripe-field-spec-rugby-polo-1",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
       "url": "https://www.buckmason.com/products/ganache-field-spec-boyfriend-crop-tee",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
@@ -5075,13 +4731,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "헤드리스 11/25 148개 · URL 77·78·62·61·25",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "misread",
+    "tier": 1,
+    "cause": "수집기가 메뉴·기획전 타일(/c/black-friday 등, 이름 'arrow icon')을 상품으로 잡음",
+    "why": "헤드리스 148개 · 표본 5개가 전부 카테고리 링크",
+    "basis": "측정·판정",
+    "fix": "수집기에서 /c/ 경로 제외(무료)",
+    "label": "🔧 열리는데 잘못 읽음",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 10,
@@ -5144,23 +4801,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -5170,8 +4810,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -5180,8 +4819,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -5208,12 +4846,13 @@
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 73% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "카탈로그 표본 3개 중 2개가 카테고리 페이지라 혼용률 없음",
+    "why": "혼용률 108/148",
+    "basis": "측정·판정",
+    "fix": "목록부터 바로잡기",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -5311,23 +4950,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -5338,8 +4960,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -5349,8 +4970,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 no-comp",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      },
      {
@@ -5360,8 +4980,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 no-comp",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      }
     ]
@@ -5669,12 +5288,13 @@
    },
    "listing": {
     "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
+    "tier": 2,
+    "cause": "Akamai 거부 — 우리 엔진 전부 403. 서버는 리더 프록시(r.jina.ai) 우회로 가끔 성공(6일 중 3일 0) — 그 우회는 429 한도",
+    "why": "프리페치 6일 3·3·262·251·3·208 · 카탈로그 11/22 이후 갱신 없음",
+    "basis": "측정·판정",
+    "fix": "확장 담당으로 옮김(집 IP) — 또는 유료(Akamai 대응)",
     "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -5743,23 +5363,6 @@
        "Akamai"
       ]
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 5,
-      "urlsOk": 0,
-      "urls": 5,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 6,
       "n": 10,
@@ -5792,7 +5395,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -5803,7 +5405,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -5814,7 +5415,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "0/2 blocked 403"
       }
      },
@@ -5825,7 +5425,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -5836,20 +5435,20 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "0/2 shell 403"
       }
      }
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "Akamai — 모든 엔진 403(11/24 한 러너는 12/20 열림, 다른 러너 0/20) · 보관본 적중 31%",
+    "why": "혼용률 0/800",
+    "basis": "측정·판정",
+    "fix": "웹 아카이브 층 + 확장 탭 보강",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -5948,23 +5547,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -5975,8 +5557,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -5986,8 +5567,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -5997,8 +5577,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -6268,13 +5847,13 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
+    "status": "works",
+    "tier": 0,
     "cause": "",
-    "why": "혼용률 82% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "why": "혼용률 139/169(82%)",
+    "basis": "야간 리포트(규칙)",
+    "label": "✅ 된다",
+    "tierLabel": "0 이미 정상",
     "measured": {},
     "urls": []
    },
@@ -6407,9 +5986,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 33% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "평 HTML 은 Cloudflare 403 · 크롬·파이어폭스 2/3 혼용률 읽음 — 그런데 11/25 파이어폭스 보강은 120개 중 118개를 '사이트 미표기'로 적음(표본과 엇갈림)",
+    "why": "혼용률 66/200",
+    "basis": "측정·판정",
+    "fix": "보강의 미표기 판정을 표본으로 재확인(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -7026,13 +6606,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "서버 프리페치 11/25 72개(6일 72·72·60·71·71·71)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "misread",
+    "tier": 1,
+    "cause": "차단 없음 — 서버가 카테고리당 2~48개만 읽음(6일 내내 72개), 평 HTML 엔 URL 당 상품 링크 46~49개 · 크롬 50~90개",
+    "why": "프리페치 72개(저장 260 은 옛 수집분 포함)",
+    "basis": "측정·판정",
+    "fix": "서버 목록 읽기(선택자·페이지 넘김) 보완 또는 헤드리스로 — 무료",
+    "label": "🔧 열리는데 잘못 읽음",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 13,
@@ -7095,23 +6676,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 6,
       "n": 10,
@@ -7141,7 +6705,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -7152,7 +6715,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -7163,7 +6725,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 shell"
       }
      },
@@ -7188,9 +6749,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 55% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "접근 문제 없음 — 오늘 impit·크롬·파이어폭스 3/3",
+    "why": "혼용률 144/260",
+    "basis": "측정·판정",
+    "fix": "야간 보강이 아직 다 못 돎(무료 — 대상·상한 조정)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -7287,23 +6849,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -7314,8 +6859,7 @@
        "site-api": "1/1",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -7325,8 +6869,7 @@
        "site-api": "0/1 geo",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -7336,8 +6879,7 @@
        "site-api": "0/1 geo",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
@@ -7641,9 +7183,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 545개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "Akamai 거부 화면(Access Denied · Reference #) — 모든 엔진",
+    "why": "확장 545개",
+    "basis": "측정·판정",
+    "fix": "확장 유지",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -7713,23 +7256,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -7739,8 +7265,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -7749,8 +7274,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -7759,8 +7283,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -7776,8 +7299,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "혼용률 508/545(93%)",
-    "basis": "야간 리포트(규칙)",
+    "why": "혼용률 508/545(93%) 확장 몫",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {},
@@ -8194,9 +7717,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 67% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "접근 문제 없음 — 오늘 모든 엔진 3/3(사이트 JSON 포함)",
+    "why": "혼용률 296/443",
+    "basis": "측정·판정",
+    "fix": "야간 보강 대상·상한(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -8293,23 +7817,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -8320,8 +7827,7 @@
        "site-api": "1/1",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -8331,8 +7837,7 @@
        "site-api": "1/1",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -8342,8 +7847,7 @@
        "site-api": "1/1",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
@@ -8514,13 +8018,14 @@
     }
    },
    "listing": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "home-only",
+    "tier": 2,
+    "cause": "Akamai 거부 — 모든 엔진",
+    "why": "확장 374개(URL 3/4)",
+    "basis": "측정·판정",
+    "fix": "확장 유지",
+    "label": "🏠 집 IP(확장)에서만",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -8588,23 +8093,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -8614,8 +8102,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -8624,8 +8111,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -8634,8 +8120,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -8648,13 +8133,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "Akamai — 모든 엔진 403 · 보관본 없음",
+    "why": "혼용률 0/374",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강을 Fatface 에 돌리기 또는 유료",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -8752,23 +8238,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -8779,8 +8248,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -8790,8 +8258,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -8801,8 +8268,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -8864,9 +8330,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 58개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "DataDome 차단 — 모든 엔진",
+    "why": "확장 58개 · 표본이 카테고리 타일(수집기가 잘못 잡음 의심)",
+    "basis": "측정·판정",
+    "fix": "확장 유지 + 확장 수집기 선택자 확인",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -8936,23 +8403,6 @@
       "by": [
        "DataDome"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -8962,8 +8412,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -8972,8 +8421,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -8982,8 +8430,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -8996,13 +8443,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 10% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "DataDome · 카탈로그가 대부분 카테고리 주소",
+    "why": "혼용률 6/58",
+    "basis": "측정·판정",
+    "fix": "목록부터 바로잡기",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -9094,23 +8542,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 1,
-      "urlsOk": 0,
-      "urls": 1,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -9121,8 +8552,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 no-comp",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      }
     ]
@@ -9345,8 +8775,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "서버 프리페치 11/25 80개(6일 80·446·446·446·445·445)",
-    "basis": "야간 리포트(규칙)",
+    "why": "프리페치 445~446개(11/25 하루만 80 — 같은 날 낮 서버 측정은 카테고리당 33~99개)",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {
@@ -9411,23 +8841,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 10,
       "n": 10,
@@ -9456,7 +8869,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -9467,7 +8879,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -9478,7 +8889,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -9545,9 +8955,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 190개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "DataDome 차단 — 모든 엔진",
+    "why": "확장 190개",
+    "basis": "측정·판정",
+    "fix": "확장 유지 · 유료(DataDome 대응) 시험 대상",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -9617,23 +9028,6 @@
       "by": [
        "DataDome"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -9643,8 +9037,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -9653,8 +9046,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -9663,8 +9055,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -9686,9 +9077,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 5% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "DataDome — 페이지는 모든 엔진 403 · 웹 아카이브 2/3",
+    "why": "혼용률 9/190",
+    "basis": "측정·판정",
+    "fix": "웹 아카이브 층(11/24 측정 적중 50%)을 계속 돌리기 — 무료",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -9789,23 +9181,6 @@
       "by": [
        "DataDome"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -9816,8 +9191,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -9827,8 +9201,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -9838,8 +9211,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -9899,12 +9271,13 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "열리는데 수집기가 11~12개만(기프트숍 배너) — 확장도 6개",
+    "why": "확장 6개(전부 배너)",
+    "basis": "측정·판정",
+    "fix": "Gap 계열 목록 JSON(추정)",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -9967,23 +9340,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 4,
-      "urlsOk": 0,
-      "urls": 4,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -9993,8 +9349,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -10003,8 +9358,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -10013,8 +9367,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -10023,19 +9376,18 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "카탈로그 6개가 전부 기획전 배너",
+    "why": "",
+    "basis": "측정·판정",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {},
     "urls": []
@@ -10071,12 +9423,13 @@
     }
    },
    "listing": {
-    "status": "home-only",
+    "status": "partial",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 108개 저장",
-    "basis": "카탈로그(규칙)",
-    "label": "🏠 집 IP(확장)에서만",
+    "cause": "크롬 Akamai 403 · 평 HTML 은 상품이 없는 껍데기(36KB) · 파이어폭스는 첫 URL 만 · 확장도 URL 3개에서 4~9개",
+    "why": "확장 86·4·9·9",
+    "basis": "측정·판정",
+    "fix": "확장 수집기 확인(3개 URL 이 거의 빈손) — 접근은 집 IP",
+    "label": "🟠 일부만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
@@ -10145,23 +9498,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -10171,8 +9507,7 @@
       "engines": {
        "impit": "0/3 shell",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -10181,8 +9516,7 @@
       "engines": {
        "impit": "0/3 shell",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -10191,8 +9525,7 @@
       "engines": {
        "impit": "0/3 shell",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -10205,13 +9538,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 2% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "크롬 Akamai 403 · 파이어폭스 1/3 열림(혼용률 없음) · 평 HTML 껍데기",
+    "why": "혼용률 2/108",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -10309,23 +9643,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -10336,8 +9653,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      },
      {
@@ -10347,8 +9663,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -10358,8 +9673,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -10809,13 +10123,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "서버 프리페치 11/25 216개(6일 216·205·212·183·181·199)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "bad-url",
+    "tier": 4,
+    "cause": "URL 에 한국 지역(/en-kr/) — 미국 IP 에선 지역 없는 주소로 넘어감 · 서버는 카테고리당 10~53개 · 크롬은 43~353개",
+    "why": "프리페치 216개(저장 625 는 옛 수집분 포함)",
+    "basis": "측정·판정",
+    "fix": "URL 에서 /en-kr 빼기",
+    "label": "🔗 URL 이 틀림·죽음",
+    "tierLabel": "4 새 URL 필요(담당자)",
     "measured": {
      "impit": {
       "ok": 2,
@@ -10880,23 +10195,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 4,
       "n": 10,
@@ -10928,7 +10226,6 @@
        "impit": "0/3 geo",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "1/2 rate-limit 429"
       }
      },
@@ -10939,7 +10236,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -10950,7 +10246,6 @@
        "impit": "0/3 geo",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 rate-limit 429"
       }
      },
@@ -10977,7 +10272,7 @@
     "tier": 0,
     "cause": "",
     "why": "혼용률 531/625(85%)",
-    "basis": "야간 리포트(규칙)",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {},
@@ -11281,12 +10576,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 744개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "크롬만 Akamai 403 — 평 HTML(impit)에 상품 링크 323개, 파이어폭스도 열림",
+    "why": "확장 744개",
+    "basis": "측정·판정",
+    "fix": "서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 744개",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 13,
@@ -11350,23 +10646,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -11376,8 +10655,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -11386,8 +10664,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -11396,8 +10673,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -11417,13 +10693,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "상품 페이지는 Akamai 가 모든 엔진 403(파이어폭스 포함) · 보관본 없음",
+    "why": "혼용률 0/744",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강(집 IP) 또는 유료(Akamai 대응)",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -11521,23 +10798,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -11548,8 +10808,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -11559,8 +10818,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -11570,8 +10828,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -11835,9 +11092,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 29% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "야간 fetch 는 '직접차단' 12 · 오늘 크롬·파이어폭스 3/3 읽음",
+    "why": "혼용률 63/215",
+    "basis": "측정·판정",
+    "fix": "크롬 보강(enrich-browser) 대상에 넣기(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -12406,13 +11664,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "서버 프리페치 11/25 142개(6일 142·144·151·155·155·155)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "partial",
+    "tier": 1,
+    "cause": "차단 없음 — 서버가 매일 142~155개, 저장 526 은 옛 수집분. 페이지당 상품 링크 13~22개라 페이지 넘김을 못 따라가는 것으로 보임(추정)",
+    "why": "프리페치 142개",
+    "basis": "측정·판정",
+    "fix": "서버의 페이지 넘김 확인(무료)",
+    "label": "🟠 일부만",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 15,
@@ -12475,23 +11734,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 6,
       "n": 12,
@@ -12523,7 +11765,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 rate-limit 429"
       }
      },
@@ -12534,7 +11775,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -12545,7 +11785,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "1/2 rate-limit 429"
       }
      },
@@ -12760,13 +11999,14 @@
     }
    },
    "listing": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "home-only",
+    "tier": 2,
+    "cause": "Akamai 거부 — 모든 엔진(Fatface 와 같은 플랫폼)",
+    "why": "확장 459개(URL 4/5)",
+    "basis": "측정·판정",
+    "fix": "확장 유지",
+    "label": "🏠 집 IP(확장)에서만",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -12834,23 +12074,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -12860,8 +12083,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -12870,8 +12092,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -12880,8 +12101,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -12902,12 +12122,13 @@
    },
    "product": {
     "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
+    "tier": 2,
+    "cause": "Akamai — 페이지는 모든 엔진 403 · 웹 아카이브만 일부(11/25 야간 15개)",
+    "why": "혼용률 0~15/459",
+    "basis": "측정·판정",
+    "fix": "웹 아카이브 층 계속 · 나머지는 확장 탭 보강",
     "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -13006,23 +12227,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -13033,8 +12237,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -13044,8 +12247,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -13055,8 +12257,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -13118,12 +12319,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 310개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "크롬만 Cloudflare 차단(Attention Required) — 평 HTML·파이어폭스는 열림",
+    "why": "확장 310개",
+    "basis": "측정·판정",
+    "fix": "서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13(상품 링크 244~276)·파이어폭스 3/3",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 13,
@@ -13187,23 +12389,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -13213,8 +12398,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -13223,8 +12407,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -13233,8 +12416,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -13257,8 +12439,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "혼용률 293/310(95%)",
-    "basis": "야간 리포트(규칙)",
+    "why": "혼용률 293/310(95%) 확장 몫",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {},
@@ -13441,9 +12623,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 469개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "Akamai 거부 — 모든 엔진",
+    "why": "확장 469개",
+    "basis": "측정·판정",
+    "fix": "확장 유지",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -13513,23 +12696,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -13539,8 +12705,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -13549,8 +12714,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -13559,8 +12723,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -13583,8 +12746,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "혼용률 411/469(88%)",
-    "basis": "야간 리포트(규칙)",
+    "why": "혼용률 411/469(88%) 확장 몫 · 데이터센터는 모든 엔진 403",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {
@@ -13689,23 +12852,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -13716,8 +12862,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -13727,8 +12872,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -13738,8 +12882,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -13896,13 +13039,13 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
+    "status": "works",
+    "tier": 0,
     "cause": "",
-    "why": "혼용률 84% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "why": "혼용률 275/326(84%)",
+    "basis": "야간 리포트(규칙)",
+    "label": "✅ 된다",
+    "tierLabel": "0 이미 정상",
     "measured": {},
     "urls": []
    },
@@ -14209,12 +13352,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 673개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "브라우저는 PerimeterX 차단 화면 · 평 HTML(impit)은 상품 링크 171개",
+    "why": "확장 673개",
+    "basis": "측정·판정",
+    "fix": "서버 HTML 수집으로 옮김 — 오늘 impit 13/13",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 13,
@@ -14281,23 +13425,6 @@
       "by": [
        "HUMAN(PerimeterX)"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -14307,8 +13434,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -14317,8 +13443,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -14327,8 +13452,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -14350,9 +13474,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 42% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "브라우저는 PerimeterX · 평 HTML 은 열리나 오늘 표본 3개에서 혼용률 못 찾음(JSON-LD 에 있는 상품만 읽힘)",
+    "why": "혼용률 284/673(42%)",
+    "basis": "측정·판정",
+    "fix": "평 HTML + JSON-LD 로 야간 보강(무료) — 나머지는 확장 탭",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -14451,23 +13576,6 @@
       "by": [
        "HUMAN(PerimeterX)"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -14478,8 +13586,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -14489,8 +13596,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      },
      {
@@ -14500,8 +13606,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked",
-       "firefox": "0/1 blocked",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked"
       }
      }
     ]
@@ -14575,13 +13680,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "bad-url",
+    "tier": 4,
+    "cause": "blouses URL 이 검색 페이지('Search | Lucky Brand')로 열리고 수집 중 페이지가 바뀜(Execution context destroyed)",
+    "why": "헤드리스 65·90·0·67·36",
+    "basis": "측정·판정",
+    "fix": "blouses 카테고리 새 주소",
+    "label": "🔗 URL 이 틀림·죽음",
+    "tierLabel": "4 새 URL 필요(담당자)",
     "measured": {
      "impit": {
       "ok": 12,
@@ -14645,23 +13751,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -14671,8 +13760,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -14688,8 +13776,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "0/1 shell",
-       "firefox": "0/1 shell",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 shell"
       }
      },
      {
@@ -14867,9 +13954,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 476개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "Akamai 거부 — 모든 엔진(크롬은 접속 끊김)",
+    "why": "확장 476개",
+    "basis": "측정·판정",
+    "fix": "확장 유지 · 유료(Akamai 대응) 시험 대상",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -14935,23 +14023,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -14961,8 +14032,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 conn-drop",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -14971,8 +14041,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 conn-drop",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -14981,8 +14050,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 conn-drop",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -15002,13 +14070,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "Akamai — 모든 엔진 · 보관본 거의 없음(11/24 적중 4%)",
+    "why": "혼용률 0/476",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강 또는 유료",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -15104,23 +14173,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -15131,8 +14183,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 timeout",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -15142,8 +14193,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 timeout",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -15153,8 +14203,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 timeout",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -15214,12 +14263,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 75개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "차단 없음 — 데이터센터 크롬·파이어폭스 3/3(22~26개). 평 HTML 엔 상품이 적음(스크립트가 그림)",
+    "why": "확장 75개(URL 35·26·6·8)",
+    "basis": "측정·판정",
+    "fix": "헤드리스 크롬 그룹으로 옮김(무료). URL 이 한국 지역(/kr/)이라 가격이 원화일 수 있음",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 3,
@@ -15282,23 +14332,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -15308,8 +14341,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -15318,8 +14350,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -15328,8 +14359,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -15346,7 +14376,7 @@
     "tier": 0,
     "cause": "",
     "why": "혼용률 67/75(89%)",
-    "basis": "야간 리포트(규칙)",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {},
@@ -15394,9 +14424,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 93개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "Vercel 보안 확인 화면(Vercel Security Checkpoint, HTTP 429) — 모든 엔진 · 확장도 URL 당 14~16개만",
+    "why": "확장 93개",
+    "basis": "측정·판정",
+    "fix": "확장 유지 + 확장 수집기의 더 보기/스크롤 확인",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -15466,23 +14497,6 @@
       "by": [
        "Vercel"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -15492,8 +14506,7 @@
       "engines": {
        "impit": "0/3 blocked 429",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -15502,8 +14515,7 @@
       "engines": {
        "impit": "0/3 blocked 429",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -15512,8 +14524,7 @@
       "engines": {
        "impit": "0/3 blocked 429",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -15540,13 +14551,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 58% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "home-only",
+    "tier": 2,
+    "cause": "Vercel 확인 화면 — 모든 엔진 · 파이어폭스 보강 11/25 39/39 차단",
+    "why": "혼용률 54/93 확장 몫",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강",
+    "label": "🏠 집 IP(확장)에서만",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -15645,23 +14657,6 @@
       "by": [
        "Vercel"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -15672,8 +14667,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -15683,8 +14677,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -15694,8 +14687,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      }
     ]
@@ -15877,12 +14869,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 603개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2/3 열림",
+    "why": "확장 603개",
+    "basis": "측정·판정",
+    "fix": "헤드리스 파이어폭스 — 오늘 2/3 · 11/24 111개(공용 링크 제외)",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -15943,7 +14936,7 @@
       ],
       "causes": [
        "ok",
-       "blocked"
+       "dead"
       ],
       "status": [
        200,
@@ -15952,23 +14945,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -15978,8 +14954,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -15988,8 +14963,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 404",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 dead 404"
       }
      },
      {
@@ -15998,8 +14972,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -16019,12 +14992,13 @@
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "파이어폭스로 열리지만 혼용률이 스크립트 JSON(material/percentage)에만 있어 1/3 만 읽힘 · 크롬·평 HTML 차단",
+    "why": "혼용률 1/603",
+    "basis": "측정·판정",
+    "fix": "페이지 속 JSON 의 material·percentage 짝을 읽도록 추출기 보완(무료)",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -16122,23 +15096,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -16149,8 +15106,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      },
      {
@@ -16160,8 +15116,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -16171,8 +15126,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      }
     ]
@@ -16567,13 +15521,13 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
+    "status": "works",
+    "tier": 0,
     "cause": "",
-    "why": "혼용률 83% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "why": "혼용률 168/203(83%)",
+    "basis": "야간 리포트(규칙)",
+    "label": "✅ 된다",
+    "tierLabel": "0 이미 정상",
     "measured": {},
     "urls": []
    },
@@ -16712,9 +15666,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 70% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "접근 문제 없음 — impit·크롬·파이어폭스 3/3",
+    "why": "혼용률 293/416",
+    "basis": "측정·판정",
+    "fix": "야간 보강 대상·상한(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -16810,23 +15765,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -16837,8 +15775,7 @@
        "site-api": "0/1 no-comp",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -16848,8 +15785,7 @@
        "site-api": "0/1 no-comp",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -16859,8 +15795,7 @@
        "site-api": "0/1 no-comp",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
@@ -17044,12 +15979,13 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "차단 없음 — 서버가 카테고리당 0~22개, 평 HTML 엔 URL 당 40개 · 크롬 45개. URL 이 한국 지역(/kr/)",
+    "why": "프리페치 30개(6일 내내 29~30)",
+    "basis": "측정·판정",
+    "fix": "서버 목록 읽기 보완 또는 헤드리스(무료) · 지역을 /us/ 등으로(가격 통화)",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -17113,23 +16049,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 3,
       "n": 8,
@@ -17162,7 +16081,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "1/2 rate-limit 429"
       }
      },
@@ -17173,7 +16091,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 shell·rate-limit 429"
       }
      },
@@ -17184,7 +16101,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -17266,13 +16182,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "서버 프리페치 11/25 161개(6일 161·164·164·164·164·164)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "partial",
+    "tier": 1,
+    "cause": "차단 없음 — 서버가 매일 161~164개, 저장 525 는 옛 수집분 · 페이지당 22~52개(페이지 넘김 의심, 추정)",
+    "why": "프리페치 161개",
+    "basis": "측정·판정",
+    "fix": "서버의 페이지 넘김 확인(무료)",
+    "label": "🟠 일부만",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 11,
@@ -17335,23 +16252,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 8,
       "n": 8,
@@ -17380,7 +16280,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -17391,7 +16290,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -17402,7 +16300,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -17471,13 +16368,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "헤드리스 11/25 490개 · URL 150·174·139·86",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "misread",
+    "tier": 1,
+    "cause": "헤드리스 표본 5개가 모두 필터 카테고리 링크(/w/…) — 상품 아님 의심",
+    "why": "헤드리스 490개",
+    "basis": "측정·판정",
+    "fix": "수집기에서 /w/ 경로 제외, 상품(/t/…)만(무료, 추정)",
+    "label": "🔧 열리는데 잘못 읽음",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -17539,23 +16437,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 2,
-      "urlsOk": 0,
-      "urls": 2,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -17565,8 +16446,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -17575,8 +16455,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -17596,13 +16475,13 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
+    "status": "works",
+    "tier": 0,
     "cause": "",
-    "why": "혼용률 82% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "why": "혼용률 402/490(82%)",
+    "basis": "야간 리포트(규칙)",
+    "label": "✅ 된다",
+    "tierLabel": "0 이미 정상",
     "measured": {},
     "urls": []
    },
@@ -18169,12 +17048,13 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "열리는데 수집기가 10~11개만 — 확장도 7개(배너)",
+    "why": "확장 7개",
+    "basis": "측정·판정",
+    "fix": "Gap 계열 목록 JSON(추정)",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -18237,23 +17117,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 5,
-      "urlsOk": 0,
-      "urls": 5,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -18263,8 +17126,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -18273,8 +17135,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -18283,8 +17144,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -18293,8 +17153,7 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -18303,20 +17162,19 @@
       "engines": {
        "impit": "0/3 no-cards",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
    },
    "product": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "혼용률 7/7(100%)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "misread",
+    "tier": 1,
+    "cause": "카탈로그 7개가 전부 배너",
+    "why": "",
+    "basis": "측정·판정",
+    "label": "🔧 열리는데 잘못 읽음",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {},
     "urls": []
    },
@@ -18745,12 +17603,13 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "확장 카탈로그 20개가 전부 하위 카테고리 타일(…-n5063) — 상품이 아님. 데이터센터 파이어폭스는 열림(3/3, 18~22개)",
+    "why": "확장 20개",
+    "basis": "측정·판정",
+    "fix": "헤드리스 파이어폭스 + 수집기 확인(무료)",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -18817,23 +17676,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -18843,8 +17685,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -18853,8 +17694,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -18870,8 +17710,7 @@
       "engines": {
        "impit": "0/3 blocked",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -18884,12 +17723,12 @@
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "카탈로그에 상품이 없음",
+    "why": "",
+    "basis": "측정·판정",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {},
     "urls": []
@@ -18942,9 +17781,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 60개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "Vercel 보안 확인 화면(HTTP 429) — 모든 엔진",
+    "why": "확장 60개(URL 당 8~24)",
+    "basis": "측정·판정",
+    "fix": "확장 유지",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -19014,23 +17854,6 @@
       "by": [
        "Vercel"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -19040,8 +17863,7 @@
       "engines": {
        "impit": "0/3 blocked 429",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -19050,8 +17872,7 @@
       "engines": {
        "impit": "0/3 blocked 429",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -19060,8 +17881,7 @@
       "engines": {
        "impit": "0/3 blocked 429",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -19081,13 +17901,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 63% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "home-only",
+    "tier": 2,
+    "cause": "Vercel 확인 화면 — 모든 엔진",
+    "why": "혼용률 38/60 확장 몫",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강",
+    "label": "🏠 집 IP(확장)에서만",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -19189,23 +18010,6 @@
       "by": [
        "Vercel"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -19216,8 +18020,7 @@
        "site-api": "0/1 rate-limit 429",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -19227,8 +18030,7 @@
        "site-api": "0/1 rate-limit 429",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      },
      {
@@ -19238,8 +18040,7 @@
        "site-api": "0/1 rate-limit 429",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 429",
-       "firefox": "0/1 blocked 429",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 429"
       }
      }
     ]
@@ -19295,9 +18096,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 168개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "데이터센터에는 '시스템 점검 중' 정적 화면(server: AkamaiNetStorage) — 진짜 점검이 아니라 봇에게 보내는 화면으로 보임(낮음) · 파이어폭스 1/3",
+    "why": "확장 168개",
+    "basis": "측정·판정",
+    "fix": "확장 유지",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -19362,23 +18164,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -19388,8 +18173,7 @@
       "engines": {
        "impit": "0/3 maintenance",
        "playwright": "0/1 maintenance",
-       "firefox": "0/1 maintenance",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 maintenance"
       }
      },
      {
@@ -19398,8 +18182,7 @@
       "engines": {
        "impit": "0/3 maintenance",
        "playwright": "0/1 maintenance",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -19408,8 +18191,7 @@
       "engines": {
        "impit": "0/3 maintenance",
        "playwright": "0/1 maintenance",
-       "firefox": "0/1 maintenance",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 maintenance"
       }
      },
      {
@@ -19431,9 +18213,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 1% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "같은 점검 화면 · 파이어폭스 2/3 읽음 · 보관본 1/3",
+    "why": "혼용률 4/168",
+    "basis": "측정·판정",
+    "fix": "파이어폭스 보강을 Patagonia 에 — 11/24 측정 16/20 읽음(무료, 러너마다 갈림)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -19529,23 +18312,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -19556,8 +18322,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 maintenance",
-       "firefox": "0/1 maintenance",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 maintenance"
       }
      },
      {
@@ -19567,8 +18332,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 maintenance",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -19578,8 +18342,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 maintenance",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
@@ -19821,9 +18584,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 79% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "접근 문제 없음 — 오늘 impit·크롬·파이어폭스 3/3",
+    "why": "혼용률 240/303",
+    "basis": "측정·판정",
+    "fix": "야간 보강(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -20018,13 +18782,14 @@
     }
    },
    "listing": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "Cloudflare 차단 화면(Attention Required · Sorry, you have been blocked) — impit·서버 전부 · 크롬·파이어폭스는 첫 URL 만 열리고 다음부터 403",
+    "why": "서버 6일 연속 1개 · 카탈로그 9/22 이후 갱신 없음(두 달)",
+    "basis": "측정·판정",
+    "fix": "확장 담당으로 옮김(집 IP — 안 재 봄) 또는 유료(Cloudflare 대응)",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -20097,23 +18862,6 @@
        "Cloudflare"
       ]
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 4,
-      "urlsOk": 0,
-      "urls": 4,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 0,
       "n": 8,
@@ -20145,7 +18893,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 blocked 403"
       }
      },
@@ -20156,7 +18903,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "0/2 blocked 403"
       }
      },
@@ -20167,7 +18913,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "0/2 blocked 403"
       }
      },
@@ -20178,20 +18923,20 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "0/2 shell 403"
       }
      }
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "Cloudflare — 브라우저는 첫 페이지만 · 파이어폭스 보강 11/25 77/81 차단",
+    "why": "혼용률 0/81",
+    "basis": "측정·판정",
+    "fix": "확장 또는 유료",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -20294,23 +19039,6 @@
       "by": [
        "Cloudflare"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -20321,8 +19049,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -20332,8 +19059,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -20343,8 +19069,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -20841,13 +19566,14 @@
     }
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "서버 프리페치 11/25 221개(6일 221·218·221·222·56·58)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "partial",
+    "tier": 1,
+    "cause": "Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0) · 데이터센터 크롬은 3/3 열림",
+    "why": "프리페치 221개(저장 753 은 옛 수집분 포함)",
+    "basis": "측정·판정",
+    "fix": "헤드리스 크롬 그룹으로 옮김(무료) — 러너마다 갈리는지 2차 측정 참고",
+    "label": "🟠 일부만",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -20916,23 +19642,6 @@
        "Cloudflare"
       ]
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 7,
       "n": 10,
@@ -20965,7 +19674,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -20976,7 +19684,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "1/1",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "0/2 shell 403"
       }
      },
@@ -20987,7 +19694,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "1/1",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -21012,9 +19718,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 35% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "Cloudflare — impit·사이트 JSON 403 · 크롬 3/3 · 웹 아카이브 3/3",
+    "why": "혼용률 261/753",
+    "basis": "측정·판정",
+    "fix": "크롬 보강 + 웹 아카이브(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -21118,23 +19825,6 @@
       "by": [
        "Cloudflare"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -21145,8 +19835,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -21156,8 +19845,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -21167,8 +19855,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -21311,13 +19998,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 64% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "not-published",
+    "tier": 0,
+    "cause": "페이지는 모든 엔진으로 열리는데 혼용률 글이 없음(표본 3개) · 사이트 JSON(.json)은 꺼져 있음(404)",
+    "why": "혼용률 149/232 — 일부 상품만 적힘",
+    "basis": "측정·판정",
+    "fix": "없음(사이트가 안 적음) — 엑셀 '정보 없음'",
+    "label": "📭 사이트가 혼용률을 안 적음",
+    "tierLabel": "0 이미 정상",
     "measured": {
      "impit": {
       "ok": 0,
@@ -21350,7 +20038,7 @@
        "13.86.110.x"
       ],
       "causes": [
-       "blocked"
+       "dead"
       ],
       "status": [
        404
@@ -21413,23 +20101,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -21437,33 +20108,30 @@
       "url": "https://www.rouje.com/products/olive-lace-pointelle-long-sleeve-top-navy",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 no-comp",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      },
      {
       "url": "https://www.rouje.com/products/basile-long-sleeve-top-grey",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 no-comp",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      },
      {
       "url": "https://www.rouje.com/products/petra-long-sleeve-top-grey",
       "engines": {
        "impit": "0/1 no-comp",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 no-comp",
-       "firefox": "0/1 no-comp",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 no-comp"
       }
      }
     ]
@@ -21773,12 +20441,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 279개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "차단 없음 — 데이터센터 모든 엔진 성공",
+    "why": "확장 279개",
+    "basis": "측정·판정",
+    "fix": "서버(HTML) 그룹으로 옮김 — 오늘 impit 13/13 · 크롬·파이어폭스 59~60개",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 13,
@@ -21840,23 +20509,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -21866,8 +20518,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -21876,8 +20527,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -21886,8 +20536,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -21911,7 +20560,7 @@
     "tier": 0,
     "cause": "",
     "why": "혼용률 266/279(95%)",
-    "basis": "야간 리포트(규칙)",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {},
@@ -22043,12 +20692,13 @@
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "bad-url",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 42% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "카탈로그의 상품 주소가 404(모든 엔진 · 제목 '404 Page Not Found') — 판매 끝난 상품",
+    "why": "혼용률 34/81",
+    "basis": "측정·판정",
+    "fix": "목록 재수집으로 주소 갱신(프리페치는 매일 81개를 저장하지만 표본 3개 모두 404 — 서버가 옛 주소를 내놓는지 확인)",
+    "label": "🔗 URL 이 틀림·죽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -22063,7 +20713,7 @@
        "13.86.110.x"
       ],
       "causes": [
-       "blocked"
+       "dead"
       ],
       "status": [
        404
@@ -22116,12 +20766,14 @@
        "13.86.110.x"
       ],
       "causes": [
-       "blocked"
+       "dead"
       ],
       "status": [
        404
       ],
-      "by": []
+      "by": [
+       "Cloudflare"
+      ]
      },
      "firefox": {
       "ok": 0,
@@ -22135,80 +20787,50 @@
        "13.86.110.x"
       ],
       "causes": [
-       "blocked"
+       "dead"
       ],
       "status": [
        404
       ],
-      "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
+      "by": [
+       "Cloudflare"
+      ]
      }
     },
     "urls": [
      {
       "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-025.webp%20924w",
       "engines": {
-       "impit": "0/1 blocked 404",
+       "impit": "0/1 dead 404",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/1 blocked 404",
-       "firefox": "0/1 blocked 404",
-       "camoufox": "0/1 error"
+       "playwright": "0/1 dead 404",
+       "firefox": "0/1 dead 404"
       }
      },
      {
       "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-028.webp%20924w",
       "engines": {
-       "impit": "0/1 blocked 404",
+       "impit": "0/1 dead 404",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/1 blocked 404",
-       "firefox": "0/1 blocked 404",
-       "camoufox": "0/1 error"
+       "playwright": "0/1 dead 404",
+       "firefox": "0/1 dead 404"
       }
      },
      {
       "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Chebbi_blazer_blue-Karty_bluenim-027.webp%20924w",
       "engines": {
-       "impit": "0/1 blocked 404",
+       "impit": "0/1 dead 404",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/1 blocked 404",
-       "firefox": "0/1 blocked 404",
-       "camoufox": "0/1 error"
+       "playwright": "0/1 dead 404",
+       "firefox": "0/1 dead 404"
       }
      }
     ]
    },
-   "blocker": {
-    "by": "알 수 없음",
-    "confidence": "-",
-    "signals": [],
-    "title": "404 Page Not Found",
-    "status": 404,
-    "engine": "impit",
-    "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-025.webp%20924w",
-    "cookies": [],
-    "headers": {
-     "content-type": "text/html; charset=UTF-8"
-    }
-   }
+   "blocker": null
   },
   {
    "brand": "Sezane",
@@ -22241,9 +20863,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 206개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "DataDome 차단(CloudFront 앞단) — 모든 엔진",
+    "why": "확장 206개(URL 1개는 1개만)",
+    "basis": "측정·판정",
+    "fix": "확장 유지",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -22313,23 +20936,6 @@
       "by": [
        "DataDome"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -22339,8 +20945,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -22349,8 +20954,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -22359,8 +20963,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -22373,13 +20976,14 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "status": "blocked",
+    "tier": 2,
+    "cause": "DataDome — 모든 엔진 · 보관본 일부(11/24 거부 다수)",
+    "why": "혼용률 2/206",
+    "basis": "측정·판정",
+    "fix": "확장 탭 보강 또는 유료(DataDome 대응)",
+    "label": "⛔ 어디서도 막힘",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -22478,23 +21082,6 @@
       "by": [
        "DataDome"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -22505,8 +21092,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -22516,8 +21102,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -22527,8 +21112,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -22796,9 +21380,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 79% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "접근 문제 없음 — impit·크롬·파이어폭스 3/3",
+    "why": "혼용률 66/84",
+    "basis": "측정·판정",
+    "fix": "야간 보강(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -22833,7 +21418,7 @@
        "13.86.110.x"
       ],
       "causes": [
-       "blocked"
+       "dead"
       ],
       "status": [
        404
@@ -22897,23 +21482,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -22921,33 +21489,30 @@
       "url": "https://spanx.com/products/spanx-airessentials-turtleneck-tunic?v=48683236458707&bau-context=standard&Color=Very+Black",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
       "url": "https://spanx.com/products/spanx-airessentials-crewneck-long-sleeve-top?v=48685318963411&bau-context=standard&Color=Very+Black",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "0/1 error",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
       "url": "https://spanx.com/products/spanx-poplin-oversized-button-up-shirt?v=48681461219539&bau-context=standard&Color=Classic+White",
       "engines": {
        "impit": "1/1",
-       "site-api": "0/1 blocked 404",
+       "site-api": "0/1 dead 404",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
@@ -23012,8 +21577,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "서버 프리페치 11/25 404개(6일 404·403·403·403·403·403)",
-    "basis": "야간 리포트(규칙)",
+    "why": "프리페치 403~404개(Shopify 경로) · 평 HTML 은 스크립트가 그림",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {
@@ -23079,13 +21644,13 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
+    "status": "works",
+    "tier": 0,
     "cause": "",
-    "why": "혼용률 84% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "why": "혼용률 338/404(84%)",
+    "basis": "야간 리포트(규칙)",
+    "label": "✅ 된다",
+    "tierLabel": "0 이미 정상",
     "measured": {},
     "urls": []
    },
@@ -23208,13 +21773,13 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
+    "status": "works",
+    "tier": 0,
     "cause": "",
-    "why": "혼용률 83% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "why": "혼용률 135/162(83%)",
+    "basis": "야간 리포트(규칙)",
+    "label": "✅ 된다",
+    "tierLabel": "0 이미 정상",
     "measured": {},
     "urls": []
    },
@@ -23337,13 +21902,13 @@
     ]
    },
    "product": {
-    "status": "partial",
-    "tier": 1,
+    "status": "works",
+    "tier": 0,
     "cause": "",
-    "why": "혼용률 82% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "why": "혼용률 275/335(82%)",
+    "basis": "야간 리포트(규칙)",
+    "label": "✅ 된다",
+    "tierLabel": "0 이미 정상",
     "measured": {},
     "urls": []
    },
@@ -23766,8 +22331,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "서버 프리페치 11/25 240개(6일 240·112·111·111·117·119)",
-    "basis": "야간 리포트(규칙)",
+    "why": "프리페치 11/25 240개(앞 5일 111~119로 흔들림) · 낮 서버 측정 카테고리당 16~84 · 크롬 42~267",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {
@@ -23832,23 +22397,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 10,
       "n": 10,
@@ -23877,7 +22425,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -23888,7 +22435,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -23899,7 +22445,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -23979,12 +22524,13 @@
    },
    "listing": {
     "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
+    "tier": 2,
+    "cause": "Cloudflare 확인 화면 — 헤드리스·파이어폭스 모두 첫 URL 만 열리고 다음 3개 403",
+    "why": "헤드리스 11/25 70·0·0·0 (저장 429 는 옛 수집분)",
+    "basis": "측정·판정",
+    "fix": "카테고리마다 새 창으로 열기(11/25 2차 측정 참고) · 안 되면 확장 또는 유료",
     "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -24056,23 +22602,6 @@
       "by": [
        "Cloudflare"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 4,
-      "urlsOk": 0,
-      "urls": 4,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -24082,8 +22611,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -24092,8 +22620,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -24102,8 +22629,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -24112,20 +22638,20 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
    },
    "product": {
     "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "혼용률 75% — 판정 파일 필요",
-    "basis": "규칙",
+    "tier": 2,
+    "cause": "Cloudflare — 브라우저는 첫 페이지만",
+    "why": "혼용률 322/429",
+    "basis": "측정·판정",
+    "fix": "확장 또는 새 창",
     "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -24227,23 +22753,6 @@
       "by": [
        "Cloudflare"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -24254,8 +22763,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -24265,8 +22773,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -24276,8 +22783,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -24336,12 +22842,13 @@
     }
    },
    "listing": {
-    "status": "partial",
+    "status": "home-only",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "지역: /uk/ 주소가 미국 IP 에서 /us/ 로 넘어가 '미국으로 배송 못 함' 화면 — 차단 아님",
+    "why": "확장 68개(URL 2/3)",
+    "basis": "측정·판정",
+    "fix": "영국 지역 쿠키·파라미터로 열어 보기(무료, 안 재 봄) · 안 되면 영국 IP(유료 서비스의 국가 지정)",
+    "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -24380,7 +22887,7 @@
       ],
       "causes": [
        "geo",
-       "blocked"
+       "dead"
       ],
       "status": [
        200,
@@ -24403,7 +22910,7 @@
       ],
       "causes": [
        "geo",
-       "blocked"
+       "dead"
       ],
       "status": [
        200,
@@ -24412,23 +22919,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -24438,8 +22928,7 @@
       "engines": {
        "impit": "0/3 geo",
        "playwright": "0/1 geo",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 geo"
       }
      },
      {
@@ -24447,9 +22936,8 @@
       "cat": "sweatshirts",
       "engines": {
        "impit": "0/3 geo",
-       "playwright": "0/1 blocked 404",
-       "firefox": "0/1 blocked 404",
-       "camoufox": "0/1 error"
+       "playwright": "0/1 dead 404",
+       "firefox": "0/1 dead 404"
       }
      },
      {
@@ -24457,20 +22945,20 @@
       "cat": "dresses",
       "engines": {
        "impit": "0/3 geo",
-       "playwright": "0/1 blocked 404",
-       "firefox": "0/1 blocked 404",
-       "camoufox": "0/1 error"
+       "playwright": "0/1 dead 404",
+       "firefox": "0/1 dead 404"
       }
      }
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "blocked",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "같은 지역 이동 — 데이터센터 모든 엔진 · 파이어폭스 보강 11/25 63/68 차단",
+    "why": "혼용률 0/68",
+    "basis": "측정·판정",
+    "fix": "영국 지역으로 열기(추정) 또는 확장 탭 보강",
+    "label": "⛔ 어디서도 막힘",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -24539,7 +23027,7 @@
       ],
       "causes": [
        "geo",
-       "blocked"
+       "dead"
       ],
       "status": [
        200,
@@ -24562,7 +23050,7 @@
       ],
       "causes": [
        "geo",
-       "blocked"
+       "dead"
       ],
       "status": [
        200,
@@ -24571,23 +23059,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -24598,8 +23069,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 geo",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 geo"
       }
      },
      {
@@ -24608,9 +23078,8 @@
        "impit": "0/1 geo",
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
-       "playwright": "0/1 blocked 404",
-       "firefox": "0/1 blocked 404",
-       "camoufox": "0/1 error"
+       "playwright": "0/1 dead 404",
+       "firefox": "0/1 dead 404"
       }
      },
      {
@@ -24620,28 +23089,12 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 geo",
-       "firefox": "0/1 geo",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 geo"
       }
      }
     ]
    },
-   "blocker": {
-    "by": "Akamai",
-    "confidence": "낮음",
-    "signals": [
-     "Akamai: x-akamai-* 헤더"
-    ],
-    "title": "Page Not Found | The White Company US",
-    "status": 404,
-    "engine": "playwright",
-    "url": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear",
-    "cookies": [],
-    "headers": {
-     "content-type": "text/html;charset=UTF-8",
-     "x-akamai-transformed": "0 - 0 -"
-    }
-   }
+   "blocker": null
   },
   {
    "brand": "Theory",
@@ -24673,9 +23126,10 @@
    "listing": {
     "status": "home-only",
     "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 379개 저장",
-    "basis": "카탈로그(규칙)",
+    "cause": "Akamai 거부 — 모든 엔진",
+    "why": "확장 379개",
+    "basis": "측정·판정",
+    "fix": "확장 유지",
     "label": "🏠 집 IP(확장)에서만",
     "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
@@ -24745,23 +23199,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -24771,8 +23208,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -24781,8 +23217,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -24791,8 +23226,7 @@
       "engines": {
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      },
      {
@@ -24815,8 +23249,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "혼용률 365/379(96%)",
-    "basis": "야간 리포트(규칙)",
+    "why": "혼용률 365/379(96%) 확장 몫",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {},
@@ -25288,12 +23722,13 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "partial",
+    "status": "misread",
     "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "서버가 tops 6개 말고는 0개 — 같은 페이지 평 HTML 에 상품 링크 22~25개, 크롬도 21~25개 · URL 1개는 첫 화면으로 튕김",
+    "why": "프리페치 6일 내내 6개(저장 58 은 옛 수집분)",
+    "basis": "측정·판정",
+    "fix": "서버 목록 읽기 보완 또는 헤드리스(무료) + 죽은 URL 교체",
+    "label": "🔧 열리는데 잘못 읽음",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -25361,23 +23796,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 4,
       "n": 12,
@@ -25407,7 +23825,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -25418,7 +23835,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -25429,7 +23845,6 @@
        "impit": "0/3 dead",
        "playwright": "0/1 dead",
        "firefox": "0/1 dead",
-       "camoufox": "0/1 error",
        "server": "0/2 shell"
       }
      },
@@ -26082,13 +24497,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "서버 프리페치 11/25 151개(6일 151·145·143·143·143·148)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "partial",
+    "tier": 1,
+    "cause": "평 HTML 엔 상품이 없음(스크립트가 그림) — 서버는 리더 프록시로 tops·dresses·pants 만 · 크롬도 6~10개만(지연 로딩)",
+    "why": "프리페치 143~151개(저장 560 은 옛 수집분 포함)",
+    "basis": "측정·판정",
+    "fix": "헤드리스로 옮기고 스크롤·더 보기 처리(무료, 추정)",
+    "label": "🟠 일부만",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -26151,23 +24567,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 3,
       "n": 10,
@@ -26200,7 +24599,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "1/2 rate-limit 429"
       }
      },
@@ -26211,7 +24609,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 rate-limit 429"
       }
      },
@@ -26222,7 +24619,6 @@
        "impit": "0/3 no-cards",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 shell·rate-limit 429"
       }
      },
@@ -26456,12 +24852,13 @@
    },
    "listing": {
     "status": "partial",
-    "tier": 1,
-    "cause": "",
-    "why": "규칙으로 못 정함 — 판정 파일 필요",
-    "basis": "규칙",
+    "tier": 2,
+    "cause": "Akamai 거부 — 우리 엔진 전부 403(Chico's 와 같은 회사). 서버는 리더 프록시 우회로만 — 오늘 낮엔 됐고 밤엔 6일 연속 2개",
+    "why": "프리페치 6일 2개 · 카탈로그 11/18 이후 갱신 없음",
+    "basis": "측정·판정",
+    "fix": "확장 담당으로 옮김 또는 유료",
     "label": "🟠 일부만",
-    "tierLabel": "1 무료 변경(우리 쪽)",
+    "tierLabel": "2 집 IP 필요(확장)",
     "measured": {
      "impit": {
       "ok": 0,
@@ -26530,23 +24927,6 @@
        "Akamai"
       ]
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 5,
-      "urlsOk": 0,
-      "urls": 5,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 10,
       "n": 10,
@@ -26577,7 +24957,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -26588,7 +24967,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -26599,7 +24977,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -26610,7 +24987,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      },
@@ -26621,7 +24997,6 @@
        "impit": "0/3 blocked 403",
        "playwright": "0/1 blocked 403",
        "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error",
        "server": "2/2"
       }
      }
@@ -26630,9 +25005,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 34% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "Akamai — 크롬·impit 403 · 파이어폭스 2/3 · 보관본 2/3",
+    "why": "혼용률 75/219",
+    "basis": "측정·판정",
+    "fix": "파이어폭스 보강 + 웹 아카이브(무료, 러너마다 갈림)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -26735,23 +25111,6 @@
       "by": [
        "Akamai"
       ]
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -26762,8 +25121,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -26773,8 +25131,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -26784,8 +25141,7 @@
        "site-api": "0/1 error",
        "wayback": "1/1",
        "playwright": "0/1 blocked 403",
-       "firefox": "0/1 blocked 403",
-       "camoufox": "0/1 error"
+       "firefox": "0/1 blocked 403"
       }
      }
     ]
@@ -27005,13 +25361,14 @@
     "chromiumBlockedSince": null
    },
    "listing": {
-    "status": "works",
-    "tier": 0,
-    "cause": "",
-    "why": "서버 프리페치 11/25 184개(6일 184·182·190·223·114·267)",
-    "basis": "야간 리포트(규칙)",
-    "label": "✅ 된다",
-    "tierLabel": "0 이미 정상",
+    "status": "partial",
+    "tier": 1,
+    "cause": "서버 직접 fetch 가 'fetch failed'(Worker 도 404) → 리더 프록시로만 읽어 매일 114~267개로 흔들림. 평 HTML(impit)·크롬은 15/15 성공",
+    "why": "프리페치 6일 184·182·190·223·114·267",
+    "basis": "측정·판정",
+    "fix": "서버 fetch 를 브라우저 TLS 지문 fetch(impit 류)로 — 무료",
+    "label": "🟠 일부만",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 15,
@@ -27074,23 +25431,6 @@
       ],
       "by": []
      },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578696329"
-      ],
-      "ips": [
-       "74.235.103.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
-     },
      "server": {
       "ok": 3,
       "n": 12,
@@ -27122,7 +25462,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "1/2 rate-limit 429"
       }
      },
@@ -27133,7 +25472,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 rate-limit 429"
       }
      },
@@ -27144,7 +25482,6 @@
        "impit": "3/3",
        "playwright": "1/1",
        "firefox": "1/1",
-       "camoufox": "0/1 error",
        "server": "0/2 rate-limit 429"
       }
      },
@@ -27177,9 +25514,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 78% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "야간 보강의 직접 fetch 가 76개 '직접차단' · 오늘 impit·크롬·파이어폭스 3/3 읽음",
+    "why": "혼용률 143/184",
+    "basis": "측정·판정",
+    "fix": "야간 보강 fetch 를 impit 류로(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -27273,23 +25611,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -27300,8 +25621,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 error",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -27311,8 +25631,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 error",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -27322,8 +25641,7 @@
        "site-api": "0/1 error",
        "wayback": "0/1 error",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
@@ -27362,12 +25680,13 @@
    },
    "listing": {
     "status": "home-only",
-    "tier": 2,
-    "cause": "datacenter-block",
-    "why": "확장이 52개 저장",
-    "basis": "카탈로그(규칙)",
+    "tier": 1,
+    "cause": "차단 없음 — 데이터센터 모든 엔진 성공(크롬·파이어폭스 24~28개 > 확장 4~19개)",
+    "why": "확장 52개",
+    "basis": "측정·판정",
+    "fix": "헤드리스 크롬 그룹으로 옮김(무료)",
     "label": "🏠 집 IP(확장)에서만",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 15,
@@ -27429,23 +25748,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578690977"
-      ],
-      "ips": [
-       "52.176.139.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -27455,8 +25757,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -27465,8 +25766,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -27475,8 +25775,7 @@
       "engines": {
        "impit": "3/3",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -27505,9 +25804,10 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 54% — 판정 파일 필요",
-    "basis": "규칙",
+    "cause": "접근 문제 없음 — 오늘 모든 엔진 3/3 읽음. 아직 보강이 안 돈 것",
+    "why": "혼용률 28/52",
+    "basis": "측정·판정",
+    "fix": "야간 보강 대상에 넣기(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
@@ -27604,23 +25904,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578730036"
-      ],
-      "ips": [
-       "13.86.110.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -27631,8 +25914,7 @@
        "site-api": "0/1 geo",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -27642,8 +25924,7 @@
        "site-api": "0/1 geo",
        "wayback": "1/1",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -27653,8 +25934,7 @@
        "site-api": "0/1 geo",
        "wayback": "0/1 error",
        "playwright": "1/1",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]
@@ -28244,8 +26524,8 @@
     "status": "works",
     "tier": 0,
     "cause": "",
-    "why": "서버 프리페치 11/25 499개(6일 499·499·500·400·500·500)",
-    "basis": "야간 리포트(규칙)",
+    "why": "서버 프리페치 499개(Zara 전용 경로) · 평 HTML 은 Akamai 빈 확인 화면이지만 서버 길은 영향 없음",
+    "basis": "측정·판정",
     "label": "✅ 된다",
     "tierLabel": "0 이미 정상",
     "measured": {
@@ -28319,12 +26599,13 @@
     ]
    },
    "product": {
-    "status": "partial",
+    "status": "works",
     "tier": 1,
-    "cause": "",
-    "why": "혼용률 0% — 판정 파일 필요",
-    "basis": "규칙",
-    "label": "🟠 일부만",
+    "cause": "평 HTML·크롬은 Akamai · 파이어폭스는 열림",
+    "why": "파이어폭스 보강 11/25 04:10 120/120 · 오늘 파이어폭스 3/3. 엑셀 채움률(11/25 03:39) 0% 는 그 직전 숫자 — 채우는 중",
+    "basis": "측정·판정",
+    "fix": "이미 적용(파이어폭스 보강) — 상한 120개/회라 499개 채우는 데 며칠",
+    "label": "✅ 된다",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
@@ -28426,23 +26707,6 @@
        200
       ],
       "by": []
-     },
-     "camoufox": {
-      "ok": 0,
-      "n": 3,
-      "urlsOk": 0,
-      "urls": 3,
-      "runs": [
-       "45578722275"
-      ],
-      "ips": [
-       "172.190.93.x"
-      ],
-      "causes": [
-       "error"
-      ],
-      "status": [],
-      "by": []
      }
     },
     "urls": [
@@ -28453,8 +26717,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -28464,8 +26727,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "0/1 no-archive",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      },
      {
@@ -28475,8 +26737,7 @@
        "site-api": "0/1 blocked 403",
        "wayback": "0/1 no-comp",
        "playwright": "0/1 blocked 403",
-       "firefox": "1/1",
-       "camoufox": "0/1 error"
+       "firefox": "1/1"
       }
      }
     ]

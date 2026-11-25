@@ -1,15 +1,23 @@
-2026-11-25T09:20Z 10
+2026-11-25T09:35Z 10
 | 상태 | 브랜드 | 상품(카탈로그) | 브랜드 이름 |
 |---|---:|---:|---|
-| ✅ 된다 | 94 | 27,617 | Addison bay, Aerie, ALC, Alo, American Eagle, Apiece Apart, Barbour, Bash, Bassike, Bellerose, Beyond yoga, Boden, Boldest, Buck Mason, Carlhartt, CCC, Citizens of Humanity, Club monaco, Coldwatercreek, Cotton citizen, Cotton on, Damson Madder, Dickies, Draper James, Eddie bauer, English factory, Evereve, Everlane, Faherty, Frame, Frank & Eileen, Gerard darel, Gestuz, Goldie, Good American, Greyson, Gymshark, Hobbs, J crew, J.jill, J.mclaughlin, Jager, James Perse, Jigsaw, La Ligne, Leset, Lilla P, LNA, Marine Layer, Me+Em, Michael Stars, Mint velvet, Monrow, Nation LTD, Nike, Ninety Percent, Nylora, Oak + Fort, Oasis, On, Outdoorvoices, Phase eight, Poetry, Project Social T, Rag & bone, Rails, Reformation, rouje, Sanctuary, Scoth & soda, Sessun, Shopbop, Spanx, Splendid, Splits59, Stateside, Sundry, Sweaty betty, The Great, Thread & supply, Tuckernuck, Ulla Johnson, Varley, Velvet, Veronica Beard, Vince, vineyardvines, Vuori, Whistles, Whitestuff, Wrap, Xirena, Z Supply, Zara |
-| 🏠 집 IP(확장)에서만 | 22 | 7,153 | Abercrombie & Fitch, Ann Taylor, Anthropologie, Aritzia, Eileen fisher, FP Movement, Free People, Garnet hill, H&M, L.L bean, Lands end, Loft, Lululemon, Madewell, Mango, Massimo Dutti, Paige, Patagonia, Seasalt cornwall, Sezane, Theory, Wilson |
-| 🟠 일부만 | 18 | 3,750 | &Other Stories, Addidas, Arket, Athleta, Banana Republic, Chico's, Fatface, Gap, Joules, Lucky Brand, Monsoon, Old Navy, Oysho, Prana, The upside, The white company, Vanessa bruno, WHBM |
+| ✅ 된다 | 84 | 23,496 | Addison bay, Aerie, ALC, Alo, American Eagle, Apiece Apart, Barbour, Bassike, Bellerose, Beyond yoga, Boden, Boldest, Buck Mason, CCC, Citizens of Humanity, Club monaco, Coldwatercreek, Cotton citizen, Cotton on, Damson Madder, Draper James, Eddie bauer, English factory, Evereve, Everlane, Faherty, Frame, Frank & Eileen, Gerard darel, Gestuz, Goldie, Greyson, Gymshark, Hobbs, J crew, J.jill, J.mclaughlin, Jager, Jigsaw, La Ligne, Leset, Lilla P, LNA, Marine Layer, Me+Em, Michael Stars, Mint velvet, Monrow, Ninety Percent, Nylora, Oak + Fort, Oasis, On, Outdoorvoices, Phase eight, Poetry, Project Social T, Rag & bone, Rails, rouje, Sanctuary, Scoth & soda, Sessun, Shopbop, Spanx, Splendid, Splits59, Stateside, Sundry, Sweaty betty, The Great, Thread & supply, Tuckernuck, Ulla Johnson, Varley, Velvet, Veronica Beard, Vince, Vuori, Whistles, Wrap, Xirena, Z Supply, Zara |
+| 🏠 집 IP(확장)에서만 | 27 | 8,982 | &Other Stories, Abercrombie & Fitch, Addidas, Ann Taylor, Anthropologie, Aritzia, Arket, Eileen fisher, Fatface, FP Movement, Free People, H&M, Joules, L.L bean, Lands end, Loft, Lululemon, Madewell, Mango, Massimo Dutti, Paige, Patagonia, Seasalt cornwall, Sezane, The white company, Theory, Wilson |
+| 🟠 일부만 | 9 | 4,104 | Chico's, Garnet hill, James Perse, Nation LTD, Reformation, The upside, vineyardvines, WHBM, Whitestuff |
+| ⛔ 어디서도 막힘 | 1 | 81 | Prana |
+| 🔗 URL 이 틀림·죽음 | 2 | 786 | Good American, Lucky Brand |
+| 🔧 열리는데 잘못 읽음 | 11 | 1,071 | Athleta, Banana Republic, Bash, Carlhartt, Dickies, Gap, Monsoon, Nike, Old Navy, Oysho, Vanessa bruno |
 | **합계** | **134** | **38,520** | |
 
 | 상태 | 브랜드 | 상품(카탈로그) | 브랜드 이름 |
 |---|---:|---:|---|
-| ✅ 된다 | 84 | 24,285 | Addison bay, Aerie, ALC, Alo, American Eagle, Ann Taylor, Apiece Apart, Barbour, Bash, Bassike, Bellerose, Beyond yoga, Boden, Boldest, CCC, Citizens of Humanity, Cotton citizen, Cotton on, Damson Madder, Draper James, Eddie bauer, Eileen fisher, English factory, Evereve, Faherty, Frame, Frank & Eileen, Gerard darel, Gestuz, Goldie, Good American, Greyson, Gymshark, Hobbs, J.jill, J.mclaughlin, Jager, James Perse, Jigsaw, L.L bean, La Ligne, Lands end, Lilla P, LNA, Lucky Brand, Madewell, Marine Layer, Me+Em, Monrow, Monsoon, Nation LTD, Ninety Percent, Nylora, Oak + Fort, Oasis, Old Navy, On, Outdoorvoices, Phase eight, Project Social T, Rag & bone, Rails, Sanctuary, Scoth & soda, Seasalt cornwall, Shopbop, Sundry, Sweaty betty, The Great, Theory, Thread & supply, Tuckernuck, Ulla Johnson, Vanessa bruno, Varley, Velvet, Veronica Beard, Vince, vineyardvines, Vuori, Whistles, Wrap, Xirena, Z Supply |
-| 🟠 일부만 | 50 | 14,235 | &Other Stories, Abercrombie & Fitch, Addidas, Anthropologie, Aritzia, Arket, Athleta, Banana Republic, Buck Mason, Carlhartt, Chico's, Club monaco, Coldwatercreek, Dickies, Everlane, Fatface, FP Movement, Free People, Gap, Garnet hill, H&M, J crew, Joules, Leset, Loft, Lululemon, Mango, Massimo Dutti, Michael Stars, Mint velvet, Nike, Oysho, Paige, Patagonia, Poetry, Prana, Reformation, rouje, Sessun, Sezane, Spanx, Splendid, Splits59, Stateside, The upside, The white company, WHBM, Whitestuff, Wilson, Zara |
+| ✅ 된다 | 91 | 26,866 | Addison bay, Aerie, ALC, Alo, American Eagle, Ann Taylor, Apiece Apart, Barbour, Bash, Bassike, Bellerose, Beyond yoga, Boden, Boldest, CCC, Citizens of Humanity, Club monaco, Cotton citizen, Cotton on, Damson Madder, Draper James, Eddie bauer, Eileen fisher, English factory, Evereve, Faherty, Frame, Frank & Eileen, Gerard darel, Gestuz, Goldie, Good American, Greyson, Gymshark, Hobbs, J.jill, J.mclaughlin, Jager, James Perse, Jigsaw, L.L bean, La Ligne, Lands end, Leset, Lilla P, LNA, Lucky Brand, Madewell, Marine Layer, Me+Em, Michael Stars, Monrow, Monsoon, Nation LTD, Nike, Ninety Percent, Nylora, Oak + Fort, Oasis, On, Outdoorvoices, Phase eight, Project Social T, Rag & bone, Rails, Sanctuary, Scoth & soda, Seasalt cornwall, Shopbop, Splendid, Splits59, Stateside, Sundry, Sweaty betty, The Great, Theory, Thread & supply, Tuckernuck, Ulla Johnson, Vanessa bruno, Varley, Velvet, Veronica Beard, Vince, vineyardvines, Vuori, Whistles, Wrap, Xirena, Z Supply, Zara |
+| 🏠 집 IP(확장)에서만 | 5 | 1,510 | &Other Stories, Abercrombie & Fitch, Aritzia, Mango, Paige |
+| 🟠 일부만 | 18 | 5,452 | Arket, Buck Mason, Coldwatercreek, Dickies, Everlane, Free People, J crew, Joules, Loft, Mint velvet, Patagonia, Poetry, Reformation, Spanx, The upside, WHBM, Whitestuff, Wilson |
+| ⛔ 어디서도 막힘 | 11 | 3,593 | Addidas, Anthropologie, Chico's, Fatface, FP Movement, Garnet hill, H&M, Lululemon, Prana, Sezane, The white company |
+| 🔗 URL 이 틀림·죽음 | 1 | 81 | Sessun |
+| 🔧 열리는데 잘못 읽음 | 7 | 786 | Athleta, Banana Republic, Carlhartt, Gap, Massimo Dutti, Old Navy, Oysho |
+| 📭 사이트가 혼용률을 안 적음 | 1 | 232 | rouje |
 | **합계** | **134** | **38,520** | |
 
 28,312/38,520 10,208
@@ -28,7 +36,6 @@
 | Akamai | 높음 | Lululemon | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | Massimo Dutti | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
 | Akamai | 높음 | Oysho | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
-| Akamai | 낮음 | The white company | HTTP 404 · 제목 "Page Not Found / The White Company US" · Akamai: x-akamai-* 헤더 |
 | Akamai | 높음 | Theory | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | WHBM | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | Zara | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
@@ -44,17 +51,25 @@
 | DataDome | 높음 | FP Movement | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | Free People | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | Sezane | HTTP 403 · 제목 "sezane.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge / CloudFront: x-amz-cf-* 헤더 |
-| 알 수 없음 | - | Abercrombie & Fitch | HTTP 200 · 제목 "Client Challenge" ·  |
-| 알 수 없음 | - | Sessun | HTTP 404 · 제목 "404 Page Not Found" ·  |
 | HUMAN(PerimeterX) | 높음 | Ann Taylor | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXmmBMD3jC/main.min.js, 불러온 주소 if |
 | HUMAN(PerimeterX) | 높음 | Loft | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXYvG65JJE/main.min.js, 불러온 주소 if |
 | Vercel | 높음 | Mango | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
 | Vercel | 높음 | Paige | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
+| 알 수 없음 | - | Abercrombie & Fitch | HTTP 200 · 제목 "Client Challenge" ·  |
 
-(없음)
+| 브랜드 | 지금 URL | 근거 | 바꿀 것 |
+|---|---|---|---|
+| Addidas | https://www.adidas.com/us/women-tops?sort=newest-to-oldest | 확장이 이 URL 에서 0개(catalog-audit 11/25). 데이터센터는 차단이라 확인 못 함 | 정렬 파라미터 없는 /us/women-tops 로(추정) |
+| Fatface | https://www.fatface.com/shop/womens/clothing/tops/t-shirts | 확장이 이 URL 에서 0개(catalog-audit 11/25). 데이터센터는 차단이라 확인 못 함 | 담당자가 사이트에서 확인 |
+| Good American | https://www.goodamerican.com/en-kr/collections/… (카테고리 전부) | 11/25 impit 2회: /en-kr/ → /collections/… 로 이동 | https://www.goodamerican.com/collections/… (지역 없는 주소) |
+| Joules | https://www.joules.com/shop/womens/clothing/tops | 확장이 이 URL 에서 0개(catalog-audit 11/25) | 담당자가 사이트에서 확인 |
+| Lucky Brand | https://www.luckybrand.com/women/clothing/shirts/blouses | 11/25 헤드리스 0개 · 진단 페이지 제목 'Search / Lucky Brand' · 오늘 크롬·파이어폭스 0개 | 담당자가 블라우스 카테고리 현재 주소 확인 |
+| Oysho | https://www.oysho.com/gb/dresses-jumpsuits-n4954 | 확장이 0개(catalog-audit 11/25) | 담당자가 사이트에서 확인 |
+| The white company | https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts | 확장이 0개(catalog-audit 11/25) · 데이터센터는 /us/ 로 이동 | 담당자가 영국 사이트에서 현재 주소 확인 |
+| Vanessa bruno | https://www.vanessabruno.com/last-chance/knitwear.html | 11/25 impit 3회·크롬·파이어폭스: 첫 화면(/)으로 이동 | 담당자가 니트 카테고리 새 주소 확인 |
 
 
-### ✅ 된다 — 94개 브랜드 · 상품 27,617개
+### ✅ 된다 — 84개 브랜드 · 상품 23,496개
 
 | 브랜드 | 담당 | 상품 | 혼용률 | 근거 |
 |---|---|---:|---:|---|
@@ -65,14 +80,12 @@
 | American Eagle | 헤드리스(Actions) | 178 | 99% | 헤드리스 11/25 178개 · URL 30·30·30·30·30·30 · 야간 리포트(규칙) |
 | Apiece Apart | 헤드리스(Actions) | 102 | 94% | 헤드리스 11/25 102개 · URL 39·39·24 · 야간 리포트(규칙) |
 | Barbour | 헤드리스(Actions) | 170 | 90% | 헤드리스 11/25 170개 · URL 41·41·41·34·38 · 야간 리포트(규칙) |
-| Bash | 서버(Render) | 50 | 94% | 서버 프리페치 11/25 50개(6일 50·56·34·43·35·43) · 야간 리포트(규칙) |
 | Bassike | 서버(Render) | 318 | 97% | 서버 프리페치 11/25 318개(6일 318·320·278·320·320·324) · 야간 리포트(규칙) |
 | Bellerose | 서버(Render) | 231 | 91% | 서버 프리페치 11/25 231개(6일 231·171·172·172·172·169) · 야간 리포트(규칙) |
 | Beyond yoga | 서버(Render) | 175 | 98% | 서버 프리페치 11/25 175개(6일 175·175·178·178·178·179) · 야간 리포트(규칙) |
 | Boden | 서버(Render) | 331 | 94% | 서버 프리페치 11/25 331개(6일 331·341·344·343·342·343) · 야간 리포트(규칙) |
 | Boldest | 헤드리스(Actions) | 136 | 100% | 헤드리스 11/25 136개 · URL 71·65 · 야간 리포트(규칙) |
 | Buck Mason | 서버(Render) | 119 | 48% | 서버 프리페치 11/25 119개(6일 119·120·120·120·119·118) · 야간 리포트(규칙) |
-| Carlhartt | 헤드리스(Actions) | 148 | 73% | 헤드리스 11/25 148개 · URL 77·78·62·61·25 · 야간 리포트(규칙) |
 | CCC | 헤드리스(Actions) | 800 | 94% | 헤드리스 11/25 240개 · URL 53·53·53·53·53 · 야간 리포트(규칙) |
 | Citizens of Humanity | 서버(Render) | 171 | 95% | 서버 프리페치 11/25 171개(6일 171·171·171·171·171·171) · 야간 리포트(규칙) |
 | Club monaco | 서버(Render) | 169 | 82% | 서버 프리페치 11/25 169개(6일 169·169·171·171·171·172) · 야간 리포트(규칙) |
@@ -80,7 +93,6 @@
 | Cotton citizen | 서버(Render) | 283 | 88% | 서버 프리페치 11/25 283개(6일 283·282·282·282·286·288) · 야간 리포트(규칙) |
 | Cotton on | 헤드리스(Actions) | 470 | 100% | 헤드리스 11/25 470개 · URL 189·189·36·52·189 · 야간 리포트(규칙) |
 | Damson Madder | 서버(Render) | 385 | 98% | 서버 프리페치 11/25 385개(6일 385·394·372·372·372·347) · 야간 리포트(규칙) |
-| Dickies | 서버(Render) | 260 | 55% | 서버 프리페치 11/25 72개(6일 72·72·60·71·71·71) · 야간 리포트(규칙) |
 | Draper James | 서버(Render) | 147 | 93% | 서버 프리페치 11/25 147개(6일 147·147·147·148·148·148) · 야간 리포트(규칙) |
 | Eddie bauer | 서버(Render) | 200 | 95% | 서버 프리페치 11/25 200개(6일 200·210·211·202·171·174) · 야간 리포트(규칙) |
 | English factory | 서버(Render) | 269 | 93% | 서버 프리페치 11/25 269개(6일 269·271·268·268·268·268) · 야간 리포트(규칙) |
@@ -88,11 +100,10 @@
 | Everlane | 서버(Render) | 443 | 67% | 서버 프리페치 11/25 443개(6일 443·444·450·451·455·454) · 야간 리포트(규칙) |
 | Faherty | 서버(Render) | 170 | 95% | 서버 프리페치 11/25 170개(6일 170·170·172·172·175·177) · 야간 리포트(규칙) |
 | Frame | 서버(Render) | 189 | 89% | 서버 프리페치 11/25 189개(6일 189·190·191·191·191·190) · 야간 리포트(규칙) |
-| Frank & Eileen | 서버(Render) | 448 | 99% | 서버 프리페치 11/25 80개(6일 80·446·446·446·445·445) · 야간 리포트(규칙) |
+| Frank & Eileen | 서버(Render) | 448 | 99% | 프리페치 445~446개(11/25 하루만 80 — 같은 날 낮 서버 측정은 카테고리당 33~99개) · 측정·판정 |
 | Gerard darel | 헤드리스(Actions) | 138 | 97% | 헤드리스 11/25 138개 · URL 23·50·33·38 · 야간 리포트(규칙) |
 | Gestuz | 헤드리스(Actions) | 643 | 93% | 헤드리스 11/25 643개 · URL 135·116·116·62·181·97 · 야간 리포트(규칙) |
 | Goldie | 서버(Render) | 139 | 99% | 서버 프리페치 11/25 139개(6일 139·139·138·138·138·138) · 야간 리포트(규칙) |
-| Good American | 서버(Render) | 625 | 85% | 서버 프리페치 11/25 216개(6일 216·205·212·183·181·199) · 야간 리포트(규칙) |
 | Greyson | 서버(Render) | 93 | 96% | 서버 프리페치 11/25 93개(6일 93·93·93·93·93·93) · 야간 리포트(규칙) |
 | Gymshark | 서버(Render) | 274 | 99% | 서버 프리페치 11/25 274개(6일 274·275·277·280·285·290) · 야간 리포트(규칙) |
 | Hobbs | 서버(Render) | 353 | 91% | 서버 프리페치 11/25 353개(6일 353·352·352·353·352·351) · 야간 리포트(규칙) |
@@ -100,7 +111,6 @@
 | J.jill | 서버(Render) | 89 | 93% | 서버 프리페치 11/25 89개(6일 89·89·89·90·88·89) · 야간 리포트(규칙) |
 | J.mclaughlin | 헤드리스(Actions) | 516 | 91% | 헤드리스 11/25 201개 · URL 25·69·42·77 · 야간 리포트(규칙) |
 | Jager | 서버(Render) | 402 | 93% | 서버 프리페치 11/25 402개(6일 402·403·402·400·401·401) · 야간 리포트(규칙) |
-| James Perse | 서버(Render) | 526 | 100% | 서버 프리페치 11/25 142개(6일 142·144·151·155·155·155) · 야간 리포트(규칙) |
 | Jigsaw | 서버(Render) | 315 | 97% | 서버 프리페치 11/25 315개(6일 315·315·311·311·311·311) · 야간 리포트(규칙) |
 | La Ligne | 서버(Render) | 397 | 98% | 서버 프리페치 11/25 397개(6일 397·394·391·389·388·388) · 야간 리포트(규칙) |
 | Leset | 헤드리스(Actions) | 326 | 84% | 헤드리스 11/25 326개 · URL 123·54·176·82·23·47 · 야간 리포트(규칙) |
@@ -111,8 +121,6 @@
 | Michael Stars | 서버(Render) | 203 | 83% | 서버 프리페치 11/25 203개(6일 203·209·209·209·209·199) · 야간 리포트(규칙) |
 | Mint velvet | 서버(Render) | 416 | 70% | 서버 프리페치 11/25 416개(6일 416·416·417·417·417·417) · 야간 리포트(규칙) |
 | Monrow | 서버(Render) | 200 | 93% | 서버 프리페치 11/25 200개(6일 200·198·197·197·197·197) · 야간 리포트(규칙) |
-| Nation LTD | 서버(Render) | 525 | 100% | 서버 프리페치 11/25 161개(6일 161·164·164·164·164·164) · 야간 리포트(규칙) |
-| Nike | 헤드리스(Actions) | 490 | 82% | 헤드리스 11/25 490개 · URL 150·174·139·86 · 야간 리포트(규칙) |
 | Ninety Percent | 서버(Render) | 156 | 99% | 서버 프리페치 11/25 156개(6일 156·156·156·156·156·156) · 야간 리포트(규칙) |
 | Nylora | 서버(Render) | 237 | 96% | 서버 프리페치 11/25 237개(6일 237·236·236·236·236·233) · 야간 리포트(규칙) |
 | Oak + Fort | 서버(Render) | 336 | 100% | 서버 프리페치 11/25 336개(6일 336·337·336·337·337·337) · 야간 리포트(규칙) |
@@ -124,19 +132,18 @@
 | Project Social T | 서버(Render) | 275 | 91% | 서버 프리페치 11/25 275개(6일 275·275·275·275·275·275) · 야간 리포트(규칙) |
 | Rag & bone | 서버(Render) | 244 | 99% | 서버 프리페치 11/25 244개(6일 244·241·237·238·240·244) · 야간 리포트(규칙) |
 | Rails | 서버(Render) | 290 | 85% | 서버 프리페치 11/25 290개(6일 290·290·289·289·289·289) · 야간 리포트(규칙) |
-| Reformation | 서버(Render) | 753 | 35% | 서버 프리페치 11/25 221개(6일 221·218·221·222·56·58) · 야간 리포트(규칙) |
 | rouje | 서버(Render) | 232 | 64% | 서버 프리페치 11/25 232개(6일 232·232·232·232·232·232) · 야간 리포트(규칙) |
 | Sanctuary | 서버(Render) | 421 | 98% | 서버 프리페치 11/25 421개(6일 421·421·421·421·422·422) · 야간 리포트(규칙) |
 | Scoth & soda | 서버(Render) | 378 | 96% | 서버 프리페치 11/25 378개(6일 378·379·382·384·385·387) · 야간 리포트(규칙) |
 | Sessun | 서버(Render) | 81 | 42% | 서버 프리페치 11/25 81개(6일 81·79·69·80·78·81) · 야간 리포트(규칙) |
 | Shopbop | 헤드리스(Actions) | 453 | 86% | 헤드리스 11/25 453개 · URL 237·242·240·246 · 야간 리포트(규칙) |
 | Spanx | 서버(Render) | 84 | 79% | 서버 프리페치 11/25 84개(6일 84·79·79·81·80·80) · 야간 리포트(규칙) |
-| Splendid | 서버(Render) | 404 | 84% | 서버 프리페치 11/25 404개(6일 404·403·403·403·403·403) · 야간 리포트(규칙) |
+| Splendid | 서버(Render) | 404 | 84% | 프리페치 403~404개(Shopify 경로) · 평 HTML 은 스크립트가 그림 · 측정·판정 |
 | Splits59 | 서버(Render) | 162 | 83% | 서버 프리페치 11/25 162개(6일 162·183·158·158·158·158) · 야간 리포트(규칙) |
 | Stateside | 서버(Render) | 335 | 82% | 서버 프리페치 11/25 335개(6일 335·335·335·335·335·335) · 야간 리포트(규칙) |
 | Sundry | 서버(Render) | 246 | 96% | 서버 프리페치 11/25 246개(6일 246·246·246·246·246·246) · 야간 리포트(규칙) |
 | Sweaty betty | 헤드리스(Actions) | 405 | 95% | 헤드리스 11/25 78개 · URL 36·36·23·39 · 야간 리포트(규칙) |
-| The Great | 서버(Render) | 240 | 97% | 서버 프리페치 11/25 240개(6일 240·112·111·111·117·119) · 야간 리포트(규칙) |
+| The Great | 서버(Render) | 240 | 97% | 프리페치 11/25 240개(앞 5일 111~119로 흔들림) · 낮 서버 측정 카테고리당 16~84 · 크롬 42~267 · 측정·판정 |
 | Thread & supply | 서버(Render) | 258 | 97% | 서버 프리페치 11/25 258개(6일 258·258·258·258·258·258) · 야간 리포트(규칙) |
 | Tuckernuck | 서버(Render) | 376 | 88% | 서버 프리페치 11/25 376개(6일 376·379·378·379·378·382) · 야간 리포트(규칙) |
 | Ulla Johnson | 서버(Render) | 307 | 97% | 서버 프리페치 11/25 307개(6일 307·308·309·309·308·308) · 야간 리포트(규칙) |
@@ -144,67 +151,90 @@
 | Velvet | 서버(Render) | 352 | 100% | 서버 프리페치 11/25 352개(6일 352·352·352·352·352·352) · 야간 리포트(규칙) |
 | Veronica Beard | 서버(Render) | 375 | 93% | 서버 프리페치 11/25 339개(6일 339·338·337·338·337·0) · 야간 리포트(규칙) |
 | Vince | 서버(Render) | 381 | 99% | 서버 프리페치 11/25 381개(6일 381·384·385·385·385·385) · 야간 리포트(규칙) |
-| vineyardvines | 서버(Render) | 560 | 98% | 서버 프리페치 11/25 151개(6일 151·145·143·143·143·148) · 야간 리포트(규칙) |
 | Vuori | 서버(Render) | 219 | 94% | 서버 프리페치 11/25 219개(6일 219·219·219·219·219·219) · 야간 리포트(규칙) |
 | Whistles | 서버(Render) | 217 | 94% | 서버 프리페치 11/25 217개(6일 217·217·216·218·214·214) · 야간 리포트(규칙) |
-| Whitestuff | 서버(Render) | 184 | 78% | 서버 프리페치 11/25 184개(6일 184·182·190·223·114·267) · 야간 리포트(규칙) |
 | Wrap | 헤드리스(Actions) | 374 | 90% | 헤드리스 11/25 374개 · URL 100·115·63·48·91 · 야간 리포트(규칙) |
 | Xirena | 서버(Render) | 333 | 96% | 서버 프리페치 11/25 333개(6일 333·332·321·321·321·271) · 야간 리포트(규칙) |
 | Z Supply | 서버(Render) | 216 | 100% | 서버 프리페치 11/25 216개(6일 216·215·206·208·207·207) · 야간 리포트(규칙) |
-| Zara | 서버(Render) | 499 | 0% | 서버 프리페치 11/25 499개(6일 499·499·500·400·500·500) · 야간 리포트(규칙) |
+| Zara | 서버(Render) | 499 | 0% | 서버 프리페치 499개(Zara 전용 경로) · 평 HTML 은 Akamai 빈 확인 화면이지만 서버 길은 영향 없음 · 측정·판정 |
 
-### 🏠 집 IP(확장)에서만 — 22개 브랜드 · 상품 7,153개
-
-| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
-|---|---|---:|---|---|---|---|---|
-| Abercrombie & Fitch | 크롬 확장(집 PC) | 214 | datacenter-block | 확장이 214개 저장 — 오늘 impit 0/15(blocked) · playwright 0/3(blocked 418) · firefox 0/3(geo) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Ann Taylor | 크롬 확장(집 PC) | 381 | datacenter-block | 확장이 381개 저장 — 오늘 impit 9/9 · playwright 1/3(blocked) · firefox 0/3(blocked) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Anthropologie | 크롬 확장(집 PC) | 270 | datacenter-block | 확장이 270개 저장 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Aritzia | 크롬 확장(집 PC) | 800 | datacenter-block | 확장이 800개 저장 — 오늘 impit 0/15(blocked 403) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Eileen fisher | 크롬 확장(집 PC) | 545 | datacenter-block | 확장이 545개 저장 — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| FP Movement | 크롬 확장(집 PC) | 58 | datacenter-block | 확장이 58개 저장 — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Free People | 크롬 확장(집 PC) | 190 | datacenter-block | 확장이 190개 저장 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Garnet hill | 크롬 확장(집 PC) | 108 | datacenter-block | 확장이 108개 저장 — 오늘 impit 0/11(shell) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| H&M | 크롬 확장(집 PC) | 744 | datacenter-block | 확장이 744개 저장 — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| L.L bean | 크롬 확장(집 PC) | 310 | datacenter-block | 확장이 310개 저장 — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Lands end | 크롬 확장(집 PC) | 469 | datacenter-block | 확장이 469개 저장 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Loft | 크롬 확장(집 PC) | 673 | datacenter-block | 확장이 673개 저장 — 오늘 impit 13/13 · playwright 0/3(blocked) · firefox 1/3(blocked) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Lululemon | 크롬 확장(집 PC) | 476 | datacenter-block | 확장이 476개 저장 — 오늘 impit 0/13(blocked 403) · playwright 0/3(conn-drop) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Madewell | 크롬 확장(집 PC) | 75 | datacenter-block | 확장이 75개 저장 — 오늘 impit 3/11(no-cards) · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Mango | 크롬 확장(집 PC) | 93 | datacenter-block | 확장이 93개 저장 — 오늘 impit 0/15(blocked 429) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Massimo Dutti | 크롬 확장(집 PC) | 603 | datacenter-block | 확장이 603개 저장 — 오늘 impit 0/13(blocked) · playwright 0/3(blocked 403) · firefox 2/3(blocked 404) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Paige | 크롬 확장(집 PC) | 60 | datacenter-block | 확장이 60개 저장 — 오늘 impit 0/13(blocked 429) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Patagonia | 크롬 확장(집 PC) | 168 | datacenter-block | 확장이 168개 저장 — 오늘 impit 0/13(maintenance) · playwright 0/3(maintenance) · firefox 1/3(maintenance) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Seasalt cornwall | 크롬 확장(집 PC) | 279 | datacenter-block | 확장이 279개 저장 — 오늘 impit 13/13 · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Sezane | 크롬 확장(집 PC) | 206 | datacenter-block | 확장이 206개 저장 — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Theory | 크롬 확장(집 PC) | 379 | datacenter-block | 확장이 379개 저장 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-| Wilson | 크롬 확장(집 PC) | 52 | datacenter-block | 확장이 52개 저장 — 오늘 impit 15/15 · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 2 집 IP 필요(확장) | 카탈로그(규칙) · 실행 3회 |
-
-### 🟠 일부만 — 18개 브랜드 · 상품 3,750개
+### 🏠 집 IP(확장)에서만 — 27개 브랜드 · 상품 8,982개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| &Other Stories | 크롬 확장(집 PC) | 343 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Addidas | 크롬 확장(집 PC) | 408 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Arket | 크롬 확장(집 PC) | 285 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Athleta | 크롬 확장(집 PC) | 1 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/12(no-cards) · playwright 1/4(no-cards) · firefox 4/4 · camoufox 0/4(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Banana Republic | 크롬 확장(집 PC) | 1 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/12(no-cards) · playwright 4/4 · firefox 4/4 · camoufox 0/4(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Chico's | 서버(Render) | 800 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/15(blocked 403) · playwright 0/5(blocked 403) · firefox 0/5(blocked 403) · camoufox 0/5(error) · server 6/10(blocked·shell 403) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 5회 |
-| Fatface | 크롬 확장(집 PC) | 374 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Gap | 크롬 확장(집 PC) | 6 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/12(no-cards) · playwright 4/4 · firefox 4/4 · camoufox 0/4(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Joules | 크롬 확장(집 PC) | 459 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Lucky Brand | 헤드리스(Actions) | 161 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 12/12 · playwright 1/2(shell) · firefox 1/2(shell) · camoufox 0/2(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Monsoon | 서버(Render) | 30 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 11/11 · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) · server 3/8(rate-limit·shell 429) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 5회 |
-| Old Navy | 크롬 확장(집 PC) | 7 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/15(no-cards) · playwright 5/5 · firefox 5/5 · camoufox 0/5(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Oysho | 크롬 확장(집 PC) | 20 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/13(blocked) · playwright 0/3(blocked 403) · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Prana | 서버(Render) | 81 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/12(blocked 403) · playwright 1/4(blocked 403) · firefox 1/4(blocked 403) · camoufox 0/4(error) · server 0/8(blocked·shell 403) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 5회 |
-| The upside | 헤드리스(Actions) | 429 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/12(blocked 403) · playwright 1/4(blocked 403) · firefox 1/4(blocked 403) · camoufox 0/4(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| The white company | 크롬 확장(집 PC) | 68 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/9(geo) · playwright 0/3(geo·blocked 404) · firefox 0/3(geo·blocked 404) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 3회 |
-| Vanessa bruno | 서버(Render) | 58 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 6/15(no-cards·dead) · playwright 2/3(dead) · firefox 2/3(dead) · camoufox 0/3(error) · server 4/12(shell) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 5회 |
-| WHBM | 서버(Render) | 219 |  | 규칙으로 못 정함 — 판정 파일 필요 — 오늘 impit 0/15(blocked 403) · playwright 0/5(blocked 403) · firefox 0/5(blocked 403) · camoufox 0/5(error) · server 10/10 |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 5회 |
+| &Other Stories | 크롬 확장(집 PC) | 343 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 343개(URL 4/5 · tops 12개) — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 | 헤드리스 파이어폭스(browser-extra-brands) 또는 서버 HTML 로 옮김 — 11/24 파이어폭스 수집 475개 · 오늘 impit·파이어폭스 전부 성공 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Abercrombie & Fitch | 크롬 확장(집 PC) | 214 | 업체 불명 'Client Challenge' 확인 화면(쿠키 _fs_ch_st_*) · 크롬은 HTTP 418 | 확장 214개(6/6 URL) — 오늘 impit 0/15(blocked) · playwright 0/3(blocked 418) · firefox 0/3(blocked) | 확장 유지. 서버에 A&F 전용 카탈로그 API 코드(abercrombie-catalog)가 있다 — 데이터센터에서 되는지 안 재 봄(추정) | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Addidas | 크롬 확장(집 PC) | 408 | Akamai 거부(“Reference Error … unable to give you access”) — 모든 엔진 | 확장 408개(URL 3/4) — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 · 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Ann Taylor | 크롬 확장(집 PC) | 381 | 브라우저는 PerimeterX 차단 화면(“Access to this page has been denied” + px-cloud.net) · 평 HTML(impit)은 상품 250개 넘게 보임 | 확장 381개 — 오늘 impit 9/9 · playwright 1/3(blocked) · firefox 0/3(blocked) | 서버 HTML 수집(브라우저 TLS 지문 fetch)으로 옮김 — 오늘 impit 9/9 URL 에서 상품 링크 252~261개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Anthropologie | 크롬 확장(집 PC) | 270 | DataDome 차단(x-datadome: protected · 쿠키 datadome · captcha-delivery) — 파이어폭스는 첫 URL 만 열리고 다음부터 403 | 확장 270개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) | 확장 유지 · 유료(DataDome 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Aritzia | 크롬 확장(집 PC) | 800 | Cloudflare 확인 화면(Just a moment… · cf-mitigated: challenge) — 파이어폭스는 3개 중 1개만 | 확장 800개(6/6 URL) — 오늘 impit 0/15(blocked 403) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) | 서버에 Aritzia 검색 API(Algolia) 코드가 이미 있다 — 데이터센터에서 되면 무료(오늘 안 잼, 추정) · 아니면 확장 유지 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Arket | 크롬 확장(집 PC) | 285 | 크롬만 Akamai 403 — HTML·파이어폭스는 열림 | 확장 285개(URL 4/5) — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 | 헤드리스 파이어폭스 또는 서버 HTML — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 373개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Eileen fisher | 크롬 확장(집 PC) | 545 | Akamai 거부 화면(Access Denied · Reference #) — 모든 엔진 | 확장 545개 — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Fatface | 크롬 확장(집 PC) | 374 | Akamai 거부 — 모든 엔진 | 확장 374개(URL 3/4) — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| FP Movement | 크롬 확장(집 PC) | 58 | DataDome 차단 — 모든 엔진 | 확장 58개 · 표본이 카테고리 타일(수집기가 잘못 잡음 의심) — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 + 확장 수집기 선택자 확인 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Free People | 크롬 확장(집 PC) | 190 | DataDome 차단 — 모든 엔진 | 확장 190개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 · 유료(DataDome 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| H&M | 크롬 확장(집 PC) | 744 | 크롬만 Akamai 403 — 평 HTML(impit)에 상품 링크 323개, 파이어폭스도 열림 | 확장 744개 — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13 · 파이어폭스 3/3 · 11/24 파이어폭스 744개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Joules | 크롬 확장(집 PC) | 459 | Akamai 거부 — 모든 엔진(Fatface 와 같은 플랫폼) | 확장 459개(URL 4/5) — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| L.L bean | 크롬 확장(집 PC) | 310 | 크롬만 Cloudflare 차단(Attention Required) — 평 HTML·파이어폭스는 열림 | 확장 310개 — 오늘 impit 13/13 · playwright 0/3(blocked 403) · firefox 3/3 | 서버 HTML 또는 헤드리스 파이어폭스 — 오늘 impit 13/13(상품 링크 244~276)·파이어폭스 3/3 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Lands end | 크롬 확장(집 PC) | 469 | Akamai 거부 — 모든 엔진 | 확장 469개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Loft | 크롬 확장(집 PC) | 673 | 브라우저는 PerimeterX 차단 화면 · 평 HTML(impit)은 상품 링크 171개 | 확장 673개 — 오늘 impit 13/13 · playwright 0/3(blocked) · firefox 1/3(blocked) | 서버 HTML 수집으로 옮김 — 오늘 impit 13/13 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Lululemon | 크롬 확장(집 PC) | 476 | Akamai 거부 — 모든 엔진(크롬은 접속 끊김) | 확장 476개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(conn-drop) · firefox 0/3(blocked 403) | 확장 유지 · 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Madewell | 크롬 확장(집 PC) | 75 | 차단 없음 — 데이터센터 크롬·파이어폭스 3/3(22~26개). 평 HTML 엔 상품이 적음(스크립트가 그림) | 확장 75개(URL 35·26·6·8) — 오늘 impit 3/11(no-cards) · playwright 3/3 · firefox 3/3 | 헤드리스 크롬 그룹으로 옮김(무료). URL 이 한국 지역(/kr/)이라 가격이 원화일 수 있음 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Mango | 크롬 확장(집 PC) | 93 | Vercel 보안 확인 화면(Vercel Security Checkpoint, HTTP 429) — 모든 엔진 · 확장도 URL 당 14~16개만 | 확장 93개 — 오늘 impit 0/15(blocked 429) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) | 확장 유지 + 확장 수집기의 더 보기/스크롤 확인 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Massimo Dutti | 크롬 확장(집 PC) | 603 | 평 HTML 은 Akamai 빈 확인 화면(200 · bm-verify) · 크롬 403 · 파이어폭스는 2/3 열림 | 확장 603개 — 오늘 impit 0/13(blocked) · playwright 0/3(blocked 403) · firefox 2/3(dead 404) | 헤드리스 파이어폭스 — 오늘 2/3 · 11/24 111개(공용 링크 제외) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Paige | 크롬 확장(집 PC) | 60 | Vercel 보안 확인 화면(HTTP 429) — 모든 엔진 | 확장 60개(URL 당 8~24) — 오늘 impit 0/13(blocked 429) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Patagonia | 크롬 확장(집 PC) | 168 | 데이터센터에는 '시스템 점검 중' 정적 화면(server: AkamaiNetStorage) — 진짜 점검이 아니라 봇에게 보내는 화면으로 보임(낮음) · 파이어폭스 1/3 | 확장 168개 — 오늘 impit 0/13(maintenance) · playwright 0/3(maintenance) · firefox 1/3(maintenance) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Seasalt cornwall | 크롬 확장(집 PC) | 279 | 차단 없음 — 데이터센터 모든 엔진 성공 | 확장 279개 — 오늘 impit 13/13 · playwright 3/3 · firefox 3/3 | 서버(HTML) 그룹으로 옮김 — 오늘 impit 13/13 · 크롬·파이어폭스 59~60개 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Sezane | 크롬 확장(집 PC) | 206 | DataDome 차단(CloudFront 앞단) — 모든 엔진 | 확장 206개(URL 1개는 1개만) — 오늘 impit 0/11(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| The white company | 크롬 확장(집 PC) | 68 | 지역: /uk/ 주소가 미국 IP 에서 /us/ 로 넘어가 '미국으로 배송 못 함' 화면 — 차단 아님 | 확장 68개(URL 2/3) — 오늘 impit 0/9(geo) · playwright 0/3(geo·dead 404) · firefox 0/3(geo·dead 404) | 영국 지역 쿠키·파라미터로 열어 보기(무료, 안 재 봄) · 안 되면 영국 IP(유료 서비스의 국가 지정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Theory | 크롬 확장(집 PC) | 379 | Akamai 거부 — 모든 엔진 | 확장 379개 — 오늘 impit 0/13(blocked 403) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 유지 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| Wilson | 크롬 확장(집 PC) | 52 | 차단 없음 — 데이터센터 모든 엔진 성공(크롬·파이어폭스 24~28개 > 확장 4~19개) | 확장 52개 — 오늘 impit 15/15 · playwright 3/3 · firefox 3/3 | 헤드리스 크롬 그룹으로 옮김(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+
+### 🟠 일부만 — 9개 브랜드 · 상품 4,104개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| Chico's | 서버(Render) | 800 | Akamai 거부 — 우리 엔진 전부 403. 서버는 리더 프록시(r.jina.ai) 우회로 가끔 성공(6일 중 3일 0) — 그 우회는 429 한도 | 프리페치 6일 3·3·262·251·3·208 · 카탈로그 11/22 이후 갱신 없음 — 오늘 impit 0/15(blocked 403) · playwright 0/5(blocked 403) · firefox 0/5(blocked 403) · server 6/10(blocked·shell 403) | 확장 담당으로 옮김(집 IP) — 또는 유료(Akamai 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 5회 |
+| Garnet hill | 크롬 확장(집 PC) | 108 | 크롬 Akamai 403 · 평 HTML 은 상품이 없는 껍데기(36KB) · 파이어폭스는 첫 URL 만 · 확장도 URL 3개에서 4~9개 | 확장 86·4·9·9 — 오늘 impit 0/11(shell) · playwright 0/3(blocked 403) · firefox 1/3(blocked 403) | 확장 수집기 확인(3개 URL 이 거의 빈손) — 접근은 집 IP | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| James Perse | 서버(Render) | 526 | 차단 없음 — 서버가 매일 142~155개, 저장 526 은 옛 수집분. 페이지당 상품 링크 13~22개라 페이지 넘김을 못 따라가는 것으로 보임(추정) | 프리페치 142개 — 오늘 impit 15/15 · playwright 3/3 · firefox 3/3 · server 6/12(rate-limit 429) | 서버의 페이지 넘김 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| Nation LTD | 서버(Render) | 525 | 차단 없음 — 서버가 매일 161~164개, 저장 525 는 옛 수집분 · 페이지당 22~52개(페이지 넘김 의심, 추정) | 프리페치 161개 — 오늘 impit 11/11 · playwright 3/3 · firefox 3/3 · server 8/8 | 서버의 페이지 넘김 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| Reformation | 서버(Render) | 753 | Cloudflare 확인 화면 — 서버 직접·impit 403 · 서버는 리더 프록시로 일부(dresses 0) · 데이터센터 크롬은 3/3 열림 | 프리페치 221개(저장 753 은 옛 수집분 포함) — 오늘 impit 0/13(blocked 403) · playwright 3/3 · firefox 1/3(blocked 403) · server 7/10(shell·blocked 403) | 헤드리스 크롬 그룹으로 옮김(무료) — 러너마다 갈리는지 2차 측정 참고 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| The upside | 헤드리스(Actions) | 429 | Cloudflare 확인 화면 — 헤드리스·파이어폭스 모두 첫 URL 만 열리고 다음 3개 403 | 헤드리스 11/25 70·0·0·0 (저장 429 는 옛 수집분) — 오늘 impit 0/12(blocked 403) · playwright 1/4(blocked 403) · firefox 1/4(blocked 403) | 카테고리마다 새 창으로 열기(11/25 2차 측정 참고) · 안 되면 확장 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 3회 |
+| vineyardvines | 서버(Render) | 560 | 평 HTML 엔 상품이 없음(스크립트가 그림) — 서버는 리더 프록시로 tops·dresses·pants 만 · 크롬도 6~10개만(지연 로딩) | 프리페치 143~151개(저장 560 은 옛 수집분 포함) — 오늘 impit 0/13(no-cards) · playwright 3/3 · firefox 3/3 · server 3/10(rate-limit·shell 429) | 헤드리스로 옮기고 스크롤·더 보기 처리(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| WHBM | 서버(Render) | 219 | Akamai 거부 — 우리 엔진 전부 403(Chico's 와 같은 회사). 서버는 리더 프록시 우회로만 — 오늘 낮엔 됐고 밤엔 6일 연속 2개 | 프리페치 6일 2개 · 카탈로그 11/18 이후 갱신 없음 — 오늘 impit 0/15(blocked 403) · playwright 0/5(blocked 403) · firefox 0/5(blocked 403) · server 10/10 | 확장 담당으로 옮김 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 5회 |
+| Whitestuff | 서버(Render) | 184 | 서버 직접 fetch 가 'fetch failed'(Worker 도 404) → 리더 프록시로만 읽어 매일 114~267개로 흔들림. 평 HTML(impit)·크롬은 15/15 성공 | 프리페치 6일 184·182·190·223·114·267 — 오늘 impit 15/15 · playwright 3/3 · firefox 3/3 · server 3/12(rate-limit 429) | 서버 fetch 를 브라우저 TLS 지문 fetch(impit 류)로 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+
+### ⛔ 어디서도 막힘 — 1개 브랜드 · 상품 81개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| Prana | 서버(Render) | 81 | Cloudflare 차단 화면(Attention Required · Sorry, you have been blocked) — impit·서버 전부 · 크롬·파이어폭스는 첫 URL 만 열리고 다음부터 403 | 서버 6일 연속 1개 · 카탈로그 9/22 이후 갱신 없음(두 달) — 오늘 impit 0/12(blocked 403) · playwright 1/4(blocked 403) · firefox 1/4(blocked 403) · server 0/8(blocked·shell 403) | 확장 담당으로 옮김(집 IP — 안 재 봄) 또는 유료(Cloudflare 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 5회 |
+
+### 🔗 URL 이 틀림·죽음 — 2개 브랜드 · 상품 786개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| Good American | 서버(Render) | 625 | URL 에 한국 지역(/en-kr/) — 미국 IP 에선 지역 없는 주소로 넘어감 · 서버는 카테고리당 10~53개 · 크롬은 43~353개 | 프리페치 216개(저장 625 는 옛 수집분 포함) — 오늘 impit 2/13(geo·no-cards) · playwright 3/3 · firefox 3/3 · server 4/10(rate-limit 429) | URL 에서 /en-kr 빼기 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 5회 |
+| Lucky Brand | 헤드리스(Actions) | 161 | blouses URL 이 검색 페이지('Search / Lucky Brand')로 열리고 수집 중 페이지가 바뀜(Execution context destroyed) | 헤드리스 65·90·0·67·36 — 오늘 impit 12/12 · playwright 1/2(shell) · firefox 1/2(shell) | blouses 카테고리 새 주소 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 3회 |
+
+### 🔧 열리는데 잘못 읽음 — 11개 브랜드 · 상품 1,071개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| Athleta | 크롬 확장(집 PC) | 1 | Gap 계열: 페이지는 열리는데(데이터센터 크롬·파이어폭스 200) 수집기가 상품을 4~6개만 잡음 — 집 IP 확장도 1개 | 확장 1개(4개 URL 중 3개 0) — 오늘 impit 0/12(no-cards) · playwright 1/4(no-cards) · firefox 4/4 | Gap 계열 상품 목록 JSON(사이트가 그리드를 그릴 때 부르는 주소)으로 읽기 — 무료(추정, 안 재 봄) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Banana Republic | 크롬 확장(집 PC) | 1 | Gap 계열: 열리는데 수집기가 5개만 — 확장도 1개 | 확장 1개 — 오늘 impit 0/12(no-cards) · playwright 4/4 · firefox 4/4 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Bash | 서버(Render) | 50 | 차단 없음 — 서버가 카테고리당 4~10개만, 평 HTML 엔 URL 당 51~97개 · 크롬 34~65개 | 프리페치 50개(6일 34~56) — 오늘 impit 13/13 · playwright 3/3 · firefox 3/3 · server 4/10(shell) | 서버 목록 읽기 보완 또는 헤드리스(무료). URL 에 광고 추적 꼬리(_gl=…)가 붙어 있음 — 떼어도 됨 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| Carlhartt | 헤드리스(Actions) | 148 | 수집기가 메뉴·기획전 타일(/c/black-friday 등, 이름 'arrow icon')을 상품으로 잡음 | 헤드리스 148개 · 표본 5개가 전부 카테고리 링크 — 오늘 impit 10/12(no-cards) · playwright 2/2 · firefox 2/2 | 수집기에서 /c/ 경로 제외(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Dickies | 서버(Render) | 260 | 차단 없음 — 서버가 카테고리당 2~48개만 읽음(6일 내내 72개), 평 HTML 엔 URL 당 상품 링크 46~49개 · 크롬 50~90개 | 프리페치 72개(저장 260 은 옛 수집분 포함) — 오늘 impit 13/13 · playwright 3/3 · firefox 3/3 · server 6/10(shell) | 서버 목록 읽기(선택자·페이지 넘김) 보완 또는 헤드리스로 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| Gap | 크롬 확장(집 PC) | 6 | 열리는데 수집기가 11~12개만(기프트숍 배너) — 확장도 6개 | 확장 6개(전부 배너) — 오늘 impit 0/12(no-cards) · playwright 4/4 · firefox 4/4 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Monsoon | 서버(Render) | 30 | 차단 없음 — 서버가 카테고리당 0~22개, 평 HTML 엔 URL 당 40개 · 크롬 45개. URL 이 한국 지역(/kr/) | 프리페치 30개(6일 내내 29~30) — 오늘 impit 11/11 · playwright 3/3 · firefox 3/3 · server 3/8(rate-limit·shell 429) | 서버 목록 읽기 보완 또는 헤드리스(무료) · 지역을 /us/ 등으로(가격 통화) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
+| Nike | 헤드리스(Actions) | 490 | 헤드리스 표본 5개가 모두 필터 카테고리 링크(/w/…) — 상품 아님 의심 | 헤드리스 490개 — 오늘 impit 0/10(no-cards) · playwright 2/2 · firefox 2/2 | 수집기에서 /w/ 경로 제외, 상품(/t/…)만(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Old Navy | 크롬 확장(집 PC) | 7 | 열리는데 수집기가 10~11개만 — 확장도 7개(배너) | 확장 7개 — 오늘 impit 0/15(no-cards) · playwright 5/5 · firefox 5/5 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Oysho | 크롬 확장(집 PC) | 20 | 확장 카탈로그 20개가 전부 하위 카테고리 타일(…-n5063) — 상품이 아님. 데이터센터 파이어폭스는 열림(3/3, 18~22개) | 확장 20개 — 오늘 impit 0/13(blocked) · playwright 0/3(blocked 403) · firefox 3/3 | 헤드리스 파이어폭스 + 수집기 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Vanessa bruno | 서버(Render) | 58 | 서버가 tops 6개 말고는 0개 — 같은 페이지 평 HTML 에 상품 링크 22~25개, 크롬도 21~25개 · URL 1개는 첫 화면으로 튕김 | 프리페치 6일 내내 6개(저장 58 은 옛 수집분) — 오늘 impit 6/15(no-cards·dead) · playwright 2/3(dead) · firefox 2/3(dead) · server 4/12(shell) | 서버 목록 읽기 보완 또는 헤드리스(무료) + 죽은 URL 교체 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
 
 
-### ✅ 된다 — 84개 브랜드 · 상품 24,285개
+### ✅ 된다 — 91개 브랜드 · 상품 26,866개
 
 | 브랜드 | 담당 | 상품 | 혼용률 | 근거 |
 |---|---|---:|---:|---|
@@ -213,7 +243,7 @@
 | ALC | 서버(Render) | 393 | 98% | 혼용률 386/393(98%) · 야간 리포트(규칙) |
 | Alo | 서버(Render) | 190 | 89% | 혼용률 169/190(89%) · 야간 리포트(규칙) |
 | American Eagle | 헤드리스(Actions) | 178 | 99% | 혼용률 176/178(99%) · 야간 리포트(규칙) |
-| Ann Taylor | 크롬 확장(집 PC) | 381 | 92% | 혼용률 349/381(92%) · 야간 리포트(규칙) |
+| Ann Taylor | 크롬 확장(집 PC) | 381 | 92% | 혼용률 349/381(92%) — 확장 몫 · 측정·판정 |
 | Apiece Apart | 헤드리스(Actions) | 102 | 94% | 혼용률 96/102(94%) · 야간 리포트(규칙) |
 | Barbour | 헤드리스(Actions) | 170 | 90% | 혼용률 153/170(90%) · 야간 리포트(규칙) |
 | Bash | 서버(Render) | 50 | 94% | 혼용률 47/50(94%) · 야간 리포트(규칙) |
@@ -224,12 +254,13 @@
 | Boldest | 헤드리스(Actions) | 136 | 100% | 혼용률 136/136(100%) · 야간 리포트(규칙) |
 | CCC | 헤드리스(Actions) | 800 | 94% | 혼용률 749/800(94%) · 야간 리포트(규칙) |
 | Citizens of Humanity | 서버(Render) | 171 | 95% | 혼용률 162/171(95%) · 야간 리포트(규칙) |
+| Club monaco | 서버(Render) | 169 | 82% | 혼용률 139/169(82%) · 야간 리포트(규칙) |
 | Cotton citizen | 서버(Render) | 283 | 88% | 혼용률 248/283(88%) · 야간 리포트(규칙) |
 | Cotton on | 헤드리스(Actions) | 470 | 100% | 혼용률 468/470(100%) · 야간 리포트(규칙) |
 | Damson Madder | 서버(Render) | 385 | 98% | 혼용률 377/385(98%) · 야간 리포트(규칙) |
 | Draper James | 서버(Render) | 147 | 93% | 혼용률 136/147(93%) · 야간 리포트(규칙) |
 | Eddie bauer | 서버(Render) | 200 | 95% | 혼용률 189/200(95%) · 야간 리포트(규칙) |
-| Eileen fisher | 크롬 확장(집 PC) | 545 | 93% | 혼용률 508/545(93%) · 야간 리포트(규칙) |
+| Eileen fisher | 크롬 확장(집 PC) | 545 | 93% | 혼용률 508/545(93%) 확장 몫 · 측정·판정 |
 | English factory | 서버(Render) | 269 | 93% | 혼용률 249/269(93%) · 야간 리포트(규칙) |
 | Evereve | 서버(Render) | 444 | 94% | 혼용률 418/444(94%) · 야간 리포트(규칙) |
 | Faherty | 서버(Render) | 170 | 95% | 혼용률 161/170(95%) · 야간 리포트(규칙) |
@@ -238,7 +269,7 @@
 | Gerard darel | 헤드리스(Actions) | 138 | 97% | 혼용률 134/138(97%) · 야간 리포트(규칙) |
 | Gestuz | 헤드리스(Actions) | 643 | 93% | 혼용률 596/643(93%) · 야간 리포트(규칙) |
 | Goldie | 서버(Render) | 139 | 99% | 혼용률 138/139(99%) · 야간 리포트(규칙) |
-| Good American | 서버(Render) | 625 | 85% | 혼용률 531/625(85%) · 야간 리포트(규칙) |
+| Good American | 서버(Render) | 625 | 85% | 혼용률 531/625(85%) · 측정·판정 |
 | Greyson | 서버(Render) | 93 | 96% | 혼용률 89/93(96%) · 야간 리포트(규칙) |
 | Gymshark | 서버(Render) | 274 | 99% | 혼용률 271/274(99%) · 야간 리포트(규칙) |
 | Hobbs | 서버(Render) | 353 | 91% | 혼용률 320/353(91%) · 야간 리포트(규칙) |
@@ -247,23 +278,25 @@
 | Jager | 서버(Render) | 402 | 93% | 혼용률 374/402(93%) · 야간 리포트(규칙) |
 | James Perse | 서버(Render) | 526 | 100% | 혼용률 524/526(100%) · 야간 리포트(규칙) |
 | Jigsaw | 서버(Render) | 315 | 97% | 혼용률 304/315(97%) · 야간 리포트(규칙) |
-| L.L bean | 크롬 확장(집 PC) | 310 | 95% | 혼용률 293/310(95%) · 야간 리포트(규칙) |
+| L.L bean | 크롬 확장(집 PC) | 310 | 95% | 혼용률 293/310(95%) 확장 몫 · 측정·판정 |
 | La Ligne | 서버(Render) | 397 | 98% | 혼용률 391/397(98%) · 야간 리포트(규칙) |
-| Lands end | 크롬 확장(집 PC) | 469 | 88% | 혼용률 411/469(88%) · 야간 리포트(규칙) |
+| Lands end | 크롬 확장(집 PC) | 469 | 88% | 혼용률 411/469(88%) 확장 몫 · 데이터센터는 모든 엔진 403 · 측정·판정 |
+| Leset | 헤드리스(Actions) | 326 | 84% | 혼용률 275/326(84%) · 야간 리포트(규칙) |
 | Lilla P | 서버(Render) | 167 | 99% | 혼용률 166/167(99%) · 야간 리포트(규칙) |
 | LNA | 서버(Render) | 236 | 96% | 혼용률 226/236(96%) · 야간 리포트(규칙) |
 | Lucky Brand | 헤드리스(Actions) | 161 | 93% | 혼용률 149/161(93%) · 야간 리포트(규칙) |
-| Madewell | 크롬 확장(집 PC) | 75 | 89% | 혼용률 67/75(89%) · 야간 리포트(규칙) |
+| Madewell | 크롬 확장(집 PC) | 75 | 89% | 혼용률 67/75(89%) · 측정·판정 |
 | Marine Layer | 서버(Render) | 180 | 95% | 혼용률 171/180(95%) · 야간 리포트(규칙) |
 | Me+Em | 헤드리스(Actions) | 425 | 88% | 혼용률 374/425(88%) · 야간 리포트(규칙) |
+| Michael Stars | 서버(Render) | 203 | 83% | 혼용률 168/203(83%) · 야간 리포트(규칙) |
 | Monrow | 서버(Render) | 200 | 93% | 혼용률 186/200(93%) · 야간 리포트(규칙) |
 | Monsoon | 서버(Render) | 30 | 97% | 혼용률 29/30(97%) · 야간 리포트(규칙) |
 | Nation LTD | 서버(Render) | 525 | 100% | 혼용률 525/525(100%) · 야간 리포트(규칙) |
+| Nike | 헤드리스(Actions) | 490 | 82% | 혼용률 402/490(82%) · 야간 리포트(규칙) |
 | Ninety Percent | 서버(Render) | 156 | 99% | 혼용률 154/156(99%) · 야간 리포트(규칙) |
 | Nylora | 서버(Render) | 237 | 96% | 혼용률 228/237(96%) · 야간 리포트(규칙) |
 | Oak + Fort | 서버(Render) | 336 | 100% | 혼용률 335/336(100%) · 야간 리포트(규칙) |
 | Oasis | 서버(Render) | 133 | 90% | 혼용률 120/133(90%) · 야간 리포트(규칙) |
-| Old Navy | 크롬 확장(집 PC) | 7 | 100% | 혼용률 7/7(100%) · 야간 리포트(규칙) |
 | On | 헤드리스(Actions) | 263 | 92% | 혼용률 241/263(92%) · 야간 리포트(규칙) |
 | Outdoorvoices | 서버(Render) | 126 | 94% | 혼용률 118/126(94%) · 야간 리포트(규칙) |
 | Phase eight | 서버(Render) | 400 | 93% | 혼용률 373/400(93%) · 야간 리포트(규칙) |
@@ -272,12 +305,15 @@
 | Rails | 서버(Render) | 290 | 85% | 혼용률 246/290(85%) · 야간 리포트(규칙) |
 | Sanctuary | 서버(Render) | 421 | 98% | 혼용률 411/421(98%) · 야간 리포트(규칙) |
 | Scoth & soda | 서버(Render) | 378 | 96% | 혼용률 362/378(96%) · 야간 리포트(규칙) |
-| Seasalt cornwall | 크롬 확장(집 PC) | 279 | 95% | 혼용률 266/279(95%) · 야간 리포트(규칙) |
+| Seasalt cornwall | 크롬 확장(집 PC) | 279 | 95% | 혼용률 266/279(95%) · 측정·판정 |
 | Shopbop | 헤드리스(Actions) | 453 | 86% | 혼용률 391/453(86%) · 야간 리포트(규칙) |
+| Splendid | 서버(Render) | 404 | 84% | 혼용률 338/404(84%) · 야간 리포트(규칙) |
+| Splits59 | 서버(Render) | 162 | 83% | 혼용률 135/162(83%) · 야간 리포트(규칙) |
+| Stateside | 서버(Render) | 335 | 82% | 혼용률 275/335(82%) · 야간 리포트(규칙) |
 | Sundry | 서버(Render) | 246 | 96% | 혼용률 235/246(96%) · 야간 리포트(규칙) |
 | Sweaty betty | 헤드리스(Actions) | 405 | 95% | 혼용률 385/405(95%) · 야간 리포트(규칙) |
 | The Great | 서버(Render) | 240 | 97% | 혼용률 233/240(97%) · 야간 리포트(규칙) |
-| Theory | 크롬 확장(집 PC) | 379 | 96% | 혼용률 365/379(96%) · 야간 리포트(규칙) |
+| Theory | 크롬 확장(집 PC) | 379 | 96% | 혼용률 365/379(96%) 확장 몫 · 측정·판정 |
 | Thread & supply | 서버(Render) | 258 | 97% | 혼용률 250/258(97%) · 야간 리포트(규칙) |
 | Tuckernuck | 서버(Render) | 376 | 88% | 혼용률 330/376(88%) · 야간 리포트(규칙) |
 | Ulla Johnson | 서버(Render) | 307 | 97% | 혼용률 297/307(97%) · 야간 리포트(규칙) |
@@ -292,70 +328,89 @@
 | Wrap | 헤드리스(Actions) | 374 | 90% | 혼용률 336/374(90%) · 야간 리포트(규칙) |
 | Xirena | 서버(Render) | 333 | 96% | 혼용률 320/333(96%) · 야간 리포트(규칙) |
 | Z Supply | 서버(Render) | 216 | 100% | 혼용률 216/216(100%) · 야간 리포트(규칙) |
+| Zara | 서버(Render) | 499 | 0% | 파이어폭스 보강 11/25 04:10 120/120 · 오늘 파이어폭스 3/3. 엑셀 채움률(11/25 03:39) 0% 는 그 직전 숫자 — 채우는 중 · 측정·판정 |
 
-### 🟠 일부만 — 50개 브랜드 · 상품 14,235개
+### 🏠 집 IP(확장)에서만 — 5개 브랜드 · 상품 1,510개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| &Other Stories | 크롬 확장(집 PC) | 343 |  | 혼용률 42% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Abercrombie & Fitch | 크롬 확장(집 PC) | 214 |  | 혼용률 64% — 판정 파일 필요 — 오늘 impit 0/3(blocked) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 418) · firefox 0/3(geo) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Addidas | 크롬 확장(집 PC) | 408 |  | 혼용률 1% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Anthropologie | 크롬 확장(집 PC) | 270 |  | 혼용률 1% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Aritzia | 크롬 확장(집 PC) | 800 |  | 혼용률 63% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked·geo 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Arket | 크롬 확장(집 PC) | 285 |  | 혼용률 50% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 3/3 · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Athleta | 크롬 확장(집 PC) | 1 |  | 혼용률 0% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Banana Republic | 크롬 확장(집 PC) | 1 |  | 혼용률 0% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Buck Mason | 서버(Render) | 119 |  | 혼용률 48% — 판정 파일 필요 — 오늘 impit 3/3 · site-api 0/3(blocked 404) · wayback 3/3 · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Carlhartt | 헤드리스(Actions) | 148 |  | 혼용률 73% — 판정 파일 필요 — 오늘 impit 1/3(no-comp) · site-api 0/3(error) · wayback 1/3(no-comp·no-archive) · playwright 1/3(no-comp) · firefox 1/3(no-comp) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Chico's | 서버(Render) | 800 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Club monaco | 서버(Render) | 169 |  | 혼용률 82% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Coldwatercreek | 헤드리스(Actions) | 200 |  | 혼용률 33% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-comp·no-archive) · playwright 2/3(no-comp) · firefox 2/3(no-comp) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Dickies | 서버(Render) | 260 |  | 혼용률 55% — 판정 파일 필요 — 오늘 impit 3/3 · site-api 1/3(geo) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Everlane | 서버(Render) | 443 |  | 혼용률 67% — 판정 파일 필요 — 오늘 impit 3/3 · site-api 3/3 · wayback 1/3(no-archive) · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Fatface | 크롬 확장(집 PC) | 374 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| FP Movement | 크롬 확장(집 PC) | 58 |  | 혼용률 10% — 판정 파일 필요 — 오늘 impit 0/1(no-comp) · site-api 0/1(error) · wayback 0/1(no-comp) · playwright 0/1(no-comp) · firefox 0/1(no-comp) · camoufox 0/1(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Free People | 크롬 확장(집 PC) | 190 |  | 혼용률 5% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Gap | 크롬 확장(집 PC) | 6 |  | 혼용률 0% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Garnet hill | 크롬 확장(집 PC) | 108 |  | 혼용률 2% — 판정 파일 필요 — 오늘 impit 0/3(no-comp) · site-api 0/3(error) · wayback 0/3(no-comp) · playwright 0/3(blocked 403) · firefox 0/3(no-comp·blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| H&M | 크롬 확장(집 PC) | 744 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| J crew | 헤드리스(Actions) | 215 |  | 혼용률 29% — 판정 파일 필요 — 오늘 impit 1/3(no-comp) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 3/3 · firefox 3/3 |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Joules | 크롬 확장(집 PC) | 459 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Leset | 헤드리스(Actions) | 326 |  | 혼용률 84% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Loft | 크롬 확장(집 PC) | 673 |  | 혼용률 42% — 판정 파일 필요 — 오늘 impit 0/3(geo) · site-api 0/3(error) · wayback 0/3(no-comp·no-archive) · playwright 0/3(blocked) · firefox 0/3(blocked) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Lululemon | 크롬 확장(집 PC) | 476 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-comp·no-archive) · playwright 0/3(timeout) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Mango | 크롬 확장(집 PC) | 93 |  | 혼용률 58% — 판정 파일 필요 — 오늘 impit 0/3(blocked 429) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Massimo Dutti | 크롬 확장(집 PC) | 603 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 1/3(no-comp) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Michael Stars | 서버(Render) | 203 |  | 혼용률 83% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Mint velvet | 서버(Render) | 416 |  | 혼용률 70% — 판정 파일 필요 — 오늘 impit 3/3 · site-api 0/3(no-comp) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Nike | 헤드리스(Actions) | 490 |  | 혼용률 82% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Oysho | 크롬 확장(집 PC) | 20 |  | 혼용률 0% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Paige | 크롬 확장(집 PC) | 60 |  | 혼용률 63% — 판정 파일 필요 — 오늘 impit 0/3(blocked 429) · site-api 0/3(rate-limit 429) · wayback 0/3(no-archive) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Patagonia | 크롬 확장(집 PC) | 168 |  | 혼용률 1% — 판정 파일 필요 — 오늘 impit 0/3(maintenance) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(maintenance) · firefox 2/3(maintenance) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Poetry | 헤드리스(Actions) | 303 |  | 혼용률 79% — 판정 파일 필요 — 오늘 impit 3/3 · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Prana | 서버(Render) | 81 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 1/3(blocked 403) · firefox 1/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Reformation | 서버(Render) | 753 |  | 혼용률 35% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(blocked 403) · wayback 3/3 · playwright 3/3 · firefox 1/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| rouje | 서버(Render) | 232 |  | 혼용률 64% — 판정 파일 필요 — 오늘 impit 0/3(no-comp) · site-api 0/3(blocked 404) · wayback 0/3(no-archive) · playwright 0/3(no-comp) · firefox 0/3(no-comp) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Sessun | 서버(Render) | 81 |  | 혼용률 42% — 판정 파일 필요 — 오늘 impit 0/3(blocked 404) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 404) · firefox 0/3(blocked 404) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Sezane | 크롬 확장(집 PC) | 206 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Spanx | 서버(Render) | 84 |  | 혼용률 79% — 판정 파일 필요 — 오늘 impit 3/3 · site-api 0/3(blocked 404) · wayback 2/3(error) · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Splendid | 서버(Render) | 404 |  | 혼용률 84% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Splits59 | 서버(Render) | 162 |  | 혼용률 83% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| Stateside | 서버(Render) | 335 |  | 혼용률 82% — 판정 파일 필요 |  | 1 무료 변경(우리 쪽) | 규칙 |
-| The upside | 헤드리스(Actions) | 429 |  | 혼용률 75% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 1/3(blocked 403) · firefox 1/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| The white company | 크롬 확장(집 PC) | 68 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(geo) · site-api 0/3(error) · wayback 0/3(no-comp) · playwright 0/3(geo·blocked 404) · firefox 0/3(geo·blocked 404) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| WHBM | 서버(Render) | 219 |  | 혼용률 34% — 판정 파일 필요 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/3(blocked 403) · firefox 2/3(blocked 403) · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Whitestuff | 서버(Render) | 184 |  | 혼용률 78% — 판정 파일 필요 — 오늘 impit 3/3 · site-api 0/3(error) · wayback 0/3(error) · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Wilson | 크롬 확장(집 PC) | 52 |  | 혼용률 54% — 판정 파일 필요 — 오늘 impit 3/3 · site-api 0/3(geo) · wayback 2/3(error) · playwright 3/3 · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
-| Zara | 서버(Render) | 499 |  | 혼용률 0% — 판정 파일 필요 — 오늘 impit 0/3(blocked) · site-api 0/3(blocked 403) · wayback 0/3(no-archive·no-comp) · playwright 0/3(blocked 403) · firefox 3/3 · camoufox 0/3(error) |  | 1 무료 변경(우리 쪽) | 규칙 · 실행 1회 |
+| &Other Stories | 크롬 확장(집 PC) | 343 | 상품 페이지는 Akamai 가 모든 엔진 차단(파이어폭스는 200 확인 화면) · 보관본 없음 | 혼용률 143/343 은 확장 몫 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강 유지. 데이터센터 무료 길 없음 → 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Abercrombie & Fitch | 크롬 확장(집 PC) | 214 | 같은 확인 화면 | 혼용률 136/214 확장 몫 · 보관본 없음 — 오늘 impit 0/3(blocked) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 418) · firefox 0/3(blocked) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Aritzia | 크롬 확장(집 PC) | 800 | Cloudflare — 모든 엔진 차단 · 보관본은 사이트 공통 문구 때문에 거부 | 혼용률 501/800 확장 몫 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked·geo 403) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Mango | 크롬 확장(집 PC) | 93 | Vercel 확인 화면 — 모든 엔진 · 파이어폭스 보강 11/25 39/39 차단 | 혼용률 54/93 확장 몫 — 오늘 impit 0/3(blocked 429) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Paige | 크롬 확장(집 PC) | 60 | Vercel 확인 화면 — 모든 엔진 | 혼용률 38/60 확장 몫 — 오늘 impit 0/3(blocked 429) · site-api 0/3(rate-limit 429) · wayback 0/3(no-archive) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+
+### 🟠 일부만 — 18개 브랜드 · 상품 5,452개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| Arket | 크롬 확장(집 PC) | 285 | 상품 페이지는 Akamai 가 모든 엔진 차단 · 웹 아카이브는 3/3 읽음 | 혼용률 143/285 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 3/3 · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 야간 보강의 웹 아카이브 층을 Arket 에 돌리기(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Buck Mason | 서버(Render) | 119 | 접근 문제 없음 — 오늘 impit·크롬·파이어폭스·아카이브 3/3 | 혼용률 57/119 — 오늘 impit 3/3 · site-api 0/3(dead 404) · wayback 3/3 · playwright 3/3 · firefox 3/3 | 야간 보강이 아직 못 돎/5일 재시도 제한(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Coldwatercreek | 헤드리스(Actions) | 200 | 평 HTML 은 Cloudflare 403 · 크롬·파이어폭스 2/3 혼용률 읽음 — 그런데 11/25 파이어폭스 보강은 120개 중 118개를 '사이트 미표기'로 적음(표본과 엇갈림) | 혼용률 66/200 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-comp·no-archive) · playwright 2/3(no-comp) · firefox 2/3(no-comp) | 보강의 미표기 판정을 표본으로 재확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Dickies | 서버(Render) | 260 | 접근 문제 없음 — 오늘 impit·크롬·파이어폭스 3/3 | 혼용률 144/260 — 오늘 impit 3/3 · site-api 1/3(geo) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강이 아직 다 못 돎(무료 — 대상·상한 조정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Everlane | 서버(Render) | 443 | 접근 문제 없음 — 오늘 모든 엔진 3/3(사이트 JSON 포함) | 혼용률 296/443 — 오늘 impit 3/3 · site-api 3/3 · wayback 1/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강 대상·상한(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Free People | 크롬 확장(집 PC) | 190 | DataDome — 페이지는 모든 엔진 403 · 웹 아카이브 2/3 | 혼용률 9/190 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 웹 아카이브 층(11/24 측정 적중 50%)을 계속 돌리기 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| J crew | 헤드리스(Actions) | 215 | 야간 fetch 는 '직접차단' 12 · 오늘 크롬·파이어폭스 3/3 읽음 | 혼용률 63/215 — 오늘 impit 1/3(no-comp) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 3/3 · firefox 3/3 | 크롬 보강(enrich-browser) 대상에 넣기(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Joules | 크롬 확장(집 PC) | 459 | Akamai — 페이지는 모든 엔진 403 · 웹 아카이브만 일부(11/25 야간 15개) | 혼용률 0~15/459 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 웹 아카이브 층 계속 · 나머지는 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Loft | 크롬 확장(집 PC) | 673 | 브라우저는 PerimeterX · 평 HTML 은 열리나 오늘 표본 3개에서 혼용률 못 찾음(JSON-LD 에 있는 상품만 읽힘) | 혼용률 284/673(42%) — 오늘 impit 0/3(geo) · site-api 0/3(error) · wayback 0/3(no-comp·no-archive) · playwright 0/3(blocked) · firefox 0/3(blocked) | 평 HTML + JSON-LD 로 야간 보강(무료) — 나머지는 확장 탭 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Mint velvet | 서버(Render) | 416 | 접근 문제 없음 — impit·크롬·파이어폭스 3/3 | 혼용률 293/416 — 오늘 impit 3/3 · site-api 0/3(no-comp) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강 대상·상한(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Patagonia | 크롬 확장(집 PC) | 168 | 같은 점검 화면 · 파이어폭스 2/3 읽음 · 보관본 1/3 | 혼용률 4/168 — 오늘 impit 0/3(maintenance) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(maintenance) · firefox 2/3(maintenance) | 파이어폭스 보강을 Patagonia 에 — 11/24 측정 16/20 읽음(무료, 러너마다 갈림) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Poetry | 헤드리스(Actions) | 303 | 접근 문제 없음 — 오늘 impit·크롬·파이어폭스 3/3 | 혼용률 240/303 — 오늘 impit 3/3 · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Reformation | 서버(Render) | 753 | Cloudflare — impit·사이트 JSON 403 · 크롬 3/3 · 웹 아카이브 3/3 | 혼용률 261/753 — 오늘 impit 0/3(blocked 403) · site-api 0/3(blocked 403) · wayback 3/3 · playwright 3/3 · firefox 1/3(blocked 403) | 크롬 보강 + 웹 아카이브(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Spanx | 서버(Render) | 84 | 접근 문제 없음 — impit·크롬·파이어폭스 3/3 | 혼용률 66/84 — 오늘 impit 3/3 · site-api 0/3(dead 404) · wayback 2/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| The upside | 헤드리스(Actions) | 429 | Cloudflare — 브라우저는 첫 페이지만 | 혼용률 322/429 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 1/3(blocked 403) · firefox 1/3(blocked 403) | 확장 또는 새 창 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| WHBM | 서버(Render) | 219 | Akamai — 크롬·impit 403 · 파이어폭스 2/3 · 보관본 2/3 | 혼용률 75/219 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/3(blocked 403) · firefox 2/3(blocked 403) | 파이어폭스 보강 + 웹 아카이브(무료, 러너마다 갈림) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Whitestuff | 서버(Render) | 184 | 야간 보강의 직접 fetch 가 76개 '직접차단' · 오늘 impit·크롬·파이어폭스 3/3 읽음 | 혼용률 143/184 — 오늘 impit 3/3 · site-api 0/3(error) · wayback 0/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강 fetch 를 impit 류로(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Wilson | 크롬 확장(집 PC) | 52 | 접근 문제 없음 — 오늘 모든 엔진 3/3 읽음. 아직 보강이 안 돈 것 | 혼용률 28/52 — 오늘 impit 3/3 · site-api 0/3(geo) · wayback 2/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강 대상에 넣기(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+
+### ⛔ 어디서도 막힘 — 11개 브랜드 · 상품 3,593개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| Addidas | 크롬 확장(집 PC) | 408 | Akamai — 모든 엔진 403, 보관본 거의 없음(11/25 성공 2) | 혼용률 4/408 — 확장 탭 보강도 아직 못 채움 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강을 adidas 에 돌리기(집 IP) 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Anthropologie | 크롬 확장(집 PC) | 270 | DataDome — 모든 엔진 403 · 보관본 없음 | 혼용률 4/270 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강(집 IP) 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Chico's | 서버(Render) | 800 | Akamai — 모든 엔진 403(11/24 한 러너는 12/20 열림, 다른 러너 0/20) · 보관본 적중 31% | 혼용률 0/800 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 웹 아카이브 층 + 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Fatface | 크롬 확장(집 PC) | 374 | Akamai — 모든 엔진 403 · 보관본 없음 | 혼용률 0/374 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강을 Fatface 에 돌리기 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| FP Movement | 크롬 확장(집 PC) | 58 | DataDome · 카탈로그가 대부분 카테고리 주소 | 혼용률 6/58 — 오늘 impit 0/1(no-comp) · site-api 0/1(error) · wayback 0/1(no-comp) · playwright 0/1(no-comp) · firefox 0/1(no-comp) | 목록부터 바로잡기 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Garnet hill | 크롬 확장(집 PC) | 108 | 크롬 Akamai 403 · 파이어폭스 1/3 열림(혼용률 없음) · 평 HTML 껍데기 | 혼용률 2/108 — 오늘 impit 0/3(no-comp) · site-api 0/3(error) · wayback 0/3(no-comp) · playwright 0/3(blocked 403) · firefox 0/3(no-comp·blocked 403) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| H&M | 크롬 확장(집 PC) | 744 | 상품 페이지는 Akamai 가 모든 엔진 403(파이어폭스 포함) · 보관본 없음 | 혼용률 0/744 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강(집 IP) 또는 유료(Akamai 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Lululemon | 크롬 확장(집 PC) | 476 | Akamai — 모든 엔진 · 보관본 거의 없음(11/24 적중 4%) | 혼용률 0/476 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-comp·no-archive) · playwright 0/3(timeout) · firefox 0/3(blocked 403) | 확장 탭 보강 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Prana | 서버(Render) | 81 | Cloudflare — 브라우저는 첫 페이지만 · 파이어폭스 보강 11/25 77/81 차단 | 혼용률 0/81 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 1/3(blocked 403) · firefox 1/3(blocked 403) | 확장 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Sezane | 크롬 확장(집 PC) | 206 | DataDome — 모든 엔진 · 보관본 일부(11/24 거부 다수) | 혼용률 2/206 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강 또는 유료(DataDome 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| The white company | 크롬 확장(집 PC) | 68 | 같은 지역 이동 — 데이터센터 모든 엔진 · 파이어폭스 보강 11/25 63/68 차단 | 혼용률 0/68 — 오늘 impit 0/3(geo) · site-api 0/3(error) · wayback 0/3(no-comp) · playwright 0/3(geo·dead 404) · firefox 0/3(geo·dead 404) | 영국 지역으로 열기(추정) 또는 확장 탭 보강 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+
+### 🔗 URL 이 틀림·죽음 — 1개 브랜드 · 상품 81개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| Sessun | 서버(Render) | 81 | 카탈로그의 상품 주소가 404(모든 엔진 · 제목 '404 Page Not Found') — 판매 끝난 상품 | 혼용률 34/81 — 오늘 impit 0/3(dead 404) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(dead 404) · firefox 0/3(dead 404) | 목록 재수집으로 주소 갱신(프리페치는 매일 81개를 저장하지만 표본 3개 모두 404 — 서버가 옛 주소를 내놓는지 확인) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+
+### 🔧 열리는데 잘못 읽음 — 7개 브랜드 · 상품 786개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| Athleta | 크롬 확장(집 PC) | 1 | 카탈로그에 상품이 없음(목록 문제) | 상품 1개 |  | 1 무료 변경(우리 쪽) | 측정·판정 |
+| Banana Republic | 크롬 확장(집 PC) | 1 | 카탈로그에 상품이 없음 | 상품 1개 |  | 1 무료 변경(우리 쪽) | 측정·판정 |
+| Carlhartt | 헤드리스(Actions) | 148 | 카탈로그 표본 3개 중 2개가 카테고리 페이지라 혼용률 없음 | 혼용률 108/148 — 오늘 impit 1/3(no-comp) · site-api 0/3(error) · wayback 1/3(no-comp·no-archive) · playwright 1/3(no-comp) · firefox 1/3(no-comp) | 목록부터 바로잡기 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Gap | 크롬 확장(집 PC) | 6 | 카탈로그 6개가 전부 기획전 배너 |  |  | 1 무료 변경(우리 쪽) | 측정·판정 |
+| Massimo Dutti | 크롬 확장(집 PC) | 603 | 파이어폭스로 열리지만 혼용률이 스크립트 JSON(material/percentage)에만 있어 1/3 만 읽힘 · 크롬·평 HTML 차단 | 혼용률 1/603 — 오늘 impit 0/3(blocked) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 1/3(no-comp) | 페이지 속 JSON 의 material·percentage 짝을 읽도록 추출기 보완(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Old Navy | 크롬 확장(집 PC) | 7 | 카탈로그 7개가 전부 배너 |  |  | 1 무료 변경(우리 쪽) | 측정·판정 |
+| Oysho | 크롬 확장(집 PC) | 20 | 카탈로그에 상품이 없음 |  |  | 1 무료 변경(우리 쪽) | 측정·판정 |
+
+### 📭 사이트가 혼용률을 안 적음 — 1개 브랜드 · 상품 232개
+
+| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
+|---|---|---:|---|---|---|---|---|
+| rouje | 서버(Render) | 232 | 페이지는 모든 엔진으로 열리는데 혼용률 글이 없음(표본 3개) · 사이트 JSON(.json)은 꺼져 있음(404) | 혼용률 149/232 — 일부 상품만 적힘 — 오늘 impit 0/3(no-comp) · site-api 0/3(dead 404) · wayback 0/3(no-archive) · playwright 0/3(no-comp) · firefox 0/3(no-comp) | 없음(사이트가 안 적음) — 엑셀 '정보 없음' | 0 이미 정상 | 측정·판정 · 실행 1회 |
 
 | 브랜드 | 카테고리 | URL | impit(브라우저 없는 fetch) | 크롬(헤드리스) | 파이어폭스 | 서버(Render) |
 |---|---|---|---|---|---|---|
 | &Other Stories | tops | stories.com/en-us/clothing/tops/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
 | &Other Stories | sweatshirts | stories.com/en-us/clothing/tops/sweatshirts-hoodies/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
 | &Other Stories | shirts | stories.com/en-us/clothing/blouses-shirts/ | 3/3 | 0/1 blocked 403 | 1/1 | – |
-| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav | 0/3 blocked | 0/1 blocked 418 | 0/1 geo | – |
-| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+n | 0/3 blocked | 0/1 blocked 418 | 0/1 geo | – |
-| Abercrombie & Fitch | sweatshirts | abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-le | 0/3 blocked | 0/1 blocked 418 | 0/1 geo | – |
+| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – |
+| Abercrombie & Fitch | tops | abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+n | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – |
+| Abercrombie & Fitch | sweatshirts | abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-le | 0/3 blocked | 0/1 blocked 418 | 0/1 blocked | – |
 | Abercrombie & Fitch | shirts | abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+na | 0/2 blocked | – | – | – |
 | Abercrombie & Fitch | dresses | abercrombie.com/shop/wd/womens-dresses-and-jumpsuits | 0/2 blocked | – | – | – |
 | Abercrombie & Fitch | pants | abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation- | 0/2 blocked | – | – | – |
@@ -503,7 +558,7 @@
 | Mango | dresses | shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705 | 0/2 blocked 429 | – | – | – |
 | Mango | pants | shop.mango.com/us/en/c/women/pants/0bf28b3b | 0/2 blocked 429 | – | – | – |
 | Massimo Dutti | tops | massimodutti.com/us/women/t-shirts-n1444?celement=2242518 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – |
-| Massimo Dutti | tops | massimodutti.com/us/s/w-tops-n2889 | 0/3 blocked | 0/1 blocked 403 | 0/1 blocked 404 | – |
+| Massimo Dutti | tops | massimodutti.com/us/s/w-tops-n2889 | 0/3 blocked | 0/1 blocked 403 | 0/1 dead 404 | – |
 | Massimo Dutti | shirts | massimodutti.com/us/women/shirts-n1439?celement=1963012 | 0/3 blocked | 0/1 blocked 403 | 1/1 | – |
 | Massimo Dutti | dresses | massimodutti.com/us/women/dresses-n1494?celement=2158374 | 0/2 blocked | – | – | – |
 | Massimo Dutti | pants | massimodutti.com/us/women/trousers-n1476?celement=2158376 | 0/2 blocked | – | – | – |
@@ -586,8 +641,8 @@
 | The upside | dresses | theupside.com/shop/all-in-one/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
 | The upside | pants | theupside.com/shop/bottoms/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
 | The white company | tops | thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts | 0/3 geo | 0/1 geo | 0/1 geo | – |
-| The white company | sweatshirts | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear | 0/3 geo | 0/1 blocked 404 | 0/1 blocked 404 | – |
-| The white company | dresses | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics | 0/3 geo | 0/1 blocked 404 | 0/1 blocked 404 | – |
+| The white company | sweatshirts | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear | 0/3 geo | 0/1 dead 404 | 0/1 dead 404 | – |
+| The white company | dresses | thewhitecompany.com/uk/Clothing/View-All-Clothing/c/dresses-and-tunics | 0/3 geo | 0/1 dead 404 | 0/1 dead 404 | – |
 | Theory | tops | theory.com/women/t-shirts-and-tanks/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
 | Theory | sweatshirts | theory.com/women/loungewear/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |
 | Theory | shirts | theory.com/women/tops/ | 0/3 blocked 403 | 0/1 blocked 403 | 0/1 blocked 403 | – |

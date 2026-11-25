@@ -283,8 +283,10 @@ export function causeOf(r, kind) {
     return "error";
   }
   // 차단 화면 흔적이 있으면(상태가 200·429 여도) 차단이다 — Akamai 의 빈 확인 화면(Zara·Massimo Dutti·Oysho)이 200 으로 온다.
-  const blockMark = [...mk].some((id) => (MARKERS.find((x) => x[0] === id) || [])[3] === "block");
-  if (blockMark && (r.v === "blocked" || (ev.textLen || 0) < 600 || ev.status >= 400)) return "blocked";
+  const isBlock = (id) => (MARKERS.find((x) => x[0] === id) || [])[3] === "block";
+  const blockMark = [...mk].some(isBlock);
+  const titleBlock = markersOf("", ev.title).some(isBlock);   // 제목 자체가 차단 화면(Client Challenge·Just a moment… 등)
+  if (blockMark && (r.v === "blocked" || titleBlock || (ev.textLen || 0) < 600 || ev.status >= 400)) return "blocked";
   if (ev.status === 404 || ev.status === 410) return "dead";
   if (ev.status === 429) return "rate-limit";
   if (r.v === "blocked") return "blocked";
