@@ -141,20 +141,27 @@ export default {
         const ld = fromJsonLd(page.html || '');
         const sp = page.shopify || {};
         const fromHtml = compFromHtml(page.html || '');
+        // Massimo Dutti 형: 소재가 페이지 JSON(parts/components)에만 있다 — 본문·글에서 못 찾았을 때만.
+        const fromText = fromHtml.length ? [] : compFromText(page.text);
         const compList = (ld.composition && ld.composition.length) ? ld.composition
-          : (fromHtml.length ? fromHtml : compFromText(page.text));
+          : (fromHtml.length ? fromHtml : (fromText.length ? fromText : compFromPartsJson(page.html || '', compUrl)));
         const comp = compList.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
         const sizes = (sp.sizes && sp.sizes.length ? sp.sizes : (ld.sizes || [])).slice(0, 30).join(', ');
+        // 상품 상세(설명·디테일·사진 전부·컬러 전부·코드·통화·재고 사이즈) — 아래 '상품 상세(detail) 추출' 구간.
+        // 리더 프록시로 받은 글(page.html 없음)에서는 뽑지 않는다(어느 칸의 글인지 알 수 없다).
+        const det = detailOf(page.html || '', compUrl, page.shopifyRaw || null);
         const out = {
           url: compUrl, comp,
           // 우선순위: Shopify 옵션 → JSON-LD → 페이지의 색상 선택 옵션.
           color: sp.color || ld.color || colorFromHtml(page.html || ''),
-          sizes,
-          price: sp.price || ld.price || '',
-          priceOrig: sp.priceOrig || ld.price_original || '',
+          sizes: sizes || (det.sizes || []).slice(0, 30).join(', '),
+          price: sp.price || ld.price || det.price || '',
+          priceOrig: sp.priceOrig || ld.price_original || det.priceOrig || '',
           via: page.via || 'page',
+          desc: det.desc || '', feat: det.feat || [], imgs: det.imgs || [], colors: det.colors || [],
+          sku: det.sku || '', cur: det.cur || '', sizesIn: det.sizesIn || [],
         };
-        out.status = (comp || out.color || out.sizes || out.price) ? 'ok' : 'no_data';
+        out.status = (comp || out.color || out.sizes || out.price || out.desc || out.feat.length) ? 'ok' : 'no_data';
         return json(out, 200, cors);
       }
 
@@ -223,6 +230,17 @@ export default {
         if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
         if (!env.RACK_CACHE) return json({ map: {} }, 200, cors);
         const raw = await env.RACK_CACHE.get('comp:' + compsSite.toLowerCase());
+        return new Response(raw || '{}', { status: 200, headers: { 'Content-Type': 'application/json', ...cors } });
+      }
+
+      // 상품 상세 조회 (GET ?details=<site>) — 설명·디테일·사진 전부·컬러 전부·코드·통화·재고 사이즈.
+      // 오버레이(comp:<site>)와 따로 둔다: 오버레이는 브랜드를 열 때마다 받는 작은 값이고(혼용률·컬러·가격),
+      // 상세는 글·사진 주소가 많아 브랜드당 수 MB 까지 커진다. 엑셀 추출·상세 보기 때만 받는다.
+      const detailsSite = reqUrl.searchParams.get('details');
+      if (detailsSite) {
+        if (!tokOk) return new Response('unauthorized', { status: 401, headers: cors });
+        if (!env.RACK_CACHE) return json({}, 200, cors);
+        const raw = await env.RACK_CACHE.get('detail:' + detailsSite.toLowerCase());
         return new Response(raw || '{}', { status: 200, headers: { 'Content-Type': 'application/json', ...cors } });
       }
 
@@ -313,6 +331,30 @@ export default {
         await env.RACK_CACHE.put('comp:' + site, text);
       } catch (e) {
         return json({ error: 'store=overlay: ' + String((e && e.message) || e) }, 200, cors);
+      }
+      return json({ ok: true, site, bytes: text.length }, 200, cors);
+    }
+
+    // 상품 상세 통째 저장 (POST ?store=details&site=) — store=overlay 와 같은 방식: 병합은 보내는 쪽(야간 보강·확장)이
+    // 하고 Worker 는 파싱 없이 KV 에 넣기만 한다(무료 플랜 CPU 10ms — 큰 JSON 을 파싱하면 저장 전에 죽는다).
+    // 키를 오버레이와 나눈 이유: ① 목록·혼용률 화면이 받는 오버레이가 커지지 않는다 ② 혼용률 저장과 상세 저장이
+    // 서로의 값을 덮지 않는다. 크기 상한 20MB(KV 값 상한 25MB 아래).
+    if (reqUrl.searchParams.get('store') === 'details') {
+      const tokOk = !env.ACCESS_TOKEN ||
+        request.headers.get('x-access-token') === env.ACCESS_TOKEN ||
+        reqUrl.searchParams.get('token') === env.ACCESS_TOKEN;
+      if (!tokOk) return json({ error: 'unauthorized' }, 401, cors);
+      if (!env.RACK_CACHE) return json({ error: 'RACK_CACHE KV not configured' }, 500, cors);
+      const site = String(reqUrl.searchParams.get('site') || '').toLowerCase()
+        .replace(/[^a-z0-9.-]/g, '').slice(0, 80);
+      if (!site) return json({ error: 'missing site' }, 400, cors);
+      const text = await request.text();
+      if (!text || text[0] !== '{') return json({ error: 'body must be a JSON object' }, 400, cors);
+      if (text.length > 20 * 1024 * 1024) return json({ error: 'details too large' }, 413, cors);
+      try {
+        await env.RACK_CACHE.put('detail:' + site, text);
+      } catch (e) {
+        return json({ error: 'store=details: ' + String((e && e.message) || e) }, 200, cors);
       }
       return json({ ok: true, site, bytes: text.length }, 200, cors);
     }
@@ -747,8 +789,13 @@ async function extractFabric(url, apiKey) {
   const ld = fromJsonLd(page.html);
   // 본문 16000자 밖·페이지 JSON 안에 있는 소재까지 본다(compFromHtml).
   const htmlComp = compFromHtml(page.html || '');
+  const plainComp = htmlComp.length ? [] : compFromText(page.text);
   const textComp = (ld.composition && ld.composition.length) ? ld.composition
-    : (htmlComp.length ? htmlComp : compFromText(page.text));
+    : (htmlComp.length ? htmlComp : (plainComp.length ? plainComp : compFromPartsJson(page.html || '', url)));
+  // 상품 상세(설명·디테일·사진 전부 …) — 응답에 함께 싣는다(AI 와 무관, 구조화 데이터·본문 칸에서).
+  const det = detailOf(page.html || '', url, page.shopifyRaw || null);
+  const detBits = { desc: det.desc || '', feat: det.feat || [], imgs: det.imgs || [], colors: det.colors || [],
+    sku: det.sku || '', cur: det.cur || '', sizesIn: det.sizesIn || [] };
   const pre = {
     product_name: ld.product_name || page.title || '',
     price: sp0.price || ld.price || '',
@@ -772,6 +819,7 @@ async function extractFabric(url, apiKey) {
       // 왜 AI 를 안 썼는지 남긴다 — 값이 비었을 때 원인을 찾기 쉽게.
       note: complete ? '' : (apiKey ? '' : 'AI 키 없음 — 구조화 데이터만 사용'),
       via: 'structured',
+      ...detBits,
     };
   }
 
@@ -838,6 +886,7 @@ async function extractFabric(url, apiKey) {
     ).slice(0, 30),
     status: parsed.status || 'ok',
     note: parsed.note || '',
+    ...detBits,
   };
 }
 
@@ -893,6 +942,7 @@ async function fetchShopifyJson(url) {
   return {
     ok: true, text, ogImage: /^https?:\/\//i.test(img) ? img : '', title: String(p.title || '').trim(),
     shopify: { sizes, color, price: money(lowNow), priceOrig: onSale ? money(highWas) : '' },
+    shopifyRaw: p,   // 상품 상세 추출(detailOf)이 사진 전부·변형·설명 목록을 읽는다
   };
 }
 

@@ -70,6 +70,8 @@ jobs:
         run: node scripts/test-app-basket.mjs
       - name: Run extension folder consistency test (manifest · CSP · changelog)
         run: node scripts/test-extension-manifest.mjs
+      - name: Run enrich product-detail / impit layer test (fake Worker · fake impit)
+        run: node scripts/test-enrich-detail.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
@@ -83,6 +85,9 @@ jobs:
           node --check scripts/comp-guard.mjs
           node --check scripts/clean-stored-comp.mjs
           node --check scripts/try-engines.mjs
+          node --check scripts/field-measure.mjs
+          node --check scripts/detail-core.mjs
+          node --check scripts/detail-guard.mjs
           node --check scripts/access-evidence.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js

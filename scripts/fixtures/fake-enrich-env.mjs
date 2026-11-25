@@ -24,7 +24,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 //   archiveStatus: (kind, req) => number|0          429·503 을 흉내낼 때(0 이면 정상)
 //   catalogLinks: { brand: { tops: [url] } }        카테고리 URL 목록(Render 흉내)
 export async function startFake(opts = {}) {
-  const state = { requests: [], stores: [], index: null, overlay: {}, hits: {} };
+  const state = { requests: [], stores: [], index: null, overlay: {}, hits: {}, details: {}, detailStores: [] };
   let base = "";
   let archive = {};
   const srv = createServer((req, res) => {
@@ -35,6 +35,13 @@ export async function startFake(opts = {}) {
 
     if (u.pathname.startsWith("/p/")) {
       state.hits[u.pathname] = (state.hits[u.pathname] || 0) + 1;
+      // impitOnly: 평 fetch 에는 403, 크롬 TLS 지문 흉내(가짜 impit 이 붙이는 x-impit 머리)에만 열리는 페이지.
+      if ((opts.impitOnly || {})[u.pathname] != null) {
+        state.hits["impit:" + u.pathname] = (state.hits["impit:" + u.pathname] || 0) + (req.headers["x-impit"] ? 1 : 0);
+        if (!req.headers["x-impit"]) { res.writeHead(403); return res.end("Forbidden"); }
+        res.writeHead(200, { "Content-Type": "text/html" });
+        return res.end(opts.impitOnly[u.pathname]);
+      }
       const pg = (opts.pages || {})[u.pathname];
       if (pg == null) { res.writeHead(403); return res.end("Forbidden"); }
       const o = typeof pg === "string" ? { status: 200, body: pg } : pg;
@@ -84,6 +91,13 @@ export async function startFake(opts = {}) {
       const site = u.searchParams.get("comps");
       return j(opts.perSite ? (state.overlay[site] || {}) : state.overlay);
     }
+    if (u.searchParams.has("details")) {
+      if (opts.detailsStatus) { res.writeHead(opts.detailsStatus); return res.end("boom"); }
+      return j(state.details);
+    }
+    if (u.searchParams.get("store") === "details") {
+      return body().then((b) => { state.details = JSON.parse(b); state.detailStores.push(state.details); j({ ok: true }); });
+    }
     if (u.searchParams.has("comp")) { state.hits.bypass = (state.hits.bypass || 0) + 1; return j({}); }
     if (u.searchParams.get("store") === "overlay") {
       return body().then((b) => {
@@ -101,6 +115,7 @@ export async function startFake(opts = {}) {
   base = `http://127.0.0.1:${srv.address().port}`;
   state.overlay = typeof opts.overlay === "function" ? opts.overlay(base) : (opts.overlay || {});
   archive = typeof opts.archive === "function" ? opts.archive(base) : (opts.archive || {});
+  state.details = typeof opts.details === "function" ? opts.details(base) : (opts.details || {});
   return { base, state, close: () => new Promise((r) => srv.close(r)) };
 }
 
