@@ -70,6 +70,10 @@ jobs:
         run: node scripts/test-app-basket.mjs
       - name: Run extension folder consistency test (manifest · CSP · changelog)
         run: node scripts/test-extension-manifest.mjs
+      - name: Run product-detail extractor test (rules · real page fixtures · extension copy)
+        run: node scripts/test-detail.mjs
+      - name: Run product-detail store-time guard test (site boilerplate repeated across a brand)
+        run: node scripts/test-detail-guard.mjs
       - name: Run enrich product-detail / impit layer test (fake Worker · fake impit)
         run: node scripts/test-enrich-detail.mjs
       - name: Syntax check panel/extension/userscript
