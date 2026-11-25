@@ -880,7 +880,7 @@ function dtCut(h, test) {
   return out + h.slice(from);
 }
 // 다른 상품·사이트 공통의 글이 든 칸. class·id 에 이런 말이 있으면 지운다.
-const DT_NOISE_RX = /recommend|related|also[-_ ]?(?:like|love|bought|viewed)|you[-_ ]?may|may[-_ ]?also|upsell|up-sell|cross[-_ ]?sell|recently[-_ ]?viewed|complete[-_ ]?(?:the|your)[-_ ]?look|shop[-_ ]?the[-_ ]?look|wear[-_ ]?it[-_ ]?with|style[-_ ]?it[-_ ]?with|pairs?[-_ ]?(?:well[-_ ]?)?with|mega[-_ ]?menu|site[-_ ]?nav|newsletter|cookie|consent|mini[-_ ]?cart|minicart|cart[-_ ]?drawer|breadcrumb|size[-_ ]?(?:guide|chart)|review|rating|bazaarvoice|yotpo|okendo|klarna|afterpay|loyalty|promo[-_ ]?bar|announcement|search[-_ ]?(?:form|bar|overlay)|skip[-_ ]?link/i;
+const DT_NOISE_RX = /recommend|related|also[-_ ]?(?:like|love|bought|viewed)|you[-_ ]?may|may[-_ ]?also|upsell|up-sell|cross[-_ ]?sell|recently[-_ ]?viewed|complete[-_ ]?(?:the|your)[-_ ]?look|shop[-_ ]?the[-_ ]?look|wear[-_ ]?it[-_ ]?with|style[-_ ]?it[-_ ]?with|pairs?[-_ ]?(?:well[-_ ]?)?with|mega[-_ ]?menu|menu[-_ ]?drawer|header[-_ ]?(?:menu|drawer|nav)|site[-_ ]?nav|newsletter|cookie|consent|mini[-_ ]?cart|minicart|cart[-_ ]?drawer|breadcrumb|size[-_ ]?(?:guide|chart)|review|rating|bazaarvoice|yotpo|okendo|klarna|afterpay|loyalty|promo[-_ ]?bar|announcement|search[-_ ]?(?:form|bar|overlay)|skip[-_ ]?link/i;
 const DT_ATTR_RX = /\b(?:class|id|aria-label|data-section-type|data-component)\s*=\s*["']([^"']*)["']/gi;
 function dtAttrs(a) { let s = ''; for (const m of String(a).matchAll(DT_ATTR_RX)) s += ' ' + m[1]; return s; }
 // 본문만 남긴 HTML. 스크립트·스타일·메뉴·<template>·사이트 머리/꼬리·추천 칸을 걷어 낸다.
@@ -1044,7 +1044,9 @@ function dtFromLd(html, base) {
   push(p.offers); if (group && p !== group) push(g.offers);
   vlist.forEach((v) => v && push(v.offers));
   const curOf = (o) => String(o.priceCurrency || (o.priceSpecification && [].concat(o.priceSpecification)[0] && [].concat(o.priceSpecification)[0].priceCurrency) || '').toUpperCase();
-  const nowOf = (o) => dtNum(o.price != null ? o.price : (o.lowPrice != null ? o.lowPrice : null));
+  // 판매가: price → lowPrice → 정가 표시가 아닌 priceSpecification.price(Jaeger·M&S 는 여기에만 적는다).
+  const specNow = (o) => { const x = [].concat(o.priceSpecification || []).find((sp) => sp && !/listprice|strikethrough|msrp|srp/i.test(String(sp.priceType || ''))); return x ? x.price : null; };
+  const nowOf = (o) => dtNum(o.price != null ? o.price : (o.lowPrice != null ? o.lowPrice : specNow(o)));
   const nows = offers.map(nowOf).filter(Number.isFinite);
   const cur = (offers.map(curOf).find(Boolean) || '').slice(0, 3);
   if (cur) out.cur = cur;
@@ -1060,10 +1062,13 @@ function dtFromLd(html, base) {
   const take = (node, offer) => {
     if (!node) return;
     const c = dtText(node.color || ''); if (c && c.length <= 40) colors.push(c);
-    const s = dtText(node.size && typeof node.size === 'object' ? node.size.name : node.size || '');
-    if (s && s.length <= 20) {
+    // size 는 글 하나 · {name} · 배열(Massimo Dutti: ["XS","S",…]) 모두 있다. 배열이면 재고는 알 수 없다.
+    const many = Array.isArray(node.size);
+    for (const z of many ? node.size : [node.size]) {
+      const s = dtText(z && typeof z === 'object' ? z.name : z || '');
+      if (!s || s.length > 20) continue;
       sizes.push(s);
-      const av = dtAvail(offer || [].concat(node.offers || [])[0]);
+      const av = many ? null : dtAvail(offer || [].concat(node.offers || [])[0]);
       if (av !== null) { stockKnown = true; if (av) sizesIn.push(s); }
     }
   };

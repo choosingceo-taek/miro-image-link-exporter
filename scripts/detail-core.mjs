@@ -43,7 +43,7 @@ export function asComp(v) {
 export function compOf(html, url) {
   let ld = {};
   try { ld = fromJsonLd(html) || {}; } catch (e) {}
-  if (ld.composition && ld.composition.length) return { comp: asComp(ld.composition), src: "jsonld" };
+  if (ld.composition && ld.composition.length && validComp(asComp(ld.composition))) return { comp: asComp(ld.composition), src: "jsonld" };
   const h = asComp(compFromHtml(html));
   if (h) return { comp: h, src: "page" };
   const p = asComp(compFromPartsJson(html, url));

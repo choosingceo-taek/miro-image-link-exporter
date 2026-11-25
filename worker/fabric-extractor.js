@@ -143,7 +143,9 @@ export default {
         const fromHtml = compFromHtml(page.html || '');
         // Massimo Dutti 형: 소재가 페이지 JSON(parts/components)에만 있다 — 본문·글에서 못 찾았을 때만.
         const fromText = fromHtml.length ? [] : compFromText(page.text);
-        const compList = (ld.composition && ld.composition.length) ? ld.composition
+        // JSON-LD 의 소재는 옳을 때만 먼저 쓴다(옳지 않으면 본문으로 — Buck Mason).
+        const ldOk = ld.composition && ld.composition.length && validComp(ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / '));
+        const compList = ldOk ? ld.composition
           : (fromHtml.length ? fromHtml : (fromText.length ? fromText : compFromPartsJson(page.html || '', compUrl)));
         const comp = compList.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
         const sizes = (sp.sizes && sp.sizes.length ? sp.sizes : (ld.sizes || [])).slice(0, 30).join(', ');
@@ -790,7 +792,8 @@ async function extractFabric(url, apiKey) {
   // 본문 16000자 밖·페이지 JSON 안에 있는 소재까지 본다(compFromHtml).
   const htmlComp = compFromHtml(page.html || '');
   const plainComp = htmlComp.length ? [] : compFromText(page.text);
-  const textComp = (ld.composition && ld.composition.length) ? ld.composition
+  const ldOk = ld.composition && ld.composition.length && validComp(ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / '));
+  const textComp = ldOk ? ld.composition
     : (htmlComp.length ? htmlComp : (plainComp.length ? plainComp : compFromPartsJson(page.html || '', url)));
   // 상품 상세(설명·디테일·사진 전부 …) — 응답에 함께 싣는다(AI 와 무관, 구조화 데이터·본문 칸에서).
   const det = detailOf(page.html || '', url, page.shopifyRaw || null);
@@ -1111,7 +1114,10 @@ function fromJsonLd(html) {
     .flatMap((v) => (Array.isArray(v) ? v : [v]))
     .filter(Boolean).map((v) => (typeof v === 'object' ? v.name || '' : String(v))).join(', ');
   if (matRaw) {
-    const pairs = [...matRaw.matchAll(/(\d{1,3})\s*%\s*([A-Za-z\uAC00-\uD7A3][A-Za-z \uAC00-\uD7A3-]{1,24})|([A-Za-z\uAC00-\uD7A3][A-Za-z \uAC00-\uD7A3-]{1,24})\s*(\d{1,3})\s*%/g)];
+    // 섬유 이름은 낱말 셋까지만 — 하이픈·쉼표에서 끊는다. 예전 규칙(글자·공백·하이픈 24자)은 Buck Mason 의
+    // material "100% cotton - With double the fabric density …" 을 "Cotton - With Double The 100%" 로 읽었고,
+    // 그 값이 JSON-LD 라는 이유로 본문의 옳은 소재보다 앞서 혼용률이 빈 채로 남았다(2026-11-25 현장 측정).
+    const pairs = [...matRaw.matchAll(/(\d{1,3})\s*%\s*([A-Za-z\uAC00-\uD7A3]+(?:[ ][A-Za-z\uAC00-\uD7A3]+){0,2})|([A-Za-z\uAC00-\uD7A3]+(?:[ ][A-Za-z\uAC00-\uD7A3]+){0,2})\s*(\d{1,3})\s*%/g)];
     for (const g of pairs) {
       const pct = Number(g[1] || g[4]);
       const name = String(g[2] || g[3] || '').trim();
@@ -1543,7 +1549,7 @@ function dtCut(h, test) {
   return out + h.slice(from);
 }
 // 다른 상품·사이트 공통의 글이 든 칸. class·id 에 이런 말이 있으면 지운다.
-const DT_NOISE_RX = /recommend|related|also[-_ ]?(?:like|love|bought|viewed)|you[-_ ]?may|may[-_ ]?also|upsell|up-sell|cross[-_ ]?sell|recently[-_ ]?viewed|complete[-_ ]?(?:the|your)[-_ ]?look|shop[-_ ]?the[-_ ]?look|wear[-_ ]?it[-_ ]?with|style[-_ ]?it[-_ ]?with|pairs?[-_ ]?(?:well[-_ ]?)?with|mega[-_ ]?menu|site[-_ ]?nav|newsletter|cookie|consent|mini[-_ ]?cart|minicart|cart[-_ ]?drawer|breadcrumb|size[-_ ]?(?:guide|chart)|review|rating|bazaarvoice|yotpo|okendo|klarna|afterpay|loyalty|promo[-_ ]?bar|announcement|search[-_ ]?(?:form|bar|overlay)|skip[-_ ]?link/i;
+const DT_NOISE_RX = /recommend|related|also[-_ ]?(?:like|love|bought|viewed)|you[-_ ]?may|may[-_ ]?also|upsell|up-sell|cross[-_ ]?sell|recently[-_ ]?viewed|complete[-_ ]?(?:the|your)[-_ ]?look|shop[-_ ]?the[-_ ]?look|wear[-_ ]?it[-_ ]?with|style[-_ ]?it[-_ ]?with|pairs?[-_ ]?(?:well[-_ ]?)?with|mega[-_ ]?menu|menu[-_ ]?drawer|header[-_ ]?(?:menu|drawer|nav)|site[-_ ]?nav|newsletter|cookie|consent|mini[-_ ]?cart|minicart|cart[-_ ]?drawer|breadcrumb|size[-_ ]?(?:guide|chart)|review|rating|bazaarvoice|yotpo|okendo|klarna|afterpay|loyalty|promo[-_ ]?bar|announcement|search[-_ ]?(?:form|bar|overlay)|skip[-_ ]?link/i;
 const DT_ATTR_RX = /\b(?:class|id|aria-label|data-section-type|data-component)\s*=\s*["']([^"']*)["']/gi;
 function dtAttrs(a) { let s = ''; for (const m of String(a).matchAll(DT_ATTR_RX)) s += ' ' + m[1]; return s; }
 // 본문만 남긴 HTML. 스크립트·스타일·메뉴·<template>·사이트 머리/꼬리·추천 칸을 걷어 낸다.
@@ -1707,7 +1713,9 @@ function dtFromLd(html, base) {
   push(p.offers); if (group && p !== group) push(g.offers);
   vlist.forEach((v) => v && push(v.offers));
   const curOf = (o) => String(o.priceCurrency || (o.priceSpecification && [].concat(o.priceSpecification)[0] && [].concat(o.priceSpecification)[0].priceCurrency) || '').toUpperCase();
-  const nowOf = (o) => dtNum(o.price != null ? o.price : (o.lowPrice != null ? o.lowPrice : null));
+  // 판매가: price → lowPrice → 정가 표시가 아닌 priceSpecification.price(Jaeger·M&S 는 여기에만 적는다).
+  const specNow = (o) => { const x = [].concat(o.priceSpecification || []).find((sp) => sp && !/listprice|strikethrough|msrp|srp/i.test(String(sp.priceType || ''))); return x ? x.price : null; };
+  const nowOf = (o) => dtNum(o.price != null ? o.price : (o.lowPrice != null ? o.lowPrice : specNow(o)));
   const nows = offers.map(nowOf).filter(Number.isFinite);
   const cur = (offers.map(curOf).find(Boolean) || '').slice(0, 3);
   if (cur) out.cur = cur;
@@ -1723,10 +1731,13 @@ function dtFromLd(html, base) {
   const take = (node, offer) => {
     if (!node) return;
     const c = dtText(node.color || ''); if (c && c.length <= 40) colors.push(c);
-    const s = dtText(node.size && typeof node.size === 'object' ? node.size.name : node.size || '');
-    if (s && s.length <= 20) {
+    // size 는 글 하나 · {name} · 배열(Massimo Dutti: ["XS","S",…]) 모두 있다. 배열이면 재고는 알 수 없다.
+    const many = Array.isArray(node.size);
+    for (const z of many ? node.size : [node.size]) {
+      const s = dtText(z && typeof z === 'object' ? z.name : z || '');
+      if (!s || s.length > 20) continue;
       sizes.push(s);
-      const av = dtAvail(offer || [].concat(node.offers || [])[0]);
+      const av = many ? null : dtAvail(offer || [].concat(node.offers || [])[0]);
       if (av !== null) { stockKnown = true; if (av) sizesIn.push(s); }
     }
   };

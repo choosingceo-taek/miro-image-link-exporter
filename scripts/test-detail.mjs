@@ -5,7 +5,7 @@
 //   A. 규칙 시험 — 손으로 만든 작은 페이지로, 지켜야 할 것(메뉴·추천 칸·리뷰·배송 안내 빼기, 출처 순서, 상한,
 //      Shopify .js/.json 둘 다, 재고 사이즈, Inditex parts JSON 의 '이 상품' 가리기)을 하나씩.
 //   B. 실제 페이지 시험 — scripts/fixtures/pages/ 의 브랜드별 실제 상품 페이지(현장 지도 측정이 저장한 것)에 대해,
-//      사람이 HTML 을 읽고 적은 기대값(scripts/fixtures/pages/expected.json)과 견준다. 추출기 결과를 기대값으로 베끼지 않는다.
+//      사람이 HTML 을 읽고 적은 기대값(scripts/fixtures/detail-pages/expected.json)과 견준다. 추출기 결과를 기대값으로 베끼지 않는다.
 // 확장(background.js)의 복사본이 원본과 글자 그대로 같은지도 본다.
 import { readFileSync, existsSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
@@ -115,13 +115,14 @@ const ld = (o) => `<script type="application/ld+json">${JSON.stringify({ "@conte
 
 // ── B. 실제 페이지(현장 지도 측정이 저장한 표본) ───────────────────────────
 // expected.json: [{ brand, file, shop?, url, name, expect: { 칸: 값 | {has:"글"} | {count:N} | {min:N} | {first:"…"} } }]
-// 값은 사람이 HTML 을 열어 읽은 것이다(scripts/fixtures/pages/README.md).
-const EXP = join(ROOT, "scripts/fixtures/pages/expected.json");
+// 값은 사람이 HTML 을 열어 읽은 것이다(expected.json 의 why 칸에 읽은 자리를 적었다).
+const FIX = join(ROOT, "scripts/fixtures/detail-pages");   // 현장 측정이 덮어쓰지 않는 고정 사본(scripts/fixtures/pages 에서 옮김)
+const EXP = join(FIX, "expected.json");
 if (existsSync(EXP)) {
   const cases = JSON.parse(readFileSync(EXP, "utf8"));
   for (const c of cases) {
-    const html = gunzipSync(readFileSync(join(ROOT, "scripts/fixtures/pages", c.file))).toString("utf8");
-    const shop = c.shop ? JSON.parse(gunzipSync(readFileSync(join(ROOT, "scripts/fixtures/pages", c.shop))).toString("utf8")) : null;
+    const html = gunzipSync(readFileSync(join(FIX, c.file))).toString("utf8");
+    const shop = c.shop ? JSON.parse(gunzipSync(readFileSync(join(FIX, c.shop))).toString("utf8")) : null;
     const d = detailOf(html, c.url, shop);
     const comp = compOf(html, c.url).comp;
     const got = { ...d, comp };

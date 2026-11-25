@@ -293,7 +293,8 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
     // 상품 상세 — 이 상품의 본문이 그려진 페이지일 때만(껍데기의 글은 다른 상품·사이트 공통 글이다).
     const d = shell ? {} : detailOf(html, url, shopPr);
     const out = {
-      comp: (ld.composition && ld.composition.length)
+      // JSON-LD 소재는 옳을 때만 먼저(옳지 않으면 본문으로 — Buck Mason 'Cotton - With Double The 100%').
+      comp: (ld.composition && ld.composition.length && validComp(asComp(ld.composition)))
         ? asComp(ld.composition)
         // Massimo Dutti 형(소재가 페이지 JSON parts/components 에만)은 본문·글에서 못 찾았을 때만.
         : (asComp(compFromHtml(html)) || asComp(compFromText(text)) || (shell ? "" : asComp(compFromPartsJson(html, url)))),
@@ -514,7 +515,7 @@ async function waybackOf(url, stat, o, ctx) {
     let ld = {};
     try { ld = fromJsonLd(html); } catch (e) {}
     const text = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ");
-    const comp = (ld.composition && ld.composition.length)
+    const comp = (ld.composition && ld.composition.length && validComp(asComp(ld.composition)))
       ? asComp(ld.composition) : (asComp(compFromHtml(html)) || asComp(compFromText(text)));
     if (!validComp(comp)) return reject("보관본에 혼용률 없음", comp ? `뽑힌 값 "${comp.slice(0, 60)}"` : "");
     const color = ld.color || colorFromHtml(html) || "";

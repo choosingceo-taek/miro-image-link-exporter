@@ -73,6 +73,14 @@ check("퍼센트 없는 소재", fromJsonLd(page({
   "@type": "Product", name: "Cardigan", material: "Merino Wool",
 })), { materials: ["Merino Wool"], composition: [] });
 
+// ── 소재 뒤에 설명 글이 이어지면 섬유 이름에서 끊는다(Buck Mason 2026-11-25) ──
+check("소재 뒤 설명 글", fromJsonLd(page({
+  "@type": "Product", name: "Crop Tee", material: "100% cotton - With double the fabric density and weight of our core tees",
+})), { composition: [{ material: "Cotton", percent: 100 }] });
+check("수식어 붙은 섬유(낱말 셋까지)", fromJsonLd(page({
+  "@type": "Product", name: "Tank", material: "95% organic cotton, 5% elastane",
+})), { composition: [{ material: "Organic Cotton", percent: 95 }, { material: "Elastane", percent: 5 }] });
+
 // ── Product 가 없으면 전부 빈 값(예외 없이) ──
 check("Product 없음", fromJsonLd(page({ "@type": "Organization", name: "Acme" })), {
   product_name: "", price: "", color: "", sizes: [], composition: [], materials: [],
