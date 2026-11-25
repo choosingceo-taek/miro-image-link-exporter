@@ -1,26 +1,26 @@
-# 엑셀 항목 보강 결과 (2026-11-25T13:11Z)
+# 엑셀 항목 보강 결과 (2026-11-25T14:41Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
 > 이 숫자는 **방금 쓴 값을 낙관적으로** 센 것이다 — KV 가 최종 일관성이라 쓴 직후에는
 > 안 읽히는 일이 있어 일부러 그렇게 뒀다. 안정된 뒤의 실제 숫자는 `preflight.md` 를 본다.
 
-**지금 두 열이 다 채워져 나오는 브랜드: 28/134개** (상품 9456/38526개)
+**지금 두 열이 다 채워져 나오는 브랜드: 28/134개** (상품 9479/38550개)
 
 패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.
 
 ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Marine Layer · Nation LTD · Ninety Percent · Rag & bone · Sanctuary · Seasalt cornwall · Shopbop · Sweaty betty · The Great · Theory · Ulla Johnson · Varley · Veronica Beard · Vince · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 74% · 컬러웨이 65%.
-기준 95% 까지 11427개, 목표 99% 까지 12968개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 75% · 컬러웨이 66%.
+기준 95% 까지 11279개, 목표 99% 까지 12821개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
-목표 항목: comp · 상품 38526개
+목표 항목: comp · 상품 38550개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 28628 | 74% | +0 |
-| 컬러웨이 | 25173 | 65% | +0 |
+| 혼용률 | 28776 | 75% | +2 |
+| 컬러웨이 | 25344 | 66% | +2 |
 
 - 검색 인덱스 재구축: 18001개
 
@@ -35,9 +35,9 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | The white company | — | 0/68 (0%) | 0/68 (0%) | 혼용률 +0 컬러 +0 |  |
-| H&M | — | 0/744 (0%) | 4/744 (1%) | 혼용률 +0 컬러 +0 |  |
-| Lululemon | — | 1/476 (0%) | 1/476 (0%) | 혼용률 +0 컬러 +0 |  |
+| H&M | — | 0/744 (0%) | 5/744 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 20·직접차단 20·보관본없음 18·아카이브거부 2 |
 | Fatface | — | 1/374 (0%) | 1/374 (0%) | 혼용률 +0 컬러 +0 |  |
+| Lululemon | — | 2/476 (0%) | 1/476 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 3·직접차단 3·보관본없음 3 |
 | Sezane | — | 1/206 (0%) | 2/206 (1%) | 혼용률 +0 컬러 +0 |  |
 | Massimo Dutti | — | 3/603 (0%) | 2/603 (0%) | 혼용률 +0 컬러 +0 |  |
 | Chico's | — | 9/800 (1%) | 8/800 (1%) | 혼용률 +0 컬러 +0 |  |
@@ -45,8 +45,8 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Anthropologie | — | 5/270 (2%) | 5/270 (2%) | 혼용률 +0 컬러 +0 |  |
 | Garnet hill | — | 2/108 (2%) | 0/108 (0%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 7/168 (4%) | 6/168 (4%) | 혼용률 +0 컬러 +0 |  |
-| Free People | — | 9/190 (5%) | 5/190 (3%) | 혼용률 +0 컬러 +0 |  |
 | Prana | — | 4/81 (5%) | 4/81 (5%) | 혼용률 +0 컬러 +0 |  |
+| Free People | — | 10/189 (5%) | 7/189 (4%) | 혼용률 +2 컬러 +2 | 성공 아카이브 2 / 실패 정보없음 6·직접차단 6·보관본없음 3·아카이브거부 1 |
 | Joules | — | 25/459 (5%) | 25/459 (5%) | 혼용률 +0 컬러 +0 |  |
 | Oysho | — | 2/20 (10%) | 0/20 (0%) | 혼용률 +0 컬러 +0 |  |
 | FP Movement | — | 7/58 (12%) | 4/58 (7%) | 혼용률 +0 컬러 +0 |  |
@@ -57,12 +57,12 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Reformation | — | 261/753 (35%) | 299/753 (40%) | 혼용률 +0 컬러 +0 |  |
 | &Other Stories | — | 143/343 (42%) | 107/343 (31%) | 혼용률 +0 컬러 +0 |  |
 | Sessun | — | 34/81 (42%) | 0/81 (0%) | 혼용률 +0 컬러 +0 |  |
-| Loft | — | 284/673 (42%) | 323/673 (48%) | 혼용률 +0 컬러 +0 |  |
 | Buck Mason | — | 57/119 (48%) | 118/119 (99%) | 혼용률 +0 컬러 +0 |  |
 | Wilson | — | 28/58 (48%) | 45/58 (78%) | 혼용률 +0 컬러 +0 |  |
 | Arket | — | 145/285 (51%) | 145/285 (51%) | 혼용률 +0 컬러 +0 |  |
 | Dickies | — | 144/260 (55%) | 260/260 (100%) | 혼용률 +0 컬러 +0 |  |
 | Mango | — | 54/93 (58%) | 0/93 (0%) | 혼용률 +0 컬러 +0 |  |
+| Loft | — | 404/672 (60%) | 465/672 (69%) | 혼용률 +0 컬러 +0 | 실패 정보없음 5·껍데기 5·보관본없음 5 |
 | Aritzia | — | 503/800 (63%) | 3/800 (0%) | 혼용률 +0 컬러 +0 |  |
 | Paige | — | 38/60 (63%) | 59/60 (98%) | 혼용률 +0 컬러 +0 |  |
 | Abercrombie & Fitch | — | 136/214 (64%) | 2/214 (1%) | 혼용률 +0 컬러 +0 |  |
@@ -118,7 +118,7 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | CCC | — | 755/800 (94%) | 474/800 (59%) | 혼용률 +0 컬러 +0 |  |
 | Whistles | — | 205/217 (94%) | 216/217 (100%) | 혼용률 +0 컬러 +0 |  |
 | Eddie bauer | — | 189/200 (95%) | 175/200 (88%) | 혼용률 +0 컬러 +0 |  |
-| L.L bean | — | 293/310 (95%) | 256/310 (83%) | 혼용률 +0 컬러 +0 |  |
+| L.L bean | — | 296/313 (95%) | 259/313 (83%) | 혼용률 +0 컬러 +0 |  |
 | Evereve | ✅ | 420/444 (95%) | 444/444 (100%) | 혼용률 +0 컬러 +0 |  |
 | Faherty | ✅ | 161/170 (95%) | 169/170 (99%) | 혼용률 +0 컬러 +0 |  |
 | Citizens of Humanity | ✅ | 162/171 (95%) | 171/171 (100%) | 혼용률 +0 컬러 +0 |  |
@@ -126,13 +126,13 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Marine Layer | ✅ | 171/180 (95%) | 180/180 (100%) | 혼용률 +0 컬러 +0 |  |
 | Sweaty betty | ✅ | 385/405 (95%) | 405/405 (100%) | 혼용률 +0 컬러 +0 |  |
 | Jager | — | 383/402 (95%) | 327/402 (81%) | 혼용률 +0 컬러 +0 |  |
-| Seasalt cornwall | ✅ | 266/279 (95%) | 274/279 (98%) | 혼용률 +0 컬러 +0 |  |
 | Sundry | — | 235/246 (96%) | 217/246 (88%) | 혼용률 +0 컬러 +0 |  |
+| Seasalt cornwall | ✅ | 278/291 (96%) | 286/291 (98%) | 혼용률 +0 컬러 +0 |  |
 | Greyson | — | 89/93 (96%) | 83/93 (89%) | 혼용률 +0 컬러 +0 |  |
 | LNA | ✅ | 226/236 (96%) | 232/236 (98%) | 혼용률 +0 컬러 +0 |  |
 | Xirena | ✅ | 320/333 (96%) | 333/333 (100%) | 혼용률 +0 컬러 +0 |  |
 | Nylora | — | 228/237 (96%) | 59/237 (25%) | 혼용률 +0 컬러 +0 |  |
-| Theory | ✅ | 365/379 (96%) | 366/379 (97%) | 혼용률 +0 컬러 +0 |  |
+| Theory | ✅ | 376/390 (96%) | 377/390 (97%) | 혼용률 +0 컬러 +0 |  |
 | Jigsaw | ✅ | 304/315 (97%) | 315/315 (100%) | 혼용률 +0 컬러 +0 |  |
 | Bassike | — | 307/318 (97%) | 1/318 (0%) | 혼용률 +0 컬러 +0 |  |
 | Monsoon | — | 29/30 (97%) | 28/30 (93%) | 혼용률 +0 컬러 +0 |  |
@@ -166,12 +166,57 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Old Navy | — | 7/7 (100%) | 0/7 (0%) | 혼용률 +0 컬러 +0 |  |
 | Z Supply | — | 216/216 (100%) | 190/216 (88%) | 혼용률 +0 컬러 +0 |  |
 
+## 껍데기로 센 페이지 예 (5)
+
+차단 화면은 아닌데 카탈로그 상품명이 화면 글에 없어 '사이트 미표기(none)'로 적지 않은 페이지.
+
+- A woman wearing a dark teal matching set and a grey baseball — https://www.loft.com/clothing/pants/catl000014/lou-grey-scubasoft-wide-leg-sweatpants/773161.html
+  >  · Extra 70% off sale styles!&nbsp; Shop Sale&gt; Black Friday Deals starting at $18!&nbsp; Shop Now&gt; 50% off everything!&nbsp; Shop Now&gt; true Order Status Order Status My Account Sign In Sign U
+- A woman in a plum-colored maxi dress with a side slit stands — https://www.loft.com/clothing/dresses/catl000013/lou-grey-scubasoft-side-pleated-maxi-dress/786578.html
+  >  · Extra 70% off sale styles!&nbsp; Shop Sale&gt; Black Friday Deals starting at $18!&nbsp; Shop Now&gt; 50% off everything!&nbsp; Shop Now&gt; true Order Status Order Status My Account Sign In Sign U
+- A woman in a black top and wide-leg pants stands against a p — https://www.loft.com/clothing/pants/catl000014/lou-grey-crinkle-barrel-pants/787003.html
+  >  · Extra 70% off sale styles!&nbsp; Shop Sale&gt; Black Friday Deals starting at $18!&nbsp; Shop Now&gt; 50% off everything!&nbsp; Shop Now&gt; true Order Status Order Status My Account Sign In Sign U
+- A woman in a white long-sleeved shirt and burgundy sweatpant — https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-scoop-neck-long-sleeve-tee/786234.html
+  >  · Extra 70% off sale styles!&nbsp; Shop Sale&gt; Black Friday Deals starting at $18!&nbsp; Shop Now&gt; 50% off everything!&nbsp; Shop Now&gt; true Order Status Order Status My Account Sign In Sign U
+- A woman wearing a sage green lounge set stands against a pla — https://www.loft.com/clothing/tops/catl000011/lou-grey-signaturesoft-sweatshirt/510914.html
+  >  · Extra 70% off sale styles!&nbsp; Shop Sale&gt; Black Friday Deals starting at $18!&nbsp; Shop Now&gt; 50% off everything!&nbsp; Shop Now&gt; true Order Status Order Status My Account Sign In Sign U
+
 ## 웹 아카이브 층
 
-조회 0/250개(브랜드당 40) · 요청 0회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
+조회 34/250개(브랜드당 40) · 요청 39회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
 
 | 브랜드 | 시도 상품 | 혼용률(지금 페이지) | 혼용률(보관본) | 보관본 없음 | 보관본 거부 | 주소 거부 | 아카이브 오류 | 상한·최근 물음 | 걸린 시간 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| H&M | 20 | 0 | 0 | 18 | 2 | 0 | 0 | 0 | 96s |
+| Free People | 6 | 0 | 2 | 3 | 1 | 0 | 0 | 0 | 55s |
+| Loft | 5 | 0 | 0 | 5 | 0 | 0 | 0 | 0 | 43s |
+| Lululemon | 3 | 0 | 0 | 3 | 0 | 0 | 0 | 0 | 10s |
 
-사유별 개수: 없음
+사유별 개수: 보관본 없음 29 · 찾음 2 · 혼용률 여러 벌(목록) 1 · 목록 페이지(JSON-LD) 2
+
+<details><summary>사유별 예시(최대 5개)</summary>
+
+**보관본 없음**
+
+- Free People — https://www.freepeople.com/shop/spell-pajarito-long-sleeve-tee/
+- Free People — https://www.freepeople.com/shop/highway-asymmetric-sequin-tank/
+- Loft — https://www.loft.com/clothing/pants/catl000014/lou-grey-scubasoft-wide-leg-sweatpants/773161.html
+- Loft — https://www.loft.com/clothing/pants/catl000014/lou-grey-crinkle-barrel-pants/787003.html
+- Loft — https://www.loft.com/clothing/tops/catl000011/lou-grey-essential-modal-scoop-neck-long-sleeve-tee/786234.html
+
+**찾음**
+
+- Free People — https://www.freepeople.com/shop/we-the-free-band-cardi/ — 20260721 · Cotton 100%
+- Free People — https://www.freepeople.com/shop/allister-jacquard-mini-dress/ — 20261116 · Polyester 100%
+
+**혼용률 여러 벌(목록)**
+
+- Free People — https://www.freepeople.com/shop/chilly-sweatshirt/ — {"rootProducts":1,"listProducts":0,"itemList":0,"og":true,"h1":2,"blocks":3,"prices":3,"carts":1,"sigs":["cotton 88/viscose 12","acrylic 27/cotton 45/elastane 1/nylon 12/polyester 2/wool 13","cotton 100"],"title":"Chilly Sweatshirt / Free People","types":["Corporation","ContactPoint","SiteNavigationElement","WebPageElement","BreadcrumbList","ListItem"]}
+
+**목록 페이지(JSON-LD)**
+
+- H&M — https://www2.hm.com/en_us/women/products/pants/wide-leg.html — {"rootProducts":0,"listProducts":36,"itemList":36,"og":false,"h1":1,"blocks":0,"prices":46,"carts":0,"sigs":[],"title":"Women&#x27;s Wide-Leg Pants / Jersey, Cropped &amp; Linen / ","types":["BreadcrumbList","ListItem","ItemList","Product","Offer"]}
+- H&M — https://www2.hm.com/en_us/women/products/pants/sweatpants-joggers.html — {"rootProducts":0,"listProducts":36,"itemList":36,"og":false,"h1":1,"blocks":0,"prices":46,"carts":0,"sigs":[],"title":"Women’s Sweatpants &amp; Joggers / Cozy Jersey &amp; High-Wa","types":["BreadcrumbList","ListItem","ItemList","Product","Offer"]}
+
+</details>
 
