@@ -137,7 +137,17 @@ async function impitGet(url, accept) {
   return { status: r.status, body: await r.text(), finalUrl: r.url || url };
 }
 let ff = null;
+// 페이지 하나에 90초 상한 — 11/25 측정에서 파이어폭스 한 페이지가 16분 멈춰(page.content 가 안 돌아옴) 1/3 몫이 시간 초과로 끝났다.
 async function firefoxGet(url) {
+  let timer;
+  try {
+    return await Promise.race([firefoxGet1(url), new Promise((_, no) => { timer = setTimeout(() => no(new Error("90초 넘게 응답 없음")), 90_000); })]);
+  } catch (e) {
+    if (/90초/.test(String(e.message))) { try { await ff.close(); } catch (e2) {} ff = null; }   // 멈춘 브라우저는 새로 띄운다
+    throw e;
+  } finally { clearTimeout(timer); }
+}
+async function firefoxGet1(url) {
   if (!ff) { const { firefox } = await import("playwright"); ff = await firefox.launch(); }
   await polite(url);
   const ctx = await ff.newContext({ locale: "en-US" });
