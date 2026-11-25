@@ -1214,13 +1214,23 @@ function bareRunAt(src) {
 const PART_MINOR_RX = /(?<![A-Za-z])(?:trims?|trimming|rib(?:bing|bed)?|pocket(?:\s+lining)?|pocketing|contrast|embroidery|lace|cuffs?|collar|binding|piping|insert|applique|appliqué|패치|배색)(?![A-Za-z])[^%]{0,24}$/i;
 const PART_LINING_RX = /(?<![A-Za-z])(?:lining|lined|안감)(?![A-Za-z])[^%]{0,24}$/i;
 const PART_MAIN_RX = /(?<![A-Za-z])(?:main|shell|outer|body|self|base\s+fabric|겉감)(?![A-Za-z])[^%]{0,24}$/i;
-function partRole(src, at) {
+function partRole(src, at, end) {
+  // 값 뒤 괄호에 부위가 붙는 표기가 먼저다 — Tuckernuck "100% Cotton (outer), 100% Viscose (embroidery), 100% Polyester (lace)"
+  // (앞쪽 40자에는 앞 줄의 "(outer)," 가 들어 있어 앞에서 찾으면 틀린다)
+  const after = end != null ? (src.slice(end, end + 30).match(/^\s*\(([^)]{2,24})\)/) || [])[1] : '';
+  if (after) {
+    if (PART_MINOR_RX.test(after)) return 'minor';
+    if (PART_LINING_RX.test(after)) return 'lining';
+    if (PART_MAIN_RX.test(after)) return 'main';
+  }
   const before = src.slice(Math.max(0, at - 40), at);
   if (PART_MINOR_RX.test(before)) return 'minor';
   if (PART_LINING_RX.test(before)) return 'lining';
   if (PART_MAIN_RX.test(before)) return 'main';
   return '';
 }
+// 소재 제목("Materials & Care" · "Composition:" · "Fabric content") 바로 뒤에 온 줄 — 여러 조성이 섞인 창에서 이 상품의 것.
+const COMP_TITLE_RX = /(?:composition|materials?(?:\s*(?:&|and)\s*care)?|fabric(?:\s+content)?|content|소재|혼용률?)\s*[:：]?\s*$/i;
 // 같은 섬유가 쉼표·빗금만 사이에 두고 곧바로 다시 나오면(재생 폴리 + 폴리) 한 벌 안의 같은 섬유다 — 더한다.
 const SAME_FIBRE_GAP_RX = /^[\s,;\/&+]*(?:and\s+)?$/i;
 function compFromText(text) {
@@ -1233,7 +1243,8 @@ function compFromText(text) {
   const bare = bareRunAt(src);   // 배지·메뉴 목록(위 bareRunAt 주석)은 건너뛴다
   const groups = [];
   let cur = [], total = 0, seen = new Set(), gStart = 0, gEnd = 0;
-  const flush = () => { if (cur.length) groups.push({ items: cur, start: gStart, end: gEnd }); cur = []; total = 0; seen = new Set(); };
+  let ovf = false;   // 한 목록이 쉼표·빗금으로 이어지다 100% 를 넘었다(Bellerose '66 / 22 / 2 / 10 / 10' = 110%) — 페이지 표기가 틀렸다
+  const flush = () => { if (cur.length) groups.push({ items: cur, start: gStart, end: gEnd, ovf }); cur = []; total = 0; seen = new Set(); ovf = false; };
   for (const m of src.matchAll(COMP_RX)) {
     if (bare.has(m.index)) continue;
     const g = m.groups;
@@ -1251,6 +1262,7 @@ function compFromText(text) {
       continue;
     }
     // 같은 섬유가 다시 나오거나 합이 100 을 넘기려 하면 한 벌이 끝난 것이다.
+    if (cur.length && !seen.has(material) && pct < 100 && total + pct > 105 && /^\s*[,\/;+&]\s*$/.test(src.slice(gEnd, m.index))) { ovf = true; flush(); groups[groups.length - 1].ovfNext = true; }
     if (cur.length && (seen.has(material) || total + pct > 105)) flush();
     if (!cur.length) gStart = m.index;
     cur.push({ material, percent: pct });
@@ -1266,7 +1278,7 @@ function compFromText(text) {
   // 장식 줄만 남겨 그것을 상품 소재로 저장하는 것보다 빈 칸이 낫다.
   // 사이트 공통 '원단 안내'(FABRIC GUIDE · glossary) 안의 조성은 이 상품의 것이 아니다(Goldie).
   for (let i = groups.length - 1; i >= 0; i--) if (/(?:fabric|material)s?\s+guide|glossary/i.test(src.slice(Math.max(0, groups[i].start - 120), groups[i].start))) groups.splice(i, 1);
-  for (const g of groups) g.role = partRole(src, g.start);
+  for (const g of groups) g.role = partRole(src, g.start, g.end);
   if (groups.some((g) => g.role === 'main')) {
     const mains = groups.filter((g) => g.role === 'main');
     const mainWhole = mains.some((g) => { const t = g.items.reduce((n, c) => n + c.percent, 0); return t >= 95 && t <= 105; });
@@ -1276,6 +1288,12 @@ function compFromText(text) {
 
   const asLine = (g) => g.items.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
   // 온전한 한 벌(합 95~105)만 남긴다. 어중간한 조각은 다른 상품에서 새어 든 것이다.
+  // 100% 를 넘긴 목록(ovf)과 그 꼬리 조각은 둘 다 버린다 — 어느 숫자가 틀렸는지 알 수 없다.
+  const titledAt = (g) => COMP_TITLE_RX.test(src.slice(Math.max(0, g.start - 30), g.start));
+  const ovfTitled = groups.some((g, i) => (g.ovf || (i > 0 && groups[i - 1].ovf)) && titledAt(g));
+  for (let i = groups.length - 1; i >= 0; i--) if (groups[i].ovf || (i > 0 && groups[i - 1].ovf)) groups.splice(i, 1);
+  // 소재 제목 바로 뒤의 목록이 틀린 표기라 버렸으면, 뒤에 남은 다른 조성(추천 카드 등)으로 대신하지 않는다.
+  if (ovfTitled) return [];
   const whole = groups.filter((g) => {
     const t = g.items.reduce((n, c) => n + c.percent, 0);
     return t >= 95 && t <= 105;
@@ -1289,7 +1307,10 @@ function compFromText(text) {
     seenLine.add(k);
     uniq.push(g);
   }
-  // 서로 다른 조성이 셋 이상이면 한 옷의 원단이 아니라 여러 상품이 섞인 것이다.
+  // 서로 다른 조성이 셋 이상이면 한 옷의 원단이 아니라 여러 상품이 섞인 것이다 — 단 첫 줄이 소재 제목 바로 뒤이고
+  // 다른 줄은 그렇지 않으면 첫 줄이 이 상품의 것이다(Oak + Fort 'Materials & Care 55% Cotton, …' 뒤에 메뉴·추천의 조성).
+  const titled = (g) => COMP_TITLE_RX.test(src.slice(Math.max(0, g.start - 30), g.start));
+  if (uniq.length >= 2 && titled(uniq[0]) && !uniq.slice(1).some(titled) && uniq[1].start - uniq[0].end > PART_GAP) uniq.splice(1);
   if (!uniq.length || uniq.length > 2) return [];
   // 두 줄이면 한 옷의 두 원단인지 본다 — 가깝거나, 둘 다 부위 이름이 붙어 있어야 한다(PART_GAP 주석).
   if (uniq.length === 2) {
