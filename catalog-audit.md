@@ -1,13 +1,13 @@
-# 엑셀 4항목 채움률 (2026-11-25T16:37Z)
+# 엑셀 4항목 채움률 (2026-11-25T16:47Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
 | 가격 | 31786/39019 | 81% |
-| 컬러 | 25230/39019 | 65% |
+| 컬러 | 25232/39019 | 65% |
 | 사이즈 | 16597/39019 | 43% |
-| 혼용률 | 28716/39019 | 74% |
+| 혼용률 | 28718/39019 | 74% |
 
 **가격·혼용률 모두 80% 이상인 브랜드 75개** (시연에 안전)
 
@@ -66,7 +66,7 @@
 | Loft | extension | 672 | 0% | 47% | 0% | 42% |
 | Massimo Dutti | extension | 606 | 0% | 0% | 0% | 1% |
 | vineyardvines | server | 560 | 13% | 100% | 0% | 98% |
-| Addidas | extension | 537 | 72% | 1% | 0% | 1% |
+| Addidas | extension | 537 | 72% | 2% | 0% | 2% |
 | Joules | extension | 536 | 65% | 4% | 0% | 4% |
 | Lululemon | extension | 512 | 0% | 0% | 0% | 0% |
 | Zara | server | 499 | 100% | 24% | 0% | 24% |
@@ -127,8 +127,8 @@
 
 - Fatface — 25시간 전 · 374개
 - Seasalt cornwall — 3시간 전 · 291개
-- Free People — 2시간 전 · 189개
-- Old Navy — 2시간 전 · 7개
+- Free People — 3시간 전 · 189개
+- Old Navy — 3시간 전 · 7개
 - Theory — 2시간 전 · 390개
 - Banana Republic — 2시간 전 · 1개
 - Madewell — 2시간 전 · 75개
@@ -143,9 +143,9 @@
 - Anthropologie — 2시간 전 · 263개
 - Paige — 2시간 전 · 61개
 - H&M — 2시간 전 · 745개
-- Eileen fisher — 1시간 전 · 545개
-- Oysho — 1시간 전 · 20개
-- Lululemon — 1시간 전 · 512개
+- Eileen fisher — 2시간 전 · 545개
+- Oysho — 2시간 전 · 20개
+- Lululemon — 2시간 전 · 512개
 - Abercrombie & Fitch — 1시간 전 · 224개
 - Mango — 1시간 전 · 88개
 - Joules — 1시간 전 · 536개
@@ -168,7 +168,7 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 28716/39019개 (74%) · 미완 브랜드 124개
+- 전체 28718/39019개 (74%) · 미완 브랜드 124개
 
 <details><summary>브랜드별 진행도</summary>
 
@@ -183,7 +183,7 @@
 | Gap | extension | 0/6 (0%) |
 | Chico's | server | 9/800 (1%) |
 | Massimo Dutti | extension | 4/606 (1%) |
-| Addidas | extension | 8/537 (1%) |
+| Addidas | extension | 10/537 (2%) |
 | Garnet hill | extension | 2/108 (2%) |
 | Free People | extension | 5/189 (3%) |
 | Joules | extension | 24/536 (4%) |
@@ -417,7 +417,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-25T16:37Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-25T16:47Z)
 
 - 카탈로그 134개 · 상품 39019개 검사 · **문제 항목 38개**
 - 문제가 있는 브랜드 22개
