@@ -292,6 +292,12 @@ ALC · Addison bay · Aerie · Alo · American Eagle · Bash · Bellerose · Bey
 
 <details><summary>사유별 예시(최대 5개)</summary>
 
+**혼용률 여러 벌(목록)**
+
+- Aritzia — https://www.aritzia.com/intl/en/product/opportunity-dress/115484.html — {"rootProducts":1,"listProducts":0,"itemList":0,"og":false,"h1":1,"blocks":9,"prices":0,"carts":1,"sigs":["polyester 54","leather 100","cotton 7/elastane 6/polyester 61/viscose 26","polyester 100"],"title":"Opportunity Dress - Eversential™ / Aritzia INTL","types":["BreadcrumbList","ListItem","ItemList","Product","Brand","Offer"]}
+- Aritzia — https://www.aritzia.com/intl/en/product/attire-vest/123171.html — {"rootProducts":0,"listProducts":0,"itemList":0,"og":false,"h1":0,"blocks":3,"prices":0,"carts":1,"sigs":["polyester 100","wool 100","cotton 100"],"title":"Attire Vest / Aritzia INTL","types":["BreadcrumbList","ListItem","ItemList"]}
+- Aritzia — https://www.aritzia.com/intl/en/product/posh-tube-top/124649.html — {"rootProducts":1,"listProducts":0,"itemList":0,"og":false,"h1":1,"blocks":3,"prices":0,"carts":1,"sigs":["polyester 100","wool 100","cotton 100"],"title":"Posh Tube Top - Crepette™ / Aritzia INTL","types":["BreadcrumbList","ListItem","ItemList","Product","Brand","Offer"]}
+
 **보관본 없음**
 
 - Aerie — https://www.ae.com/us/en/p/aerie/bottoms/pants/aerie-essential-waffle-wide-leg-pant/0701_8945_618
