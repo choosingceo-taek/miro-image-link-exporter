@@ -1,13 +1,13 @@
-# 엑셀 4항목 채움률 (2026-11-25T16:10Z)
+# 엑셀 4항목 채움률 (2026-11-25T16:31Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
 | 항목 | 채움 | 비율 |
 |---|---:|---:|
 | 가격 | 31786/39019 | 81% |
-| 컬러 | 25218/39019 | 65% |
+| 컬러 | 25228/39019 | 65% |
 | 사이즈 | 16597/39019 | 43% |
-| 혼용률 | 28711/39019 | 74% |
+| 혼용률 | 28714/39019 | 74% |
 
 **가격·혼용률 모두 80% 이상인 브랜드 75개** (시연에 안전)
 
@@ -20,7 +20,7 @@
 | Nation LTD | 525 | 100% | 100% | 98% | 100% |
 | J.mclaughlin | 516 | 99% | 2% | 0% | 91% |
 | Cotton on | 470 | 100% | 98% | 0% | 100% |
-| Lands end | 463 | 87% | 3% | 0% | 87% |
+| Lands end | 463 | 87% | 4% | 0% | 87% |
 | Shopbop | 453 | 100% | 100% | 0% | 98% |
 | Frank & Eileen | 448 | 100% | 100% | 100% | 99% |
 | Evereve | 444 | 100% | 100% | 100% | 95% |
@@ -64,14 +64,14 @@
 | Reformation | server | 753 | 100% | 40% | 40% | 35% |
 | H&M | extension | 745 | 100% | 1% | 0% | 0% |
 | Loft | extension | 672 | 0% | 47% | 0% | 42% |
-| Massimo Dutti | extension | 606 | 0% | 0% | 0% | 0% |
+| Massimo Dutti | extension | 606 | 0% | 0% | 0% | 1% |
 | vineyardvines | server | 560 | 13% | 100% | 0% | 98% |
 | Addidas | extension | 537 | 72% | 1% | 0% | 1% |
 | Joules | extension | 536 | 65% | 4% | 0% | 4% |
 | Lululemon | extension | 512 | 0% | 0% | 0% | 0% |
 | Zara | server | 499 | 100% | 24% | 0% | 24% |
 | Nike | browser | 490 | 40% | 99% | 0% | 84% |
-| &Other Stories | extension | 472 | 97% | 23% | 0% | 37% |
+| &Other Stories | extension | 472 | 97% | 24% | 0% | 37% |
 | Everlane | server | 443 | 100% | 0% | 100% | 71% |
 | The upside | browser | 429 | 83% | 0% | 0% | 75% |
 | Mint velvet | server | 416 | 100% | 32% | 100% | 70% |
@@ -92,7 +92,7 @@
 | J crew | browser | 215 | 100% | 96% | 0% | 29% |
 | Sezane | extension | 203 | 0% | 1% | 0% | 0% |
 | Coldwatercreek | browser | 200 | 100% | 59% | 0% | 34% |
-| Free People | extension | 189 | 82% | 2% | 0% | 2% |
+| Free People | extension | 189 | 82% | 3% | 0% | 3% |
 | Whitestuff | server | 184 | 100% | 0% | 0% | 78% |
 | American Eagle | browser | 178 | 70% | 100% | 0% | 99% |
 | Barbour | browser | 170 | 0% | 0% | 0% | 90% |
@@ -125,7 +125,7 @@
 
 <details><summary>정상 33개</summary>
 
-- Fatface — 24시간 전 · 374개
+- Fatface — 25시간 전 · 374개
 - Seasalt cornwall — 2시간 전 · 291개
 - Free People — 2시간 전 · 189개
 - Old Navy — 2시간 전 · 7개
@@ -136,11 +136,11 @@
 - Loft — 2시간 전 · 672개
 - The white company — 2시간 전 · 68개
 - L.L bean — 2시간 전 · 313개
-- Massimo Dutti — 1시간 전 · 606개
-- Sezane — 1시간 전 · 203개
-- Garnet hill — 1시간 전 · 108개
-- Athleta — 1시간 전 · 1개
-- Anthropologie — 1시간 전 · 263개
+- Massimo Dutti — 2시간 전 · 606개
+- Sezane — 2시간 전 · 203개
+- Garnet hill — 2시간 전 · 108개
+- Athleta — 2시간 전 · 1개
+- Anthropologie — 2시간 전 · 263개
 - Paige — 1시간 전 · 61개
 - H&M — 1시간 전 · 745개
 - Eileen fisher — 1시간 전 · 545개
@@ -154,10 +154,10 @@
 - Aritzia — 1시간 전 · 800개
 - FP Movement — 1시간 전 · 72개
 - Arket — 1시간 전 · 382개
-- &Other Stories — 0시간 전 · 472개
-- Patagonia — 0시간 전 · 168개
-- Addidas — 0시간 전 · 537개
-- Wilson — 0시간 전 · 51개
+- &Other Stories — 1시간 전 · 472개
+- Patagonia — 1시간 전 · 168개
+- Addidas — 1시간 전 · 537개
+- Wilson — 1시간 전 · 51개
 
 </details>
 
@@ -168,24 +168,24 @@
 
 야간 보강(enrich-comp)과 크롬 확장 1.7 이 미리 채운다 — 스캔 때 사이트 접속 없음.
 
-- 전체 28711/39019개 (74%) · 미완 브랜드 124개
+- 전체 28714/39019개 (74%) · 미완 브랜드 124개
 
 <details><summary>브랜드별 진행도</summary>
 
 | 브랜드 | 그룹 | 보유/전체 |
 |---|---|---:|
 | H&M | extension | 0/745 (0%) |
-| Massimo Dutti | extension | 3/606 (0%) |
 | Lululemon | extension | 1/512 (0%) |
 | Fatface | extension | 1/374 (0%) |
-| Anthropologie | extension | 0/263 (0%) |
+| Anthropologie | extension | 1/263 (0%) |
 | Sezane | extension | 1/203 (0%) |
 | The white company | extension | 0/68 (0%) |
 | Gap | extension | 0/6 (0%) |
 | Chico's | server | 9/800 (1%) |
+| Massimo Dutti | extension | 4/606 (1%) |
 | Addidas | extension | 6/537 (1%) |
-| Free People | extension | 4/189 (2%) |
 | Garnet hill | extension | 2/108 (2%) |
+| Free People | extension | 5/189 (3%) |
 | Joules | extension | 24/536 (4%) |
 | Patagonia | extension | 7/168 (4%) |
 | Prana | server | 4/81 (5%) |
@@ -417,7 +417,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-25T16:10Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-25T16:31Z)
 
 - 카탈로그 134개 · 상품 39019개 검사 · **문제 항목 38개**
 - 문제가 있는 브랜드 22개
