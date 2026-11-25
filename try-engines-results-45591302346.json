@@ -1,0 +1,6472 @@
+{
+ "at": "2026-11-25T10:14:59.664Z",
+ "meta": {
+  "at": "2026-11-25T10:04:59.512Z",
+  "runId": "45591302346",
+  "runner": "GitHub Actions 1000008421",
+  "ip": "20.171.4.x"
+ },
+ "engines": [
+  "impit",
+  "playwright",
+  "firefox",
+  "firefox-fresh"
+ ],
+ "runInfo": {
+  "impit": "정상 · 26쪽 · 6s",
+  "playwright": "정상 · 26쪽 · 203s",
+  "firefox": "정상 · 26쪽 · 196s",
+  "firefox-fresh": "정상 · 26쪽 · 194s"
+ },
+ "targets": [
+  {
+   "kind": "product",
+   "brand": "Sessun",
+   "url": "https://us.sessun.com/catalogue/shirt-and-blouses/vence-meloroad.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Sessun",
+   "url": "https://us.sessun.com/catalogue/shirt-and-blouses/leonie-murza-playgrid.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Anthropologie",
+   "url": "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top"
+  },
+  {
+   "kind": "product",
+   "brand": "Anthropologie",
+   "url": "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank"
+  },
+  {
+   "kind": "product",
+   "brand": "Anthropologie",
+   "url": "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top"
+  },
+  {
+   "kind": "product",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249"
+  },
+  {
+   "kind": "product",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541?inseam=regular&sizeType=regular&color=6635&catId=cat11199293&collectionId=category&parentId=196533518997"
+  },
+  {
+   "kind": "product",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172?inseam=regular&sizeType=regular&color=5125&catId=cat11199293&collectionId=category&parentId=199761624959"
+  },
+  {
+   "kind": "product",
+   "brand": "Garnet hill",
+   "url": "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762"
+  },
+  {
+   "kind": "product",
+   "brand": "Garnet hill",
+   "url": "https://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763"
+  },
+  {
+   "kind": "product",
+   "brand": "Garnet hill",
+   "url": "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213"
+  },
+  {
+   "kind": "product",
+   "brand": "Prana",
+   "url": "https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical"
+  },
+  {
+   "kind": "product",
+   "brand": "Prana",
+   "url": "https://www.prana.com/p/everyday-short-sleeve-tee/2063791.html?dwvar_2063791_color=Nautical"
+  },
+  {
+   "kind": "product",
+   "brand": "Prana",
+   "url": "https://www.prana.com/p/cambria-cove-button-up-top/2179031.html?dwvar_2179031_color=Dawn%20Heather"
+  },
+  {
+   "kind": "product",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643"
+  },
+  {
+   "kind": "product",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526"
+  },
+  {
+   "kind": "product",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526"
+  },
+  {
+   "kind": "product",
+   "brand": "Aritzia",
+   "url": "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Aritzia",
+   "url": "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Aritzia",
+   "url": "https://www.aritzia.com/intl/en/product/ezra-top/125956.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Reformation",
+   "url": "https://www.thereformation.com/products/veya-silk-top/1319462ALO.html?dwvar_1319462ALO_color=ALO"
+  },
+  {
+   "kind": "product",
+   "brand": "Reformation",
+   "url": "https://www.thereformation.com/products/acacia-top/1320743BLK.html?dwvar_1320743BLK_color=BLK"
+  },
+  {
+   "kind": "product",
+   "brand": "Reformation",
+   "url": "https://www.thereformation.com/products/monica-silk-top/1314146BLK.html?dwvar_1314146BLK_color=BLK"
+  },
+  {
+   "kind": "product",
+   "brand": "The upside",
+   "url": "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/"
+  },
+  {
+   "kind": "product",
+   "brand": "The upside",
+   "url": "https://www.theupside.com/corvara-jakara-puffer-jacket-creme-usw426182/"
+  },
+  {
+   "kind": "product",
+   "brand": "The upside",
+   "url": "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/"
+  }
+ ],
+ "results": {
+  "impit": {
+   "https://us.sessun.com/catalogue/shirt-and-blouses/vence-meloroad.html": {
+    "v": "comp",
+    "note": "Viscose 100%",
+    "comp": "Viscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "VENCE Meloroad | Shirt | SESSÙN Official website",
+     "bytes": 149707,
+     "textLen": 4419,
+     "headers": {
+      "content-length": "17670",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache"
+     },
+     "cookies": [
+      "ci_csrf_token",
+      "cisession"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "VENCE Meloroad | Shirt | SESSÙN Official website EARLY DAYS: up to 40% off selected items. Extended returns until January 5 Pay in 4 interest-free payments available with PayPal Early Days New in Ready-to-wear Categories"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 780,
+     "textLen": 61,
+     "headers": {
+      "content-length": "511",
+      "content-type": "text/html;charset=utf-8",
+      "server": "Apache",
+      "via": "1.1 google",
+      "x-datadome": "protected",
+      "x-datadome-cid": "AHrlqAAAAAMAkHWEAHOqFHAAFKsE2Q==",
+      "x-dd-b": "259"
+     },
+     "cookies": [
+      "ss-enable-stylitics",
+      "ss-enable-multi-label-returns",
+      "ss-enable-401-reauth-modal",
+      "monetate_social_proof",
+      "monetate_social_proof_uk",
+      "SSID",
+      "SSSC",
+      "SSRT",
+      "SSLB",
+      "datadome"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "anthropologie.com Please enable JS and disable any ad blocker"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 625,
+     "textLen": 395,
+     "headers": {
+      "akamai-grn": "0.b8c1c917.1795601101.68b7ee92",
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;chicos&#46;com&#47;store&#47;product&#47;touch&#45;of&#45;cool&#45;foiled&#45;mockneck&#45;layering&#45;tee&#47;570420622&#63;\" "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762": {
+    "v": "open",
+    "note": "글 41자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Essential Long-Sleeve Tee | Garnet Hill",
+     "bytes": 41816,
+     "textLen": 39,
+     "headers": {
+      "akamai-grn": "0.8d6d3e17.1795601101.6bd95793",
+      "content-length": "11271",
+      "content-type": "text/html; charset=UTF-8",
+      "x-akamai-transformed": "9l 7594 0 pmb=mNONE,1mRUM,2"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WC_PERSISTENT",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "_abck",
+      "ak_bmsc",
+      "bm_mi",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Essential Long-Sleeve Tee | Garnet Hill"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_mi, 쿠키 bm_s"
+     ]
+    }
+   },
+   "https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 5657,
+     "textLen": 761,
+     "headers": {
+      "cf-ray": "a5ffd5268d8a33b2-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-script",
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 화면 흔적 cf-block"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 620,
+     "textLen": 388,
+     "headers": {
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;whitehouseblackmarket&#46;com&#47;store&#47;product&#47;satin&#45;front&#45;short&#45;sleeve&#45;tee&#47;570421368&#63;\" on this"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6248,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd52a3db00a82-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/veya-silk-top/1319462ALO.html?dwvar_1319462ALO_color=ALO": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6380,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd52bfcb7a7f5-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6053,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd52d5ea18900-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://us.sessun.com/catalogue/shirt-and-blouses/leonie-murza-playgrid.html": {
+    "v": "comp",
+    "note": "Viscose 100%",
+    "comp": "Viscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "LEONIE Murza Playgrid | Blouse | SESSÙN Official website",
+     "bytes": 151759,
+     "textLen": 4425,
+     "headers": {
+      "content-length": "17677",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache"
+     },
+     "cookies": [
+      "ci_csrf_token",
+      "cisession"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "LEONIE Murza Playgrid | Blouse | SESSÙN Official website EARLY DAYS: up to 40% off selected items. Extended returns until January 5 Pay in 4 interest-free payments available with PayPal Early Days New in Ready-to-wear Ca"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 780,
+     "textLen": 61,
+     "headers": {
+      "content-length": "515",
+      "content-type": "text/html;charset=utf-8",
+      "server": "Apache",
+      "via": "1.1 google",
+      "x-datadome": "protected",
+      "x-datadome-cid": "AHrlqAAAAAMAfOxA5-MLB38AFKsE2Q==",
+      "x-dd-b": "259"
+     },
+     "cookies": [
+      "monetate_social_proof",
+      "ss-enable-401-reauth-modal",
+      "ss-enable-stylitics",
+      "ss-enable-multi-label-returns",
+      "monetate_social_proof_uk",
+      "SSID",
+      "SSSC",
+      "SSRT",
+      "SSLB",
+      "datadome"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "anthropologie.com Please enable JS and disable any ad blocker"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541?inseam=regular&sizeType=regular&color=6635&catId=cat11199293&collectionId=category&parentId=196533518997": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 614,
+     "textLen": 384,
+     "headers": {
+      "akamai-grn": "0.b8c1c917.1795601103.68b7f4e0",
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;chicos&#46;com&#47;store&#47;product&#47;touch&#45;of&#45;cool&#45;mockneck&#45;layering&#45;tee&#47;570355541&#63;\" on this ser"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763": {
+    "v": "open",
+    "note": "글 42자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Essential Short-Sleeve Tee | Garnet Hill",
+     "bytes": 41922,
+     "textLen": 40,
+     "headers": {
+      "akamai-grn": "0.8d6d3e17.1795601104.6bd95915",
+      "content-length": "11298",
+      "content-type": "text/html; charset=UTF-8",
+      "x-akamai-transformed": "9l 7627 0 pmb=mNONE,1mRUM,2"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WC_PERSISTENT",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "_abck",
+      "ak_bmsc",
+      "bm_mi",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Essential Short-Sleeve Tee | Garnet Hill"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_mi, 쿠키 bm_s"
+     ]
+    }
+   },
+   "https://www.prana.com/p/everyday-short-sleeve-tee/2063791.html?dwvar_2063791_color=Nautical": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 5657,
+     "textLen": 761,
+     "headers": {
+      "cf-ray": "a5ffd5354bbc33b2-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-script",
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 화면 흔적 cf-block"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 628,
+     "textLen": 396,
+     "headers": {
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;whitehouseblackmarket&#46;com&#47;store&#47;product&#47;whbm&#45;forme&#45;ribbed&#45;scoop&#45;neck&#45;tee&#47;570405895&#63;\""
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6182,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd535d8730a82-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/acacia-top/1320743BLK.html?dwvar_1320743BLK_color=BLK": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6371,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd5362d83a7f5-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.theupside.com/corvara-jakara-puffer-jacket-creme-usw426182/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6022,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd5363c938900-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 780,
+     "textLen": 61,
+     "headers": {
+      "content-length": "516",
+      "content-type": "text/html;charset=utf-8",
+      "server": "Apache",
+      "via": "1.1 google",
+      "x-datadome": "protected",
+      "x-datadome-cid": "AHrlqAAAAAMAyEkTF6BdfiQAFKsE2Q==",
+      "x-dd-b": "259"
+     },
+     "cookies": [
+      "ss-enable-multi-label-returns",
+      "ss-enable-stylitics",
+      "monetate_social_proof",
+      "ss-enable-401-reauth-modal",
+      "monetate_social_proof_uk",
+      "SSID",
+      "SSSC",
+      "SSRT",
+      "SSLB",
+      "datadome"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "anthropologie.com Please enable JS and disable any ad blocker"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172?inseam=regular&sizeType=regular&color=5125&catId=cat11199293&collectionId=category&parentId=199761624959": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 614,
+     "textLen": 384,
+     "headers": {
+      "akamai-grn": "0.b8c1c917.1795601105.68b7f8dd",
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;chicos&#46;com&#47;store&#47;product&#47;touch&#45;of&#45;cool&#45;crewneck&#45;layering&#45;tee&#47;570423172&#63;\" on this ser"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213": {
+    "v": "open",
+    "note": "글 40자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Essential Turtleneck Tee | Garnet Hill",
+     "bytes": 41779,
+     "textLen": 38,
+     "headers": {
+      "akamai-grn": "0.8d6d3e17.1795601105.6bd95a68",
+      "content-length": "11275",
+      "content-type": "text/html; charset=UTF-8",
+      "x-akamai-transformed": "9l 7622 0 pmb=mNONE,1mRUM,2"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WC_PERSISTENT",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "_abck",
+      "ak_bmsc",
+      "bm_mi",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Essential Turtleneck Tee | Garnet Hill"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_mi, 쿠키 bm_s"
+     ]
+    }
+   },
+   "https://www.prana.com/p/cambria-cove-button-up-top/2179031.html?dwvar_2179031_color=Dawn%20Heather": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 5657,
+     "textLen": 761,
+     "headers": {
+      "cf-ray": "a5ffd53fecc233b2-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-script",
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 화면 흔적 cf-block"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 628,
+     "textLen": 396,
+     "headers": {
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;whitehouseblackmarket&#46;com&#47;store&#47;product&#47;whbm&#45;forme&#45;ribbed&#45;scoop&#45;neck&#45;tee&#47;570413314&#63;\""
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/ezra-top/125956.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6121,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd540b9920a82-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/monica-silk-top/1314146BLK.html?dwvar_1314146BLK_color=BLK": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6386,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd5412f47a7f5-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6019,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd5413ef68900-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge"
+     ]
+    }
+   }
+  },
+  "playwright": {
+   "https://us.sessun.com/catalogue/shirt-and-blouses/vence-meloroad.html": {
+    "v": "comp",
+    "note": "Viscose 100%",
+    "comp": "Viscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "VENCE Meloroad | Shirt | SESSÙN Official website",
+     "bytes": 386195,
+     "textLen": 7121,
+     "headers": {
+      "content-length": "17672",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache"
+     },
+     "cookies": [
+      "ci_csrf_token",
+      "cisession",
+      "didomi_token",
+      "analytics_storage",
+      "gtm_analytics_storage",
+      "ad_storage",
+      "gtm_ad_storage"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "VENCE Meloroad | Shirt | SESSÙN Official website Continue without agreeing → With your agreement, we and our 11 partners use cookies or similar technologies to store, access, and process personal data like your visit on "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1532,
+     "textLen": 17,
+     "headers": {
+      "content-length": "515",
+      "server": "Apache",
+      "content-type": "text/html;charset=utf-8",
+      "via": "1.1 google",
+      "x-datadome": "protected",
+      "x-datadome-cid": "AHrlqAAAAAMAGoU15wihuZYAFKsE2Q==",
+      "x-dd-b": "2"
+     },
+     "cookies": [
+      "ss-enable-multi-label-returns",
+      "ss-enable-stylitics",
+      "ss-enable-401-reauth-modal",
+      "monetate_social_proof",
+      "SSID",
+      "SSSC",
+      "SSRT",
+      "SSLB",
+      "datadome"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/c.js",
+      "geo.captcha-delivery.com/captcha/",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/common/fonts/roboto/roboto.woff2",
+      "static.captcha-delivery.com/captcha/page-customization/40054/Avenir"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/c.js, 불러온 주소 geo.captcha-delivery.com/captcha/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 359,
+     "textLen": 275,
+     "headers": {
+      "akamai-grn": "0.b8c1c917.1795601124.68b827df",
+      "content-length": "475",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2",
+      "bm_s",
+      "bm_so"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?\" on this server. Reference #18.b8c1c917.1795601124.68b827df https"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_s, 쿠키 bm_so, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 362,
+     "textLen": 278,
+     "headers": {
+      "akamai-grn": "0.8d6d3e17.1795601132.6bd9716c",
+      "content-length": "478",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762\" on this server. Reference #18.8d6d3e17.1795601132.6bd9716c ht"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 11096,
+     "textLen": 142,
+     "headers": {
+      "cf-ray": "a5ffd6191cdc33b2-LAX",
+      "content-type": "text/html",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID c4fe27be-e8b7-11f1-adc5-6ab7be0bcf0b"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 360,
+     "textLen": 276,
+     "headers": {
+      "content-length": "468",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2",
+      "bm_s",
+      "bm_so"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?\" on this server. Reference #18.b5c1c917.1795601148.2f91b2ad http"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 bm_s, 쿠키 bm_so, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 45165,
+     "textLen": 384,
+     "headers": {
+      "cf-ray": "a5ffd6825e071bcd-LAX",
+      "cf-mitigated": "challenge",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "https://challenges.cloudflare.com/c09d99",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "https://challenges.cloudflare.com/fc5d87",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff"
+     ],
+     "snippet": "Just a moment... www.aritzia.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verification "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 불러온 주소 www.aritzia.com/cdn-cgi/challenge-platform/h/b/orc"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/veya-silk-top/1319462ALO.html?dwvar_1319462ALO_color=ALO": {
+    "v": "comp",
+    "note": "Silk 100%",
+    "comp": "Silk 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Veya Silk Top",
+     "bytes": 663345,
+     "textLen": 8891,
+     "headers": {
+      "cf-ray": "a5ffd6b51b56a7f5-LAX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "FXyeTthrBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "lux_uid",
+      "refSmsPromoHoldout",
+      "__cf_bm",
+      "_gcl_au",
+      "capi_lift_channel",
+      "_ga",
+      "cf_clearance",
+      "OptanonConsent",
+      "fs_lua",
+      "fs_uid",
+      "FPID",
+      "_pin_unauth",
+      "_tt_enable_cookie",
+      "_ttp",
+      "_uetsid",
+      "_uetvid",
+      "FPLC",
+      "_ga_M3XP66ENNS",
+      "_ga_7BLG0E10ZJ",
+      "_fbp",
+      "GlobalE_Full_Redirect",
+      "__stripe_mid",
+      "__stripe_sid",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.thereformation.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "Veya Silk Top Skip to main content *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25% off everything online and in-store. *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 불러온 주소 www.thereformation.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/": {
+    "v": "comp",
+    "note": "Nylon 75% / Elastane 25%",
+    "comp": "Nylon 75% / Elastane 25%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "MAYA SAL DOUBLE LAYER BRA in SETTING SUN | The UPSIDE",
+     "bytes": 1275254,
+     "textLen": 57628,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ffd6cbd9f14383-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "via": "1.1 google"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "snpt_sess",
+      "snpt_visit",
+      "_shg_session_id",
+      "_shg_user_id",
+      "__kla_id",
+      "_isuid",
+      "cf_clearance",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "ssSessionIdNamespace",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "_ga",
+      "_gcl_au",
+      "_fbp",
+      "_uetsid",
+      "_uetvid",
+      "_clck",
+      "_ga_7XTJM93TLW",
+      "_clsk",
+      "_ga_7KJFHRQK40"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/precurso",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "MAYA SAL DOUBLE LAYER BRA in SETTING SUN | The UPSIDE Please note: This website includes an accessibility system. Press Control-F11 to adjust the website to people with visual disabilities who are using a screen reader; "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 불러온 주소 www.theupside.com/cdn-cgi/challenge-platform/scrip, 불러온 주소 www.theupside.com/cdn-cgi/challenge-platform/h/b/s"
+     ]
+    }
+   },
+   "https://us.sessun.com/catalogue/shirt-and-blouses/leonie-murza-playgrid.html": {
+    "v": "comp",
+    "note": "Viscose 100%",
+    "comp": "Viscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "LEONIE Murza Playgrid | Blouse | SESSÙN Official website",
+     "bytes": 388069,
+     "textLen": 7132,
+     "headers": {
+      "content-length": "17678",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache"
+     },
+     "cookies": [
+      "ci_csrf_token",
+      "cisession",
+      "didomi_token",
+      "analytics_storage",
+      "gtm_analytics_storage",
+      "ad_storage",
+      "gtm_ad_storage"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "LEONIE Murza Playgrid | Blouse | SESSÙN Official website Continue without agreeing → With your agreement, we and our 11 partners use cookies or similar technologies to store, access, and process personal data like your v"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1514,
+     "textLen": 17,
+     "headers": {
+      "content-length": "514",
+      "server": "Apache",
+      "content-type": "text/html;charset=utf-8",
+      "via": "1.1 google",
+      "x-datadome": "protected",
+      "x-datadome-cid": "AHrlqAAAAAMAGoU15wihuZYAFKsE2Q==",
+      "x-dd-b": "2"
+     },
+     "cookies": [
+      "ss-enable-multi-label-returns",
+      "ss-enable-stylitics",
+      "ss-enable-401-reauth-modal",
+      "monetate_social_proof",
+      "SSID",
+      "SSSC",
+      "SSLB",
+      "SSRT",
+      "datadome"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/c.js",
+      "geo.captcha-delivery.com/captcha/",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/captcha/page-customization/40054/Avenir"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/c.js, 불러온 주소 geo.captcha-delivery.com/captcha/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541?inseam=regular&sizeType=regular&color=6635&catId=cat11199293&collectionId=category&parentId=196533518997": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 352,
+     "textLen": 268,
+     "headers": {
+      "akamai-grn": "0.b8c1c917.1795601197.68b827f9",
+      "content-length": "464",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2",
+      "bm_so",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541?\" on this server. Reference #18.b8c1c917.1795601197.68b827f9 https://erro"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_s, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 363,
+     "textLen": 279,
+     "headers": {
+      "akamai-grn": "0.8d6d3e17.1795601205.6bd9ad35",
+      "content-length": "479",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763\" on this server. Reference #18.8d6d3e17.1795601205.6bd9ad35 h"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.prana.com/p/everyday-short-sleeve-tee/2063791.html?dwvar_2063791_color=Nautical": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 10331,
+     "textLen": 142,
+     "headers": {
+      "cf-ray": "a5ffd7df0d8e33b2-LAX",
+      "content-type": "text/html",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "captcha.px-cloud.net/PXLkXIE7Oj/captcha.js",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID c4fe27be-e8b7-11f1-adc5-6ab7be0bcf0b"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 364,
+     "textLen": 280,
+     "headers": {
+      "content-length": "476",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2",
+      "bm_so",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?\" on this server. Reference #18.b5c1c917.1795601221.2f91b2ba "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 bm_so, 쿠키 bm_s, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 45121,
+     "textLen": 384,
+     "headers": {
+      "cf-ray": "a5ffd8445feef6b1-LAX",
+      "cf-mitigated": "challenge",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "https://challenges.cloudflare.com/7ec996",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "https://challenges.cloudflare.com/adee49",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff"
+     ],
+     "snippet": "Just a moment... www.aritzia.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verification "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 불러온 주소 www.aritzia.com/cdn-cgi/challenge-platform/h/b/orc"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/acacia-top/1320743BLK.html?dwvar_1320743BLK_color=BLK": {
+    "v": "comp",
+    "note": "Nylon 100%",
+    "comp": "Nylon 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Acacia Top",
+     "bytes": 723741,
+     "textLen": 16813,
+     "headers": {
+      "cf-ray": "a5ffd878ad4c4961-LAX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "FXzx-LJrBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "lux_uid",
+      "refSmsPromoHoldout",
+      "__cf_bm",
+      "_gcl_au",
+      "capi_lift_channel",
+      "_ga",
+      "cf_clearance",
+      "FPID",
+      "_tt_enable_cookie",
+      "_ttp",
+      "FPLC",
+      "_fbp",
+      "GlobalE_Full_Redirect",
+      "__stripe_mid",
+      "__stripe_sid",
+      "_ga_M3XP66ENNS",
+      "__cq_bc",
+      "__cq_seg",
+      "_ga_7BLG0E10ZJ",
+      "OptanonConsent",
+      "fs_lua",
+      "fs_uid",
+      "_uetsid",
+      "_uetvid",
+      "_pin_unauth",
+      "GlobalE_Analytics",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "js.stripe.com/v3/hcaptcha-invisible-c880fda7111a96c9e"
+     ],
+     "snippet": "Acacia Top Skip to main content *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25% off everything online and in-store. *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.theupside.com/corvara-jakara-puffer-jacket-creme-usw426182/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44861,
+     "textLen": 388,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffd88c7c20a31e-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "snpt_sess",
+      "snpt_visit",
+      "_shg_session_id",
+      "_shg_user_id",
+      "__kla_id",
+      "_isuid",
+      "cf_clearance",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "ssSessionIdNamespace",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "_ga",
+      "_gcl_au",
+      "_fbp",
+      "_uetsid",
+      "_uetvid",
+      "_clck",
+      "_clsk",
+      "_ga_7XTJM93TLW",
+      "_ga_7KJFHRQK40"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "https://challenges.cloudflare.com/02d6ee",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "https://challenges.cloudflare.com/f7113c",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffd8"
+     ],
+     "snippet": "Just a moment... www.theupside.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verificatio"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1535,
+     "textLen": 17,
+     "headers": {
+      "content-length": "514",
+      "server": "Apache",
+      "content-type": "text/html;charset=utf-8",
+      "via": "1.1 google",
+      "x-datadome": "protected",
+      "x-datadome-cid": "AHrlqAAAAAMAGoU15wihuZYAFKsE2Q==",
+      "x-dd-b": "2"
+     },
+     "cookies": [
+      "ss-enable-multi-label-returns",
+      "ss-enable-stylitics",
+      "ss-enable-401-reauth-modal",
+      "monetate_social_proof",
+      "SSID",
+      "SSSC",
+      "SSLB",
+      "SSRT",
+      "datadome"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/c.js",
+      "geo.captcha-delivery.com/captcha/",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/captcha/page-customization/40054/Avenir"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/c.js, 불러온 주소 geo.captcha-delivery.com/captcha/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172?inseam=regular&sizeType=regular&color=5125&catId=cat11199293&collectionId=category&parentId=199761624959": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 352,
+     "textLen": 268,
+     "headers": {
+      "akamai-grn": "0.b8c1c917.1795601257.68b827f8",
+      "content-length": "464",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2",
+      "bm_so",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172?\" on this server. Reference #18.b8c1c917.1795601257.68b827f8 https://erro"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_s, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 361,
+     "textLen": 277,
+     "headers": {
+      "akamai-grn": "0.8d6d3e17.1795601265.6bd9dd52",
+      "content-length": "473",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213\" on this server. Reference #18.8d6d3e17.1795601265.6bd9dd52 htt"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.prana.com/p/cambria-cove-button-up-top/2179031.html?dwvar_2179031_color=Dawn%20Heather": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 4263,
+     "textLen": 751,
+     "headers": {
+      "cf-ray": "a5ffd9591d606587-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-block",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 364,
+     "textLen": 280,
+     "headers": {
+      "content-length": "476",
+      "content-type": "text/html",
+      "server": "AkamaiGHost"
+     },
+     "cookies": [
+      "AKA_A2",
+      "bm_so",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?\" on this server. Reference #18.b5c1c917.1795601281.2f91b2bb "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 bm_so, 쿠키 bm_s, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/ezra-top/125956.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 45061,
+     "textLen": 384,
+     "headers": {
+      "cf-ray": "a5ffd9be0988c10b-LAX",
+      "cf-mitigated": "challenge",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "https://challenges.cloudflare.com/edeff6",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "https://challenges.cloudflare.com/525220",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff"
+     ],
+     "snippet": "Just a moment... www.aritzia.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verification "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 불러온 주소 www.aritzia.com/cdn-cgi/challenge-platform/h/b/orc"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/monica-silk-top/1314146BLK.html?dwvar_1314146BLK_color=BLK": {
+    "v": "comp",
+    "note": "Silk 100% / Viscose 100%",
+    "comp": "Silk 100%\nViscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Monica Silk Top",
+     "bytes": 739385,
+     "textLen": 17104,
+     "headers": {
+      "cf-ray": "a5ffd9f0ac422b5d-LAX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "NtNffYFuBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "lux_uid",
+      "refSmsPromoHoldout",
+      "__cf_bm",
+      "_gcl_au",
+      "capi_lift_channel",
+      "_ga",
+      "cf_clearance",
+      "FPID",
+      "_tt_enable_cookie",
+      "_ttp",
+      "FPLC",
+      "_fbp",
+      "GlobalE_Full_Redirect",
+      "__stripe_mid",
+      "__stripe_sid",
+      "_pin_unauth",
+      "__cq_bc",
+      "__cq_seg",
+      "_ga_M3XP66ENNS",
+      "_ga_7BLG0E10ZJ",
+      "OptanonConsent",
+      "_uetsid",
+      "_uetvid",
+      "fs_lua",
+      "fs_uid",
+      "GlobalE_Analytics",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "js.stripe.com/v3/hcaptcha-invisible-c880fda7111a96c9e",
+      "b.stripecdn.com/stripethirdparty-srv/assets/v37.5/HCapt",
+      "hcaptcha.com/1/api.js"
+     ],
+     "snippet": "Monica Silk Top Skip to main content *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25% off everything online and in-store. *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Sh"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44858,
+     "textLen": 388,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ffda040dc0cb82-LAX",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "snpt_sess",
+      "snpt_visit",
+      "_shg_session_id",
+      "_shg_user_id",
+      "__kla_id",
+      "_isuid",
+      "cf_clearance",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "ssSessionIdNamespace",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "_ga",
+      "_gcl_au",
+      "_fbp",
+      "_uetsid",
+      "_uetvid",
+      "_clck",
+      "_clsk",
+      "_ga_7XTJM93TLW",
+      "_ga_7KJFHRQK40"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "https://challenges.cloudflare.com/6b68cd",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "https://challenges.cloudflare.com/5df7c5",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffda"
+     ],
+     "snippet": "Just a moment... www.theupside.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verificatio"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-challenge"
+     ]
+    }
+   }
+  },
+  "firefox": {
+   "https://us.sessun.com/catalogue/shirt-and-blouses/vence-meloroad.html": {
+    "v": "comp",
+    "note": "Viscose 100%",
+    "comp": "Viscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "VENCE Meloroad | Shirt | SESSÙN Official website",
+     "bytes": 385770,
+     "textLen": 7121,
+     "headers": {
+      "content-length": "17641",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache"
+     },
+     "cookies": [
+      "didomi_token",
+      "gtm_analytics_storage",
+      "gtm_ad_storage",
+      "ci_csrf_token",
+      "cisession",
+      "analytics_storage",
+      "ad_storage"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "VENCE Meloroad | Shirt | SESSÙN Official website Continue without agreeing → With your agreement, we and our 11 partners use cookies or similar technologies to store, access, and process personal data like your visit on "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1550,
+     "textLen": 17,
+     "headers": {
+      "server": "Apache",
+      "x-datadome": "protected",
+      "content-type": "text/html;charset=utf-8",
+      "x-datadome-cid": "AHrlqAAAAAMAe5xB5Z1O9bUAFKsE2Q==",
+      "x-dd-b": "259",
+      "via": "1.1 google",
+      "content-length": "514"
+     },
+     "cookies": [
+      "SSID",
+      "SSSC",
+      "SSRT",
+      "datadome",
+      "monetate_social_proof",
+      "ss-enable-stylitics",
+      "ss-enable-multi-label-returns",
+      "ss-enable-401-reauth-modal",
+      "SSLB"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/i.js",
+      "geo.captcha-delivery.com/interstitial/",
+      "ct.captcha-delivery.com/f5c73bbd2ea623b7.js",
+      "geo.captcha-delivery.com/captcha/",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/common/fonts/roboto/roboto.woff2"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/i.js, 불러온 주소 geo.captcha-delivery.com/interstitial/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249": {
+    "v": "comp",
+    "note": "Viscose 95% / Elastane 5%",
+    "comp": "Viscose 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Touch of Cool™ Foiled Mockneck Layering Tee | Chico's",
+     "bytes": 1251047,
+     "textLen": 13747,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::96vnh-1795601329624-9fd7689c7002",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM, 2",
+      "akamai-grn": "0.b8c1c917.1795601329.68ba5687"
+     },
+     "cookies": [
+      "cortes-100",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "PIM-SESSION-ID",
+      "custom_target_session_id",
+      "_abck",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "ak_bmsc",
+      "analyticsFindingMethod",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "ESW_LTI",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "x-session",
+      "x-csrf-token",
+      "RT",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "OptanonConsent",
+      "ctaClickRef",
+      "bm_s",
+      "bm_sv"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.chicos.com/akam/13/55fb9a11",
+      "www.chicos.com/akam/13/pixel_55fb9a11"
+     ],
+     "snippet": "Touch of Cool™ Foiled Mockneck Layering Tee | Chico's Enable Accessibility Chico's CHS WHBM WHBM Soma SMA Flash Sale: 60% Off Select Styles Shop Now *]:!pointer-events-none\"> Details Black Friday: 40% Off Everything Shop"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 _abck, 쿠키 bm_lso",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762": {
+    "v": "open",
+    "note": "글 4405자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Essential Long-Sleeve Tee | Garnet Hill",
+     "bytes": 357533,
+     "textLen": 4328,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "x-akamai-transformed": "9l 7562 0 pmb=mNONE, 1mRUM, 2",
+      "content-length": "11232",
+      "akamai-grn": "0.8d6d3e17.1795601334.6bda157f"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_PERSISTENT",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "initialURL",
+      "bm_lso",
+      "PIM-SESSION-ID",
+      "mt.v",
+      "mt.deviceId",
+      "_gcl_au",
+      "lastVisitedPDPURL",
+      "ak_bmsc",
+      "csb_RVI_10054",
+      "lastCategory",
+      "lastProduct",
+      "_mibhv",
+      "bm_sv",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "styliticsWidgetSession",
+      "_cs_c",
+      "EG-U-ID",
+      "EG-S-ID",
+      "_cs_id",
+      "_cs_s",
+      "RT",
+      "_abck",
+      "bm_s"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.garnethill.com/akam/13/4d990856",
+      "www.garnethill.com/akam/13/pixel_4d990856"
+     ],
+     "snippet": "Essential Long-Sleeve Tee | Garnet Hill Slice 1 [icon]/caret-down [icon]/caret-left [icon]/caret/dark [icon]/caret-up [icon]/caution/dark AmericanExpress Discover MasterCard Visa visa-electron checkout-step40 checkout-st"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc"
+     ]
+    }
+   },
+   "https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 11098,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffdb101f4333b2-LAX"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID 3e36c6e1-e8b8-11f1-8913-91194357b353"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643": {
+    "v": "comp",
+    "note": "Polyester 96% / Elastane 4% / Cotton 54% / Modal 41% / Elast",
+    "comp": "Polyester 96% / Elastane 4%\nCotton 54% / Modal 41% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Satin Front Short Sleeve Tee | White House Black Market",
+     "bytes": 1452734,
+     "textLen": 8269,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::ghdn2-1795601352615-a5ced0c169ff",
+      "x-akamai-transformed": "9 143455 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "cortes",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "analyticsFindingMethod",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "ak_bmsc",
+      "ESW_LTI",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "x-session",
+      "x-csrf-token",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "apt_pixel",
+      "amp_f24a38",
+      "OptanonConsent",
+      "ctaClickRef",
+      "_abck",
+      "bm_s",
+      "bm_sv"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.whitehouseblackmarket.com/akam/13/712aaef0",
+      "www.whitehouseblackmarket.com/akam/13/pixel_712aaef0"
+     ],
+     "snippet": "Satin Front Short Sleeve Tee | White House Black Market Enable Accessibility Chico's CHS WHBM WHBM Soma SMA 50% Off Must-Haves + 40% Off Everything Else Shop Now *]:!pointer-events-none\"> Details WHBM credit card Account"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: Vercel, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44675,
+     "textLen": 384,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-mitigated": "challenge",
+      "server": "cloudflare",
+      "cf-ray": "a5ffdb6259777eb9-LAX"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffdb",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/ci/a5ffd"
+     ],
+     "snippet": "Just a moment... www.aritzia.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verification "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 불러온 주소 www.aritzia.com/cdn-cgi/challenge-platform/h/b/orc"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/veya-silk-top/1319462ALO.html?dwvar_1319462ALO_color=ALO": {
+    "v": "comp",
+    "note": "Silk 100%",
+    "comp": "Silk 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Veya Silk Top",
+     "bytes": 657552,
+     "textLen": 8891,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "NtO598trBmsBAAB_",
+      "cf-ray": "a5ffdb97686c979e-LAX"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "cf_clearance",
+      "__cf_bm",
+      "lux_uid",
+      "GlobalE_Full_Redirect",
+      "fs_lua",
+      "fs_uid",
+      "__stripe_mid",
+      "__stripe_sid",
+      "_gcl_au",
+      "capi_lift_channel",
+      "_uetsid",
+      "_uetvid",
+      "OptanonConsent",
+      "_pin_unauth",
+      "GlobalE_Analytics",
+      "_fbp",
+      "_tt_enable_cookie",
+      "_ttp",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.thereformation.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "Veya Silk Top Skip to main content *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25% off everything online and in-store. *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 불러온 주소 www.thereformation.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/": {
+    "v": "comp",
+    "note": "Nylon 75% / Elastane 25%",
+    "comp": "Nylon 75% / Elastane 25%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "MAYA SAL DOUBLE LAYER BRA in SETTING SUN | The UPSIDE",
+     "bytes": 1312469,
+     "textLen": 57426,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 google",
+      "cf-ray": "a5ffdbabfa010d81-LAX"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "_shg_session_id",
+      "_shg_user_id",
+      "__kla_id",
+      "cf_clearance",
+      "_isuid",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "ssSessionIdNamespace",
+      "_ga",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "_gcl_au",
+      "_fbp",
+      "_uetsid",
+      "_uetvid",
+      "_ga_7XTJM93TLW",
+      "_clck",
+      "_clsk",
+      "snpt_sess",
+      "snpt_visit",
+      "_ga_7KJFHRQK40"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/precurso"
+     ],
+     "snippet": "MAYA SAL DOUBLE LAYER BRA in SETTING SUN | The UPSIDE Please note: This website includes an accessibility system. Press Control-F11 to adjust the website to people with visual disabilities who are using a screen reader; "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-script, 불러온 주소 www.theupside.com/cdn-cgi/challenge-platform/scrip"
+     ]
+    }
+   },
+   "https://us.sessun.com/catalogue/shirt-and-blouses/leonie-murza-playgrid.html": {
+    "v": "comp",
+    "note": "Viscose 100%",
+    "comp": "Viscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "LEONIE Murza Playgrid | Blouse | SESSÙN Official website",
+     "bytes": 388132,
+     "textLen": 7132,
+     "headers": {
+      "content-length": "17678",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache"
+     },
+     "cookies": [
+      "didomi_token",
+      "ci_csrf_token",
+      "cisession",
+      "gtm_analytics_storage",
+      "gtm_ad_storage",
+      "analytics_storage",
+      "ad_storage"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "LEONIE Murza Playgrid | Blouse | SESSÙN Official website Continue without agreeing → With your agreement, we and our 11 partners use cookies or similar technologies to store, access, and process personal data like your v"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1514,
+     "textLen": 17,
+     "headers": {
+      "server": "Apache",
+      "x-datadome": "protected",
+      "content-type": "text/html;charset=utf-8",
+      "x-datadome-cid": "AHrlqAAAAAMAe5xB5Z1O9bUAFKsE2Q==",
+      "x-dd-b": "1",
+      "via": "1.1 google",
+      "content-length": "513"
+     },
+     "cookies": [
+      "SSID",
+      "SSSC",
+      "SSLB",
+      "ss-enable-multi-label-returns",
+      "monetate_social_proof",
+      "ss-enable-stylitics",
+      "ss-enable-401-reauth-modal",
+      "SSRT",
+      "datadome"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/c.js",
+      "geo.captcha-delivery.com/captcha/",
+      "ct.captcha-delivery.com/607c134004900c17.js",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/common/fonts/roboto/roboto.woff2",
+      "static.captcha-delivery.com/captcha/page-customization/40054/Avenir"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/c.js, 불러온 주소 geo.captcha-delivery.com/captcha/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541?inseam=regular&sizeType=regular&color=6635&catId=cat11199293&collectionId=category&parentId=196533518997": {
+    "v": "comp",
+    "note": "Viscose 95% / Elastane 5%",
+    "comp": "Viscose 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Touch of Cool™ Mockneck Layering Tee | Chico's",
+     "bytes": 1314998,
+     "textLen": 13491,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::qjrw6-1795601396955-3ff2feb3135d",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM, 2",
+      "akamai-grn": "0.b8c1c917.1795601396.68bb022e"
+     },
+     "cookies": [
+      "cortes-100",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "PIM-SESSION-ID",
+      "ak_bmsc",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "RT",
+      "bm_lso",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "analyticsFindingMethod",
+      "_pin_unauth",
+      "OptanonConsent",
+      "x-session",
+      "x-csrf-token",
+      "cartCount",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "ctaClickRef",
+      "bm_s",
+      "bm_sv",
+      "apt_pixel",
+      "amp_f24a38",
+      "_abck"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Touch of Cool™ Mockneck Layering Tee | Chico's Enable Accessibility Chico's CHS WHBM WHBM Soma SMA Flash Sale: 60% Off Select Styles Shop Now *]:!pointer-events-none\"> Details Black Friday: 40% Off Everything Shop Now *]"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 ak_bmsc, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 363,
+     "textLen": 279,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "content-length": "479",
+      "akamai-grn": "0.8d6d3e17.1795601401.6bda4b31"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_PERSISTENT",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "initialURL",
+      "bm_lso",
+      "PIM-SESSION-ID",
+      "mt.v",
+      "mt.deviceId",
+      "_gcl_au",
+      "lastVisitedPDPURL",
+      "ak_bmsc",
+      "csb_RVI_10054",
+      "lastCategory",
+      "lastProduct",
+      "_mibhv",
+      "bm_sv",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "styliticsWidgetSession",
+      "_cs_c",
+      "EG-U-ID",
+      "EG-S-ID",
+      "_cs_id",
+      "_cs_s",
+      "_abck",
+      "bm_s",
+      "RT"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763\" on this server. Reference #18.8d6d3e17.1795601401.6bda4b31 h"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc"
+     ]
+    }
+   },
+   "https://www.prana.com/p/everyday-short-sleeve-tee/2063791.html?dwvar_2063791_color=Nautical": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 4263,
+     "textLen": 751,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "cf-ray": "a5ffdcac0dbf33b2-LAX"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-block",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526": {
+    "v": "comp",
+    "note": "Cotton 95% / Elastane 5%",
+    "comp": "Cotton 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "WHBM FORME™ Ribbed Scoop Neck Tee | White House Black Market",
+     "bytes": 1496164,
+     "textLen": 8463,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::2b95k-1795601418287-704cee7fae1e",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "cortes",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "ak_bmsc",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "bm_lso",
+      "analyticsFindingMethod",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "_pin_unauth",
+      "OptanonConsent",
+      "cartCount",
+      "x-session",
+      "x-csrf-token",
+      "apt_pixel",
+      "amp_f24a38",
+      "ctaClickRef",
+      "bm_s",
+      "bm_sv",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "WHBM FORME™ Ribbed Scoop Neck Tee | White House Black Market Enable Accessibility Chico's CHS WHBM WHBM Soma SMA 50% Off Must-Haves + 40% Off Everything Else Shop Now *]:!pointer-events-none\" aria-haspopup=\"dialog\" aria-"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: Vercel, 쿠키 ak_bmsc, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html": {
+    "v": "comp",
+    "note": "Acetate 62% / Nylon 35% / Elastane 3%",
+    "comp": "Acetate 62% / Nylon 35% / Elastane 3%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.aritzia.com/us/en/product/caprice-satin-bustier/129128.html?color=1274",
+     "redirect": "locale intl/en→us/en",
+     "title": "Caprice Satin Bustier | Aritzia US",
+     "bytes": 3087887,
+     "textLen": 8637,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "cf-ray": "a5ffdcfda8e77eb9-LAX",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 dbd626954f29b2ea0ca9606b2848698c.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "r47QubCAxcgMSaONenjshrUNXeXqZaGLz-pGLcxKRn9u9HL8spQbsw==",
+      "x-amz-cf-pop": "LAX53-P6",
+      "x-cache": "Miss from cloudfront"
+     },
+     "cookies": [
+      "_cfuvid",
+      "cf_clearance",
+      "__cf_bm",
+      "AritziaRV",
+      "kameleoonVisitorCode",
+      "_dyjsession",
+      "_dyid",
+      "_dy_soct",
+      "_ga",
+      "__obref",
+      "__oaiq_consent",
+      "_dyid_server",
+      "_dd_s",
+      "__attn_eat_id",
+      "_ga_E6LWQ64Q02",
+      "OptanonConsent",
+      "scarab.visitor",
+      "scarab.profile",
+      "_gcl_au",
+      "__attentive_id",
+      "__attentive_session_id",
+      "_attn_",
+      "__attentive_cco",
+      "_sp_ses.26ba",
+      "_sp_id.26ba"
+     ],
+     "markers": [
+      "cf-script"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/precurso"
+     ],
+     "snippet": "Caprice Satin Bustier | Aritzia US Skip to main content Click to View our Accessibility Statement 20–50% off everything. Black Fiveday™ Sale on now. Shop Now close-small search bag search bag wishlist-large Sign In Sale "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "CloudFront"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 _cfuvid, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script",
+      "CloudFront: x-amz-cf-* 헤더"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/acacia-top/1320743BLK.html?dwvar_1320743BLK_color=BLK": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44771,
+     "textLen": 398,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-mitigated": "challenge",
+      "server": "cloudflare",
+      "cf-ray": "a5ffdd1d5a02979e-LAX"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "cf_clearance",
+      "lux_uid",
+      "GlobalE_Full_Redirect",
+      "fs_lua",
+      "fs_uid",
+      "__stripe_mid",
+      "__stripe_sid",
+      "_gcl_au",
+      "capi_lift_channel",
+      "_uetsid",
+      "_uetvid",
+      "OptanonConsent",
+      "_pin_unauth",
+      "GlobalE_Analytics",
+      "_fbp",
+      "_tt_enable_cookie",
+      "_ttp",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid",
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffdd",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/ci/a5ffd"
+     ],
+     "snippet": "Just a moment... www.thereformation.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verifi"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-challenge",
+      "Salesforce Commerce Cloud: 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.theupside.com/corvara-jakara-puffer-jacket-creme-usw426182/": {
+    "v": "comp",
+    "note": "Polyester 100%",
+    "comp": "Polyester 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "CORVARA JAKARA PUFFER JACKET in CREME | The UPSIDE",
+     "bytes": 1317173,
+     "textLen": 56022,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 google",
+      "cf-ray": "a5ffdd522f00f7d6-LAX"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "_shg_user_id",
+      "__kla_id",
+      "_isuid",
+      "ssSessionIdNamespace",
+      "_gcl_au",
+      "_clck",
+      "_clsk",
+      "_ga_7XTJM93TLW",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "_shg_session_id",
+      "cf_clearance",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "_ga",
+      "_fbp",
+      "_ga_7KJFHRQK40",
+      "_uetsid",
+      "_uetvid",
+      "snpt_sess",
+      "snpt_visit"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/precurso",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "CORVARA JAKARA PUFFER JACKET in CREME | The UPSIDE Consent Details [#IABV2SETTINGS#] About This website uses cookies We use cookies to personalise content and ads, to provide social media features and to analyse our traf"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-script, 불러온 주소 www.theupside.com/cdn-cgi/challenge-platform/scrip"
+     ]
+    }
+   },
+   "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1535,
+     "textLen": 17,
+     "headers": {
+      "server": "Apache",
+      "x-datadome": "protected",
+      "content-type": "text/html;charset=utf-8",
+      "x-datadome-cid": "AHrlqAAAAAMAe5xB5Z1O9bUAFKsE2Q==",
+      "x-dd-b": "1",
+      "via": "1.1 google",
+      "content-length": "509"
+     },
+     "cookies": [
+      "SSID",
+      "SSSC",
+      "SSLB",
+      "SSRT",
+      "ss-enable-stylitics",
+      "ss-enable-multi-label-returns",
+      "monetate_social_proof",
+      "ss-enable-401-reauth-modal",
+      "datadome"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/c.js",
+      "geo.captcha-delivery.com/captcha/",
+      "ct.captcha-delivery.com/607c134004900c17.js",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/common/fonts/roboto/roboto.woff2",
+      "static.captcha-delivery.com/captcha/page-customization/40054/Avenir"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/c.js, 불러온 주소 geo.captcha-delivery.com/captcha/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172?inseam=regular&sizeType=regular&color=5125&catId=cat11199293&collectionId=category&parentId=199761624959": {
+    "v": "comp",
+    "note": "Viscose 95% / Elastane 5%",
+    "comp": "Viscose 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Touch of Cool™ Crewneck Layering Tee | Chico's",
+     "bytes": 1204194,
+     "textLen": 13258,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "iad1::iad1::5tzbp-1795601454322-90fb2cde6f8d",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM, 2",
+      "akamai-grn": "0.b8c1c917.1795601454.68bb9738"
+     },
+     "cookies": [
+      "cortes-100",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "PIM-SESSION-ID",
+      "ak_bmsc",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "analyticsFindingMethod",
+      "cartCount",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "RT",
+      "bm_lso",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "_pin_unauth",
+      "OptanonConsent",
+      "x-session",
+      "x-csrf-token",
+      "ctaClickRef",
+      "apt_pixel",
+      "amp_f24a38",
+      "bm_s",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "bm_sv",
+      "_abck"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Touch of Cool™ Crewneck Layering Tee | Chico's Enable Accessibility Chico's CHS WHBM WHBM Soma SMA Flash Sale: 60% Off Select Styles Shop Now *]:!pointer-events-none\" aria-haspopup=\"dialog\" aria-label=\"Details, Flash Sal"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 ak_bmsc, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 361,
+     "textLen": 277,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "content-length": "473",
+      "akamai-grn": "0.8d6d3e17.1795601458.6bda816d"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_PERSISTENT",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "initialURL",
+      "bm_lso",
+      "PIM-SESSION-ID",
+      "mt.v",
+      "mt.deviceId",
+      "_gcl_au",
+      "lastVisitedPDPURL",
+      "ak_bmsc",
+      "csb_RVI_10054",
+      "lastCategory",
+      "lastProduct",
+      "_mibhv",
+      "bm_sv",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "styliticsWidgetSession",
+      "_cs_c",
+      "EG-U-ID",
+      "EG-S-ID",
+      "_cs_id",
+      "_cs_s",
+      "_abck",
+      "bm_s",
+      "RT"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213\" on this server. Reference #18.8d6d3e17.1795601458.6bda816d htt"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc"
+     ]
+    }
+   },
+   "https://www.prana.com/p/cambria-cove-button-up-top/2179031.html?dwvar_2179031_color=Dawn%20Heather": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 4263,
+     "textLen": 751,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "cf-ray": "a5ffde114df033b2-LAX"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-block",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526": {
+    "v": "comp",
+    "note": "Cotton 95% / Elastane 5%",
+    "comp": "Cotton 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "WHBM FORME™ Ribbed Scoop Neck Tee | White House Black Market",
+     "bytes": 1493158,
+     "textLen": 8289,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::54vxn-1795601475449-1df35abfe0ab",
+      "x-akamai-transformed": "9l 148909 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "cortes",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "ak_bmsc",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "analyticsFindingMethod",
+      "cartCount",
+      "bm_so",
+      "bm_sz",
+      "PIM-SESSION-ID",
+      "custom_target_session_id",
+      "bm_lso",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "_pin_unauth",
+      "OptanonConsent",
+      "x-session",
+      "x-csrf-token",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "ctaClickRef",
+      "bm_s",
+      "bm_sv",
+      "apt_pixel",
+      "amp_f24a38",
+      "_abck"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "WHBM FORME™ Ribbed Scoop Neck Tee | White House Black Market Enable Accessibility Chico's CHS WHBM WHBM Soma SMA 50% Off Must-Haves + 40% Off Everything Else Shop Now *]:!pointer-events-none\"> Details WHBM credit card Ac"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: Vercel, 쿠키 ak_bmsc, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/ezra-top/125956.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44548,
+     "textLen": 384,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-mitigated": "challenge",
+      "server": "cloudflare",
+      "cf-ray": "a5ffde627f5e7eb9-LAX"
+     },
+     "cookies": [
+      "_cfuvid",
+      "cf_clearance",
+      "kameleoonVisitorCode",
+      "_dyjsession",
+      "_dyid",
+      "_dy_soct",
+      "_ga",
+      "__obref",
+      "__oaiq_consent",
+      "_dyid_server",
+      "_dd_s",
+      "__attn_eat_id",
+      "_ga_E6LWQ64Q02",
+      "OptanonConsent",
+      "scarab.visitor",
+      "scarab.profile",
+      "_gcl_au",
+      "__attentive_id",
+      "__attentive_session_id",
+      "_attn_",
+      "__attentive_cco",
+      "_sp_ses.26ba",
+      "_sp_id.26ba",
+      "_attn_bopd_",
+      "QuantumMetricEnabled",
+      "__attentive_pv",
+      "__attentive_ss_referrer",
+      "__attentive_dv",
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffde",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/ci/a5ffd"
+     ],
+     "snippet": "Just a moment... www.aritzia.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verification "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 _cfuvid, 쿠키 cf_clearance, 쿠키 __cf_bm"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/monica-silk-top/1314146BLK.html?dwvar_1314146BLK_color=BLK": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44786,
+     "textLen": 398,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-mitigated": "challenge",
+      "server": "cloudflare",
+      "cf-ray": "a5ffde971b79979e-LAX"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "cf_clearance",
+      "lux_uid",
+      "GlobalE_Full_Redirect",
+      "fs_lua",
+      "fs_uid",
+      "__stripe_mid",
+      "__stripe_sid",
+      "_gcl_au",
+      "capi_lift_channel",
+      "_uetsid",
+      "_uetvid",
+      "OptanonConsent",
+      "_pin_unauth",
+      "GlobalE_Analytics",
+      "_fbp",
+      "_tt_enable_cookie",
+      "_ttp",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid",
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffde",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/ci/a5ffd"
+     ],
+     "snippet": "Just a moment... www.thereformation.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verifi"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-challenge",
+      "Salesforce Commerce Cloud: 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44473,
+     "textLen": 388,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-mitigated": "challenge",
+      "server": "cloudflare",
+      "cf-ray": "a5ffdecbda658900-LAX"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "_shg_user_id",
+      "__kla_id",
+      "_isuid",
+      "ssSessionIdNamespace",
+      "_gcl_au",
+      "_clck",
+      "_clsk",
+      "_ga_7XTJM93TLW",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "_shg_session_id",
+      "cf_clearance",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "_ga",
+      "_fbp",
+      "_uetsid",
+      "_uetvid",
+      "snpt_sess",
+      "snpt_visit",
+      "_ga_7KJFHRQK40"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/fo/37695",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/12735",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffde",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/ci/a5ffd"
+     ],
+     "snippet": "Just a moment... www.theupside.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verificatio"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-challenge"
+     ]
+    }
+   }
+  },
+  "firefox-fresh": {
+   "https://us.sessun.com/catalogue/shirt-and-blouses/vence-meloroad.html": {
+    "v": "comp",
+    "note": "Viscose 100%",
+    "comp": "Viscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "VENCE Meloroad | Shirt | SESSÙN Official website",
+     "bytes": 385735,
+     "textLen": 7121,
+     "headers": {
+      "content-length": "17644",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache"
+     },
+     "cookies": [
+      "didomi_token",
+      "gtm_analytics_storage",
+      "gtm_ad_storage",
+      "ci_csrf_token",
+      "cisession",
+      "analytics_storage",
+      "ad_storage"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "VENCE Meloroad | Shirt | SESSÙN Official website Continue without agreeing → With your agreement, we and our 11 partners use cookies or similar technologies to store, access, and process personal data like your visit on "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1532,
+     "textLen": 17,
+     "headers": {
+      "server": "Apache",
+      "x-datadome": "protected",
+      "content-type": "text/html;charset=utf-8",
+      "x-datadome-cid": "AHrlqAAAAAMAHpSqIkCLnVAAFKsE2Q==",
+      "x-dd-b": "1",
+      "via": "1.1 google",
+      "content-length": "513"
+     },
+     "cookies": [
+      "SSID",
+      "SSSC",
+      "SSRT",
+      "datadome",
+      "monetate_social_proof",
+      "ss-enable-multi-label-returns",
+      "ss-enable-401-reauth-modal",
+      "ss-enable-stylitics",
+      "SSLB"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/c.js",
+      "geo.captcha-delivery.com/captcha/",
+      "ct.captcha-delivery.com/3bd47911eabadcaa.js",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/common/fonts/roboto/roboto.woff2",
+      "static.captcha-delivery.com/captcha/page-customization/40054/Avenir"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/c.js, 불러온 주소 geo.captcha-delivery.com/captcha/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249": {
+    "v": "comp",
+    "note": "Viscose 95% / Elastane 5%",
+    "comp": "Viscose 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Touch of Cool™ Foiled Mockneck Layering Tee | Chico's",
+     "bytes": 1254900,
+     "textLen": 14297,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "iad1::iad1::kdtb2-1795601525439-bea65c1556ff",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM, 2",
+      "akamai-grn": "0.b8c1c917.1795601525.68bc4529"
+     },
+     "cookies": [
+      "cortes-100",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "analyticsFindingMethod",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "ak_bmsc",
+      "ESW_LTI",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "RT",
+      "OptanonConsent",
+      "x-session",
+      "x-csrf-token",
+      "ctaClickRef",
+      "apt_pixel",
+      "amp_f24a38",
+      "bm_s",
+      "bm_sv",
+      "_abck"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.chicos.com/akam/13/55fb9a11",
+      "www.chicos.com/akam/13/pixel_55fb9a11"
+     ],
+     "snippet": "Touch of Cool™ Foiled Mockneck Layering Tee | Chico's Enable Accessibility Chico's CHS WHBM WHBM Soma SMA Flash Sale: 60% Off Select Styles Shop Now *]:!pointer-events-none\" aria-haspopup=\"dialog\" aria-label=\"Details, Fl"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762": {
+    "v": "open",
+    "note": "글 4405자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Essential Long-Sleeve Tee | Garnet Hill",
+     "bytes": 357694,
+     "textLen": 4328,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "x-akamai-transformed": "9l 7564 0 pmb=mNONE, 1mRUM, 2",
+      "content-length": "11235",
+      "akamai-grn": "0.8d6d3e17.1795601530.6bdae0ad"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_PERSISTENT",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "initialURL",
+      "bm_lso",
+      "PIM-SESSION-ID",
+      "mt.v",
+      "mt.deviceId",
+      "_mibhv",
+      "_gcl_au",
+      "lastVisitedPDPURL",
+      "ak_bmsc",
+      "csb_RVI_10054",
+      "lastCategory",
+      "lastProduct",
+      "bm_sv",
+      "_cs_c",
+      "styliticsWidgetSession",
+      "_cs_id",
+      "_cs_s",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "EG-U-ID",
+      "EG-S-ID",
+      "RT",
+      "_abck",
+      "bm_s"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.garnethill.com/akam/13/4d990856",
+      "www.garnethill.com/akam/13/pixel_4d990856"
+     ],
+     "snippet": "Essential Long-Sleeve Tee | Garnet Hill Slice 1 [icon]/caret-down [icon]/caret-left [icon]/caret/dark [icon]/caret-up [icon]/caution/dark AmericanExpress Discover MasterCard Visa visa-electron checkout-step40 checkout-st"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc"
+     ]
+    }
+   },
+   "https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 11098,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffdfd4294333b2-LAX"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID b2901d29-e8b8-11f1-a51d-6b6152c7ef00"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643": {
+    "v": "comp",
+    "note": "Polyester 96% / Elastane 4% / Cotton 54% / Modal 41% / Elast",
+    "comp": "Polyester 96% / Elastane 4%\nCotton 54% / Modal 41% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Satin Front Short Sleeve Tee | White House Black Market",
+     "bytes": 1456245,
+     "textLen": 8440,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::sg72l-1795601547661-5a1feef6de98",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "cortes",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "analyticsFindingMethod",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "ak_bmsc",
+      "ESW_LTI",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "x-session",
+      "x-csrf-token",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "apt_pixel",
+      "amp_f24a38",
+      "ctaClickRef",
+      "OptanonConsent",
+      "bm_sv",
+      "bm_s",
+      "_abck"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.whitehouseblackmarket.com/akam/13/712aaef0",
+      "www.whitehouseblackmarket.com/akam/13/pixel_712aaef0"
+     ],
+     "snippet": "Satin Front Short Sleeve Tee | White House Black Market Enable Accessibility Chico's CHS WHBM WHBM Soma SMA 50% Off Must-Haves + 40% Off Everything Else Shop Now *]:!pointer-events-none\" aria-haspopup=\"dialog\" aria-label"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: Vercel, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html": {
+    "v": "comp",
+    "note": "Polyester 100%",
+    "comp": "Polyester 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.aritzia.com/us/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html?color=11420",
+     "redirect": "locale intl/en→us/en",
+     "title": "Refine Shine™ Nominee Blouse | Aritzia US",
+     "bytes": 3475451,
+     "textLen": 8497,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "cf-ray": "a5ffe027ce630a82-LAX",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 1e344b22965ad67934451064963d2e74.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "B6sywEKcpmf1r1UNHm8tDmbu8PwLZOnKzR1J3nHlja9XtM_LUiWKyg==",
+      "x-amz-cf-pop": "LAX53-P6",
+      "x-cache": "Miss from cloudfront"
+     },
+     "cookies": [
+      "_cfuvid",
+      "OptanonConsent",
+      "cf_clearance",
+      "__cf_bm",
+      "AritziaRV",
+      "kameleoonVisitorCode",
+      "_dd_s",
+      "_dyjsession",
+      "_ga",
+      "__attn_eat_id",
+      "__oaiq_consent",
+      "__obref",
+      "_dyid",
+      "_ga_E6LWQ64Q02",
+      "_dy_soct",
+      "_sp_ses.26ba",
+      "_sp_id.26ba",
+      "scarab.visitor",
+      "scarab.profile",
+      "_gcl_au",
+      "_dyid_server",
+      "__attentive_id",
+      "__attentive_session_id",
+      "_attn_",
+      "__attentive_cco"
+     ],
+     "markers": [
+      "cf-script"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/precurso"
+     ],
+     "snippet": "Refine Shine™ Nominee Blouse | Aritzia US Skip to main content Click to View our Accessibility Statement 20–50% off everything. Black Fiveday™ Sale on now. Shop Now close-small search bag search bag wishlist-large Sign I"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "CloudFront"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 _cfuvid, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script",
+      "CloudFront: x-amz-cf-* 헤더"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/veya-silk-top/1319462ALO.html?dwvar_1319462ALO_color=ALO": {
+    "v": "comp",
+    "note": "Silk 100%",
+    "comp": "Silk 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Veya Silk Top",
+     "bytes": 657908,
+     "textLen": 8891,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "NtO598trBmsBAAB_",
+      "cf-ray": "a5ffe04bfbada7f5-LAX"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "cf_clearance",
+      "__cf_bm",
+      "GlobalE_Full_Redirect",
+      "lux_uid",
+      "fs_lua",
+      "fs_uid",
+      "GlobalE_Analytics",
+      "__stripe_mid",
+      "__stripe_sid",
+      "capi_lift_channel",
+      "OptanonConsent",
+      "_ga",
+      "_gcl_au",
+      "_uetsid",
+      "_uetvid",
+      "_ga_M3XP66ENNS",
+      "_ga_7BLG0E10ZJ",
+      "_fbp",
+      "_tt_enable_cookie",
+      "_ttp",
+      "_pin_unauth",
+      "FPID",
+      "FPLC",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.thereformation.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "Veya Silk Top Skip to main content *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25% off everything online and in-store. *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 불러온 주소 www.thereformation.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/": {
+    "v": "comp",
+    "note": "Nylon 75% / Elastane 25%",
+    "comp": "Nylon 75% / Elastane 25%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "MAYA SAL DOUBLE LAYER BRA in SETTING SUN | The UPSIDE",
+     "bytes": 1310507,
+     "textLen": 55795,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 google",
+      "cf-ray": "a5ffe061ba7f1ed6-LAX"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "_shg_session_id",
+      "_shg_user_id",
+      "__kla_id",
+      "fornax_anonymousId",
+      "cf_clearance",
+      "_isuid",
+      "athena_short_visit_id",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "ssSessionIdNamespace",
+      "_gcl_au",
+      "_ga_7KJFHRQK40",
+      "_uetsid",
+      "_uetvid",
+      "_fbp",
+      "_ga_7XTJM93TLW",
+      "_ga",
+      "_clck",
+      "snpt_sess",
+      "snpt_visit",
+      "_clsk"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/precurso",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "MAYA SAL DOUBLE LAYER BRA in SETTING SUN | The UPSIDE Consent Details [#IABV2SETTINGS#] About This website uses cookies We use cookies to personalise content and ads, to provide social media features and to analyse our t"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-script, 불러온 주소 www.theupside.com/cdn-cgi/challenge-platform/scrip"
+     ]
+    }
+   },
+   "https://us.sessun.com/catalogue/shirt-and-blouses/leonie-murza-playgrid.html": {
+    "v": "comp",
+    "note": "Viscose 100%",
+    "comp": "Viscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "LEONIE Murza Playgrid | Blouse | SESSÙN Official website",
+     "bytes": 387647,
+     "textLen": 7132,
+     "headers": {
+      "content-length": "17645",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "Apache"
+     },
+     "cookies": [
+      "didomi_token",
+      "gtm_analytics_storage",
+      "gtm_ad_storage",
+      "ci_csrf_token",
+      "cisession",
+      "analytics_storage",
+      "ad_storage"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "LEONIE Murza Playgrid | Blouse | SESSÙN Official website Continue without agreeing → With your agreement, we and our 11 partners use cookies or similar technologies to store, access, and process personal data like your v"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1514,
+     "textLen": 17,
+     "headers": {
+      "server": "Apache",
+      "x-datadome": "protected",
+      "content-type": "text/html;charset=utf-8",
+      "x-datadome-cid": "AHrlqAAAAAMA-zwjiKwpms4AFKsE2Q==",
+      "x-dd-b": "1",
+      "via": "1.1 google",
+      "content-length": "514"
+     },
+     "cookies": [
+      "ss-enable-multi-label-returns",
+      "ss-enable-stylitics",
+      "ss-enable-401-reauth-modal",
+      "monetate_social_proof",
+      "SSID",
+      "SSSC",
+      "SSRT",
+      "datadome",
+      "SSLB"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/c.js",
+      "geo.captcha-delivery.com/captcha/",
+      "ct.captcha-delivery.com/3bd47911eabadcaa.js",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/common/fonts/roboto/roboto.woff2",
+      "static.captcha-delivery.com/captcha/page-customization/40054/Avenir"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/c.js, 불러온 주소 geo.captcha-delivery.com/captcha/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541?inseam=regular&sizeType=regular&color=6635&catId=cat11199293&collectionId=category&parentId=196533518997": {
+    "v": "comp",
+    "note": "Viscose 95% / Elastane 5%",
+    "comp": "Viscose 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Touch of Cool™ Mockneck Layering Tee | Chico's",
+     "bytes": 1352055,
+     "textLen": 13820,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::zf2vs-1795601590225-f76176778d29",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM, 2",
+      "akamai-grn": "0.b8c1c917.1795601590.68bce0f1"
+     },
+     "cookies": [
+      "cortes-100",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "analyticsFindingMethod",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "ak_bmsc",
+      "x-session",
+      "x-csrf-token",
+      "ESW_LTI",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "RT",
+      "OptanonConsent",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "ctaClickRef",
+      "_abck",
+      "bm_s",
+      "bm_sv",
+      "apt_pixel",
+      "amp_f24a38"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.chicos.com/akam/13/55fb9a11",
+      "www.chicos.com/akam/13/pixel_55fb9a11"
+     ],
+     "snippet": "Touch of Cool™ Mockneck Layering Tee | Chico's Enable Accessibility Chico's CHS WHBM WHBM Soma SMA Flash Sale: 60% Off Select Styles Shop Now *]:!pointer-events-none\"> Details Black Friday: 40% Off Everything Shop Now *]"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763": {
+    "v": "open",
+    "note": "글 4414자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Essential Short-Sleeve Tee | Garnet Hill",
+     "bytes": 357609,
+     "textLen": 4337,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "x-akamai-transformed": "9l 7593 0 pmb=mNONE, 1mRUM, 2",
+      "content-length": "11262",
+      "akamai-grn": "0.8d6d3e17.1795601595.6bdb1dc2"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_PERSISTENT",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "initialURL",
+      "bm_lso",
+      "PIM-SESSION-ID",
+      "mt.v",
+      "mt.deviceId",
+      "_gcl_au",
+      "lastVisitedPDPURL",
+      "ak_bmsc",
+      "_cs_c",
+      "_cs_id",
+      "csb_RVI_10054",
+      "lastCategory",
+      "lastProduct",
+      "styliticsWidgetSession",
+      "_mibhv",
+      "_cs_s",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "RT",
+      "bm_sv",
+      "EG-U-ID",
+      "EG-S-ID",
+      "_abck",
+      "bm_s"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.garnethill.com/akam/13/4d990856",
+      "www.garnethill.com/akam/13/pixel_4d990856"
+     ],
+     "snippet": "Essential Short-Sleeve Tee | Garnet Hill Slice 1 [icon]/caret-down [icon]/caret-left [icon]/caret/dark [icon]/caret-up [icon]/caution/dark AmericanExpress Discover MasterCard Visa visa-electron checkout-step40 checkout-s"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc"
+     ]
+    }
+   },
+   "https://www.prana.com/p/everyday-short-sleeve-tee/2063791.html?dwvar_2063791_color=Nautical": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 11110,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe16a29096587-LAX"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID d948cec2-e8b8-11f1-bb36-b75af7b9bcca"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526": {
+    "v": "comp",
+    "note": "Cotton 95% / Elastane 5%",
+    "comp": "Cotton 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "WHBM FORME™ Ribbed Scoop Neck Tee | White House Black Market",
+     "bytes": 1515423,
+     "textLen": 7741,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::wlfng-1795601612652-1d9d453c9177",
+      "x-akamai-transformed": "9 149805 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "cortes",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "analyticsFindingMethod",
+      "dataLayerLastPageRef",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "ak_bmsc",
+      "ESW_LTI",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "OptanonConsent",
+      "x-session",
+      "x-csrf-token",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "ctaClickRef",
+      "apt_pixel",
+      "amp_f24a38",
+      "bm_sv",
+      "bm_s",
+      "_abck"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.whitehouseblackmarket.com/akam/13/712aaef0",
+      "www.whitehouseblackmarket.com/akam/13/pixel_712aaef0"
+     ],
+     "snippet": "WHBM FORME™ Ribbed Scoop Neck Tee | White House Black Market Enable Accessibility Chico's CHS WHBM WHBM Soma SMA 50% Off Must-Haves + 40% Off Everything Else Shop Now *]:!pointer-events-none\"> Details WHBM credit card Ac"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: Vercel, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44609,
+     "textLen": 384,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-mitigated": "challenge",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe1bc8bd29351-LAX"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/fo/20329",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/75195",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffe1",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/ci/a5ffe"
+     ],
+     "snippet": "Just a moment... www.aritzia.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verification "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 불러온 주소 www.aritzia.com/cdn-cgi/challenge-platform/h/b/orc"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/acacia-top/1320743BLK.html?dwvar_1320743BLK_color=BLK": {
+    "v": "comp",
+    "note": "Nylon 100%",
+    "comp": "Nylon 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Acacia Top",
+     "bytes": 668276,
+     "textLen": 9036,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "NtPHoZ9rBmsBAAB_",
+      "cf-ray": "a5ffe1f13d61979e-LAX"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "lux_uid",
+      "cf_clearance",
+      "__cf_bm",
+      "GlobalE_Full_Redirect",
+      "_gcl_au",
+      "capi_lift_channel",
+      "fs_lua",
+      "fs_uid",
+      "OptanonConsent",
+      "GlobalE_Analytics",
+      "_uetsid",
+      "_uetvid",
+      "_tt_enable_cookie",
+      "_ttp",
+      "_pin_unauth",
+      "_fbp",
+      "__stripe_mid",
+      "__stripe_sid",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.thereformation.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "Acacia Top Skip to main content *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25% off everything online and in-store. *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 불러온 주소 www.thereformation.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.theupside.com/corvara-jakara-puffer-jacket-creme-usw426182/": {
+    "v": "comp",
+    "note": "Polyester 100%",
+    "comp": "Polyester 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "CORVARA JAKARA PUFFER JACKET in CREME | The UPSIDE",
+     "bytes": 1317326,
+     "textLen": 56022,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 google",
+      "cf-ray": "a5ffe2064b6c1ae5-LAX"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "_shg_session_id",
+      "_shg_user_id",
+      "__kla_id",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "cf_clearance",
+      "_isuid",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "_gcl_au",
+      "_clck",
+      "_ga_7XTJM93TLW",
+      "_ga",
+      "_clsk",
+      "_ga_7KJFHRQK40",
+      "_uetsid",
+      "_uetvid",
+      "_fbp",
+      "ssSessionIdNamespace",
+      "snpt_sess",
+      "snpt_visit"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/precurso",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "CORVARA JAKARA PUFFER JACKET in CREME | The UPSIDE Please note: This website includes an accessibility system. Press Control-F11 to adjust the website to people with visual disabilities who are using a screen reader; Pre"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-script, 불러온 주소 www.theupside.com/cdn-cgi/challenge-platform/scrip"
+     ]
+    }
+   },
+   "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top": {
+    "v": "blocked",
+    "note": "HTTP 403 anthropologie.com",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "anthropologie.com",
+     "bytes": 1535,
+     "textLen": 17,
+     "headers": {
+      "server": "Apache",
+      "x-datadome": "protected",
+      "content-type": "text/html;charset=utf-8",
+      "x-datadome-cid": "AHrlqAAAAAMABjsjBM72fkYAFKsE2Q==",
+      "x-dd-b": "1",
+      "via": "1.1 google",
+      "content-length": "516"
+     },
+     "cookies": [
+      "ss-enable-multi-label-returns",
+      "ss-enable-stylitics",
+      "ss-enable-401-reauth-modal",
+      "monetate_social_proof",
+      "SSID",
+      "SSSC",
+      "SSRT",
+      "datadome",
+      "SSLB"
+     ],
+     "markers": [
+      "datadome-challenge"
+     ],
+     "vendorRequests": [
+      "ct.captcha-delivery.com/c.js",
+      "geo.captcha-delivery.com/captcha/",
+      "ct.captcha-delivery.com/3bd47911eabadcaa.js",
+      "static.captcha-delivery.com/captcha/assets/tpl/6dc485c0c428c35b5357",
+      "static.captcha-delivery.com/common/fonts/roboto/font-face.css",
+      "static.captcha-delivery.com/captcha/assets/set/9fee510df0cbdb8aeee6",
+      "static.captcha-delivery.com/common/fonts/roboto/roboto.woff2",
+      "static.captcha-delivery.com/captcha/page-customization/40054/Avenir"
+     ],
+     "snippet": "anthropologie.com"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "DataDome",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "DataDome"
+     ],
+     "cdn": [],
+     "platform": [],
+     "signals": [
+      "DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge, 불러온 주소 ct.captcha-delivery.com/c.js, 불러온 주소 geo.captcha-delivery.com/captcha/"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172?inseam=regular&sizeType=regular&color=5125&catId=cat11199293&collectionId=category&parentId=199761624959": {
+    "v": "comp",
+    "note": "Viscose 95% / Elastane 5%",
+    "comp": "Viscose 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Touch of Cool™ Crewneck Layering Tee | Chico's",
+     "bytes": 1234809,
+     "textLen": 13511,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::mxgb4-1795601648034-a5e770b297b5",
+      "x-akamai-transformed": "9l 103717 0 pmb=mRUM, 2",
+      "akamai-grn": "0.b8c1c917.1795601647.68bd7247"
+     },
+     "cookies": [
+      "cortes-100",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "PIM-SESSION-ID",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "ak_bmsc",
+      "analyticsFindingMethod",
+      "dataLayerLastPageRef",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "x-session",
+      "x-csrf-token",
+      "ESW_LTI",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "RT",
+      "OptanonConsent",
+      "ctaClickRef",
+      "bm_s",
+      "bm_sv",
+      "_abck",
+      "apt_pixel",
+      "amp_f24a38"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.chicos.com/akam/13/55fb9a11",
+      "www.chicos.com/akam/13/pixel_55fb9a11"
+     ],
+     "snippet": "Touch of Cool™ Crewneck Layering Tee | Chico's Enable Accessibility Chico's CHS WHBM WHBM Soma SMA Flash Sale: 60% Off Select Styles Shop Now *]:!pointer-events-none\"> Details Black Friday: 40% Off Everything Shop Now *]"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213": {
+    "v": "open",
+    "note": "글 4401자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Essential Turtleneck Tee | Garnet Hill",
+     "bytes": 357491,
+     "textLen": 4324,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "x-akamai-transformed": "9l 7584 0 pmb=mNONE, 1mRUM, 2",
+      "content-length": "11238",
+      "akamai-grn": "0.8d6d3e17.1795601653.6bdb4bf9"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "CSB_USER_STATE",
+      "WCX_SOURCECODE",
+      "OVERRIDE_DEVICE_ID",
+      "WC_SESSION_ESTABLISHED",
+      "WC_PERSISTENT",
+      "WC_AUTHENTICATION_-1002",
+      "WC_ACTIVEPOINTER",
+      "WC_USERACTIVITY_-1002",
+      "WC_GENERIC_ACTIVITYDATA",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "initialURL",
+      "bm_lso",
+      "PIM-SESSION-ID",
+      "mt.v",
+      "mt.deviceId",
+      "_gcl_au",
+      "lastVisitedPDPURL",
+      "ak_bmsc",
+      "csb_RVI_10054",
+      "lastCategory",
+      "lastProduct",
+      "_mibhv",
+      "styliticsWidgetSession",
+      "bm_sv",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_cs_c",
+      "_cs_id",
+      "EG-U-ID",
+      "EG-S-ID",
+      "_cs_s",
+      "RT",
+      "_abck",
+      "bm_s"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.garnethill.com/akam/13/4d990856",
+      "www.garnethill.com/akam/13/pixel_4d990856"
+     ],
+     "snippet": "Essential Turtleneck Tee | Garnet Hill Slice 1 [icon]/caret-down [icon]/caret-left [icon]/caret/dark [icon]/caret-up [icon]/caution/dark AmericanExpress Discover MasterCard Visa visa-electron checkout-step40 checkout-ste"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc"
+     ]
+    }
+   },
+   "https://www.prana.com/p/cambria-cove-button-up-top/2179031.html?dwvar_2179031_color=Dawn%20Heather": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 11614,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe2d5bd8bfda5-LAX"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID fbf2ce32-e8b8-11f1-bfac-6ab7be0bcf0b"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526": {
+    "v": "comp",
+    "note": "Cotton 95% / Elastane 5%",
+    "comp": "Cotton 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "WHBM FORME™ Ribbed Scoop Neck Tee | White House Black Market",
+     "bytes": 1507610,
+     "textLen": 8313,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::q4ttk-1795601670955-b5df7aa8bd2a",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "cortes",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "PIM-SESSION-ID",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "ak_bmsc",
+      "analyticsFindingMethod",
+      "dataLayerLastPageRef",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "x-session",
+      "x-csrf-token",
+      "ESW_LTI",
+      "OptanonConsent",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "ctaClickRef",
+      "bm_s",
+      "bm_sv",
+      "_pin_unauth",
+      "_abck",
+      "apt_pixel",
+      "amp_f24a38"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.whitehouseblackmarket.com/akam/13/712aaef0",
+      "www.whitehouseblackmarket.com/akam/13/pixel_712aaef0"
+     ],
+     "snippet": "WHBM FORME™ Ribbed Scoop Neck Tee | White House Black Market Enable Accessibility Chico's CHS WHBM WHBM Soma SMA 50% Off Must-Haves + 40% Off Everything Else Shop Now *]:!pointer-events-none\"> Details WHBM credit card Ac"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: Vercel, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.aritzia.com/intl/en/product/ezra-top/125956.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 44548,
+     "textLen": 384,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-mitigated": "challenge",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe32e692df6b1-LAX"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/orchestr",
+      "challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0cd6/api.js",
+      "www.aritzia.com/cdn-cgi/challenge-platform/h/b/fo/20329",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstil",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/fo/75195",
+      "brunhild.challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/i/a5ffe3",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/pat/a5ff",
+      "challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/ci/a5ffe"
+     ],
+     "snippet": "Just a moment... www.aritzia.com Performing security verification This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot. Verification "
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 불러온 주소 www.aritzia.com/cdn-cgi/challenge-platform/h/b/orc"
+     ]
+    }
+   },
+   "https://www.thereformation.com/products/monica-silk-top/1314146BLK.html?dwvar_1314146BLK_color=BLK": {
+    "v": "comp",
+    "note": "Silk 100% / Viscose 100%",
+    "comp": "Silk 100%\nViscose 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Monica Silk Top",
+     "bytes": 679080,
+     "textLen": 9287,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "NtNffYFuBmsBAAB_",
+      "cf-ray": "a5ffe3637c333777-LAX"
+     },
+     "cookies": [
+      "dwac_0644a165d42080eb78142cac75",
+      "cqcid",
+      "cquid",
+      "sid",
+      "newCustomer",
+      "GlobalE_Data",
+      "dwanonymous_914668167e2805280fee994f0c25aa1b",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "lux_uid",
+      "cf_clearance",
+      "__cf_bm",
+      "GlobalE_Full_Redirect",
+      "fs_lua",
+      "fs_uid",
+      "_gcl_au",
+      "capi_lift_channel",
+      "OptanonConsent",
+      "GlobalE_Analytics",
+      "_pin_unauth",
+      "_tt_enable_cookie",
+      "_ttp",
+      "_uetsid",
+      "_uetvid",
+      "__stripe_mid",
+      "__stripe_sid",
+      "_fbp",
+      "ttcsid_C9J3CFRC77U92U7NNRQG",
+      "ttcsid"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.thereformation.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.thereformation.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "js.stripe.com/v3/hcaptcha-invisible-c880fda7111a96c9e",
+      "b.stripecdn.com/stripethirdparty-srv/assets/v37.5/HCapt"
+     ],
+     "snippet": "Monica Silk Top Skip to main content *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Shop 25% off everything online and in-store. *&quot;}\"> Free shipping on everything. *&quot;}\"> Sale starts now. Sh"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 불러온 주소 www.thereformation.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0644a165d42080eb78142cac75, 쿠키 dwanonymous_914668167e2805280fee994f0c25aa1b, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/": {
+    "v": "comp",
+    "note": "Nylon 75% / Elastane 25%",
+    "comp": "Nylon 75% / Elastane 25%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "HERMOSA AVA DOUBLE LAYER BRA in NAVY | The UPSIDE",
+     "bytes": 1325095,
+     "textLen": 55645,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 google",
+      "cf-ray": "a5ffe37a49d98900-LAX"
+     },
+     "cookies": [
+      "SF-CSRF-TOKEN",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "__cf_bm",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "_shg_session_id",
+      "_shg_user_id",
+      "__kla_id",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "cf_clearance",
+      "_isuid",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "_gcl_au",
+      "_fbp",
+      "ssSessionIdNamespace",
+      "_uetsid",
+      "_uetvid",
+      "_ga_7KJFHRQK40",
+      "_clck",
+      "_ga_7XTJM93TLW",
+      "_ga",
+      "_clsk",
+      "snpt_sess",
+      "snpt_visit"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.theupside.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/precurso",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.theupside.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "HERMOSA AVA DOUBLE LAYER BRA in NAVY | The UPSIDE Please note: This website includes an accessibility system. Press Control-F11 to adjust the website to people with visual disabilities who are using a screen reader; Pres"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-script, 불러온 주소 www.theupside.com/cdn-cgi/challenge-platform/scrip"
+     ]
+    }
+   }
+  }
+ },
+ "catalogs": []
+}
