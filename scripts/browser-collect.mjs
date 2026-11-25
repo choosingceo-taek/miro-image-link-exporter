@@ -41,6 +41,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { chromium, firefox } from "playwright";
 import { API_READERS } from "./listing-api.mjs";
+import { looksLikeProduct } from "./access-evidence.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const REPORT_DIR = process.env.REPORT_DIR || ROOT;
@@ -525,8 +526,14 @@ for (const g of targets) {
       note = (note ? note + " · " : "") + `impit 최종주소 ${impitFinal.get(url).slice(0, 120)}`;
     }
     // URL 마다 표본 3개 — 사람이 사이트에서 직접 대조할 수 있게(측정 기록용).
-    const sample = [...byUrl.values()].slice(0, 3).map((it) => ({ name: it.name, productUrl: it.productUrl, price: it.price }));
-    perUrl.push({ url, count: byUrl.size, note, sample });
+    // 맨 앞은 메뉴·배너가 오기 쉬워 처음·가운데·끝에서 하나씩 고른다.
+    const all = [...byUrl.values()];
+    const sample = [...new Set([0, all.length >> 1, all.length - 1])].filter((i) => i >= 0 && i < all.length)
+      .map((i) => all[i]).map((it) => ({ name: it.name, productUrl: it.productUrl, price: it.price }));
+    // 상품 주소 모양(/product/ · /p/ · 상품 번호 등 — access-evidence.mjs 의 판정)인 것의 수.
+    // 수집 수와 크게 다르면 메뉴·기획전 링크가 섞였거나, 그 사이트 상품 주소가 판정 규칙 밖이라는 뜻이다(참고용).
+    const productShaped = all.filter((it) => looksLikeProduct(it.productUrl)).length;
+    perUrl.push({ url, count: byUrl.size, productShaped, note, sample });
     console.log(`   ${byUrl.size ? "·" : "✕"} ${byUrl.size}개  ${url}${note ? "  ← " + note : ""}`);
   }
   // 끊겨서 못 돈 카테고리도 perUrl 에 남긴다. 리포트 JSON 은 다음 실행이 설정 파일을 못 받았을 때
@@ -619,7 +626,7 @@ for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요
     md += `- **${r.brand}** [${r.engine}${r.fresh ? "·새 창" : ""}] — ${r.collected}개 ${JSON.stringify(r.cats)}` +
       (r.dropped ? ` · 공용 링크 ${r.dropped}개 제외` : "") + ` (${r.secs}s)\n`;
     for (const u of r.perUrl) {
-      md += `  - ${u.count}개 · ${u.url}${u.note ? " ← " + u.note : ""}\n`;
+      md += `  - ${u.count}개${u.productShaped != null ? ` (상품 주소 모양 ${u.productShaped})` : ""} · ${u.url}${u.note ? " ← " + u.note : ""}\n`;
       for (const sm of u.sample || []) md += `    - ${sm.name}${sm.price ? " (" + sm.price + ")" : ""} — ${sm.productUrl}\n`;
     }
     for (const sm of r.sample || []) md += `  - 표본: ${sm.name} — ${sm.productUrl}\n`;

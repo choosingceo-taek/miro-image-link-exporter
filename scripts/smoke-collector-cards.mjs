@@ -80,6 +80,20 @@ const PAGES = {
       <div class="product-card"><a href="/browse/product.do?pid=612345001&cid=17076"><img src="https://assets.x.com/612345001.jpg" width="300" height="400" alt="Linen Shirt"></a><div class="product-card-price">$49.95</div></div>
     </div>`,
 
+  // 사이트 머리글·메뉴·바닥글: 메가메뉴의 사진 타일(The upside 'Header Submenu Image')과
+  // 바닥글 링크는 버리고, 상품 카드 '안'의 <header> 는 상품으로 둔다.
+  siteMenu: `
+    <header class="site-header"><div class="mega">
+      <a href="/active/tops/sports-bras/"><img src="https://cdn.x/menu-bras.jpg" width="400" height="500" alt="Header Submenu Image"></a>
+      <a href="/collections/holiday-launch"><img src="https://cdn.x/menu-holiday.jpg" width="400" height="500" alt="holiday launch"></a>
+    </div></header>
+    <nav><a href="/browse/women/holiday-outfits"><img src="https://cdn.x/nav-holiday.jpg" width="300" height="300" alt="Image of Holiday dressy. $18"></a></nav>
+    <main><div class="grid">
+      <article class="card"><header><a href="/products/ribbed-knit-tee-123"><img src="https://cdn.x/tee.jpg" width="300" height="400" alt="Ribbed Knit Tee"></a></header><p>$58</p></article>
+      <article class="card"><a href="/products/wide-leg-pant-456"><img src="https://cdn.x/pant.jpg" width="300" height="400" alt="Wide Leg Pant"></a><p>$98</p></article>
+    </div></main>
+    <footer><a href="/pages/our-story-film"><img src="https://cdn.x/story.jpg" width="600" height="300" alt="Our story"></a></footer>`,
+
   // 안전장치: 그리드가 카드로 오인되면 옆 상품 사진을 가져간다. 그런 일이 없어야 한다.
   noImageAtAll: `
     <div class="list">
@@ -149,6 +163,15 @@ async function harvest(body) {
   }
 }
 
+// ── 사이트 머리글·메뉴·바닥글 ──
+{
+  const r = await harvest(PAGES.siteMenu);
+  const urls = (r.items || []).map((i) => i.productUrl.replace("https://shop.example.com", "")).sort();
+  if (JSON.stringify(urls) !== JSON.stringify(["/products/ribbed-knit-tee-123", "/products/wide-leg-pant-456"])) {
+    fail(`머리글·메뉴·바닥글 링크를 거르지 못했거나 카드 안 <header> 상품을 버렸다: ${JSON.stringify(urls)} · 탈락 ${JSON.stringify(r.rej)}`);
+  }
+}
+
 // ── 안전장치: 사진이 없으면 없는 대로 버려야 한다 ──
 {
   const r = await harvest(PAGES.noImageAtAll);
@@ -160,4 +183,4 @@ async function harvest(body) {
 
 await browser.close();
 if (bad) { console.error(`\n카드 사진 찾기 ${bad}건 실패`); process.exit(1); }
-console.log("✅ 카드 사진 찾기 통과 — 투명 오버레이 링크 · 아이콘 우선 카드 · Gap 상품 번호·타일 제외 · 과확장 방지");
+console.log("✅ 카드 사진 찾기 통과 — 투명 오버레이 링크 · 아이콘 우선 카드 · Gap 상품 번호·타일 제외 · 머리글·메뉴·바닥글 제외 · 과확장 방지");

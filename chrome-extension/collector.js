@@ -98,12 +98,12 @@ async function pageCollector() {
   ];
   const NON_PRODUCT_PATH = new RegExp('/(?:' + NON_PRODUCT_SEGMENTS.join('|') + ')(?:/|$)', 'i');
   // 경로 모양만 봐도 상품이 아닌 링크(2026-11-25 접근 지도에서 실제로 상품으로 저장돼 있던 것들).
-  //  · 카테고리 경로 /c/… · /w/… — Carhartt 메뉴 타일(/c/black-friday, 이름 'arrow icon'),
+  //  · 카테고리 경로 /c/… · /w/… · /collections/… — Reformation 기획전(/collections/holiday-launch), Carhartt 메뉴 타일(/c/black-friday, 이름 'arrow icon'),
   //    Nike 필터 링크(/w/womens-…). 상품 표시(/p/ · /t/ · /product/)가 함께 있으면 상품으로 둔다.
   //    '/categories/' 는 일부러 넣지 않았다 — J.Crew 는 진짜 상품이 /m/womens/categories/…/MQ341 이다.
   //  · Inditex(Oysho·Massimo Dutti) 카테고리 주소 끝 '-n5063' — 상품은 '-l0581…'·'-c0p…' 모양이다.
   //  · 이미지 파일 주소 — srcset 조각('…/x.webp%20924w')이 링크로 잡힌 경우(Sessun).
-  const CATEGORY_PATH = /\/(?:c|w)\/[^/]/i;
+  const CATEGORY_PATH = /\/(?:c|w|collections?)\/[^/]/i;
   const PRODUCT_MARK = /\/(?:p|t|product|products)\//i;
   const INDITEX_CATEGORY = /-n\d{3,5}$/i;
   const IMAGE_FILE = /\.(?:jpe?g|png|webp|gif|avif|svg)(?:%20\d+[wx])?$/i;
@@ -191,7 +191,18 @@ async function pageCollector() {
 
   // 0개로 끝났을 때 "왜 다 걸러졌는지" 세어 둔다. 추측 대신 숫자로 원인을 좁힌다.
   const rej = { total: 0, noImage: 0, tinyImage: 0, shortPath: 0, samePage: 0, banner: 0, dup: 0,
-    nonProduct: 0, landing: 0 };
+    nonProduct: 0, landing: 0, siteMenu: 0 };
+
+  // 사이트 머리글·메뉴·바닥글 안의 링크는 상품이 아니다(2026-11-25 측정에서 실제로 잡힌 것:
+  // The upside 'Header Submenu Image' /active/tops/sports-bras/, Reformation 메뉴의
+  // /collections/holiday-launch, Old Navy 'Picks from our Giftfluencers', Banana Republic 'sign in').
+  // 상품 그리드는 이런 칸 안에 있지 않다. 다만 상품 카드 안에도 <header> 를 쓰는 사이트가 있어서,
+  // <header> 는 카드·목록·본문(main) 밖에 있는 '사이트 머리글'일 때만 메뉴로 본다.
+  const inSiteMenu = (a) => {
+    if (a.closest('nav, footer, [role="navigation"], [role="contentinfo"], [role="menu"], [role="menubar"]')) return true;
+    const h = a.closest('header, [role="banner"]');
+    return !!(h && !h.closest('main, article, li, [class*="product" i], [class*="card" i], [class*="tile" i]'));
+  };
 
   const harvest = () => {
     const here = location.pathname.replace(/\/+$/, '');
@@ -201,6 +212,7 @@ async function pageCollector() {
       let href; try { href = new URL(a.href, location.href); } catch (e) { return; }
       if (!/^https?:/.test(href.protocol)) return;
       rej.total++;
+      if (inSiteMenu(a)) { rej.siteMenu++; return; }
       const card = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
       // 카드를 못 짚었으면 한두 단계 위까지 올라가 본다.
       // Apiece Apart 는 카드 전체를 덮는 투명 링크(<a class="absolute inset-0">)를 쓰는데,
