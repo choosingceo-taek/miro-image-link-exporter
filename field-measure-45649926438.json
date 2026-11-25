@@ -1,0 +1,2466 @@
+{
+ "runId": "45649926438",
+ "at": "2026-11-25T15:57:35.404Z",
+ "ip": "20.83.38.x",
+ "part": "1/1",
+ "brands": [
+  {
+   "brand": "Bellerose",
+   "site": "bellerose.com.bellerose",
+   "products": [
+    {
+     "url": "https://bellerose.com/products/women-t-shirts-fiores-dusty-rose",
+     "name": "Fiores short-sleeve t-shirt (262 / W / DUSTY ROSE)",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1464781,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 2307690,
+       "clicked": 6
+      }
+     },
+     "stored": "Cotton 100% / Wool 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 7,
+      "variants": 6,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 262
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Fiores short-sleeve t-shirt (262 / W / DUSTY ROSE)",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230320T1831-999_1_6d6269bc-3984-41c5-8fdf-4950f52c3bcc.webp?v=1780308242",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230320T1831-999_1711887_17b1fcfc-0fc4-47cf-97f1-72c9b4047622.webp?v=1780308243",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230320T1831-999_1711890_54c8c5a6-5593-47b0-b2e3-27976281c04d.webp?v=1780308243",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230320T1831-999_1711893_dd855a5d-41c1-42f7-90b4-c1ef1d2f8fe2.webp?v=1780308242",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230320T1831-999_1711896_9874336e-c85d-451e-8c61-0c4d538b589a.webp?v=1780308243",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230320T1831-999_1711899_74a9161e-2394-4f0e-ad8d-25233468dd00.webp?v=1780308242",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230320T1831-999_16511049999_dabeeadb-fcd2-4b10-9441-b1be2085f65c.webp?v=1780308242"
+      ],
+      "price": "$79",
+      "priceOrig": "",
+      "cur": "EUR",
+      "color": "English",
+      "colors": [],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "comp": "Cotton 100%",
+      "desc": "Relaxed crewneck t-shirt with short sleeves in washed dusty pink, crafted from midweight cotton jersey with a clean, minimalist finish.",
+      "feat": [
+       "Relaxed fit",
+       "Crewneck",
+       "Short sleeves",
+       "Dropped shoulders",
+       "Straight hem",
+       "Signature logo label at hem",
+       "Midweight cotton jersey, 200 gsm",
+       "Shell fabric : 100% Cotton",
+       "Made in Portugal",
+       "Machine wash at 30°C",
+       "Do not bleach",
+       "Tumble dry at low temperature / max 60°C",
+       "Iron at low temperature / Heat 110°C",
+       "Do not dry clean"
+      ],
+      "sku": "5414817213"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "size & fit",
+       "details",
+       "care"
+      ],
+      "domDesc": false,
+      "swatches": 5,
+      "sizeBtns": 18,
+      "priceEls": 51,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 2307690
+     },
+     "clickOnly": {
+      "featImpit": 14,
+      "featFirefox": 14,
+      "descImpit": 135,
+      "descFirefox": 135
+     },
+     "fixture": {
+      "file": "bellerose-womentshirtsfioresdustyrose.html.gz",
+      "shopFile": "bellerose-womentshirtsfioresdustyrose.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://bellerose.com/products/women-knitwear-anglet-stripe-a-bw262940-k1356s",
+     "name": "Anglet crewneck sweater (262 / W / STRIPE A)",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1441767,
+       "final": ""
+      }
+     },
+     "stored": "Cotton 63% / Polyester 37%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 7,
+      "variants": 3,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 468
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Anglet crewneck sweater (262 / W / STRIPE A)",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26294020K1356S-STA_1_83dd0353-4dc0-4ec0-9e83-2e639662efb6.webp?v=1780308624",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26294020K1356S-STA_1691541_d33e9dbe-0f12-451b-8cb6-f1f4468c6fae.webp?v=1780308624",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26294020K1356S-STA_1691544_d5fa966a-9188-478b-9749-c5b7cf5ed07d.webp?v=1780308623",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26294020K1356S-STA_1691547_db34e514-ebac-4799-a960-c6e98d206285.webp?v=1780308624",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26294020K1356S-STA_1691550_f2805277-2463-4849-bd3b-729bc835cf1d.webp?v=1780308624",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26294020K1356S-STA_1691553_d8190814-434f-454f-8b81-34bd000cec12.webp?v=1780308624",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26294020K1356S-STA_16501359999_7dc52569-9d53-4a17-aa69-d2078e79d8ae.webp?v=1780308624"
+      ],
+      "price": "$159",
+      "priceOrig": "",
+      "cur": "EUR",
+      "color": "English",
+      "colors": [],
+      "sizes": [
+       "XXS/XS",
+       "S/M",
+       "L/XL"
+      ],
+      "sizesIn": [
+       "XXS/XS",
+       "S/M",
+       "L/XL"
+      ],
+      "comp": "",
+      "desc": "Oversized crewneck sweater in soft ecru cotton with fine fluo-green stripes, featuring 3/4 sleeves and finished with contrasting navy-and-white ribbed trims at the neckline, cuffs, and hem.",
+      "feat": [
+       "Choose your usual size for the intended look or size down for a more fitted style.",
+       "Oversized fit: Intentionally cut large to deliver a voluminous look.",
+       "Double rib crewneck collar in navy with white stripes",
+       "3/4 raglan sleeves",
+       "Soft knit",
+       "Double rib trims",
+       "Fully fashioned",
+       "Fine gauge",
+       "Slim",
+       "Regular",
+       "Relaxed",
+       "Oversized",
+       "Shell fabric : 78% Organic cotton / 63% Cotton / 37% Polyester",
+       "Made in China",
+       "Handwash in cold water only",
+       "Do not bleach",
+       "Do not tumble dry",
+       "Iron at low temperature / Heat 110°C",
+       "Do not dry clean",
+       "Water wash soft",
+       "Dry flat away from sunlight"
+      ],
+      "sku": "5414817202"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "size & fit",
+       "details",
+       "fit",
+       "care"
+      ],
+      "domDesc": false,
+      "swatches": 13,
+      "sizeBtns": 11,
+      "priceEls": 32,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 1441767
+     },
+     "fixture": {
+      "file": "bellerose-womenknitwearangletstripeabw262940k1356s.html.gz",
+      "shopFile": "bellerose-womenknitwearangletstripeabw262940k1356s.shop.json.gz",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://bellerose.com/products/women-sweatshirts-tood-combo-b",
+     "name": "Tood hoodie (262 / W / COMBO B)",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 1413451,
+       "final": ""
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 1500359,
+       "clicked": 6
+      }
+     },
+     "stored": "Wool 100% / Elastane 4%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 7,
+      "variants": 3,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 423
+     },
+     "read": true,
+     "engine": "shopify-json",
+     "got": {
+      "name": "Tood hoodie (262 / W / COMBO B)",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230720T1821-CBB_1.webp?v=1780305172",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230720T1821-CBB_1710744_43054d9f-9cb9-4201-8aee-51b80d86e8ea.webp?v=1780305172",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230720T1821-CBB_1710747_d6e89ed9-cb34-43ab-85f9-4544acec613a.webp?v=1780305172",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230720T1821-CBB_1710750_d9ade670-fe03-4b0f-9d67-9a2a871d6214.webp?v=1780305173",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230720T1821-CBB_1710753_a78c8562-2307-4335-8c7e-029b0e8288cb.webp?v=1780305173",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230720T1821-CBB_1710756_859f1ac6-2e85-4704-9870-08fb9d8e7cbe.webp?v=1780305173",
+       "https://cdn.shopify.com/s/files/1/0751/2837/files/BW26230720T1821-CBB_16512339999_d91ade7d-f985-480d-bf30-0e5b2dca2cc9.webp?v=1780305171"
+      ],
+      "price": "$149",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [
+       "XXS/XS",
+       "S/M",
+       "L/XL"
+      ],
+      "sizesIn": [
+       "XXS/XS",
+       "S/M",
+       "L/XL"
+      ],
+      "comp": "",
+      "desc": "Oversized burgundy hoodie in double‑face neoprene‑like fabric with a lined hood and a tonal embroidered “bb” logo on the chest.",
+      "feat": [
+       "Oversized fit: Choose your usual size for the intended look or size down for a more fitted style.",
+       "Hoodie with drawstring",
+       "Long sleeves",
+       "Dropped shoulders",
+       "Tonal embroidered “bb” logo on the chest",
+       "Double‑face neoprene‑like material",
+       "Lined hood",
+       "Clean finish with no visible topstitching",
+       "Camel interior"
+      ],
+      "sku": "5414817214"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "shopify",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "price": "shopify",
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    }
+   ],
+   "overlay": {
+    "items": 231,
+    "withRow": 231,
+    "comp": 214,
+    "color": 215,
+    "sizes": 231,
+    "price": 231,
+    "tried": 231,
+    "in5d": 79,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785842870178,
+    "newestT": 1795580471168,
+    "emptyIn5d": 17
+   },
+   "total": 231,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "CCC",
+   "site": "crewclothing.co.uk.ccc",
+   "products": [
+    {
+     "url": "https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes",
+     "name": "Half Zip Sweatshirt in White and Navy Stripes",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 652205,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 611679,
+       "clicked": 1
+      }
+     },
+     "stored": "Cotton 64% / Polyester 36%\nCotton 57% / Polyester 40% / Elastane 3%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 7,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 583
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Half Zip Sweatshirt in White and Navy Stripes",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYF004_WHITENAVY_dfa899eb-75cd-421c-b952-a385104a6513.jpg?v=1792676499",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYF004_WHITENAVY_1_e317ef3b-066b-42ad-9627-393b612eefb3.jpg?v=1792676499",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYF004_WHITENAVY_2_8f65f08e-f057-4273-8242-87bdb3bc22db.jpg?v=1792676499",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYF004_WHITENAVY_3_c82ae07a-4b06-40b8-b8f5-688968a20857.jpg?v=1792676499",
+       "https://cdn.shopify.com/s/files/1/0947/3130/5302/files/WYF004_WHITENAVY_5_ff6fceff-312f-4ea3-b6bb-f48aabf1113b.jpg?v=1792676499"
+      ],
+      "price": "$59",
+      "priceOrig": "",
+      "cur": "GBP",
+      "color": "White and Navy Stripes",
+      "colors": [],
+      "sizes": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18"
+      ],
+      "sizesIn": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18"
+      ],
+      "comp": "Cotton 64% / Polyester 36%",
+      "desc": "Our super-soft half-zip sweatshirt in white with navy stripes. We love its oh-so-comfy feel, thanks to its raglan sleeves, cotton-mix fabric, and half-zip construction. It boasts handy hidden pockets and crossed oars embroidery, too. Pairing well with denim, this one makes the perfect light layer for the weekend.\n• Body: 64% Cotton, 36% Polyester\n• Rib: 57% Cotton, 40% Polyester, 3% Elastane\n• Branded zip pull\n• Functional pockets\n• Ribbed inner collar, cuffs and hem\n• Washed for softness\n• Contrasting crossed oars embroidered on the chest\n• Delicate machine wash at 30 degrees",
+      "feat": [
+       "Body: 64% Cotton, 36% Polyester",
+       "Rib: 57% Cotton, 40% Polyester, 3% Elastane",
+       "Branded zip pull",
+       "Functional pockets",
+       "Ribbed inner collar, cuffs and hem",
+       "Washed for softness",
+       "Contrasting crossed oars embroidered on the chest",
+       "Delicate machine wash at 30 degrees"
+      ],
+      "sku": "13649"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 7,
+      "sizeBtns": 16,
+      "priceEls": 14,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 611679
+     },
+     "clickOnly": {
+      "featImpit": 8,
+      "featFirefox": 8,
+      "descImpit": 583,
+      "descFirefox": 583
+     },
+     "fixture": {
+      "file": "ccc-halfzipsweatshirtinwhiteandnavystripes.html.gz",
+      "shopFile": "ccc-halfzipsweatshirtinwhiteandnavystripes.shop.json.gz",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 800,
+    "withRow": 800,
+    "comp": 755,
+    "color": 474,
+    "sizes": 349,
+    "price": 496,
+    "tried": 800,
+    "in5d": 419,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 4,
+    "noneNv": {
+     "chromium,fetch": 3,
+     "(예전)": 1
+    },
+    "oldestT": 1788473174148,
+    "newestT": 1795605625241,
+    "emptyIn5d": 45
+   },
+   "total": 800,
+   "picked": 1,
+   "notProduct": 442
+  },
+  {
+   "brand": "Jigsaw",
+   "site": "jigsaw-online.com.jigsaw",
+   "products": [
+    {
+     "url": "https://www.jigsaw-online.com/products/tiger-orchid-knit-tank-blue",
+     "name": "Tiger Orchid Silk Knit Tank | Blue",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 913384,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1279846,
+       "clicked": 2
+      }
+     },
+     "stored": "Cotton 100% / Silk 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 5,
+      "options": [
+       "Size",
+       "Colour"
+      ],
+      "hasAvail": true,
+      "descLen": 291
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Tiger Orchid Silk Knit Tank | Blue",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51850_BL000_1.jpg?v=1775637329",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51850_BL000_2.jpg?v=1775637329",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51850_BL000_3.jpg?v=1775637329",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51850_BL000_4.jpg?v=1775637329",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51850_BL000_STILL.jpg?v=1777052433"
+      ],
+      "price": "$55",
+      "priceOrig": "$139",
+      "cur": "GBP",
+      "color": "Blue",
+      "colors": [
+       "Blue"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Cotton 100%\nSilk 100%",
+      "desc": "Adorned with our modern Tiger Orchid print that was painted and designed in house, this tank has soft, drapey silk front and a knitted back for extra breathability in the summer months. Pair with tailored trousers or a long, flowing skirt in a neutral tone. Bella is 5'9.5 and wears a size 8",
+      "feat": [],
+      "sku": "J51850_BL000"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "color": "title",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details",
+       "materials and care"
+      ],
+      "domDesc": false,
+      "swatches": 36,
+      "sizeBtns": 41,
+      "priceEls": 11,
+      "strike": true,
+      "galleryImgs": 12,
+      "len": 1279846
+     },
+     "clickOnly": {
+      "featImpit": 5,
+      "featFirefox": 0,
+      "descImpit": 291,
+      "descFirefox": 291
+     },
+     "fixture": {
+      "file": "jigsaw-tigerorchidknittankblue.html.gz",
+      "shopFile": "jigsaw-tigerorchidknittankblue.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.jigsaw-online.com/products/satin-lace-detail-cami-brown",
+     "name": "Satin Lace Detail Cami | Brown",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 924368,
+       "final": ""
+      }
+     },
+     "stored": "Viscose 100% / Polyester 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 7,
+      "options": [
+       "Size",
+       "Colour"
+      ],
+      "hasAvail": true,
+      "descLen": 233
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Satin Lace Detail Cami | Brown",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51660_BR000_2.jpg?v=1772814246",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51660_BR000_1.jpg?v=1772814246",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51660_BR000_4.jpg?v=1772814234",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51660_BR000_5.jpg?v=1772814234",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J51660_BR000_STILL.jpg?v=1773066137"
+      ],
+      "price": "$55",
+      "priceOrig": "$79",
+      "cur": "GBP",
+      "color": "Brown",
+      "colors": [
+       "Brown"
+      ],
+      "sizes": [
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18"
+      ],
+      "sizesIn": null,
+      "comp": "Viscose 100%",
+      "desc": "With wide straps featuring delicate lace detailing, this cami is a great way to elevate your everyday. Wear it with anything from long A line skirts to wide legged denim, depending on the occasion. Charlotte is 5'8 and wears a size 8",
+      "feat": [
+       "ITEM: J51660_BR000",
+       "Main: 100% Viscose",
+       "Trim: 100% Polyester",
+       "Dry Clean Only"
+      ],
+      "sku": "J51660_BR000"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "color": "title",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details",
+       "materials and care"
+      ],
+      "domDesc": false,
+      "swatches": 45,
+      "sizeBtns": 48,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 10,
+      "len": 924368
+     },
+     "fixture": {
+      "file": "jigsaw-satinlacedetailcamibrown.html.gz",
+      "shopFile": "jigsaw-satinlacedetailcamibrown.shop.json.gz",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://www.jigsaw-online.com/products/modal-lace-cami-burgundy",
+     "name": "Modal Lace Cami | Burgundy",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 925545,
+       "final": ""
+      }
+     },
+     "stored": "Modal 92% / Elastane 8%\nNylon 90% / Elastane 10%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 5,
+      "options": [
+       "Size",
+       "Colour"
+      ],
+      "hasAvail": true,
+      "descLen": 291
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Modal Lace Cami | Burgundy",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52877_RE004_1.jpg?v=1790149378",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52877_RE004_3.jpg?v=1790149378",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52877_RE004_2.jpg?v=1790149378",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52877_RE004_4.jpg?v=1790149378",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52877_RE004_STILL.jpg?v=1786532409"
+      ],
+      "price": "$26",
+      "priceOrig": "$35",
+      "cur": "GBP",
+      "color": "Burgundy",
+      "colors": [
+       "Burgundy"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "comp": "Modal 92% / Elastane 8%",
+      "desc": "Soft stretch modal gives this cami an easy feel against the skin, while delicate lace trim adds a feminine contrast. The simple shape makes it useful as both a base layer and a piece in its own right, with the lace left visible beneath knitwear or tailoring. Beck is 5'9.5 and wears a size S",
+      "feat": [
+       "Soft stretch modal",
+       "Lace trim",
+       "Cami silhouette",
+       "Main : 92% Modal, 8% Elastane",
+       "Trim: 90% Polyamide, 10% Elastane",
+       "Delicate machine wash"
+      ],
+      "sku": "J52877_RE004"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "color": "title",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details",
+       "materials and care"
+      ],
+      "domDesc": false,
+      "swatches": 33,
+      "sizeBtns": 42,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 10,
+      "len": 925545
+     },
+     "fixture": {
+      "file": "jigsaw-modallacecamiburgundy.html.gz",
+      "shopFile": "jigsaw-modallacecamiburgundy.shop.json.gz",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://www.jigsaw-online.com/products/linen-silk-pocket-skirt-green",
+     "name": "Linen Silk Pocket Skirt | Green",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 924089,
+       "final": ""
+      }
+     },
+     "stored": "Linen 100% / Silk 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 5,
+      "variants": 5,
+      "options": [
+       "Size",
+       "Colour"
+      ],
+      "hasAvail": true,
+      "descLen": 236
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Linen Silk Pocket Skirt | Green",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52240_GN000_1.jpg?v=1773066564",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52240_GN000_4.jpg?v=1773066564",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52240_GN000_9.jpg?v=1773066564",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52240_GN000_2.jpg?v=1773066564",
+       "https://cdn.shopify.com/s/files/1/0561/7297/0150/files/J52240_GN000_STILL.jpg?v=1773066564"
+      ],
+      "price": "$44",
+      "priceOrig": "$149",
+      "cur": "GBP",
+      "color": "Green",
+      "colors": [
+       "Green"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "comp": "Linen 100%",
+      "desc": "Discover easy elegance in the Linen Silk Pocket Skirt, where airy linen meets a hint of silk’s sheen. Style it with a crisp shirt or a soft knit to enjoy versatile, elevated dressing for every occasion. Sofia is 5'9.5 and wears a size 8",
+      "feat": [
+       "Silk back pocket",
+       "Rear slit",
+       "Main 100% Linen",
+       "Trim 100% Silk",
+       "Hand Wash Cool"
+      ],
+      "sku": "J52240_GN000"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "color": "title",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details",
+       "materials and care"
+      ],
+      "domDesc": false,
+      "swatches": 33,
+      "sizeBtns": 42,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 10,
+      "len": 924089
+     },
+     "fixture": {
+      "file": "jigsaw-linensilkpocketskirtgreen.html.gz",
+      "shopFile": "jigsaw-linensilkpocketskirtgreen.shop.json.gz",
+      "engine": "impit"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 315,
+    "withRow": 315,
+    "comp": 304,
+    "color": 315,
+    "sizes": 315,
+    "price": 315,
+    "tried": 315,
+    "in5d": 16,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785843659972,
+    "newestT": 1795581355828,
+    "emptyIn5d": 11
+   },
+   "total": 315,
+   "picked": 4,
+   "notProduct": 0
+  },
+  {
+   "brand": "The Great",
+   "site": "thisisthegreat.com.thegreat",
+   "products": [
+    {
+     "url": "https://thisisthegreat.com/products/the-oversized-ruffle-peplum-tee-heather-grey",
+     "name": "The Oversized Ruffle Peplum Tee. -- Heather Grey",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 643551,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 962771,
+       "clicked": 4
+      }
+     },
+     "stored": "Cotton 90% / Polyester 10%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 4,
+      "options": [
+       "Color",
+       "Size",
+       "Style"
+      ],
+      "hasAvail": true,
+      "descLen": 554
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "The Oversized Ruffle Peplum Tee. -- Heather Grey",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-LOOK-69-THE-OVERSIZED-RUFFLE-PEPLUM-TEE-DOVE-GREY-THE-RELAXED-SPORT-SHORT-DOVE-GREY-2987_1.jpg?v=1775078516",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-LOOK-69-THE-OVERSIZED-RUFFLE-PEPLUM-TEE-DOVE-GREY-THE-RELAXED-SPORT-SHORT-DOVE-GREY-3021.jpg?v=1775078516",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-LOOK-69-THE-OVERSIZED-RUFFLE-PEPLUM-TEE-DOVE-GREY-THE-RELAXED-SPORT-SHORT-DOVE-GREY-3068.jpg?v=1775078148",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-LOOK-69-THE-OVERSIZED-RUFFLE-PEPLUM-TEE-DOVE-GREY-THE-RELAXED-SPORT-SHORT-DOVE-GREY-3060.jpg?v=1775078148",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-LOOK-69-THE-OVERSIZED-RUFFLE-PEPLUM-TEE-DOVE-GREY-THE-RELAXED-SPORT-SHORT-DOVE-GREY-2987.jpg?v=1775078148",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-T1485-THE-OVERSIZED-RUFFLE-PEPLUM-TEE-DOVE-GREY.png?v=1774480873"
+      ],
+      "price": "$145",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Heather Grey",
+      "colors": [
+       "Heather Grey"
+      ],
+      "sizes": [
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "sizesIn": [
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "comp": "Cotton 90% / Polyester 10%",
+      "desc": "An easy, oversized silhouette with proportions drawn from our favorite vintage tees, reimagined with a playful peplum hem that brings a sense of movement and charm. Designed with a classic crew neckline, dropped shoulders, and vintage-inspired seam detailing, it’s finished in a slightly cropped length for a modern, effortless feel.\nCut from our signature heavyweight jersey and washed to feel soft, broken-in, and lived-in from the very first wear. Handcrafted locally in Los Angeles, each piece carries subtle variations that make it uniquely its own.",
+      "feat": [],
+      "sku": "T1485050HTRGR"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "description",
+        "image",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "size & fit",
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 33,
+      "priceEls": 20,
+      "strike": true,
+      "galleryImgs": 2,
+      "len": 962771
+     },
+     "clickOnly": {
+      "featImpit": 5,
+      "featFirefox": 0,
+      "descImpit": 554,
+      "descFirefox": 554
+     },
+     "fixture": {
+      "file": "thegreat-theoversizedrufflepeplumteeheathergrey.html.gz",
+      "shopFile": "thegreat-theoversizedrufflepeplumteeheathergrey.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://thisisthegreat.com/products/the-slouchy-crew-tee-true-white",
+     "name": "The Slouchy Crew Tee. -- True White",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 639868,
+       "final": ""
+      }
+     },
+     "stored": "Cotton 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 4,
+      "options": [
+       "Color",
+       "Size",
+       "Style"
+      ],
+      "hasAvail": true,
+      "descLen": 471
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "The Slouchy Crew Tee. -- True White",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-Look-30-THE-SLOUCHY-CREWTEE-TRUE-WHITE-THE-SLOUCH-WIDE-LEG-JEAN-GRAPHITE-WASH-2253.jpg?v=1776187413",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-Look-30-THE-SLOUCHY-CREWTEE-TRUE-WHITE-THE-SLOUCH-WIDE-LEG-JEAN-GRAPHITE-WASH-2265_1.jpg?v=1776187413",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-Look-30-THE-SLOUCHY-CREWTEE-TRUE-WHITE-THE-SLOUCH-WIDE-LEG-JEAN-GRAPHITE-WASH-2222_1.jpg?v=1776187413",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-Look-30-THE-SLOUCHY-CREWTEE-TRUE-WHITE-THE-SLOUCH-WIDE-LEG-JEAN-GRAPHITE-WASH-2274_1.jpg?v=1776187413",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-Look-30-THE-SLOUCHY-CREWTEE-TRUE-WHITE-THE-SLOUCH-WIDE-LEG-JEAN-GRAPHITE-WASH-2233.jpg?v=1776187413",
+       "https://cdn.shopify.com/s/files/1/0718/5641/files/THE-GREAT-T1490-THE-SLOUCHY-CREW-TEE-TRUE-WHITE.png?v=1776187413"
+      ],
+      "price": "$115",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "True White",
+      "colors": [
+       "True White"
+      ],
+      "sizes": [
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "sizesIn": [
+       "1",
+       "2",
+       "3"
+      ],
+      "comp": "Modal 100%",
+      "desc": "The Slouchy Crew is designed with a long, oversized fit and classic proportions inspired by 1930s men’s tees. It features a boxy silhouette with dropped shoulders and pitched sleeves that are made to flatter the arm, finished with a timeless crew neckline. Cut in our signature jersey fabric and washed down with a time worn feel, it offers a soft, lived-in aesthetic. Handcrafted locally in Los Angeles, our process ensures beauty and uniqueness—no two pieces are alike.",
+      "feat": [
+       "Model is 5'10\" wearing size 1.",
+       "Fit Guide",
+       "Fit Guide dialog",
+       "Modal spinner",
+       "100% Cotton",
+       "Machine Wash Cold Tumble Dry Low",
+       "Made in the U.S.A."
+      ],
+      "sku": "T1490002TRUWT"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "description",
+        "image",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "size & fit",
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 33,
+      "priceEls": 20,
+      "strike": true,
+      "galleryImgs": 2,
+      "len": 639868
+     },
+     "fixture": {
+      "file": "thegreat-theslouchycrewteetruewhite.html.gz",
+      "shopFile": "thegreat-theslouchycrewteetruewhite.shop.json.gz",
+      "engine": "impit"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 240,
+    "withRow": 240,
+    "comp": 238,
+    "color": 239,
+    "sizes": 237,
+    "price": 238,
+    "tried": 240,
+    "in5d": 44,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785828223313,
+    "newestT": 1795581455550,
+    "emptyIn5d": 2
+   },
+   "total": 240,
+   "picked": 2,
+   "notProduct": 0
+  },
+  {
+   "brand": "Tuckernuck",
+   "site": "tnuck.com.tuckernuck",
+   "products": [
+    {
+     "url": "https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top",
+     "name": "Blue Teagan Eyelet Short Sleeve Top",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1173910,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1688379,
+       "clicked": 2
+      }
+     },
+     "stored": "Cotton 100%\nPolyester 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 6,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 767
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Blue Teagan Eyelet Short Sleeve Top",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1773845_01.jpg?v=1795455138",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1773845_05.jpg?v=1795455138",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1773845_04.jpg?v=1795455138",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1773845_02.jpg?v=1795455138",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1773845_03.jpg?v=1795455138",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1773845_06.jpg?v=1795455138"
+      ],
+      "price": "$275",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Blue",
+      "colors": [
+       "Blue"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "comp": "Cotton 100%",
+      "desc": "It's all in the pretty details.\nThe Blue Taegan Top is a charming addition to your everyday wardrobe. Crafted from lightweight cotton, this blouse features intricate eyelet embroidery, delicate pintuck detailing, and a ruffled V-neckline. Complete with softly puffed sleeves and scalloped trims, it pairs beautifully with white denim and sandals for a polished daytime look.\nOur Favorite Details:\nMaterial: 100% Cotton (outer), 100% Polyester (embroidery)\nCare: Dry clean\nAbout the Brand\nSea New York is a NY-based brand that combines prints, playful hues, delicate embroideries, eyelets and lace to create one-of-a-kind collections. Sea pieces are designed to be effortless, optimistic, romantic, and modern.",
+      "feat": [
+       "V-neckline",
+       "Short sleeves",
+       "Button front closure",
+       "Relaxed fit",
+       "Aira is wearing a size XS",
+       "Aira’s measurements: Height 5’10.5”, Waist 25”, Bust 32”, Hips 36.5”"
+      ],
+      "sku": "RS27-095BLEBLU"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "size & fit"
+      ],
+      "domDesc": false,
+      "swatches": 2,
+      "sizeBtns": 29,
+      "priceEls": 11,
+      "strike": true,
+      "galleryImgs": 5,
+      "len": 1688379
+     },
+     "clickOnly": {
+      "featImpit": 6,
+      "featFirefox": 6,
+      "descImpit": 709,
+      "descFirefox": 709
+     },
+     "fixture": {
+      "file": "tuckernuck-blueteaganeyeletshortsleevetop.html.gz",
+      "shopFile": "tuckernuck-blueteaganeyeletshortsleevetop.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://tnuck.com/products/black-tannaz-velvet-satin-top",
+     "name": "Black Tannaz Velvet Satin Top",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1174838,
+       "final": ""
+      }
+     },
+     "stored": "Cotton 100%\nPolyester 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 6,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 837
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Black Tannaz Velvet Satin Top",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1765607_01.jpg?v=1793645634",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1765607_04.jpg?v=1793645634",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1765607_05.jpg?v=1793645634",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1765607_02.jpg?v=1793645634",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1765607_03.jpg?v=1793645632",
+       "https://cdn.shopify.com/s/files/1/0630/4999/0366/files/1765607_06.jpg?v=1793645635"
+      ],
+      "price": "$175",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "",
+      "colors": [
+       "Black"
+      ],
+      "sizes": [
+       "0",
+       "2",
+       "4",
+       "6",
+       "8",
+       "10"
+      ],
+      "sizesIn": [
+       "0",
+       "2",
+       "4"
+      ],
+      "comp": "Polyester 100%\nCotton 100%",
+      "desc": "A little drama for your next night out.\nMake a statement in the Tannaz Velvet Satin Bubble Hem Top in Black. Featuring a sleek satin bodice and a voluminous velvet bubble hem, this sophisticated top combines elegant textures with a flattering, feminine silhouette. Pair it with tailored trousers and heels for a chic evening ensemble or your favorite denim for an elevated everyday look.\nOur Favorite Details:\nMaterial: 90% Recycled polyester, 10% Polyester (upper), 100% Cotton (lower), 100% Recycled Polyester (lining)\nCare: Dry clean\nAbout the Brand\nThinking beyond what you wear, East-London-based ALIGNE is a womenswear brand determined to build up the confidence of its community through sharp styles, bold colors, and thoughtful construction.",
+      "feat": [
+       "High, round neck",
+       "Sleeveless",
+       "Dropped waist seam",
+       "Slim fit",
+       "Exposed centre-back zip in gold",
+       "Fekes is wearing a size 2",
+       "Fekes's measurements: Height 5'10\", Waist 24.5\", Bust 31\", Hips 34\""
+      ],
+      "sku": "AAW26TO37BAKBL"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "size & fit"
+      ],
+      "domDesc": false,
+      "swatches": 2,
+      "sizeBtns": 27,
+      "priceEls": 7,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1174838
+     },
+     "fixture": {
+      "file": "tuckernuck-blacktannazvelvetsatintop.html.gz",
+      "shopFile": "tuckernuck-blacktannazvelvetsatintop.shop.json.gz",
+      "engine": "impit"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 376,
+    "withRow": 376,
+    "comp": 339,
+    "color": 376,
+    "sizes": 376,
+    "price": 376,
+    "tried": 376,
+    "in5d": 113,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1786653298631,
+    "newestT": 1795605628358,
+    "emptyIn5d": 37
+   },
+   "total": 376,
+   "picked": 2,
+   "notProduct": 0
+  },
+  {
+   "brand": "Z Supply",
+   "site": "zsupplyclothing.com.zsupply",
+   "products": [
+    {
+     "url": "https://zsupplyclothing.com/products/arlet-stripe-thermal-top",
+     "name": "Arlet Stripe Thermal Top",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1715178,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1943726,
+       "clicked": 4
+      }
+     },
+     "stored": "Cotton 60% / Polyester 40%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 20,
+      "variants": 10,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 248
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Arlet Stripe Thermal Top",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_CAMPAIGN_A.jpg?v=1786486654",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_CAMPAIGN_B.jpg?v=1786486654",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_FRONT.jpg?v=1784220504",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_BACK.jpg?v=1784220504",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_FB.jpg?v=1784220504",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_DETAIL_3.jpg?v=1784220504",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_DETAIL_1.jpg?v=1784220503",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_DETAIL_4.jpg?v=1784220503",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_DETAIL_2.jpg?v=1784220504",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_DETAIL_5.jpg?v=1784220503",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_ECP_Flatlay_5f88dc53-90a7-4655-8973-03404e5c9aca.jpg?v=1789077727",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_VVG_FRONT.jpg?v=1790286709",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_VVG_BACK.jpg?v=1790286708",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_VVG_DETAIL_1.jpg?v=1790286712",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_VVG_FB.jpg?v=1790286708",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_VVG_DETAIL_2.jpg?v=1790286707",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_VVG_DETAIL_3.jpg?v=1790286711",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT263412_VVG_Flatlay.jpg?v=1791487245"
+      ],
+      "price": "$54",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "ffffff",
+      "colors": [
+       "Eclipse",
+       "Velvet Green"
+      ],
+      "sizes": [
+       "X Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X Large"
+      ],
+      "sizesIn": [
+       "X Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X Large"
+      ],
+      "comp": "",
+      "desc": "The best basics are the ones that never stay folded for long. Soft waffle thermal knit and yarn-dyed stripes give this fitted long sleeve an easy, lived-in feel that works year-round, whether layered with your favorite outerwear or worn on its own.",
+      "feat": [],
+      "sku": "ZT263412S"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "details",
+       "size & fit"
+      ],
+      "domDesc": true,
+      "swatches": 36,
+      "sizeBtns": 57,
+      "priceEls": 7,
+      "strike": true,
+      "galleryImgs": 20,
+      "len": 1943726
+     },
+     "clickOnly": {
+      "featImpit": 6,
+      "featFirefox": 0,
+      "descImpit": 248,
+      "descFirefox": 248
+     },
+     "fixture": {
+      "file": "zsupply-arletstripethermaltop.html.gz",
+      "shopFile": "zsupply-arletstripethermaltop.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://zsupplyclothing.com/products/sloane-linen-cropped-tank",
+     "name": "Sloane Linen Cropped Tank",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 2010718,
+       "final": ""
+      }
+     },
+     "stored": "Linen 55% / Viscose 45%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 60,
+      "variants": 25,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 153
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Sloane Linen Cropped Tank",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_CAMPAIGN_A.jpg?v=1781192550",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_FRONT.jpg?v=1778788746",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_BACK.jpg?v=1778788746",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZP261575_CHP_FABRIC_be77ac40-af68-41da-bbee-610eb9f8c3ed.jpg?v=1781638410",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_FB_2.jpg?v=1778788746",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_DETAIL_2.jpg?v=1778788746",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_DETAIL_4.jpg?v=1778788745",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_DETAIL_6.jpg?v=1778788747",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_FB.jpg?v=1778788746",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_DETAIL_1.jpg?v=1778788747",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_DETAIL_3.jpg?v=1778788747",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_CHP_DETAIL_5.jpg?v=1778788746",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/color-chili-pepper.png?v=1780355308",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_EVG_CAMPAIGN_A.jpg?v=1778877568",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_EVG_DETAIL_1.jpg?v=1776123984",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_EVG_FB.jpg?v=1776123966",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_EVG_FABRIC.jpg?v=1776211462",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_EVG_EYEWEAR.jpg?v=1781217702",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_EVG_BACK.jpg?v=1776123956",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT261576_EVG_SIDE.jpg?v=1776124109"
+      ],
+      "price": "$58",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "ffffff",
+      "colors": [
+       "Black",
+       "Chili Pepper",
+       "Everglade",
+       "Vintage Indigo",
+       "White"
+      ],
+      "sizes": [
+       "X Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X Large"
+      ],
+      "sizesIn": [
+       "X Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X Large"
+      ],
+      "comp": "",
+      "desc": "With its relaxed fit and flattering shape, this linen blend tank completes any outfit. Pairs well with the Scout Linen Pant or any of our wide leg denim.",
+      "feat": [],
+      "sku": "ZT261576S"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "details",
+       "size & fit"
+      ],
+      "domDesc": true,
+      "swatches": 27,
+      "sizeBtns": 57,
+      "priceEls": 8,
+      "strike": true,
+      "galleryImgs": 60,
+      "len": 2010718
+     },
+     "fixture": {
+      "file": "zsupply-sloanelinencroppedtank.html.gz",
+      "shopFile": "zsupply-sloanelinencroppedtank.shop.json.gz",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://zsupplyclothing.com/products/dazzle-tee",
+     "name": "Dazzle Sequin Tee",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1677665,
+       "final": ""
+      }
+     },
+     "stored": "Cotton 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 13,
+      "variants": 10,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 260
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Dazzle Sequin Tee",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_BLK_FRONT.jpg?v=1790718149",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_BLK_BACK.jpg?v=1790718150",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_BLK_FB.jpg?v=1790718148",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_BLK_DETAIL_2.jpg?v=1790718149",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_BLK_Flatlay_b8adfc97-b4ae-4126-b9c5-bcf65fcd71eb.jpg?v=1793312995",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_CIN_CAMPAIGN_B.jpg?v=1793314961",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_CIN_CAMPAIGN_A.jpg?v=1793314961",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_CIN_FRONT.jpg?v=1790718152",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_CIN_BACK.jpg?v=1790718150",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_CIN_DETAIL_5.jpg?v=1790718152",
+       "https://cdn.shopify.com/s/files/1/0076/7075/9477/files/ZT264889_CIN_Flatlay_89287651-f1ad-4b13-acfc-e115c5123bfe.jpg?v=1793312970"
+      ],
+      "price": "$74",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "ffffff",
+      "colors": [
+       "Black",
+       "Cinnamon"
+      ],
+      "sizes": [
+       "X Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X Large"
+      ],
+      "sizesIn": [
+       "X Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X Large"
+      ],
+      "comp": "",
+      "desc": "Your favorite tee got the party invite. Covered in allover sequins with an easy, relaxed fit, this short sleeve style brings plenty of shine without feeling overly dressed up. Pair it with denim when you want a little sparkle or go all in with something satin.",
+      "feat": [
+       "Crew neck",
+       "Short sleeve",
+       "Sequin Mesh: 95% Polyester, 5% Spandex",
+       "Hand Wash Cold, Turn Inside Out, Lay Flat to Dry",
+       "Relaxed fit",
+       "True to size"
+      ],
+      "sku": "ZT264889S"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "details",
+       "size & fit"
+      ],
+      "domDesc": true,
+      "swatches": 23,
+      "sizeBtns": 57,
+      "priceEls": 4,
+      "strike": true,
+      "galleryImgs": 13,
+      "len": 1677665
+     },
+     "fixture": {
+      "file": "zsupply-dazzletee.html.gz",
+      "shopFile": "zsupply-dazzletee.shop.json.gz",
+      "engine": "impit"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 216,
+    "withRow": 216,
+    "comp": 216,
+    "color": 190,
+    "sizes": 216,
+    "price": 216,
+    "tried": 216,
+    "in5d": 37,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785844957497,
+    "newestT": 1795547373029,
+    "emptyIn5d": 0
+   },
+   "total": 216,
+   "picked": 3,
+   "notProduct": 0
+  }
+ ]
+}
