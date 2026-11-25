@@ -79,6 +79,8 @@ export const MARKERS = [
   ["kasada", /149e9513-01fa-4fb0-aad4-566afd725d1b|KPSDK|kpsdk/, "Kasada", "present"],
   ["aws-waf", /awsWafCookieDomainList|token\.awswaf\.com|AwsWafIntegration/i, "AWS WAF", "block"],
   ["vercel-checkpoint", /Vercel Security Checkpoint|We.re verifying your browser/i, "Vercel", "block"],
+  // 업체를 밝히지 않는 확인 화면(11/25 Abercrombie: 제목 "Client Challenge", 쿠키 _fs_ch_st_*). 주체는 '알 수 없음'으로 둔다.
+  ["client-challenge", /<title>\s*Client Challenge\s*<\/title>|A required part of this site couldn.t load/i, "", "block"],
   ["queue-it", /queue-it\.net|queueit-/i, "Queue-it", "present"],
   ["captcha", /g-recaptcha|recaptcha\/api\.js|hcaptcha\.com\/1\/api|challenges\.cloudflare\.com\/turnstile/i, "", "present"],
   ["access-denied", /<title>\s*(Access Denied|403 Forbidden|Forbidden)\s*<\/title>|<h1>\s*Access Denied\s*<\/h1>/i, "", "block"],
