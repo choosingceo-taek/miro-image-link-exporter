@@ -54,8 +54,10 @@ permissions:
 
 # 모드마다 따로 줄을 선다 — 엔진 비교(최대 2시간)가 저장값 점검·목록 진단을 막지 않게.
 # (한 그룹에는 대기 실행이 하나만 남아, 같은 그룹에 둘을 넣으면 앞서 기다리던 것이 취소된다)
+# 단, 엔진 비교(engines)는 실행마다 따로 — 읽기만 하고 실행별 파일에 쓰므로 서로 막을 일이 없고,
+# 접근 지도는 같은 대상을 다른 러너(IP)에서 동시에 재야 하기 때문이다(대기열 하나면 셋째가 둘째를 취소한다).
 concurrency:
-  group: diagnose-page-${{ github.event.inputs.mode || 'page' }}
+  group: diagnose-page-${{ github.event.inputs.mode || 'page' }}${{ github.event.inputs.mode == 'engines' && format('-{0}', github.run_id) || '' }}
   cancel-in-progress: false
 
 jobs:
@@ -168,15 +170,24 @@ jobs:
           BRANDS: ${{ github.event.inputs.brands }}
           LISTINGS: ""
           # urls 를 주면 브랜드 대신 이 주소만 본다(two-part 옷처럼 특정 상품을 볼 때).
+          # 저장소 안의 .json 파일 이름 하나(예: access-measure/targets-listing-a.json)를 주면 그 파일의
+          # 목록·상품 주소를 본다(접근 지도 측정). brands 를 함께 주면 그 브랜드의 상품도 더한다.
           URLS: ${{ github.event.inputs.urls }}
+          # 대상 파일로 돌 때는 엔진당 시간을 넉넉히(대상이 많다).
+          ENGINE_MIN: ${{ endsWith(github.event.inputs.urls, '.json') && '30' || '12' }}
           DUMP: ${{ github.event.inputs.dump }}
           PER: ${{ github.event.inputs.per }}
           MATCH: ${{ github.event.inputs.match }}
           # 실행마다 다른 파일에 쓴다 — 두 실행이 겹쳐 끝나면 같은 파일의 커밋이 서로 섞인다.
           OUT: try-engines-report-${{ github.run_id }}.md
           DUMP_OUT: try-engines-dump-${{ github.run_id }}.md
+          # 페이지별 결과와 원인 근거(헤더·쿠키 이름·차단 화면 흔적) — 접근 지도(docs/access-map.md)가 읽는다.
+          RESULTS_JSON: try-engines-results-${{ github.run_id }}.json
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
+          # 유료 수집 서비스 시험 칸. 저장소 비밀이 없으면 비어 있고, 그러면 그 엔진은 조용히 빠진다.
+          # 키·주소는 스크립트가 로그·리포트·결과에서 가린다(설정 모양은 docs/access-map.md '유료 서비스 시험').
+          SCRAPE_API_CONFIG: ${{ secrets.SCRAPE_API_CONFIG }}
         run: node scripts/try-engines.mjs
       - name: Upload dump
         if: always()
@@ -186,6 +197,7 @@ jobs:
           path: |
             try-engines-report*.md
             try-engines-dump*.md
+            try-engines-results*.json
           if-no-files-found: ignore
       - name: Commit report
         if: always()
@@ -193,7 +205,7 @@ jobs:
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- 'try-engines-report*.md' 'try-engines-dump*.md' || true
+          git add -A -- 'try-engines-report*.md' 'try-engines-dump*.md' 'try-engines-results*.json' || true
           git commit -m "try-engines: free crawler comparison" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0

@@ -58,6 +58,8 @@ jobs:
         run: node scripts/test-enrich-wayback.mjs
       - name: Run diagnose target selection test
         run: node scripts/test-diagnose-select.mjs
+      - name: Run access evidence & paid-service slot test (fake API · key never logged)
+        run: node scripts/test-access-evidence.mjs
       - name: Run stored composition audit signature test
         run: node scripts/test-audit-stored-comp.mjs
       - name: Run store-time composition guard test (site furniture repeated across a brand)
@@ -81,6 +83,7 @@ jobs:
           node --check scripts/comp-guard.mjs
           node --check scripts/clean-stored-comp.mjs
           node --check scripts/try-engines.mjs
+          node --check scripts/access-evidence.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js
           node --check shared/product-core.js
