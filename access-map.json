@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T09:20:01.709Z",
+ "generated": "2026-11-25T09:20:42.198Z",
  "note": "docs/access-map.md 와 같은 사실. listing=목록(카테고리) 페이지, product=상품 페이지. basis 가 '규칙'인 행은 사람이 따로 보지 않은 판정.",
  "vocabulary": {
   "listing": {
@@ -522,10 +522,7 @@
     "status": 403,
     "engine": "playwright",
     "url": "https://www.stories.com/en-us/clothing/tops/",
-    "cookies": [
-     "user_geolocation_country",
-     "AKA_A2"
-    ],
+    "cookies": [],
     "headers": {
      "akamai-grn": "0.eb18d017.1795596309.aa199734",
      "content-length": "405",
@@ -613,9 +610,7 @@
       "status": [
        418
       ],
-      "by": [
-       "HUMAN(PerimeterX)"
-      ]
+      "by": []
      },
      "firefox": {
       "ok": 0,
@@ -787,9 +782,7 @@
       "status": [
        418
       ],
-      "by": [
-       "Cloudflare"
-      ]
+      "by": []
      },
      "firefox": {
       "ok": 0,
@@ -865,31 +858,20 @@
     ]
    },
    "blocker": {
-    "by": "HUMAN(PerimeterX)",
-    "confidence": "중간",
-    "signals": [
-     "Salesforce Commerce Cloud: 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
-     "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid",
-     "Imperva: 쿠키 visid_incap_2787253, 쿠키 nlbi_2787253, 쿠키 incap_ses_1012_2787253"
-    ],
-    "title": "",
-    "status": 418,
-    "engine": "playwright",
-    "url": "https://www.abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+nav",
+    "by": "알 수 없음",
+    "confidence": "-",
+    "signals": [],
+    "title": "Client Challenge",
+    "status": 200,
+    "engine": "impit",
+    "url": "https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav",
     "cookies": [
-     "cee",
-     "taboola_session_id",
-     "X-AB",
-     "fuiMatchMedia",
-     "customer_has_login",
-     "sa_shop-pxl",
-     "__apex_test__",
-     "GlobalE_Analytics"
+     "_fs_ch_st_FSBmUei20MqUiJb9"
     ],
     "headers": {
-     "content-length": "0",
-     "retry-after": "0",
-     "x-cache": "MISS"
+     "content-length": "3038",
+     "content-type": "text/html; charset=utf-8",
+     "x-cache": "MISS, MISS"
     }
    }
   },
@@ -2048,7 +2030,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
      },
      "firefox": {
       "ok": 0,
@@ -2067,7 +2051,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
      },
      "camoufox": {
       "ok": 0,
@@ -2132,27 +2118,18 @@
     "urls": []
    },
    "blocker": {
-    "by": "알 수 없음",
-    "confidence": "-",
+    "by": "HUMAN(PerimeterX)",
+    "confidence": "높음",
     "signals": [
      "Cloudflare: cf-ray 헤더",
-     "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 dwsid, 쿠키 __cq_dnt",
-     "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 화면 흔적 px-challenge"
+     "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더",
+     "HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXmmBMD3jC/main.min.js, 불러온 주소 ift.px-cloud.net/ns"
     ],
     "title": "Access to this page has been denied.",
     "status": 200,
     "engine": "firefox",
     "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/",
-    "cookies": [
-     "_fs_ch_st_FSBmUei20MqUiJb9",
-     "dwac_7ee8fe5a3e299ad656a9402627",
-     "cqcid",
-     "cquid",
-     "cc-sg",
-     "sid",
-     "dwanonymous_a9da3b023683d9e6d387a7ed3d64d066",
-     "usid"
-    ],
+    "cookies": [],
     "headers": {
      "content-type": "text/html;charset=UTF-8",
      "server": "cloudflare",
@@ -3327,16 +3304,7 @@
     "status": 403,
     "engine": "playwright",
     "url": "https://www.arket.com/en-ww/women/clothing/tops/",
-    "cookies": [
-     "TVT",
-     "user_geolocation_country",
-     "AKA_A2",
-     "geo_ip",
-     "geo_postcode",
-     "geo_country",
-     "geo_state",
-     "onesite_country"
-    ],
+    "cookies": [],
     "headers": {
      "akamai-grn": "0.eb18d017.1795596317.aa19d68f",
      "content-length": "413",
@@ -5058,23 +5026,7 @@
      }
     ]
    },
-   "blocker": {
-    "by": "Vercel",
-    "confidence": "낮음",
-    "signals": [
-     "Vercel: x-vercel-id 헤더"
-    ],
-    "title": "",
-    "status": 404,
-    "engine": "site-api",
-    "url": "https://www.buckmason.com/products/white-field-spec-boyfriend-crop-tee",
-    "cookies": [],
-    "headers": {
-     "content-type": "application/json; charset=utf-8",
-     "server": "Vercel",
-     "x-vercel-id": "cle1::cle1::grpkb-1795596287035-aec9412229af"
-    }
-   }
+   "blocker": null
   },
   {
    "brand": "Carlhartt",
@@ -10422,16 +10374,7 @@
     "status": 403,
     "engine": "playwright",
     "url": "https://www.garnethill.com/clothing/categories/tops-tees/",
-    "cookies": [
-     "X-AB",
-     "fuiMatchMedia",
-     "TVT",
-     "user_geolocation_country",
-     "AKA_A2",
-     "geo_ip",
-     "geo_postcode",
-     "geo_country"
-    ],
+    "cookies": [],
     "headers": {
      "akamai-grn": "0.6453d117.1795596333.29f887f8",
      "content-length": "418",
@@ -11040,17 +10983,7 @@
     "measured": {},
     "urls": []
    },
-   "blocker": {
-    "by": "알 수 없음",
-    "confidence": "-",
-    "signals": [],
-    "title": "",
-    "status": 429,
-    "engine": "server",
-    "url": "https://www.goodamerican.com/en-kr/collections/tees-tanks",
-    "cookies": [],
-    "headers": {}
-   }
+   "blocker": null
   },
   {
    "brand": "Greyson",
@@ -11647,25 +11580,13 @@
     "by": "Akamai",
     "confidence": "높음",
     "signals": [
-     "Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny",
-     "Salesforce Commerce Cloud: 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
-     "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid",
-     "Imperva: 쿠키 visid_incap_2787253, 쿠키 nlbi_2787253, 쿠키 incap_ses_1012_2787253"
+     "Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny"
     ],
     "title": "Access Denied",
     "status": 403,
     "engine": "playwright",
     "url": "https://www2.hm.com/en_us/women/products/tops.html?sort=newProduct",
-    "cookies": [
-     "X-AB",
-     "fuiMatchMedia",
-     "_GRECAPTCHA",
-     "dwac_7ee8fe5a3e299ad656a9402627",
-     "cqcid",
-     "cquid",
-     "cc-sg",
-     "sid"
-    ],
+    "cookies": [],
     "headers": {
      "akamai-grn": "0.1869dc17.1795596351.50c562a0",
      "content-length": "420",
@@ -12665,17 +12586,7 @@
     "measured": {},
     "urls": []
    },
-   "blocker": {
-    "by": "알 수 없음",
-    "confidence": "-",
-    "signals": [],
-    "title": "",
-    "status": 429,
-    "engine": "server",
-    "url": "https://www.jamesperse.com/collections/womens-t-shirts",
-    "cookies": [],
-    "headers": {}
-   }
+   "blocker": null
   },
   {
    "brand": "Jigsaw",
@@ -13357,25 +13268,13 @@
     "by": "Cloudflare",
     "confidence": "높음",
     "signals": [
-     "Cloudflare: cf-ray 헤더, 화면 흔적 cf-block",
-     "Salesforce Commerce Cloud: 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
-     "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid",
-     "Imperva: 쿠키 visid_incap_2787253, 쿠키 nlbi_2787253, 쿠키 incap_ses_1012_2787253"
+     "Cloudflare: cf-ray 헤더, 화면 흔적 cf-block"
     ],
     "title": "Attention Required! | Cloudflare",
     "status": 403,
     "engine": "playwright",
     "url": "https://global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro",
-    "cookies": [
-     "X-AB",
-     "fuiMatchMedia",
-     "_GRECAPTCHA",
-     "dwac_7ee8fe5a3e299ad656a9402627",
-     "cqcid",
-     "cquid",
-     "cc-sg",
-     "sid"
-    ],
+    "cookies": [],
     "headers": {
      "cf-ray": "a5ff613f1a2f9db4-IAD",
      "content-type": "text/html; charset=UTF-8",
@@ -14357,7 +14256,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
      },
      "firefox": {
       "ok": 1,
@@ -14377,7 +14278,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
      },
      "camoufox": {
       "ok": 0,
@@ -14524,7 +14427,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
      },
      "firefox": {
       "ok": 0,
@@ -14543,7 +14448,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "HUMAN(PerimeterX)"
+      ]
      },
      "camoufox": {
       "ok": 0,
@@ -14600,28 +14507,18 @@
     ]
    },
    "blocker": {
-    "by": "알 수 없음",
-    "confidence": "-",
+    "by": "HUMAN(PerimeterX)",
+    "confidence": "높음",
     "signals": [
      "Cloudflare: cf-ray 헤더",
-     "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 __cq_dnt, 쿠키 dw_dnt",
-     "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 화면 흔적 px-challenge, 화면 흔적 px-script, 불러온 주소 client.px-cloud.net/PXYvG65JJE/main.min.js",
-     "Imperva: 쿠키 visid_incap_2787253, 쿠키 nlbi_2787253, 쿠키 incap_ses_1012_2787253"
+     "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더",
+     "HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXYvG65JJE/main.min.js, 불러온 주소 ift.px-cloud.net/ns"
     ],
     "title": "Access to this page has been denied.",
     "status": 200,
     "engine": "playwright",
     "url": "https://www.loft.com/clothing/tees-tanks/cat2860023/",
-    "cookies": [
-     "X-AB",
-     "fuiMatchMedia",
-     "_GRECAPTCHA",
-     "dwac_7ee8fe5a3e299ad656a9402627",
-     "cqcid",
-     "cquid",
-     "cc-sg",
-     "sid"
-    ],
+    "cookies": [],
     "headers": {
      "cf-ray": "a5ff61502c8df2d1-IAD",
      "content-type": "text/html;charset=UTF-8",
@@ -15567,7 +15464,6 @@
        429
       ],
       "by": [
-       "Akamai",
        "Vercel"
       ]
      },
@@ -15726,7 +15622,7 @@
        429
       ],
       "by": [
-       "Cloudflare"
+       "Vercel"
       ]
      },
      "firefox": {
@@ -15747,8 +15643,7 @@
        429
       ],
       "by": [
-       "Vercel",
-       "Cloudflare"
+       "Vercel"
       ]
      },
      "camoufox": {
@@ -15820,7 +15715,7 @@
      "content-length": "10658",
      "content-type": "text/html; charset=utf-8",
      "server": "Vercel",
-     "x-vercel-id": "iad1::1795597036-5GhUvJ7AEkM1NUtO9FTdBBupiYrQAYar"
+     "x-vercel-id": "pdx1::1795596264-DppSYa9E8dF2mWIT5DlLmTmjjPmU2bEo"
     }
    }
   },
@@ -16149,7 +16044,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "Akamai"
+      ]
      },
      "site-api": {
       "ok": 0,
@@ -17312,17 +17209,7 @@
     "measured": {},
     "urls": []
    },
-   "blocker": {
-    "by": "알 수 없음",
-    "confidence": "-",
-    "signals": [],
-    "title": "",
-    "status": 429,
-    "engine": "server",
-    "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/",
-    "cookies": [],
-    "headers": {}
-   }
+   "blocker": null
   },
   {
    "brand": "Nation LTD",
@@ -18505,7 +18392,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "Cloudflare"
+      ]
      }
     },
     "urls": [
@@ -18669,14 +18558,14 @@
    },
    "blocker": {
     "by": "Cloudflare",
-    "confidence": "낮음",
+    "confidence": "높음",
     "signals": [
-     "Cloudflare: cf-ray 헤더"
+     "Cloudflare: cf-ray 헤더, 화면 흔적 cf-challenge"
     ],
     "title": "",
     "status": 200,
-    "engine": "site-api",
-    "url": "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013",
+    "engine": "impit",
+    "url": "https://www.on.com/en-us/shop/womens/apparel/tops-tshirts",
     "cookies": [
      "locale",
      "force_cs_locale",
@@ -18686,7 +18575,7 @@
     ],
     "headers": {
      "cf-cache-status": "DYNAMIC",
-     "cf-ray": "a5ff825beb9b8c9d-IAD",
+     "cf-ray": "a5ff5ff908836dc4-SEA",
      "content-type": "text/html;charset=utf-8",
      "server": "cloudflare",
      "x-powered-by": "Nuxt"
@@ -19123,7 +19012,6 @@
        429
       ],
       "by": [
-       "Akamai",
        "Vercel"
       ]
      },
@@ -19278,7 +19166,7 @@
        429
       ],
       "by": [
-       "Cloudflare"
+       "Vercel"
       ]
      },
      "firefox": {
@@ -19299,7 +19187,7 @@
        429
       ],
       "by": [
-       "Cloudflare"
+       "Vercel"
       ]
      },
      "camoufox": {
@@ -19371,7 +19259,7 @@
      "content-length": "10658",
      "content-type": "text/html; charset=utf-8",
      "server": "Vercel",
-     "x-vercel-id": "iad1::1795597053-oRVtvCPWGWxCDFyw2Maz8D47dnblof0W"
+     "x-vercel-id": "pdx1::1795596285-AnzyxOVyHoVTqRI0oJF0Ep5cbUx102SI"
     }
    }
   },
@@ -21580,32 +21468,7 @@
      }
     ]
    },
-   "blocker": {
-    "by": "Cloudflare",
-    "confidence": "낮음",
-    "signals": [
-     "Cloudflare: cf-ray 헤더",
-     "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
-    ],
-    "title": "",
-    "status": 404,
-    "engine": "site-api",
-    "url": "https://www.rouje.com/products/olive-lace-pointelle-long-sleeve-top-navy",
-    "cookies": [
-     "_shopify_essential",
-     "_shopify_analytics",
-     "_shopify_marketing",
-     "cart_currency"
-    ],
-    "headers": {
-     "cf-cache-status": "DYNAMIC",
-     "cf-ray": "a5ff5fa318f6393c-MSP",
-     "content-length": "0",
-     "content-type": "application/json; charset=utf-8",
-     "powered-by": "Shopify",
-     "server": "cloudflare"
-    }
-   }
+   "blocker": null
   },
   {
    "brand": "Sanctuary",
@@ -22258,9 +22121,7 @@
       "status": [
        404
       ],
-      "by": [
-       "Cloudflare"
-      ]
+      "by": []
      },
      "firefox": {
       "ok": 0,
@@ -22279,9 +22140,7 @@
       "status": [
        404
       ],
-      "by": [
-       "Cloudflare"
-      ]
+      "by": []
      },
      "camoufox": {
       "ok": 0,
@@ -22338,26 +22197,14 @@
     ]
    },
    "blocker": {
-    "by": "Cloudflare",
-    "confidence": "중간",
-    "signals": [
-     "Cloudflare: 쿠키 __cf_bm",
-     "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 _shopify_y, 쿠키 _shopify_s"
-    ],
+    "by": "알 수 없음",
+    "confidence": "-",
+    "signals": [],
     "title": "404 Page Not Found",
     "status": 404,
-    "engine": "playwright",
+    "engine": "impit",
     "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-025.webp%20924w",
-    "cookies": [
-     "X-AB",
-     "transactionID",
-     "__apex_test__",
-     "loop_cid_5c33cdd3-499e-46b5-9f4c-b05dc1cab5df",
-     "TVT",
-     "localization",
-     "__cf_bm",
-     "AKA_A2"
-    ],
+    "cookies": [],
     "headers": {
      "content-type": "text/html; charset=UTF-8"
     }
@@ -23105,34 +22952,7 @@
      }
     ]
    },
-   "blocker": {
-    "by": "Cloudflare",
-    "confidence": "낮음",
-    "signals": [
-     "Cloudflare: cf-ray 헤더",
-     "Shopify: x-shopify-*/powered-by 헤더, 쿠키 cart_currency, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing"
-    ],
-    "title": "",
-    "status": 404,
-    "engine": "site-api",
-    "url": "https://spanx.com/products/spanx-airessentials-turtleneck-tunic?v=48683236458707&bau-context=standard&Color=Very+Black",
-    "cookies": [
-     "preferredCountry",
-     "preferredLanguage",
-     "spanx_exp_device_id",
-     "spanx_ff_v1_account-wishlist-post-mvp",
-     "spanx_ff_v1_account-wishlist",
-     "cart_currency",
-     "_shopify_essential",
-     "_shopify_analytics"
-    ],
-    "headers": {
-     "cf-ray": "a5ff5fa50df74ca6-MSP",
-     "content-type": "text/html",
-     "powered-by": "Shopify, Oxygen, Hydrogen",
-     "server": "cloudflare"
-    }
-   }
+   "blocker": null
   },
   {
    "brand": "Splendid",
@@ -24808,25 +24628,15 @@
    },
    "blocker": {
     "by": "Akamai",
-    "confidence": "중간",
+    "confidence": "낮음",
     "signals": [
-     "Akamai: x-akamai-* 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
-     "Cloudflare: 쿠키 __cf_bm"
+     "Akamai: x-akamai-* 헤더"
     ],
     "title": "Page Not Found | The White Company US",
     "status": 404,
-    "engine": "firefox",
-    "url": "https://www.thewhitecompany.com/uk/Zip-Through-Hoodie-with-Cotton/p/A17245",
-    "cookies": [
-     "browser_data",
-     "sc_at",
-     "JSESSIONID",
-     "CSB_USER_STATE",
-     "WCX_SOURCECODE",
-     "OVERRIDE_DEVICE_ID",
-     "WC_SESSION_ESTABLISHED",
-     "WC_PERSISTENT"
-    ],
+    "engine": "playwright",
+    "url": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/c/loungewear",
+    "cookies": [],
     "headers": {
      "content-type": "text/html;charset=UTF-8",
      "x-akamai-transformed": "0 - 0 -"
@@ -26445,17 +26255,7 @@
     "measured": {},
     "urls": []
    },
-   "blocker": {
-    "by": "알 수 없음",
-    "confidence": "-",
-    "signals": [],
-    "title": "",
-    "status": 429,
-    "engine": "server",
-    "url": "https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9",
-    "cookies": [],
-    "headers": {}
-   }
+   "blocker": null
   },
   {
    "brand": "Vuori",
@@ -27528,17 +27328,7 @@
      }
     ]
    },
-   "blocker": {
-    "by": "알 수 없음",
-    "confidence": "-",
-    "signals": [],
-    "title": "",
-    "status": 429,
-    "engine": "server",
-    "url": "https://www.whitestuff.com/browse/collection/womens-t-shirts",
-    "cookies": [],
-    "headers": {}
-   }
+   "blocker": null
   },
   {
    "brand": "Wilson",
@@ -28554,7 +28344,9 @@
       "status": [
        200
       ],
-      "by": []
+      "by": [
+       "Akamai"
+      ]
      },
      "site-api": {
       "ok": 0,
@@ -28703,7 +28495,7 @@
      "ak_bmsc"
     ],
     "headers": {
-     "content-length": "1350",
+     "content-length": "1349",
      "content-type": "text/html"
     }
    }

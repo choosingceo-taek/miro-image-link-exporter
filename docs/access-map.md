@@ -22,42 +22,34 @@
 | Akamai | 높음 | Eileen fisher | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
 | Akamai | 높음 | Fatface | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | Garnet hill | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
-| Akamai | 높음 | H&M | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny / Salesforce Commerce Cloud: 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid / HUMAN(Peri |
+| Akamai | 높음 | H&M | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
 | Akamai | 높음 | Joules | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | Lands end | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | Lululemon | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | Massimo Dutti | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
 | Akamai | 높음 | Oysho | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
-| Akamai | 중간 | The white company | HTTP 404 · 제목 "Page Not Found / The White Company US" · Akamai: x-akamai-* 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc / Cloudflare: 쿠키 __cf_bm |
+| Akamai | 낮음 | The white company | HTTP 404 · 제목 "Page Not Found / The White Company US" · Akamai: x-akamai-* 헤더 |
 | Akamai | 높음 | Theory | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | WHBM | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
 | Akamai | 높음 | Zara | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
 | Cloudflare | 높음 | Alo | HTTP 403 · 제목 "Verifying your connection..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge |
 | Cloudflare | 높음 | Aritzia | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
 | Cloudflare | 높음 | Coldwatercreek | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
-| Cloudflare | 높음 | L.L bean | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-block / Salesforce Commerce Cloud: 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid / HUMAN(Perimet |
-| Cloudflare | 낮음 | On | HTTP 200 · 제목 "" · Cloudflare: cf-ray 헤더 |
+| Cloudflare | 높음 | L.L bean | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-block |
+| Cloudflare | 높음 | On | HTTP 200 · 제목 "" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-challenge |
 | Cloudflare | 높음 | Prana | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 화면 흔적 cf-block |
 | Cloudflare | 높음 | Reformation | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
-| Cloudflare | 낮음 | rouje | HTTP 404 · 제목 "" · Cloudflare: cf-ray 헤더 / Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency |
-| Cloudflare | 중간 | Sessun | HTTP 404 · 제목 "404 Page Not Found" · Cloudflare: 쿠키 __cf_bm / Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 _shopify_y, 쿠키 _shopify_s |
-| Cloudflare | 낮음 | Spanx | HTTP 404 · 제목 "" · Cloudflare: cf-ray 헤더 / Shopify: x-shopify-*/powered-by 헤더, 쿠키 cart_currency, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing |
 | Cloudflare | 높음 | The upside | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge |
-| 알 수 없음 | - | Ann Taylor | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 dwsid, 쿠키 __cq_dnt / HUMAN(PerimeterX): 쿠키 _p |
-| 알 수 없음 | - | Good American | HTTP 429 · 제목 "" ·  |
-| 알 수 없음 | - | James Perse | HTTP 429 · 제목 "" ·  |
-| 알 수 없음 | - | Loft | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 __cq_dnt, 쿠키 dw_dnt / HUMAN(PerimeterX): 쿠키 _ |
-| 알 수 없음 | - | Monsoon | HTTP 429 · 제목 "" ·  |
-| 알 수 없음 | - | vineyardvines | HTTP 429 · 제목 "" ·  |
-| 알 수 없음 | - | Whitestuff | HTTP 429 · 제목 "" ·  |
 | DataDome | 높음 | Anthropologie | HTTP 403 · 제목 "anthropologie.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | FP Movement | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | Free People | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | Sezane | HTTP 403 · 제목 "sezane.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge / CloudFront: x-amz-cf-* 헤더 |
-| Vercel | 낮음 | Buck Mason | HTTP 404 · 제목 "" · Vercel: x-vercel-id 헤더 |
+| 알 수 없음 | - | Abercrombie & Fitch | HTTP 200 · 제목 "Client Challenge" ·  |
+| 알 수 없음 | - | Sessun | HTTP 404 · 제목 "404 Page Not Found" ·  |
+| HUMAN(PerimeterX) | 높음 | Ann Taylor | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXmmBMD3jC/main.min.js, 불러온 주소 if |
+| HUMAN(PerimeterX) | 높음 | Loft | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXYvG65JJE/main.min.js, 불러온 주소 if |
 | Vercel | 높음 | Mango | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
 | Vercel | 높음 | Paige | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
-| HUMAN(PerimeterX) | 중간 | Abercrombie & Fitch | HTTP 418 · 제목 "" · Salesforce Commerce Cloud: 쿠키 dwac_7ee8fe5a3e299ad656a9402627, 쿠키 dwanonymous_a9da3b023683d9e6d387a7ed3d64d066, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid / HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid / Imperva: 쿠키  |
 
 (없음)
 

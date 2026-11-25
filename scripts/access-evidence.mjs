@@ -285,9 +285,10 @@ export function causeOf(r, kind) {
   // 차단 화면 흔적이 있으면(상태가 200·429 여도) 차단이다 — Akamai 의 빈 확인 화면(Zara·Massimo Dutti·Oysho)이 200 으로 온다.
   const blockMark = [...mk].some((id) => (MARKERS.find((x) => x[0] === id) || [])[3] === "block");
   if (blockMark && (r.v === "blocked" || (ev.textLen || 0) < 600 || ev.status >= 400)) return "blocked";
+  if (ev.status === 404 || ev.status === 410) return "dead";
   if (ev.status === 429) return "rate-limit";
   if (r.v === "blocked") return "blocked";
-  if (ev.status === 404 || ev.status === 410 || ev.redirect === "home" || ev.redirect === "other-site") return "dead";
+  if (ev.redirect === "home" || ev.redirect === "other-site") return "dead";
   const notFoundPage = mk.has("notfound") && /not found|404|doesn.?t exist|no longer/i.test(ev.title || "");
   if (kind === "listing" && Math.max(r.cards || 0, r.collector || 0) >= 5) return "ok";   // 상품이 보이면 지역·배송 문구는 무시
   if (kind !== "listing" && r.v === "comp") return "ok";

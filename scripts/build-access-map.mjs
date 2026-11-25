@@ -12,7 +12,9 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { causeOf as causeNow, markersOf } from "./access-evidence.mjs";
+import { causeOf as causeNow, identify as identifyNow, markersOf } from "./access-evidence.mjs";
+// 이 실행부터 브라우저 쿠키를 그 페이지 주소의 것만 적었다(그 전 실행은 같은 창의 다른 사이트 쿠키가 섞였다).
+const COOKIE_FIX_RUN = 45584347743;
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const IN = join(ROOT, "access-measure/inputs");
@@ -50,6 +52,13 @@ for (const r of runs) {
       // 측정 뒤에 고친 판정 규칙도 반영되게, 저장된 근거로 원인을 다시 정한다.
       const mk = [...new Set([...o.markers, ...markersOf("", o.title)])];
       o.cause = causeNow({ v: x.v, note: x.note, cards: x.cards, collector: x.collector, ev: { ...ev, markers: mk } }, kind);
+      // 차단 주체도 오늘의 규칙으로 다시. 브라우저 엔진의 옛 실행 쿠키는 섞였을 수 있어 뺀다.
+      if (o.cause === "blocked" || o.cause === "rate-limit") {
+        const trustCookies = eng === "impit" || eng === "site-api" || Number(r.id) >= COOKIE_FIX_RUN;
+        const who = identifyNow({ ...ev, markers: mk, cookies: trustCookies ? ev.cookies || [] : [] }, true);
+        Object.assign(o, { by: who.by, conf: who.confidence, signals: who.vendors.map((v) => `${v.vendor}: ${v.signals.join(", ")}`).slice(0, 5) });
+        if (!trustCookies) o.cookies = [];
+      }
       if (!obs.has(url)) obs.set(url, {});
       (obs.get(url)[eng] = obs.get(url)[eng] || []).push(o);
     }
@@ -128,6 +137,8 @@ function blockerOf(b) {
     if (brandOfUrl.get(u) !== b) continue;
     for (const [eng, arr] of Object.entries(o)) for (const x of arr) {
       if (x.cause !== "blocked" && x.cause !== "rate-limit") continue;
+      // 서버 경고의 429 는 서버가 쓰는 리더 프록시의 한도, 사이트 JSON·아카이브의 404 는 '없음' — 사이트의 차단 근거가 아니다.
+      if (["server", "site-api", "wayback"].includes(eng)) continue;
       const by = x.by || "알 수 없음";
       const r = rank[x.conf] || 0;
       if (!best || r > best.r) best = { by, conf: x.conf || "-", r, signals: x.signals, title: x.title, status: x.status, eng, url: u, cookies: x.cookies.slice(0, 8), headers: x.headers };
