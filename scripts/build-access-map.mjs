@@ -134,10 +134,17 @@ function measured(b, kind) {
 function blockerOf(b) {
   const rank = { "높음": 3, "중간": 2, "낮음": 1 };
   let best = null;
+  const scope = {};   // 엔진 → [막힘, 잰 수] — 어디서 막혔나(전부인가, 크롬만인가)
   for (const [u, o] of obs) {
     if (brandOfUrl.get(u) !== b) continue;
     for (const [eng, arr] of Object.entries(o)) for (const x of arr) {
+      if (!["server", "site-api", "wayback"].includes(eng)) {
+        scope[eng] = scope[eng] || [0, 0];
+        scope[eng][1]++;
+        if (x.cause === "blocked" || x.cause === "rate-limit") scope[eng][0]++;
+      }
       if (x.cause !== "blocked" && x.cause !== "rate-limit") continue;
+      if (!x.markers.length && !x.cookies.length && ![403, 429, 418].includes(x.status)) continue;   // 흔적도 차단 상태도 없는 것(이미지 주소 503 등)
       // 서버 경고의 429 는 서버가 쓰는 리더 프록시의 한도, 사이트 JSON·아카이브의 404 는 '없음' — 사이트의 차단 근거가 아니다.
       if (["server", "site-api", "wayback"].includes(eng)) continue;
       const by = x.by || "알 수 없음";
@@ -147,6 +154,7 @@ function blockerOf(b) {
       if (!best || r > best.r) best = { by, conf: x.conf || "-", r, signals: sig, title: x.title, status: x.status, eng, url: u, cookies: x.cookies.slice(0, 8), headers: x.headers };
     }
   }
+  if (best) best.scope = Object.entries(scope).filter(([, v]) => v[1]).map(([e, v]) => `${e} ${v[0]}/${v[1]}`).join(" · ");
   return best;
 }
 
@@ -213,7 +221,7 @@ for (const b of BRANDS) {
     },
     listing: { ...L, label: L_STATUS[L.status] || L.status, tierLabel: TIER[L.tier] ?? "", measured: mL.eng, urls: mL.urls.map((x) => ({ url: x.url, cat: x.cat, engines: Object.fromEntries(Object.entries(x.s).map(([e, s]) => [e, cellOf(s)])) })) },
     product: { ...P, label: P_STATUS[P.status] || P.status, tierLabel: TIER[P.tier] ?? "", measured: mP.eng, urls: mP.urls.map((x) => ({ url: x.url, engines: Object.fromEntries(Object.entries(x.s).map(([e, s]) => [e, cellOf(s)])) })) },
-    blocker: bl ? { by: bl.by, confidence: bl.conf, signals: bl.signals, title: bl.title, status: bl.status, engine: bl.eng, url: bl.url, cookies: bl.cookies, headers: bl.headers } : null,
+    blocker: bl ? { by: bl.by, confidence: bl.conf, scope: bl.scope, signals: bl.signals, title: bl.title, status: bl.status, engine: bl.eng, url: bl.url, cookies: bl.cookies, headers: bl.headers } : null,
   });
 }
 
@@ -249,9 +257,9 @@ md = md.replace("{{SUMMARY_LISTING}}", tbl("listing", L_STATUS)).replace("{{SUMM
 {
   const by = new Map();
   for (const x of out) if (x.blocker) { const k = x.blocker.by; if (!by.has(k)) by.set(k, []); by.get(k).push(x); }
-  let s = `| 차단 주체 | 근거 강도 | 브랜드 | 그 브랜드의 대표 근거(측정 원본) |\n|---|---|---|---|\n`;
+  let s = `| 차단 주체 | 근거 강도 | 브랜드 | 막힌 범위(엔진별 막힘/잰 횟수, 목록+상품) | 대표 근거(측정 원본) |\n|---|---|---|---|---|\n`;
   for (const [k, xs] of [...by.entries()].sort((a, b) => b[1].length - a[1].length)) {
-    for (const x of xs) s += `| ${k} | ${x.blocker.confidence} | ${x.brand} | HTTP ${x.blocker.status} · 제목 "${esc(x.blocker.title).slice(0, 40)}" · ${esc(x.blocker.signals.join(" / ")).slice(0, 200)} |\n`;
+    for (const x of xs) s += `| ${k} | ${x.blocker.confidence} | ${x.brand} | ${x.blocker.scope} | HTTP ${x.blocker.status} · 제목 "${esc(x.blocker.title).slice(0, 40)}" · ${esc(x.blocker.signals.join(" / ")).slice(0, 170)} |\n`;
   }
   md = md.replace("{{BLOCKERS}}", s);
 }

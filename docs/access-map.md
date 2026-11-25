@@ -1,6 +1,6 @@
 # 접근 지도 — 134개 브랜드, 우리 수집기가 어디까지 닿는가
 
-만든 때 2026-11-25T10:15Z · 측정 실행 14회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
+만든 때 2026-11-25T10:16Z · 측정 실행 14회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
 
 이 문서는 `node scripts/build-access-map.mjs` 가 만든다. 같은 사실이 `access-map.json` 에 기계용으로 있다.
 판정 근거는 세 가지뿐이다 — ① 11/25 야간 리포트(서버 프리페치·헤드리스 수집·카탈로그 점검·혼용률 보강),
@@ -83,45 +83,44 @@
 **중간** = 차단 응답에 그 업체 쿠키·헤더만 · **낮음** = CDN 헤더만. 판정 규칙과 시험은 `scripts/access-evidence.mjs` ·
 `scripts/test-access-evidence.mjs`.
 
-| 차단 주체 | 근거 강도 | 브랜드 | 그 브랜드의 대표 근거(측정 원본) |
-|---|---|---|---|
-| Akamai | 높음 | &Other Stories | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
-| Akamai | 높음 | Addidas | HTTP 403 · 제목 "adidas" · Akamai: x-akamai-* 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
-| Akamai | 높음 | Arket | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
-| Akamai | 높음 | Chico's | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
-| Akamai | 높음 | Eileen fisher | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
-| Akamai | 높음 | Fatface | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
-| Akamai | 높음 | Garnet hill | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
-| Akamai | 높음 | H&M | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
-| Akamai | 높음 | Joules | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
-| Akamai | 높음 | Lands end | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
-| Akamai | 높음 | Lululemon | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
-| Akamai | 높음 | Massimo Dutti | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
-| Akamai | 높음 | Oysho | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
-| Akamai | 높음 | Theory | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
-| Akamai | 높음 | WHBM | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
-| Akamai | 높음 | Zara | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
-| Cloudflare | 높음 | Alo | HTTP 403 · 제목 "Verifying your connection..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge |
-| Cloudflare | 높음 | Aritzia | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
-| Cloudflare | 높음 | Coldwatercreek | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
-| Cloudflare | 높음 | Dickies | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.dickies.com/cdn-cgi/challenge-platform/h/g/orc, 불러온 주소 challenges.cloudflare.com/turnstile/v0/g/b9d4778be |
-| Cloudflare | 높음 | Good American | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.goodamerican.com/cdn-cgi/challenge-platform/h/, 불러온 주소 challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0 |
-| Cloudflare | 높음 | L.L bean | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-block |
-| Cloudflare | 높음 | On | HTTP 200 · 제목 "" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-challenge |
-| Cloudflare | 높음 | Prana | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 화면 흔적 cf-block |
-| Cloudflare | 높음 | Reformation | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
-| Cloudflare | 높음 | The upside | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge |
-| Cloudflare | 높음 | Wilson | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.wilson.com/cdn-cgi/challenge-platform/h/b/orch, 불러온 주소 challenges.cloudflare.com/turnstile/v0/b/f8df4d4a0 |
-| DataDome | 높음 | Anthropologie | HTTP 403 · 제목 "anthropologie.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
-| DataDome | 높음 | FP Movement | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
-| DataDome | 높음 | Free People | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
-| DataDome | 높음 | Sezane | HTTP 403 · 제목 "sezane.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge / CloudFront: x-amz-cf-* 헤더 |
-| 알 수 없음 | - | Abercrombie & Fitch | HTTP 200 · 제목 "Client Challenge" · 쿠키 _fs_ch_st_FSBmUei20MqUiJb9 |
-| 알 수 없음 | - | Sessun | HTTP 503 · 제목 "" ·  |
-| HUMAN(PerimeterX) | 높음 | Ann Taylor | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXmmBMD3jC/main.min.js, 불러온 주소 if |
-| HUMAN(PerimeterX) | 높음 | Loft | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXYvG65JJE/main.min.js, 불러온 주소 if |
-| Vercel | 높음 | Mango | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
-| Vercel | 높음 | Paige | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
+| 차단 주체 | 근거 강도 | 브랜드 | 막힌 범위(엔진별 막힘/잰 횟수, 목록+상품) | 대표 근거(측정 원본) |
+|---|---|---|---|---|
+| Akamai | 높음 | &Other Stories | impit 6/22 · playwright 12/12 · firefox 6/12 · firefox-fresh 0/3 | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
+| Akamai | 높음 | Addidas | impit 20/20 · playwright 8/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 403 · 제목 "adidas" · Akamai: x-akamai-* 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
+| Akamai | 높음 | Arket | impit 6/22 · playwright 12/12 · firefox 6/12 · firefox-fresh 0/3 | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
+| Akamai | 높음 | Chico's | impit 29/29 · playwright 19/19 · firefox 16/19 · firefox-fresh 5/8 | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
+| Akamai | 높음 | Eileen fisher | impit 14/14 · playwright 6/6 · firefox 6/6 · firefox-fresh 3/3 | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
+| Akamai | 높음 | Fatface | impit 20/20 · playwright 12/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
+| Akamai | 높음 | Garnet hill | impit 0/23 · playwright 15/15 · firefox 10/15 · firefox-fresh 0/6 | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
+| Akamai | 높음 | H&M | impit 6/22 · playwright 12/12 · firefox 6/12 · firefox-fresh 0/3 | HTTP 403 · 제목 "Access Denied" · Akamai: akamai-grn 헤더, 화면 흔적 akamai-deny |
+| Akamai | 높음 | Joules | impit 22/22 · playwright 12/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
+| Akamai | 높음 | Lands end | impit 22/22 · playwright 12/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
+| Akamai | 높음 | Lululemon | impit 22/22 · playwright 0/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
+| Akamai | 높음 | Massimo Dutti | impit 22/22 · playwright 12/12 · firefox 0/12 · firefox-fresh 0/3 | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
+| Akamai | 높음 | Oysho | impit 16/16 · playwright 6/6 · firefox 0/6 · firefox-fresh 0/3 | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
+| Akamai | 높음 | Theory | impit 19/19 · playwright 9/9 · firefox 9/9 · firefox-fresh 3/3 | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
+| Akamai | 높음 | WHBM | impit 29/29 · playwright 19/19 · firefox 14/19 · firefox-fresh 5/8 | HTTP 403 · 제목 "Access Denied" · Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz |
+| Akamai | 높음 | Zara | impit 18/18 · playwright 6/6 · firefox 0/6 | HTTP 200 · 제목 "&nbsp;" · Akamai: 쿠키 ak_bmsc, 화면 흔적 akamai-challenge |
+| Cloudflare | 높음 | Alo | impit 11/11 · playwright 0/3 · firefox 0/3 | HTTP 403 · 제목 "Verifying your connection..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge |
+| Cloudflare | 높음 | Aritzia | impit 27/27 · playwright 15/15 · firefox 10/15 · firefox-fresh 5/6 | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
+| Cloudflare | 높음 | Coldwatercreek | impit 13/13 · playwright 0/3 · firefox 0/3 | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
+| Cloudflare | 높음 | Dickies | impit 0/19 · playwright 0/9 · firefox 1/9 · firefox-fresh 0/3 | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.dickies.com/cdn-cgi/challenge-platform/h/g/orc, 불러온 주소 challenges.cloudflare.com/turnstile/ |
+| Cloudflare | 높음 | Good American | impit 0/16 · playwright 0/6 · firefox 1/6 · firefox-fresh 1/3 | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.goodamerican.com/cdn-cgi/challenge-platform/h/, 불러온 주소 challenges.cloudflare.com/turnstile/ |
+| Cloudflare | 높음 | L.L bean | impit 0/19 · playwright 9/9 · firefox 0/9 · firefox-fresh 0/3 | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-block |
+| Cloudflare | 높음 | On | impit 4/10 · playwright 0/2 · firefox 0/2 | HTTP 200 · 제목 "" · Cloudflare: cf-ray 헤더, 화면 흔적 cf-challenge |
+| Cloudflare | 높음 | Prana | impit 25/25 · playwright 14/17 · firefox 14/17 · firefox-fresh 7/7 | HTTP 403 · 제목 "Attention Required! / Cloudflare" · Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-challenge, 화면 흔적 cf-block |
+| Cloudflare | 높음 | Reformation | impit 25/25 · playwright 0/15 · firefox 10/15 · firefox-fresh 0/6 | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge |
+| Cloudflare | 높음 | The upside | impit 25/25 · playwright 12/17 · firefox 11/17 · firefox-fresh 0/7 | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge |
+| Cloudflare | 높음 | Wilson | impit 0/21 · playwright 0/9 · firefox 1/9 · firefox-fresh 2/3 | HTTP 403 · 제목 "Just a moment..." · Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 화면 흔적 cf-challenge, 불러온 주소 www.wilson.com/cdn-cgi/challenge-platform/h/b/orch, 불러온 주소 challenges.cloudflare.com/turnstile/ |
+| DataDome | 높음 | Anthropologie | impit 25/25 · playwright 15/15 · firefox 13/15 · firefox-fresh 6/6 | HTTP 403 · 제목 "anthropologie.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
+| DataDome | 높음 | FP Movement | impit 14/15 · playwright 6/7 · firefox 6/7 · firefox-fresh 3/3 | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
+| DataDome | 높음 | Free People | impit 22/22 · playwright 12/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
+| DataDome | 높음 | Sezane | impit 20/20 · playwright 12/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 403 · 제목 "sezane.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge / CloudFront: x-amz-cf-* 헤더 |
+| HUMAN(PerimeterX) | 높음 | Ann Taylor | impit 0/12 · playwright 4/6 · firefox 6/6 · firefox-fresh 3/3 | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXm |
+| HUMAN(PerimeterX) | 높음 | Loft | impit 0/19 · playwright 9/9 · firefox 7/9 · firefox-fresh 3/3 | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXY |
+| Vercel | 높음 | Mango | impit 24/24 · playwright 12/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
+| Vercel | 높음 | Paige | impit 22/22 · playwright 12/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
+| 알 수 없음 | - | Abercrombie & Fitch | impit 24/24 · playwright 12/12 · firefox 12/12 · firefox-fresh 3/3 | HTTP 200 · 제목 "Client Challenge" · 쿠키 _fs_ch_st_FSBmUei20MqUiJb9 |
 
 
 업체별로 본 것(오늘 측정 기준):
