@@ -282,6 +282,8 @@ const FIBRES = {
   pima: 'Cotton', supima: 'Cotton',
   // 상표명이 섬유 이름을 대신하는 경우.
   ecovero: 'Viscose', micromodal: 'Modal', 'micro modal': 'Modal', 'sea cell': 'Lyocell',
+  // 금속사 — Oasis 는 "Main: 60% Nylon, 40% Metal", "8% Metallic" 로 적는다. 모르면 겉감 줄이 조각이 되어 안감 줄이 대신 뽑혔다.
+  metallic: 'Metallic', 'metallic fibre': 'Metallic', 'metallic fiber': 'Metallic', metal: 'Metallic', lurex: 'Metallic',
   폴리에스테르: 'Polyester', 나일론: 'Nylon', 스판덱스: 'Elastane', 레이온: 'Viscose',
   모달: 'Modal', 리넨: 'Linen', 실크: 'Silk', 캐시미어: 'Cashmere', 아크릴: 'Acrylic',
   비스코스: 'Viscose', 텐셀: 'Lyocell', 라이오셀: 'Lyocell',
@@ -405,7 +407,9 @@ function compFromText(text) {
   for (const g of groups) g.role = partRole(src, g.start, g.end);
   if (groups.some((g) => g.role === 'main')) {
     if (!groups.some((g) => g.role === 'main' && sum(g) >= 95 && sum(g) <= 105)) return '';
-    for (let i = groups.length - 1; i >= 0; i--) if (groups[i].role === 'minor') groups.splice(i, 1);
+    // 부위 이름이 없는 줄도 뺀다 — 설명 글의 "100% Wool 100% Cotton" 처럼 겉감·장식을 이름 없이 늘어놓은 줄이
+    // 'Body: 100% wool · Trim: 100% cotton' 보다 앞에 오면 장식이 둘째 줄로 붙었다(Rag & bone Lucy henley).
+    for (let i = groups.length - 1; i >= 0; i--) if (groups[i].role !== 'main' && groups[i].role !== 'lining') groups.splice(i, 1);
   }
   // 100% 를 넘긴 목록과 그 꼬리 조각은 버린다(worker 와 같은 규칙).
   const titledAt = (g) => COMP_TITLE_RX.test(src.slice(Math.max(0, g.start - 30), g.start));

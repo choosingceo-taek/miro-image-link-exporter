@@ -258,8 +258,8 @@ md += `\n`;
     const K = { extra: "덧붙은 줄만 빠짐", changed: "값이 바뀜", empty: "지금 규칙은 빈 칸" };
     md += `\n보기(브랜드·갈래마다 2개, 그리고 HTML 을 받아 사람이 판정한 것 전부 — scripts/fixtures/witness/recheck-verdicts.json):\n\n`;
     md += `| 브랜드 | 상품 | 갈래 | 운영 저장값 | 지금 규칙 | 판정(HTML 을 읽고) |\n|---|---|---|---|---|---|\n`;
-    for (const e of ex) md += `| ${esc(e.brand)} | ${e.url} | ${K[e.kind]} | ${esc(e.st).replace(/\n/g, " ‖ ")} | ${esc(e.now).replace(/\n/g, " ‖ ") || "(빈 칸)"} | ${e.v ? esc(`${e.v.right === "now" ? "지금 규칙이 맞음" : e.v.right === "stored" ? "저장값이 맞음" : "둘 다 아님"} — ${e.v.why}`) : "—"} |\n`;
-    md += `\n`;
+    for (const e of ex) md += `| ${esc(e.brand)} | ${e.url} | ${K[e.kind]} | ${esc(e.st.replace(/\n/g, " ‖ "))} | ${esc(((e.v && e.v.now) || e.now).replace(/\n/g, " ‖ ")) || "(빈 칸)"} | ${e.v ? esc(`${e.v.right === "now" ? "지금 규칙이 맞음" : e.v.right === "stored" ? "저장값이 맞음" : "둘 다 아님"} — ${e.v.why}`) : "—"} |\n`;
+    md += `\n재확인 실행은 커밋 a819ae5 의 규칙으로 쟀다. 그 뒤에 고친 두 가지(금속사 Metal/Metallic 을 섬유로 앎 — Oasis, 겉감 줄이 있으면 부위 이름 없는 줄도 뺌 — Rag & bone)는 위 표의 갈래 수에는 없고, 판정한 줄의 '지금 규칙' 값에만 들어 있다(scripts/fixtures/detail-pages 에 같은 HTML 로 시험).\n\n`;
   }
 }
 

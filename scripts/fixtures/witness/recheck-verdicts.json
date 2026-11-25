@@ -1,0 +1,57 @@
+{
+ "_설명": "운영 저장값 재확인(field-recheck-*)에서 저장값과 지금 규칙이 다른 상품 중 HTML 을 받아(field-recheckurls-*, 읽기만) 사람이 읽고 판정한 것. right: now(지금 규칙) | stored(저장값) | neither.",
+ "https://www.rag-bone.com/p/lucy-merino-wool-henley-RG4F26F6MMN_110.html": {
+  "right": "now",
+  "stored": "Wool 100% / Cotton 100%",
+  "now": "Wool 100%",
+  "why": "Body 100% wool · Trim 100% cotton — 저장값은 장식(Trim)을 겉감 줄에 붙여 합 200%."
+ },
+ "https://www.rag-bone.com/p/vintage-terry-tee-RE9J26PT3VW_960.html": {
+  "right": "now",
+  "stored": "Cotton 78% / Polyester 22% / Elastane 2%",
+  "now": "Cotton 78% / Polyester 22%",
+  "why": "Body 78% cotton, 22% polyester · Rib trim 98% cotton, 2% elastane — 저장값은 리브의 2% elastane 을 겉감에 붙였다(합 102%)."
+ },
+ "https://www.rag-bone.com/p/ariana-satin-slip-dress-RA5D26S3MSW.html": {
+  "right": "now",
+  "stored": "Polyester 100%\nViscose 100%",
+  "now": "Polyester 100%",
+  "why": "Body 100% polyester · Trim 100% viscose — 저장값 둘째 줄은 장식."
+ },
+ "https://www.rag-bone.com/p/cam-refine-knit-pant-RE7Z26F71PW.html": {
+  "right": "now",
+  "stored": "Viscose 66% / Nylon 30% / Elastane 4% / Polyester 94%",
+  "now": "Viscose 66% / Nylon 30% / Elastane 4%\nPolyester 94% / Elastane 6%",
+  "why": "Body + Lining — 저장값은 안감 조각(Polyester 94%)을 겉감 줄에 붙였다(합 194%)."
+ },
+ "https://us.boden.com/products/women-honor-column-velvet-midi-dress-harbour-blue-d1849blu": {
+  "right": "now",
+  "stored": "Polyester 100%",
+  "now": "Polyester 90% / Elastane 10%\nPolyester 100%",
+  "why": "Main 60% recycled polyester, 30% polyester, 10% elastane · Bodice lining 100% recycled polyester — 저장값은 안감만."
+ },
+ "https://us.boden.com/products/women-ruffle-v-neck-lace-top-deep-wisteria-t2180red": {
+  "right": "now",
+  "stored": "Viscose 100% / Cotton 75% / Nylon 25%",
+  "now": "Viscose 100%",
+  "why": "Main 100% viscose · Lace 75% cotton, 25% nylon — 저장값은 레이스를 겉감 줄에 붙였다(합 200%)."
+ },
+ "https://us.boden.com/products/women-louise-cord-midi-shirt-dress-storm-blue-d1786blu": {
+  "right": "stored",
+  "stored": "Cotton 100%",
+  "now": "Cotton 100%",
+  "why": "Main 100% cotton — 저장값이 맞다. 재확인 실행에서 빈 칸이었던 것은 그때 impit 이 페이지 본문을 못 받은 탓(같은 규칙으로 이 HTML 은 Cotton 100%)."
+ },
+ "https://www.oasisfashion.com/product/blue-vanilla-gold-long-sleeve-turtleneck-blouse_p-db13ef21-179d-4465-a045-5c809ad99f0c?colour=Gold": {
+  "right": "now",
+  "stored": "Polyester 100%",
+  "now": "Nylon 60% / Metallic 40%\nPolyester 100%",
+  "why": "Main 60% Nylon, 40% Metal · Lining 100% Polyester — 저장값은 안감만."
+ },
+ "https://www.oasisfashion.com/product/coast-coast-muse-burnout-velvet-long-sleeve-maxi-dress-with-gold-trim_bcc14057?colour=olive": {
+  "right": "now",
+  "stored": "Polyester 96% / Elastane 4%",
+  "now": "Polyester 88% / Metallic 8% / Elastane 4%\nPolyester 96% / Elastane 4%",
+  "why": "Main 88% Polyester 8% Metallic 4% Elastane · Lining 96% Polyester 4% Elastane — 저장값은 안감만."
+ }
+}

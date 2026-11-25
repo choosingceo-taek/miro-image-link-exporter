@@ -396,5 +396,98 @@
   "expect": {
    "comp": "Cotton 100%"
   }
+ },
+ {
+  "brand": "Rag & bone (설명의 이름 없는 줄 대신 Body)",
+  "file": "ragbone-lucymerinowoolhenleyrg4f26f6mmn110html.html.gz",
+  "url": "https://www.rag-bone.com/p/lucy-merino-wool-henley-RG4F26F6MMN_110.html",
+  "name": "Lucy Merino Wool Henley",
+  "why": "설명 끝 '100% Wool 100% Cotton'(부위 이름 없음) 뒤에 'Materials: • Body: 100% wool • Trim: 100% cotton'. 겉감만.",
+  "expect": {
+   "comp": "Wool 100%"
+  }
+ },
+ {
+  "brand": "Rag & bone (Rib trim 빼기)",
+  "file": "ragbone-vintageterryteere9j26pt3vw960html.html.gz",
+  "url": "https://www.rag-bone.com/p/vintage-terry-tee-RE9J26PT3VW_960.html",
+  "name": "Vintage Terry Tee",
+  "why": "'Body: 78% cotton, 22% polyester • Rib trim: 98% cotton, 2% elastane'.",
+  "expect": {
+   "comp": "Cotton 78% / Polyester 22%"
+  }
+ },
+ {
+  "brand": "Rag & bone (Trim 빼기)",
+  "file": "ragbone-arianasatinslipdressra5d26s3mswhtml.html.gz",
+  "url": "https://www.rag-bone.com/p/ariana-satin-slip-dress-RA5D26S3MSW.html",
+  "name": "Ariana Satin Slip Dress",
+  "why": "'Body: 100% polyester • Trim: 100% viscose'.",
+  "expect": {
+   "comp": "Polyester 100%"
+  }
+ },
+ {
+  "brand": "Rag & bone (Body + Lining 두 줄)",
+  "file": "ragbone-camrefineknitpantre7z26f71pwhtml.html.gz",
+  "url": "https://www.rag-bone.com/p/cam-refine-knit-pant-RE7Z26F71PW.html",
+  "name": "Cam Refine Knit Pant",
+  "why": "'Body: 66% viscose, 30% polyamide, 4% elastane • Lining: 94% polyester, 6% elastane' — 겉감 줄 + 안감 줄.",
+  "expect": {
+   "comp": "Viscose 66% / Nylon 30% / Elastane 4%\nPolyester 94% / Elastane 6%"
+  }
+ },
+ {
+  "brand": "Boden (Main + Bodice lining)",
+  "file": "boden-womenhonorcolumnvelvetmididressharbourbl.html.gz",
+  "url": "https://us.boden.com/products/women-honor-column-velvet-midi-dress-harbour-blue-d1849blu",
+  "name": "Honor Column Velvet Midi Dress",
+  "why": "'Composition Main: 60% recycled polyester, 30% polyester, 10% elastane Bodice lining: 100% recycled polyester'.",
+  "expect": {
+   "comp": "Polyester 90% / Elastane 10%\nPolyester 100%"
+  },
+  "shop": "boden-womenhonorcolumnvelvetmididressharbourbl.shop.json.gz"
+ },
+ {
+  "brand": "Boden (Main + Lace)",
+  "file": "boden-womenrufflevnecklacetopdeepwisteriat2180.html.gz",
+  "url": "https://us.boden.com/products/women-ruffle-v-neck-lace-top-deep-wisteria-t2180red",
+  "name": "Ruffle V-Neck Lace Top",
+  "why": "'Composition Main: 100% viscose Lace: 75% cotton, 25% nylon'. 레이스는 장식.",
+  "expect": {
+   "comp": "Viscose 100%"
+  },
+  "shop": "boden-womenrufflevnecklacetopdeepwisteriat2180.shop.json.gz"
+ },
+ {
+  "brand": "Boden (Main 한 줄)",
+  "file": "boden-womenlouisecordmidishirtdressstormblued1.html.gz",
+  "url": "https://us.boden.com/products/women-louise-cord-midi-shirt-dress-storm-blue-d1786blu",
+  "name": "Louise Cord Midi Shirt Dress",
+  "why": "'Composition Main: 100% cotton'.",
+  "expect": {
+   "comp": "Cotton 100%"
+  },
+  "shop": "boden-womenlouisecordmidishirtdressstormblued1.shop.json.gz"
+ },
+ {
+  "brand": "Oasis (Main 에 Metal · 안감 따로)",
+  "file": "oasis-bluevanillagoldlongsleeveturtleneckblous.html.gz",
+  "url": "https://www.oasisfashion.com/product/blue-vanilla-gold-long-sleeve-turtleneck-blouse_p-db13ef21-179d-4465-a045-5c809ad99f0c?colour=Gold",
+  "name": "Long Sleeve Turtleneck Blouse",
+  "why": "'Main: 60% Nylon, 40% Metal; Lining: 100% Polyester'. 금속사(Metal)를 섬유로 몰라 겉감이 조각이 되었었다.",
+  "expect": {
+   "comp": "Nylon 60% / Metallic 40%\nPolyester 100%"
+  }
+ },
+ {
+  "brand": "Oasis (Main 에 Metallic · 안감 따로)",
+  "file": "oasis-coastcoastmuseburnoutvelvetlongsleevemax.html.gz",
+  "url": "https://www.oasisfashion.com/product/coast-coast-muse-burnout-velvet-long-sleeve-maxi-dress-with-gold-trim_bcc14057?colour=olive",
+  "name": "Muse Burnout Velvet Maxi Dress",
+  "why": "페이지 JSON detailsAndCare 'Main: 88% Polyester 8% Metallic 4% Elastane\\nLining: 96% Polyester 4% Elastane'.",
+  "expect": {
+   "comp": "Polyester 88% / Metallic 8% / Elastane 4%\nPolyester 96% / Elastane 4%"
+  }
  }
 ]

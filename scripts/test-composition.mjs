@@ -54,6 +54,10 @@ const CASES = [
   ["Main: 50% recycled polyester, 30% polyester, 20% elastane. Trims: 100% polyester", "Polyester 80% / Elastane 20%"],
   ["Main: 50% polyester blend. Trims: 100% polyester", ""],
   ["Shell: 100% Wool. Rib: 95% Cotton, 5% Elastane", "Wool 100%"],
+  // 겉감 줄이 있으면 부위 이름 없는 줄(설명 글의 나열)도 뺀다 — Rag & bone Lucy henley.
+  ["A layering piece. 100% Wool 100% Cotton Size & Fit. Materials: Body: 100% wool. Trim: 100% cotton. Details: placket", "Wool 100%"],
+  // 금속사 — Oasis "Main: 60% Nylon, 40% Metal; Lining: 100% Polyester".
+  ["Main: 60% Nylon, 40% Metal; Lining: 100% Polyester.", "Nylon 60% / Metallic 40%\nPolyester 100%"],
 
   // ── 실제로 못 뽑던 본문 (2026-08-05 진단에서 나온 그대로) ──
   // 퍼센트와 섬유 이름 사이에 수식어가 끼면 예전에는 통째로 놓쳤다.
