@@ -101,9 +101,12 @@ jobs:
         run: |
           npm init -y >/dev/null
           # impit — 브라우저 없이 크롬의 TLS 지문으로 HTML 을 받는 엔진(추가 브랜드의 engine: "impit").
-          # 설치에 실패해도 크롬·파이어폭스 브랜드는 돌아야 하므로 따로 받고 실패는 경고만 한다.
-          timeout 240 npm i --no-save playwright@1.49.1
-          timeout 240 npm i --no-save impit@0.14.9 || echo "::warning::impit 설치 실패 — impit 엔진 브랜드는 오류로 적힌다"
+          # 한 명령으로 함께 받는다 — --no-save 는 따로 받으면 앞서 받은 패키지를 지운다(2026-11-25 실제로
+          # playwright 가 사라져 수집이 시작도 못 했다). impit 이 실패하면 playwright 만이라도 받는다.
+          timeout 240 npm i --no-save playwright@1.49.1 impit@0.14.9 || {
+            echo "::warning::impit 설치 실패 — impit 엔진 브랜드는 오류로 적힌다"
+            timeout 240 npm i --no-save playwright@1.49.1
+          }
           # --with-deps 는 apt-get 을 돌린다. 러너가 부팅 직후 자기 프로비저닝으로
           # apt 를 잡고 있으면 여기서 dpkg 잠금 충돌로 죽는다(2026-08-19 실패 원인:
           # "Could not get lock /var/lib/dpkg/lock-frontend"). 잠금이 풀릴 때까지
