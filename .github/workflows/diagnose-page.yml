@@ -251,7 +251,8 @@ jobs:
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- 'field-measure-*.json' 'field-measure-*.md' scripts/fixtures/pages scripts/fixtures/witness || true
+          # 경로마다 따로 넣는다 — 한 경로라도 없으면 git add 전체가 멈춰 보고서까지 빠진다(실행 45623665154).
+          for p in 'field-measure-*.json' 'field-measure-*.md' scripts/fixtures/pages scripts/fixtures/witness; do git add -A -- "$p" 2>/dev/null || true; done
           git commit -m "field-measure: product field map (read-only)" || echo "no changes"
           for i in 1 2 3 4 5; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
