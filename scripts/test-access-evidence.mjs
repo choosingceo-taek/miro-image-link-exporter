@@ -15,7 +15,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   identify, evidenceOf, causeOf, cookieNamesFromSetCookie, countProductLinks, redirectKind,
-  loadExtConfigs, secretsOf, redact, buildExtRequest, readExtResponse,
+  loadExtConfigs, secretsOf, redact, buildExtRequest, readExtResponse, looksLikeProduct,
 } from "./access-evidence.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -160,6 +160,15 @@ console.log("4. try-engines 의 ext 엔진(가짜 API)");
   const r3 = await run({ TARGETS: targetsFile, ENGINES: "ext", SCRAPE_API_CONFIG: `{"name":"x","key":"${SECRET}"`, OUT: join(dir, "r3.md") });
   ok(r3.code === 0 && /외부 API 설정 문제/.test(r3.out) && !r3.out.includes(SECRET), "깨진 설정 → 칸 없음 · 문제만 알림(값 없음)");
   server.close();
+}
+
+console.log("상품 주소 모양(looksLikeProduct)");
+{
+  // J.Crew 진짜 상품은 /categories/ 아래에 있고 끝이 상품 코드다 — 예전 규칙은 전부 '상품 아님'으로 봤다.
+  ok(looksLikeProduct("https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334"), "J.Crew …/categories/…/MQ334 → 상품");
+  ok(!looksLikeProduct("https://www.jcrew.com/c/womens/categories/clothing/tees-and-tanks"), "J.Crew 카테고리 목록 → 상품 아님");
+  ok(!looksLikeProduct("https://www.dickies.com/collections/womens-tops"), "Shopify 컬렉션 → 상품 아님");
+  ok(looksLikeProduct("https://www.dickies.com/collections/womens-tops/products/tee-1"), "컬렉션 안 상품 → 상품");
 }
 
 if (fails) { console.log(`\n실패 ${fails}개`); process.exit(1); }

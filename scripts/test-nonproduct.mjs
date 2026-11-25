@@ -133,7 +133,42 @@ for (const [label, url, want] of IDQ) {
   const got = idQuery(new URL(url));
   if (got !== want) { bad++; console.error(`❌ ${label}: ${url} → 기대 "${want}" 실제 "${got}"`); }
 }
-console.log(`경로 모양 ${SHAPE.length}건 · 실제 상품 표본 ${real}건 · 물음표 상품 번호 ${IDQ.length}건 확인`);
+// 다른 사이트로 가는 링크(앱 스토어 등) — 하위 도메인은 같은 사이트로 본다.
+const siteSrc = col.slice(col.indexOf("const siteOf"), col.indexOf("  // 상품 번호가 경로가 아니라"));
+const siteOf = new Function(siteSrc + "\n return siteOf;")();
+const SITE = [
+  ["FP Movement 앱 스토어", "www.freepeople.com", "itunes.apple.com", false],
+  ["H&M 하위 도메인", "www2.hm.com", "www2.hm.com", true],
+  ["Athleta(gap.com 하위)", "athleta.gap.com", "athleta.gap.com", true],
+  ["L.L.Bean global", "global.llbean.com", "www.llbean.com", true],
+  ["영국 도메인", "www.example.co.uk", "shop.example.co.uk", true],
+  ["영국 도메인 — 다른 회사", "www.example.co.uk", "www.other.co.uk", false],
+];
+for (const [label, page, link, same] of SITE) {
+  const got = siteOf(page) === siteOf(link);
+  if (got !== same) { bad++; console.error(`❌ ${label}: ${page} vs ${link} → 기대 ${same} 실제 ${got}`); }
+}
+// 접근 지도의 진짜 상품 표본은 목록 페이지와 같은 사이트여야 한다(앱 스토어 링크 1개만 예외로 버려져야 함).
+let offReal = 0;
+try {
+  const map = JSON.parse(readFileSync(join(ROOT, "access-map.json"), "utf8"));
+  for (const b of map.brands || []) {
+    const pages = ((b.listing && b.listing.urls) || []).map((u) => siteOf(new URL(u.url).hostname));
+    for (const u of (b.product && b.product.urls) || []) {
+      if (!pages.length || pages.includes(siteOf(new URL(u.url).hostname))) continue;
+      offReal++;
+      if (!/itunes\.apple\.com/.test(u.url)) { bad++; console.error(`❌ 다른 사이트로 판정된 진짜 상품: ${b.brand} ${u.url}`); }
+    }
+  }
+} catch (e) { bad++; console.error("❌ access-map.json 을 못 읽음: " + e.message); }
+// 배너 문구(앱 내려받기·선물 가게)
+const bnSrc = col.slice(col.indexOf("const BANNER_NAME"), col.indexOf("\n", col.indexOf("const BANNER_NAME")));
+const BANNER_NAME = new Function(bnSrc + "\n return BANNER_NAME;")();
+for (const [name, want] of [["Download on the App Store", true], ["Gifts for Her", true], ["Gift Shop", true],
+  ["Cashmere Gift Sweater", false], ["Logo Tee", false], ["Women's Pima Cotton Tee", false]]) {
+  if (BANNER_NAME.test(name) !== want) { bad++; console.error(`❌ 배너 문구 ${name} → 기대 ${want}`); }
+}
+console.log(`경로 모양 ${SHAPE.length}건 · 실제 상품 표본 ${real}건 · 물음표 상품 번호 ${IDQ.length}건 · 같은 사이트 ${SITE.length}건(표본 중 다른 사이트 ${offReal}건) 확인`);
 
 if (bad) { console.error(`\n비상품 판별 ${bad}건 실패`); process.exit(1); }
 console.log(`✅ 비상품 판별 통과 — 경로 ${CASES.length}건 · 최상위 ${LANDING.length}건 (수집기·점검 두 규칙 일치)`);

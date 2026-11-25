@@ -26,11 +26,14 @@ export function looksLikeProduct(url) {
   try { u = new URL(url); } catch (e) { return false; }
   const path = u.pathname;
   if (NON_PRODUCT_PATH.test(path)) return false;
-  if (/\/(?:c|category|categories|collections?)(?:\/|$)/i.test(path) && !/\/products?\//i.test(path)) return false;
+  // 카테고리 경로라도 끝 조각이 상품 코드(J.Crew …/categories/clothing/tees-and-tanks/MQ334)면 상품이다.
+  if (/\/(?:c|category|categories|collections?)(?:\/|$)/i.test(path) && !/\/products?\//i.test(path) &&
+      !/\/[A-Z]{1,4}\d{3,}$/.test(path)) return false;
   if (/\/(?:product|products|p|productpage|style|item|dp|prd)\//i.test(path)) return true;   // /product/… · /p/… · /style/…
   if (/productpage\.|\/prod\d|_\/prod/i.test(path)) return true;                         // H&M · Lululemon
   if (/\d{6,}/.test(path)) return true;                                                  // 상품 번호(Zara p04424306 · Fatface 968669)
-  if (/[A-Z]{2}\d{4}\.html$/i.test(path)) return true;                                   // Adidas IF1234.html
+  if (/[A-Z]{2}\d{4}\.html$/i.test(path)) return true;
+  if (/\/categories\/.+\/[A-Z]{1,4}\d{3,}$/.test(path)) return true;                       // J.Crew …/categories/…/MQ334                                   // Adidas IF1234.html
   if (/^\/shop\/[^/]*-[^/]*-[^/]+\/?$/i.test(path)) return true;                         // Anthropologie·Free People /shop/<상품-이름>
   return false;
 }
