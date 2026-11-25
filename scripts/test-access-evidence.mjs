@@ -50,6 +50,17 @@ console.log("1. 차단 주체");
   const none = evidenceOf({ url: "https://g.example/x", status: 403, html: "<html><body>no</body></html>" });
   ok(identify(none, true).by === "알 수 없음", "흔적 없는 403 → 알 수 없음");
 
+  // 11/25 실측 모양들
+  const vc = evidenceOf({ url: "https://m.example/x", status: 429, title: "Vercel Security Checkpoint", html: "<title>Vercel Security Checkpoint</title><p>We're verifying your browser</p>", headers: { server: "Vercel", "x-vercel-id": "pdx1::abc" } });
+  const vcr = { v: "blocked", ev: vc };
+  ok(causeOf(vcr, "listing") === "blocked" && identify(vc, true).by === "Vercel" && identify(vc, true).confidence === "높음", "Vercel 확인 화면(429) → 차단 · Vercel(높음), rate-limit 아님");
+  const inter = evidenceOf({ url: "https://z.example/x", status: 200, html: "<html><head><title>&nbsp;</title></head><body><script>var i = 'bm-verify=AAQAAAAJ'</script></body></html>", cookies: ["ak_bmsc"] });
+  ok(causeOf({ v: "open", ev: inter }, "listing") === "blocked" && identify(inter, true).by === "Akamai", "200 인데 빈 Akamai 확인 화면 → 차단 · Akamai");
+  const jsd = evidenceOf({ url: "https://n.example/c/tops", kind: "listing", status: 200, html: "<script src=\"/cdn-cgi/challenge-platform/scripts/jsd/main.js\"></script>" + Array.from({ length: 8 }, (_, i) => `<a href="/products/x-${i}"><img src=a></a>`).join("") + "x".repeat(2000), headers: { server: "cloudflare", "cf-ray": "1" } });
+  ok(causeOf({ v: "list", ev: jsd, cards: 8 }, "listing") === "ok" && !jsd.markers.includes("cf-challenge"), "평소 페이지의 Cloudflare 봇 관리 스크립트는 차단 아님");
+  const geoOk = evidenceOf({ url: "https://q.example/c/tops", kind: "listing", status: 200, html: "<p>We don't ship to your country</p>" + Array.from({ length: 8 }, (_, i) => `<a href="/products/x-${i}"><img src=a></a>`).join("") });
+  ok(causeOf({ v: "list", ev: geoOk, cards: 8 }, "listing") === "ok", "상품이 보이면 배송 문구는 geo 아님");
+
   ok(JSON.stringify(cookieNamesFromSetCookie("a=1; Path=/; Expires=Wed, 21 Oct 2026 07:28:00 GMT, _abck=XYZ; Secure, bm_sz=1")) === JSON.stringify(["a", "_abck", "bm_sz"]), "Set-Cookie 합친 줄에서 이름만(날짜의 쉼표에 안 속음)");
 }
 

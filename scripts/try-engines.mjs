@@ -712,7 +712,7 @@ function finish(r, url) {
   const kind = kindByUrl.get(url) || "product";
   r.cause = causeOf(r, kind);
   if (r.ev && (r.v === "blocked" || ["rate-limit", "conn-drop", "timeout", "blocked"].includes(r.cause) || (r.ev.cookies || []).length || Object.keys(r.ev.headers || {}).length)) {
-    const who = identify(r.ev, r.v === "blocked" || r.cause === "rate-limit");
+    const who = identify(r.ev, r.v === "blocked" || ["blocked", "rate-limit"].includes(r.cause));
     r.who = { by: who.by, confidence: who.confidence, why: who.why, protection: who.protection, cdn: who.cdn, platform: who.platform, signals: who.vendors.map((v) => `${v.vendor}: ${v.signals.join(", ")}`).slice(0, 6) };
   }
   return r;

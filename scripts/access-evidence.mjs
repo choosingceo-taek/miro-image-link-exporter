@@ -64,9 +64,11 @@ export function cookieNamesFromSetCookie(sc) {
 // ── 화면(HTML)의 흔적 ──────────────────────────────────────────────────────
 // [id, 정규식, 이 흔적이 가리키는 주체, 'block'(차단 화면에만 나오는 것) | 'present'(평소 페이지에도 있음)]
 export const MARKERS = [
-  ["cf-challenge", /\/cdn-cgi\/challenge-platform\/|window\._cf_chl_opt|<title>\s*Just a moment\.\.\.\s*<\/title>|Checking if the site connection is secure|Enable JavaScript and cookies to continue/i, "Cloudflare", "block"],
+  // 주의: Cloudflare 봇 관리는 평소 페이지에도 /cdn-cgi/challenge-platform/scripts/jsd/main.js 를 심는다 — 그건 '있음'일 뿐 차단 화면이 아니다.
+  ["cf-challenge", /\/cdn-cgi\/challenge-platform\/h\/|window\._cf_chl_opt|<title>\s*Just a moment\.\.\.\s*<\/title>|Checking if the site connection is secure|Enable JavaScript and cookies to continue/i, "Cloudflare", "block"],
+  ["cf-script", /\/cdn-cgi\/challenge-platform\/scripts\//i, "Cloudflare", "present"],
   ["cf-block", /Attention Required! \| Cloudflare|Sorry, you have been blocked|cf-error-details|<span[^>]*>\s*Cloudflare Ray ID/i, "Cloudflare", "block"],
-  ["akamai-deny", /errors(\.|&#46;)edgesuite(\.|&#46;)net|Reference&#32;&#35;\d+(&#46;|\.)[0-9a-f]+|Reference #\d+\.[0-9a-f]+\.\d+/i, "Akamai", "block"],
+  ["akamai-deny", /errors(\.|&#46;)edgesuite(\.|&#46;)net|Reference&#32;&#35;\d+(&#46;|\.)[0-9a-f]+|Reference #\d+\.[0-9a-f]+\.\d+|Reference Error: \d+\.[0-9a-f]+\.\d+/i, "Akamai", "block"],
   ["akamai-challenge", /\/_sec\/cp_challenge|sec-if-cpt-container|bm-verify=|ak_bmsc_challenge/i, "Akamai", "block"],
   ["px-challenge", /px-captcha|_pxCaptcha|captcha\.px-cdn\.net|Press &amp; Hold|Press & Hold to confirm/i, "HUMAN(PerimeterX)", "block"],
   ["px-script", /client\.perimeterx\.net|px-cloud\.net|px-cdn\.net|window\._pxAppId|\/_px\/|\/px\/client\/main\.min\.js/i, "HUMAN(PerimeterX)", "present"],
@@ -76,6 +78,7 @@ export const MARKERS = [
   ["imperva-abp", /Pardon Our Interruption/i, "Imperva", "block"],
   ["kasada", /149e9513-01fa-4fb0-aad4-566afd725d1b|KPSDK|kpsdk/, "Kasada", "present"],
   ["aws-waf", /awsWafCookieDomainList|token\.awswaf\.com|AwsWafIntegration/i, "AWS WAF", "block"],
+  ["vercel-checkpoint", /Vercel Security Checkpoint|We.re verifying your browser/i, "Vercel", "block"],
   ["queue-it", /queue-it\.net|queueit-/i, "Queue-it", "present"],
   ["captcha", /g-recaptcha|recaptcha\/api\.js|hcaptcha\.com\/1\/api|challenges\.cloudflare\.com\/turnstile/i, "", "present"],
   ["access-denied", /<title>\s*(Access Denied|403 Forbidden|Forbidden)\s*<\/title>|<h1>\s*Access Denied\s*<\/h1>/i, "", "block"],
@@ -276,22 +279,27 @@ export function causeOf(r, kind) {
     if (/보관본 없음/.test(n)) return "no-archive";
     return "error";
   }
+  // 차단 화면 흔적이 있으면(상태가 200·429 여도) 차단이다 — Akamai 의 빈 확인 화면(Zara·Massimo Dutti·Oysho)이 200 으로 온다.
+  const blockMark = [...mk].some((id) => (MARKERS.find((x) => x[0] === id) || [])[3] === "block");
+  if (blockMark && (r.v === "blocked" || (ev.textLen || 0) < 600 || ev.status >= 400)) return "blocked";
   if (ev.status === 429) return "rate-limit";
   if (r.v === "blocked") return "blocked";
   if (ev.status === 404 || ev.status === 410 || ev.redirect === "home" || ev.redirect === "other-site") return "dead";
+  const notFoundPage = mk.has("notfound") && /not found|404|doesn.?t exist|no longer/i.test(ev.title || "");
+  if (kind === "listing" && Math.max(r.cards || 0, r.collector || 0) >= 5) return "ok";   // 상품이 보이면 지역·배송 문구는 무시
+  if (kind !== "listing" && r.v === "comp") return "ok";
   if (mk.has("geo") || /^locale /.test(ev.redirect || "")) return "geo";
   if (mk.has("maintenance") && (ev.textLen || 0) < 3000) return "maintenance";
   if (mk.has("login") && (ev.textLen || 0) < 3000) return "login";
   if (kind === "listing") {
     const cards = Math.max(r.cards || 0, r.collector || 0);
-    if (mk.has("notfound") && cards < 3) return "dead";
+    if (notFoundPage && cards < 3) return "dead";
     if (r.collector === 0 && (ev.imgLinks || 0) >= 12) return "selector";
     if (cards >= 5) return "ok";
     if ((ev.textLen || 0) < 1500 || mk.has("js-shell")) return "shell";
     return "no-cards";
   }
-  if (r.v === "comp") return "ok";
-  if (mk.has("notfound")) return "dead";
+  if (notFoundPage) return "dead";
   return "no-comp";
 }
 
