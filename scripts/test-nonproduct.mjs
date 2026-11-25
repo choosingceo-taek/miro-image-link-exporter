@@ -55,6 +55,9 @@ const CASES = [
   ["상품명에 guide", "/womens/guide-jacket", false],
   ["상품명에 search", "/p/searchlight-dress", false],
   ["상품명에 about", "/aboutface-serum", false],
+  ["Leset 안내 글(/pages/)", "/pages/fabric-set-guide", true],
+  ["Me+Em 매장 안내", "/us/stores", true],
+  ["상품명에 pages", "/products/pages-tee", false],
   ["평범한 상품", "/womens/clothing/tops/ribbed-tank-12345", false],
 ];
 for (const [label, path, want] of CASES) {
@@ -101,6 +104,9 @@ const SHAPE = [
   ["J.Crew 상품(categories 아래)", "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334", false],
   ["Massimo Dutti 상품", "https://www.massimodutti.com/us/linen-shirt-l05812529", false],
   ["Oysho 상품", "https://www.oysho.com/gb/seamless-t-shirt-c0p123456789.html", false],
+  ["J.Crew 기획전(끝이 womens)", "https://www.jcrew.com/shop/party-dressing/womens", true],
+  ["J.Crew 기획전 2", "https://www.jcrew.com/shop/cold-weather-accessories/womens", true],
+  ["상품명이 womens 로 끝나지 않는 상품", "https://www.example.com/products/womens-tee", false],
   ["Reformation 기획전 타일", "https://www.thereformation.com/collections/holiday-launch", true],
   ["Shopify 컬렉션 안의 상품", "https://shop.example.com/collections/tops/products/cotton-tee", false],
   ["낱말 c 로 시작하는 조각", "https://shop.example.com/cotton/cami-top-123", false],
@@ -121,6 +127,27 @@ try {
       const path = new URL(u.url).pathname.replace(/\/+$/, "");
       if (nonProductShape(path)) { bad++; console.error(`❌ 진짜 상품을 버림: ${b.brand} ${u.url}`); }
     }
+  }
+} catch (e) { bad++; console.error("❌ access-map.json 을 못 읽음: " + e.message); }
+// 프로그램 주소인데 상품 번호가 없는 안내·기획전(Gap 계열 info.do)
+const scriptSrc = col.slice(col.indexOf("  const scriptNoProduct"), col.indexOf("\n", col.indexOf("!/product|item|detail")) + 1);
+const scriptNoProduct = new Function("idQuery", scriptSrc + "\n return scriptNoProduct;")(idQuery);
+for (const [label, url, want] of [
+  ["Gap 안내(info.do)", "https://www.gap.com/browse/info.do?cid=1234", true],
+  ["Old Navy 안내(info.do)", "https://oldnavy.gap.com/browse/info.do", true],
+  ["Gap 상품(pid 있음)", "https://www.gap.com/browse/product.do?pid=886594042", false],
+  ["번호 없는 상품 상세(.aspx)", "https://shop.example.com/ProductDetail.aspx?code=AB12", false],
+]) {
+  const got = scriptNoProduct(new URL(url));
+  if (got !== want) { bad++; console.error(`❌ ${label}: ${url} → 기대 ${want} 실제 ${got}`); }
+}
+// 새 규칙(경로 조각 pages·stores · 프로그램 주소 안내)도 접근 지도의 진짜 상품 표본은 하나도 버리면 안 된다.
+try {
+  const map = JSON.parse(readFileSync(join(ROOT, "access-map.json"), "utf8"));
+  for (const b of map.brands || []) for (const u of (b.product && b.product.urls) || []) {
+    if (/static\.sessun\.com|itunes\.apple\.com/.test(u.url)) continue;
+    const x = new URL(u.url);
+    if (RX.test(x.pathname) || scriptNoProduct(x)) { bad++; console.error(`❌ 새 규칙이 진짜 상품을 버림: ${b.brand} ${u.url}`); }
   }
 } catch (e) { bad++; console.error("❌ access-map.json 을 못 읽음: " + e.message); }
 const IDQ = [

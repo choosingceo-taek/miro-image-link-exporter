@@ -115,6 +115,8 @@ async function pageCollector(opts) {
     'sitemap', 'search', 'newsletter', 'subscribe', 'sustainability', 'lookbook',
     'campaigns?', 'editorial', 'inspiration', 'guides?', 'how-to', 'klarna', 'afterpay',
     'loyalty', 'rewards', 'affiliates?',
+    // Shopify 의 /pages/ 는 안내 글(Leset Fabric Guide 의 /pages/fabric-set-guide) · 매장 안내(Me+Em /us/stores)
+    'pages', 'stores',
   ];
   const NON_PRODUCT_PATH = new RegExp('/(?:' + NON_PRODUCT_SEGMENTS.join('|') + ')(?:/|$)', 'i');
   // 경로 모양만 봐도 상품이 아닌 링크(2026-11-25 접근 지도에서 실제로 상품으로 저장돼 있던 것들).
@@ -127,9 +129,11 @@ async function pageCollector(opts) {
   const PRODUCT_MARK = /\/(?:p|t|product|products)\//i;
   const INDITEX_CATEGORY = /-n\d{3,5}$/i;
   const IMAGE_FILE = /\.(?:jpe?g|png|webp|gif|avif|svg)(?:%20\d+[wx])?$/i;
+  //  · 끝 조각이 성별·부서 이름뿐인 기획전 주소(J.Crew /shop/party-dressing/womens).
+  const DEPARTMENT_END = /\/(?:womens?|mens?|ladies|kids|girls|boys|unisex)$/i;
   const nonProductShape = (path) =>
     (CATEGORY_PATH.test(path + '/') && !PRODUCT_MARK.test(path + '/')) ||
-    INDITEX_CATEGORY.test(path) || IMAGE_FILE.test(path);
+    INDITEX_CATEGORY.test(path) || IMAGE_FILE.test(path) || DEPARTMENT_END.test(path);
   // 다른 사이트로 가는 링크는 상품이 아니다(앱 스토어 itunes.apple.com 등).
   // 하위 도메인은 같은 사이트로 본다(www2.hm.com·athleta.gap.com·global.llbean.com) — 끝 두 마디로 비교하고,
   // co.uk 처럼 나라 도메인이 두 마디인 경우는 세 마디로 본다.
@@ -148,6 +152,10 @@ async function pageCollector(opts) {
     for (const [k, v] of u.searchParams) if (ID_PARAMS.includes(k.toLowerCase()) && v) return '?' + k + '=' + encodeURIComponent(v);
     return '';
   };
+  // 프로그램 주소인데 상품 번호가 없고 이름에도 상품을 가리키는 낱말이 없으면 안내·기획전 페이지다
+  // (Gap 계열 /browse/info.do 'GapSweats Guide' · 'Picks from our Giftfluencers').
+  const scriptNoProduct = (u) => /\.(?:do|jsp|aspx?|php|cfm)$/i.test(u.pathname) && !idQuery(u) &&
+    !/product|item|detail|prod|style|sku/i.test(u.pathname.split('/').pop() || '');
 
   // ── 가격 ────────────────────────────────────────────────────────────
   // 통화가 앞에 붙는 표기($128, ₩89,000, USD 128)와 뒤에 붙는 표기(129,00 zł, 1 290 kr)를
@@ -294,7 +302,7 @@ async function pageCollector(opts) {
       }
       const path = href.pathname.replace(/\/+$/, '');
       if (path.length < 8) { rej.shortPath++; return; }
-      if (NON_PRODUCT_PATH.test(path) || nonProductShape(path)) { rej.nonProduct++; note('nonProduct', a, href); return; }
+      if (NON_PRODUCT_PATH.test(path) || nonProductShape(path) || scriptNoProduct(href)) { rej.nonProduct++; note('nonProduct', a, href); return; }
       if (siteOf(href.hostname) !== siteOf(location.hostname)) { rej.offSite++; note('offSite', a, href); return; }
       const idq = idQuery(href);
       if (path === here && !idq) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
