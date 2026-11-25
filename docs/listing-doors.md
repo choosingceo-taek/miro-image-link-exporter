@@ -109,3 +109,39 @@ Worker 는 이전 저장본의 절반 아래로 줄면 갈아끼우지 않고 �
 ## 4. 서버 담당 브랜드
 
 `docs/server-listing-notes.md` — 서버가 적게 읽는 원인과 고치는 안.
+
+## 5. 후속 확인(2026-11-25 저녁) — 새 규칙이 이미 매일 도는 브랜드에 준 영향
+
+같은 URL 을 같은 시각에 세 가지로 읽었다(모두 저장 안 함): **old** = 바뀌기 전 수집기(run 45652266273) ·
+**jump** = 새 규칙 + 예전 스크롤(run 45652313290) · **new** = 새 수집기 + 버린 링크 목록(run 45652855855, 45656165795).
+URL 마다 읽은 상품 주소 전부가 `browser-collect-diag-*.json` 에 있다.
+
+**Leset sweat-sets 176 → 3~5 — 원인: 예전 수집기가 'Shop All' 타일을 하위 카테고리로 따라감(규칙 때문, 스크롤 때문 아님).**
+- jump(새 규칙 + 예전 스크롤)도 5개 → 스크롤이 아니라 규칙 차이(측정).
+- old 176개 = 컬렉션 타일 13개(`/collections/all` '25% Off Sitewide', `/collections/the-kyoto-set`, `/pages/fabric-set-guide` …) + 이 컬렉션의
+  진짜 상품 3개(Jamie Anorak `/products/jamie-anorak-midnight`, Jamie Carpenter Pant `…-midnight`·`…-chalk`) + 세트가 아닌 상품 약 160개
+  (`/products/lauren-v-neck-cardigan-black`, `/products/barb-pleated-trouser-gunmetal`, `/products/jane-barrel-pant-black`, `/products/bo-puffer-anorak-chocolate` …)(측정).
+- 그 160개는 새 수집기로 읽은 이 페이지 어디에도 없고, 어떤 규칙에도 걸리지 않았다(버린 링크 목록 0) — 이 페이지에 없는 상품이다(측정).
+  수집기는 상품이 20개 미만이면 '하위 카테고리 타일'을 따라가는데, 이 페이지의 'Shop All' 타일(`/collections/bebe`)이 그 대상이었다.
+  새 규칙은 `/collections/` 타일을 상품에서 빼면서 하위 카테고리 후보에서도 빠졌다(코드로 판단 — 추정).
+- 결론: 새 수집기는 진짜 sweat-sets 상품 3개를 그대로 읽는다. 예전 176 중 약 173개는 이 카테고리 상품이 아니었다.
+
+**'사이트 메뉴' 규칙이 버린 사진 달린 링크(URL 하나씩) — 판정: 상품 0개, 모두 메뉴·기획전·안내.**
+- Leset t-shirts: `/pages/store-page`(Our Stores), 자기 페이지·`?page=2~4` — 상품 아님
+- Sweaty betty tops: New Arrivals · Gifting · Coats + Jackets · Winter Wear · Leggings Guide · Power/Printed/Run Leggings · Bags · Socks(카테고리 주소) — 상품 아님.
+  상자 이름: `header`(65) · `footer`(23)
+- J crew tees-and-tanks: 로고 · 40% off · family-pajamas · sale · gifts(her/him/kids) · new-arrivals · cashmere-shop · Petites · 협업 기획전 · store-locator — 상품 아님
+- Me+Em t-shirts: gifting · the-movement-edit · the-wedding-guest-edit · occasion-dress · jeans · shirts · knitted-tops · jacket-and-coats · sale · scarves · jewellery · boots · sneakers · bags(카테고리 주소) — 상품 아님
+- Shopbop tops: whats-new · bop · black-friday · home-gifts · designers · 브랜드 페이지(givenchy·paige…) · clothing/jeans/dresses/shoes/bags 카테고리 — 상품 아님
+- 브랜드 최종 목록 비교(old → new): J crew 196 → 197(잃은 상품 0) · Me+Em 428 → 455(잃은 것은 `/us/stores` 1개) · Shopbop 451 → 572(잃은 것 0) · Leset 326 → 244(잃은 81개는 위 sweat-sets 의 다른 컬렉션 상품)
+- **Sweaty betty 78 → 75: 진짜 상품 9개가 old 에만 있음(원인 미확정).** `…/athlete-seamless-workout-long-sleeve-tee-SB10117_NavyBlue.html` 등, 모두 tops URL 에서만.
+  새 수집기의 버린 링크 목록(사진 없는 것까지, run 45656165795)에 이 9개가 없고, 페이지의 링크 수(174)는 같다 — 규칙이 버린 것은 아니다(측정).
+  old 의 tops 36개는 마지막 화면에서 센 12개보다 많아 다음 페이지에서 온 것으로 보인다(추정). 확인 못 함.
+
+**아직 상품으로 남는 비상품 링크 — 새 규칙(시험 포함):**
+- 경로 조각 `pages`·`stores`(Leset 'Fabric Guide' `/pages/fabric-set-guide`, Me+Em `/us/stores`) — 수집기·점검 목록 둘 다
+- 끝 조각이 성별 이름(`…/womens`·`mens`·`kids`…) — J crew `/shop/party-dressing/womens`·`/shop/cold-weather-accessories/womens`
+- 상품 번호 없는 프로그램 주소(`.do` 등, 이름에 product·item 같은 낱말 없음) — Gap·Old Navy `/browse/info.do`
+- 확인(run 45652855855 최종 목록): Leset·J crew·Gap·Old Navy 에 위 링크 0개. **Me+Em `/us/sweaters-and-cashmere` 1개는 남음** — Me+Em 상품 주소도
+  `/us/<이름>` 같은 모양이고, 이 링크는 tops 계열 3개 URL 에만(dresses·pants 에는 없음) 나와 '모든 URL 에 나오는 링크' 규칙에도 안 걸린다.
+  데이터로 상품과 가를 신호를 찾지 못해 규칙을 넣지 않았다.
