@@ -1,26 +1,26 @@
-# 엑셀 항목 보강 결과 (2026-11-25T11:23Z)
+# 엑셀 항목 보강 결과 (2026-11-25T11:31Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
 > 이 숫자는 **방금 쓴 값을 낙관적으로** 센 것이다 — KV 가 최종 일관성이라 쓴 직후에는
 > 안 읽히는 일이 있어 일부러 그렇게 뒀다. 안정된 뒤의 실제 숫자는 `preflight.md` 를 본다.
 
-**지금 두 열이 다 채워져 나오는 브랜드: 30/134개** (상품 10276/38520개)
+**지금 두 열이 다 채워져 나오는 브랜드: 29/134개** (상품 9900/38520개)
 
 패널은 뽑는 상품들만 보고 열을 연다 — 이 브랜드들은 오늘 뽑으면 컬러웨이·혼용률이 붙는다.
 
-ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder · Evereve · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Marine Layer · Nation LTD · Ninety Percent · Rag & bone · Sanctuary · Seasalt cornwall · Shopbop · Sweaty betty · The Great · Theory · Tuckernuck · Ulla Johnson · Varley · Veronica Beard · Vince · Xirena · vineyardvines
+ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder · Evereve · Frank & Eileen · Gymshark · James Perse · Jigsaw · LNA · La Ligne · Marine Layer · Nation LTD · Ninety Percent · Rag & bone · Sanctuary · Seasalt cornwall · Shopbop · Sweaty betty · The Great · Theory · Ulla Johnson · Varley · Veronica Beard · Vince · Xirena · vineyardvines
 
-전체 평균은 아직입니다 — 혼용률 79% · 컬러웨이 70%.
-기준 95% 까지 9509개, 목표 99% 까지 11050개 더 채워야 합니다.
+전체 평균은 아직입니다 — 혼용률 76% · 컬러웨이 67%.
+기준 95% 까지 10871개, 목표 99% 까지 12412개 더 채워야 합니다.
 (전체가 다 차기를 기다릴 필요는 없다 — 위 브랜드들은 이미 온전히 뽑힌다)
 
 목표 항목: comp · 상품 38520개
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 30442 | 79% | +7 |
-| 컬러웨이 | 27085 | 70% | +8 |
+| 혼용률 | 29165 | 76% | +3 |
+| 컬러웨이 | 25723 | 67% | +3 |
 
 - 검색 인덱스 재구축: 17995개
 
@@ -31,17 +31,17 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 
 | 브랜드 | 엑셀 | 혼용률 | 컬러웨이 | 이번 실행 | 경로 |
 |---|:-:|---:|---:|---:|---|
-| Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Athleta | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
+| Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | The white company | — | 0/68 (0%) | 0/68 (0%) | 혼용률 +0 컬러 +0 |  |
-| H&M | — | 0/744 (0%) | 5/744 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 30·직접차단 30·보관본없음 30 |
+| H&M | — | 0/744 (0%) | 4/744 (1%) | 혼용률 +0 컬러 +0 |  |
 | Lululemon | — | 1/476 (0%) | 1/476 (0%) | 혼용률 +0 컬러 +0 |  |
 | Fatface | — | 1/374 (0%) | 1/374 (0%) | 혼용률 +0 컬러 +0 |  |
 | Sezane | — | 1/206 (0%) | 2/206 (1%) | 혼용률 +0 컬러 +0 |  |
 | Massimo Dutti | — | 3/603 (0%) | 2/603 (0%) | 혼용률 +0 컬러 +0 |  |
 | Chico's | — | 9/800 (1%) | 8/800 (1%) | 혼용률 +0 컬러 +0 |  |
-| Addidas | — | 6/408 (1%) | 6/408 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 1·직접차단 1·보관본없음 1 |
+| Addidas | — | 6/408 (1%) | 6/408 (1%) | 혼용률 +0 컬러 +0 |  |
 | Anthropologie | — | 5/270 (2%) | 5/270 (2%) | 혼용률 +0 컬러 +0 |  |
 | Garnet hill | — | 2/108 (2%) | 0/108 (0%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 7/168 (4%) | 6/168 (4%) | 혼용률 +0 컬러 +0 |  |
@@ -164,35 +164,15 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Nation LTD | ✅ | 525/525 (100%) | 525/525 (100%) | 혼용률 +0 컬러 +0 |  |
 | Old Navy | — | 7/7 (100%) | 0/7 (0%) | 혼용률 +0 컬러 +0 |  |
 | Z Supply | — | 216/216 (100%) | 190/216 (88%) | 혼용률 +0 컬러 +0 |  |
-| CCC | — | 943/800 (118%) | 669/800 (84%) | 혼용률 +1 컬러 +1 | 성공 페이지 1 |
-| Shopbop | ✅ | 977/453 (216%) | 1000/453 (221%) | 혼용률 +1 컬러 +1 | 성공 페이지 1 |
-| Evereve | ✅ | 958/444 (216%) | 1000/444 (225%) | 혼용률 +4 컬러 +4 | 성공 쇼피JSON 4·페이지 4 |
-| Tuckernuck | ✅ | 894/376 (238%) | 995/376 (265%) | 혼용률 +1 컬러 +2 | 성공 쇼피JSON 2·페이지 1 |
+| Evereve | ✅ | 957/444 (216%) | 1000/444 (225%) | 혼용률 +3 컬러 +3 | 성공 쇼피JSON 3·페이지 3 |
 
 ## 웹 아카이브 층
 
-조회 31/250개(브랜드당 40) · 요청 31회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
+조회 0/250개(브랜드당 40) · 요청 0회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
 
 | 브랜드 | 시도 상품 | 혼용률(지금 페이지) | 혼용률(보관본) | 보관본 없음 | 보관본 거부 | 주소 거부 | 아카이브 오류 | 상한·최근 물음 | 걸린 시간 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| H&M | 30 | 0 | 0 | 30 | 0 | 0 | 0 | 0 | 119s |
-| Evereve | 4 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 2s |
-| Tuckernuck | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1s |
-| CCC | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1s |
-| Addidas | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 3s |
-| Shopbop | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1s |
+| Evereve | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 1s |
 
-사유별 개수: 보관본 없음 31
-
-<details><summary>사유별 예시(최대 5개)</summary>
-
-**보관본 없음**
-
-- Addidas — https://www.adidas.com/us/y-3-denim-skirt/KS1449.html
-- H&M — https://www2.hm.com/en_us/productpage.1371427001.html
-- H&M — https://www2.hm.com/en_us/productpage.1295947026.html
-- H&M — https://www2.hm.com/en_us/productpage.1371427002.html
-- H&M — https://www2.hm.com/en_us/productpage.1368895001.html
-
-</details>
+사유별 개수: 없음
 
