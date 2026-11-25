@@ -341,6 +341,14 @@ try {
     const kc = pc.plan && pc.plan.targets.find((x) => x.brand === "Kilo");
     if (!kc || kc.engine !== "chromium") fail(`[${L}] ENGINE=chromium 이 추가 브랜드 엔진을 못 덮는다: ${kc && kc.engine}`);
     else ok("BRANDS 로 골라도 추가 브랜드 엔진을 따르고, ENGINE 을 주면 그게 이긴다");
+    // 야간 두 잡 나누기: skip = Render 그룹만(엔진 바꾸기는 유지) · only = 새 추가 브랜드만
+    const sk = await plan({ EXTRA_BRANDS_FILE: file, EXTRA_MODE: "skip" });
+    const on = await plan({ EXTRA_BRANDS_FILE: file, EXTRA_MODE: "only" });
+    const nm = (r) => (r.plan ? r.plan.targets.map((x) => x.brand).sort().join(",") : "(계획 없음)");
+    const skA = sk.plan && sk.plan.targets.find((x) => x.brand === "Alpha");
+    if (nm(sk) !== "Alpha" || !skA || skA.engine !== "firefox") fail(`[${L}] EXTRA_MODE=skip: ${nm(sk)} · Alpha ${skA && skA.engine}`);
+    else if (nm(on) !== "Kilo,November,Oscar,Papa") fail(`[${L}] EXTRA_MODE=only: ${nm(on)}`);
+    else ok("EXTRA_MODE=skip 은 Render 그룹만(엔진 바꾸기 유지), only 는 새 추가 브랜드만 — 두 잡이 겹치지도 빠지지도 않는다");
 
     // 저장 조건(여기엔 파이어폭스가 없어 ENGINE=chromium 으로 돌린다 — 조건은 엔진과 무관하다)
     writeFileSync(file, JSON.stringify({ brands: ["Kilo", "November", "Oscar"].map((brand) => ({ brand, engine: "firefox" })) }));

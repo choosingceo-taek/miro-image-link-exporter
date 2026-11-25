@@ -64,7 +64,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # 두 잡이 동시에 돈다(시간 예산 85분을 나눠 쓰지 않도록).
+  #  · main  — Render browser 그룹(추가 브랜드 파일의 엔진·새 창 바꾸기 포함) → browser-collect-report.*
+  #  · extra — 추가 브랜드 파일의 새 브랜드만 → browser-collect-extra-report.*
   collect:
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [main, extra]
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -142,10 +149,11 @@ jobs:
           ENGINE: ${{ github.event.inputs.engine }}
           FRESH_CONTEXT: ${{ github.event.inputs.fresh_context || '0' }}
           EXTRA_BRANDS_FILE: ${{ github.event.inputs.extra_file }}
-          REPORT_TAG: ${{ github.event.inputs.report_tag && format('{0}-{1}', github.event.inputs.report_tag, github.run_id) || '' }}
+          EXTRA_MODE: ${{ matrix.part == 'main' && 'skip' || 'only' }}
+          REPORT_TAG: ${{ github.event.inputs.report_tag && format('{0}-{1}{2}', github.event.inputs.report_tag, github.run_id, matrix.part == 'extra' && '-extra' || '') || (matrix.part == 'extra' && 'extra-report' || '') }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: |
-          echo "STORE: $STORE · REPORT_TAG: ${REPORT_TAG:-(운영 리포트)} · EXTRA: ${EXTRA_BRANDS_FILE:-browser-extra-brands.json}"
+          echo "STORE: $STORE · 잡: ${{ matrix.part }}(EXTRA_MODE=$EXTRA_MODE) · REPORT_TAG: ${REPORT_TAG:-(운영 리포트)} · EXTRA: ${EXTRA_BRANDS_FILE:-browser-extra-brands.json}"
           # 측정 실행이 저장까지 하면 운영 카탈로그를 바꾼다 — 막는다.
           if [ -n "$REPORT_TAG" ] && [ "$STORE" != "0" ]; then echo "::error::report_tag(측정 실행)는 store=0 으로만 돌린다"; exit 1; fi
           node scripts/browser-collect.mjs
@@ -153,7 +161,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: browser-collect-report
+          name: browser-collect-report-${{ matrix.part }}
           path: |
             browser-collect-report.json
             browser-collect-report.md

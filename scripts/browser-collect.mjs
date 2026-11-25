@@ -58,6 +58,12 @@ const HEADFUL = process.env.HEADFUL === "1";
 const only = (process.env.BRANDS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
 // browser = 헤드리스로 수집 가능한 그룹(기본, 매일 자동) · extension = 크롬 확장 담당 그룹(재조사용) · all = 둘 다
 const GROUP = (process.env.GROUP || "browser").toLowerCase();
+// EXTRA_MODE: 추가 브랜드 파일의 '새 브랜드'를 이 실행에 넣을지.
+//   with(기본) — 넣는다 · skip — 빼고 Render 그룹만(엔진 바꾸기는 그대로) · only — 새 브랜드만.
+// 야간 실행은 두 잡으로 나눠 동시에 돈다(skip 잡 + only 잡) — 한 잡이면 85분 예산을 넘는다.
+const EXTRA_MODE = ["skip", "only"].includes(String(process.env.EXTRA_MODE || "").toLowerCase())
+  ? String(process.env.EXTRA_MODE).toLowerCase() : "with";
+const REPORT_BASE = process.env.REPORT_TAG ? `browser-collect-${String(process.env.REPORT_TAG).replace(/[^\w.-]/g, "")}` : "browser-collect-report";
 const DRY_PLAN = process.env.DRY_PLAN === "1";
 
 // ── 브라우저 엔진 ──
@@ -232,7 +238,7 @@ async function getJson(url, tries = 5) {
 // 하루 늦은 URL 이라도 하루를 통째로 날리는 것보다 낫다.
 function targetsFromLastReport() {
   try {
-    const prev = JSON.parse(readFileSync(join(REPORT_DIR, "browser-collect-report.json"), "utf8"));
+    const prev = JSON.parse(readFileSync(join(REPORT_DIR, REPORT_BASE + ".json"), "utf8"));
     return (prev.results || [])
       .filter((r) => r && r.brand && r.site && Array.isArray(r.perUrl) && r.perUrl.length)
       .filter((r) => !only.length || only.includes(String(r.brand).toLowerCase()))
@@ -342,6 +348,8 @@ async function buildTargets() {
       if (i >= 0) groups[i] = t; else groups.push(t);
     }
   }
+  if (EXTRA_MODE === "only") return groups.filter((g) => g.source === "extra");
+  if (EXTRA_MODE === "skip") return groups.filter((g) => g.source !== "extra");
   return groups;
 }
 
@@ -357,7 +365,11 @@ function blockSignal(status, title, text) {
 
 const targets = await buildTargets();
 for (const n of extraNotes) console.warn("추가 브랜드: " + n);
-if (!targets.length) { console.error("no targets" + (configNote ? " — " + configNote : "")); process.exit(1); }
+if (!targets.length) {
+  // 두 잡으로 나눈 실행(EXTRA_MODE)에서 한쪽에 할 일이 없는 것은 실패가 아니다(예: BRANDS 로 추가 브랜드만 고름).
+  if (EXTRA_MODE !== "with" && !configNote) { console.log(`대상 없음(EXTRA_MODE=${EXTRA_MODE}) — 이 잡은 할 일이 없습니다`); process.exit(0); }
+  console.error("no targets" + (configNote ? " — " + configNote : "")); process.exit(1);
+}
 // 마감에 걸리면 늘 뒤쪽 브랜드만 밀린다. 시작 위치를 날마다 돌려 밀리는 브랜드가 매일 같지 않게 한다.
 {
   const day = Math.floor(Date.now() / 86_400_000);
@@ -638,7 +650,6 @@ for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요
 // 지난 리포트에 없어서, 미루는 순간 다음 대체 실행 목록에서 빠졌다.
 const carry = targets.filter((t) => deferred.some((d) => d.brand === t.brand) && !results.some((r) => r.brand === t.brand));
 const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, engine: t.engine, engineSource: t.source || (ENGINE_ENV ? "env" : "default"), collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
-const REPORT_BASE = process.env.REPORT_TAG ? `browser-collect-${String(process.env.REPORT_TAG).replace(/[^\w.-]/g, "")}` : "browser-collect-report";
 writeFileSync(join(REPORT_DIR, REPORT_BASE + ".json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, engine: ENGINE_ENV || "per-brand", engines: enginesUsed, freshContext: FRESH_CONTEXT, configNote, extraNotes, deferred, results: keep }, null, 1));
 writeFileSync(join(REPORT_DIR, REPORT_BASE + ".md"), md);
 console.log(`\n자동화 가능 ${auto.length} / 확장 필요 ${blk.length} / 보완 필요 ${fix.length}`);
