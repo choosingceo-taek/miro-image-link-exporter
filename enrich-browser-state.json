@@ -1,148 +1,221 @@
 {
  "blocked": {
   "shop.lululemon.com.lululemon": {
-   "brand": "Lululemon",
-   "until": 1795568769054,
-   "at": "2026-11-11",
-   "ratio": 100
+   "playwright": {
+    "brand": "Lululemon",
+    "until": 1795568769054,
+    "at": "2026-11-11",
+    "ratio": 100
+   }
   },
   "zara.com.zara": {
-   "brand": "Zara",
-   "until": 1788124926260,
-   "at": "2026-08-16",
-   "ratio": 100
+   "playwright": {
+    "brand": "Zara",
+    "until": 1788124926260,
+    "at": "2026-08-16",
+    "ratio": 100
+   }
   },
   "joules.com.joules": {
-   "brand": "Joules",
-   "until": 1795568762694,
-   "at": "2026-11-11",
-   "ratio": 100
+   "playwright": {
+    "brand": "Joules",
+    "until": 1795568762694,
+    "at": "2026-11-11",
+    "ratio": 100
+   }
   },
   "patagonia.com.patagonia": {
-   "brand": "Patagonia",
-   "until": 1790639004829,
-   "at": "2026-09-14",
-   "ratio": 100
+   "playwright": {
+    "brand": "Patagonia",
+    "until": 1790639004829,
+    "at": "2026-09-14",
+    "ratio": 100
+   }
   },
   "thewhitecompany.com.thewhitecompany": {
-   "brand": "The white company",
-   "until": 1788124969645,
-   "at": "2026-08-16",
-   "ratio": 93
+   "playwright": {
+    "brand": "The white company",
+    "until": 1788124969645,
+    "at": "2026-08-16",
+    "ratio": 93
+   },
+   "firefox": {
+    "brand": "The white company",
+    "until": 1795752018324,
+    "at": "2026-11-25",
+    "ratio": 100,
+    "suspect": 1
+   }
   },
   "www2.hm.com.hm": {
-   "brand": "H&M",
-   "until": 1795568760308,
-   "at": "2026-11-11",
-   "ratio": 100
+   "playwright": {
+    "brand": "H&M",
+    "until": 1795568760308,
+    "at": "2026-11-11",
+    "ratio": 100
+   }
   },
   "fatface.com.fatface": {
-   "brand": "Fatface",
-   "until": 1795568765498,
-   "at": "2026-11-11",
-   "ratio": 100
+   "playwright": {
+    "brand": "Fatface",
+    "until": 1795568765498,
+    "at": "2026-11-11",
+    "ratio": 100
+   }
   },
   "sezane.com.sezane": {
-   "brand": "Sezane",
-   "until": 1795658934115,
-   "at": "2026-11-12",
-   "ratio": 100
+   "playwright": {
+    "brand": "Sezane",
+    "until": 1795658934115,
+    "at": "2026-11-12",
+    "ratio": 100
+   }
   },
   "garnethill.com.garnethill": {
-   "brand": "Garnet hill",
-   "until": 1795658935931,
-   "at": "2026-11-12",
-   "ratio": 100
+   "playwright": {
+    "brand": "Garnet hill",
+    "until": 1795658935931,
+    "at": "2026-11-12",
+    "ratio": 100
+   }
   },
   "wilson.com.wilson": {
-   "brand": "Wilson",
-   "until": 1789513604436,
-   "at": "2026-09-01",
-   "ratio": 100
+   "playwright": {
+    "brand": "Wilson",
+    "until": 1789513604436,
+    "at": "2026-09-01",
+    "ratio": 100
+   }
   },
   "freepeople.com.fpmovement": {
-   "brand": "FP Movement",
-   "until": 1795658942300,
-   "at": "2026-11-12",
-   "ratio": 100
+   "playwright": {
+    "brand": "FP Movement",
+    "until": 1795658942300,
+    "at": "2026-11-12",
+    "ratio": 100
+   }
   },
   "anthropologie.com.anthropologie": {
-   "brand": "Anthropologie",
-   "until": 1795568777277,
-   "at": "2026-11-11",
-   "ratio": 100
+   "playwright": {
+    "brand": "Anthropologie",
+    "until": 1795568777277,
+    "at": "2026-11-11",
+    "ratio": 100
+   }
   },
   "freepeople.com.freepeople": {
-   "brand": "Free People",
-   "until": 1795743810695,
-   "at": "2026-11-13",
-   "ratio": 100
+   "playwright": {
+    "brand": "Free People",
+    "until": 1795743810695,
+    "at": "2026-11-13",
+    "ratio": 100
+   }
   },
   "eileenfisher.com.eileenfisher": {
-   "brand": "Eileen fisher",
-   "until": 1796179560540,
-   "at": "2026-11-18",
-   "ratio": 100
+   "playwright": {
+    "brand": "Eileen fisher",
+    "until": 1796179560540,
+    "at": "2026-11-18",
+    "ratio": 100
+   }
   },
   "aritzia.com.aritzia": {
-   "brand": "Aritzia",
-   "until": 1795913407329,
-   "at": "2026-11-15",
-   "ratio": 100
+   "playwright": {
+    "brand": "Aritzia",
+    "until": 1795913407329,
+    "at": "2026-11-15",
+    "ratio": 100
+   }
   },
   "arket.com.arket": {
-   "brand": "Arket",
-   "until": 1796349847226,
-   "at": "2026-11-20",
-   "ratio": 100
+   "playwright": {
+    "brand": "Arket",
+    "until": 1796349847226,
+    "at": "2026-11-20",
+    "ratio": 100
+   }
   },
   "global.llbean.com.llbean": {
-   "brand": "L.L bean",
-   "until": 1792196016732,
-   "at": "2026-10-03",
-   "ratio": 100
+   "playwright": {
+    "brand": "L.L bean",
+    "until": 1792196016732,
+    "at": "2026-10-03",
+    "ratio": 100
+   }
   },
   "stories.com.otherstories": {
-   "brand": "&Other Stories",
-   "until": 1796349849693,
-   "at": "2026-11-20",
-   "ratio": 100
+   "playwright": {
+    "brand": "&Other Stories",
+    "until": 1796349849693,
+    "at": "2026-11-20",
+    "ratio": 100
+   }
   },
   "adidas.com.addidas": {
-   "brand": "Addidas",
-   "until": 1795999781041,
-   "at": "2026-11-16",
-   "ratio": 100
+   "playwright": {
+    "brand": "Addidas",
+    "until": 1795999781041,
+    "at": "2026-11-16",
+    "ratio": 100
+   }
   },
   "scotchandsoda.com.scothsoda": {
-   "brand": "Scoth & soda",
-   "until": 1788644938065,
-   "at": "2026-08-22",
-   "ratio": 100
+   "playwright": {
+    "brand": "Scoth & soda",
+    "until": 1788644938065,
+    "at": "2026-08-22",
+    "ratio": 100
+   }
   },
   "abercrombie.com.abercrombiefitch": {
-   "brand": "Abercrombie & Fitch",
-   "until": 1790463447824,
-   "at": "2026-09-12",
-   "ratio": 100
+   "playwright": {
+    "brand": "Abercrombie & Fitch",
+    "until": 1790463447824,
+    "at": "2026-09-12",
+    "ratio": 100
+   }
   },
   "theupside.com.theupside": {
-   "brand": "The upside",
-   "until": 1795743815300,
-   "at": "2026-11-13",
-   "ratio": 96
+   "playwright": {
+    "brand": "The upside",
+    "until": 1795743815300,
+    "at": "2026-11-13",
+    "ratio": 96
+   }
   },
   "thereformation.com.reformation": {
-   "brand": "Reformation",
-   "until": 1795743817373,
-   "at": "2026-11-13",
-   "ratio": 100
+   "playwright": {
+    "brand": "Reformation",
+    "until": 1795743817373,
+    "at": "2026-11-13",
+    "ratio": 100
+   }
   },
   "chicos.com.chicos": {
-   "brand": "Chico's",
-   "until": 1795999783062,
-   "at": "2026-11-16",
-   "ratio": 100
+   "playwright": {
+    "brand": "Chico's",
+    "until": 1795999783062,
+    "at": "2026-11-16",
+    "ratio": 100
+   }
+  },
+  "shop.mango.com.mango": {
+   "firefox": {
+    "brand": "Mango",
+    "until": 1795751997202,
+    "at": "2026-11-25",
+    "ratio": 100,
+    "suspect": 1
+   }
+  },
+  "prana.com.prana": {
+   "firefox": {
+    "brand": "Prana",
+    "until": 1795752033821,
+    "at": "2026-11-25",
+    "ratio": 95,
+    "suspect": 1
+   }
   }
  }
 }
