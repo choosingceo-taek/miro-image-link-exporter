@@ -1,0 +1,2687 @@
+{
+ "at": "2026-11-25T10:18:56.777Z",
+ "meta": {
+  "at": "2026-11-25T10:17:06.634Z",
+  "runId": "45593253005",
+  "runner": "GitHub Actions 1000008432",
+  "ip": "52.155.48.x"
+ },
+ "engines": [
+  "impit",
+  "firefox",
+  "firefox-fresh"
+ ],
+ "runInfo": {
+  "impit": "정상 · 14쪽 · 6s",
+  "firefox": "정상 · 14쪽 · 60s",
+  "firefox-fresh": "정상 · 14쪽 · 44s"
+ },
+ "targets": [
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/tees-tanks/cat11199293",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/activewear/cat20059281",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/blouses-shirts/cat11199294",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/dresses/cat40004",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/pants/cat8289646",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Prana",
+   "url": "https://www.prana.com/women/tops.html",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Prana",
+   "url": "https://www.prana.com/women/tops/sweaters-hoodies.html",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Prana",
+   "url": "https://www.prana.com/women/dresses-skirts.html",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Prana",
+   "url": "https://www.prana.com/women/bottoms.html",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/tops/cat210001",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+   "cat": "pants"
+  }
+ ],
+ "results": {
+  "impit": {
+   "https://www.chicos.com/store/category/tees-tanks/cat11199293": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 571,
+     "textLen": 341,
+     "headers": {
+      "akamai-grn": "0.4e0ed217.1795601827.434dfd41",
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;chicos&#46;com&#47;store&#47;category&#47;tees&#45;tanks&#47;cat11199293\" on this server. Reference&#32;&#35;18&#46;4e0ed217&#46",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.prana.com/women/tops.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 5657,
+     "textLen": 761,
+     "headers": {
+      "cf-ray": "a5ffe6dc5f7ef017-SJC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-script",
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 화면 흔적 cf-block"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 577,
+     "textLen": 345,
+     "headers": {
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;whitehouseblackmarket&#46;com&#47;store&#47;category&#47;tees&#47;cat4769286\" on this server. Reference&#32;&#35;18&#46;530ed217",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/activewear/cat20059281": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 567,
+     "textLen": 337,
+     "headers": {
+      "akamai-grn": "0.4e0ed217.1795601828.434e0255",
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;chicos&#46;com&#47;store&#47;category&#47;activewear&#47;cat20059281\" on this server. Reference&#32;&#35;18&#46;4e0ed217&#46;179",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.prana.com/women/tops/sweaters-hoodies.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 5657,
+     "textLen": 761,
+     "headers": {
+      "cf-ray": "a5ffe6e54cb6f017-SJC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-script",
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 화면 흔적 cf-block"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/tops/cat210001": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 576,
+     "textLen": 344,
+     "headers": {
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;whitehouseblackmarket&#46;com&#47;store&#47;category&#47;tops&#47;cat210001\" on this server. Reference&#32;&#35;18&#46;530ed217&",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/blouses-shirts/cat11199294": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 575,
+     "textLen": 345,
+     "headers": {
+      "akamai-grn": "0.4e0ed217.1795601830.434e077a",
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;chicos&#46;com&#47;store&#47;category&#47;blouses&#45;shirts&#47;cat11199294\" on this server. Reference&#32;&#35;18&#46;4e0ed217",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.prana.com/women/dresses-skirts.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 5657,
+     "textLen": 761,
+     "headers": {
+      "cf-ray": "a5ffe6eea9e7f017-SJC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-script",
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 화면 흔적 cf-block"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 591,
+     "textLen": 359,
+     "headers": {
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;whitehouseblackmarket&#46;com&#47;store&#47;category&#47;blouses&#45;shirts&#47;cat4769287\" on this server. Reference&#32;&#35;1",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/dresses/cat40004": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 561,
+     "textLen": 331,
+     "headers": {
+      "akamai-grn": "0.4e0ed217.1795601831.434e0c89",
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;chicos&#46;com&#47;store&#47;category&#47;dresses&#47;cat40004\" on this server. Reference&#32;&#35;18&#46;4e0ed217&#46;179560183",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.prana.com/women/bottoms.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 5657,
+     "textLen": 761,
+     "headers": {
+      "cf-ray": "a5ffe6f80e68f017-SJC",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-script",
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 화면 흔적 cf-block"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 579,
+     "textLen": 347,
+     "headers": {
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;whitehouseblackmarket&#46;com&#47;store&#47;category&#47;dresses&#47;cat210002\" on this server. Reference&#32;&#35;18&#46;530ed2",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/pants/cat8289646": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 561,
+     "textLen": 331,
+     "headers": {
+      "akamai-grn": "0.4e0ed217.1795601833.434e1225",
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;chicos&#46;com&#47;store&#47;category&#47;pants&#47;cat8289646\" on this server. Reference&#32;&#35;18&#46;4e0ed217&#46;179560183",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/pants/cat210003": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 577,
+     "textLen": 345,
+     "headers": {
+      "content-type": "text/html",
+      "server": "AkamaiGHost",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http&#58;&#47;&#47;www&#46;whitehouseblackmarket&#46;com&#47;store&#47;category&#47;pants&#47;cat210003\" on this server. Reference&#32;&#35;18&#46;530ed217",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   }
+  },
+  "firefox": {
+   "https://www.chicos.com/store/category/tees-tanks/cat11199293": {
+    "v": "list",
+    "note": "수집기 73개 · HTML 상품 링크 75 · 이미지 링크 72 · 글 24965자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Shop Women's Tees & Tank Tops | Chico's",
+     "bytes": 3430497,
+     "textLen": 24965,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::mp6sk-1795601834948-8821771593e4",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM, 2",
+      "akamai-grn": "0.4e0ed217.1795601834.434e1a4a"
+     },
+     "cookies": [
+      "cortes-100",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "ak_bmsc",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "bm_sv",
+      "ESW_LTI",
+      "_abck",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "RT",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "_mibhv",
+      "amt-enabled",
+      "__attentive_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.chicos.com/akam/13/5fdf639b",
+      "www.chicos.com/akam/13/pixel_5fdf639b"
+     ],
+     "snippet": "Shop Women's Tees & Tank Tops | Chico's Enable Accessibility Chico's CHS WHBM WHBM Soma SMA Flash Sale: 60% Off Select Styles Shop Now *]:!pointer-events-none\" aria-haspopup=\"dialog\" aria-label=\"Details, Flash Sale: 60% ",
+     "productLinks": 75,
+     "imgLinks": 72,
+     "itemList": 0
+    },
+    "cards": 75,
+    "collector": 73,
+    "sample": [
+     "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622",
+     "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541",
+     "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172"
+    ],
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 ak_bmsc",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.prana.com/women/tops.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 10894,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe75dcbe26c48-SJC"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID 6a972a1b-e8b9-11f1-8d7e-0c1736ec00f4",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286": {
+    "v": "list",
+    "note": "수집기 21개 · HTML 상품 링크 19 · 이미지 링크 14 · 글 11511자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Shop Women's Tees | White House Black Market",
+     "bytes": 2344263,
+     "textLen": 11511,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "x-powered-by": "Next.js",
+      "x-vercel-id": "cle1::iad1::wlfng-1795601850896-c7edf1b0fa95",
+      "x-akamai-transformed": "9 231207 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "cortes",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "bm_sz",
+      "custom_target_session_id",
+      "bm_lso",
+      "detected_country_code",
+      "country_code",
+      "currency_code",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "bm_sv",
+      "ak_bmsc",
+      "ESW_LTI",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_pin_unauth",
+      "_abck",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "QuantumMetricSessionID",
+      "amt-enabled",
+      "IR_16598",
+      "__attentive_id",
+      "__attentive_session_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.whitehouseblackmarket.com/akam/13/7b0e762e",
+      "www.whitehouseblackmarket.com/akam/13/pixel_7b0e762e"
+     ],
+     "snippet": "Shop Women's Tees | White House Black Market Enable Accessibility Chico's CHS WHBM WHBM Soma SMA 50% Off Must-Haves + 40% Off Everything Else Shop Now *]:!pointer-events-none\" aria-haspopup=\"dialog\" aria-label=\"Details, ",
+     "productLinks": 19,
+     "imgLinks": 14,
+     "itemList": 0
+    },
+    "cards": 19,
+    "collector": 21,
+    "sample": [
+     "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368",
+     "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895",
+     "https://www.whitehouseblackmarket.com/store/product/scoop-neck-long-sleeve-tee/570421361"
+    ],
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: Vercel, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso, 쿠키 bm_sv",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/activewear/cat20059281": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 490,
+     "textLen": 245,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601860.434e70e0"
+     },
+     "cookies": [
+      "cortes-100",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "custom_target_session_id",
+      "ak_bmsc",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "bm_sv",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "_abck",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "_mibhv",
+      "amt-enabled",
+      "__attentive_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp",
+      "__attentive_dv",
+      "IR_16588",
+      "_uetsid",
+      "_uetvid"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/activewear/cat20059281\" on this server. Reference #18.4e0ed217.1795601860.434e70e0 https://errors.edgesuite.net/18.4e0",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 ak_bmsc, 쿠키 bm_sv, 쿠키 _abck, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.prana.com/women/tops/sweaters-hoodies.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 4263,
+     "textLen": 751,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe7bd8e126c48-SJC"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-block",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/tops/cat210001": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 499,
+     "textLen": 252,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "cortes",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "bm_so",
+      "custom_target_session_id",
+      "bm_lso",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "bm_sv",
+      "ak_bmsc",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_pin_unauth",
+      "_abck",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "QuantumMetricSessionID",
+      "amt-enabled",
+      "IR_16598",
+      "__attentive_id",
+      "__attentive_session_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/tops/cat210001\" on this server. Reference #18.530ed217.1795601866.53ee40d3 https://errors.edgesuite.net",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 bm_so, 쿠키 bm_lso, 쿠키 bm_sv, 쿠키 ak_bmsc"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/blouses-shirts/cat11199294": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 494,
+     "textLen": 249,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601869.434e8f2a"
+     },
+     "cookies": [
+      "cortes-100",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "custom_target_session_id",
+      "ak_bmsc",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "bm_sv",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "_abck",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "_mibhv",
+      "amt-enabled",
+      "__attentive_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp",
+      "__attentive_dv",
+      "IR_16588",
+      "_uetsid",
+      "_uetvid"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/blouses-shirts/cat11199294\" on this server. Reference #18.4e0ed217.1795601869.434e8f2a https://errors.edgesuite.net/18",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 ak_bmsc, 쿠키 bm_sv, 쿠키 _abck, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.prana.com/women/dresses-skirts.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 4263,
+     "textLen": 751,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe7f46f876c48-SJC"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-block",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 510,
+     "textLen": 263,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "cortes",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "custom_target_session_id",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "bm_sv",
+      "ak_bmsc",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_pin_unauth",
+      "_abck",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "QuantumMetricSessionID",
+      "amt-enabled",
+      "IR_16598",
+      "__attentive_id",
+      "__attentive_session_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp",
+      "_uetsid",
+      "_uetvid"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287\" on this server. Reference #18.530ed217.1795601874.53ee63b6 https://errors.ed",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 bm_sv, 쿠키 ak_bmsc, 쿠키 _abck, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/dresses/cat40004": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 484,
+     "textLen": 239,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601877.434eaf56"
+     },
+     "cookies": [
+      "cortes-100",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "custom_target_session_id",
+      "ak_bmsc",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "bm_sv",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "_abck",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "_mibhv",
+      "amt-enabled",
+      "__attentive_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp",
+      "__attentive_dv",
+      "IR_16588",
+      "_uetsid",
+      "_uetvid"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/dresses/cat40004\" on this server. Reference #18.4e0ed217.1795601877.434eaf56 https://errors.edgesuite.net/18.4e0ed217.",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 ak_bmsc, 쿠키 bm_sv, 쿠키 _abck, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.prana.com/women/bottoms.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Attention Required! | Cloudflare",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Attention Required! | Cloudflare",
+     "bytes": 4263,
+     "textLen": 751,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe82bbf9d6c48-SJC"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-block"
+     ],
+     "vendorRequests": [],
+     "snippet": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access prana.com Why have I been blocked? This website is using a security service to protect itself from online atta",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-block",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 502,
+     "textLen": 255,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "cortes",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "custom_target_session_id",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "bm_sv",
+      "ak_bmsc",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_pin_unauth",
+      "_abck",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "QuantumMetricSessionID",
+      "amt-enabled",
+      "IR_16598",
+      "__attentive_id",
+      "__attentive_session_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp",
+      "_uetsid",
+      "_uetvid"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/dresses/cat210002\" on this server. Reference #18.530ed217.1795601883.53ee8832 https://errors.edgesuite.",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 bm_sv, 쿠키 ak_bmsc, 쿠키 _abck, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/pants/cat8289646": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 484,
+     "textLen": 239,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601886.434ed355"
+     },
+     "cookies": [
+      "cortes-100",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "custom_target_session_id",
+      "ak_bmsc",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "AMCV_E423596C66BB83FA0A495C45%40AdobeOrg",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "bm_sv",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "_abck",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "_mibhv",
+      "amt-enabled",
+      "__attentive_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp",
+      "__attentive_dv",
+      "IR_16588",
+      "_uetsid",
+      "_uetvid"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/pants/cat8289646\" on this server. Reference #18.4e0ed217.1795601886.434ed355 https://errors.edgesuite.net/18.4e0ed217.",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 ak_bmsc, 쿠키 bm_sv, 쿠키 _abck, 화면 흔적 akamai-deny"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/pants/cat210003": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 500,
+     "textLen": 253,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "cortes",
+      "x-session",
+      "x-csrf-token",
+      "session_trace_id",
+      "guest_token",
+      "login_guest_token",
+      "AKA_A2",
+      "custom_target_session_id",
+      "dataLayerLastPageRef",
+      "analyticsFindingMethod",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_identity",
+      "bm_sv",
+      "ak_bmsc",
+      "ESW_LTI",
+      "country_code",
+      "currency_code",
+      "detected_country_code",
+      "OptanonConsent",
+      "QuantumMetricUserID",
+      "kndctr_E423596C66BB83FA0A495C45_AdobeOrg_cluster",
+      "BVBRANDID",
+      "BVBRANDSID",
+      "_pin_unauth",
+      "_abck",
+      "_ga",
+      "_gcl_au",
+      "__ogfpid",
+      "uuid",
+      "__rtbh.lid",
+      "QuantumMetricSessionID",
+      "amt-enabled",
+      "IR_16598",
+      "__attentive_id",
+      "__attentive_session_id",
+      "_attn_",
+      "__attentive_cco",
+      "sp",
+      "_fbp",
+      "_uetsid",
+      "_uetvid"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/pants/cat210003\" on this server. Reference #18.530ed217.1795601889.53eea25c https://errors.edgesuite.ne",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 bm_sv, 쿠키 ak_bmsc, 쿠키 _abck, 화면 흔적 akamai-deny"
+     ]
+    }
+   }
+  },
+  "firefox-fresh": {
+   "https://www.chicos.com/store/category/tees-tanks/cat11199293": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 490,
+     "textLen": 245,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601894.434ef2eb"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/tees-tanks/cat11199293\" on this server. Reference #18.4e0ed217.1795601894.434ef2eb https://errors.edgesuite.net/18.4e0",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.prana.com/women/tops.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 10894,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe89349234b6f-SJC"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID 881b94fb-e8b9-11f1-aaa9-2bb027b5f3c1",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 500,
+     "textLen": 253,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/tees/cat4769286\" on this server. Reference #18.530ed217.1795601900.53eecf74 https://errors.edgesuite.ne",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/activewear/cat20059281": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 490,
+     "textLen": 245,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601903.434f1590"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/activewear/cat20059281\" on this server. Reference #18.4e0ed217.1795601903.434f1590 https://errors.edgesuite.net/18.4e0",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.prana.com/women/tops/sweaters-hoodies.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 11436,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe8cb4cce6c48-SJC"
+     },
+     "cookies": [
+      "_pxhd",
+      "__cf_bm",
+      "cf_clearance",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "js.px-cloud.net/",
+      "fst-ec.px-cloud.net/"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID 8d71591b-e8b9-11f1-b5de-2e7145143e2f",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/tops/cat210001": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 499,
+     "textLen": 252,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/tops/cat210001\" on this server. Reference #18.530ed217.1795601909.53eef428 https://errors.edgesuite.net",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/blouses-shirts/cat11199294": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 494,
+     "textLen": 249,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601912.434f38a0"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/blouses-shirts/cat11199294\" on this server. Reference #18.4e0ed217.1795601912.434f38a0 https://errors.edgesuite.net/18",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.prana.com/women/dresses-skirts.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 10930,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe9037f42f017-SJC"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID 92cd4c50-e8b9-11f1-b46e-6ab7be0bcf0b",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 510,
+     "textLen": 263,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287\" on this server. Reference #18.530ed217.1795601918.53ef1735 https://errors.ed",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/dresses/cat40004": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 484,
+     "textLen": 239,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601921.434f58f4"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/dresses/cat40004\" on this server. Reference #18.4e0ed217.1795601921.434f58f4 https://errors.edgesuite.net/18.4e0ed217.",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.prana.com/women/bottoms.html": {
+    "v": "blocked",
+    "note": "HTTP 403 Access to this page has been denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access to this page has been denied",
+     "bytes": 10906,
+     "textLen": 142,
+     "headers": {
+      "content-type": "text/html",
+      "server": "cloudflare",
+      "cf-ray": "a5ffe93c0fa46cb7-SJC"
+     },
+     "cookies": [
+      "_pxhd",
+      "cf_clearance",
+      "__cf_bm",
+      "_pxvid",
+      "_px3",
+      "pxcts",
+      "_pxde"
+     ],
+     "markers": [
+      "cf-script",
+      "px-challenge",
+      "px-block",
+      "px-script"
+     ],
+     "vendorRequests": [
+      "www.prana.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.prana.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "client.px-cloud.net/PXLkXIE7Oj/main.min.js",
+      "ift.px-cloud.net/ns",
+      "collector-pxlkxie7oj.px-cloud.net/assets/js/bundle",
+      "fst-ec.px-cloud.net/",
+      "dvp.px-cloud.net/v"
+     ],
+     "snippet": "Access to this page has been denied Press & Hold to confirm you are a human (and not a bot). Reference ID 98322754-e8b9-11f1-9e3d-6ab7be0bcf0b",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "HUMAN(PerimeterX)",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare",
+      "HUMAN(PerimeterX)"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 cf_clearance, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.prana.com/cdn-cgi/challenge-platform/scripts/j",
+      "HUMAN(PerimeterX): 쿠키 _pxhd, 쿠키 _pxvid, 쿠키 _px3, 쿠키 pxcts, 쿠키 _pxde"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 502,
+     "textLen": 255,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/dresses/cat210002\" on this server. Reference #18.530ed217.1795601927.53ef3d6c https://errors.edgesuite.",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.chicos.com/store/category/pants/cat8289646": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 484,
+     "textLen": 239,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -",
+      "akamai-grn": "0.4e0ed217.1795601930.434f767c"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.chicos.com/store/category/pants/cat8289646\" on this server. Reference #18.4e0ed217.1795601930.434f767c https://errors.edgesuite.net/18.4e0ed217.",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/pants/cat210003": {
+    "v": "blocked",
+    "note": "HTTP 403 Access Denied",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Access Denied",
+     "bytes": 500,
+     "textLen": 253,
+     "headers": {
+      "server": "AkamaiGHost",
+      "content-type": "text/html",
+      "x-akamai-transformed": "0 - 0 -"
+     },
+     "cookies": [
+      "AKA_A2",
+      "_abck",
+      "bm_so",
+      "bm_sz",
+      "bm_lso",
+      "ak_bmsc",
+      "bm_s"
+     ],
+     "markers": [
+      "akamai-deny",
+      "access-denied"
+     ],
+     "vendorRequests": [],
+     "snippet": "Access Denied Access Denied You don't have permission to access \"http://www.whitehouseblackmarket.com/store/category/pants/cat210003\" on this server. Reference #18.530ed217.1795601933.53ef5394 https://errors.edgesuite.ne",
+     "productLinks": 0,
+     "imgLinks": 0,
+     "itemList": 0
+    },
+    "cards": 0,
+    "cause": "blocked",
+    "who": {
+     "by": "Akamai",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: AkamaiGHost, 쿠키 _abck, 쿠키 bm_so, 쿠키 bm_sz, 쿠키 bm_lso"
+     ]
+    }
+   }
+  }
+ },
+ "catalogs": []
+}
