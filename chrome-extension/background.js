@@ -560,6 +560,8 @@ function colorFromHtml(html) {
 // 순차 처리를 4개 동시로 바꿨다. 대신 실행 시간이 브랜드당 몇 분씩 늘어난다.
 const COMP_PER_RUN = MAX_PER_BRAND;
 const COMP_CONCURRENCY = 4;
+// 혼용률·컬러는 이미 찼지만 상품 상세(설명·디테일·사진)가 없는 상품을 브랜드당 실행마다 이만큼 더 연다.
+const DETAIL_PER_RUN = 100;
 
 // ── 탭으로 읽기 ────────────────────────────────────────────────────
 // 위 fetch 는 서비스워커에서 나가는 '맨 요청'이다. 집 IP 라도 쿠키·JS 실행이 없어서
@@ -588,12 +590,49 @@ function realPage(html) {
   return visible.length >= 600;
 }
 
+// ── 이 상품 페이지를 정말 읽었나(none 판정) 시작 — enrich-comp-browser.mjs 가 이 구간을 떼어 쓰고, 확장 background.js 에 글자 그대로 복사돼 있다
+// realPage 는 '차단 화면이 아니다'까지만 본다. 소재가 없다(none)는 결론은 그보다 강한 근거가
+// 있어야 한다 — none 은 엑셀에 '정보 없음'으로 나가고 그 상품을 한동안 다시 안 보기 때문이다.
+//
+// 11/24 실측: Patagonia 상품 페이지는 fetch·크롬으로 열면 글 1,017자짜리 껍데기만 온다(600자는
+// 넘는다). 그 껍데기를 '읽었다'로 쳐서 남은 167개가 전부 none 이 됐는데, 파이어폭스로 열면
+// 같은 상품에서 혼용률이 나온다. 그래서 none 은 "이 상품의 본문이 그려진 페이지"일 때만 적는다:
+//   · 카탈로그의 상품명이 있으면 — 그 이름의 낱말 대부분(60% 이상)이 화면 글에 있어야 한다.
+//     제목(<title>)만으로는 안 된다. 껍데기도 제목은 갖고 있다.
+//   · 상품명이 없으면 — 상품 신호(JSON-LD Product · og:type product · schema.org/Product)와
+//     화면 글 600자 이상.
+// 아니면 '못 읽음'으로 센다(차단과 같이) — none 을 적지 않는다.
+const NAME_STOP = new Set(["the", "and", "with", "for", "in", "of", "a", "an", "to", "by", "new", "women", "womens",
+  "men", "mens", "s", "x", "de", "la", "le", "et", "en"]);
+function nameWords(name) {
+  return String(name || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "")
+    .split(/[^\p{L}\p{N}]+/u).filter((w) => w.length >= 2 && !NAME_STOP.has(w));
+}
+function productRead(html, name) {
+  const s = String(html || "");
+  const visible = s.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<title[\s\S]*?<\/title>/gi, " ").replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/&#0?39;|&apos;|&rsquo;/gi, "'");
+  const words = nameWords(name);
+  if (words.length) {
+    const hay = " " + nameWords(visible).join(" ") + " ";
+    const hit = words.filter((w) => hay.includes(" " + w + " ")).length;
+    return hit / words.length >= 0.6;
+  }
+  const signal = /"@type"\s*:\s*\[?\s*"Product"|property=["']og:type["'][^>]*content=["']product|itemtype=["'][^"']*schema\.org\/Product/i.test(s);
+  return signal && visible.replace(/\s+/g, " ").trim().length >= 600;
+}
+// ── 이 상품 페이지를 정말 읽었나(none 판정) 끝
+// 소재·상세를 읽기 전에 '이 상품의 본문이 그려진 페이지인가'를 본다(scripts/enrich-comp.mjs 와 글자 그대로 같은 구간).
+
 // 탭 안에서 실행된다(자립 함수여야 한다). 접힌 소재 탭을 펼치고, 퍼센트+섬유가
 // 보일 때까지 최대 6초 기다린 뒤 HTML 을 돌려준다.
 async function readRenderedPage() {
-  const rx = /composition|material|fabric|소재|혼용|content|details/i;
+  // 상품 상세 칸(Description·Features·Fit·Care …)도 함께 펼친다 — 클릭해야 글이 그려지는 사이트가 있다.
+  const rx = /composition|material|fabric|소재|혼용|content|details|description|features|fit\b|care|specifications|overview|highlights/i;
   for (const d of document.querySelectorAll('details')) d.open = true;
   for (const b of document.querySelectorAll('button,[role="button"],summary,[aria-expanded="false"]')) {
+    if (b.closest('nav,header,footer')) continue;
     const t = (b.textContent || '') + ' ' + (b.getAttribute('aria-label') || '');
     if (t.length < 80 && rx.test(t)) { try { b.click(); } catch (e) {} }
   }
@@ -609,7 +648,7 @@ async function readRenderedPage() {
   };
 }
 
-async function readByTab(url, winId) {
+async function readByTab(url, winId, name) {
   let tab = null;
   try {
     tab = winId
@@ -622,9 +661,12 @@ async function readByTab(url, winId) {
     if (!r) return { blocked: true };
     if (CHALLENGE_RX.test(r.title + ' ' + r.head)) return { blocked: true };
     const bits = jsonLdBits(r.html);
+    const isThis = productRead(r.html, name || '');
+    const det = isThis ? detailOf(r.html, url, null) : {};
     return {
-      comp: compFromHtml(r.html), color: bits.color || colorFromHtml(r.html),
-      sizes: bits.sizes, price: bits.price, priceOrig: bits.priceOrig,
+      comp: compFromHtml(r.html) || (isThis ? partsComp(r.html, url) : ''), color: bits.color || colorFromHtml(r.html),
+      sizes: bits.sizes || (det.sizes || []).slice(0, 30).join(', '), price: bits.price || det.price || '', priceOrig: bits.priceOrig || det.priceOrig || '',
+      det: isThis ? detailRec(det) : null,
     };
   } catch (e) {
     return { blocked: true };
@@ -768,6 +810,476 @@ function flagText(f) {
 }
 // ── 저장 직전 가드 규칙 끝
 
+// ── 상품 상세(설명·디테일 글머리표·사진 전부·컬러 전부·코드·통화·재고 사이즈) ─────────────
+// 아래 두 구간은 worker/fabric-extractor.js 의 '상품 상세(detail) 추출' 구간과 scripts/detail-guard.mjs 의
+// '상세 가드 규칙' 구간을 글자 그대로 옮긴 것이다(확장은 자립형 파일이라 복사가 불가피 — test-detail 이 비교한다).
+// 상세는 오버레이(comp:<site>)가 아니라 따로(detail:<site>, Worker ?store=details) 저장한다.
+function titleCase(s) {
+  return String(s).toLowerCase().replace(/\b[a-z]/g, (c) => c.toUpperCase()).trim().slice(0, 40);
+}
+// ── 상품 상세(detail) 추출 시작 — enrich-comp.mjs·enrich-comp-browser.mjs·field-measure.mjs 가 이 구간을 떼어 쓰고,
+//    chrome-extension/background.js 에 글자 그대로 복사돼 있다(scripts/test-detail.mjs 가 비교한다).
+//
+// 무엇을 뽑나(혼용률·컬러 말고 '나머지 상품 정보'):
+//   desc    설명 문단(평문)            feat   디테일 글머리표(핏·기장·넥라인·여밈·주머니·관리법 …)
+//   imgs    상품 사진 전부(갤러리)     colors 이 상품이 나오는 컬러 전부
+//   sku     상품 코드                  cur    통화(USD·GBP …)
+//   sizes   사이즈 전부                sizesIn 재고 있는 사이즈(사이트가 알려 줄 때만)
+//   price / priceOrig / color / name   더 나은 출처가 있을 때 기존 값을 보강
+// 출처 순서: Shopify 공개 JSON → JSON-LD(Product·ProductGroup) → 메타 태그 → 제목이 붙은 본문 칸(Details·Description·
+// Features·Fit·Fabric & Care …). 어디서 왔는지는 src 에 남긴다(현장 지도 docs/field-map.md 의 근거).
+//
+// 지키는 것(이 저장소에서 실제로 틀렸던 자리):
+//   · 메뉴(<nav>)·<template>·머리/꼬리(사이트 공통)·추천 상품("you may also like")·리뷰 칸의 글은 다른 상품의 것 — 지우고 본다.
+//   · 사이트에 적힌 글 그대로. 공백만 다듬고 길이만 자른다(번역·고쳐 쓰기 없음).
+//   · 길이 상한(DETAIL_CAP): 설명 1,500자 · 글머리표 25개 × 220자 · 사진 20장 · 컬러 30개 · 사이즈 40개 · 코드 60자.
+// 이 구간은 다른 함수에 기대지 않는다(확장에 그대로 복사하기 위해서). titleCase 만 예외 — 확장에도 같은 이름이 있다.
+const DETAIL_CAP = { desc: 1500, feat: 25, featLen: 220, imgs: 20, colors: 30, sizes: 40, sku: 60 };
+
+// HTML 조각 → 사람이 읽는 평문(줄 구분은 \n 하나).
+function dtText(s) {
+  return String(s == null ? '' : s)
+    .replace(/<br\s*\/?>/gi, '\n').replace(/<\/(?:p|li|div|h[1-6]|dd|dt|tr)>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;|&#160;|&#xa0;/gi, ' ')
+    .replace(/&quot;|&#34;/gi, '"').replace(/&#0?39;|&apos;|&rsquo;|&lsquo;|&#821[67];/gi, "'")
+    .replace(/&ldquo;|&rdquo;|&#822[01];/gi, '"').replace(/&ndash;|&#8211;/gi, '–').replace(/&mdash;|&#8212;/gi, '—')
+    .replace(/&bull;|&#8226;/gi, '•').replace(/&trade;/gi, '™').replace(/&reg;/gi, '®').replace(/&deg;/gi, '°')
+    .replace(/&eacute;/gi, 'é').replace(/&egrave;/gi, 'è')
+    .replace(/&#(\d{2,5});/g, (m, n) => { const c = Number(n); return c > 31 && c < 65536 ? String.fromCharCode(c) : ' '; })
+    .replace(/&#x([0-9a-f]{2,4});/gi, (m, n) => { const c = parseInt(n, 16); return c > 31 ? String.fromCharCode(c) : ' '; })
+    .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&amp;/gi, '&')
+    .replace(/[ \t\r\f\v ​]+/g, ' ').replace(/ *\n */g, '\n').replace(/\n{2,}/g, '\n').trim();
+}
+const dtClip = (s, n) => { const t = String(s || '').trim(); return t.length > n ? t.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : t; };
+const dtUniq = (arr) => { const seen = new Set(); const out = []; for (const x of arr) { const k = String(x).toLowerCase(); if (x && !seen.has(k)) { seen.add(k); out.push(x); } } return out; };
+
+// 한 요소(여는 태그부터 짝이 맞는 닫는 태그까지)를 통째로 지운다. 같은 이름의 태그 깊이를 센다.
+// test(tag, attrs) 가 참인 요소만. 짝을 못 찾으면 지우지 않고 지나간다.
+const DT_VOID = /^(?:area|base|br|col|embed|hr|img|input|link|meta|source|track|wbr)$/;
+function dtCut(h, test) {
+  let out = '', from = 0;
+  const open = /<([a-zA-Z][a-zA-Z0-9-]*)\b([^>]*)>/g;
+  let m;
+  while ((m = open.exec(h))) {
+    const tag = m[1].toLowerCase();
+    if (DT_VOID.test(tag) || /\/\s*$/.test(m[2]) || !test(tag, m[2])) continue;
+    const rx = new RegExp('<(/?)' + tag + '\\b[^>]*>', 'gi');
+    rx.lastIndex = m.index + m[0].length;
+    let depth = 1, k, end = -1;
+    while ((k = rx.exec(h))) {
+      if (k[1]) { if (--depth === 0) { end = k.index + k[0].length; break; } } else if (!/\/\s*>$/.test(k[0])) depth++;
+    }
+    if (end < 0) continue;
+    out += h.slice(from, m.index) + ' ';
+    from = end;
+    open.lastIndex = end;
+  }
+  return out + h.slice(from);
+}
+// 다른 상품·사이트 공통의 글이 든 칸. class·id 에 이런 말이 있으면 지운다.
+const DT_NOISE_RX = /recommend|related|also[-_ ]?(?:like|love|bought|viewed)|you[-_ ]?may|may[-_ ]?also|upsell|up-sell|cross[-_ ]?sell|recently[-_ ]?viewed|complete[-_ ]?(?:the|your)[-_ ]?look|shop[-_ ]?the[-_ ]?look|wear[-_ ]?it[-_ ]?with|style[-_ ]?it[-_ ]?with|pairs?[-_ ]?(?:well[-_ ]?)?with|mega[-_ ]?menu|site[-_ ]?nav|newsletter|cookie|consent|mini[-_ ]?cart|minicart|cart[-_ ]?drawer|breadcrumb|size[-_ ]?(?:guide|chart)|review|rating|bazaarvoice|yotpo|okendo|klarna|afterpay|loyalty|promo[-_ ]?bar|announcement|search[-_ ]?(?:form|bar|overlay)|skip[-_ ]?link/i;
+const DT_ATTR_RX = /\b(?:class|id|aria-label|data-section-type|data-component)\s*=\s*["']([^"']*)["']/gi;
+function dtAttrs(a) { let s = ''; for (const m of String(a).matchAll(DT_ATTR_RX)) s += ' ' + m[1]; return s; }
+// 본문만 남긴 HTML. 스크립트·스타일·메뉴·<template>·사이트 머리/꼬리·추천 칸을 걷어 낸다.
+function dtBody(html) {
+  let h = String(html || '').slice(0, 1500000)
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(script|style|noscript|svg|template|iframe|select)\b[\s\S]*?<\/\1>/gi, ' ');
+  h = dtCut(h, (tag, a) => {
+    const at = dtAttrs(a);
+    if (tag === 'nav') return true;
+    if (tag === 'aside' || tag === 'dialog') return !/product|pdp/i.test(at);
+    // 머리·꼬리는 사이트 공통 칸일 때만(상품 칸 머리 <header class="product__header"> 는 남긴다)
+    if (tag === 'header' || tag === 'footer') return !/product|pdp|item|accordion|tab/i.test(at);
+    return !!at && DT_NOISE_RX.test(at) && !/\b(?:product|pdp)[-_]?(?:details?|description|info|accordion|tabs?)\b/i.test(at);
+  });
+  return h;
+}
+
+// 칸 제목 — 이 제목이 붙은 칸의 글을 상품 디테일로 본다.
+const DT_DESC_HEAD = /^(?:product\s+)?(?:description|overview|about\s+(?:this|the)\s+(?:product|style|item|piece)|editor'?s?\s+notes?|the\s+story|design\s+notes?|description\s*(?:&|and)\s*details?)$/i;
+const DT_FEAT_HEAD = /^(?:(?:product|style|design|more|the|key|garment)\s+)?(?:details?|features?|highlights?|specifications?|specs)$|^(?:details?\s*(?:&|and)\s*(?:care|fit|fabric|composition)|fit|the\s+fit|fit\s*(?:&|and)\s*(?:size|sizing|measurements?|details?)|size\s*(?:&|and)\s*fit|sizing|(?:fabric|fabrics|materials?|composition|content)\s*(?:&|and)\s*(?:care|fit)|care|care\s+(?:instructions|guide)|fabric(?:\s+details)?|materials?|composition)$/i;
+function dtHeadKind(t) {
+  const s = String(t || '').replace(/[+\-–—:>›▾▸∨⌄˅]+\s*$/, '').replace(/\s+/g, ' ').trim();
+  if (!s || s.length > 40) return '';
+  if (DT_DESC_HEAD.test(s)) return 'desc';
+  if (DT_FEAT_HEAD.test(s)) return 'feat';
+  return '';
+}
+// 사이트 공통 안내(배송·반품·사이즈 안내·결제)는 상품 디테일이 아니다 — 글머리표에서 뺀다.
+const DT_JUNK_RX = /\b(?:free\s+(?:shipping|returns?|delivery)|shipping|delivery|returns?\s+(?:policy|within)|exchanges?|klarna|afterpay|gift\s*card|sign\s+(?:in|up)|log\s*in|add\s+to\s+(?:bag|cart)|size\s+guide|find\s+(?:in|your)\s+(?:store|size)|write\s+a\s+review|newsletter|promo\s+code|subscribe)\b/i;
+
+// 제목이 붙은 본문 칸을 찾아 설명 문단·글머리표를 모은다.
+function dtSections(body) {
+  const heads = [];
+  const rx = /<(button|summary|h[1-6]|dt|span|div|p|label|a|li|strong|b)\b([^>]*)>([\s\S]{1,300}?)<\/\1>/gi;
+  let m;
+  while ((m = rx.exec(body))) {
+    const kind = dtHeadKind(dtText(m[3]));
+    if (kind) { heads.push({ kind, at: m.index, end: m.index + m[0].length }); rx.lastIndex = m.index + m[0].length; }
+    else rx.lastIndex = m.index + 1 + m[1].length;
+  }
+  const desc = [], feat = [], kinds = new Set();
+  for (let i = 0; i < heads.length; i++) {
+    const h = heads[i];
+    const stop = Math.min(i + 1 < heads.length ? heads[i + 1].at : body.length, h.end + 8000);
+    const chunk = body.slice(h.end, stop);
+    const lis = [...chunk.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map((x) => dtText(x[1]).replace(/\n/g, ' ').replace(/^[•·\-*\s]+/, '').trim())
+      .filter((t) => t.length >= 2 && t.length <= 400);
+    let got = 0;
+    if (lis.length) { feat.push(...lis); got += lis.length; }
+    const rest = dtText(chunk.replace(/<(ul|ol)\b[\s\S]*?<\/\1>/gi, ' '));
+    const lines = rest.split('\n').map((x) => x.replace(/^[•·\-*\s]+/, '').trim()).filter((t) => t.length >= 2 && !dtHeadKind(t));
+    if (h.kind === 'desc') {
+      const para = lines.filter((t) => t.length >= 25);
+      if (para.length) { desc.push(para.join('\n')); got++; }
+      if (!lis.length) { const short = lines.filter((t) => t.length < 25 && t.length >= 3); if (short.length >= 2) { feat.push(...short); got += short.length; } }
+    } else if (!lis.length) {
+      // 글머리표 없이 줄로만 적은 칸("Relaxed fit<br>Hits at hip")은 줄이 글머리표다.
+      const ls = lines.filter((t) => t.length <= 220);
+      if (ls.length) { feat.push(...ls); got += ls.length; }
+    }
+    if (got) kinds.add(h.kind);
+  }
+  return { desc, feat, kinds: [...kinds] };
+}
+
+// JSON-LD 의 Product·ProductGroup 노드(중첩·@graph 까지 편다).
+function dtLdNodes(html) {
+  const flat = [];
+  const walk = (n, d) => {
+    if (!n || d > 6) return;
+    if (Array.isArray(n)) { n.forEach((x) => walk(x, d + 1)); return; }
+    if (typeof n !== 'object') return;
+    flat.push(n);
+    if (n['@graph']) walk(n['@graph'], d + 1);
+    if (n.mainEntity) walk(n.mainEntity, d + 1);
+  };
+  const rx = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let m, n = 0;
+  while ((m = rx.exec(String(html || ''))) && n++ < 30) {
+    const raw = m[1].trim().replace(/^<!\[CDATA\[|\]\]>$/g, '');
+    try { walk(JSON.parse(raw), 0); } catch (e) {
+      // 줄바꿈이 문자열 안에 그대로 든 JSON-LD(흔하다) — 공백으로 바꿔 한 번 더.
+      try { walk(JSON.parse(raw.replace(/[\r\n\t]+/g, ' ')), 0); } catch (e2) {}
+    }
+  }
+  const isT = (x, t) => { const v = x && x['@type']; return (Array.isArray(v) ? v : [v]).some((y) => String(y || '').toLowerCase() === t); };
+  return { group: flat.find((x) => isT(x, 'productgroup')) || null, prod: flat.find((x) => isT(x, 'product')) || null, all: flat.filter((x) => isT(x, 'product')) };
+}
+const DT_SYM = { USD: '$', EUR: '€', GBP: '£', KRW: '₩', JPY: '¥', AUD: 'A$', CAD: 'C$' };
+const dtNum = (v) => { const n = Number(String(v == null ? '' : v).replace(/,/g, '').replace(/[^\d.]/g, '')); return Number.isFinite(n) && n > 0 ? n : NaN; };
+const dtMoney = (n, cur) => (Number.isFinite(n) ? (DT_SYM[cur] || (cur ? cur + ' ' : '$')) + String(Math.round(n * 100) / 100) : '');
+function dtImg(v, base) {
+  let u = typeof v === 'string' ? v : (v && (v.url || v.contentUrl || v.src)) || '';
+  u = String(u).trim().replace(/&amp;/g, '&');
+  if (!u) return '';
+  if (u.startsWith('//')) u = 'https:' + u;
+  else if (!/^https?:\/\//i.test(u)) { try { u = new URL(u, base).href; } catch (e) { return ''; } }
+  // 견본 조각(swatch)·로고·아이콘·자리표시는 상품 사진이 아니다.
+  if (/\.svg(?:\?|$)|swatch|logo|icon|placeholder|sprite|spacer|1x1|blank\.gif/i.test(u)) return '';
+  return u;
+}
+const dtImgKey = (u) => String(u).replace(/^https?:/, '').replace(/[?#].*$/, '').replace(/_(?:\d+x\d*|\d*x\d+)(?=\.\w+$)/, '').toLowerCase();
+function dtImgs(list, base) {
+  const out = [], seen = new Set();
+  for (const v of list) {
+    const u = dtImg(v, base);
+    const k = u && dtImgKey(u);
+    if (u && !seen.has(k)) { seen.add(k); out.push(u); }
+    if (out.length >= DETAIL_CAP.imgs) break;
+  }
+  return out;
+}
+const dtAvail = (o) => { const a = String((o && o.availability) || ''); return a ? /instock|limitedavailability|presale|preorder|onlineonly/i.test(a) : null; };
+
+function dtFromLd(html, base) {
+  const { group, prod, all } = dtLdNodes(html);
+  const out = {};
+  const p = prod || group;
+  if (!p) return out;
+  const g = group || {};
+  const variants = Array.isArray(g.hasVariant) ? g.hasVariant : (Array.isArray(p.hasVariant) ? p.hasVariant : []);
+  const vlist = variants.length ? variants : [];
+  out.name = dtText(p.name || g.name || '').slice(0, 200);
+  const d = dtText(g.description || p.description || '');
+  if (d) out.desc = d;
+  const imgs = [].concat(p.image || [], g.image || [], ...vlist.map((v) => (v && v.image) || []));
+  out.imgs = dtImgs(imgs, base);
+  out.sku = String(p.sku || g.productGroupID || p.productGroupID || p.mpn || g.sku || p.productID || '').trim().slice(0, DETAIL_CAP.sku);
+  // 가격: 단일·배열·AggregateOffer. 정가는 priceSpecification 의 ListPrice·StrikethroughPrice.
+  const offers = [];
+  const push = (o) => { if (!o) return; if (Array.isArray(o)) { o.forEach(push); return; } if (typeof o !== 'object') return; offers.push(o); if (o.offers) push(o.offers); };
+  push(p.offers); if (group && p !== group) push(g.offers);
+  vlist.forEach((v) => v && push(v.offers));
+  const curOf = (o) => String(o.priceCurrency || (o.priceSpecification && [].concat(o.priceSpecification)[0] && [].concat(o.priceSpecification)[0].priceCurrency) || '').toUpperCase();
+  const nowOf = (o) => dtNum(o.price != null ? o.price : (o.lowPrice != null ? o.lowPrice : null));
+  const nows = offers.map(nowOf).filter(Number.isFinite);
+  const cur = (offers.map(curOf).find(Boolean) || '').slice(0, 3);
+  if (cur) out.cur = cur;
+  if (nows.length) out.price = dtMoney(Math.min(...nows), cur);
+  const lists = [];
+  for (const o of offers) for (const s of [].concat(o.priceSpecification || [])) {
+    if (s && /listprice|strikethrough|msrp|srp/i.test(String(s.priceType || ''))) { const n = dtNum(s.price); if (Number.isFinite(n)) lists.push(n); }
+  }
+  if (lists.length && nows.length && Math.max(...lists) > Math.min(...nows)) out.priceOrig = dtMoney(Math.max(...lists), cur);
+  // 컬러·사이즈: 변형(hasVariant) 또는 offers.itemOffered
+  const colors = [], sizes = [], sizesIn = [];
+  let stockKnown = false;
+  const take = (node, offer) => {
+    if (!node) return;
+    const c = dtText(node.color || ''); if (c && c.length <= 40) colors.push(c);
+    const s = dtText(node.size && typeof node.size === 'object' ? node.size.name : node.size || '');
+    if (s && s.length <= 20) {
+      sizes.push(s);
+      const av = dtAvail(offer || [].concat(node.offers || [])[0]);
+      if (av !== null) { stockKnown = true; if (av) sizesIn.push(s); }
+    }
+  };
+  for (const v of vlist) take(v);
+  for (const o of offers) if (o.itemOffered) take(o.itemOffered, o);
+  if (!vlist.length) take(p, [].concat(p.offers || [])[0]);
+  if (prod && prod.color) out.color = dtText(prod.color).slice(0, 80);
+  const cs = dtUniq(colors);
+  if (cs.length) out.colors = cs.slice(0, DETAIL_CAP.colors);
+  const ss = dtUniq(sizes);
+  if (ss.length) { out.sizes = ss.slice(0, DETAIL_CAP.sizes); if (stockKnown) out.sizesIn = dtUniq(sizesIn).slice(0, DETAIL_CAP.sizes); }
+  out.ldCount = all.length;
+  return out;
+}
+
+// Shopify 공개 JSON — /products/<handle>.js(가격 센트·재고 available) 또는 .json(가격 문자열·body_html) 둘 다 받는다.
+function dtFromShopify(pr, base) {
+  const out = {};
+  if (!pr || typeof pr !== 'object') return out;
+  const p = pr.product || pr;
+  out.name = dtText(p.title || '').slice(0, 200);
+  const bodyHtml = String(p.body_html || p.description || '');
+  const lis = [...bodyHtml.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map((x) => dtText(x[1]).replace(/\n/g, ' ').trim()).filter((t) => t.length >= 2 && t.length <= 400);
+  const para = dtText(bodyHtml.replace(/<(ul|ol)\b[\s\S]*?<\/\1>/gi, ' '));
+  if (para) out.desc = para;
+  if (lis.length) out.feat = lis;
+  const imgs = (Array.isArray(p.images) ? p.images : []).map((x) => (typeof x === 'string' ? x : x && x.src));
+  if (p.featured_image) imgs.unshift(p.featured_image);
+  out.imgs = dtImgs(imgs, base);
+  const opts = Array.isArray(p.options) ? p.options : [];
+  const optIdx = (rx) => opts.findIndex((o) => rx.test(String(typeof o === 'string' ? o : (o && o.name) || '').trim()));
+  const valsOf = (i) => { const o = opts[i]; return o && Array.isArray(o.values) ? o.values.map((v) => dtText(v)).filter(Boolean) : []; };
+  const ci = optIdx(/^(?:colou?rs?|colou?rway|shade|wash|색상|컬러)$/i), si = optIdx(/^(?:sizes?|사이즈)$/i);
+  if (ci >= 0) out.colors = dtUniq(valsOf(ci)).slice(0, DETAIL_CAP.colors);
+  const vs = Array.isArray(p.variants) ? p.variants : [];
+  if (si >= 0) {
+    out.sizes = dtUniq(valsOf(si)).slice(0, DETAIL_CAP.sizes);
+    if (vs.some((v) => v && typeof v.available === 'boolean')) {
+      const key = 'option' + (si + 1);
+      out.sizesIn = dtUniq(vs.filter((v) => v && v.available).map((v) => dtText(v[key] || ''))).filter(Boolean).slice(0, DETAIL_CAP.sizes);
+    }
+  }
+  // .js 는 가격이 센트(정수), .json 은 "98.00" 문자열이다.
+  const cents = typeof p.price === 'number' || vs.some((v) => v && typeof v.price === 'number');
+  const amt = (v) => { const n = dtNum(v); return Number.isFinite(n) ? (cents ? n / 100 : n) : NaN; };
+  const now = vs.map((v) => amt(v && v.price)).filter(Number.isFinite);
+  const was = vs.map((v) => amt(v && v.compare_at_price)).filter(Number.isFinite);
+  const cur = String((vs[0] && vs[0].price_currency) || '').toUpperCase().slice(0, 3);
+  if (cur) out.cur = cur;
+  if (now.length) out.price = dtMoney(Math.min(...now), cur || 'USD');
+  if (now.length && was.length && Math.max(...was) > Math.min(...now)) out.priceOrig = dtMoney(Math.max(...was), cur || 'USD');
+  // 상품 코드: 변형 코드들의 공통 앞부분(사이즈 꼬리를 뗀 것), 없으면 첫 변형 코드.
+  const skus = vs.map((v) => String((v && v.sku) || '').trim()).filter(Boolean);
+  if (skus.length) {
+    let pre = skus[0];
+    for (const s of skus) while (pre && !s.startsWith(pre)) pre = pre.slice(0, -1);
+    pre = pre.replace(/[-_.\s]+$/, '');
+    out.sku = (skus.length > 1 && pre.length >= 4 ? pre : skus[0]).slice(0, DETAIL_CAP.sku);
+  }
+  return out;
+}
+
+// 메타 태그(og·product:) — 가격·통화·사진. 설명(og:description)은 사이트 공통 문구인 경우가 많아 맨 뒤 대안으로만.
+function dtFromMeta(html, base) {
+  const h = String(html || '').slice(0, 400000);
+  const metas = [...h.matchAll(/<meta\b[^>]*>/gi)].map((x) => x[0]);
+  const keyOf = (t) => (t.match(/\b(?:property|name|itemprop)\s*=\s*["']([^"']+)["']/i) || [])[1] || '';
+  const valOf = (t) => (t.match(/\bcontent\s*=\s*"([^"]*)"/i) || t.match(/\bcontent\s*=\s*'([^']*)'/i) || [])[1];
+  const get = (rx) => { for (const t of metas) { const v = valOf(t); if (v != null && rx.test(keyOf(t))) return dtText(v); } return ''; };
+  const all = (rx) => metas.filter((t) => rx.test(keyOf(t))).map(valOf).filter(Boolean);
+  const out = {};
+  const cur = get(/^(?:product|og):price:currency$|^priceCurrency$/i).toUpperCase().slice(0, 3);
+  if (cur) out.cur = cur;
+  const amt = dtNum(get(/^(?:product|og):price:amount$|^price$/i));
+  if (Number.isFinite(amt)) out.price = dtMoney(amt, cur);
+  const orig = dtNum(get(/^(?:product|og):original_price:amount$/i));
+  if (Number.isFinite(orig) && Number.isFinite(amt) && orig > amt) out.priceOrig = dtMoney(orig, cur);
+  out.imgs = dtImgs(all(/^og:image(?::secure_url|:url)?$/i), base);
+  out.desc = get(/^og:description$|^description$/i);
+  out.color = get(/^(?:product|og):colou?r$/i);
+  return out;
+}
+
+// Inditex(Massimo Dutti·Zara) 형 — 소재가 화면 글이 아니라 페이지 JSON 의 parts/components 에만 있다:
+//   "parts":[{"description":"OUTER SHELL","components":[{"material":"cotton","percentage":"93%"},…]}]
+// 추천 상품의 소재가 같은 JSON 에 섞일 수 있어, 서로 다른 조성이 둘 이상이면(이 상품의 것인지 모름) 버린다 —
+// 단 주소의 상품 번호(…-l06853106 · …-p01234567)가 나온 자리 바로 뒤 8,000자 안의 것은 이 상품의 것으로 본다.
+function compFromPartsJson(html, url) {
+  const h = String(html || '').replace(/\\"/g, '"').replace(/\\u002[fF]/g, '/');
+  const groups = [];
+  for (const m of h.matchAll(/"parts"\s*:\s*\[/g)) {
+    const seg = h.slice(m.index, m.index + 6000);
+    const lines = [];
+    for (const pm of seg.matchAll(/"description"\s*:\s*"([^"]{0,40})"(?:(?!"description")[\s\S]){0,400}?"components"\s*:\s*\[([^\]]*)\]/g)) {
+      const items = [...pm[2].matchAll(/"material"\s*:\s*"([A-Za-z][A-Za-z ]{1,30})"\s*,\s*"percentage"\s*:\s*"?(\d{1,3}(?:[.,]\d+)?)\s*%?"?/g)]
+        .map((c) => ({ material: titleCase(c[1].trim()), percent: Math.round(Number(c[2].replace(',', '.'))) }));
+      const sum = items.reduce((n, c) => n + c.percent, 0);
+      if (items.length && sum >= 95 && sum <= 105) lines.push(items);
+      if (lines.length >= 2) break;
+    }
+    if (lines.length) groups.push({ at: m.index, text: lines.map((l) => l.map((c) => c.material + ' ' + c.percent + '%').join(' / ')).join('\n'), lines });
+  }
+  if (!groups.length) return [];
+  const uniq = [...new Set(groups.map((g) => g.text))];
+  let pick = uniq.length === 1 ? groups[0] : null;
+  if (!pick) {
+    const id = (String(url || '').match(/[lp](\d{7,9})(?:[?#./]|$)/i) || [])[1];
+    if (id) {
+      const at = h.indexOf(id);
+      const near = at >= 0 ? groups.filter((g) => g.at > at && g.at - at < 8000) : [];
+      if (near.length) pick = near[0];
+    }
+  }
+  if (!pick) return [];
+  return pick.lines.flatMap((l, n) => l.map((c) => ({ ...c, line: n })));
+}
+
+// 한 상품 페이지의 상세 정보. html(없어도 됨)·shop(Shopify JSON, 없어도 됨)·url.
+// 배열은 이미 상한으로 잘려 있다. src = 항목별 출처(shopify·jsonld·meta·dom).
+function detailOf(html, url, shop) {
+  const base = url || 'https://example.invalid/';
+  const sp = shop ? dtFromShopify(shop, base) : {};
+  const ld = html ? dtFromLd(html, base) : {};
+  const mt = html ? dtFromMeta(html, base) : {};
+  const dom = html ? dtSections(dtBody(html)) : { desc: [], feat: [], kinds: [] };
+  const out = { src: {} };
+  const pick = (k, cands) => {
+    for (const [s, v] of cands) {
+      if (Array.isArray(v) ? v.length : (v != null && String(v).trim())) { out[k] = v; out.src[k] = s; return; }
+    }
+  };
+  pick('name', [['shopify', sp.name], ['jsonld', ld.name]]);
+  // 설명: Shopify 본문 → JSON-LD → 본문 칸. og:description 은 마지막(사이트 공통 문구가 흔하다).
+  pick('desc', [['shopify', sp.desc], ['jsonld', ld.desc], ['dom', dom.desc.join('\n')], ['meta', mt.desc]]);
+  // 글머리표: 본문 칸 → Shopify 본문 목록(본문 칸이 핏·관리법 칸까지 더 넓게 담는다).
+  pick('feat', [['dom', dom.feat], ['shopify', sp.feat]]);
+  pick('imgs', [['shopify', sp.imgs], ['jsonld', ld.imgs], ['meta', mt.imgs]]);
+  pick('colors', [['shopify', sp.colors], ['jsonld', ld.colors]]);
+  pick('sizes', [['shopify', sp.sizes], ['jsonld', ld.sizes]]);
+  pick('sizesIn', [['shopify', sp.sizesIn], ['jsonld', ld.sizesIn]]);
+  pick('sku', [['shopify', sp.sku], ['jsonld', ld.sku]]);
+  pick('cur', [['jsonld', ld.cur], ['meta', mt.cur], ['shopify', sp.cur]]);
+  pick('price', [['shopify', sp.price], ['jsonld', ld.price], ['meta', mt.price]]);
+  pick('priceOrig', [['shopify', sp.priceOrig], ['jsonld', ld.priceOrig], ['meta', mt.priceOrig]]);
+  pick('color', [['jsonld', ld.color], ['meta', mt.color]]);
+  if (out.desc) out.desc = dtClip(out.desc, DETAIL_CAP.desc);
+  if (out.feat) {
+    out.feat = dtUniq(out.feat.map((t) => dtClip(t.replace(/\s+/g, ' '), DETAIL_CAP.featLen)))
+      .filter((t) => !DT_JUNK_RX.test(t)).slice(0, DETAIL_CAP.feat);
+    if (!out.feat.length) { delete out.feat; delete out.src.feat; }
+  }
+  if (out.name) out.name = dtClip(out.name, 200);
+  if (out.color && out.color.length > 40) { delete out.color; delete out.src.color; }
+  out.domKinds = dom.kinds;
+  return out;
+}
+// ── 상품 상세(detail) 추출 끝
+
+// ── 상세 가드 규칙 시작 — chrome-extension/background.js 에 글자 그대로 복사돼 있다(test-detail-guard 가 비교)
+const DETAIL_GUARD = { DESC_MIN: 5, DESC_SHARE: 0.5, FEAT_MIN: 10, FEAT_SHARE: 0.8 };
+const dgNorm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9가-힣%]+/g, ' ').trim();
+const dgName = (s) => dgNorm(s).replace(/\b(?:xs|s|m|l|xl|xxl|petite|tall|plus)\b/g, ' ').replace(/\s+/g, ' ').trim();
+
+// stored·incoming: [{url, name, desc, feat}] (같은 상품은 이번 값으로 본다).
+// 돌려주는 것: { holdDesc: Set(설명 정규화 키), dropFeat: Set(글머리표 정규화 키), stats }
+function detailFlags(stored, incoming, rule = DETAIL_GUARD) {
+  const inc = new Map();
+  for (const p of incoming || []) if (p && p.url) inc.set(p.url, p);
+  const all = [...(stored || []).filter((p) => p && p.url && !inc.has(p.url)), ...inc.values()];
+  // 같은 이름(다른 색·다른 주소)의 상품은 한 상품으로 센다.
+  const byName = new Map();
+  for (const p of all) {
+    const k = dgName(p.name) || p.url;
+    const e = byName.get(k) || { desc: new Set(), feat: new Set() };
+    if (p.desc) e.desc.add(dgNorm(p.desc));
+    for (const f of p.feat || []) e.feat.add(dgNorm(f));
+    byName.set(k, e);
+  }
+  const groups = [...byName.values()];
+  const withDesc = groups.filter((g) => g.desc.size).length;
+  const withFeat = groups.filter((g) => g.feat.size).length;
+  const dc = new Map(), fc = new Map();
+  for (const g of groups) {
+    for (const d of g.desc) dc.set(d, (dc.get(d) || 0) + 1);
+    for (const f of g.feat) fc.set(f, (fc.get(f) || 0) + 1);
+  }
+  const holdDesc = new Set(), dropFeat = new Set();
+  for (const [k, n] of dc) if (k && n >= rule.DESC_MIN && n / Math.max(1, withDesc) >= rule.DESC_SHARE) holdDesc.add(k);
+  for (const [k, n] of fc) if (k && n >= rule.FEAT_MIN && n / Math.max(1, withFeat) >= rule.FEAT_SHARE) dropFeat.add(k);
+  return { holdDesc, dropFeat, stats: { products: groups.length, withDesc, withFeat } };
+}
+
+// 이번 값 하나에 가드를 적용한다. 무엇을 뺐는지 함께 돌려준다.
+function detailApply(rec, flags) {
+  const out = { ...rec };
+  const why = [];
+  if (out.desc && flags.holdDesc.has(dgNorm(out.desc))) { why.push('desc'); delete out.desc; }
+  if (Array.isArray(out.feat) && out.feat.length) {
+    const keep = out.feat.filter((f) => !flags.dropFeat.has(dgNorm(f)));
+    if (keep.length !== out.feat.length) why.push('feat-' + (out.feat.length - keep.length));
+    if (keep.length) out.feat = keep; else delete out.feat;
+  }
+  return { rec: out, why };
+}
+
+// 상세 저장값(detail:<site>, {상품URL: {desc, feat, imgs, colors, sku, cur, sizesIn, dt}})에 이번 값을 합친다.
+// 이번에 읽은 값이 있으면 그 칸은 이번 값으로 바꾼다(가격·재고처럼 바뀌는 칸이 있다). 없으면 예전 값을 둔다.
+// dt = 상세를 마지막으로 읽은 시각. 1,000개 상한(오버레이와 같게, 오래된 것부터 뺀다).
+const DETAIL_FIELDS = ['desc', 'feat', 'imgs', 'colors', 'sku', 'cur', 'sizesIn'];
+function mergeDetails(map, incoming, now) {
+  const merged = { ...(map || {}) };
+  let added = 0;
+  for (const [url, rec] of Object.entries(incoming || {})) {
+    const cur = { ...(merged[url] || {}) };
+    let n = 0;
+    for (const k of DETAIL_FIELDS) {
+      const v = rec && rec[k];
+      const has = Array.isArray(v) ? v.length > 0 : v != null && String(v).trim() !== '';
+      if (has) { if (JSON.stringify(cur[k]) !== JSON.stringify(v)) n++; cur[k] = v; }
+    }
+    cur.dt = now;
+    merged[url] = cur;
+    if (n) added++;
+  }
+  const keys = Object.keys(merged);
+  if (keys.length > 1000) {
+    keys.sort((a, z) => (merged[a].dt || 0) - (merged[z].dt || 0));
+    for (const k of keys.slice(0, keys.length - 1000)) delete merged[k];
+  }
+  return { merged, added };
+}
+// ── 상세 가드 규칙 끝
+
+// Massimo Dutti 형(소재가 페이지 JSON 에만) — compFromPartsJson 결과를 저장 형식 문자열로.
+function partsComp(html, url) {
+  const lines = [];
+  for (const c of compFromPartsJson(html, url)) { const n = c.line || 0; (lines[n] = lines[n] || []).push(c.material + ' ' + c.percent + '%'); }
+  return lines.filter(Boolean).map((l) => l.join(' / ')).join('\n');
+}
+// 상세 결과 → 저장할 칸만(빈 칸 뺌). scripts/detail-core.mjs 의 detailRecord 와 같은 규칙.
+function detailRec(d) {
+  const out = {};
+  for (const k of DETAIL_FIELDS) { const v = d && d[k]; if (Array.isArray(v) ? v.length : v != null && String(v).trim()) out[k] = v; }
+  return out;
+}
+
 async function enrichComps(g, cfg, manual, winId, stopAt) {
   const tok = cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '';
   let cat;
@@ -803,7 +1315,17 @@ async function enrichComps(g, cfg, manual, winId, stopAt) {
     // 상품을 매번 다시 읽느라 정작 손 안 댄 상품까지 차례가 안 온다.
     return o.t && now - o.t < RETRY_MS;
   };
-  const todo = (cat.items || []).filter((p) => p && p.productUrl && !full(p)).slice(0, COMP_PER_RUN);
+  // 상품 상세 저장값 — 혼용률·컬러가 이미 찬 상품도 상세가 없으면 실행마다 DETAIL_PER_RUN 개씩 연다.
+  // 못 읽으면 null(이번엔 상세 보강·저장을 하지 않는다).
+  let dmap = null;
+  try {
+    const r = await fetch(cfg.worker + '/?details=' + encodeURIComponent(g.site) + tok);
+    if (r.ok) { const j = await r.json(); if (j && typeof j === 'object' && !Array.isArray(j) && !j.error) dmap = j; }
+  } catch (e) {}
+  const todo0 = (cat.items || []).filter((p) => p && p.productUrl && !full(p)).slice(0, COMP_PER_RUN);
+  const backfill = dmap ? (cat.items || []).filter((p) => p && p.productUrl && full(p) && val(overlay[p.productUrl], 'comp') && !dmap[p.productUrl])
+    .slice(0, DETAIL_PER_RUN) : [];
+  const todo = todo0.concat(backfill);
   if (!todo.length) return 0;
   const comps = {};
   const tabQueue = [];   // fetch 로는 막혀서 탭으로 다시 읽을 상품
@@ -813,7 +1335,8 @@ async function enrichComps(g, cfg, manual, winId, stopAt) {
     await waitAway(g.brand, manual);   // 상품 페이지 읽기도 자리를 비운 동안에만
     if (!state.running) return;
     try {
-      const got = { comp: '', color: '', sizes: '', price: '', priceOrig: '' };
+      const got = { comp: '', color: '', sizes: '', price: '', priceOrig: '', det: null };
+      let shopPr = null;
       // Shopify 상품은 공개 JSON 이 훨씬 싸고 사이즈·컬러·가격이 구조화돼 있다.
       const m = p.productUrl.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
       if (m) {
@@ -836,12 +1359,16 @@ async function enrichComps(g, cfg, manual, winId, stopAt) {
             const hi = was.length ? Math.max(...was) : NaN;
             if (Number.isFinite(lo)) got.price = '$' + lo;
             if (Number.isFinite(hi) && Number.isFinite(lo) && hi > lo) got.priceOrig = '$' + hi;
+            shopPr = pr;
+            got.det = detailRec(detailOf('', p.productUrl, pr));
           }
         } catch (e) {}
       }
       // 부족한 항목은 페이지 HTML(JSON-LD + 본문)에서 보강.
       let fetchBlocked = false;
-      if (!got.comp || !got.sizes || !got.color || !got.price) {
+      // 상세(설명·디테일 글머리표)는 페이지 본문 칸에만 있는 사이트가 많아, 없으면 페이지도 연다.
+      const needDet = !(got.det && (got.det.desc || got.det.feat));
+      if (!got.comp || !got.sizes || !got.color || !got.price || needDet) {
         let html = '';
         try {
           const resp = await fetch(p.productUrl, { credentials: 'omit' });
@@ -855,6 +1382,15 @@ async function enrichComps(g, cfg, manual, winId, stopAt) {
           if (!got.price) got.price = bits.price;
           if (!got.priceOrig) got.priceOrig = bits.priceOrig;
           if (!got.comp) got.comp = compFromHtml(html);
+          // 이 상품의 본문이 그려진 페이지일 때만 상세·JSON 속 소재를 믿는다.
+          if (productRead(html, p.name || '')) {
+            if (!got.comp) got.comp = partsComp(html, p.productUrl);
+            const d = detailOf(html, p.productUrl, shopPr);
+            got.det = detailRec(d);
+            if (!got.sizes) got.sizes = (d.sizes || []).slice(0, 30).join(', ');
+            if (!got.price) got.price = d.price || '';
+            if (!got.priceOrig) got.priceOrig = d.priceOrig || '';
+          }
         }
       }
       // fetch 가 막혀 혼용률을 못 얻었으면 탭으로 다시 읽을 차례를 기다린다.
@@ -883,10 +1419,11 @@ async function enrichComps(g, cfg, manual, winId, stopAt) {
     await waitAway(g.brand, manual);
     if (!state.running) break;
     state.current = g.brand + ' · 탭으로 혼용률 ' + (tabTried + 1) + '/' + Math.min(tabQueue.length, TAB_PER_RUN);
-    const r = await readByTab(p.productUrl, winId);
+    const r = await readByTab(p.productUrl, winId, p.name);
     tabTried++;
     if (r.blocked) { tabBlocked++; continue; }   // 막힌 상품은 시도 시각을 찍지 않는다 — 다음에 다시
     for (const k of ['comp', 'color', 'sizes', 'price', 'priceOrig']) if (!got[k] && r[k]) got[k] = r[k];
+    if (r.det) got.det = { ...(got.det || {}), ...r.det };
     if (got.comp) tabOk++;
     comps[p.productUrl] = got;
     await sleep(1500);   // 사이트 부담·차단 방지 텀
@@ -934,12 +1471,37 @@ async function enrichComps(g, cfg, manual, winId, stopAt) {
   }
   const mk = Object.keys(merged);
   if (mk.length > 1000) for (const k of mk.slice(0, mk.length - 1000)) delete merged[k];
+  let stored = 0;
   try {
     const r = await (await fetch(cfg.worker + '/?store=overlay&site=' + encodeURIComponent(g.site) + tok, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(merged),
     })).json();
-    return r.ok ? patched : 0;
+    stored = r.ok ? patched : 0;
+  } catch (e) { stored = 0; }
+  await storeDetails(g, cfg, cat.items || [], comps, dmap);
+  return stored;
+}
+
+// 상품 상세 저장(detail:<site>). 저장값을 먼저 읽고 — 못 읽으면 저장하지 않는다(빈 값으로 덮어쓰지 않게) —
+// 저장 직전 가드(브랜드 대부분에 똑같이 붙은 설명·글머리표 빼기) 뒤 합쳐 통째로 넘긴다(Worker 는 파싱하지 않는다).
+async function storeDetails(g, cfg, items, comps, map) {
+  const tok = cfg.token ? '&token=' + encodeURIComponent(cfg.token) : '';
+  const inc = {};
+  for (const [url, got] of Object.entries(comps)) if (got && got.det) inc[url] = got.det;
+  if (!Object.keys(inc).length || !map) return 0;
+  const nameOf = new Map(items.map((p) => [p.productUrl, p.name || '']));
+  const flags = detailFlags(Object.entries(map).map(([url, d]) => ({ url, name: nameOf.get(url) || '', desc: d && d.desc, feat: d && d.feat })),
+    Object.entries(inc).map(([url, d]) => ({ url, name: nameOf.get(url) || '', desc: d.desc, feat: d.feat })));
+  const clean = {};
+  for (const [url, d] of Object.entries(inc)) clean[url] = detailApply(d, flags).rec;
+  const { merged, added } = mergeDetails(map, clean, Date.now());
+  try {
+    const r = await (await fetch(cfg.worker + '/?store=details&site=' + encodeURIComponent(g.site) + tok, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(merged),
+    })).json();
+    if (r.ok && added) pushLog({ url: g.site, ok: true, count: added, msg: `${g.brand} · 상품 상세(설명·디테일·사진) ${added}개` });
+    return r.ok ? added : 0;
   } catch (e) { return 0; }
 }
 

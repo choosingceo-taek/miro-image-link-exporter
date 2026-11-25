@@ -101,6 +101,14 @@ else {
   // 200 으로 온 봇 확인 화면도 차단이다 — none 으로 적으면 안 된다.
   if (p(5)) fail(`봇 확인 화면이 저장됐다 — ${JSON.stringify(p(5))}`);
   // 늦게 그려지는 소재도 읽어야 한다.
+  // 상품 상세: 'Details' 를 눌러야 그려지는 글머리표 — 펼쳐서 읽고 detail:<site> 에 따로 저장한다(오버레이에는 없다).
+  const dl = savedRaw.split("\n").find((l) => l.startsWith("DETAILS:"));
+  if (!dl) fail("상품 상세 저장 요청이 없었다");
+  else {
+    const d1 = JSON.parse(dl.slice(8))[`http://localhost:${PORT}/p/1`] || {};
+    if (JSON.stringify(d1.feat) !== JSON.stringify(["Relaxed fit", "Ribbed crew neck"])) fail(`클릭해야 그려지는 디테일: ${JSON.stringify(d1)}`);
+  }
+  if (p(1) && (p(1).feat || p(1).desc)) fail("상세가 오버레이에 섞였다");
   if (!p(6) || p(6).comp !== "Wool 70% / Nylon 30%") fail(`늦게 그려지는 소재: ${JSON.stringify(p(6))}`);
   // 껍데기(상품명이 화면 글에 없음)는 none 으로 적지 않는다 — Patagonia 167개가 이렇게 잘못 적혔다.
   if (p(7)) fail(`껍데기 페이지가 저장됐다 — ${JSON.stringify(p(7))}`);

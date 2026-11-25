@@ -54,6 +54,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
 import { guardRun, flagText } from "./comp-guard.mjs";
+import { detailOf, compFromPartsJson, detailRecord } from "./detail-core.mjs";
+import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -389,6 +391,7 @@ for (const c of targets) {
 
   const stat = { ok: 0, none: 0, shell: 0, blocked: 0, err: 0 };
   const patch = {};
+  const dpatch = {};   // 상품 상세 — detail:<site> 에 따로 저장
   let i = 0;
   let ctx;
   try { ctx = await contextFor(c.engine); }
@@ -406,8 +409,11 @@ for (const c of targets) {
           await page.evaluate(() => {
             for (const d of document.querySelectorAll("details")) d.open = true;
             const rx = /composition|material|fabric|소재|혼용|content/i;
+            // 상품 상세 칸(Details·Description·Features·Fit …)도 펼친다 — 클릭해야 글이 그려지는 사이트가 있다.
+            const dx = /^(?:product\s+)?(?:details?|description|features?|fit|size\s*(?:&|and)\s*fit|fit\s*(?:&|and)\s*sizing|care|specifications|overview|highlights)\b/i;
             for (const b of document.querySelectorAll('button,[role="button"],summary,[aria-expanded="false"]')) {
-              if (rx.test(b.textContent || "") || rx.test(b.getAttribute("aria-label") || "")) {
+              const t = (b.textContent || "").trim();
+              if (rx.test(t) || rx.test(b.getAttribute("aria-label") || "") || (t.length < 60 && dx.test(t) && !b.closest("nav,header,footer"))) {
                 try { b.click(); } catch (e) {}
               }
             }
@@ -424,14 +430,19 @@ for (const c of targets) {
           const head = (await page.title().catch(() => "")) + " " +
             (await page.locator("body").innerText().catch(() => "")).slice(0, 600);
           if (CHALLENGE_RX.test(head)) { stat.blocked++; continue; }
+          const isThis = productRead(html, p.name || "");
           const comp = asComp(compFromHtml(html)) ||
-            asComp(compFromText(html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " ")));
+            asComp(compFromText(html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " "))) ||
+            // Massimo Dutti 형 — 소재가 페이지 JSON(parts/components)에만. 이 상품의 본문일 때만 믿는다.
+            (isThis ? asComp(compFromPartsJson(html, p.productUrl)) : "");
           const color = colorFromHtml(html);
+          // 상품 상세(설명·디테일·사진 전부 …) — 이 상품의 본문이 그려진 페이지일 때만.
+          if (isThis) dpatch[p.productUrl] = detailRecord(detailOf(html, p.productUrl, null));
           if (validComp(comp)) {
             patch[p.productUrl] = { comp, ...(color ? { color } : {}) };
             reads.push({ brand: c.brand, name: p.name || "", url: p.productUrl, comp });
             stat.ok++;
-          } else if (productRead(html, p.name || "")) {
+          } else if (isThis) {
             // 이 상품의 본문이 그려진 페이지인데 소재 표기가 없다 = 사이트가 안 적는다.
             patch[p.productUrl] = { none: 1, ...(color ? { color } : {}) };
             stat.none++;
@@ -521,6 +532,29 @@ for (const c of targets) {
       } catch (e) { if (a === 2) console.log(`    !! 저장 오류 ${String(e.message || e)}`); }
       if (!saved) await new Promise((r2) => setTimeout(r2, 2000));
     }
+  }
+  // 상품 상세 저장 — 저장값을 먼저 읽고(못 읽으면 저장하지 않는다), 가드(detail-guard.mjs) 뒤 합쳐 통째로 넘긴다.
+  if (STORE && Object.keys(dpatch).length) {
+    let dmap = null;
+    try {
+      const r = await fetch(`${WORKER}/?details=${encodeURIComponent(c.site)}${tok}`, { signal: AbortSignal.timeout(30000) });
+      if (r.ok) { const j = await r.json(); if (j && typeof j === "object" && !Array.isArray(j) && !j.error) dmap = j; }
+    } catch (e) {}
+    if (dmap) {
+      const nameOf = new Map((cat.items || []).map((p) => [p.productUrl, p.name || ""]));
+      const flags = detailFlags(Object.entries(dmap).map(([url, d]) => ({ url, name: nameOf.get(url) || "", desc: d && d.desc, feat: d && d.feat })),
+        Object.entries(dpatch).map(([url, d]) => ({ url, name: nameOf.get(url) || "", desc: d.desc, feat: d.feat })));
+      const clean = {};
+      for (const [u, d] of Object.entries(dpatch)) clean[u] = detailApply(d, flags).rec;
+      const { merged: dm, added } = mergeDetails(dmap, clean, Date.now());
+      try {
+        const r = await fetch(`${WORKER}/?store=details&site=${encodeURIComponent(c.site)}${tok}`, {
+          method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dm), signal: AbortSignal.timeout(60000),
+        });
+        const j = await r.json().catch(() => null);
+        console.log(`    상세 ${j && j.ok ? "저장" : "저장 실패"} — +${added}`);
+      } catch (e) { console.log(`    !! 상세 저장 오류 ${String(e.message || e)}`); }
+    } else console.log("    상세 저장값을 못 읽어 상세는 저장하지 않음");
   }
 }
 

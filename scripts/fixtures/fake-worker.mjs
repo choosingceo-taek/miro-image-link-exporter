@@ -30,7 +30,10 @@ const OVERLAY = {
 
 const PAGES = {
   // 평범한 표기
-  "/p/1": `<html><body><h1>Waffle Tee</h1><div class="detail">Composition: 95% Cotton, 5% Elastane</div></body></html>`,
+  "/p/1": `<html><body><h1>Waffle Tee</h1><div class="detail">Composition: 95% Cotton, 5% Elastane</div>
+     <button id="det" aria-expanded="false">Details</button><div id="detbox"></div>
+     <script>document.getElementById("det").addEventListener("click", () => {
+       document.getElementById("detbox").innerHTML = "<ul><li>Relaxed fit</li><li>Ribbed crew neck</li></ul>"; });</script></body></html>`,
   // 접힌 details 안 — 펼치기 로직이 없으면 못 읽는다
   "/p/2": `<html><body><h1>Lined Coat</h1>
      <details><summary>Composition</summary><p>Shell: 100% Wool</p><p>Lining: 100% Polyester</p></details>
@@ -59,6 +62,12 @@ createServer((req, res) => {
   if (u.searchParams.has("catalogs")) return j({ list: [{ site: "test.com.testbrand", brand: "TestBrand", count: ITEMS.length, updated: Date.now() }] });
   if (u.searchParams.has("catalog")) return j({ brand: "TestBrand", items: ITEMS });
   if (u.searchParams.has("comps")) return j(OVERLAY);
+  // 상품 상세 저장값(detail:<site>) — 처음엔 비어 있다. 저장 요청은 DETAILS: 줄로 남긴다.
+  if (u.searchParams.has("details")) return j({});
+  if (u.searchParams.get("store") === "details") {
+    let b = ""; req.on("data", (d) => (b += d));
+    return req.on("end", () => { console.error("DETAILS:" + b); j({ ok: true }); });
+  }
   if (u.searchParams.get("store") === "overlay") {
     let b = ""; req.on("data", (d) => (b += d));
     return req.on("end", () => { saved = JSON.parse(b); console.error("SAVED:" + JSON.stringify(saved)); j({ ok: true }); });
