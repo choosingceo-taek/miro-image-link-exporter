@@ -22,7 +22,13 @@ const J = (p) => JSON.parse(readFileSync(p, "utf8"));
 const links = J(join(IN, "category-links.json"));
 const blocked = J(join(IN, "blocked-brands.json"));
 const audit = J(join(IN, "catalog-audit.json"));
+// 헤드리스 야간은 두 잡 — 추가 브랜드 잡 리포트(browser-collect-extra-report.json)가 입력 폴더에 있으면 함께 본다.
 const bc = J(join(IN, "browser-collect-report.json"));
+if (existsSync(join(IN, "browser-collect-extra-report.json"))) {
+  const bcx = J(join(IN, "browser-collect-extra-report.json"));
+  const have = new Set((bc.results || []).map((x) => x.brand));
+  bc.results = [...(bc.results || []), ...(bcx.results || []).filter((x) => !have.has(x.brand))];
+}
 const ebState = J(join(IN, "enrich-browser-state.json"));
 const verdicts = existsSync(join(ROOT, "access-measure/verdicts.json")) ? J(join(ROOT, "access-measure/verdicts.json")) : {};
 const prefetch = readdirSync(IN).filter((f) => /^prefetch-report-/.test(f)).sort().reverse().map((f) => J(join(IN, f)));

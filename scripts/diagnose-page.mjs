@@ -31,8 +31,14 @@ let URLS = (process.argv.slice(2).length
 // 나온 페이지만 본다. 차단(403·봇 확인)과 마감으로 미룬 것은 선택자 문제가 아니라 뺀다.
 if (!URLS.length) {
   try {
+    // 야간은 두 잡이라 리포트도 둘이다 — Render 그룹(browser-collect-report.json)과
+    // 추가 브랜드(browser-collect-extra-report.json). 둘 다 본다(EXTRA_REPORT 로 바꿀 수 있음).
     const rep = JSON.parse(readFileSync(process.env.REPORT || new URL("../browser-collect-report.json", import.meta.url), "utf8"));
-    for (const r of rep.results || []) {
+    let extra = { results: [] };
+    try {
+      extra = JSON.parse(readFileSync(process.env.EXTRA_REPORT || new URL("../browser-collect-extra-report.json", import.meta.url), "utf8"));
+    } catch (e) {}
+    for (const r of [...(rep.results || []), ...(extra.results || [])]) {
       if (r.deferred || r.cut) continue;
       for (const u of r.perUrl || []) {
         if (u.count === 0 && u.url && !/차단|HTTP 4\d\d|응답 없음|마감/.test(u.note || "")) URLS.push(u.url);
