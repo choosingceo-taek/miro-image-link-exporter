@@ -304,8 +304,10 @@ for (const [k, f] of [["{{KEY_POINTS}}", "key-points.md"], ["{{VENDOR_NOTES}}", 
     const kind = kindOfUrl.get(url) || "product";
     const engs = (kind === "listing" ? FREE_L : FREE_P).filter((e) => o[e]);
     if (!engs.length || engs.some((e) => o[e].some((x) => x.cause === "ok"))) continue;
-    if (!engs.some((e) => o[e].some((x) => ["blocked", "rate-limit", "conn-drop", "timeout"].includes(x.cause)))) continue;   // 차단이 아닌 실패(죽은 주소 등)는 뺀다
+    if (!engs.some((e) => e !== "server" && o[e].some((x) => ["blocked", "rate-limit", "conn-drop", "timeout"].includes(x.cause)))) continue;   // 차단이 아닌 실패(죽은 주소 등)는 뺀다
     const b = brandOfUrl.get(url);
+    const row = out.find((x) => x.brand === b);
+    if (row && row[kind === "listing" ? "listing" : "product"].status === "works") continue;   // 지금 길(서버·헤드리스)로 이미 되는 브랜드
     tgt.push({ kind, brand: b, url, ...((urlsOf(b).find((x) => x.url === url) || {}).cat ? { cat: urlsOf(b).find((x) => x.url === url).cat } : {}) });
   }
   tgt.sort((a, b) => a.kind.localeCompare(b.kind) || a.brand.localeCompare(b.brand));

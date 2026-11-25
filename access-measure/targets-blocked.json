@@ -61,30 +61,6 @@
  },
  {
   "kind": "listing",
-  "brand": "Alo",
-  "url": "https://www.aloyoga.com/collections/tops",
-  "cat": "tops"
- },
- {
-  "kind": "listing",
-  "brand": "Alo",
-  "url": "https://www.aloyoga.com/collections/womens-sweatshirts-hoodies",
-  "cat": "sweatshirts"
- },
- {
-  "kind": "listing",
-  "brand": "Alo",
-  "url": "https://www.aloyoga.com/collections/dresses",
-  "cat": "dresses"
- },
- {
-  "kind": "listing",
-  "brand": "Alo",
-  "url": "https://www.aloyoga.com/collections/sweatpants",
-  "cat": "pants"
- },
- {
-  "kind": "listing",
   "brand": "Anthropologie",
   "url": "https://www.anthropologie.com/tops-sweatshirts",
   "cat": "sweatshirts"
@@ -147,36 +123,6 @@
   "kind": "listing",
   "brand": "Chico's",
   "url": "https://www.chicos.com/store/category/pants/cat8289646",
-  "cat": "pants"
- },
- {
-  "kind": "listing",
-  "brand": "Coldwatercreek",
-  "url": "https://www.coldwatercreek.com/clothing/knit-tops-tees",
-  "cat": "tops"
- },
- {
-  "kind": "listing",
-  "brand": "Coldwatercreek",
-  "url": "https://www.coldwatercreek.com/clothing/sweatshirts",
-  "cat": "sweatshirts"
- },
- {
-  "kind": "listing",
-  "brand": "Coldwatercreek",
-  "url": "https://www.coldwatercreek.com/clothing/shirts-blouses",
-  "cat": "shirts"
- },
- {
-  "kind": "listing",
-  "brand": "Coldwatercreek",
-  "url": "https://www.coldwatercreek.com/clothing/dresses",
-  "cat": "dresses"
- },
- {
-  "kind": "listing",
-  "brand": "Coldwatercreek",
-  "url": "https://www.coldwatercreek.com/clothing/pants-shorts",
   "cat": "pants"
  },
  {
@@ -439,30 +385,6 @@
  },
  {
   "kind": "listing",
-  "brand": "On",
-  "url": "https://www.on.com/en-us/shop/womens/apparel/tops-tshirts",
-  "cat": "tops"
- },
- {
-  "kind": "listing",
-  "brand": "On",
-  "url": "https://www.on.com/en-us/shop/womens/apparel/hoodies-sweatshirts",
-  "cat": "sweatshirts"
- },
- {
-  "kind": "listing",
-  "brand": "On",
-  "url": "https://www.on.com/en-us/shop/womens/apparel/dresses",
-  "cat": "dresses"
- },
- {
-  "kind": "listing",
-  "brand": "On",
-  "url": "https://www.on.com/en-us/shop/womens/apparel/pants",
-  "cat": "pants"
- },
- {
-  "kind": "listing",
   "brand": "Oysho",
   "url": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
   "cat": "sweatshirts"
@@ -591,48 +513,6 @@
   "kind": "listing",
   "brand": "Theory",
   "url": "https://www.theory.com/women/pants/",
-  "cat": "pants"
- },
- {
-  "kind": "listing",
-  "brand": "vineyardvines",
-  "url": "https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2",
-  "cat": "dresses"
- },
- {
-  "kind": "listing",
-  "brand": "Zara",
-  "url": "https://www.zara.com/us/en/woman-tshirts-l1362.html?v1=2420417",
-  "cat": "tops"
- },
- {
-  "kind": "listing",
-  "brand": "Zara",
-  "url": "https://www.zara.com/us/en/woman-tops-l1322.html?v1=2635766",
-  "cat": "tops"
- },
- {
-  "kind": "listing",
-  "brand": "Zara",
-  "url": "https://www.zara.com/us/en/woman-sweatshirts-l1320.html?v1=2467841",
-  "cat": "sweatshirts"
- },
- {
-  "kind": "listing",
-  "brand": "Zara",
-  "url": "https://www.zara.com/us/en/woman-shirts-l1217.html?v1=2420369",
-  "cat": "shirts"
- },
- {
-  "kind": "listing",
-  "brand": "Zara",
-  "url": "https://www.zara.com/us/en/woman-dresses-l1066.html?v1=2420896",
-  "cat": "dresses"
- },
- {
-  "kind": "listing",
-  "brand": "Zara",
-  "url": "https://www.zara.com/us/en/woman-trousers-l1335.html?v1=2420795",
   "cat": "pants"
  },
  {
@@ -784,11 +664,6 @@
   "kind": "product",
   "brand": "Joules",
   "url": "https://www.joules.com/style/su796903/g49585"
- },
- {
-  "kind": "product",
-  "brand": "Lands end",
-  "url": "https://www.landsend.com/products/womens-relaxed-cotton-long-sleeve-mock-turtleneck/id_302525"
  },
  {
   "kind": "product",
