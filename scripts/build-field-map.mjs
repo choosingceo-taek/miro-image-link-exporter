@@ -144,6 +144,21 @@ for (const [k, label] of [["sizes", "사이즈"], ["color", "컬러"], ["price",
 }
 md += `\n가격은 카탈로그(목록 수집)에도 있어 화면에는 그쪽이 먼저 쓰인다 — 위 저장값은 오버레이(상품 페이지에서 읽은 값)만 센 것이다.\n\n`;
 
+// ── 무료로 읽히는데 야간 보강이 못 채운 브랜드(접근 지도 단계 1) — 오버레이 기록으로 본 이유 ──
+const TIER1 = ["Buck Mason", "Dickies", "Everlane", "Mint velvet", "Spanx", "Wilson", "Poetry", "Whitestuff", "J crew", "Massimo Dutti"];
+md += `### 무료로 읽히는데 혼용률이 빈 브랜드 — 야간 보강이 왜 못 채웠나\n\n`;
+md += `오버레이(Worker 의 comp:<사이트>)에 남은 시도 기록을 측정 실행이 읽어 센 것(측정). '5일 안 시도·빈 칸' = 지난 5일 안에 열어 봤지만 `;
+md += `혼용률이 비어 있는 상품 — 야간 보강은 이런 상품을 5일 동안 다시 열지 않는다(재시도 창). 오늘 측정 열은 같은 브랜드 표본을 오늘 무료 엔진으로 연 결과.\n\n`;
+md += `| 브랜드 | 상품 | 혼용률 저장 | 시도 기록 | 5일 안 시도·빈 칸 | 사이트 미표기(none) | 오늘 측정(혼용률) | 오늘 읽은 엔진 |\n|---|---:|---:|---:|---:|---:|---|---|\n`;
+for (const name of TIER1) {
+  const r = rows.find((x) => x.brand.toLowerCase() === name.toLowerCase());
+  if (!r) { md += `| ${name} | — | — | — | — | — | 측정 없음 | |\n`; continue; }
+  const s = r.stored || {};
+  const c = r.cells.comp || {};
+  md += `| ${esc(r.brand)} | ${r.total} | ${s.comp ?? "—"} | ${s.tried ?? "—"} | ${s.emptyIn5d ?? "—"} | ${s.none ?? "—"} | ${cellText(c)} | ${r.engines.join("/") || r.state} |\n`;
+}
+md += `\n`;
+
 md += `## 브랜드별 (${rows.length})\n\n`;
 md += `칸: ✅ 읽힌 수/읽힌 표본 · 출처 — 📭 읽혔는데 없음 — ⛔ 막힘 — 🔗 표본 없음\n\n`;
 md += `| 브랜드 | 상품 | 읽힘 | ${FIELDS.map(([, l]) => l).join(" | ")} |\n|---|---:|---|${FIELDS.map(() => "---").join("|")}|\n`;
