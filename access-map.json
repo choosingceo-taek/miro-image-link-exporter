@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T10:15:17.486Z",
+ "generated": "2026-11-25T10:15:59.906Z",
  "note": "docs/access-map.md 와 같은 사실. listing=목록(카테고리) 페이지, product=상품 페이지. basis 가 '규칙'인 행은 사람이 따로 보지 않은 판정.",
  "vocabulary": {
   "listing": {
@@ -234,6 +234,24 @@
     "playwright": "정상 · 82쪽 · 702s",
     "firefox": "정상 · 82쪽 · 908s",
     "firefox-fresh": "정상 · 82쪽 · 952s"
+   }
+  },
+  {
+   "id": "45591302346",
+   "at": "2026-11-25T10:04",
+   "ip": "20.171.4.x",
+   "engines": [
+    "impit",
+    "playwright",
+    "firefox",
+    "firefox-fresh"
+   ],
+   "targets": 26,
+   "runInfo": {
+    "impit": "정상 · 26쪽 · 6s",
+    "playwright": "정상 · 26쪽 · 203s",
+    "firefox": "정상 · 26쪽 · 196s",
+    "firefox-fresh": "정상 · 26쪽 · 194s"
    }
   }
  ],
@@ -2484,16 +2502,18 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -2541,16 +2561,18 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -2564,16 +2586,39 @@
      },
      "firefox": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "DataDome"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 3,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -2590,31 +2635,34 @@
      {
       "url": "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      }
     ]
@@ -2948,7 +2996,7 @@
    "product": {
     "status": "home-only",
     "tier": 2,
-    "cause": "Cloudflare — 모든 엔진 차단 · 보관본은 사이트 공통 문구 때문에 거부",
+    "cause": "Cloudflare — impit·크롬 403 · 파이어폭스는 러너마다 3개 중 0~1개 · 보관본은 사이트 공통 문구 때문에 거부",
     "why": "혼용률 501/800 확장 몫",
     "basis": "측정·판정",
     "fix": "확장 탭 보강",
@@ -2957,16 +3005,18 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -3014,16 +3064,18 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -3036,17 +3088,19 @@
       ]
      },
      "firefox": {
-      "ok": 1,
-      "n": 6,
+      "ok": 2,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked",
@@ -3060,37 +3114,63 @@
       "by": [
        "Cloudflare"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 1,
+      "n": 3,
+      "urlsOk": 1,
+      "urls": 3,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
+      ],
+      "causes": [
+       "ok",
+       "blocked"
+      ],
+      "status": [
+       200,
+       403
+      ],
+      "by": [
+       "Cloudflare"
+      ]
      }
     },
     "urls": [
      {
       "url": "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "1/2 geo"
+       "playwright": "0/3 blocked 403",
+       "firefox": "2/3 geo",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.aritzia.com/intl/en/product/ezra-top/125956.html",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      }
     ]
@@ -5995,27 +6075,29 @@
     ]
    },
    "product": {
-    "status": "blocked",
-    "tier": 2,
-    "cause": "Akamai — 모든 엔진 403(11/24 한 러너는 12/20 열림, 다른 러너 0/20) · 보관본 적중 31%",
-    "why": "혼용률 0/800",
+    "status": "partial",
+    "tier": 1,
+    "cause": "Akamai — 러너(IP)에 따라 갈림: 파이어폭스가 두 러너에서 0/3·0/3, 다른 러너에서 3/3(새 창도 3/3) · 크롬·impit 은 늘 403 · 보관본 1/3",
+    "why": "혼용률 0/800 — 지금은 상품 보강 대상에 없음",
     "basis": "측정·판정",
-    "fix": "웹 아카이브 층 + 확장 탭 보강",
-    "label": "⛔ 어디서도 막힘",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "fix": "파이어폭스 보강 대상에 넣고 막히면 다음 실행에 다시(무료, 러너 운) · 안정적으로는 확장 또는 유료",
+    "label": "🟠 일부만",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -6064,16 +6146,18 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -6086,58 +6170,84 @@
       ]
      },
      "firefox": {
-      "ok": 0,
-      "n": 6,
+      "ok": 3,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
-       "blocked"
+       "blocked",
+       "ok"
       ],
       "status": [
-       403
+       403,
+       200
       ],
       "by": [
        "Akamai"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
      {
       "url": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "1/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.chicos.com/store/product/touch-of-cool-mockneck-layering-tee/570355541?inseam=regular&sizeType=regular&color=6635&catId=cat11199293&collectionId=category&parentId=196533518997",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "1/1",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "1/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.chicos.com/store/product/touch-of-cool-crewneck-layering-tee/570423172?inseam=regular&sizeType=regular&color=5125&catId=cat11199293&collectionId=category&parentId=199761624959",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "1/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      }
     ]
@@ -10364,27 +10474,29 @@
     ]
    },
    "product": {
-    "status": "blocked",
-    "tier": 2,
-    "cause": "크롬 Akamai 403 · 파이어폭스 1/3 열림(혼용률 없음) · 평 HTML 껍데기",
+    "status": "partial",
+    "tier": 1,
+    "cause": "Akamai — 크롬 403 · 파이어폭스 새 창은 열리지만 혼용률 글이 없음(3/3 열림 · 0/3 읽음) · 평 HTML 껍데기",
     "why": "혼용률 2/108",
     "basis": "측정·판정",
-    "fix": "확장 탭 보강",
-    "label": "⛔ 어디서도 막힘",
-    "tierLabel": "2 집 IP 필요(확장)",
+    "fix": "열린 페이지에서 왜 소재가 안 읽히는지 덤프로 확인(DUMP=1) — 무료",
+    "label": "🟠 일부만",
+    "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "no-comp"
@@ -10430,16 +10542,18 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -10453,16 +10567,18 @@
      },
      "firefox": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "no-comp",
@@ -10475,37 +10591,59 @@
       "by": [
        "Akamai"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 3,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
+      ],
+      "causes": [
+       "no-comp"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
      {
       "url": "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762",
       "engines": {
-       "impit": "0/2 no-comp",
+       "impit": "0/3 no-comp",
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 no-comp"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 no-comp",
+       "firefox-fresh": "0/1 no-comp"
       }
      },
      {
       "url": "https://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763",
       "engines": {
-       "impit": "0/2 no-comp",
+       "impit": "0/3 no-comp",
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "0/1 no-comp"
       }
      },
      {
       "url": "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213",
       "engines": {
-       "impit": "0/2 no-comp",
+       "impit": "0/3 no-comp",
        "site-api": "0/1 error",
        "wayback": "0/1 no-comp",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "0/1 no-comp"
       }
      }
     ]
@@ -20591,16 +20729,18 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -20649,16 +20789,18 @@
      },
      "playwright": {
       "ok": 2,
-      "n": 6,
-      "urlsOk": 1,
+      "n": 9,
+      "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "ok",
@@ -20675,16 +20817,18 @@
      },
      "firefox": {
       "ok": 2,
-      "n": 6,
-      "urlsOk": 1,
+      "n": 9,
+      "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "ok",
@@ -20695,7 +20839,29 @@
        403
       ],
       "by": [
+       "HUMAN(PerimeterX)",
        "Cloudflare"
+      ]
+     },
+     "firefox-fresh": {
+      "ok": 0,
+      "n": 3,
+      "urlsOk": 0,
+      "urls": 3,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
+      ],
+      "causes": [
+       "blocked"
+      ],
+      "status": [
+       403
+      ],
+      "by": [
+       "HUMAN(PerimeterX)"
       ]
      }
     },
@@ -20703,31 +20869,34 @@
      {
       "url": "https://www.prana.com/p/everyday-long-sleeve-tee/2127531.html?dwvar_2127531_color=Nautical",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "2/2",
-       "firefox": "2/2"
+       "playwright": "2/3 blocked 403",
+       "firefox": "2/3 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.prana.com/p/everyday-short-sleeve-tee/2063791.html?dwvar_2063791_color=Nautical",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "1/1",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      },
      {
       "url": "https://www.prana.com/p/cambria-cove-button-up-top/2179031.html?dwvar_2179031_color=Dawn%20Heather",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "0/1 blocked 403"
       }
      }
     ]
@@ -21404,7 +21573,7 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "Cloudflare — impit·사이트 JSON 403 · 크롬 3/3 · 웹 아카이브 3/3",
+    "cause": "Cloudflare — impit·사이트 JSON 403 · 크롬 2회 모두 3/3 · 파이어폭스 새 창 3/3 · 웹 아카이브 3/3",
     "why": "혼용률 261/753",
     "basis": "측정·판정",
     "fix": "크롬 보강 + 웹 아카이브(무료)",
@@ -21413,16 +21582,18 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -21473,17 +21644,19 @@
       "by": []
      },
      "playwright": {
-      "ok": 6,
-      "n": 6,
+      "ok": 9,
+      "n": 9,
       "urlsOk": 3,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "ok"
@@ -21494,17 +21667,19 @@
       "by": []
      },
      "firefox": {
-      "ok": 2,
-      "n": 6,
+      "ok": 3,
+      "n": 9,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "ok",
@@ -21517,37 +21692,59 @@
       "by": [
        "Cloudflare"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
      {
       "url": "https://www.thereformation.com/products/veya-silk-top/1319462ALO.html?dwvar_1319462ALO_color=ALO",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 blocked 403",
        "wayback": "1/1",
-       "playwright": "2/2",
-       "firefox": "2/2"
+       "playwright": "3/3",
+       "firefox": "3/3",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.thereformation.com/products/acacia-top/1320743BLK.html?dwvar_1320743BLK_color=BLK",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 blocked 403",
        "wayback": "1/1",
-       "playwright": "2/2",
-       "firefox": "0/2 blocked 403"
+       "playwright": "3/3",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.thereformation.com/products/monica-silk-top/1314146BLK.html?dwvar_1314146BLK_color=BLK",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 blocked 403",
        "wayback": "1/1",
-       "playwright": "2/2",
-       "firefox": "0/2 blocked 403"
+       "playwright": "3/3",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      }
     ]
@@ -22415,7 +22612,7 @@
    "product": {
     "status": "misread",
     "tier": 1,
-    "cause": "카탈로그의 '상품 주소' 일부가 이미지 파일(404) — 진짜 상품 주소(us.sessun.com/catalogue/…html)도 섞여 있음",
+    "cause": "카탈로그의 '상품 주소' 일부가 이미지 파일(404). 진짜 상품 주소(us.sessun.com/catalogue/…html)는 모든 엔진이 혼용률까지 읽음(2/2)",
     "why": "혼용률 34/81",
     "basis": "측정·판정",
     "fix": "목록부터 바로잡기",
@@ -22423,25 +22620,29 @@
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
-      "ok": 0,
-      "n": 6,
-      "urlsOk": 0,
-      "urls": 3,
+      "ok": 2,
+      "n": 8,
+      "urlsOk": 2,
+      "urls": 5,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "dead",
-       "blocked"
+       "blocked",
+       "ok"
       ],
       "status": [
        404,
-       503
+       503,
+       200
       ],
       "by": []
      },
@@ -22480,51 +22681,78 @@
       "by": []
      },
      "playwright": {
-      "ok": 0,
-      "n": 6,
-      "urlsOk": 0,
-      "urls": 3,
+      "ok": 2,
+      "n": 8,
+      "urlsOk": 2,
+      "urls": 5,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
-       "dead"
+       "dead",
+       "ok"
       ],
       "status": [
-       404
+       404,
+       200
       ],
       "by": [
        "Cloudflare"
       ]
      },
      "firefox": {
-      "ok": 0,
-      "n": 6,
-      "urlsOk": 0,
-      "urls": 3,
+      "ok": 2,
+      "n": 8,
+      "urlsOk": 2,
+      "urls": 5,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
-       "dead"
+       "dead",
+       "ok"
       ],
       "status": [
-       404
+       404,
+       200
       ],
       "by": [
        "Cloudflare",
        "Akamai"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 2,
+      "n": 2,
+      "urlsOk": 2,
+      "urls": 2,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
@@ -22556,6 +22784,24 @@
        "wayback": "0/1 no-archive",
        "playwright": "0/2 dead 404",
        "firefox": "0/2 dead 404"
+      }
+     },
+     {
+      "url": "https://us.sessun.com/catalogue/shirt-and-blouses/vence-meloroad.html",
+      "engines": {
+       "impit": "1/1",
+       "playwright": "1/1",
+       "firefox": "1/1",
+       "firefox-fresh": "1/1"
+      }
+     },
+     {
+      "url": "https://us.sessun.com/catalogue/shirt-and-blouses/leonie-murza-playgrid.html",
+      "engines": {
+       "impit": "1/1",
+       "playwright": "1/1",
+       "firefox": "1/1",
+       "firefox-fresh": "1/1"
       }
      }
     ]
@@ -24482,25 +24728,27 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "Cloudflare — 한 창으로 이어 열면 첫 페이지만",
+    "cause": "Cloudflare — 한 창으로 이어 열면 첫 페이지만 · 페이지마다 새 창이면 3/3(1회)",
     "why": "혼용률 322/429",
     "basis": "측정·판정",
-    "fix": "보강도 페이지마다 새 창(1회 측정 결과는 상품 2차 실행 참고)",
+    "fix": "크롬 보강을 파이어폭스 + 페이지마다 새 창으로(무료)",
     "label": "🟠 일부만",
     "tierLabel": "1 무료 변경(우리 쪽)",
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -24547,17 +24795,19 @@
       "by": []
      },
      "playwright": {
-      "ok": 2,
-      "n": 6,
+      "ok": 3,
+      "n": 9,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "ok",
@@ -24572,17 +24822,19 @@
       ]
      },
      "firefox": {
-      "ok": 2,
-      "n": 6,
+      "ok": 4,
+      "n": 9,
       "urlsOk": 1,
       "urls": 3,
       "runs": [
        "45578730036",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "13.86.110.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "ok",
@@ -24595,37 +24847,59 @@
       "by": [
        "Cloudflare"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
      {
       "url": "https://www.theupside.com/maya-sal-double-layer-bra-setting-sun-usw426067/",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "2/2",
-       "firefox": "2/2"
+       "playwright": "3/3",
+       "firefox": "3/3",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.theupside.com/corvara-jakara-puffer-jacket-creme-usw426182/",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "1/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "0/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      }
     ]
@@ -27089,7 +27363,7 @@
    "product": {
     "status": "partial",
     "tier": 1,
-    "cause": "Akamai — 크롬·impit 403 · 파이어폭스 2/3 · 보관본 2/3",
+    "cause": "Akamai — 러너에 따라 갈림: 파이어폭스 2/3·0/3·3/3 · 크롬·impit 403 · 보관본 2/3",
     "why": "혼용률 75/219",
     "basis": "측정·판정",
     "fix": "파이어폭스 보강 + 웹 아카이브(무료, 러너마다 갈림)",
@@ -27098,16 +27372,18 @@
     "measured": {
      "impit": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -27156,16 +27432,18 @@
      },
      "playwright": {
       "ok": 0,
-      "n": 6,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "blocked"
@@ -27178,17 +27456,19 @@
       ]
      },
      "firefox": {
-      "ok": 2,
-      "n": 6,
+      "ok": 5,
+      "n": 9,
       "urlsOk": 0,
       "urls": 3,
       "runs": [
        "45578722275",
-       "45582267106"
+       "45582267106",
+       "45591302346"
       ],
       "ips": [
        "172.190.93.x",
-       "172.208.124.x"
+       "172.208.124.x",
+       "20.171.4.x"
       ],
       "causes": [
        "ok",
@@ -27201,37 +27481,59 @@
       "by": [
        "Akamai"
       ]
+     },
+     "firefox-fresh": {
+      "ok": 3,
+      "n": 3,
+      "urlsOk": 3,
+      "urls": 3,
+      "runs": [
+       "45591302346"
+      ],
+      "ips": [
+       "20.171.4.x"
+      ],
+      "causes": [
+       "ok"
+      ],
+      "status": [
+       200
+      ],
+      "by": []
      }
     },
     "urls": [
      {
       "url": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "0/1 no-archive",
-       "playwright": "0/2 blocked 403",
-       "firefox": "1/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "2/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570405895?inseam=regular&sizeType=regular&color=100&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "1/1",
-       "playwright": "0/2 blocked 403",
-       "firefox": "1/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "2/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      },
      {
       "url": "https://www.whitehouseblackmarket.com/store/product/whbm-forme-ribbed-scoop-neck-tee/570413314?inseam=regular&sizeType=regular&color=7332&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=196536535526",
       "engines": {
-       "impit": "0/2 blocked 403",
+       "impit": "0/3 blocked 403",
        "site-api": "0/1 error",
        "wayback": "1/1",
-       "playwright": "0/2 blocked 403",
-       "firefox": "0/2 blocked 403"
+       "playwright": "0/3 blocked 403",
+       "firefox": "1/3 blocked 403",
+       "firefox-fresh": "1/1"
       }
      }
     ]
