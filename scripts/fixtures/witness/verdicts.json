@@ -89,5 +89,20 @@
   "right": "bullet",
   "page": "Material: 100% Cotton (main), 73% Cotton, 27% Nylon (combo), 100% Viscose (embroidery)",
   "why": "세 조성이라 비웠다. 지금 규칙(괄호 부위 · combo 는 배색)으로 Cotton 100% — 측정 시험 자료(scripts/fixtures/pages/tuckernuck.html.gz)에서 확인."
+ },
+ "https://www.chicos.com/store/product/printed-metallic-crinkle-clip-dot-ruffled-blouse/570422433?inseam=regular&sizeType=regular&color=001&catId=cat11199294&collectionId=category&queryId=c6f79d5a1bbc0a981c717e4593a53507&indexName=prod_chs_products&parentId=199761600533": {
+  "right": "bullet",
+  "page": "99% Polyester, 1% Lurex.",
+  "why": "금속사(Lurex·Metallic)를 섬유로 몰라 comp 가 나머지 조각만 읽거나(합 97~99%) 비웠다. 글머리표 줄은 측정 때 페이지에서 그대로 옮긴 글이라 페이지 기준으로 글머리표가 맞다(이 상품의 HTML 은 따로 받지 않음). 지금 규칙은 금속사를 읽는다 — 같은 모양을 Oasis 실제 페이지 두 개로 시험(scripts/fixtures/detail-pages)."
+ },
+ "https://www.vineyardvines.com/product/womens-woven-tops/ella-jacquard-top/2W002201.html": {
+  "right": "bullet",
+  "page": "81% nylon, 19% metallic",
+  "why": "금속사(Lurex·Metallic)를 섬유로 몰라 comp 가 나머지 조각만 읽거나(합 97~99%) 비웠다. 글머리표 줄은 측정 때 페이지에서 그대로 옮긴 글이라 페이지 기준으로 글머리표가 맞다(이 상품의 HTML 은 따로 받지 않음). 지금 규칙은 금속사를 읽는다 — 같은 모양을 Oasis 실제 페이지 두 개로 시험(scripts/fixtures/detail-pages)."
+ },
+ "https://www.oasisfashion.com/product/adrianna-papell-a-line-jacquard-short-dress_p-ace2a577-0392-494f-9405-fbe25bcd132a?colour=Multi": {
+  "right": "bullet",
+  "page": "97% Polyester, 3% Metallic.",
+  "why": "금속사(Lurex·Metallic)를 섬유로 몰라 comp 가 나머지 조각만 읽거나(합 97~99%) 비웠다. 글머리표 줄은 측정 때 페이지에서 그대로 옮긴 글이라 페이지 기준으로 글머리표가 맞다(이 상품의 HTML 은 따로 받지 않음). 지금 규칙은 금속사를 읽는다 — 같은 모양을 Oasis 실제 페이지 두 개로 시험(scripts/fixtures/detail-pages)."
  }
 }
