@@ -184,16 +184,16 @@ function autoListing(b) {
   const total = (field.get(b) || {}).total || 0;
   if (g === "server") {
     const last = pf[0];
-    if (last && last.ok && last.collected >= 50) return { status: "works", tier: 0, cause: "", why: `서버 프리페치 11/25 ${last.collected}개(6일 ${pf.map((x) => x.collected).join("·")})`, basis: "야간 리포트(규칙)" };
+    if (last && last.ok && last.collected >= 50) return { status: "works", tier: 0, cause: "", why: `서버 프리페치 11/25 ${last.collected}개(6일 ${pf.map((x) => x.collected).join("·")})`, basis: "11/25 야간 실측(규칙 판정)" };
   }
-  if (g === "browser" && bcr && bcr.perUrl.every((u) => u.count > 0)) return { status: "works", tier: 0, cause: "", why: `헤드리스 11/25 ${bcr.collected}개 · URL ${bcr.perUrl.map((u) => u.count).join("·")}`, basis: "야간 리포트(규칙)" };
-  if (g === "extension" && cat && Object.keys(cat.bySrc).length >= urlsOf(b).length) return { status: "home-only", tier: 2, cause: "datacenter-block", why: `확장이 ${total}개 저장`, basis: "카탈로그(규칙)" };
+  if (g === "browser" && bcr && bcr.perUrl.every((u) => u.count > 0)) return { status: "works", tier: 0, cause: "", why: `헤드리스 11/25 ${bcr.collected}개 · URL ${bcr.perUrl.map((u) => u.count).join("·")}`, basis: "11/25 야간 실측(규칙 판정)" };
+  if (g === "extension" && cat && Object.keys(cat.bySrc).length >= urlsOf(b).length) return { status: "home-only", tier: 2, cause: "datacenter-block", why: `확장이 ${total}개 저장`, basis: "11/25 카탈로그(규칙 판정)" };
   return { status: "partial", tier: 1, cause: "", why: "규칙으로 못 정함 — 판정 파일 필요", basis: "규칙" };
 }
 function autoProduct(b) {
   const f = field.get(b) || {};
   const pct = f.total ? Math.round((f.comp / f.total) * 100) : 0;
-  if (pct >= 80) return { status: "works", tier: 0, cause: "", why: `혼용률 ${f.comp}/${f.total}(${pct}%)`, basis: "야간 리포트(규칙)" };
+  if (pct >= 80) return { status: "works", tier: 0, cause: "", why: `혼용률 ${f.comp}/${f.total}(${pct}%)`, basis: "11/25 야간 실측(규칙 판정)" };
   return { status: "partial", tier: 1, cause: "", why: `혼용률 ${pct}% — 판정 파일 필요`, basis: "규칙" };
 }
 
@@ -273,7 +273,11 @@ function section(key, VOC) {
     s += `\n### ${VOC[k]} — ${rows.length}개 브랜드 · 상품 ${sum(rows).toLocaleString("en-US")}개\n\n`;
     if (k === "works") {
       s += `| 브랜드 | 담당 | 상품 | 혼용률 | 근거 |\n|---|---|---:|---:|---|\n`;
-      for (const x of rows) s += `| ${x.brand} | ${GROUP_KO[x.group]} | ${x.products} | ${x.comp.pct}% | ${esc(x[key].why)} · ${x[key].basis} |\n`;
+      for (const x of rows) {
+        const m = x[key].measured || {};
+        const meas = Object.entries(m).map(([e, g]) => `${e} ${g.ok}/${g.n}`).join(" · ");
+        s += `| ${x.brand} | ${GROUP_KO[x.group]} | ${x.products} | ${x.comp.pct}% | ${esc(x[key].why)}${meas ? ` — 오늘 ${meas}` : ""} · ${x[key].basis} |\n`;
+      }
       continue;
     }
     s += `| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |\n|---|---|---:|---|---|---|---|---|\n`;

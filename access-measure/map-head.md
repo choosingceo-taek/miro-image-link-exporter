@@ -58,6 +58,7 @@
 엔진: impit = 브라우저 없이 크롬의 TLS 지문으로 HTML 만 받음(서버 프리페치와 가장 비슷한 길) · playwright = 헤드리스 크롬 ·
 firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키 없는 새 창 · server = Render 서버에 직접 물어봄(프리페치와 같은 길).
 목록은 "상품 5개 이상"을 성공으로 셌다(브라우저는 야간 수집과 같은 수집기 collector.js 기준, impit 은 HTML 의 상품 링크).
+✅ 행에서 impit 이 0 이어도 문제가 아니다 — 그 사이트는 상품을 스크립트로 그리고, 서버는 Shopify JSON 같은 다른 길로 읽는다(야간 수치가 근거).
 
 {{LISTING_SECTIONS}}
 
