@@ -499,8 +499,16 @@ for (const g of targets) {
           if (!/Execution context was destroyed|navigat/i.test(String((e && e.message) || e))) throw e;
           await page.waitForLoadState("domcontentloaded", { timeout: NAV_MS }).catch(() => {});
           await page.waitForTimeout(2500);
-          res = (await page.evaluate(COLLECTOR)) || {};
-          note = (note ? note + " · " : "") + `수집 중 페이지가 바뀌어 다시 읽음(${page.url().slice(0, 100)})`;
+          // 같은 목록이 다시 뜬 경우에만 다시 읽는다. 다른 페이지(Lucky Brand 는 상품 페이지로 넘어갔다)를
+          // 읽으면 그 페이지의 추천 상품이 이 카테고리 상품으로 섞인다 — 그때는 여기까지 모은 것만 쓴다.
+          const pathOf = (u) => { try { return new URL(u).pathname.replace(/\/+$/, ""); } catch (e2) { return u; } };
+          if (pathOf(page.url()) === pathOf(pageUrl)) {
+            res = (await page.evaluate(COLLECTOR)) || {};
+            note = (note ? note + " · " : "") + "수집 중 페이지가 다시 떠서 다시 읽음";
+          } else {
+            res = {};
+            note = (note ? note + " · " : "") + `수집 중 다른 페이지로 넘어가 여기까지만 씀(${page.url().slice(0, 100)})`;
+          }
         }
         lastRej = res.rej || lastRej;
         let added = 0;
