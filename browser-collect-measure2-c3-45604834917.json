@@ -1,0 +1,2198 @@
+{
+ "when": "2026-11-25T12:29:40.075Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "chromium",
+  "impit"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "Nation LTD",
+   "site": "nation.la.nationltd",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 74,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 36,
+    "sweatshirts": 19,
+    "dresses": 15,
+    "pants": 4
+   },
+   "perUrl": [
+    {
+     "url": "https://nation.la/collections/tops",
+     "count": 32,
+     "productShaped": 32,
+     "note": "",
+     "sample": [
+      {
+       "name": "Loren Tee",
+       "productUrl": "https://nation.la/collections/tops/products/loren-tee-white-nps",
+       "price": "$76"
+      },
+      {
+       "name": "Marlowe Long Sleeve",
+       "productUrl": "https://nation.la/collections/tops/products/marlowe-long-sleeve-jet-black",
+       "price": "$125"
+      },
+      {
+       "name": "Olive Top",
+       "productUrl": "https://nation.la/collections/tops/products/olive-top-porcelain",
+       "price": "$118"
+      }
+     ],
+     "rej": {
+      "total": 116,
+      "noImage": 41,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 5,
+      "landing": 0,
+      "siteMenu": 40
+     }
+    },
+    {
+     "url": "https://nation.la/collections/sweatshirts",
+     "count": 29,
+     "productShaped": 29,
+     "note": "",
+     "sample": [
+      {
+       "name": "Jessie Sweatshirt",
+       "productUrl": "https://nation.la/collections/sweatshirts/products/jessie-sweatshirt-heather-grey",
+       "price": "$132"
+      },
+      {
+       "name": "Bane Sweatshirt",
+       "productUrl": "https://nation.la/collections/sweatshirts/products/bane-sweatshirt-military-brown",
+       "price": "$102"
+      },
+      {
+       "name": "Brixton Top",
+       "productUrl": "https://nation.la/products/brixton-top-sagebrush",
+       "price": "$76"
+      }
+     ],
+     "rej": {
+      "total": 98,
+      "noImage": 34,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 1,
+      "landing": 0,
+      "siteMenu": 40
+     }
+    },
+    {
+     "url": "https://nation.la/collections/dresses",
+     "count": 21,
+     "productShaped": 21,
+     "note": "",
+     "sample": [
+      {
+       "name": "Pietra Dress",
+       "productUrl": "https://nation.la/collections/dresses/products/pietra-dress-jet-black",
+       "price": "$139"
+      },
+      {
+       "name": "Evonne Maxi Dress",
+       "productUrl": "https://nation.la/collections/dresses/products/evonne-maxi-dress-olive",
+       "price": "$139"
+      },
+      {
+       "name": "Brixton Top",
+       "productUrl": "https://nation.la/products/brixton-top-sagebrush",
+       "price": "$76"
+      }
+     ],
+     "rej": {
+      "total": 94,
+      "noImage": 32,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 1,
+      "landing": 0,
+      "siteMenu": 40
+     }
+    },
+    {
+     "url": "https://nation.la/collections/sweatpants",
+     "count": 10,
+     "productShaped": 10,
+     "note": "",
+     "sample": [
+      {
+       "name": "Lincoln Knit Pant",
+       "productUrl": "https://nation.la/collections/sweatpants/products/lincoln-pant-jet-black",
+       "price": "$139"
+      },
+      {
+       "name": "Jaylen One Shoulder",
+       "productUrl": "https://nation.la/products/jaylen-top-camelia",
+       "price": "$32"
+      },
+      {
+       "name": "Brixton Top",
+       "productUrl": "https://nation.la/products/brixton-top-sagebrush",
+       "price": "$76"
+      }
+     ],
+     "rej": {
+      "total": 72,
+      "noImage": 21,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 1,
+      "landing": 0,
+      "siteMenu": 40
+     }
+    }
+   ],
+   "secs": 248,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Loren Tee",
+     "productUrl": "https://nation.la/collections/tops/products/loren-tee-white-nps"
+    },
+    {
+     "name": "Fable Turtleneck Tank",
+     "productUrl": "https://nation.la/collections/tops/products/fable-turtleneck-tank-espresso"
+    },
+    {
+     "name": "Fable Turtleneck",
+     "productUrl": "https://nation.la/collections/tops/products/fable-turtleneck-vintage-yarn-dye-stripe"
+    },
+    {
+     "name": "Fable Turtleneck",
+     "productUrl": "https://nation.la/collections/tops/products/fable-turtleneck-jet-black"
+    },
+    {
+     "name": "Loren Tee",
+     "productUrl": "https://nation.la/collections/tops/products/loren-tee-heather-grey-nps"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Sessun",
+   "site": "en.sessun.com.sessun",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 211,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "shirts": 47,
+    "sweatshirts": 27,
+    "tops": 17,
+    "dresses": 25,
+    "pants": 95
+   },
+   "perUrl": [
+    {
+     "url": "https://en.sessun.com/catalogue/t-shirts.html",
+     "count": 47,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Dorel",
+       "productUrl": "https://en.sessun.com/catalogue/t-shirts/dorel-ambrune.html",
+       "price": ""
+      },
+      {
+       "name": "Serge",
+       "productUrl": "https://en.sessun.com/catalogue/t-shirts/serge-navy.html",
+       "price": ""
+      },
+      {
+       "name": "Serge co",
+       "productUrl": "https://en.sessun.com/catalogue/t-shirts/serge-co-black.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 201,
+      "noImage": 29,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 172
+     }
+    },
+    {
+     "url": "https://en.sessun.com/catalogue/sweatshirts.html",
+     "count": 27,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Chebbi",
+       "productUrl": "https://en.sessun.com/catalogue/sweatshirts/chebbi-sanstone.html",
+       "price": ""
+      },
+      {
+       "name": "Chebbi",
+       "productUrl": "https://en.sessun.com/catalogue/sweatshirts/chebbi-black-granit.html",
+       "price": ""
+      },
+      {
+       "name": "Inea",
+       "productUrl": "https://en.sessun.com/catalogue/sweatshirts/inea-redmuse.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 199,
+      "noImage": 27,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 172
+     }
+    },
+    {
+     "url": "https://en.sessun.com/catalogue/tops-and-bodies.html",
+     "count": 17,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Starlet",
+       "productUrl": "https://en.sessun.com/catalogue/tops-and-bodies/starlet-night-gold.html",
+       "price": ""
+      },
+      {
+       "name": "Minuit",
+       "productUrl": "https://en.sessun.com/catalogue/tops-and-bodies/minuit-murza.html",
+       "price": ""
+      },
+      {
+       "name": "Mocambo",
+       "productUrl": "https://en.sessun.com/catalogue/tops-and-bodies/mocambo-canopy.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 382,
+      "noImage": 147,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 46,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 172
+     }
+    },
+    {
+     "url": "https://en.sessun.com/catalogue/dresses.html",
+     "count": 25,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Hayworth",
+       "productUrl": "https://en.sessun.com/catalogue/dresses/hayworth-moka.html",
+       "price": ""
+      },
+      {
+       "name": "Yanza",
+       "productUrl": "https://en.sessun.com/catalogue/dresses/yanza-moss-bronze.html",
+       "price": ""
+      },
+      {
+       "name": "Swinging",
+       "productUrl": "https://en.sessun.com/catalogue/dresses/swinging-black.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 199,
+      "noImage": 27,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 172
+     }
+    },
+    {
+     "url": "https://en.sessun.com/catalogue/trousers.html",
+     "count": 95,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Provenco",
+       "productUrl": "https://en.sessun.com/catalogue/trousers/provenco-murza.html",
+       "price": ""
+      },
+      {
+       "name": "Manhatti",
+       "productUrl": "https://en.sessun.com/catalogue/trousers/manhatti-espresso.html",
+       "price": ""
+      },
+      {
+       "name": "Rim",
+       "productUrl": "https://en.sessun.com/catalogue/trousers/rim-black.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 203,
+      "noImage": 31,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 172
+     }
+    }
+   ],
+   "secs": 626,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Dorel",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/dorel-ambrune.html"
+    },
+    {
+     "name": "Sergio",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/sergio-rosee.html"
+    },
+    {
+     "name": "Dimentica",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/dimentica-fleur-de-sel.html"
+    },
+    {
+     "name": "Erico",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/erico-lava.html"
+    },
+    {
+     "name": "Serge",
+     "productUrl": "https://en.sessun.com/catalogue/t-shirts/serge-red-muse.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Monsoon",
+   "site": "monsoonlondon.com.monsoon",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 0,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {},
+   "perUrl": [
+    {
+     "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/",
+     "count": 0,
+     "productShaped": 0,
+     "note": "상품 0개 · 최종주소 https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/ · 제목 \"Women's Tops | Ladies Tops | Monsoon US\" · 링크 166/이미지 63 · 탈락[total=166 noImage=16 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=150] · \"Skip to main content 50% OFF FLASH SALE SHOP WOMEN UNITED STATES $ Change NEW WOMEN PARTY CLEARANCE SEARCH Search... Use\" · impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/tops-blouses/",
+     "sample": [],
+     "rej": {
+      "total": 166,
+      "noImage": 16,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 150
+     }
+    },
+    {
+     "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/",
+     "count": 0,
+     "productShaped": 0,
+     "note": "상품 0개 · 최종주소 https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/ · 제목 \"Knitwear | Monsoon US\" · 링크 165/이미지 65 · 탈락[total=165 noImage=17 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=148] · \"Skip to main content 50% OFF FLASH SALE SHOP WOMEN UNITED STATES $ Change NEW WOMEN PARTY CLEARANCE SEARCH Search... Use\" · impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/knitwear/",
+     "sample": [],
+     "rej": {
+      "total": 165,
+      "noImage": 17,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 148
+     }
+    },
+    {
+     "url": "https://www.monsoonlondon.com/kr/womens/dresses/",
+     "count": 0,
+     "productShaped": 0,
+     "note": "상품 0개 · 최종주소 https://www.monsoonlondon.com/kr/womens/dresses/ · 제목 \"Dresses | Dresses for Women | Monsoon US\" · 링크 165/이미지 63 · 탈락[total=165 noImage=17 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=148] · \"Skip to main content 50% OFF FLASH SALE SHOP WOMEN UNITED STATES $ Change NEW WOMEN PARTY CLEARANCE SEARCH Search... Use\" · impit 최종주소 https://www.monsoonlondon.com/us/womens/dresses/",
+     "sample": [],
+     "rej": {
+      "total": 165,
+      "noImage": 17,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 148
+     }
+    },
+    {
+     "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/",
+     "count": 0,
+     "productShaped": 0,
+     "note": "상품 0개 · 최종주소 https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/ · 제목 \"Women's Pants | Women's Shorts | Monsoon US\" · 링크 106/이미지 29 · 탈락[total=106 noImage=16 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=90] · \"Skip to main content 50% OFF FLASH SALE SHOP WOMEN UNITED STATES $ Change NEW WOMEN PARTY CLEARANCE SEARCH Search... Use\" · impit 최종주소 https://www.monsoonlondon.com/us/womens/womens-clothing/pants-shorts/",
+     "sample": [],
+     "rej": {
+      "total": 106,
+      "noImage": 16,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 90
+     }
+    }
+   ],
+   "secs": 232,
+   "dropped": 0,
+   "cut": false,
+   "sample": [],
+   "verdict": "보완 필요(수집 0~소량)"
+  },
+  {
+   "brand": "vineyardvines",
+   "site": "vineyardvines.com.vineyardvines",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 134,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "sweatshirts": 17,
+    "tops": 32,
+    "shirts": 24,
+    "pants": 34,
+    "dresses": 27
+   },
+   "perUrl": [
+    {
+     "url": "https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9",
+     "count": 21,
+     "productShaped": 21,
+     "note": "",
+     "sample": [
+      {
+       "name": "Deluxe Turtleneck",
+       "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/deluxe-turtleneck/2K005106.html",
+       "price": "$68.00"
+      },
+      {
+       "name": "Women's Candy Cane Whales Long-Sleeve Boxy Tee",
+       "productUrl": "https://www.vineyardvines.com/product/womens-t-shirts/ho-ho-ho-candy-cane-whales-long-sleeve-boxy-tee/2V003577.html",
+       "price": "$55.00"
+      },
+      {
+       "name": "Women's Après Long-Sleeve Boxy Tee",
+       "productUrl": "https://www.vineyardvines.com/product/womens-t-shirts/apres-long-sleeve-boxy-tee/2V003599.html",
+       "price": "$55.00"
+      }
+     ],
+     "rej": {
+      "total": 112,
+      "noImage": 13,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 27,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50
+     }
+    },
+    {
+     "url": "https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3",
+     "count": 28,
+     "productShaped": 28,
+     "note": "",
+     "sample": [
+      {
+       "name": "Dreamcloth® Fair Isle Relaxed Shep Shirt®",
+       "productUrl": "https://www.vineyardvines.com/product/womens-shep-shirts/fair-isle-dreamcloth-relaxed-shep-shirt/2K004143.html",
+       "price": "$158.00"
+      },
+      {
+       "name": "Dreamcloth® Quarter-Zip",
+       "productUrl": "https://www.vineyardvines.com/product/womens-fashion-knits/dreamcloth-quarter-zip/199254883474.html",
+       "price": "$148.00"
+      },
+      {
+       "name": "Dreamcloth® Quarter-Zip",
+       "productUrl": "https://www.vineyardvines.com/product/womens-fashion-knits/dreamcloth-quarter-zip/199969180639.html",
+       "price": "$148.00"
+      }
+     ],
+     "rej": {
+      "total": 156,
+      "noImage": 57,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 20,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50
+     }
+    },
+    {
+     "url": "https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7",
+     "count": 28,
+     "productShaped": 28,
+     "note": "",
+     "sample": [
+      {
+       "name": "Birdie Cropped Embellished Button-Down",
+       "productUrl": "https://www.vineyardvines.com/product/womens-woven-tops/cropped-birdie-embellished-button-down/2W002187.html",
+       "price": "$128.00"
+      },
+      {
+       "name": "Deluxe Boatneck Tee",
+       "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/deluxe-boatneck-tee/2K005243.html",
+       "price": "$68.00"
+      },
+      {
+       "name": "Emilia Top",
+       "productUrl": "https://www.vineyardvines.com/product/womens-woven-tops/emilia-top/2W002129.html",
+       "price": "$118.00"
+      }
+     ],
+     "rej": {
+      "total": 103,
+      "noImage": 6,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 18,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50
+     }
+    },
+    {
+     "url": "https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2",
+     "count": 39,
+     "productShaped": 39,
+     "note": "",
+     "sample": [
+      {
+       "name": "Blythe Plaid Dress",
+       "productUrl": "https://www.vineyardvines.com/product/womens-dresses/blythe-plaid-dress/2Q012145.html",
+       "price": "$198.00"
+      },
+      {
+       "name": "Bitsy Maxi Dress",
+       "productUrl": "https://www.vineyardvines.com/product/womens-dresses/bitsy-maxi-dress/2Q012147.html",
+       "price": "$298.00"
+      },
+      {
+       "name": "Naomi Appliqué Midi Dress",
+       "productUrl": "https://www.vineyardvines.com/product/womens-dresses/naomi-applique-midi/2Q012070.html",
+       "price": "$298.00"
+      }
+     ],
+     "rej": {
+      "total": 107,
+      "noImage": 8,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 9,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50
+     }
+    },
+    {
+     "url": "https://www.vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--womens-clothing--8",
+     "count": 23,
+     "productShaped": 23,
+     "note": "",
+     "sample": [
+      {
+       "name": "Peyton Plaid Ponte Pants",
+       "productUrl": "https://www.vineyardvines.com/product/womens-pants/peyton-tartan-pants/2P001641.html",
+       "price": "$128.00"
+      },
+      {
+       "name": "Audrey Jeans",
+       "productUrl": "https://www.vineyardvines.com/product/womens-pants/audrey-jeans/199254375245.html",
+       "price": "$138.00"
+      },
+      {
+       "name": "Dreamy Jersey Pants",
+       "productUrl": "https://www.vineyardvines.com/product/womens-pants/dreamy-jersey-pants/2P001675.html",
+       "price": "$118.00"
+      }
+     ],
+     "rej": {
+      "total": 104,
+      "noImage": 15,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 15,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 50
+     }
+    }
+   ],
+   "secs": 244,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Deluxe Turtleneck",
+     "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/deluxe-turtleneck/2K005106.html"
+    },
+    {
+     "name": "Deluxe Ruffle Mockneck",
+     "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/deluxe-long-sleeve-ruffle-trim-crewneck/2K005709.html"
+    },
+    {
+     "name": "Slim Rib Turtleneck",
+     "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/tencel-rib-turtle-neck-tee/2K005706.html"
+    },
+    {
+     "name": "Supima® Cotton Crewneck Tee",
+     "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/supima-ss-crew-with-whale/2K005983.html"
+    },
+    {
+     "name": "Pointelle Scoopneck Long-Sleeve Tee",
+     "productUrl": "https://www.vineyardvines.com/product/womens-casual-knits/pointelle-scoop-neck-long-sleeve/2K005729.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Whitestuff",
+   "site": "whitestuff.com.whitestuff",
+   "engine": "impit",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 664,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 236,
+    "pants": 130,
+    "shirts": 107,
+    "sweatshirts": 74,
+    "dresses": 117
+   },
+   "perUrl": [
+    {
+     "url": "https://www.whitestuff.com/browse/collection/womens-t-shirts",
+     "count": 110,
+     "productShaped": 110,
+     "note": "",
+     "sample": [
+      {
+       "name": "KIM BUTTON THROUGH TEE",
+       "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI",
+       "price": ""
+      },
+      {
+       "name": "NELLY EMBROIDERED T-SHIRT",
+       "productUrl": "https://www.whitestuff.com/p/7267/nelly-embroidered-t-shirt/BRIL_WHITE",
+       "price": ""
+      },
+      {
+       "name": "IRIS LINEN TEE",
+       "productUrl": "https://www.whitestuff.com/p/9491/442987-iris-linen-tee/IVORY_PR",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 404,
+      "noImage": 7,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 397
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/tops-and-tees",
+     "count": 157,
+     "productShaped": 157,
+     "note": "",
+     "sample": [
+      {
+       "name": "KIM BUTTON THROUGH TEE",
+       "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI",
+       "price": ""
+      },
+      {
+       "name": "LIZZIE LONG SLEEVE EMBROIDERY TOP",
+       "productUrl": "https://www.whitestuff.com/p/9510/448922-lizzie-long-sleeve-embroidery-top/NAVY_MULTI",
+       "price": ""
+      },
+      {
+       "name": "NINA NOTCH STRIPE BUTTON TEE",
+       "productUrl": "https://www.whitestuff.com/p/8809/448668-nina-notch-stripe-button-tee/PINK_MLT",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 597,
+      "noImage": 41,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 86,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 400
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/knitwear",
+     "count": 170,
+     "productShaped": 170,
+     "note": "",
+     "sample": [
+      {
+       "name": "LUCIE CREW NECK JUMPER",
+       "productUrl": "https://www.whitestuff.com/p/8688/446745-lucie-crew-neck-jumper/BRT_RED",
+       "price": ""
+      },
+      {
+       "name": "DK PINK swatch",
+       "productUrl": "https://www.whitestuff.com/p/8968/447456-sienna-jumper/DK_PINK",
+       "price": "£29.40"
+      },
+      {
+       "name": "KATIE WOOL BLEND JUMPER",
+       "productUrl": "https://www.whitestuff.com/p/6237/katie-jumper/MID_GREY",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 613,
+      "noImage": 51,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 84,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 401
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/shirts-and-blouses",
+     "count": 111,
+     "productShaped": 111,
+     "note": "",
+     "sample": [
+      {
+       "name": "LIBBY ORGANIC COTTON SHIRT",
+       "productUrl": "https://www.whitestuff.com/p/9420/448337-libby-organic-cotton-shirt/BRIL_WHITE",
+       "price": ""
+      },
+      {
+       "name": "ANNIE JERSEY SHIRT",
+       "productUrl": "https://www.whitestuff.com/p/8375/447982-annie-jersey-shirt/NAVY_MULTI",
+       "price": ""
+      },
+      {
+       "name": "MARLOW CHECK SHIRT",
+       "productUrl": "https://www.whitestuff.com/p/9569/448513-marlow-check-shirt/GREEN_MLT",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 408,
+      "noImage": 12,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 396
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/dresses",
+     "count": 127,
+     "productShaped": 127,
+     "note": "",
+     "sample": [
+      {
+       "name": "JOJO JERSEY SHIRT DRESS",
+       "productUrl": "https://www.whitestuff.com/p/9360/448930-jojo-jersey-shirt-dress/DARK_NAVY",
+       "price": ""
+      },
+      {
+       "name": "ADA SHORT SHIRRED DRESS",
+       "productUrl": "https://www.whitestuff.com/p/9379/447890-ada-short-shirred-dress/PINK_PR",
+       "price": ""
+      },
+      {
+       "name": "MID GREEN swatch",
+       "productUrl": "https://www.whitestuff.com/p/7924/millie-linen-shift-dress/MID_GREEN",
+       "price": "£51.00"
+      }
+     ],
+     "rej": {
+      "total": 418,
+      "noImage": 22,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 396
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/trousers-and-leggings",
+     "count": 131,
+     "productShaped": 131,
+     "note": "",
+     "sample": [
+      {
+       "name": "BELLE TWEEDY WIDE LEG TROUSER",
+       "productUrl": "https://www.whitestuff.com/p/8534/446863-belle-tweedy-wide-leg-trouser/GREY_MLT",
+       "price": ""
+      },
+      {
+       "name": "TWISTER CHINO WIDE LEG TROUSER",
+       "productUrl": "https://www.whitestuff.com/p/8522/446879-twister-chino-wide-leg-trouser/KHAKI_GRN",
+       "price": ""
+      },
+      {
+       "name": "LGT GREEN swatch",
+       "productUrl": "https://www.whitestuff.com/p/5794/tia-denim-shorts/LGT_GREEN",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 413,
+      "noImage": 17,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 396
+     }
+    }
+   ],
+   "secs": 960,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "KIM BUTTON THROUGH TEE",
+     "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI"
+    },
+    {
+     "name": "DK BROWN swatch",
+     "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/DK_BROWN"
+    },
+    {
+     "name": "CLARA TEXTURE CREW NECK TEE",
+     "productUrl": "https://www.whitestuff.com/p/7087/clara-texture-crew-neck-tee/MID_BLUE"
+    },
+    {
+     "name": "CLARA TEXTURE STRIPE TEE",
+     "productUrl": "https://www.whitestuff.com/p/9478/448158-clara-texture-stripe-tee/BRIL_WHITE"
+    },
+    {
+     "name": "MID PINK swatch",
+     "productUrl": "https://www.whitestuff.com/p/9478/448158-clara-texture-stripe-tee/MID_PINK"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Vanessa bruno",
+   "site": "vanessabruno.com.vanessabruno",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 207,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 39,
+    "sweatshirts": 49,
+    "shirts": 63,
+    "pants": 26,
+    "dresses": 30
+   },
+   "perUrl": [
+    {
+     "url": "https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html",
+     "count": 4,
+     "productShaped": 4,
+     "note": "",
+     "sample": [
+      {
+       "name": "Clothing T-shirt - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/hei-t-shirt-54829.html",
+       "price": ""
+      },
+      {
+       "name": "Clothing T-shirt - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/camomille-t-shirt-45499.html",
+       "price": ""
+      },
+      {
+       "name": "Clothing T-shirt - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/glendon-t-shirt-52710.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 156,
+      "noImage": 18,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 11,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 122
+     }
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/shirts-tops/top.html",
+     "count": 2,
+     "productShaped": 2,
+     "note": "",
+     "sample": [
+      {
+       "name": "Clothing Top - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/harry-sleeveless-jacket-54407.html",
+       "price": ""
+      },
+      {
+       "name": "Clothing Top - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/glycine-tank-top-53999.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 143,
+      "noImage": 12,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 6,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 122
+     }
+    },
+    {
+     "url": "https://www.vanessabruno.com/last-chance/knitwear.html",
+     "count": 9,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "private sale.html",
+       "productUrl": "https://www.vanessabruno.com/private-sale.html",
+       "price": ""
+      },
+      {
+       "name": "DESKTOP PRODUIT-3",
+       "productUrl": "https://www.vanessabruno.com/bags/moon.html",
+       "price": ""
+      },
+      {
+       "name": "DESKTOP CARRE-1",
+       "productUrl": "https://www.vanessabruno.com/the-gift-edit/le-soir.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 141,
+      "noImage": 6,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 5,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 119
+     }
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/knitwear.html",
+     "count": 73,
+     "productShaped": 64,
+     "note": "",
+     "sample": [
+      {
+       "name": "hideki sweater 55251.html",
+       "productUrl": "https://www.vanessabruno.com/p/hideki-sweater-55251.html",
+       "price": ""
+      },
+      {
+       "name": "Clothing - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/douve-cardigan-45397.html",
+       "price": ""
+      },
+      {
+       "name": "DESKTOP CARRE-1",
+       "productUrl": "https://www.vanessabruno.fr/the-gift-edit/le-soir.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 179,
+      "noImage": 7,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 5,
+      "nonProduct": 0,
+      "landing": 1,
+      "siteMenu": 156
+     }
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/shirts-tops.html",
+     "count": 77,
+     "productShaped": 68,
+     "note": "",
+     "sample": [
+      {
+       "name": "heron blouse 55586.html",
+       "productUrl": "https://www.vanessabruno.com/p/heron-blouse-55586.html",
+       "price": ""
+      },
+      {
+       "name": "Clothing - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/haldo-embroidered-blouse-54343.html",
+       "price": ""
+      },
+      {
+       "name": "DESKTOP CARRE-1",
+       "productUrl": "https://www.vanessabruno.fr/the-gift-edit/le-soir.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 179,
+      "noImage": 7,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 5,
+      "nonProduct": 0,
+      "landing": 1,
+      "siteMenu": 156
+     }
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/dresses-jumpsuits.html",
+     "count": 41,
+     "productShaped": 32,
+     "note": "",
+     "sample": [
+      {
+       "name": "jae long dress 55719.html",
+       "productUrl": "https://www.vanessabruno.com/p/jae-long-dress-55719.html",
+       "price": ""
+      },
+      {
+       "name": "Clothing All the products - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/hillary-short-dress-54402.html",
+       "price": ""
+      },
+      {
+       "name": "DESKTOP CARRE-1",
+       "productUrl": "https://www.vanessabruno.fr/the-gift-edit/le-soir.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 179,
+      "noImage": 7,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 5,
+      "nonProduct": 0,
+      "landing": 1,
+      "siteMenu": 156
+     }
+    },
+    {
+     "url": "https://www.vanessabruno.com/clothing/trousers.html",
+     "count": 25,
+     "productShaped": 25,
+     "note": "",
+     "sample": [
+      {
+       "name": "Clothing All the products - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/cargo-trousers-55239.html",
+       "price": ""
+      },
+      {
+       "name": "Clothing All the products - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/dompay-flare-pants-45640.html",
+       "price": ""
+      },
+      {
+       "name": "Clothing All the products - VANESSABRUNO",
+       "productUrl": "https://www.vanessabruno.com/p/dandy-pants-44630.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 300,
+      "noImage": 83,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 70,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 121
+     }
+    }
+   ],
+   "secs": 255,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Clothing T-shirt - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/hei-t-shirt-54829.html"
+    },
+    {
+     "name": "Clothing T-shirt - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/camomille-crop-t-shirt-54405.html"
+    },
+    {
+     "name": "Clothing T-shirt - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/camomille-t-shirt-45499.html"
+    },
+    {
+     "name": "Clothing T-shirt - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/glendon-t-shirt-52710.html"
+    },
+    {
+     "name": "Clothing Top - VANESSABRUNO",
+     "productUrl": "https://www.vanessabruno.com/p/harry-sleeveless-jacket-54407.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Dickies",
+   "site": "dickies.com.dickies",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 101,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 27,
+    "pants": 60,
+    "shirts": 10,
+    "sweatshirts": 3,
+    "dresses": 1
+   },
+   "perUrl": [
+    {
+     "url": "https://www.dickies.com/collections/womens-tops",
+     "count": 84,
+     "productShaped": 83,
+     "note": "",
+     "sample": [
+      {
+       "name": "Juniors Snap Front Top",
+       "productUrl": "https://www.dickies.com/en-us/products/juniors-snap-front-top-7dkz5b0066clbwb",
+       "price": ""
+      },
+      {
+       "name": "DK0A88GKL39-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/womens-torrey-layered-t-shirt-dk0a88gkl39",
+       "price": ""
+      },
+      {
+       "name": "privacy policy",
+       "productUrl": "https://www.dickies.com/en-us/pages/privacy-policy",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 423,
+      "noImage": 46,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 14,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 279
+     }
+    },
+    {
+     "url": "https://www.dickies.com/en-us/collections/womens-hoodies",
+     "count": 44,
+     "productShaped": 43,
+     "note": "",
+     "sample": [
+      {
+       "name": "DK0A88RSBLK-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/womens-wellsville-full-zip-sweater-dk0a88rsblk",
+       "price": ""
+      },
+      {
+       "name": "DK0A85XT0DS-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/womens-super-flex-straight-leg-cargo-pants-dk0a85xt0ds",
+       "price": ""
+      },
+      {
+       "name": "privacy policy",
+       "productUrl": "https://www.dickies.com/en-us/pages/privacy-policy",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 365,
+      "noImage": 41,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 1,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 279
+     }
+    },
+    {
+     "url": "https://www.dickies.com/en-us/collections/womens-shirt-jackets",
+     "count": 43,
+     "productShaped": 42,
+     "note": "",
+     "sample": [
+      {
+       "name": "DK0A8799K99-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/womens-flannel-shacket-dk0a8799k99",
+       "price": ""
+      },
+      {
+       "name": "DK0A85XT0DS-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/womens-super-flex-straight-leg-cargo-pants-dk0a85xt0ds",
+       "price": ""
+      },
+      {
+       "name": "privacy policy",
+       "productUrl": "https://www.dickies.com/en-us/pages/privacy-policy",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 374,
+      "noImage": 51,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 1,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 279
+     }
+    },
+    {
+     "url": "https://www.dickies.com/collections/womens-skirts-dresses",
+     "count": 46,
+     "productShaped": 45,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Flocked Low Rise Mini Skirt",
+       "productUrl": "https://www.dickies.com/en-us/products/flocked-low-rise-mini-skirt-cbf",
+       "price": ""
+      },
+      {
+       "name": "DK0FS574ASN-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/womens-574-original-work-shirt-dk0fs574asn",
+       "price": ""
+      },
+      {
+       "name": "privacy policy",
+       "productUrl": "https://www.dickies.com/en-us/pages/privacy-policy",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 369,
+      "noImage": 43,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 1,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 279
+     }
+    },
+    {
+     "url": "https://www.dickies.com/collections/womens-pants",
+     "count": 84,
+     "productShaped": 83,
+     "note": "",
+     "sample": [
+      {
+       "name": "DK0DW8740AF-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/women-s-874-r-work-pants-dk0dw8740af",
+       "price": ""
+      },
+      {
+       "name": "DK0A85XS0DS-FR",
+       "productUrl": "https://www.dickies.com/en-us/products/womens-super-flex-straight-leg-work-pants-dk0a85xs0ds",
+       "price": ""
+      },
+      {
+       "name": "privacy policy",
+       "productUrl": "https://www.dickies.com/en-us/pages/privacy-policy",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 417,
+      "noImage": 38,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 14,
+      "nonProduct": 2,
+      "landing": 0,
+      "siteMenu": 279
+     }
+    }
+   ],
+   "secs": 92,
+   "dropped": 40,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Juniors Snap Front Top",
+     "productUrl": "https://www.dickies.com/en-us/products/juniors-snap-front-top-7dkz5b0066clbwb"
+    },
+    {
+     "name": "Juniors Lace Babydoll Tank",
+     "productUrl": "https://www.dickies.com/en-us/products/juniors-lace-babydoll-tank-7dkz5b0046clmp"
+    },
+    {
+     "name": "Junior's Short Sleeve Oversized Stripe Tee",
+     "productUrl": "https://www.dickies.com/en-us/products/jr-ss-oversized-stripe-tee-whn"
+    },
+    {
+     "name": "Junior's Short Sleeve Oversized Stripe Tee",
+     "productUrl": "https://www.dickies.com/en-us/products/jr-ss-oversized-stripe-tee-whr"
+    },
+    {
+     "name": "Juniors Longline Baby Tee",
+     "productUrl": "https://www.dickies.com/en-us/products/juniors-longline-baby-tee-7dkz9e0193clnbl"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Good American",
+   "site": "goodamerican.com.goodamerican",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 402,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 199,
+    "pants": 81,
+    "dresses": 61,
+    "sweatshirts": 42,
+    "shirts": 19
+   },
+   "perUrl": [
+    {
+     "url": "https://www.goodamerican.com/en-kr/collections/tees-tanks",
+     "count": 106,
+     "productShaped": 103,
+     "note": "",
+     "sample": [
+      {
+       "name": "THE CAP SLEEVE TEE | WHITE001-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/products/the-cap-sleeve-tee-white",
+       "price": ""
+      },
+      {
+       "name": "THE RINGER BABY TEE | FLAMING HOT-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/products/super-stretch-baby-ringer-tee-flaming-hot",
+       "price": ""
+      },
+      {
+       "name": "SUPER STRETCH ONE SHOULDER TANK | WHITE001-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/products/super-stretch-cotton-one-shoulder-tank-white001-1",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 934,
+      "noImage": 26,
+      "tinyImage": 102,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 427,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 275
+     }
+    },
+    {
+     "url": "https://www.goodamerican.com/en-kr/collections/womens-tops",
+     "count": 326,
+     "productShaped": 325,
+     "note": "",
+     "sample": [
+      {
+       "name": "THE SCULPTING MODERN LONG SLEEVE BODYSUIT | BLACK-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/en-kr/products/scuba-crewneck-bodysuit-black001",
+       "price": ""
+      },
+      {
+       "name": "THE GYM TEE | CHALK-1 | GOOD AMERICAN | MODEL_C",
+       "productUrl": "https://www.goodamerican.com/en-kr/products/the-gym-tee-chalk",
+       "price": ""
+      },
+      {
+       "name": "SCULPTING CORSET STRAPLESS BODYSUIT | BLACK001-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/en-kr/products/scuba-corset-strapless-bodysuit-black001",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 2394,
+      "noImage": 46,
+      "tinyImage": 320,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 1430,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 275
+     }
+    },
+    {
+     "url": "https://www.goodamerican.com/en-kr/collections/dresses",
+     "count": 65,
+     "productShaped": 64,
+     "note": "",
+     "sample": [
+      {
+       "name": "THE CAP SLEEVE MINI DRESS | CHARCOAL MINI HOUNDSTOOTH-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/en-kr/products/the-cap-sleeve-mini-dress-charcoal-mini-houndstooth",
+       "price": ""
+      },
+      {
+       "name": "THE WEIGHTLESS SCULPTING MINI DRESS | MINI DOT BLACK-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/en-kr/products/weightless-scuba-cami-mini-dress-mini-dot-black",
+       "price": ""
+      },
+      {
+       "name": "SCULPTING SWEETHEART MIDI DRESS",
+       "productUrl": "https://www.goodamerican.com/products/scuba-flexiwire-midi-dress-black001",
+       "price": "$149.00"
+      }
+     ],
+     "rej": {
+      "total": 687,
+      "noImage": 40,
+      "tinyImage": 61,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 248,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 275
+     }
+    },
+    {
+     "url": "https://www.goodamerican.com/en-kr/collections/bottoms",
+     "count": 74,
+     "productShaped": 73,
+     "note": "",
+     "sample": [
+      {
+       "name": "LOW SLUNG BAGGY TROUSER | NEW NAVY-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/en-kr/products/low-slung-baggy-trouser-new-navy",
+       "price": ""
+      },
+      {
+       "name": "BETTER THAN LEATHER GHOST WAIST LOW LOOSE PANT | BLACK-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/en-kr/products/btl-vintage-low-loose-ghost-wb-black",
+       "price": ""
+      },
+      {
+       "name": "BETTER THAN LEATHER VINTAGE LOW RISE BOOTCUT PANT",
+       "productUrl": "https://www.goodamerican.com/products/better-than-leather-low-rise-bootcut-carmine",
+       "price": "$198.00"
+      }
+     ],
+     "rej": {
+      "total": 864,
+      "noImage": 71,
+      "tinyImage": 69,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 378,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 275
+     }
+    },
+    {
+     "url": "https://www.goodamerican.com/collections/jeanius-sweats",
+     "count": 13,
+     "productShaped": 12,
+     "note": "",
+     "sample": [
+      {
+       "name": "JEANIUS GOOD SKATE SWEATPANTS | INDIGO586-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/products/jeanius-good-skate-sweatpants-indigo586",
+       "price": ""
+      },
+      {
+       "name": "JEANIUS ZIP UP HOODIE | INDIGO1157-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/products/jeanius-zip-up-hoodie-indigo1157",
+       "price": ""
+      },
+      {
+       "name": "JEANIUS CROP PALAZZO | INDIGO376-1 | GOOD AMERICAN | MODEL_A",
+       "productUrl": "https://www.goodamerican.com/products/jeanius-crop-palazzo-indigo376",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 391,
+      "noImage": 37,
+      "tinyImage": 12,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 54,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 275
+     }
+    }
+   ],
+   "secs": 580,
+   "dropped": 1,
+   "cut": false,
+   "sample": [
+    {
+     "name": "THE CAP SLEEVE TEE | WHITE001-1 | GOOD AMERICAN | MODEL_A",
+     "productUrl": "https://www.goodamerican.com/products/the-cap-sleeve-tee-white"
+    },
+    {
+     "name": "SCULPTING MODERN TANK BODYSUIT | BLACK-1 | GOOD AMERICAN | MODEL_A",
+     "productUrl": "https://www.goodamerican.com/products/scuba-modern-tank-bodysuit-black001"
+    },
+    {
+     "name": "THE LAYERED TEE | BLACK-1 | GOOD AMERICAN | MODEL_A",
+     "productUrl": "https://www.goodamerican.com/products/the-layered-tee-black"
+    },
+    {
+     "name": "THE LAYERED TEE | VINTAGE GREY-1 | GOOD AMERICAN | MODEL_A",
+     "productUrl": "https://www.goodamerican.com/products/the-layered-tee-vintage-grey"
+    },
+    {
+     "name": "THE COMBO LAYERED TEE | CHALK WITH CHALK-1 | GOOD AMERICAN | MODEL_A",
+     "productUrl": "https://www.goodamerican.com/products/the-combo-layered-tee-chalk-with-chalk"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Bash",
+   "site": "ba-sh.com.bash",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 295,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 49,
+    "sweatshirts": 28,
+    "shirts": 58,
+    "dresses": 95,
+    "pants": 65
+   },
+   "perUrl": [
+    {
+     "url": "https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.",
+     "count": 35,
+     "productShaped": 35,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans NIKO",
+       "productUrl": "https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html",
+       "price": "€ 175"
+      },
+      {
+       "name": "T-shirt IONI",
+       "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-ioni-kaki-3667436072215.html",
+       "price": "€ 75"
+      },
+      {
+       "name": "TANK TOP SHADEY",
+       "productUrl": "https://ba-sh.com/fr/en/p/tank-top-shadey-champagne-3667436159237.html",
+       "price": "€ 70"
+      }
+     ],
+     "rej": {
+      "total": 473,
+      "noImage": 48,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 58,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 332
+     }
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.",
+     "count": 38,
+     "productShaped": 38,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans NIKO",
+       "productUrl": "https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html",
+       "price": "€ 175"
+      },
+      {
+       "name": "BAPY SWEATSHIRT",
+       "productUrl": "https://ba-sh.com/fr/en/p/bapy-sweatshirt-ecru-3667436160745.html",
+       "price": "€ 145"
+      },
+      {
+       "name": "SWEATSHIRT MAIA",
+       "productUrl": "https://ba-sh.com/fr/en/p/sweatshirt-maia-bleu-3667436042423.html",
+       "price": "€ 155"
+      }
+     ],
+     "rej": {
+      "total": 471,
+      "noImage": 40,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 61,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 332
+     }
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ.",
+     "count": 97,
+     "productShaped": 97,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans NIKO",
+       "productUrl": "https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html",
+       "price": "€ 175"
+      },
+      {
+       "name": "tank top ZUANI",
+       "productUrl": "https://ba-sh.com/fr/en/p/tank-top-zuani-kaki-3667436078521.html",
+       "price": "€ 69"
+      },
+      {
+       "name": "shirt ROSEANNE",
+       "productUrl": "https://ba-sh.com/fr/en/p/shirt-roseanne-ecru-3667436073434.html",
+       "price": "€ 136,50"
+      }
+     ],
+     "rej": {
+      "total": 533,
+      "noImage": 70,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 91,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 332
+     }
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/ready-to-wear/dresses/?_gl=1*15p7q1u*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTYkajQxJGwwJGg1MzYzNDQ3NzQ.",
+     "count": 107,
+     "productShaped": 107,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans NIKO",
+       "productUrl": "https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html",
+       "price": "€ 175"
+      },
+      {
+       "name": "dress JEMA",
+       "productUrl": "https://ba-sh.com/fr/en/p/dress-jema-noir-3667436089206.html",
+       "price": "€ 245"
+      },
+      {
+       "name": "dress PACIFICA",
+       "productUrl": "https://ba-sh.com/fr/en/p/dress-pacifica-bleu-3667436025730.html",
+       "price": "€ 177"
+      }
+     ],
+     "rej": {
+      "total": 573,
+      "noImage": 66,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 122,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 332
+     }
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/trousers-jeans/?_gl=1*6jfisz*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MzUkajIyJGwwJGg1MzYzNDQ3NzQ.",
+     "count": 76,
+     "productShaped": 76,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans NIKO",
+       "productUrl": "https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html",
+       "price": "€ 175"
+      },
+      {
+       "name": "trousers VASSILI",
+       "productUrl": "https://ba-sh.com/fr/en/p/trousers-vassili-camel-3667436091834.html",
+       "price": "€ 215"
+      },
+      {
+       "name": "BLACK",
+       "productUrl": "https://ba-sh.com/fr/en/p/jeans-fadou-blackstone-3667436001888.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 462,
+      "noImage": 55,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 58,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 332
+     }
+    }
+   ],
+   "secs": 206,
+   "dropped": 11,
+   "cut": false,
+   "sample": [
+    {
+     "name": "T-shirt IONI",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-ioni-grischine-3667436152573.html"
+    },
+    {
+     "name": "t-shirt CORTOT",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-cortot-encre-3667436089664.html"
+    },
+    {
+     "name": "t-shirt ROSTA",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-rosta-grischine-3667436069260.html"
+    },
+    {
+     "name": "t-shirt TAKE",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-take-encre-3667436069628.html"
+    },
+    {
+     "name": "T-shirt MORIS",
+     "productUrl": "https://ba-sh.com/fr/en/p/t-shirt-moris-greige-3667436090219.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "James Perse",
+   "site": "jamesperse.com.jamesperse",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 182,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 65,
+    "shirts": 14,
+    "pants": 63,
+    "sweatshirts": 22,
+    "dresses": 18
+   },
+   "perUrl": [
+    {
+     "url": "https://www.jamesperse.com/collections/womens-t-shirts",
+     "count": 47,
+     "productShaped": 47,
+     "note": "",
+     "sample": [
+      {
+       "name": "slub jersey baseball tee coastal blue off white wjd3474",
+       "productUrl": "https://www.jamesperse.com/products/slub-jersey-baseball-tee-coastal-blue-off-white-wjd3474",
+       "price": ""
+      },
+      {
+       "name": "Baby Tee In White | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/baby-tee-white-wncj3475",
+       "price": ""
+      },
+      {
+       "name": "Wool Jersey Lounge Tee in Soft Beige | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/wool-jersey-lounge-tee-soft-beige-wvwj3255",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1007,
+      "noImage": 165,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 402,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-tanks",
+     "count": 11,
+     "productShaped": 11,
+     "note": "",
+     "sample": [
+      {
+       "name": "Ribbed Daily Tank - White",
+       "productUrl": "https://www.jamesperse.com/products/ribbed-daily-tank-white",
+       "price": ""
+      },
+      {
+       "name": "WLVY3390 DKMO 1657 FLAT",
+       "productUrl": "https://www.jamesperse.com/products/linen-blend-sweater-tank-dark-moss-wlvy3390",
+       "price": ""
+      },
+      {
+       "name": "Cotton Linen Sweater Tank In Navy | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/cotton-linen-sweater-tank-navy-wtal3332",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 553,
+      "noImage": 48,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 101,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms",
+     "count": 36,
+     "productShaped": 36,
+     "note": "",
+     "sample": [
+      {
+       "name": "vintage french terry half zip sweatshirt off white wxa3460",
+       "productUrl": "https://www.jamesperse.com/products/vintage-french-terry-half-zip-sweatshirt-off-white-wxa3460",
+       "price": ""
+      },
+      {
+       "name": "Brushed Cotton Side Stripe Track Pant in Black/Ivory | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/brushed-cotton-side-stripe-track-pant-black-ivory-wbcb1219",
+       "price": ""
+      },
+      {
+       "name": "Knee Length Sweat Short In Porcupine | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/knee-length-sweat-short-porcupine-wdft4396",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 845,
+      "noImage": 135,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 281,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-tops",
+     "count": 33,
+     "productShaped": 33,
+     "note": "",
+     "sample": [
+      {
+       "name": "cotton cashmere rib henley dark caramel wcsm3436",
+       "productUrl": "https://www.jamesperse.com/products/cotton-cashmere-rib-henley-dark-caramel-wcsm3436",
+       "price": ""
+      },
+      {
+       "name": "Winter 2026 product flat — WSHB3397 WASB",
+       "productUrl": "https://www.jamesperse.com/products/washed-silk-slim-shirt-washed-black-wshb3397",
+       "price": ""
+      },
+      {
+       "name": "Supima Poplin Shirting in White | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/supima-poplin-shirt-white-wspi3241",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 850,
+      "noImage": 141,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 283,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-dresses-jumpsuits",
+     "count": 18,
+     "productShaped": 18,
+     "note": "",
+     "sample": [
+      {
+       "name": "washed silk midi shirt dress washed brown wshb6014",
+       "productUrl": "https://www.jamesperse.com/products/washed-silk-midi-shirt-dress-washed-brown-wshb6014",
+       "price": ""
+      },
+      {
+       "name": "Palm Paisley Linen Strappy Tie Dress in Brown Bandana Print | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/palm-paisley-linen-strappy-tie-dress-brown-bandana-print-wpko6010",
+       "price": ""
+      },
+      {
+       "name": "Satin Cami Slip Dress in Ivory Pigment | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/satin-cami-slip-dress-ivory-pigment-wswc6993",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 648,
+      "noImage": 87,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 150,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    },
+    {
+     "url": "https://www.jamesperse.com/collections/womens-pants-denim",
+     "count": 46,
+     "productShaped": 46,
+     "note": "",
+     "sample": [
+      {
+       "name": "corduroy mixed media pant sandshell pigment wwwa1188",
+       "productUrl": "https://www.jamesperse.com/products/corduroy-mixed-media-pant-sandshell-pigment-wwwa1188",
+       "price": ""
+      },
+      {
+       "name": "Herringbone Wide Leg Utility Pant - Blue Noir Pigment",
+       "productUrl": "https://www.jamesperse.com/products/herringbone-wide-leg-utility-pant-blue-noir-pigment-whbs1185",
+       "price": ""
+      },
+      {
+       "name": "Stretch Suede Bootcut Pant in Ecru | James Perse Los Angeles",
+       "productUrl": "https://www.jamesperse.com/products/stretch-suede-bootcut-pant-ecru-wsls1157",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1058,
+      "noImage": 228,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 391,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 393
+     }
+    }
+   ],
+   "secs": 160,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "slub jersey baseball tee coastal blue off white wjd3474",
+     "productUrl": "https://www.jamesperse.com/products/slub-jersey-baseball-tee-coastal-blue-off-white-wjd3474"
+    },
+    {
+     "name": "Slub Jersey Baseball Tee in Storm/Off White | James Perse Los Angeles",
+     "productUrl": "https://www.jamesperse.com/products/slub-jersey-baseball-tee-storm-off-white-wjd3474"
+    },
+    {
+     "name": "Slub Jersey Classic Tee In Stone Pigment | James Perse Los Angeles",
+     "productUrl": "https://www.jamesperse.com/products/slub-jersey-classic-tee-stone-pigment-wjd3417"
+    },
+    {
+     "name": "Slub Jersey Shrunken Tee in White | James Perse Los Angeles",
+     "productUrl": "https://www.jamesperse.com/products/slub-jersey-shrunken-tee-white-wjd3159"
+    },
+    {
+     "name": "Sheer Slub Crew Neck Tee in White | James Perse Los Angeles",
+     "productUrl": "https://www.jamesperse.com/products/sheer-slub-crew-neck-tee-white-wua3037"
+    }
+   ],
+   "verdict": "자동화 가능"
+  }
+ ]
+}
