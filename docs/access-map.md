@@ -1,6 +1,6 @@
 # 접근 지도 — 134개 브랜드, 우리 수집기가 어디까지 닿는가
 
-만든 때 2026-11-25T09:36Z · 측정 실행 10회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
+만든 때 2026-11-25T09:37Z · 측정 실행 11회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
 
 이 문서는 `node scripts/build-access-map.mjs` 가 만든다. 같은 사실이 `access-map.json` 에 기계용으로 있다.
 판정 근거는 세 가지뿐이다 — ① 11/25 야간 리포트(서버 프리페치·헤드리스 수집·카탈로그 점검·혼용률 보강),
@@ -13,12 +13,12 @@
 
 | 상태 | 브랜드 | 상품(카탈로그) | 브랜드 이름 |
 |---|---:|---:|---|
-| ✅ 된다 | 84 | 23,496 | Addison bay, Aerie, ALC, Alo, American Eagle, Apiece Apart, Barbour, Bassike, Bellerose, Beyond yoga, Boden, Boldest, Buck Mason, CCC, Citizens of Humanity, Club monaco, Coldwatercreek, Cotton citizen, Cotton on, Damson Madder, Draper James, Eddie bauer, English factory, Evereve, Everlane, Faherty, Frame, Frank & Eileen, Gerard darel, Gestuz, Goldie, Greyson, Gymshark, Hobbs, J crew, J.jill, J.mclaughlin, Jager, Jigsaw, La Ligne, Leset, Lilla P, LNA, Marine Layer, Me+Em, Michael Stars, Mint velvet, Monrow, Ninety Percent, Nylora, Oak + Fort, Oasis, On, Outdoorvoices, Phase eight, Poetry, Project Social T, Rag & bone, Rails, rouje, Sanctuary, Scoth & soda, Sessun, Shopbop, Spanx, Splendid, Splits59, Stateside, Sundry, Sweaty betty, The Great, Thread & supply, Tuckernuck, Ulla Johnson, Varley, Velvet, Veronica Beard, Vince, Vuori, Whistles, Wrap, Xirena, Z Supply, Zara |
+| ✅ 된다 | 83 | 23,415 | Addison bay, Aerie, ALC, Alo, American Eagle, Apiece Apart, Barbour, Bassike, Bellerose, Beyond yoga, Boden, Boldest, Buck Mason, CCC, Citizens of Humanity, Club monaco, Coldwatercreek, Cotton citizen, Cotton on, Damson Madder, Draper James, Eddie bauer, English factory, Evereve, Everlane, Faherty, Frame, Frank & Eileen, Gerard darel, Gestuz, Goldie, Greyson, Gymshark, Hobbs, J crew, J.jill, J.mclaughlin, Jager, Jigsaw, La Ligne, Leset, Lilla P, LNA, Marine Layer, Me+Em, Michael Stars, Mint velvet, Monrow, Ninety Percent, Nylora, Oak + Fort, Oasis, On, Outdoorvoices, Phase eight, Poetry, Project Social T, Rag & bone, Rails, rouje, Sanctuary, Scoth & soda, Shopbop, Spanx, Splendid, Splits59, Stateside, Sundry, Sweaty betty, The Great, Thread & supply, Tuckernuck, Ulla Johnson, Varley, Velvet, Veronica Beard, Vince, Vuori, Whistles, Wrap, Xirena, Z Supply, Zara |
 | 🏠 집 IP(확장)에서만 | 27 | 8,982 | &Other Stories, Abercrombie & Fitch, Addidas, Ann Taylor, Anthropologie, Aritzia, Arket, Eileen fisher, Fatface, FP Movement, Free People, H&M, Joules, L.L bean, Lands end, Loft, Lululemon, Madewell, Mango, Massimo Dutti, Paige, Patagonia, Seasalt cornwall, Sezane, The white company, Theory, Wilson |
 | 🟠 일부만 | 9 | 4,104 | Chico's, Garnet hill, James Perse, Nation LTD, Reformation, The upside, vineyardvines, WHBM, Whitestuff |
 | ⛔ 어디서도 막힘 | 1 | 81 | Prana |
 | 🔗 URL 이 틀림·죽음 | 2 | 786 | Good American, Lucky Brand |
-| 🔧 열리는데 잘못 읽음 | 11 | 1,071 | Athleta, Banana Republic, Bash, Carlhartt, Dickies, Gap, Monsoon, Nike, Old Navy, Oysho, Vanessa bruno |
+| 🔧 열리는데 잘못 읽음 | 12 | 1,152 | Athleta, Banana Republic, Bash, Carlhartt, Dickies, Gap, Monsoon, Nike, Old Navy, Oysho, Sessun, Vanessa bruno |
 | **합계** | **134** | **38,520** | |
 
 
@@ -30,8 +30,7 @@
 | 🏠 집 IP(확장)에서만 | 5 | 1,510 | &Other Stories, Abercrombie & Fitch, Aritzia, Mango, Paige |
 | 🟠 일부만 | 18 | 5,452 | Arket, Buck Mason, Coldwatercreek, Dickies, Everlane, Free People, J crew, Joules, Loft, Mint velvet, Patagonia, Poetry, Reformation, Spanx, The upside, WHBM, Whitestuff, Wilson |
 | ⛔ 어디서도 막힘 | 11 | 3,593 | Addidas, Anthropologie, Chico's, Fatface, FP Movement, Garnet hill, H&M, Lululemon, Prana, Sezane, The white company |
-| 🔗 URL 이 틀림·죽음 | 1 | 81 | Sessun |
-| 🔧 열리는데 잘못 읽음 | 7 | 786 | Athleta, Banana Republic, Carlhartt, Gap, Massimo Dutti, Old Navy, Oysho |
+| 🔧 열리는데 잘못 읽음 | 8 | 867 | Athleta, Banana Republic, Carlhartt, Gap, Massimo Dutti, Old Navy, Oysho, Sessun |
 | 📭 사이트가 혼용률을 안 적음 | 1 | 232 | rouje |
 | **합계** | **134** | **38,520** | |
 
@@ -93,11 +92,12 @@
 | DataDome | 높음 | FP Movement | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | Free People | HTTP 403 · 제목 "freepeople.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge |
 | DataDome | 높음 | Sezane | HTTP 403 · 제목 "sezane.com" · DataDome: x-datadome 헤더, 쿠키 datadome, 화면 흔적 datadome-challenge / CloudFront: x-amz-cf-* 헤더 |
+| 알 수 없음 | - | Abercrombie & Fitch | HTTP 200 · 제목 "Client Challenge" · 쿠키 _fs_ch_st_FSBmUei20MqUiJb9 |
+| 알 수 없음 | - | Sessun | HTTP 503 · 제목 "" ·  |
 | HUMAN(PerimeterX) | 높음 | Ann Taylor | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXmmBMD3jC/main.min.js, 불러온 주소 if |
 | HUMAN(PerimeterX) | 높음 | Loft | HTTP 200 · 제목 "Access to this page has been denied." · Cloudflare: cf-ray 헤더 / Salesforce Commerce Cloud: x-dw/x-sfdc 헤더 / HUMAN(PerimeterX): 화면 흔적 px-challenge, 화면 흔적 px-script, 화면 흔적 px-block, 불러온 주소 client.px-cloud.net/PXYvG65JJE/main.min.js, 불러온 주소 if |
 | Vercel | 높음 | Mango | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
 | Vercel | 높음 | Paige | HTTP 429 · 제목 "Vercel Security Checkpoint" · Vercel: x-vercel-id 헤더, 화면 흔적 vercel-checkpoint |
-| 알 수 없음 | - | Abercrombie & Fitch | HTTP 200 · 제목 "Client Challenge" ·  |
 
 
 
@@ -124,7 +124,7 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 목록은 "상품 5개 이상"을 성공으로 셌다(브라우저는 야간 수집과 같은 수집기 collector.js 기준, impit 은 HTML 의 상품 링크).
 
 
-### ✅ 된다 — 84개 브랜드 · 상품 23,496개
+### ✅ 된다 — 83개 브랜드 · 상품 23,415개
 
 | 브랜드 | 담당 | 상품 | 혼용률 | 근거 |
 |---|---|---:|---:|---|
@@ -190,7 +190,6 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 | rouje | 서버(Render) | 232 | 64% | 서버 프리페치 11/25 232개(6일 232·232·232·232·232·232) · 야간 리포트(규칙) |
 | Sanctuary | 서버(Render) | 421 | 98% | 서버 프리페치 11/25 421개(6일 421·421·421·421·422·422) · 야간 리포트(규칙) |
 | Scoth & soda | 서버(Render) | 378 | 96% | 서버 프리페치 11/25 378개(6일 378·379·382·384·385·387) · 야간 리포트(규칙) |
-| Sessun | 서버(Render) | 81 | 42% | 서버 프리페치 11/25 81개(6일 81·79·69·80·78·81) · 야간 리포트(규칙) |
 | Shopbop | 헤드리스(Actions) | 453 | 86% | 헤드리스 11/25 453개 · URL 237·242·240·246 · 야간 리포트(규칙) |
 | Spanx | 서버(Render) | 84 | 79% | 서버 프리페치 11/25 84개(6일 84·79·79·81·80·80) · 야간 리포트(규칙) |
 | Splendid | 서버(Render) | 404 | 84% | 프리페치 403~404개(Shopify 경로) · 평 HTML 은 스크립트가 그림 · 측정·판정 |
@@ -272,7 +271,7 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 | Good American | 서버(Render) | 625 | URL 에 한국 지역(/en-kr/) — 미국 IP 에선 지역 없는 주소로 넘어감 · 서버는 카테고리당 10~53개 · 크롬은 43~353개 | 프리페치 216개(저장 625 는 옛 수집분 포함) — 오늘 impit 2/13(geo·no-cards) · playwright 3/3 · firefox 3/3 · server 4/10(rate-limit 429) | URL 에서 /en-kr 빼기 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 5회 |
 | Lucky Brand | 헤드리스(Actions) | 161 | blouses URL 이 검색 페이지('Search / Lucky Brand')로 열리고 수집 중 페이지가 바뀜(Execution context destroyed) | 헤드리스 65·90·0·67·36 — 오늘 impit 12/12 · playwright 1/2(shell) · firefox 1/2(shell) | blouses 카테고리 새 주소 | 4 새 URL 필요(담당자) | 측정·판정 · 실행 3회 |
 
-### 🔧 열리는데 잘못 읽음 — 11개 브랜드 · 상품 1,071개
+### 🔧 열리는데 잘못 읽음 — 12개 브랜드 · 상품 1,152개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
@@ -286,6 +285,7 @@ firefox = 헤드리스 파이어폭스 · firefox-fresh = 페이지마다 쿠키
 | Nike | 헤드리스(Actions) | 490 | 헤드리스 표본 5개가 모두 필터 카테고리 링크(/w/…) — 상품 아님 의심 | 헤드리스 490개 — 오늘 impit 0/10(no-cards) · playwright 2/2 · firefox 2/2 | 수집기에서 /w/ 경로 제외, 상품(/t/…)만(무료, 추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
 | Old Navy | 크롬 확장(집 PC) | 7 | 열리는데 수집기가 10~11개만 — 확장도 7개(배너) | 확장 7개 — 오늘 impit 0/15(no-cards) · playwright 5/5 · firefox 5/5 | Gap 계열 목록 JSON(추정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
 | Oysho | 크롬 확장(집 PC) | 20 | 확장 카탈로그 20개가 전부 하위 카테고리 타일(…-n5063) — 상품이 아님. 데이터센터 파이어폭스는 열림(3/3, 18~22개) | 확장 20개 — 오늘 impit 0/13(blocked) · playwright 0/3(blocked 403) · firefox 3/3 | 헤드리스 파이어폭스 + 수집기 확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 3회 |
+| Sessun | 서버(Render) | 81 | 서버 목록 읽기가 일부 상품 대신 이미지 주소(static.sessun.com/…webp%20924w — srcset 조각)를 상품 링크로 저장 | 프리페치 81개 · 카탈로그 표본에 이미지 주소 섞임(오늘 상품 표본 3개가 전부 이미지 주소 → 404) — 오늘 impit 10/10 | 서버 목록 읽기에서 srcset 조각을 링크로 쓰지 않게(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | Vanessa bruno | 서버(Render) | 58 | 서버가 tops 6개 말고는 0개 — 같은 페이지 평 HTML 에 상품 링크 22~25개, 크롬도 21~25개 · URL 1개는 첫 화면으로 튕김 | 프리페치 6일 내내 6개(저장 58 은 옛 수집분) — 오늘 impit 6/15(no-cards·dead) · playwright 2/3(dead) · firefox 2/3(dead) · server 4/12(shell) | 서버 목록 읽기 보완 또는 헤드리스(무료) + 죽은 URL 교체 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 5회 |
 
 
@@ -395,32 +395,32 @@ site-api = 사이트 자체 JSON(Shopify `.json`·Zara), wayback = 웹 아카이
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| &Other Stories | 크롬 확장(집 PC) | 343 | 상품 페이지는 Akamai 가 모든 엔진 차단(파이어폭스는 200 확인 화면) · 보관본 없음 | 혼용률 143/343 은 확장 몫 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강 유지. 데이터센터 무료 길 없음 → 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Abercrombie & Fitch | 크롬 확장(집 PC) | 214 | 같은 확인 화면 | 혼용률 136/214 확장 몫 · 보관본 없음 — 오늘 impit 0/3(blocked) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 418) · firefox 0/3(blocked) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Aritzia | 크롬 확장(집 PC) | 800 | Cloudflare — 모든 엔진 차단 · 보관본은 사이트 공통 문구 때문에 거부 | 혼용률 501/800 확장 몫 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked·geo 403) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Mango | 크롬 확장(집 PC) | 93 | Vercel 확인 화면 — 모든 엔진 · 파이어폭스 보강 11/25 39/39 차단 | 혼용률 54/93 확장 몫 — 오늘 impit 0/3(blocked 429) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Paige | 크롬 확장(집 PC) | 60 | Vercel 확인 화면 — 모든 엔진 | 혼용률 38/60 확장 몫 — 오늘 impit 0/3(blocked 429) · site-api 0/3(rate-limit 429) · wayback 0/3(no-archive) · playwright 0/3(blocked 429) · firefox 0/3(blocked 429) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| &Other Stories | 크롬 확장(집 PC) | 343 | 상품 페이지는 Akamai 가 모든 엔진 차단(파이어폭스는 200 확인 화면) · 보관본 없음 | 혼용률 143/343 은 확장 몫 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 확장 탭 보강 유지. 데이터센터 무료 길 없음 → 유료(Akamai 대응) 시험 대상 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Abercrombie & Fitch | 크롬 확장(집 PC) | 214 | 같은 확인 화면 | 혼용률 136/214 확장 몫 · 보관본 없음 — 오늘 impit 0/6(blocked) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(blocked 418) · firefox 0/6(blocked) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Aritzia | 크롬 확장(집 PC) | 800 | Cloudflare — 모든 엔진 차단 · 보관본은 사이트 공통 문구 때문에 거부 | 혼용률 501/800 확장 몫 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(blocked 403) · firefox 1/6(blocked·geo 403) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Mango | 크롬 확장(집 PC) | 93 | Vercel 확인 화면 — 모든 엔진 · 파이어폭스 보강 11/25 39/39 차단 | 혼용률 54/93 확장 몫 — 오늘 impit 0/6(blocked 429) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/6(blocked 429) · firefox 0/6(blocked 429) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Paige | 크롬 확장(집 PC) | 60 | Vercel 확인 화면 — 모든 엔진 | 혼용률 38/60 확장 몫 — 오늘 impit 0/6(blocked 429) · site-api 0/3(rate-limit 429) · wayback 0/3(no-archive) · playwright 0/6(blocked 429) · firefox 0/6(blocked 429) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
 
 ### 🟠 일부만 — 18개 브랜드 · 상품 5,452개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| Arket | 크롬 확장(집 PC) | 285 | 상품 페이지는 Akamai 가 모든 엔진 차단 · 웹 아카이브는 3/3 읽음 | 혼용률 143/285 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 3/3 · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 야간 보강의 웹 아카이브 층을 Arket 에 돌리기(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Arket | 크롬 확장(집 PC) | 285 | 상품 페이지는 Akamai 가 모든 엔진 차단 · 웹 아카이브는 3/3 읽음 | 혼용률 143/285 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 3/3 · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 야간 보강의 웹 아카이브 층을 Arket 에 돌리기(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | Buck Mason | 서버(Render) | 119 | 접근 문제 없음 — 오늘 impit·크롬·파이어폭스·아카이브 3/3 | 혼용률 57/119 — 오늘 impit 3/3 · site-api 0/3(dead 404) · wayback 3/3 · playwright 3/3 · firefox 3/3 | 야간 보강이 아직 못 돎/5일 재시도 제한(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 | Coldwatercreek | 헤드리스(Actions) | 200 | 평 HTML 은 Cloudflare 403 · 크롬·파이어폭스 2/3 혼용률 읽음 — 그런데 11/25 파이어폭스 보강은 120개 중 118개를 '사이트 미표기'로 적음(표본과 엇갈림) | 혼용률 66/200 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-comp·no-archive) · playwright 2/3(no-comp) · firefox 2/3(no-comp) | 보강의 미표기 판정을 표본으로 재확인(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 | Dickies | 서버(Render) | 260 | 접근 문제 없음 — 오늘 impit·크롬·파이어폭스 3/3 | 혼용률 144/260 — 오늘 impit 3/3 · site-api 1/3(geo) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강이 아직 다 못 돎(무료 — 대상·상한 조정) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 | Everlane | 서버(Render) | 443 | 접근 문제 없음 — 오늘 모든 엔진 3/3(사이트 JSON 포함) | 혼용률 296/443 — 오늘 impit 3/3 · site-api 3/3 · wayback 1/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강 대상·상한(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
-| Free People | 크롬 확장(집 PC) | 190 | DataDome — 페이지는 모든 엔진 403 · 웹 아카이브 2/3 | 혼용률 9/190 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 웹 아카이브 층(11/24 측정 적중 50%)을 계속 돌리기 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Free People | 크롬 확장(집 PC) | 190 | DataDome — 페이지는 모든 엔진 403 · 웹 아카이브 2/3 | 혼용률 9/190 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 웹 아카이브 층(11/24 측정 적중 50%)을 계속 돌리기 — 무료 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | J crew | 헤드리스(Actions) | 215 | 야간 fetch 는 '직접차단' 12 · 오늘 크롬·파이어폭스 3/3 읽음 | 혼용률 63/215 — 오늘 impit 1/3(no-comp) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 3/3 · firefox 3/3 | 크롬 보강(enrich-browser) 대상에 넣기(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
-| Joules | 크롬 확장(집 PC) | 459 | Akamai — 페이지는 모든 엔진 403 · 웹 아카이브만 일부(11/25 야간 15개) | 혼용률 0~15/459 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 웹 아카이브 층 계속 · 나머지는 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Joules | 크롬 확장(집 PC) | 459 | Akamai — 페이지는 모든 엔진 403 · 웹 아카이브만 일부(11/25 야간 15개) | 혼용률 0~15/459 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 웹 아카이브 층 계속 · 나머지는 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
 | Loft | 크롬 확장(집 PC) | 673 | 브라우저는 PerimeterX · 평 HTML 은 열리나 오늘 표본 3개에서 혼용률 못 찾음(JSON-LD 에 있는 상품만 읽힘) | 혼용률 284/673(42%) — 오늘 impit 0/3(geo) · site-api 0/3(error) · wayback 0/3(no-comp·no-archive) · playwright 0/3(blocked) · firefox 0/3(blocked) | 평 HTML + JSON-LD 로 야간 보강(무료) — 나머지는 확장 탭 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 | Mint velvet | 서버(Render) | 416 | 접근 문제 없음 — impit·크롬·파이어폭스 3/3 | 혼용률 293/416 — 오늘 impit 3/3 · site-api 0/3(no-comp) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강 대상·상한(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
-| Patagonia | 크롬 확장(집 PC) | 168 | 같은 점검 화면 · 파이어폭스 2/3 읽음 · 보관본 1/3 | 혼용률 4/168 — 오늘 impit 0/3(maintenance) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(maintenance) · firefox 2/3(maintenance) | 파이어폭스 보강을 Patagonia 에 — 11/24 측정 16/20 읽음(무료, 러너마다 갈림) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Patagonia | 크롬 확장(집 PC) | 168 | 같은 점검 화면 · 파이어폭스 2/3 읽음 · 보관본 1/3 | 혼용률 4/168 — 오늘 impit 0/6(maintenance) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/6(maintenance) · firefox 4/6(maintenance) | 파이어폭스 보강을 Patagonia 에 — 11/24 측정 16/20 읽음(무료, 러너마다 갈림) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | Poetry | 헤드리스(Actions) | 303 | 접근 문제 없음 — 오늘 impit·크롬·파이어폭스 3/3 | 혼용률 240/303 — 오늘 impit 3/3 · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 3/3 · firefox 3/3 | 야간 보강(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
-| Reformation | 서버(Render) | 753 | Cloudflare — impit·사이트 JSON 403 · 크롬 3/3 · 웹 아카이브 3/3 | 혼용률 261/753 — 오늘 impit 0/3(blocked 403) · site-api 0/3(blocked 403) · wayback 3/3 · playwright 3/3 · firefox 1/3(blocked 403) | 크롬 보강 + 웹 아카이브(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Reformation | 서버(Render) | 753 | Cloudflare — impit·사이트 JSON 403 · 크롬 3/3 · 웹 아카이브 3/3 | 혼용률 261/753 — 오늘 impit 0/6(blocked 403) · site-api 0/3(blocked 403) · wayback 3/3 · playwright 6/6 · firefox 2/6(blocked 403) | 크롬 보강 + 웹 아카이브(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | Spanx | 서버(Render) | 84 | 접근 문제 없음 — impit·크롬·파이어폭스 3/3 | 혼용률 66/84 — 오늘 impit 3/3 · site-api 0/3(dead 404) · wayback 2/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
-| The upside | 헤드리스(Actions) | 429 | Cloudflare — 브라우저는 첫 페이지만 | 혼용률 322/429 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 1/3(blocked 403) · firefox 1/3(blocked 403) | 확장 또는 새 창 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| WHBM | 서버(Render) | 219 | Akamai — 크롬·impit 403 · 파이어폭스 2/3 · 보관본 2/3 | 혼용률 75/219 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/3(blocked 403) · firefox 2/3(blocked 403) | 파이어폭스 보강 + 웹 아카이브(무료, 러너마다 갈림) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| The upside | 헤드리스(Actions) | 429 | Cloudflare — 브라우저는 첫 페이지만 | 혼용률 322/429 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 2/6(blocked 403) · firefox 2/6(blocked 403) | 확장 또는 새 창 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| WHBM | 서버(Render) | 219 | Akamai — 크롬·impit 403 · 파이어폭스 2/3 · 보관본 2/3 | 혼용률 75/219 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 2/3(no-archive) · playwright 0/6(blocked 403) · firefox 2/6(blocked 403) | 파이어폭스 보강 + 웹 아카이브(무료, 러너마다 갈림) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | Whitestuff | 서버(Render) | 184 | 야간 보강의 직접 fetch 가 76개 '직접차단' · 오늘 impit·크롬·파이어폭스 3/3 읽음 | 혼용률 143/184 — 오늘 impit 3/3 · site-api 0/3(error) · wayback 0/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강 fetch 를 impit 류로(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 | Wilson | 크롬 확장(집 PC) | 52 | 접근 문제 없음 — 오늘 모든 엔진 3/3 읽음. 아직 보강이 안 돈 것 | 혼용률 28/52 — 오늘 impit 3/3 · site-api 0/3(geo) · wayback 2/3(error) · playwright 3/3 · firefox 3/3 | 야간 보강 대상에 넣기(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 
@@ -428,25 +428,19 @@ site-api = 사이트 자체 JSON(Shopify `.json`·Zara), wayback = 웹 아카이
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
-| Addidas | 크롬 확장(집 PC) | 408 | Akamai — 모든 엔진 403, 보관본 거의 없음(11/25 성공 2) | 혼용률 4/408 — 확장 탭 보강도 아직 못 채움 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강을 adidas 에 돌리기(집 IP) 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Anthropologie | 크롬 확장(집 PC) | 270 | DataDome — 모든 엔진 403 · 보관본 없음 | 혼용률 4/270 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강(집 IP) 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Chico's | 서버(Render) | 800 | Akamai — 모든 엔진 403(11/24 한 러너는 12/20 열림, 다른 러너 0/20) · 보관본 적중 31% | 혼용률 0/800 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 웹 아카이브 층 + 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Fatface | 크롬 확장(집 PC) | 374 | Akamai — 모든 엔진 403 · 보관본 없음 | 혼용률 0/374 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강을 Fatface 에 돌리기 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
+| Addidas | 크롬 확장(집 PC) | 408 | Akamai — 모든 엔진 403, 보관본 거의 없음(11/25 성공 2) | 혼용률 4/408 — 확장 탭 보강도 아직 못 채움 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(blocked·timeout 403) · firefox 0/6(blocked 403) | 확장 탭 보강을 adidas 에 돌리기(집 IP) 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Anthropologie | 크롬 확장(집 PC) | 270 | DataDome — 모든 엔진 403 · 보관본 없음 | 혼용률 4/270 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 확장 탭 보강(집 IP) 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Chico's | 서버(Render) | 800 | Akamai — 모든 엔진 403(11/24 한 러너는 12/20 열림, 다른 러너 0/20) · 보관본 적중 31% | 혼용률 0/800 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 웹 아카이브 층 + 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Fatface | 크롬 확장(집 PC) | 374 | Akamai — 모든 엔진 403 · 보관본 없음 | 혼용률 0/374 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 확장 탭 보강을 Fatface 에 돌리기 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
 | FP Movement | 크롬 확장(집 PC) | 58 | DataDome · 카탈로그가 대부분 카테고리 주소 | 혼용률 6/58 — 오늘 impit 0/1(no-comp) · site-api 0/1(error) · wayback 0/1(no-comp) · playwright 0/1(no-comp) · firefox 0/1(no-comp) | 목록부터 바로잡기 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Garnet hill | 크롬 확장(집 PC) | 108 | 크롬 Akamai 403 · 파이어폭스 1/3 열림(혼용률 없음) · 평 HTML 껍데기 | 혼용률 2/108 — 오늘 impit 0/3(no-comp) · site-api 0/3(error) · wayback 0/3(no-comp) · playwright 0/3(blocked 403) · firefox 0/3(no-comp·blocked 403) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| H&M | 크롬 확장(집 PC) | 744 | 상품 페이지는 Akamai 가 모든 엔진 403(파이어폭스 포함) · 보관본 없음 | 혼용률 0/744 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강(집 IP) 또는 유료(Akamai 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Lululemon | 크롬 확장(집 PC) | 476 | Akamai — 모든 엔진 · 보관본 거의 없음(11/24 적중 4%) | 혼용률 0/476 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-comp·no-archive) · playwright 0/3(timeout) · firefox 0/3(blocked 403) | 확장 탭 보강 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Prana | 서버(Render) | 81 | Cloudflare — 브라우저는 첫 페이지만 · 파이어폭스 보강 11/25 77/81 차단 | 혼용률 0/81 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 1/3(blocked 403) · firefox 1/3(blocked 403) | 확장 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| Sezane | 크롬 확장(집 PC) | 206 | DataDome — 모든 엔진 · 보관본 일부(11/24 거부 다수) | 혼용률 2/206 — 오늘 impit 0/3(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/3(blocked 403) · firefox 0/3(blocked 403) | 확장 탭 보강 또는 유료(DataDome 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 1회 |
-| The white company | 크롬 확장(집 PC) | 68 | 같은 지역 이동 — 데이터센터 모든 엔진 · 파이어폭스 보강 11/25 63/68 차단 | 혼용률 0/68 — 오늘 impit 0/3(geo) · site-api 0/3(error) · wayback 0/3(no-comp) · playwright 0/3(geo·dead 404) · firefox 0/3(geo·dead 404) | 영국 지역으로 열기(추정) 또는 확장 탭 보강 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Garnet hill | 크롬 확장(집 PC) | 108 | 크롬 Akamai 403 · 파이어폭스 1/3 열림(혼용률 없음) · 평 HTML 껍데기 | 혼용률 2/108 — 오늘 impit 0/6(no-comp) · site-api 0/3(error) · wayback 0/3(no-comp) · playwright 0/6(blocked 403) · firefox 0/6(no-comp·blocked 403) | 확장 탭 보강 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| H&M | 크롬 확장(집 PC) | 744 | 상품 페이지는 Akamai 가 모든 엔진 403(파이어폭스 포함) · 보관본 없음 | 혼용률 0/744 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 확장 탭 보강(집 IP) 또는 유료(Akamai 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Lululemon | 크롬 확장(집 PC) | 476 | Akamai — 모든 엔진 · 보관본 거의 없음(11/24 적중 4%) | 혼용률 0/476 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 1/3(no-comp·no-archive) · playwright 0/6(timeout) · firefox 0/6(blocked 403) | 확장 탭 보강 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Prana | 서버(Render) | 81 | Cloudflare — 브라우저는 첫 페이지만 · 파이어폭스 보강 11/25 77/81 차단 | 혼용률 0/81 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 2/6(blocked 403) · firefox 2/6(blocked 403) | 확장 또는 유료 | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| Sezane | 크롬 확장(집 PC) | 206 | DataDome — 모든 엔진 · 보관본 일부(11/24 거부 다수) | 혼용률 2/206 — 오늘 impit 0/6(blocked 403) · site-api 0/3(error) · wayback 1/3(no-archive) · playwright 0/6(blocked 403) · firefox 0/6(blocked 403) | 확장 탭 보강 또는 유료(DataDome 대응) | 2 집 IP 필요(확장) | 측정·판정 · 실행 2회 |
+| The white company | 크롬 확장(집 PC) | 68 | 같은 지역 이동 — 데이터센터 모든 엔진 · 파이어폭스 보강 11/25 63/68 차단 | 혼용률 0/68 — 오늘 impit 0/6(geo) · site-api 0/3(error) · wayback 0/3(no-comp) · playwright 0/6(geo·dead 404) · firefox 0/6(geo·dead 404) | 영국 지역으로 열기(추정) 또는 확장 탭 보강 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 
-### 🔗 URL 이 틀림·죽음 — 1개 브랜드 · 상품 81개
-
-| 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
-|---|---|---:|---|---|---|---|---|
-| Sessun | 서버(Render) | 81 | 카탈로그의 상품 주소가 404(모든 엔진 · 제목 '404 Page Not Found') — 판매 끝난 상품 | 혼용률 34/81 — 오늘 impit 0/3(dead 404) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(dead 404) · firefox 0/3(dead 404) | 목록 재수집으로 주소 갱신(프리페치는 매일 81개를 저장하지만 표본 3개 모두 404 — 서버가 옛 주소를 내놓는지 확인) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
-
-### 🔧 열리는데 잘못 읽음 — 7개 브랜드 · 상품 786개
+### 🔧 열리는데 잘못 읽음 — 8개 브랜드 · 상품 867개
 
 | 브랜드 | 담당 | 상품 | 원인 | 근거(측정) | 고치는 법 | 단계 | 근거 종류 |
 |---|---|---:|---|---|---|---|---|
@@ -454,9 +448,10 @@ site-api = 사이트 자체 JSON(Shopify `.json`·Zara), wayback = 웹 아카이
 | Banana Republic | 크롬 확장(집 PC) | 1 | 카탈로그에 상품이 없음 | 상품 1개 |  | 1 무료 변경(우리 쪽) | 측정·판정 |
 | Carlhartt | 헤드리스(Actions) | 148 | 카탈로그 표본 3개 중 2개가 카테고리 페이지라 혼용률 없음 | 혼용률 108/148 — 오늘 impit 1/3(no-comp) · site-api 0/3(error) · wayback 1/3(no-comp·no-archive) · playwright 1/3(no-comp) · firefox 1/3(no-comp) | 목록부터 바로잡기 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
 | Gap | 크롬 확장(집 PC) | 6 | 카탈로그 6개가 전부 기획전 배너 |  |  | 1 무료 변경(우리 쪽) | 측정·판정 |
-| Massimo Dutti | 크롬 확장(집 PC) | 603 | 파이어폭스로 열리지만 혼용률이 스크립트 JSON(material/percentage)에만 있어 1/3 만 읽힘 · 크롬·평 HTML 차단 | 혼용률 1/603 — 오늘 impit 0/3(blocked) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/3(blocked 403) · firefox 1/3(no-comp) | 페이지 속 JSON 의 material·percentage 짝을 읽도록 추출기 보완(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 1회 |
+| Massimo Dutti | 크롬 확장(집 PC) | 603 | 파이어폭스로 열리지만 혼용률이 스크립트 JSON(material/percentage)에만 있어 1/3 만 읽힘 · 크롬·평 HTML 차단 | 혼용률 1/603 — 오늘 impit 0/6(blocked) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(blocked 403) · firefox 2/6(no-comp) | 페이지 속 JSON 의 material·percentage 짝을 읽도록 추출기 보완(무료) | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 | Old Navy | 크롬 확장(집 PC) | 7 | 카탈로그 7개가 전부 배너 |  |  | 1 무료 변경(우리 쪽) | 측정·판정 |
 | Oysho | 크롬 확장(집 PC) | 20 | 카탈로그에 상품이 없음 |  |  | 1 무료 변경(우리 쪽) | 측정·판정 |
+| Sessun | 서버(Render) | 81 | 카탈로그의 '상품 주소' 일부가 이미지 파일(404) — 진짜 상품 주소(us.sessun.com/catalogue/…html)도 섞여 있음 | 혼용률 34/81 — 오늘 impit 0/6(dead·blocked 404/503) · site-api 0/3(error) · wayback 0/3(no-archive) · playwright 0/6(dead 404) · firefox 0/6(dead 404) | 목록부터 바로잡기 | 1 무료 변경(우리 쪽) | 측정·판정 · 실행 2회 |
 
 ### 📭 사이트가 혼용률을 안 적음 — 1개 브랜드 · 상품 232개
 
@@ -826,6 +821,7 @@ mode `engines`, urls `access-measure/targets-blocked.json`, engines `impit,firef
 | 45578730036 | 2026-11-25T08:44 | 13.86.110.x | impit, site-api, wayback, playwright, firefox, camoufox | 60 |
 | 45578744223 | 2026-11-25T08:44 | 74.235.119.x | (카탈로그 훑기) | 0 |
 | 45580608846 | 2026-11-25T08:57 | 52.226.124.x | impit | 623 |
+| 45582267106 | 2026-11-25T09:08 | 172.208.124.x | impit, playwright, firefox | 90 |
 | 45582271538 | 2026-11-25T09:08 | 51.57.145.x | server | 75 |
 | 45582315366 | 2026-11-25T09:08 | 20.102.102.x | impit, site-api, wayback, playwright, firefox | 23 |
 

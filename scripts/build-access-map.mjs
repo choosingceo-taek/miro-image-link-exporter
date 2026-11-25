@@ -142,7 +142,9 @@ function blockerOf(b) {
       if (["server", "site-api", "wayback"].includes(eng)) continue;
       const by = x.by || "알 수 없음";
       const r = rank[x.conf] || 0;
-      if (!best || r > best.r) best = { by, conf: x.conf || "-", r, signals: x.signals, title: x.title, status: x.status, eng, url: u, cookies: x.cookies.slice(0, 8), headers: x.headers };
+      // 업체 흔적이 없으면 화면 흔적·쿠키 이름을 그대로 적는다(누가 막는지는 '알 수 없음')
+      const sig = x.signals && x.signals.length ? x.signals : [x.markers.length ? `화면 흔적 ${x.markers.join("·")}` : "", x.cookies.length ? `쿠키 ${x.cookies.slice(0, 4).join(", ")}` : ""].filter(Boolean);
+      if (!best || r > best.r) best = { by, conf: x.conf || "-", r, signals: sig, title: x.title, status: x.status, eng, url: u, cookies: x.cookies.slice(0, 8), headers: x.headers };
     }
   }
   return best;
