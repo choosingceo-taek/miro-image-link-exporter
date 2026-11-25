@@ -332,7 +332,10 @@ for (const [k, f] of [["{{KEY_POINTS}}", "key-points.md"], ["{{VENDOR_NOTES}}", 
 {
   let s = "";
   for (const x of out) for (const w of (verdicts[x.brand] || {}).badUrls || []) s += `| ${x.brand} | ${esc(w.url)} | ${esc(w.why)} | ${esc(w.suggest || "담당자가 사이트에서 새 주소 확인")} |\n`;
-  md = md.replace("{{BAD_URLS}}", s ? `| 브랜드 | 지금 URL | 근거 | 바꿀 것 |\n|---|---|---|---|\n` + s : "(없음)\n");
+  let nd = "";
+  for (const x of out) for (const w of (verdicts[x.brand] || {}).notDead || []) nd += `| ${x.brand} | ${esc(w.url)} | ${esc(w.why)} |\n`;
+  md = md.replace("{{BAD_URLS}}", (s ? `| 브랜드 | 지금 URL | 근거 | 바꿀 것 |\n|---|---|---|---|\n` + s : "(없음)\n") +
+    (nd ? `\n바꾸지 않아도 되는 것 — 카탈로그 점검(catalog-audit)이 '교체가 필요한 카테고리 URL'로 올렸지만 주소는 살아 있다:\n\n| 브랜드 | URL | 근거 |\n|---|---|---|\n` + nd : ""));
 }
 // 실행 목록
 {

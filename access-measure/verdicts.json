@@ -14,7 +14,13 @@
    "why": "혼용률 143/343 은 확장 몫",
    "fix": "확장 탭 보강 유지. 데이터센터 무료 길 없음 → 유료(Akamai 대응) 시험 대상",
    "tier": 2
-  }
+  },
+  "notDead": [
+   {
+    "url": "https://www.stories.com/en-us/clothing/tops/",
+    "why": "카탈로그 점검은 '교체 필요'로 올렸지만 오늘 impit·파이어폭스 모두 상품 37~48개 — 주소는 살아 있음"
+   }
+  ]
  },
  "Abercrombie & Fitch": {
   "listing": {
@@ -115,7 +121,13 @@
    "why": "혼용률 143/285",
    "fix": "야간 보강의 웹 아카이브 층을 Arket 에 돌리기(무료)",
    "tier": 1
-  }
+  },
+  "notDead": [
+   {
+    "url": "https://www.arket.com/en-ww/women/clothing/tops/",
+    "why": "카탈로그 점검은 '교체 필요'(확장 0개)로 올렸지만 오늘 impit 3회·파이어폭스 3회 모두 상품 33~48개 — 주소는 살아 있고 확장이 못 읽는 것"
+   }
+  ]
  },
  "Athleta": {
   "listing": {
@@ -130,7 +142,13 @@
    "cause": "카탈로그에 상품이 없음(목록 문제)",
    "why": "상품 1개",
    "tier": 1
-  }
+  },
+  "notDead": [
+   {
+    "url": "Athleta 카테고리 URL 전부",
+    "why": "카탈로그 점검은 '교체 필요'로 올렸지만 데이터센터 크롬·파이어폭스로 모두 열림(HTTP 200) — 수집기가 상품을 5~12개만 읽는 문제"
+   }
+  ]
  },
  "Banana Republic": {
   "listing": {
@@ -145,7 +163,13 @@
    "cause": "카탈로그에 상품이 없음",
    "why": "상품 1개",
    "tier": 1
-  }
+  },
+  "notDead": [
+   {
+    "url": "Banana Republic 카테고리 URL 전부",
+    "why": "카탈로그 점검은 '교체 필요'로 올렸지만 데이터센터 크롬·파이어폭스로 모두 열림(HTTP 200) — 수집기가 상품을 5~12개만 읽는 문제"
+   }
+  ]
  },
  "Gap": {
   "listing": {
@@ -160,7 +184,13 @@
    "cause": "카탈로그 6개가 전부 기획전 배너",
    "why": "",
    "tier": 1
-  }
+  },
+  "notDead": [
+   {
+    "url": "Gap 카테고리 URL 전부",
+    "why": "카탈로그 점검은 '교체 필요'로 올렸지만 데이터센터 크롬·파이어폭스로 모두 열림(HTTP 200) — 수집기가 상품을 5~12개만 읽는 문제"
+   }
+  ]
  },
  "Old Navy": {
   "listing": {
@@ -175,7 +205,13 @@
    "cause": "카탈로그 7개가 전부 배너",
    "why": "",
    "tier": 1
-  }
+  },
+  "notDead": [
+   {
+    "url": "Old Navy 카테고리 URL 전부",
+    "why": "카탈로그 점검은 '교체 필요'로 올렸지만 데이터센터 크롬·파이어폭스로 모두 열림(HTTP 200) — 수집기가 상품을 5~12개만 읽는 문제"
+   }
+  ]
  },
  "Eileen fisher": {
   "listing": {
@@ -373,7 +409,14 @@
    "status": "works",
    "why": "혼용률 67/75(89%)",
    "tier": 0
-  }
+  },
+  "badUrls": [
+   {
+    "url": "https://www.madewell.com/kr/womens/… (카테고리 전부)",
+    "why": "동작은 함 — 한국 지역(/kr/) 주소",
+    "suggest": "미국 주소로(담당자 판단)"
+   }
+  ]
  },
  "Mango": {
   "listing": {
@@ -682,7 +725,14 @@
    "why": "프리페치 50개(6일 34~56)",
    "fix": "서버 목록 읽기 보완 또는 헤드리스(무료). URL 에 광고 추적 꼬리(_gl=…)가 붙어 있음 — 떼어도 됨",
    "tier": 1
-  }
+  },
+  "badUrls": [
+   {
+    "url": "https://ba-sh.com/fr/en/…/?_gl=… (카테고리 전부)",
+    "why": "동작은 함 — 광고 추적 꼬리(_gl=…)가 붙은 주소",
+    "suggest": "? 뒤를 뗀 주소"
+   }
+  ]
  },
  "Monsoon": {
   "listing": {
@@ -691,7 +741,14 @@
    "why": "프리페치 30개(6일 내내 29~30)",
    "fix": "서버 목록 읽기 보완 또는 헤드리스(무료) · 지역을 /us/ 등으로(가격 통화)",
    "tier": 1
-  }
+  },
+  "badUrls": [
+   {
+    "url": "https://www.monsoonlondon.com/kr/womens/… (카테고리 전부)",
+    "why": "동작은 함 — 한국 지역(/kr/) 주소라 가격·배송이 한국 기준일 수 있음",
+    "suggest": "/us/ 또는 /uk/ 주소로(담당자 판단)"
+   }
+  ]
  },
  "vineyardvines": {
   "listing": {

@@ -1,6 +1,6 @@
 # 접근 지도 — 134개 브랜드, 우리 수집기가 어디까지 닿는가
 
-만든 때 2026-11-25T10:16Z · 측정 실행 14회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
+만든 때 2026-11-25T10:17Z · 측정 실행 14회(GitHub Actions, 읽기만) · 기준 야간 리포트 2026-11-25(main)
 
 이 문서는 `node scripts/build-access-map.mjs` 가 만든다. 같은 사실이 `access-map.json` 에 기계용으로 있다.
 판정 근거는 세 가지뿐이다 — ① 11/25 야간 리포트(서버 프리페치·헤드리스 수집·카탈로그 점검·혼용률 보강),
@@ -152,13 +152,27 @@
 | 브랜드 | 지금 URL | 근거 | 바꿀 것 |
 |---|---|---|---|
 | Addidas | https://www.adidas.com/us/women-tops?sort=newest-to-oldest | 확장이 이 URL 에서 0개(catalog-audit 11/25). 데이터센터는 차단이라 확인 못 함 | 정렬 파라미터 없는 /us/women-tops 로(추정) |
+| Bash | https://ba-sh.com/fr/en/…/?_gl=… (카테고리 전부) | 동작은 함 — 광고 추적 꼬리(_gl=…)가 붙은 주소 | ? 뒤를 뗀 주소 |
 | Fatface | https://www.fatface.com/shop/womens/clothing/tops/t-shirts | 확장이 이 URL 에서 0개(catalog-audit 11/25). 데이터센터는 차단이라 확인 못 함 | 담당자가 사이트에서 확인 |
 | Good American | https://www.goodamerican.com/en-kr/collections/… (카테고리 전부) | 11/25 impit 2회: /en-kr/ → /collections/… 로 이동 | https://www.goodamerican.com/collections/… (지역 없는 주소) |
 | Joules | https://www.joules.com/shop/womens/clothing/tops | 확장이 이 URL 에서 0개(catalog-audit 11/25) | 담당자가 사이트에서 확인 |
 | Lucky Brand | https://www.luckybrand.com/women/clothing/shirts/blouses | 11/25 헤드리스 0개 · 진단 페이지 제목 'Search / Lucky Brand' · 오늘 크롬·파이어폭스 0개 | 담당자가 블라우스 카테고리 현재 주소 확인 |
+| Madewell | https://www.madewell.com/kr/womens/… (카테고리 전부) | 동작은 함 — 한국 지역(/kr/) 주소 | 미국 주소로(담당자 판단) |
+| Monsoon | https://www.monsoonlondon.com/kr/womens/… (카테고리 전부) | 동작은 함 — 한국 지역(/kr/) 주소라 가격·배송이 한국 기준일 수 있음 | /us/ 또는 /uk/ 주소로(담당자 판단) |
 | Oysho | https://www.oysho.com/gb/dresses-jumpsuits-n4954 | 확장이 0개(catalog-audit 11/25) | 담당자가 사이트에서 확인 |
 | The white company | https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts | 확장이 0개(catalog-audit 11/25) · 데이터센터는 /us/ 로 이동 | 담당자가 영국 사이트에서 현재 주소 확인 |
 | Vanessa bruno | https://www.vanessabruno.com/last-chance/knitwear.html | 11/25 impit 3회·크롬·파이어폭스: 첫 화면(/)으로 이동 | 담당자가 니트 카테고리 새 주소 확인 |
+
+바꾸지 않아도 되는 것 — 카탈로그 점검(catalog-audit)이 '교체가 필요한 카테고리 URL'로 올렸지만 주소는 살아 있다:
+
+| 브랜드 | URL | 근거 |
+|---|---|---|
+| &Other Stories | https://www.stories.com/en-us/clothing/tops/ | 카탈로그 점검은 '교체 필요'로 올렸지만 오늘 impit·파이어폭스 모두 상품 37~48개 — 주소는 살아 있음 |
+| Arket | https://www.arket.com/en-ww/women/clothing/tops/ | 카탈로그 점검은 '교체 필요'(확장 0개)로 올렸지만 오늘 impit 3회·파이어폭스 3회 모두 상품 33~48개 — 주소는 살아 있고 확장이 못 읽는 것 |
+| Athleta | Athleta 카테고리 URL 전부 | 카탈로그 점검은 '교체 필요'로 올렸지만 데이터센터 크롬·파이어폭스로 모두 열림(HTTP 200) — 수집기가 상품을 5~12개만 읽는 문제 |
+| Banana Republic | Banana Republic 카테고리 URL 전부 | 카탈로그 점검은 '교체 필요'로 올렸지만 데이터센터 크롬·파이어폭스로 모두 열림(HTTP 200) — 수집기가 상품을 5~12개만 읽는 문제 |
+| Gap | Gap 카테고리 URL 전부 | 카탈로그 점검은 '교체 필요'로 올렸지만 데이터센터 크롬·파이어폭스로 모두 열림(HTTP 200) — 수집기가 상품을 5~12개만 읽는 문제 |
+| Old Navy | Old Navy 카테고리 URL 전부 | 카탈로그 점검은 '교체 필요'로 올렸지만 데이터센터 크롬·파이어폭스로 모두 열림(HTTP 200) — 수집기가 상품을 5~12개만 읽는 문제 |
 
 
 ## 4. 목록 페이지 — 브랜드별
