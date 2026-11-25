@@ -1,6 +1,6 @@
 {
- "when": "2026-11-25T13:10:58.464Z",
- "scanned": 38526,
+ "when": "2026-11-25T14:37:34.995Z",
+ "scanned": 38547,
  "flagged": 41,
  "report": [
   {
@@ -421,7 +421,7 @@
    "brand": "Free People",
    "site": "freepeople.com.freepeople",
    "group": "extension",
-   "total": 190,
+   "total": 189,
    "badCount": 1,
    "bySrc": [
     {
@@ -463,7 +463,7 @@
    "brand": "Seasalt cornwall",
    "site": "seasaltcornwall.com.seasaltcornwall",
    "group": "extension",
-   "total": 279,
+   "total": 291,
    "badCount": 1,
    "bySrc": [
     {
@@ -547,7 +547,7 @@
    "brand": "Theory",
    "site": "theory.com.theory",
    "group": "extension",
-   "total": 379,
+   "total": 390,
    "badCount": 1,
    "bySrc": [
     {
@@ -1123,201 +1123,201 @@
  ],
  "extension": [
   {
-   "name": "Seasalt cornwall",
-   "items": 279,
-   "age": 23.06925361111111,
-   "missing": false
-  },
-  {
-   "name": "Free People",
-   "items": 190,
-   "age": 22.94974638888889,
-   "missing": false
-  },
-  {
-   "name": "Old Navy",
-   "items": 7,
-   "age": 22.909631666666666,
-   "missing": false
-  },
-  {
-   "name": "Theory",
-   "items": 379,
-   "age": 22.782375555555557,
-   "missing": false
-  },
-  {
-   "name": "Banana Republic",
-   "items": 1,
-   "age": 22.717066388888888,
-   "missing": false
-  },
-  {
-   "name": "Madewell",
-   "items": 75,
-   "age": 22.677364444444443,
-   "missing": false
-  },
-  {
-   "name": "Ann Taylor",
-   "items": 381,
-   "age": 22.64867,
-   "missing": false
-  },
-  {
-   "name": "Loft",
-   "items": 673,
-   "age": 22.599030555555554,
-   "missing": false
-  },
-  {
-   "name": "The white company",
-   "items": 68,
-   "age": 22.570819444444446,
-   "missing": false
-  },
-  {
    "name": "L.L bean",
    "items": 310,
-   "age": 22.487382222222223,
+   "age": 23.930863055555555,
    "missing": false
   },
   {
    "name": "Massimo Dutti",
    "items": 603,
-   "age": 22.418921666666666,
+   "age": 23.8624025,
    "missing": false
   },
   {
    "name": "Sezane",
    "items": 206,
-   "age": 22.390154444444445,
+   "age": 23.833635277777777,
    "missing": false
   },
   {
    "name": "Garnet hill",
    "items": 108,
-   "age": 22.339234166666667,
+   "age": 23.782715,
    "missing": false
   },
   {
    "name": "Athleta",
    "items": 1,
-   "age": 22.291861666666666,
+   "age": 23.7353425,
    "missing": false
   },
   {
    "name": "Anthropologie",
    "items": 270,
-   "age": 22.143295,
+   "age": 23.586775833333334,
    "missing": false
   },
   {
    "name": "Paige",
    "items": 60,
-   "age": 22.086592777777778,
+   "age": 23.53007361111111,
    "missing": false
   },
   {
    "name": "H&M",
    "items": 744,
-   "age": 21.912101944444444,
+   "age": 23.355582777777776,
    "missing": false
   },
   {
    "name": "Eileen fisher",
    "items": 545,
-   "age": 21.68297861111111,
+   "age": 23.126459444444443,
    "missing": false
   },
   {
    "name": "Oysho",
    "items": 20,
-   "age": 21.578802777777778,
+   "age": 23.02228361111111,
    "missing": false
   },
   {
    "name": "Lululemon",
    "items": 476,
-   "age": 21.530008333333335,
+   "age": 22.973489166666667,
    "missing": false
   },
   {
    "name": "Abercrombie & Fitch",
    "items": 214,
-   "age": 21.47327361111111,
+   "age": 22.916754444444443,
    "missing": false
   },
   {
    "name": "Mango",
    "items": 93,
-   "age": 21.420673611111113,
+   "age": 22.864154444444445,
    "missing": false
   },
   {
    "name": "Joules",
    "items": 459,
-   "age": 21.373248333333333,
+   "age": 22.816729166666665,
    "missing": false
   },
   {
    "name": "Fatface",
    "items": 374,
-   "age": 21.37185277777778,
+   "age": 22.81533361111111,
    "missing": false
   },
   {
    "name": "Gap",
    "items": 6,
-   "age": 21.32361,
+   "age": 22.767090833333334,
    "missing": false
   },
   {
    "name": "Lands end",
    "items": 469,
-   "age": 21.30671138888889,
+   "age": 22.75019222222222,
    "missing": false
   },
   {
    "name": "Aritzia",
    "items": 800,
-   "age": 21.26255777777778,
+   "age": 22.70603861111111,
    "missing": false
   },
   {
    "name": "FP Movement",
    "items": 58,
-   "age": 21.2171325,
+   "age": 22.660613333333334,
    "missing": false
   },
   {
    "name": "Arket",
    "items": 285,
-   "age": 21.17095527777778,
+   "age": 22.61443611111111,
    "missing": false
   },
   {
    "name": "&Other Stories",
    "items": 343,
-   "age": 21.136026944444446,
+   "age": 22.579507777777778,
    "missing": false
   },
   {
    "name": "Patagonia",
    "items": 168,
-   "age": 21.115133888888888,
+   "age": 22.558614722222224,
    "missing": false
   },
   {
    "name": "Addidas",
    "items": 408,
-   "age": 21.10247861111111,
+   "age": 22.545959444444446,
    "missing": false
   },
   {
    "name": "Wilson",
    "items": 58,
-   "age": 0.9245580555555556,
+   "age": 2.368038888888889,
+   "missing": false
+  },
+  {
+   "name": "Seasalt cornwall",
+   "items": 291,
+   "age": 0.5359555555555555,
+   "missing": false
+  },
+  {
+   "name": "Free People",
+   "items": 189,
+   "age": 0.41673166666666667,
+   "missing": false
+  },
+  {
+   "name": "Old Navy",
+   "items": 7,
+   "age": 0.37699472222222224,
+   "missing": false
+  },
+  {
+   "name": "Theory",
+   "items": 390,
+   "age": 0.28439472222222223,
+   "missing": false
+  },
+  {
+   "name": "Banana Republic",
+   "items": 1,
+   "age": 0.2192786111111111,
+   "missing": false
+  },
+  {
+   "name": "Madewell",
+   "items": 75,
+   "age": 0.1858686111111111,
+   "missing": false
+  },
+  {
+   "name": "Ann Taylor",
+   "items": 381,
+   "age": 0.1666536111111111,
+   "missing": false
+  },
+  {
+   "name": "Loft",
+   "items": 672,
+   "age": 0.12027027777777778,
+   "missing": false
+  },
+  {
+   "name": "The white company",
+   "items": 68,
+   "age": 0.090425,
    "missing": false
   }
  ],
@@ -1325,7 +1325,7 @@
   {
    "brand": "Loft",
    "group": "extension",
-   "total": 673,
+   "total": 672,
    "withPrice": 1,
    "pct": 0,
    "sample": "$18"
@@ -1459,20 +1459,20 @@
    "sample": "$225"
   },
   {
+   "brand": "Theory",
+   "group": "extension",
+   "total": 390,
+   "withPrice": 48,
+   "pct": 12,
+   "sample": "$56.25"
+  },
+  {
    "brand": "vineyardvines",
    "group": "server",
    "total": 560,
    "withPrice": 73,
    "pct": 13,
    "sample": "$158.00"
-  },
-  {
-   "brand": "Theory",
-   "group": "extension",
-   "total": 379,
-   "withPrice": 49,
-   "pct": 13,
-   "sample": "$78.75"
   },
   {
    "brand": "Vuori",
@@ -1536,7 +1536,7 @@
    "total": 7,
    "withPrice": 4,
    "pct": 57,
-   "sample": "$14"
+   "sample": "$18"
   },
   {
    "brand": "CCC",
@@ -1621,7 +1621,7 @@
   {
    "brand": "Free People",
    "group": "extension",
-   "total": 190,
+   "total": 189,
    "withPrice": 155,
    "pct": 82,
    "sample": "$98.00"
@@ -1656,7 +1656,7 @@
    "total": 68,
    "withPrice": 58,
    "pct": 85,
-   "sample": "£56.00"
+   "sample": "£116.00"
   },
   {
    "brand": "Lands end",
@@ -1685,9 +1685,9 @@
   {
    "brand": "Seasalt cornwall",
    "group": "extension",
-   "total": 279,
-   "withPrice": 266,
-   "pct": 95,
+   "total": 291,
+   "withPrice": 279,
+   "pct": 96,
    "sample": "£45"
   },
   {
@@ -2474,6 +2474,13 @@
    "pct": 1
   },
   {
+   "brand": "Free People",
+   "group": "extension",
+   "total": 189,
+   "withComp": 2,
+   "pct": 1
+  },
+  {
    "brand": "Anthropologie",
    "group": "extension",
    "total": 270,
@@ -2499,13 +2506,6 @@
    "group": "extension",
    "total": 459,
    "withComp": 25,
-   "pct": 5
-  },
-  {
-   "brand": "Free People",
-   "group": "extension",
-   "total": 190,
-   "withComp": 9,
    "pct": 5
   },
   {
@@ -2567,8 +2567,8 @@
   {
    "brand": "Loft",
    "group": "extension",
-   "total": 673,
-   "withComp": 284,
+   "total": 672,
+   "withComp": 283,
    "pct": 42
   },
   {
@@ -3020,13 +3020,6 @@
    "pct": 95
   },
   {
-   "brand": "Seasalt cornwall",
-   "group": "extension",
-   "total": 279,
-   "withComp": 266,
-   "pct": 95
-  },
-  {
    "brand": "Eddie bauer",
    "group": "server",
    "total": 200,
@@ -3064,8 +3057,8 @@
   {
    "brand": "Theory",
    "group": "extension",
-   "total": 379,
-   "withComp": 365,
+   "total": 390,
+   "withComp": 376,
    "pct": 96
   },
   {
@@ -3080,6 +3073,13 @@
    "group": "server",
    "total": 333,
    "withComp": 320,
+   "pct": 96
+  },
+  {
+   "brand": "Seasalt cornwall",
+   "group": "extension",
+   "total": 291,
+   "withComp": 278,
    "pct": 96
   },
   {
@@ -3384,11 +3384,11 @@
   {
    "brand": "Loft",
    "group": "extension",
-   "total": 673,
+   "total": 672,
    "price": 1,
-   "color": 323,
+   "color": 319,
    "sizes": 0,
-   "comp": 284
+   "comp": 283
   },
   {
    "brand": "Gestuz",
@@ -3652,6 +3652,15 @@
    "comp": 386
   },
   {
+   "brand": "Theory",
+   "group": "extension",
+   "total": 390,
+   "price": 48,
+   "color": 377,
+   "sizes": 7,
+   "comp": 376
+  },
+  {
    "brand": "Damson Madder",
    "group": "server",
    "total": 385,
@@ -3677,15 +3686,6 @@
    "color": 381,
    "sizes": 381,
    "comp": 376
-  },
-  {
-   "brand": "Theory",
-   "group": "extension",
-   "total": 379,
-   "price": 49,
-   "color": 366,
-   "sizes": 7,
-   "comp": 365
   },
   {
    "brand": "Scoth & soda",
@@ -3850,6 +3850,15 @@
    "comp": 240
   },
   {
+   "brand": "Seasalt cornwall",
+   "group": "extension",
+   "total": 291,
+   "price": 279,
+   "color": 286,
+   "sizes": 0,
+   "comp": 278
+  },
+  {
    "brand": "Rails",
    "group": "server",
    "total": 290,
@@ -3884,15 +3893,6 @@
    "color": 283,
    "sizes": 282,
    "comp": 248
-  },
-  {
-   "brand": "Seasalt cornwall",
-   "group": "extension",
-   "total": 279,
-   "price": 266,
-   "color": 274,
-   "sizes": 0,
-   "comp": 266
   },
   {
    "brand": "Project Social T",
@@ -4129,15 +4129,6 @@
    "comp": 169
   },
   {
-   "brand": "Free People",
-   "group": "extension",
-   "total": 190,
-   "price": 155,
-   "color": 5,
-   "sizes": 0,
-   "comp": 9
-  },
-  {
    "brand": "Frame",
    "group": "server",
    "total": 189,
@@ -4145,6 +4136,15 @@
    "color": 168,
    "sizes": 186,
    "comp": 170
+  },
+  {
+   "brand": "Free People",
+   "group": "extension",
+   "total": 189,
+   "price": 155,
+   "color": 2,
+   "sizes": 0,
+   "comp": 2
   },
   {
    "brand": "Whitestuff",
