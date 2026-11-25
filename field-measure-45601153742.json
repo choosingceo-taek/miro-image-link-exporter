@@ -1,0 +1,734 @@
+{
+ "runId": "45601153742",
+ "at": "2026-11-25T11:06:17.979Z",
+ "ip": "3.41.210.x",
+ "part": "2/3",
+ "brands": [
+  {
+   "brand": "Addison bay",
+   "site": "addisonbay.com.addisonbay",
+   "products": [
+    {
+     "url": "https://addisonbay.com/products/elm-active-tank?variant=42369871478866",
+     "name": "Smooth Sport Elm Active Tank in Cypress product link",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 495920,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 911827,
+       "clicked": 2
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 7,
+      "variants": 7,
+      "options": [
+       "Size",
+       "Color"
+      ],
+      "hasAvail": true,
+      "descLen": 551
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Smooth Sport Elm Active Tank",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/elmactivetank_harbourblue-1.png?v=1776952525",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/elmactivetank_cypress-1.jpg?v=1793285841",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/elmactivetank_cypress-3.jpg?v=1793116115",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/elmactivetank_cypress-4.jpg?v=1793116122",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/elmactivetank_cypress-5.jpg?v=1793116134",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/elmactivetank_cypress-6.jpg?v=1793116151",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/elmactivetank_cypress-7.jpg?v=1793306387"
+      ],
+      "price": "$78",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "cypress",
+      "colors": [
+       "Cypress"
+      ],
+      "sizes": [
+       "XX-Small",
+       "X-Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X-Large",
+       "XX-Large"
+      ],
+      "sizesIn": [
+       "XX-Small",
+       "X-Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X-Large",
+       "XX-Large"
+      ],
+      "comp": "Nylon 75% / Elastane 25%",
+      "desc": "The Elm Active Tank in Cypress delivers high-performance style on and off the court. Crafted from a lightweight, moisture-wicking stretch fabric, this sleeveless activewear top features a high crew neckline and contrasting retro rib-knit trim along the neck and armholes for a sporty, elevated look. Designed with a relaxed, hip-length silhouette, it offers maximum mobility and breathable comfort for tennis, pickleball, golf, or casual everyday wear. Pair it seamlessly with matching active skorts or leggings for a complete monochrome athletic set.",
+      "feat": [],
+      "sku": "R26AB0604C"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "meta",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 0,
+       "group": 0,
+       "fields": []
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 19,
+      "priceEls": 0,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 911827
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 551,
+      "descFirefox": 551
+     },
+     "fixture": {
+      "file": "addisonbay.html.gz",
+      "shopFile": "addisonbay.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://addisonbay.com/products/collegiate-soft-luxe-varsity-quarter-zip",
+     "name": "Collegiate Soft Luxe Varsity Quarter Zip",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 558891,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 9,
+      "variants": 14,
+      "options": [
+       "Size",
+       "Color"
+      ],
+      "hasAvail": true,
+      "descLen": 358
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Collegiate Soft Luxe Varsity Quarter Zip",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_uvasuperwhitenavystripepapaya-1.jpg?v=1756130224",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_uvasuperwhitenavystripepapaya-2.jpg?v=1756130224",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_uvasuperwhitenavystripepapaya-3.jpg?v=1756130224",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_uvasuperwhitenavystripepapaya-4.jpg?v=1756130224",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_uvasuperwhitenavystripepapaya-5.jpg?v=1755877505",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_smusuperwhite-1.jpg?v=1762206630",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_smusuperwhite-2.jpg?v=1762206630",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_smusuperwhite-3.jpg?v=1762206630",
+       "https://cdn.shopify.com/s/files/1/2988/5532/files/collegiatevarsityquarterzip_smusuperwhite-4.jpg?v=1761767967"
+      ],
+      "price": "$198",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "uva-navy-stripe-papaya",
+      "colors": [
+       "UVA Navy Stripe/Papaya",
+       "SMU Super White"
+      ],
+      "sizes": [
+       "XX-Small",
+       "X-Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X-Large",
+       "XX-Large"
+      ],
+      "sizesIn": null,
+      "comp": "Cotton 36% / Viscose 32% / Polyester 32%",
+      "desc": "Introducing our first collegiate collaboration: University of Virginia, the alma mater of Addison Bay’s founder. The Varsity Quarter Zip, our best-selling sweatshirt, is crafted in our signature Soft Luxe fabric with a classic quarter-zip design. Show your Cavalier pride in comfort and style. Now introducing the SMU collection, show off your mustang pride!",
+      "feat": [],
+      "sku": "CCF25AB045WNP"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 11,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 558891
+     }
+    },
+    {
+     "url": "https://addisonbay.com/products/campus-jogger-sweatpants",
+     "name": "Soft Luxe Campus Jogger Sweatpant",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 510439,
+       "final": ""
+      }
+     },
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 9,
+      "variants": 12,
+      "options": [
+       "Size",
+       "Color"
+      ],
+      "hasAvail": true,
+      "descLen": 126
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Soft Luxe Campus Jogger Sweatpant",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_ivynavypeony-1.jpg?v=1762269991",
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_ivynavypeony-2.jpg?v=1703254384",
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_ivynavypeony-3.jpg?v=1703254384",
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_ivynavypeony-4.jpg?v=1703254384",
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_palmhydrangeanavy-1.jpg?v=1703254384",
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_palmhydrangeanavy-2.jpg?v=1703254384",
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_palmhydrangeanavy-3.jpg?v=1703254384",
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_palmhydrangeanavy-4.jpg?v=1703254384",
+       "https://cdn.shopify.com/s/files/1/2988/5532/products/campusjogger_palmhydrangeanavy-5.jpg?v=1703254384"
+      ],
+      "price": "$68",
+      "priceOrig": "$138",
+      "cur": "USD",
+      "color": "palm-hydrangea-navy-final-sale",
+      "colors": [
+       "Palm/Hydrangea/Navy-Final Sale",
+       "Ivy/Navy/Peony-Final Sale"
+      ],
+      "sizes": [
+       "XX-Small",
+       "X-Small",
+       "Small",
+       "Medium",
+       "Large",
+       "X-Large"
+      ],
+      "sizesIn": null,
+      "comp": "Cotton 36% / Viscose 32% / Polyester 32%",
+      "desc": "The contrasting side panels of the Campus Jogger adds a fun element to an outfit. The Joggers are perfect for brisk fall days.",
+      "feat": [],
+      "sku": "S23AB062PHN"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 11,
+      "priceEls": 0,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 510439
+     }
+    }
+   ],
+   "overlay": {
+    "items": 141,
+    "withRow": 141,
+    "comp": 130,
+    "color": 109,
+    "sizes": 141,
+    "price": 141,
+    "tried": 141,
+    "in5d": 50,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785831276218,
+    "newestT": 1795579886133,
+    "emptyIn5d": 11
+   },
+   "total": 141,
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "American Eagle",
+   "site": "ae.com.americaneagle",
+   "products": [
+    {
+     "url": "https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2022_603",
+     "name": "AE Cozy Crew Neck Long Sleeve T-Shirt",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 513,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 971403,
+       "clicked": 1
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "AE Cozy Crew Neck Long Sleeve T-Shirt",
+      "imgs": [
+       "https://s7d2.scene7.com/is/image/aeo/3376_2022_603_of"
+      ],
+      "price": "$15",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Starlet Pink",
+      "colors": [
+       "Starlet Pink"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Polyester 68% / Viscose 28% / Elastane 4%",
+      "desc": "Featuring a brushed interior, this tee is super soft and cuddly. The perfect base layer, you'll wear this on repeat.",
+      "feat": [
+       "Fitted",
+       "Classic length"
+      ],
+      "sku": "3376_2022_603"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "material",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "size & fit"
+      ],
+      "domDesc": false,
+      "swatches": 31,
+      "sizeBtns": 15,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 971403
+     },
+     "fixture": {
+      "file": "americaneagle.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.ae.com/intl/en/p/women/tops/hoodies-sweatshirts/ae-everyday-luxe-oversized-hoodie/1453_3264_227",
+     "name": "AE Everyday Luxe Oversized Hoodie",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 508,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 965146,
+       "clicked": 1
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "AE Everyday Luxe Oversized Hoodie",
+      "imgs": [
+       "https://s7d2.scene7.com/is/image/aeo/1453_3264_227_of"
+      ],
+      "price": "$41.97",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Coffee",
+      "colors": [
+       "Coffee"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 70% / Recycled Polyester 30%",
+      "desc": "Made from super soft and structured fleece, this hoodie is the ultimate in cozy loungewear. Finished in an oversized fit for maximum coziness.",
+      "feat": [],
+      "sku": "1453_3264_227"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "jsonld"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "material",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "size & fit"
+      ],
+      "domDesc": false,
+      "swatches": 15,
+      "sizeBtns": 12,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 965146
+     }
+    },
+    {
+     "url": "https://www.ae.com/intl/en/p/women/pants-sweatpants/cargo-pants/ae-low-rise-cozy-corduroy-cargo-pant/0316_5945_207",
+     "name": "AE Low-Rise Cozy Corduroy Cargo Pant",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 527,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 971399,
+       "clicked": 1
+      }
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "AE Low-Rise Cozy Corduroy Cargo Pant",
+      "imgs": [
+       "https://s7d2.scene7.com/is/image/aeo/0316_5945_207_of"
+      ],
+      "price": "$30",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Tan",
+      "colors": [
+       "Tan"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 53% / Lyocell 28% / Viscose 19%",
+      "desc": "Featuring a low rise and soft, wide-wale corduroy construction, these pants feature two side cargo pockets and adjustable drawstring on the leg openings for two ways to wear!",
+      "feat": [],
+      "sku": "0316_5945_207"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "jsonld"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "material",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "size & fit"
+      ],
+      "domDesc": false,
+      "swatches": 17,
+      "sizeBtns": 12,
+      "priceEls": 5,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 971399
+     }
+    }
+   ],
+   "overlay": {
+    "items": 178,
+    "withRow": 178,
+    "comp": 176,
+    "color": 178,
+    "sizes": 0,
+    "price": 125,
+    "tried": 176,
+    "in5d": 7,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1786251721437,
+    "newestT": 1795579886070,
+    "emptyIn5d": 2
+   },
+   "total": 178,
+   "picked": 3,
+   "notProduct": 0
+  }
+ ]
+}
