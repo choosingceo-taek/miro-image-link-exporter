@@ -1,4 +1,4 @@
-# 엑셀 항목 보강 결과 (2026-11-25T16:33Z)
+# 엑셀 항목 보강 결과 (2026-11-25T16:38Z)
 
 ## 엑셀 열 개방 판정 (기준 95% · 목표 99%)
 
@@ -19,8 +19,8 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 
 | 항목 | 옳은 값 보유 | 채움률 | 이번 실행 |
 |---|---:|---:|---:|
-| 혼용률 | 28695 | 74% | +2 |
-| 컬러웨이 | 25231 | 65% | +2 |
+| 혼용률 | 28695 | 74% | +0 |
+| 컬러웨이 | 25231 | 65% | +0 |
 
 - 검색 인덱스 재구축: 18004개
 
@@ -35,14 +35,14 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 | Banana Republic | — | 0/1 (0%) | 0/1 (0%) | 혼용률 +0 컬러 +0 |  |
 | Gap | — | 0/6 (0%) | 0/6 (0%) | 혼용률 +0 컬러 +0 |  |
 | The white company | — | 0/68 (0%) | 0/68 (0%) | 혼용률 +0 컬러 +0 |  |
-| H&M | — | 0/745 (0%) | 5/745 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 12·직접차단 12·보관본없음 12 |
+| H&M | — | 0/745 (0%) | 5/745 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 9·직접차단 9·보관본없음 9 |
 | Lululemon | — | 1/512 (0%) | 1/512 (0%) | 혼용률 +0 컬러 +0 |  |
 | Fatface | — | 1/374 (0%) | 1/374 (0%) | 혼용률 +0 컬러 +0 |  |
 | Anthropologie | — | 1/263 (0%) | 1/263 (0%) | 혼용률 +0 컬러 +0 |  |
 | Sezane | — | 1/203 (0%) | 2/203 (1%) | 혼용률 +0 컬러 +0 |  |
 | Massimo Dutti | — | 4/606 (1%) | 3/606 (0%) | 혼용률 +0 컬러 +0 |  |
 | Chico's | — | 9/800 (1%) | 8/800 (1%) | 혼용률 +0 컬러 +0 |  |
-| Addidas | — | 8/537 (1%) | 8/537 (1%) | 혼용률 +2 컬러 +2 | 성공 아카이브 2 / 실패 정보없음 6·직접차단 6·보관본없음 4 |
+| Addidas | — | 8/537 (1%) | 8/537 (1%) | 혼용률 +0 컬러 +0 | 실패 정보없음 6·직접차단 6·보관본없음 6 |
 | Garnet hill | — | 2/108 (2%) | 0/108 (0%) | 혼용률 +0 컬러 +0 |  |
 | Free People | — | 5/189 (3%) | 5/189 (3%) | 혼용률 +0 컬러 +0 |  |
 | Patagonia | — | 7/168 (4%) | 6/168 (4%) | 혼용률 +0 컬러 +0 |  |
@@ -168,29 +168,24 @@ ALC · American Eagle · Beyond yoga · Boldest · Cotton on · Damson Madder ·
 
 ## 웹 아카이브 층
 
-조회 18/250개(브랜드당 40) · 요청 20회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
+조회 15/250개(브랜드당 40) · 요청 15회 · 429 0 · 5xx 0 · 네트워크 오류 0 · 쿼리 포함 주소로만 찾은 것 0
 
 | 브랜드 | 시도 상품 | 혼용률(지금 페이지) | 혼용률(보관본) | 보관본 없음 | 보관본 거부 | 주소 거부 | 아카이브 오류 | 상한·최근 물음 | 걸린 시간 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| H&M | 12 | 0 | 0 | 12 | 0 | 0 | 0 | 0 | 66s |
-| Addidas | 6 | 0 | 2 | 4 | 0 | 0 | 0 | 0 | 79s |
+| H&M | 9 | 0 | 0 | 9 | 0 | 0 | 0 | 0 | 57s |
+| Addidas | 6 | 0 | 0 | 6 | 0 | 0 | 0 | 0 | 23s |
 
-사유별 개수: 보관본 없음 16 · 찾음 2
+사유별 개수: 보관본 없음 15
 
 <details><summary>사유별 예시(최대 5개)</summary>
 
 **보관본 없음**
 
-- Addidas — https://www.adidas.com/us/originals-tank-dress/KR5417.html
-- Addidas — https://www.adidas.com/us/adidas-kit-small-logo-rib-dress/KT0275.html
-- Addidas — https://www.adidas.com/us/adidas-originals-sport-dress/KT7085.html
-- Addidas — https://www.adidas.com/us/mesh-skirt/KU0508.html
-- H&M — https://www2.hm.com/en_us/productpage.1370450003.html
-
-**찾음**
-
-- Addidas — https://www.adidas.com/us/ultimate365-frilled-skort/JP0093.html — 20251208 · Polyester 100%
-- Addidas — https://www.adidas.com/us/ultimate365-solid-dress/JC9249.html — 20260519 · Polyester 100%
+- Addidas — https://www.adidas.com/us/adidas-by-stella-mccartney-printed-training-dress/KR6169.html
+- Addidas — https://www.adidas.com/us/pleather-adibreak-skirt/KT0043.html
+- Addidas — https://www.adidas.com/us/ultimate365-solid-knit-skort/KC4507.html
+- Addidas — https://www.adidas.com/us/ultimate365-solid-knit-skort/KC4509.html
+- Addidas — https://www.adidas.com/us/ultimate365-set-skort/KG6782.html
 
 </details>
 
