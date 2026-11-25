@@ -101,7 +101,9 @@ const SHAPE = [
   ["J.Crew 상품(categories 아래)", "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334", false],
   ["Massimo Dutti 상품", "https://www.massimodutti.com/us/linen-shirt-l05812529", false],
   ["Oysho 상품", "https://www.oysho.com/gb/seamless-t-shirt-c0p123456789.html", false],
-  ["낱말 c 로 시작하는 조각", "https://shop.example.com/collections/cotton-tee", false],
+  ["Reformation 기획전 타일", "https://www.thereformation.com/collections/holiday-launch", true],
+  ["Shopify 컬렉션 안의 상품", "https://shop.example.com/collections/tops/products/cotton-tee", false],
+  ["낱말 c 로 시작하는 조각", "https://shop.example.com/cotton/cami-top-123", false],
 ];
 for (const [label, url, want] of SHAPE) {
   const got = nonProductShape(new URL(url).pathname.replace(/\/+$/, ""));

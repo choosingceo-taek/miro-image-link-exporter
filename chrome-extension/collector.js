@@ -98,12 +98,12 @@ async function pageCollector() {
   ];
   const NON_PRODUCT_PATH = new RegExp('/(?:' + NON_PRODUCT_SEGMENTS.join('|') + ')(?:/|$)', 'i');
   // 경로 모양만 봐도 상품이 아닌 링크(2026-11-25 접근 지도에서 실제로 상품으로 저장돼 있던 것들).
-  //  · 카테고리 경로 /c/… · /w/… — Carhartt 메뉴 타일(/c/black-friday, 이름 'arrow icon'),
+  //  · 카테고리 경로 /c/… · /w/… · /collections/… — Reformation 기획전(/collections/holiday-launch), Carhartt 메뉴 타일(/c/black-friday, 이름 'arrow icon'),
   //    Nike 필터 링크(/w/womens-…). 상품 표시(/p/ · /t/ · /product/)가 함께 있으면 상품으로 둔다.
   //    '/categories/' 는 일부러 넣지 않았다 — J.Crew 는 진짜 상품이 /m/womens/categories/…/MQ341 이다.
   //  · Inditex(Oysho·Massimo Dutti) 카테고리 주소 끝 '-n5063' — 상품은 '-l0581…'·'-c0p…' 모양이다.
   //  · 이미지 파일 주소 — srcset 조각('…/x.webp%20924w')이 링크로 잡힌 경우(Sessun).
-  const CATEGORY_PATH = /\/(?:c|w)\/[^/]/i;
+  const CATEGORY_PATH = /\/(?:c|w|collections?)\/[^/]/i;
   const PRODUCT_MARK = /\/(?:p|t|product|products)\//i;
   const INDITEX_CATEGORY = /-n\d{3,5}$/i;
   const IMAGE_FILE = /\.(?:jpe?g|png|webp|gif|avif|svg)(?:%20\d+[wx])?$/i;
@@ -191,7 +191,18 @@ async function pageCollector() {
 
   // 0개로 끝났을 때 "왜 다 걸러졌는지" 세어 둔다. 추측 대신 숫자로 원인을 좁힌다.
   const rej = { total: 0, noImage: 0, tinyImage: 0, shortPath: 0, samePage: 0, banner: 0, dup: 0,
-    nonProduct: 0, landing: 0 };
+    nonProduct: 0, landing: 0, siteMenu: 0 };
+
+  // 사이트 머리글·메뉴·바닥글 안의 링크는 상품이 아니다(2026-11-25 측정에서 실제로 잡힌 것:
+  // The upside 'Header Submenu Image' /active/tops/sports-bras/, Reformation 메뉴의
+  // /collections/holiday-launch, Old Navy 'Picks from our Giftfluencers', Banana Republic 'sign in').
+  // 상품 그리드는 이런 칸 안에 있지 않다. 다만 상품 카드 안에도 <header> 를 쓰는 사이트가 있어서,
+  // <header> 는 카드·목록·본문(main) 밖에 있는 '사이트 머리글'일 때만 메뉴로 본다.
+  const inSiteMenu = (a) => {
+    if (a.closest('nav, footer, [role="navigation"], [role="contentinfo"], [role="menu"], [role="menubar"]')) return true;
+    const h = a.closest('header, [role="banner"]');
+    return !!(h && !h.closest('main, article, li, [class*="product" i], [class*="card" i], [class*="tile" i]'));
+  };
 
   const harvest = () => {
     const here = location.pathname.replace(/\/+$/, '');
@@ -201,6 +212,7 @@ async function pageCollector() {
       let href; try { href = new URL(a.href, location.href); } catch (e) { return; }
       if (!/^https?:/.test(href.protocol)) return;
       rej.total++;
+      if (inSiteMenu(a)) { rej.siteMenu++; return; }
       const card = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
       // 카드를 못 짚었으면 한두 단계 위까지 올라가 본다.
       // Apiece Apart 는 카드 전체를 덮는 투명 링크(<a class="absolute inset-0">)를 쓰는데,
@@ -321,17 +333,33 @@ async function pageCollector() {
   // 스크롤 + "더 보기" 클릭을 상품 수가 늘지 않을 때까지 반복(무한스크롤·버튼형 모두 대응).
   // 예전에는 500ms×3회(=1.5초)만 안 늘면 끝냈는데, 다음 묶음을 받아오는 데 2~3초 걸리는
   // 사이트에서는 그 사이에 멈춰 버렸다. 기다림을 늘려 실제로 다 받을 때까지 본다.
+  //
+  // 한 화면씩 내려가며 그때마다 본 상품을 모두 모아 둔다(누적). 예전에는 맨 아래로 한 번에
+  // 뛰고, 끝에서 맨 위로 돌아와 '그 순간 화면에 있는 것'만 셌다. 그런데 화면 밖 카드를 지웠다가
+  // 다시 그리는 그리드(가상 스크롤)는 한 번에 뛰면 중간 줄이 아예 그려지지 않고, 맨 위로
+  // 돌아오면 아래쪽 카드가 사라진다 — Gap·Old Navy·Banana Republic 이 사진 달린 상품 카드
+  // 200개 가까이 있는 페이지(2026-11-25 진단)에서 30개 안팎만 남던 원인으로 보인다.
+  const acc = new Map();
+  const keep = (list) => { for (const it of list) if (!acc.has(it.productUrl)) acc.set(it.productUrl, it); };
+  keep(harvest());
   let stable = 0, lastCount = -1;
-  for (let i = 0; i < 80; i++) {
-    window.scrollTo(0, document.documentElement.scrollHeight);
-    await sleep(700);
+  for (let i = 0; i < 140 && acc.size < 600; i++) {
+    const doc = document.documentElement;
+    const atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 80;
+    if (atBottom) window.scrollTo(0, doc.scrollHeight);
+    else window.scrollBy(0, Math.max(400, Math.round(window.innerHeight * 0.85)));
+    await sleep(atBottom ? 700 : 350);
     const btn = findLoadMore();
     if (btn) { try { btn.click(); } catch (e) {} await sleep(1500); }
-    const n = harvest().length;
+    keep(harvest());
+    const n = acc.size;
+    // 아직 내려가는 중이면 멈추지 않는다 — 바닥에서 더 늘지 않을 때만 끝낸다.
+    if (!atBottom) { stable = 0; lastCount = n; continue; }
     if (n === lastCount) { if (++stable >= (btn ? 6 : 5)) break; } else { stable = 0; lastCount = n; }
   }
   window.scrollTo(0, 0);
   await sleep(250);
-  const out = harvest();
+  keep(harvest());
+  const out = [...acc.values()];
   return { items: out, nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej } };
 }
