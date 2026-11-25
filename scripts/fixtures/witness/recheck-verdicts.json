@@ -53,5 +53,83 @@
   "stored": "Polyester 96% / Elastane 4%",
   "now": "Polyester 88% / Metallic 8% / Elastane 4%\nPolyester 96% / Elastane 4%",
   "why": "Main 88% Polyester 8% Metallic 4% Elastane · Lining 96% Polyester 4% Elastane — 저장값은 안감만."
+ },
+ "https://thisisthegreat.com/products/the-slouchy-crew-tee-true-white": {
+  "right": "stored",
+  "stored": "Cotton 100%",
+  "now": "Cotton 100%",
+  "why": "Details 100% Cotton — 저장값이 맞다. 고치기 전 규칙(a819ae5)은 'Modal spinner Details 100%' 를 Modal 100% 로 읽었다(재확인의 The Great '값이 바뀜' 대부분이 이 모양 — 지금 규칙으로 고쳤다)."
+ },
+ "https://thisisthegreat.com/products/the-oversized-ruffle-peplum-tee-heather-grey": {
+  "right": "stored",
+  "stored": "Cotton 90% / Polyester 10%",
+  "now": "Cotton 90% / Polyester 10%",
+  "why": "Details 90% Cotton 10% Polyester — 저장값이 맞다(고치기 전 규칙은 Modal 90% / Cotton 10%)."
+ },
+ "https://zsupplyclothing.com/products/arlet-stripe-thermal-top": {
+  "right": "stored",
+  "stored": "Cotton 60% / Polyester 40%",
+  "now": "Cotton 60% / Polyester 40%",
+  "why": "Waffle Thermal 60% Cotton, 40% Polyester — 저장값이 맞다. 고치기 전 규칙은 메뉴의 '100% Cotton Shop' 과 섞여 빈 칸(재확인의 Z Supply 빈 칸 148개가 이 모양 — 지금 규칙으로 고쳤다)."
+ },
+ "https://zsupplyclothing.com/products/sloane-linen-cropped-tank": {
+  "right": "stored",
+  "stored": "Linen 55% / Viscose 45%",
+  "now": "Linen 55% / Viscose 45%",
+  "why": "55% Linen, 45% Rayon — 저장값이 맞다."
+ },
+ "https://zsupplyclothing.com/products/dazzle-tee": {
+  "right": "now",
+  "stored": "Cotton 100%",
+  "now": "Polyester 95% / Elastane 5%",
+  "why": "Sequin Mesh 95% Polyester, 5% Spandex — 저장값 Cotton 100% 는 메뉴 글(틀림)."
+ },
+ "https://www.jigsaw-online.com/products/tiger-orchid-knit-tank-blue": {
+  "right": "now",
+  "stored": "Cotton 100% / Silk 100%",
+  "now": "Cotton 100%\nSilk 100%",
+  "why": "Main 1 100% Cotton · Main 2 100% Silk — 저장값은 두 겉감을 한 줄에 붙였다(합 200%)."
+ },
+ "https://www.jigsaw-online.com/products/satin-lace-detail-cami-brown": {
+  "right": "now",
+  "stored": "Viscose 100% / Polyester 100%",
+  "now": "Viscose 100%",
+  "why": "Main 100% Viscose · Trim 100% Polyester — 저장값은 장식을 붙였다."
+ },
+ "https://www.jigsaw-online.com/products/modal-lace-cami-burgundy": {
+  "right": "now",
+  "stored": "Modal 92% / Elastane 8%\nNylon 90% / Elastane 10%",
+  "now": "Modal 92% / Elastane 8%",
+  "why": "Main 92% Modal, 8% Elastane · Trim 90% Polyamide, 10% Elastane — 저장값 둘째 줄은 장식."
+ },
+ "https://www.jigsaw-online.com/products/linen-silk-pocket-skirt-green": {
+  "right": "now",
+  "stored": "Linen 100% / Silk 100%",
+  "now": "Linen 100%",
+  "why": "Main 100% Linen · Trim 100% Silk — 저장값은 장식을 붙였다."
+ },
+ "https://bellerose.com/products/women-t-shirts-fiores-dusty-rose": {
+  "right": "now",
+  "stored": "Cotton 100% / Wool 100%",
+  "now": "Cotton 100%",
+  "why": "Shell fabric 100% Cotton — 저장값의 Wool 100% 는 다른 곳의 글."
+ },
+ "https://bellerose.com/products/women-knitwear-anglet-stripe-a-bw262940-k1356s": {
+  "right": "neither",
+  "stored": "Cotton 63% / Polyester 37%",
+  "now": "",
+  "why": "페이지 표기 합 178% — 저장값 Cotton 63% / Polyester 37% 는 뒤 두 숫자만 고른 추측. 지금 규칙은 빈 칸."
+ },
+ "https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top": {
+  "right": "now",
+  "stored": "Cotton 100%\nPolyester 100%",
+  "now": "Cotton 100%",
+  "why": "100% Cotton (outer) · 100% Polyester (embroidery) — 저장값 둘째 줄은 자수."
+ },
+ "https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes": {
+  "right": "now",
+  "stored": "Cotton 64% / Polyester 36%\nCotton 57% / Polyester 40% / Elastane 3%",
+  "now": "Cotton 64% / Polyester 36%",
+  "why": "Body 64/36 · Rib 57/40/3 — 저장값 둘째 줄은 리브."
  }
 }

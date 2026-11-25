@@ -58,6 +58,12 @@ const CASES = [
   ["A layering piece. 100% Wool 100% Cotton Size & Fit. Materials: Body: 100% wool. Trim: 100% cotton. Details: placket", "Wool 100%"],
   // 금속사 — Oasis "Main: 60% Nylon, 40% Metal; Lining: 100% Polyester".
   ["Main: 60% Nylon, 40% Metal; Lining: 100% Polyester.", "Nylon 60% / Metallic 40%\nPolyester 100%"],
+  // 섬유 이름 + 낱말 + 퍼센트인데 퍼센트 바로 뒤에 섬유가 오면 그 퍼센트는 뒤 섬유의 것 — The Great 창 이름 "Modal spinner".
+  ["Fit Guide dialog Modal spinner Details 100% Cotton Machine Wash Cold", "Cotton 100%"],
+  // 붙어 있는 "Cotton 95% Silk 5%" 는 그대로(앞 섬유 + 바로 뒤 퍼센트).
+  ["Cotton 95% Silk 5%", "Cotton 95% / Silk 5%"],
+  // 기획전·메뉴 이름 "100% Cotton Shop" 은 소재가 아니다 — Z Supply.
+  ["The Layering Shop 100% Cotton Shop All Day Collection … Details Crew neck Waffle Thermal: 60% Cotton, 40% Polyester Machine Wash Cold", "Cotton 60% / Polyester 40%"],
 
   // ── 실제로 못 뽑던 본문 (2026-08-05 진단에서 나온 그대로) ──
   // 퍼센트와 섬유 이름 사이에 수식어가 끼면 예전에는 통째로 놓쳤다.

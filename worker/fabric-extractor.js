@@ -1175,6 +1175,29 @@ const COMP_RX = new RegExp(
 // 수식어 자리에 이런 말이 오면 소재 설명이 아니라 판촉·안내 문구다.
 const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|shipping|free|new|all|shop|more|less|min|max|use)\b/i;
 
+// 모든 "퍼센트+섬유" 자리를 앞에서부터 찾는다. 두 가지는 소재가 아니다:
+//  · 섬유 이름이 앞에 오고 사이에 낱말이 끼었는데, 그 퍼센트 바로 뒤에 다른 섬유가 오는 경우 — 그 퍼센트는 뒤 섬유의 것이다.
+//    2026-11-25 The Great: 창 이름 "Fit Guide dialog Modal spinner Details 100% Cotton" 이 "Modal 100%" 로 읽혔다.
+//  · "100% Cotton Shop"·"… Collection" 처럼 기획전·메뉴 이름 — 2026-11-25 Z Supply 는 모든 페이지 메뉴에 이것이 있어
+//    진짜 소재("Waffle Thermal: 60% Cotton, 40% Polyester")와 섞여 판단을 못 하거나, 메뉴 값이 그대로 저장됐다.
+const PCT_THEN_FIBRE_RX = new RegExp('^\\d{1,3}\\s*%\\s*(?:of\\s+)?(?:[A-Za-z™®\'’-]{2,20}\\s+){0,4}?(?:' + FIBRE_ALT + ')(?![A-Za-z])', 'i');
+const NAV_AFTER_RX = /^\s+(?:shop|collection|edit|essentials|capsule|store)\b/i;
+function compMatchAll(src) {
+  const rx = new RegExp(COMP_RX.source, 'gi');
+  const out = [];
+  let m;
+  while ((m = rx.exec(src))) {
+    const g = m.groups;
+    if (g.fibr && /[A-Za-z]/.test(String(g.modr || '').replace(/\([^)]*\)/g, ''))) {
+      const pctAt = m.index + m[0].search(/\d{1,3}\s*%\s*$/);
+      if (PCT_THEN_FIBRE_RX.test(src.slice(pctAt, pctAt + 120))) { rx.lastIndex = pctAt; continue; }
+    }
+    if (NAV_AFTER_RX.test(src.slice(m.index + m[0].length, m.index + m[0].length + 20))) continue;
+    out.push(m);
+  }
+  return out;
+}
+
 // 두 원단(겉감/안감 등)으로 볼 수 있는 거리. 두 벌이 이보다 멀리 떨어져 있고 둘 다 부위 이름
 // (OUTER SHELL · LINING …)이 붙어 있지 않으면, 한 옷의 두 원단이 아니라 서로 다른 곳에서 온
 // 조각이다. 2026-11-24 Zara: 숨은 메뉴의 "PARTYWEAR 100% WOOL | CASHMERE" 와 3,400자 뒤의 진짜
@@ -1193,7 +1216,7 @@ const PART_LABEL_RX = /(?<![A-Za-z])(?:outer|shell|lining|lined|main|body|contra
 const BARE_GAP_RX = /^[\s|\/,\u00b7\u2022;+&-]{0,6}$/;
 function bareRunAt(src) {
   const ms = [];
-  for (const m of String(src || '').matchAll(COMP_RX)) {
+  for (const m of compMatchAll(String(src || ''))) {
     const g = m.groups;
     const fib = FIBRES[String(g.fibf || g.fibr || '').toLowerCase().trim()];
     if (fib) ms.push({ at: m.index, end: m.index + m[0].length, pct: Number(g.pctf || g.pctr), fib });
@@ -1247,7 +1270,7 @@ function compFromText(text) {
   let cur = [], total = 0, seen = new Set(), gStart = 0, gEnd = 0;
   let ovf = false;   // 한 목록이 쉼표·빗금으로 이어지다 100% 를 넘었다(Bellerose '66 / 22 / 2 / 10 / 10' = 110%) — 페이지 표기가 틀렸다
   const flush = () => { if (cur.length) groups.push({ items: cur, start: gStart, end: gEnd, ovf }); cur = []; total = 0; seen = new Set(); ovf = false; };
-  for (const m of src.matchAll(COMP_RX)) {
+  for (const m of compMatchAll(src)) {
     if (bare.has(m.index)) continue;
     const g = m.groups;
     const pct = Number(g.pctf || g.pctr);
@@ -1383,10 +1406,9 @@ function validColor(s) {
 // 조각 하나만 창에 들어와 그대로 틀린 값이 된다(2026-11-24 Zara 에서 본 모양).
 function compWindow(s) {
   const COMP_HEAD_RX = /(?:composition|materials?|fabric(?:ation)?|content|outer shell|lining|소재|혼용률?)\s*[:：&a-z ]{0,20}$/i;
-  const rx = new RegExp(COMP_RX.source, 'gi');
   const bare = bareRunAt(s);   // 배지·메뉴 목록에서는 창을 열지 않는다(Splendid)
-  let m, first = null, headed = null;
-  while ((m = rx.exec(s))) {
+  let first = null, headed = null;
+  for (const m of compMatchAll(s)) {
     if (bare.has(m.index)) continue;
     if (!first) first = m;
     // 사이트 공통 '원단 안내'(FABRIC GUIDE · glossary) 칸의 제목은 이 상품의 소재 제목이 아니다 — 2026-11-25 Goldie:

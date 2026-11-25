@@ -1,6 +1,6 @@
 # 상품 정보 현장 지도 (field map)
 
-> 만든 때 2026-11-25T15:57Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
+> 만든 때 2026-11-25T16:02Z · 측정 실행 45598506233(1/3, 러너 20.189.190.x) · 45598511317(2/3, 러너 4.249.22.x) · 45598515028(3/3, 러너 132.196.80.x) · 45601690170(1/3, 러너 4.236.91.x) · 45601695189(2/3, 러너 172.190.119.x) · 45601700145(3/3, 러너 134.138.58.x) · 45618009481(1/3, 러너 20.57.38.x)
 > 만드는 법: `node scripts/build-field-map.mjs` — 측정은 `diagnose-page.yml` mode=fields(읽기만, 로그에 `STORE: 0`).
 
 ## 한눈에
@@ -82,7 +82,7 @@
 | Outdoorvoices | https://www.outdoorvoices.com/products/w-waffle-baby-tee-white | (빈 칸) | Fitted baby tee in new waffle knit fabric - made of 100% cotton. | 페이지 못 읽음 | Cotton 100% | (못 읽음) | 증인 측정에서는 impit·파이어폭스 모두 껍데기라 HTML 을 못 남겼다. 측정 표본의 설명 글로는 글머리표가 맞다(추정). |
 | Tuckernuck | https://tnuck.com/products/cream-kaiya-floral-top | (빈 칸) | Material: 100% Cotton (main), 73% Cotton, 27% Nylon (combo), 100% Viscose (embroidery) | 글머리표가 맞음 | — | — | 세 조성이라 비웠다. 지금 규칙(괄호 부위 · combo 는 배색)으로 Cotton 100% — 측정 시험 자료(scripts/fixtures/pages/tuckernuck.html.gz)에서 확인. |
 | Tuckernuck | https://tnuck.com/products/blue-shira-embroidered-midi-dress | (빈 칸) | Material: 100% Cotton (outer), 100% Viscose (embroidery), 100% Polyester (lace) | 글머리표가 맞음 | (빈 칸) | Cotton 100% | 세 조성이라 비웠다. 지금 규칙은 괄호 속 부위로 겉감만: Cotton 100%. |
-| Z Supply | https://zsupplyclothing.com/products/downhome-pant | (빈 칸) | Silky Pointelle: 95% Polyester, 5% Spandex | 글머리표가 맞음 | Cotton 100% | (빈 칸) | 운영 저장값 Cotton 100% 는 메뉴 글('100% Cotton Shop')을 읽은 것 — 틀림. 지금 규칙은 빈 칸(메뉴 조각과 섞여 판단 보류). 옳은 값은 Polyester 95% / Elastane 5%. |
+| Z Supply | https://zsupplyclothing.com/products/downhome-pant | (빈 칸) | Silky Pointelle: 95% Polyester, 5% Spandex | 글머리표가 맞음 | Cotton 100% | Polyester 95% / Elastane 5% | 운영 저장값 Cotton 100% 는 메뉴 글('100% Cotton Shop')을 읽은 것 — 틀림. 지금 규칙은 빈 칸(메뉴 조각과 섞여 판단 보류). 옳은 값은 Polyester 95% / Elastane 5%. |
 | Everlane | https://www.everlane.com/products/womens-boyfriend-shirt-cotton-optic-white-black | (빈 칸) | 100% Organic Cotton | 글머리표가 맞음 | (빈 칸) | Cotton 100% | 측정 때는 빈 칸. 지금 규칙 Cotton 100%. 운영 저장값도 빈 칸. |
 | Goldie | https://www.goldietees.com/products/allure-tee | Cotton 100% | 50% cotton, 50% polyester | 글머리표가 맞음 | Cotton 50% / Polyester 50% | Cotton 50% / Polyester 50% | 측정 때 comp 는 원단 안내 칸을 읽었다. 운영 저장값은 이미 옳다(Cotton 50% / Polyester 50%). 지금 규칙도 옳다. |
 | Hobbs | https://www.hobbs.com/us/product/middleton-pants-with-wool-/0224-8631-9044L00-GREY-BLACK.html | Wool 59% / Polyester 30% / Polyamide 7% / Other Fibres 3% / Elastane 1% | Fabric: 59% Wool 30% Polyester 7% Polyamide 3% Other fibres 1% Elastane ¶ Lining: Pocket Lining: 100% Polyester ¶ Fabric Composition: 59% Wool 30% Polyester 7% Polyamide 3% Other fibres 1% Elastane | comp 가 맞음 | Wool 59% / Polyester 30% / Polyamide 7% / Other Fibres 3% / Elastane 1% | Wool 59% / Polyester 30% / Polyamide 7% / Other Fibres 3% / Elastane 1% | comp(JSON-LD)가 'Other Fibres 3%' 까지 옳다. 증인(글머리표 해석)이 'Other fibres' 를 섬유로 몰라 97% 로 읽었을 뿐. |
@@ -90,7 +90,7 @@
 | The Great | https://thisisthegreat.com/collections/knit-shop-sweatshirts/products/the-slouch-sweatshirt-dark-slate | Modal 100% | 100% Cotton | 글머리표가 맞음 | Modal 100% | Cotton 100% | 측정·운영 저장값 Modal 100% 는 틀림(다른 상품 글로 보임). 지금 규칙 Cotton 100%. |
 | Vince | https://www.vince.com/product/pima-cotton-crew-neck-t-shirt-V017384404REDOCHRE.html | Pima Cotton 100% | Our tees are informed by the desire to feel comfortable in one's own skin, which is why we've crafted this one from 100% Pima cotton — a fiber beloved for its i | comp 가 맞음 | Pima Cotton 100% | Pima Cotton 100% | 같은 값 — comp 는 'Pima Cotton', 증인은 'Cotton' 으로 이름만 다르게 적었다. |
 
-시험 자료(사람이 기대값을 적은 실제 페이지 30개)를 지금 규칙으로 같은 비교: 소재 줄이 있는 24개 중 어긋남 0개.
+시험 자료(사람이 기대값을 적은 실제 페이지 43개)를 지금 규칙으로 같은 비교: 소재 줄이 있는 31개 중 어긋남 0개.
 
 ### 운영에 이미 저장된 혼용률 — 지금 규칙으로 다시 읽으면
 
@@ -130,34 +130,39 @@
 | Boden | https://us.boden.com/products/women-ruffle-v-neck-lace-top-deep-wisteria-t2180red | 값이 바뀜 | Viscose 100% / Cotton 75% / Nylon 25% | Viscose 100% | 지금 규칙이 맞음 — Main 100% viscose · Lace 75% cotton, 25% nylon — 저장값은 레이스를 겉감 줄에 붙였다(합 200%). |
 | Boden | https://us.boden.com/products/women-honor-column-velvet-midi-dress-harbour-blue-d1849blu | 값이 바뀜 | Polyester 100% | Polyester 90% / Elastane 10% ‖ Polyester 100% | 지금 규칙이 맞음 — Main 60% recycled polyester, 30% polyester, 10% elastane · Bodice lining 100% recycled polyester — 저장값은 안감만. |
 | Boden | https://us.boden.com/products/women-louise-cord-midi-shirt-dress-storm-blue-d1786blu | 지금 규칙은 빈 칸 | Cotton 100% | Cotton 100% | 저장값이 맞음 — Main 100% cotton — 저장값이 맞다. 재확인 실행에서 빈 칸이었던 것은 그때 impit 이 페이지 본문을 못 받은 탓(같은 규칙으로 이 HTML 은 Cotton 100%). |
-| Bellerose | https://bellerose.com/products/women-t-shirts-fiores-dusty-rose | 값이 바뀜 | Cotton 100% / Wool 100% | Cotton 100% | — |
+| Bellerose | https://bellerose.com/products/women-t-shirts-fiores-dusty-rose | 값이 바뀜 | Cotton 100% / Wool 100% | Cotton 100% | 지금 규칙이 맞음 — Shell fabric 100% Cotton — 저장값의 Wool 100% 는 다른 곳의 글. |
 | Bellerose | https://bellerose.com/products/women-t-shirts-flawy-tempete | 값이 바뀜 | Lyocell 63% / Elastane 6% / Cotton 31% | Lyocell 63% / Elastane 6% / Cotton 31% ‖ Cotton 100% | — |
-| Bellerose | https://bellerose.com/products/women-knitwear-anglet-stripe-a-bw262940-k1356s | 지금 규칙은 빈 칸 | Cotton 63% / Polyester 37% | (빈 칸) | — |
+| Bellerose | https://bellerose.com/products/women-knitwear-anglet-stripe-a-bw262940-k1356s | 지금 규칙은 빈 칸 | Cotton 63% / Polyester 37% | (빈 칸) | 둘 다 아님 — 페이지 표기 합 178% — 저장값 Cotton 63% / Polyester 37% 는 뒤 두 숫자만 고른 추측. 지금 규칙은 빈 칸. |
 | Bellerose | https://bellerose.com/products/women-sweatshirts-tood-combo-b | 지금 규칙은 빈 칸 | Wool 100% / Elastane 4% | (빈 칸) | — |
 | Bellerose | https://bellerose.com/products/women-knitwear-anglet-anthracite | 덧붙은 줄만 빠짐 | Cotton 100% ‖ Leather 100% | Cotton 100% | — |
 | Bellerose | https://bellerose.com/products/women-shirts-gastoo-white | 덧붙은 줄만 빠짐 | Cotton 100% ‖ Leather 100% | Cotton 100% | — |
-| CCC | https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes | 덧붙은 줄만 빠짐 | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | — |
+| CCC | https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes | 덧붙은 줄만 빠짐 | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | 지금 규칙이 맞음 — Body 64/36 · Rib 57/40/3 — 저장값 둘째 줄은 리브. |
 | CCC | https://www.crewclothing.co.uk/products/star-embroidered-sweat-in-navy | 덧붙은 줄만 빠짐 | Cotton 66% / Polyester 34% ‖ Cotton 59% / Polyester 39% / Elastane 2% | Cotton 66% / Polyester 34% | — |
 | Jigsaw | https://www.jigsaw-online.com/products/v-neck-sheer-top-cream | 값이 바뀜 | Lyocell 85% / Polyester 15% / Viscose 100% | Lyocell 85% / Polyester 15% ‖ Viscose 100% | — |
-| Jigsaw | https://www.jigsaw-online.com/products/tiger-orchid-knit-tank-blue | 값이 바뀜 | Cotton 100% / Silk 100% | Cotton 100% ‖ Silk 100% | — |
+| Jigsaw | https://www.jigsaw-online.com/products/tiger-orchid-knit-tank-blue | 값이 바뀜 | Cotton 100% / Silk 100% | Cotton 100% ‖ Silk 100% | 지금 규칙이 맞음 — Main 1 100% Cotton · Main 2 100% Silk — 저장값은 두 겉감을 한 줄에 붙였다(합 200%). |
+| Jigsaw | https://www.jigsaw-online.com/products/satin-lace-detail-cami-brown | 값이 바뀜 | Viscose 100% / Polyester 100% | Viscose 100% | 지금 규칙이 맞음 — Main 100% Viscose · Trim 100% Polyester — 저장값은 장식을 붙였다. |
 | Jigsaw | https://www.jigsaw-online.com/products/fine-rib-half-sleeve-henley-navy | 덧붙은 줄만 빠짐 | Cotton 97% / Elastane 3% ‖ Lyocell 58% / Cotton 42% | Cotton 97% / Elastane 3% | — |
 | Jigsaw | https://www.jigsaw-online.com/products/modal-lace-v-cami-black | 덧붙은 줄만 빠짐 | Modal 92% / Elastane 8% ‖ Nylon 90% / Elastane 10% | Modal 92% / Elastane 8% | — |
+| Jigsaw | https://www.jigsaw-online.com/products/modal-lace-cami-burgundy | 덧붙은 줄만 빠짐 | Modal 92% / Elastane 8% ‖ Nylon 90% / Elastane 10% | Modal 92% / Elastane 8% | 지금 규칙이 맞음 — Main 92% Modal, 8% Elastane · Trim 90% Polyamide, 10% Elastane — 저장값 둘째 줄은 장식. |
+| Jigsaw | https://www.jigsaw-online.com/products/linen-silk-pocket-skirt-green | 값이 바뀜 | Linen 100% / Silk 100% | Linen 100% | 지금 규칙이 맞음 — Main 100% Linen · Trim 100% Silk — 저장값은 장식을 붙였다. |
 | Jigsaw | https://www.jigsaw-online.com/products/chaplin-fluid-twill-trouser-black | 지금 규칙은 빈 칸 | Polyester 54% / Wool 44% / Elastane 2% ‖ Polyester 100% | (빈 칸) | — |
 | Jager | https://www.marksandspencer.com/studio-crew-neck-sweatshirt/p/clp23087631?color=LILAC#intid=pid_pg1pip48g2r13c1%7Cprodflag_submsg-The%20Sports%20Edit | 덧붙은 줄만 빠짐 | Cotton 80% / Polyester 20% ‖ Cotton 97% / Elastane 3% | Cotton 80% / Polyester 20% | — |
 | Jager | https://www.marksandspencer.com/cotton-rich-striped-sweatshirt/p/clp23089070#intid=pid_pg1pip48g2r23c2%7Cprodflag_30%25%20off | 덧붙은 줄만 빠짐 | Cotton 66% / Polyester 34% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 66% / Polyester 34% | — |
 | Jager | https://www.marksandspencer.com/pure-cotton-printed-sweatshirt/p/clp61232148#intid=pid_pg3pip48g2r6c1 | 값이 바뀜 | Cotton 100% / Cotton 95% / Elastane 5% | Cotton 100% ‖ Cotton 95% / Elastane 5% | — |
 | Jager | https://www.marksandspencer.com/velvet-high-neck-lace-insert-blouse/p/clp61267182#intid=pid_pg1pip48g2r6c2%7Cprodflag_20%25%20off | 값이 바뀜 | Polyester 93% / Elastane 7% / Polyester 100% | Polyester 93% / Elastane 7% ‖ Polyester 100% | — |
-| The Great | https://thisisthegreat.com/products/the-oversized-ruffle-peplum-tee-heather-grey | 값이 바뀜 | Cotton 90% / Polyester 10% | Modal 90% / Cotton 10% | — |
+| The Great | https://thisisthegreat.com/products/the-oversized-ruffle-peplum-tee-heather-grey | 값이 바뀜 | Cotton 90% / Polyester 10% | Cotton 90% / Polyester 10% | 저장값이 맞음 — Details 90% Cotton 10% Polyester — 저장값이 맞다(고치기 전 규칙은 Modal 90% / Cotton 10%). |
 | The Great | https://thisisthegreat.com/products/the-slouchy-v-neck-tee-true-white | 값이 바뀜 | Cotton 100% | Modal 100% | — |
+| The Great | https://thisisthegreat.com/products/the-slouchy-crew-tee-true-white | 값이 바뀜 | Cotton 100% | Cotton 100% | 저장값이 맞음 — Details 100% Cotton — 저장값이 맞다. 고치기 전 규칙(a819ae5)은 'Modal spinner Details 100%' 를 Modal 100% 로 읽었다(재확인의 The Great '값이 바뀜' 대부분이 이 모양 — 지금 규칙으로 고쳤다). |
 | The Great | https://thisisthegreat.com/collections/tops/products/the-orchard-top-harbor-wash | 지금 규칙은 빈 칸 | Cotton 80% / Hemp 20% | (빈 칸) | — |
-| Tuckernuck | https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top | 덧붙은 줄만 빠짐 | Cotton 100% ‖ Polyester 100% | Cotton 100% | — |
+| Tuckernuck | https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top | 덧붙은 줄만 빠짐 | Cotton 100% ‖ Polyester 100% | Cotton 100% | 지금 규칙이 맞음 — 100% Cotton (outer) · 100% Polyester (embroidery) — 저장값 둘째 줄은 자수. |
 | Tuckernuck | https://tnuck.com/products/navy-paisley-ellery-top | 덧붙은 줄만 빠짐 | Viscose 100% ‖ Polyester 100% | Viscose 100% | — |
 | Tuckernuck | https://tnuck.com/products/metallic-deja-pants | 지금 규칙은 빈 칸 | Polyester 100% | (빈 칸) | — |
 | Tuckernuck | https://tnuck.com/products/vibrant-stripe-mini-skirt | 지금 규칙은 빈 칸 | Viscose 68% / Polyester 32% | (빈 칸) | — |
 | Tuckernuck | https://tnuck.com/products/red-mini-delaney-dress | 값이 바뀜 | Cotton 97% / Elastane 3% / Polyester 96% / Elastane 4% | Cotton 97% / Elastane 3% ‖ Polyester 96% / Elastane 4% | — |
 | Tuckernuck | https://tnuck.com/products/chocolate-brown-knit-anne-midi-dress | 값이 바뀜 | Cotton 100% / Polyester 95% / Elastane 5% | Cotton 100% ‖ Polyester 95% / Elastane 5% | — |
-| Z Supply | https://zsupplyclothing.com/products/arlet-stripe-thermal-top | 지금 규칙은 빈 칸 | Cotton 60% / Polyester 40% | (빈 칸) | — |
-| Z Supply | https://zsupplyclothing.com/products/sloane-linen-cropped-tank | 지금 규칙은 빈 칸 | Linen 55% / Viscose 45% | (빈 칸) | — |
+| Z Supply | https://zsupplyclothing.com/products/arlet-stripe-thermal-top | 지금 규칙은 빈 칸 | Cotton 60% / Polyester 40% | Cotton 60% / Polyester 40% | 저장값이 맞음 — Waffle Thermal 60% Cotton, 40% Polyester — 저장값이 맞다. 고치기 전 규칙은 메뉴의 '100% Cotton Shop' 과 섞여 빈 칸(재확인의 Z Supply 빈 칸 148개가 이 모양 — 지금 규칙으로 고쳤다). |
+| Z Supply | https://zsupplyclothing.com/products/sloane-linen-cropped-tank | 지금 규칙은 빈 칸 | Linen 55% / Viscose 45% | Linen 55% / Viscose 45% | 저장값이 맞음 — 55% Linen, 45% Rayon — 저장값이 맞다. |
+| Z Supply | https://zsupplyclothing.com/products/dazzle-tee | 지금 규칙은 빈 칸 | Cotton 100% | Polyester 95% / Elastane 5% | 지금 규칙이 맞음 — Sequin Mesh 95% Polyester, 5% Spandex — 저장값 Cotton 100% 는 메뉴 글(틀림). |
 | Z Supply | https://zsupplyclothing.com/products/night-out-top | 값이 바뀜 | Cotton 100% | Nylon 88% / Elastane 12% ‖ Viscose 95% / Elastane 5% | — |
 | Z Supply | https://zsupplyclothing.com/products/after-party-dress | 값이 바뀜 | Cotton 100% | Polyester 100% | — |
 
