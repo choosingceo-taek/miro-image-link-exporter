@@ -1,0 +1,983 @@
+{
+ "runId": "45637608897",
+ "at": "2026-11-25T14:46:19.181Z",
+ "ip": "52.225.98.x",
+ "part": "1/1",
+ "brands": [
+  {
+   "brand": "Rag & bone",
+   "site": "rag-bone.com.ragbone",
+   "products": [
+    {
+     "url": "https://www.rag-bone.com/p/vintage-terry-tee-RE9J26PT3VW_960.html",
+     "name": "Vintage Terry Tee RE9J26PT3VW 960",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1070931,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1424014,
+       "clicked": 2
+      }
+     },
+     "stored": "Cotton 78% / Polyester 22% / Elastane 2%",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Vintage Terry Tee",
+      "imgs": [
+       "https://cdn.media.amplience.net/i/rb/RE9J26PT3VW-960-A/Vintage-Terry-Tee-960?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RE9J26PT3VW-960-B/Vintage-Terry-Tee-960?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RE9J26PT3VW-960-C/Vintage-Terry-Tee-960?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RE9J26PT3VW-960-D/Vintage-Terry-Tee-960?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RE9J26PT3VW-960-E/Vintage-Terry-Tee-960?$large$&fmt=auto"
+      ],
+      "price": "$160",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Blue Multi",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 78% / Polyester 22%",
+      "desc": "A short-sleeve tee with a slightly cropped, relaxed fit. Crafted from an ultrasoft cotton terry blend with a worn-in, vintage feel. It has tacked sleeves and features adjustable drawcord ties at the sides. Wear it cinched at the waist to create more volume or loose for an effortless shape. The sport sensibilities pair with everything from dressed-down denim and sneakers to a party-ready skirt and heels.",
+      "feat": [
+       "Boxy fit",
+       "Side ties for cinching at hips",
+       "Fits true to size",
+       "Model is 5'9\" wearing size small",
+       "Body: 78% cotton, 22% polyester",
+       "Rib trim: 98% cotton, 2% elastane",
+       "Drawcord",
+       "Rib trim",
+       "Machine wash cold inside out & lay flat to dry",
+       "Do not dry clean",
+       "Imported",
+       "Product ID:",
+       "RE9J26PT3VW"
+      ],
+      "sku": "RE9J26PT3VW_960"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "size & fit",
+       "materials & care"
+      ],
+      "domDesc": false,
+      "swatches": 86,
+      "sizeBtns": 91,
+      "priceEls": 77,
+      "strike": false,
+      "galleryImgs": 10,
+      "len": 1424014
+     },
+     "clickOnly": {
+      "featImpit": 4,
+      "featFirefox": 13,
+      "descImpit": 406,
+      "descFirefox": 406
+     },
+     "fixture": {
+      "file": "ragbone-vintageterryteere9j26pt3vw960html.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.rag-bone.com/p/lucy-merino-wool-henley-RG4F26F6MMN_110.html",
+     "name": "Lucy Merino Wool Henley",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1096548,
+       "final": ""
+      }
+     },
+     "stored": "Wool 100% / Cotton 100%",
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Lucy Merino Wool Henley",
+      "imgs": [
+       "https://cdn.media.amplience.net/i/rb/RG4F26F6MMN-110-A/Lucy-Merino-Wool-Henley-110?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RG4F26F6MMN-110-B/Lucy-Merino-Wool-Henley-110?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RG4F26F6MMN-110-C/Lucy-Merino-Wool-Henley-110?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RG4F26F6MMN-110-D/Lucy-Merino-Wool-Henley-110?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RG4F26F6MMN-110-E/Lucy-Merino-Wool-Henley-110?$large$&fmt=auto"
+      ],
+      "price": "$348",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Ivory",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Wool 100%\nCotton 100%",
+      "desc": "A soft merino wool rib-stitch knit henley with a close, comfortable fit. Its coverstitching and woven placket with shank buttons are drawn from utilitarian design, making it a distinct layering piece or a standalone style.",
+      "feat": [
+       "Fit: Slim. Intended to fit close to the body.",
+       "Body: 100% wool",
+       "Trim: 100% cotton",
+       "Front neck button placket",
+       "Metal buttons",
+       "Woven fabric placket detail",
+       "Origin: Imported",
+       "Wash: Machine wash cold inside out on delicate",
+       "Dry: Lay flat",
+       "Good to Know: Can also dry clean and use a cool iron on the reverse side",
+       "Product ID:",
+       "RG4F26F6MMN"
+      ],
+      "sku": "RG4F26F6MMN_110"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "size & fit",
+       "materials & care"
+      ],
+      "domDesc": false,
+      "swatches": 16,
+      "sizeBtns": 34,
+      "priceEls": 9,
+      "strike": false,
+      "galleryImgs": 10,
+      "len": 1096548
+     },
+     "fixture": {
+      "file": "ragbone-lucymerinowoolhenleyrg4f26f6mmn110html.html.gz",
+      "shopFile": "",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://www.rag-bone.com/p/ariana-satin-slip-dress-RA5D26S3MSW.html",
+     "name": "Ariana Satin Slip Dress",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1082211,
+       "final": ""
+      }
+     },
+     "stored": "Polyester 100%\nViscose 100%",
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Ariana Satin Slip Dress",
+      "imgs": [
+       "https://cdn.media.amplience.net/i/rb/RA5D26S3MSW-411-A/Ariana-Satin-Slip-Dress-411?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RA5D26S3MSW-411-B/Ariana-Satin-Slip-Dress-411?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RA5D26S3MSW-411-C/Ariana-Satin-Slip-Dress-411?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RA5D26S3MSW-411-D/Ariana-Satin-Slip-Dress-411?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RA5D26S3MSW-411-E/Ariana-Satin-Slip-Dress-411?$large$&fmt=auto"
+      ],
+      "price": "$598",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Navy",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Polyester 100%",
+      "desc": "Cut on the bias from lustrous matte satin, this sleek cami slip dress moves with a fluid, weightless drape. Black floral lace traces the front and back neckline, adding a note of edge to the fabric's soft flow. Style it now with a blazer and heels, then swap for a sweater and knee-high boots as temperatures drop.",
+      "feat": [
+       "Fit: Slim and true to size",
+       "Silhouette: Fluid slip dress",
+       "Length: Midi length",
+       "Fabric: Satin",
+       "Fabric Weight: Lightweight",
+       "Stretch: None",
+       "Body: 100% polyester • Trim: 100% viscose",
+       "V-neck cami",
+       "Adjustable spaghetti straps",
+       "Floral lace at the chest and back",
+       "Origin: Imported",
+       "Wash: Dry clean only",
+       "Product ID:",
+       "RA5D26S3MSW"
+      ],
+      "sku": "RA5D26S3MSW"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "size & fit",
+       "materials & care"
+      ],
+      "domDesc": false,
+      "swatches": 6,
+      "sizeBtns": 27,
+      "priceEls": 9,
+      "strike": false,
+      "galleryImgs": 10,
+      "len": 1082211
+     },
+     "fixture": {
+      "file": "ragbone-arianasatinslipdressra5d26s3mswhtml.html.gz",
+      "shopFile": "",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://www.rag-bone.com/p/cam-refine-knit-pant-RE7Z26F71PW.html",
+     "name": "Cam Refine Knit Pant",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1066560,
+       "final": ""
+      }
+     },
+     "stored": "Viscose 66% / Nylon 30% / Elastane 4% / Polyester 94%",
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Cam Refine Knit Pant",
+      "imgs": [
+       "https://cdn.media.amplience.net/i/rb/RE7Z26F71PW-001-A/Cam-Refine-Knit-Pant-001?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RE7Z26F71PW-001-B/Cam-Refine-Knit-Pant-001?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RE7Z26F71PW-001-C/Cam-Refine-Knit-Pant-001?$large$&fmt=auto",
+       "https://cdn.media.amplience.net/i/rb/RE7Z26F71PW-001-D/Cam-Refine-Knit-Pant-001?$large$&fmt=auto"
+      ],
+      "price": "$398",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Black",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Viscose 66% / Nylon 30% / Elastane 4%\nPolyester 94% / Elastane 6%",
+      "desc": "The Cam is an effortlessly laid-back, low-rise pant with a fitted hip and a relaxed, straight leg. Made from our signature Refine Knit fabric, which has both structure and stretch, they deliver around-the-clock polish. Style Tip: Size up for an even baggier fit through the hip.",
+      "feat": [
+       "Fit: Fitted at the hip with a relaxed, straight leg",
+       "Rise: Low rise (9.75\")",
+       "Leg: Relaxed, straight leg with a 19.5\" opening",
+       "Inseam: 32\"",
+       "Length: Full length. Intended to hit on the ground when wearing flat shoes.",
+       "Heights 5'5\" and Above: This style is ideal.",
+       "Heights 5'4\" and Under: Shop similar ankle-length styles or consider hemming",
+       "Fabric: Refine Knit",
+       "Stretch: Slight",
+       "Fabric Weight: Refine Knit",
+       "Stretch: Lightweight",
+       "Body: 66% viscose, 30% polyamide, 4% elastane",
+       "Lining: 94% polyester, 6% elastane",
+       "Zip fly with a button closure",
+       "Five-pocket silhouette",
+       "Origin: Imported",
+       "Wash: Machine wash cold inside out on delicate",
+       "Dry: Lay flat to dry or dry clean",
+       "Product ID:",
+       "RE7Z26F71PW"
+      ],
+      "sku": "RE7Z26F71PW"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "size & fit",
+       "materials & care"
+      ],
+      "domDesc": false,
+      "swatches": 6,
+      "sizeBtns": 27,
+      "priceEls": 9,
+      "strike": false,
+      "galleryImgs": 8,
+      "len": 1066560
+     },
+     "fixture": {
+      "file": "ragbone-camrefineknitpantre7z26f71pwhtml.html.gz",
+      "shopFile": "",
+      "engine": "impit"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 244,
+    "withRow": 244,
+    "comp": 241,
+    "color": 244,
+    "sizes": 0,
+    "price": 243,
+    "tried": 244,
+    "in5d": 244,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 1,
+    "noneNv": {
+     "(예전)": 1
+    },
+    "oldestT": 1795547268556,
+    "newestT": 1795581426788,
+    "emptyIn5d": 3
+   },
+   "total": 244,
+   "picked": 4,
+   "notProduct": 0
+  },
+  {
+   "brand": "Boden",
+   "site": "us.boden.com.boden",
+   "products": [
+    {
+     "url": "https://us.boden.com/products/women-ruffle-v-neck-lace-top-deep-wisteria-t2180red",
+     "name": "Ruffle V-neck Lace Top-Deep Wisteria",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1055998,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 2753910,
+       "clicked": 2
+      }
+     },
+     "stored": "Viscose 100% / Cotton 75% / Nylon 25%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 10,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 190
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Ruffle V-neck Lace Top-Deep Wisteria",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26waut_t2180_red_m01_c99c1ea9-4153-4f54-821f-dc0803ac695e.jpg?v=1783338442",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26waut_t2180_red_m02_19f1ff11-2327-409e-a06f-7c3de5aa159a.jpg?v=1783338442",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26waut_t2180_red_m03_014c35ef-65f5-446e-bb12-968235abc133.jpg?v=1783338444",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26waut_t2180_red_m04_ee87bfb7-c321-48c4-abd1-854c06f4b9b7.jpg?v=1783338444",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26waut_t2180_red_m05_611a501e-fc05-47d3-ac08-0614d486f41f.jpg?v=1783338446",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26waut_t2180_red_v1_75ee5692-3081-45e6-bf2b-6f1138740252.jpg?v=1783338446"
+      ],
+      "price": "$130",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Deep Wisteria",
+      "colors": [],
+      "sizes": [
+       "0",
+       "2",
+       "4",
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16/18",
+       "20/22"
+      ],
+      "sizesIn": [
+       "0",
+       "2",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16/18",
+       "20/22"
+      ],
+      "comp": "Viscose 100%",
+      "desc": "There's something so elegantly British about this V-neck top. The flurry of ruffles, the lace trim on the elbow-length arms and delicate buttons. Choose a colour and pair it with everything.",
+      "feat": [
+       "Straight - Regular easy shape but not too tight",
+       "Designed to fall between the waist and hip",
+       "Main: 100% viscose",
+       "Lace: 75% cotton, 25% nylon",
+       "Machine washable"
+      ],
+      "sku": "P-T2180RED"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "color": "title",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product fit",
+       "fit & size",
+       "fit",
+       "fabric & care",
+       "composition",
+       "care"
+      ],
+      "domDesc": false,
+      "swatches": 6,
+      "sizeBtns": 50,
+      "priceEls": 82,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 2753910
+     },
+     "clickOnly": {
+      "featImpit": 5,
+      "featFirefox": 5,
+      "descImpit": 190,
+      "descFirefox": 190
+     },
+     "fixture": {
+      "file": "boden-womenrufflevnecklacetopdeepwisteriat2180.html.gz",
+      "shopFile": "boden-womenrufflevnecklacetopdeepwisteriat2180.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://us.boden.com/products/women-honor-column-velvet-midi-dress-harbour-blue-d1849blu",
+     "name": "Honor Column Velvet Midi Dress-Harbour Blue",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1151247,
+       "final": ""
+      }
+     },
+     "stored": "Polyester 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 25,
+      "options": [
+       "Fit",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 170
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Honor Column Velvet Midi Dress-Harbour Blue",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wwin_d1849_blu_w01.jpg?v=1791907873",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wxms_d1849_blu_m01_37aa5222-7f82-4834-8fa8-e70ef6a09b05.jpg?v=1791371699",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wxms_d1849_blu_m02_5fd649ad-c571-462b-bc2f-bd1e00471932.jpg?v=1791371699",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wxms_d1849_blu_m03_dd556adb-1f57-458b-9729-69b429c6bf66.jpg?v=1791371700",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wxms_d1849_blu_m04_543c3790-44c3-4be4-ad12-8275c754f540.jpg?v=1791371700",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wxms_d1849_blu_e63c2a1a-9e8a-4b48-a95b-895f4a9ba074.jpg?v=1791371701"
+      ],
+      "price": "$220",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Harbour Blue",
+      "colors": [],
+      "sizes": [
+       "0",
+       "2",
+       "4",
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16/18",
+       "20/22"
+      ],
+      "sizesIn": [
+       "4",
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16/18",
+       "20/22"
+      ],
+      "comp": "Polyester 90% / Elastane 10%\nPolyester 100%",
+      "desc": "There’s a reason velvet is such a popular fabric this time of year: it’s soft, lustrous and drapes beautifully. This Honor style is cut in a column shape that's timeless.",
+      "feat": [
+       "Regular",
+       "Long",
+       "Please select a fit",
+       "US Size",
+       "Straight - Regular easy shape but not too tight",
+       "Designed to fall at mid-calf",
+       "Centre front button fastening",
+       "Main: 60% recycled polyester, 30% polyester, 10% elastane",
+       "Bodice lining: 100% recycled polyester",
+       "Detachable tie belt at waist",
+       "Hand wash only"
+      ],
+      "sku": "P-D1849BLU"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "color": "title",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product fit",
+       "fit",
+       "fit & size",
+       "fabric & care",
+       "composition",
+       "care"
+      ],
+      "domDesc": false,
+      "swatches": 8,
+      "sizeBtns": 48,
+      "priceEls": 14,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 1151247
+     },
+     "fixture": {
+      "file": "boden-womenhonorcolumnvelvetmididressharbourbl.html.gz",
+      "shopFile": "boden-womenhonorcolumnvelvetmididressharbourbl.shop.json.gz",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://us.boden.com/products/women-louise-cord-midi-shirt-dress-storm-blue-d1786blu",
+     "name": "Louise Cord Midi Shirt Dress-Olive, Ornate Gardenia Stamp",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 1178085,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 2029277,
+       "clicked": 2
+      }
+     },
+     "stored": "Cotton 100%",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 6,
+      "variants": 27,
+      "options": [
+       "Fit",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 280
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Louise Cord Midi Shirt Dress-Storm Blue",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26waut_d1786_blu_w01.jpg?v=1786716705",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wwin_d1786_blu_m01_da24b87a-e034-450f-8a55-b900bb948f76.jpg?v=1785763763",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wwin_d1786_blu_m02_ca3869ab-8e49-48b9-b959-333e4d5dd711.jpg?v=1785763764",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wwin_d1786_blu_m03_66ef09aa-c93d-4a95-855b-634a0cc86fdf.jpg?v=1785763766",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wwin_d1786_blu_m04_597ae0be-4dd4-43ec-b51a-a6228c2db285.jpg?v=1785763766",
+       "https://cdn.shopify.com/s/files/1/0680/4619/2892/files/26wwin_d1786_blu_26db4875-6d1d-4f90-8f2e-cafe5d125ce9.jpg?v=1785763766"
+      ],
+      "price": "$220",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Storm Blue",
+      "colors": [],
+      "sizes": [
+       "0",
+       "2",
+       "4",
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16/18",
+       "20/22"
+      ],
+      "sizesIn": [
+       "0",
+       "2",
+       "4",
+       "6",
+       "8",
+       "10",
+       "12",
+       "14",
+       "16/18",
+       "20/22"
+      ],
+      "comp": "Cotton 100%",
+      "desc": "This midi dress has a wear-all-year sensibility. The cord is structured but soft – perfect for showing off the puffed sleeves and gentle gathers. It’s finished with a fabric belt, though you can swap it for a leather one for another styling option (we have plenty to choose from).",
+      "feat": [
+       "Regular",
+       "Long",
+       "Please select a fit",
+       "Size",
+       "US Size",
+       "Straight - Regular easy shape but not too tight",
+       "Side seam pockets",
+       "Designed to fall at mid-calf",
+       "Centre front button fastening",
+       "Main: 100% cotton",
+       "Machine washable"
+      ],
+      "sku": "P-D1786BLU"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "color": "title",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product fit",
+       "fit",
+       "fit & size",
+       "fabric & care",
+       "composition",
+       "care"
+      ],
+      "domDesc": false,
+      "swatches": 12,
+      "sizeBtns": 55,
+      "priceEls": 72,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 2029277
+     },
+     "fixture": {
+      "file": "boden-womenlouisecordmidishirtdressstormblued1.html.gz",
+      "shopFile": "boden-womenlouisecordmidishirtdressstormblued1.shop.json.gz",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 331,
+    "withRow": 331,
+    "comp": 309,
+    "color": 35,
+    "sizes": 316,
+    "price": 317,
+    "tried": 331,
+    "in5d": 300,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 5,
+    "noneNv": {
+     "(예전)": 5
+    },
+    "oldestT": 1785880790534,
+    "newestT": 1795581460236,
+    "emptyIn5d": 22
+   },
+   "total": 331,
+   "picked": 3,
+   "notProduct": 0
+  }
+ ]
+}
