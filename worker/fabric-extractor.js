@@ -1502,6 +1502,8 @@ const DETAIL_CAP = { desc: 1500, feat: 25, featLen: 220, imgs: 20, colors: 30, s
 // HTML 조각 → 사람이 읽는 평문(줄 구분은 \n 하나).
 function dtText(s) {
   return String(s == null ? '' : s)
+    // JSON-LD 설명에 HTML 이 엔티티로 든 경우("&lt;p&gt;…") — 태그로 되돌려 아래에서 함께 벗긴다(Whitestuff).
+    .replace(/&lt;(\/?[a-z][a-z0-9]*\b[^&<>]{0,200}?)&gt;/gi, '<$1>')
     .replace(/<br\s*\/?>/gi, '\n').replace(/<\/(?:p|li|div|h[1-6]|dd|dt|tr)>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;|&#160;|&#xa0;/gi, ' ')
@@ -1561,22 +1563,51 @@ function dtBody(html) {
 }
 
 // 칸 제목 — 이 제목이 붙은 칸의 글을 상품 디테일로 본다.
-const DT_DESC_HEAD = /^(?:product\s+)?(?:description|overview|about\s+(?:this|the)\s+(?:product|style|item|piece)|editor'?s?\s+notes?|the\s+story|design\s+notes?|description\s*(?:&|and)\s*details?)$/i;
-const DT_FEAT_HEAD = /^(?:(?:product|style|design|more|the|key|garment)\s+)?(?:details?|features?|highlights?|specifications?|specs)$|^(?:details?\s*(?:&|and)\s*(?:care|fit|fabric|composition)|fit|the\s+fit|fit\s*(?:&|and)\s*(?:size|sizing|measurements?|details?)|size\s*(?:&|and)\s*fit|sizing|(?:fabric|fabrics|materials?|composition|content)\s*(?:&|and)\s*(?:care|fit)|care|care\s+(?:instructions|guide)|fabric(?:\s+details)?|materials?|composition)$/i;
+// 이음말: "Fabric & Care" · "Fabric and Care" · "SIZE + FIT" · "Fit/Size"
+const DT_DESC_HEAD = /^(?:product\s+)?(?:description|overview|about\s+(?:this|the)\s+(?:product|style|item|piece)|editor'?s?\s+notes?|the\s+story|design\s+notes?|description\s*(?:&|and|\+|\/)\s*details?)$/i;
+const DT_FEAT_HEAD = /^(?:(?:product|style|design|more|the|key|garment)\s+)?(?:details?|features?|highlights?|specifications?|specs|characteristics)$|^(?:details?\s*(?:&|and|\+|\/)\s*(?:care|fit|fabric|composition)|fit|the\s+fit|fit\s*(?:&|and|\+|\/)\s*(?:size|sizing|measurements?|details?|style)|size\s*(?:&|and|\+|\/)\s*fit|sizing|(?:fabric|fabrics|materials?|composition|content)\s*(?:&|and|\+|\/)\s*(?:care|fit)|care|care\s+(?:instructions|guide)|fabric(?:\s+details)?|materials?|composition)$/i;
+// 이음말로 이은 칸 제목("Fabric & care details" · "Style & Fit + Measurements +" · "Fabric & Details") — 디테일 칸이다.
+const DT_HEADISH_RX = /^(?:[a-z ]{0,30}(?:&|\+|\band\b)\s*)?(?:fabric|care|details?|fit|measurements?|size|style|materials?|composition)(?:\s*(?:&|\+|\band\b)\s*[a-z ]{0,20})?(?:\s+details)?\s*\+?$/i;
 function dtHeadKind(t) {
   const s = String(t || '').replace(/[+\-–—:>›▾▸∨⌄˅]+\s*$/, '').replace(/\s+/g, ' ').trim();
   if (!s || s.length > 40) return '';
   if (DT_DESC_HEAD.test(s)) return 'desc';
   if (DT_FEAT_HEAD.test(s)) return 'feat';
+  if (/[&+]|\band\b/i.test(s) && DT_HEADISH_RX.test(s)) return 'feat';
   return '';
 }
 // 사이트 공통 안내(배송·반품·사이즈 안내·결제)는 상품 디테일이 아니다 — 글머리표에서 뺀다.
-const DT_JUNK_RX = /\b(?:free\s+(?:shipping|returns?|delivery)|shipping|delivery|returns?\s+(?:policy|within)|exchanges?|klarna|afterpay|gift\s*card|sign\s+(?:in|up)|log\s*in|add\s+to\s+(?:bag|cart)|size\s+guide|find\s+(?:in|your)\s+(?:store|size)|write\s+a\s+review|newsletter|promo\s+code|subscribe)\b/i;
+// 값이 붙은 가격("$48")·판매 문구·공유 단추·태그 조각도 상품 디테일이 아니다(추천 칸이 새어 든 모양 — 11/25 현장 측정).
+const DT_JUNK_RX = /\b(?:free\s+(?:shipping|returns?|delivery)|shipping|delivery|returns?(?:\s+(?:policy|within)|\s+\d+\s+days)|exchanges?|klarna|afterpay|interest-free|gift\s*card|sign\s+(?:in|up)|log\s*in|add\s+to\s+(?:bag|cart)|size\s+guide|find\s+(?:in|your)\s+(?:store|size)|write\s+a\s+review|newsletter|promo\s+code|subscribe|select\s+(?:a\s+)?size|notify\s+me|out\s+of\s+stock|pair\s+it\s+with|shop\s+(?:the\s+look|women|men|now|all)|wishlist|instagram|facebook|pinterest|tiktok|learn\s+more|contact\s+us|have\s+a\s+question|close\s+dialog|opens\s+in\s+a\s+new\s+window|choosing\s+a\s+selection|use\s+code|\d+%\s+off|sale|qty)\b|[$£€]\s?\d|<\/?[a-z]+[\s>]|="/i;
+// 사이즈 단추·숫자만 있는 줄("10" · "XL" · "XXS XS S M L")
+const DT_SIZE_LINE_RX = /^(?:(?:\d{1,3}|x{0,3}[sml]|xxs|one\s+size|os|petite|tall)(?:\s+|$))+$/i;
+
+// 제목 바로 뒤의 내용 — 제목의 부모 칸이 닫히는 곳에서 멈춘다(아코디언 한 칸 · 제목+목록 한 덩어리).
+// 다음 제목·6,000자에서도 멈춘다. 부모 칸이 비어 있으면(제목만 따로 감싼 구조) 한 겹 더, 최대 세 겹까지 넓힌다.
+// 칸 경계를 지키지 않으면 칸 뒤에 이어진 추천 상품·사이즈 단추·판촉 문구까지 글머리표로 들어온다(11/25 측정).
+function dtChunk(body, from, stopAt) {
+  const rx = /<(\/?)([a-zA-Z][a-zA-Z0-9-]*)\b[^>]*>/g;
+  for (const lim of [1, 2, 3]) {
+    rx.lastIndex = from;
+    let depth = 0, end = Math.min(stopAt, from + 6000), m;
+    while ((m = rx.exec(body)) && m.index < end) {
+      const tag = m[2].toLowerCase();
+      if (DT_VOID.test(tag) || /\/\s*>$/.test(m[0])) continue;
+      if (m[1]) { if (--depth <= -lim) { end = m.index; break; } } else depth++;
+    }
+    const chunk = body.slice(from, end);
+    if (dtText(chunk).length >= 3) return chunk;
+  }
+  return '';
+}
+// 공유·추적·배송 방법 단추 이름.
+const DT_BTN_RX = /^(?:[^.]{2,40}\s\+|share|traceability|nominated\s+day|collect\s+from\s+store|click\s*(?:&|and)\s*collect)$/i;
+const dtJunk = (t) => DT_JUNK_RX.test(t) || DT_SIZE_LINE_RX.test(t) || DT_BTN_RX.test(String(t).trim()) || !!dtHeadKind(t);
 
 // 제목이 붙은 본문 칸을 찾아 설명 문단·글머리표를 모은다.
 function dtSections(body) {
   const heads = [];
-  const rx = /<(button|summary|h[1-6]|dt|span|div|p|label|a|li|strong|b)\b([^>]*)>([\s\S]{1,300}?)<\/\1>/gi;
+  const rx = /<(button|summary|h[1-6]|dt|span|div|p|label|li|strong|b)\b([^>]*)>([\s\S]{1,300}?)<\/\1>/gi;
   let m;
   while ((m = rx.exec(body))) {
     const kind = dtHeadKind(dtText(m[3]));
@@ -1586,14 +1617,13 @@ function dtSections(body) {
   const desc = [], feat = [], kinds = new Set();
   for (let i = 0; i < heads.length; i++) {
     const h = heads[i];
-    const stop = Math.min(i + 1 < heads.length ? heads[i + 1].at : body.length, h.end + 8000);
-    const chunk = body.slice(h.end, stop);
+    const chunk = dtChunk(body, h.end, i + 1 < heads.length ? heads[i + 1].at : body.length);
     const lis = [...chunk.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map((x) => dtText(x[1]).replace(/\n/g, ' ').replace(/^[•·\-*\s]+/, '').trim())
-      .filter((t) => t.length >= 2 && t.length <= 400);
+      .filter((t) => t.length >= 2 && t.length <= 400 && !dtJunk(t));
     let got = 0;
     if (lis.length) { feat.push(...lis); got += lis.length; }
     const rest = dtText(chunk.replace(/<(ul|ol)\b[\s\S]*?<\/\1>/gi, ' '));
-    const lines = rest.split('\n').map((x) => x.replace(/^[•·\-*\s]+/, '').trim()).filter((t) => t.length >= 2 && !dtHeadKind(t));
+    const lines = rest.split('\n').map((x) => x.replace(/^[•·\-*\s]+/, '').trim()).filter((t) => t.length >= 2 && !dtJunk(t));
     if (h.kind === 'desc') {
       const para = lines.filter((t) => t.length >= 25);
       if (para.length) { desc.push(para.join('\n')); got++; }
@@ -1720,7 +1750,9 @@ function dtFromShopify(pr, base) {
   out.name = dtText(p.title || '').slice(0, 200);
   const bodyHtml = String(p.body_html || p.description || '');
   const lis = [...bodyHtml.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map((x) => dtText(x[1]).replace(/\n/g, ' ').trim()).filter((t) => t.length >= 2 && t.length <= 400);
-  const para = dtText(bodyHtml.replace(/<(ul|ol)\b[\s\S]*?<\/\1>/gi, ' '));
+  // 본문 속 칸 제목("DETAILS" · "SIZE + FIT")은 설명이 아니다 — 빼고 남은 문단만.
+  const para = dtText(bodyHtml.replace(/<(ul|ol)\b[\s\S]*?<\/\1>/gi, ' ')).split('\n')
+    .filter((t) => !dtHeadKind(t)).join('\n').trim();
   if (para) out.desc = para;
   if (lis.length) out.feat = lis;
   const imgs = (Array.isArray(p.images) ? p.images : []).map((x) => (typeof x === 'string' ? x : x && x.src));
@@ -1845,7 +1877,7 @@ function detailOf(html, url, shop) {
   if (out.desc) out.desc = dtClip(out.desc, DETAIL_CAP.desc);
   if (out.feat) {
     out.feat = dtUniq(out.feat.map((t) => dtClip(t.replace(/\s+/g, ' '), DETAIL_CAP.featLen)))
-      .filter((t) => !DT_JUNK_RX.test(t)).slice(0, DETAIL_CAP.feat);
+      .filter((t) => !dtJunk(t)).slice(0, DETAIL_CAP.feat);
     if (!out.feat.length) { delete out.feat; delete out.src.feat; }
   }
   if (out.name) out.name = dtClip(out.name, 200);

@@ -239,7 +239,10 @@ for (const c of brands) {
     B.overlay = s;
   } catch (e) { B.overlay = { error: "오버레이 못 읽음" }; }
 
-  const cand = items.filter((p) => p && p.productUrl && looksLikeProduct(p.productUrl) && String(p.name || "").trim());
+  // 주소 모양으로 상품을 고른다(카테고리·기획전 주소 빼기). J.Crew 처럼 상품 주소가 /categories/…/MQ341 이라
+  // 주소 규칙에 하나도 안 걸리는 브랜드는 이름이 있는 항목에서 고른다(그 사실을 B.byName 으로 남긴다).
+  let cand = items.filter((p) => p && p.productUrl && looksLikeProduct(p.productUrl) && String(p.name || "").trim());
+  if (!cand.length) { cand = items.filter((p) => p && p.productUrl && String(p.name || "").trim()); B.byName = true; }
   const idx = cand.length <= PER ? cand.map((_, i) => i) : [...new Set(Array.from({ length: PER }, (_, k) => Math.round((k * (cand.length - 1)) / (PER - 1 || 1))))];
   B.picked = idx.length;
   B.notProduct = items.length - items.filter((p) => p && looksLikeProduct(p.productUrl)).length;
