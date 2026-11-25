@@ -658,6 +658,7 @@ const compConflicts = [];
 const guardHeld = [];
 // 상품 상세 — 브랜드별 채움(저장했다면) · 가드가 뺀 설명/글머리표.
 const detailFill = new Map();
+const detailNoStore = new Set();   // DRY 에서 Worker 상세 칸을 못 읽은 브랜드(배포 전 Worker) — 빈 값에서 센다
 const detailHeld = [];
 // 껍데기(차단 화면은 아닌데 상품명이 화면 글에 없음)로 센 페이지의 예 — 리포트에 남긴다.
 const shellEx = [];
@@ -731,6 +732,8 @@ async function processBrand(c, phase) {
     const r = await fetch(WORKER + "/?details=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) });
     if (r.ok) { const j = await r.json(); if (j && typeof j === "object" && !Array.isArray(j) && !j.error) detailMap = j; }
   } catch (e) {}
+  // DRY(측정)는 아무것도 쓰지 않으므로, 저장값을 못 읽어도(배포 전 Worker 에는 ?details 가 없다) 빈 값으로 세어 본다.
+  if (detailMap === null && DRY) { detailMap = {}; detailNoStore.add(c.site); }
   // 객체·배열이 통째로 String() 돼 들어간 흔적은 값이 아니다.
   // '[object Object]' 하나일 수도, 배열이라 쉼표로 여럿일 수도 있다.
   const valOf = (o, k) => { const t = String((o && o[k]) || "").trim(); return t.includes("[object Object]") ? "" : t; };
@@ -1145,6 +1148,7 @@ if (detailFill.size) {
   const rowsD = [...detailFill.values()].sort((a, z) => z.total - a.total);
   const sum = (k) => rowsD.reduce((n, r) => n + (r[k] || 0), 0);
   md += `## 상품 상세(설명·디테일·사진 전부·컬러 전부) — 이번 실행에서 읽은 브랜드 ${rowsD.length}개\n\n`;
+  if (detailNoStore.size) md += `> Worker 에 상세 칸(?details)이 아직 없어(배포 전) ${detailNoStore.size}개 브랜드는 빈 저장값에서 센 '저장했다면' 값이다.\n\n`;
   md += `별도 저장 칸(detail:<site>)에 쌓인다. 상품 수 대비 — 설명 ${sum("desc")} · 디테일 ${sum("feat")} · 사진 ${sum("imgs")} · 컬러 전부 ${sum("colors")} / ${sum("total")}\n\n`;
   md += `| 브랜드 | 상품 | 설명 | 디테일 | 사진 | 컬러 전부 | 이번 +N | 가드(설명 보류·글머리표 뺌) | 저장 크기 |\n|---|---:|---:|---:|---:|---:|---:|---|---:|\n`;
   for (const r of rowsD) md += `| ${r.brand} | ${r.total} | ${r.desc} | ${r.feat} | ${r.imgs} | ${r.colors} | +${r.added} | ${r.heldDesc}·${r.dropFeat} | ${Math.round(r.bytes / 1024)}KB |\n`;
