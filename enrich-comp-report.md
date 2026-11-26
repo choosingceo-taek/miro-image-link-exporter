@@ -47,13 +47,14 @@ ALC · Aerie · American Eagle · Apiece Apart · Bash · Beyond yoga · Boldest
 | Chico's | — | 71/800 (9%) | 72/800 (9%) | 혼용률 +26 컬러 +28 | 성공 페이지 25·impit 25·아카이브 3 / 실패 정보없음 715·직접차단 715·보관본없음 29 |
 | Free People | — | 17/189 (9%) | 13/189 (7%) | 혼용률 +4 컬러 +2 | 성공 아카이브 4 / 실패 정보없음 128·직접차단 128·보관본없음 31·아카이브거부 1 |
 | Oysho | — | 2/20 (10%) | 0/20 (0%) | 혼용률 +0 컬러 +0 | 실패 정보없음 2·직접차단 2 |
+| Free People | — | 19/189 (10%) | 14/189 (7%) | 혼용률 +6 컬러 +3 | 성공 아카이브 6 / 실패 정보없음 128·직접차단 128·보관본없음 30·아카이브거부 1 |
 | FP Movement | — | 8/72 (11%) | 3/72 (4%) | 혼용률 +0 컬러 +0 | 실패 정보없음 5·직접차단 5 |
 | Zara | — | 108/499 (22%) | 106/499 (21%) | 혼용률 +0 컬러 +0 | 실패 정보없음 106·직접차단 106 |
 | J crew | — | 61/202 (30%) | 201/202 (100%) | 혼용률 +0 컬러 +0 | 성공 페이지 8·impit 8 |
 | WHBM | — | 75/219 (34%) | 76/219 (35%) | 혼용률 +0 컬러 +0 | 실패 정보없음 75·직접차단 75 |
 | Coldwatercreek | — | 71/200 (36%) | 113/200 (56%) | 혼용률 +0 컬러 +0 | 성공 페이지 1 / 실패 정보없음 1·껍데기 1 |
 | &Other Stories | — | 176/472 (37%) | 116/472 (25%) | 혼용률 +0 컬러 +0 | 실패 정보없음 169·직접차단 169 |
-| Loft | — | 283/672 (42%) | 319/672 (47%) | 혼용률 +0 컬러 +0 | 실패 정보없음 646·껍데기 646 |
+| Loft | — | 283/672 (42%) | 319/672 (47%) | 혼용률 +0 컬러 +0 | 실패 정보없음 646·껍데기 646·보관본없음 6·아카이브거부 1 |
 | Arket | — | 177/382 (46%) | 178/382 (47%) | 혼용률 +0 컬러 +0 | 실패 정보없음 174·직접차단 174 |
 | Paige | — | 32/61 (52%) | 60/61 (98%) | 혼용률 +0 컬러 +0 | 실패 정보없음 32·직접차단 32 |
 | Dickies | — | 148/264 (56%) | 264/264 (100%) | 혼용률 +0 컬러 +0 | 성공 쇼피JSON 47·페이지 73·impit 31·우회 30 / 실패 정보없음 1·직접차단 31·보관본없음 8 |
@@ -206,7 +207,7 @@ ALC · Aerie · American Eagle · Apiece Apart · Bash · Beyond yoga · Boldest
 | Jager | 402 | 402 | 401 | 402 | 0 | +0 | 0·0 | 627KB |
 | Phase eight | 400 | 400 | 400 | 400 | 400 | +0 | 0·0 | 872KB |
 | La Ligne | 397 | 353 | 353 | 353 | 343 | +0 | 0·0 | 458KB |
-| ALC | 393 | 386 | 212 | 386 | 374 | +0 | 0·0 | 437KB |
+| ALC | 393 | 385 | 212 | 385 | 372 | +0 | 0·0 | 436KB |
 | Theory | 390 | 378 | 377 | 377 | 15 | +0 | 0·0 | 491KB |
 | Damson Madder | 386 | 385 | 198 | 385 | 370 | +0 | 0·0 | 579KB |
 | Vince | 379 | 379 | 0 | 379 | 379 | +0 | 0·0 | 381KB |
@@ -311,13 +312,19 @@ ALC · Aerie · American Eagle · Apiece Apart · Bash · Beyond yoga · Boldest
   >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
 - A woman wearing a black floral blouse and black leather pant — https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-pleat-front-top/844987.html
   >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
-- A woman wearing a black top and red and black plaid trousers — https://www.anntaylor.com/clothing/pants/cata000014/plaid-caroline-pant/844879.html
+- A woman wearing a patterned blouse and dark trousers sits in — https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/floral-ruffle-smocked-top/855433.html
+  >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
+- A woman wearing a black floral blouse and black leather pant — https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-pleat-front-top/844987.html
+  >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
+- Stack of folded sweaters in mint, cream and green tied with  — https://www.anntaylor.com/new-arrivals/the-gift-shop/cat4730013/
   >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
 - A woman in a red dress and black heels stands against a plai — https://www.anntaylor.com/clothing/suits/cata000013/crew-neck-sheath-dress/841632.html
   >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
 - A woman in a red suit and cream top holds a black clutch in  — https://www.anntaylor.com/clothing/suits/cata000013/wide-leg-pant/844226.html
   >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
 - A woman in a brown cable-knit cardigan and black leather pan — https://www.anntaylor.com/clothing/pants/cata000014/seamed-side-zip-legging-faux-leather/848728.html
+  >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
+- A woman in a red suit and cream top holds a black clutch in  — https://www.anntaylor.com/clothing/suits/cata000013/wide-leg-pant/844226.html
   >  · 50% OFF EVERYTHING > SHOP NOW FREE SHIPPING WITH ORDERS OF $150+! true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewards styleREWARDS Favorites Become a StyleR
 
 ## 혼용률이 엇갈린 상품 (86)
@@ -348,14 +355,15 @@ ALC · Aerie · American Eagle · Apiece Apart · Bash · Beyond yoga · Boldest
 | Whitestuff | https://www.whitestuff.com/p/7138/shay-jersey-mix-dress/KHAKI_GRN | Cotton 100% ‖ Cotton 97% / Elastane 3% | Cotton 100% | 유지 |
 | Whitestuff | https://www.whitestuff.com/p/8523/446862-aubrey-barrel-cord-trouser/LGT_GREEN | Cotton 98% / Elastane 2% | Cotton 98% ‖ Cotton 98% / Elastane 2% | 유지 |
 | ALC | https://alcltd.com/products/palmer-pant-deepest-brown | Leather 100% ‖ Viscose 51% / Cotton 49% | Leather 100% | 유지 |
-| Bassike | https://www.bassike.com/products/gabardine-layered-pant-pc26wfb29-taupe | Cotton 65% / Polyester 35% | Cotton 65% / Polyester 35% ‖ Cotton 100% | 유지 |
 | Bassike | https://www.bassike.com/products/twill-minimal-pant-ss26wfb01-black | Nylon 93% / Elastane 7% | Nylon 93% / Elastane 7% ‖ Cotton 100% | 유지 |
+| Bassike | https://www.bassike.com/products/gabardine-layered-pant-pc26wfb29-taupe | Cotton 65% / Polyester 35% | Cotton 65% / Polyester 35% ‖ Cotton 100% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-tops-and-tshirts/cotton-jersey-tshirt-red-stripe-wye063/ | Cotton 100% | Viscose 52% / Polyester 28% / Nylon 20% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/half-zip-sweatshirt-white-multi-waaf004/ | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/halfzip-sweatshirt-beige-wyf040/ | Cotton 66% / Polyester 34% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 66% / Polyester 34% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/half-zip-sweatshirt-white-navy-str-wyf004/ | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/printed-crew-neck-sweatshirt-blue-wyf039/ | Cotton 66% / Polyester 34% ‖ Cotton 57% / Polyester 40% | Cotton 66% / Polyester 34% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/henley-halfzip-sweatshirt-pink-hrwyf009/ | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | 유지 |
+| CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/halfzip-sweatshirt-white-multi-wyf004/ | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/brushed-back-ombre-sweatshirt-blue-wyf002/ | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/embroidered-neck-sweatshirt-blue-wyf008/ | Cotton 60% / Polyester 40% | Cotton 64% / Polyester 36% | 유지 |
 | CCC | https://www.crewclothing.co.uk/womens/clothing-and-accessories/womens-sweatshirts-hoodies/halfzip-sweatshirt-white-multi-wyf004/ | Cotton 64% / Polyester 36% ‖ Cotton 57% / Polyester 40% / Elastane 3% | Cotton 64% / Polyester 36% | 유지 |
@@ -391,6 +399,7 @@ ALC · Aerie · American Eagle · Apiece Apart · Bash · Beyond yoga · Boldest
 | Nation LTD | https://nation.la/collections/core-basic-tees/products/tavi-crew-neck-tee-jet-black | Cotton 95% / Elastane 5% | Cotton 100% | 유지 |
 | rouje | https://www.rouje.com/en-int/products/germain-jeans-uni-creme-1 | Cotton 100% ‖ Cotton 65% / Polyester 35% | Cotton 100% | 유지 |
 | rouje | https://www.rouje.com/en-int/products/zola-plaid-pants-navy | Cotton 55% / Linen 44% / Elastane 1% | Cotton 55% / Linen 44% / Elastane 1% ‖ Cotton 96% / Elastane 4% | 유지 |
+| rouje | https://www.rouje.com/en-int/products/germain-jeans-uni-creme-1 | Cotton 100% ‖ Cotton 65% / Polyester 35% | Cotton 100% | 유지 |
 | Seasalt cornwall | https://www.seasaltcornwall.com/potting-shed-embroidered-cardigan | Nylon 45% / Cotton 30% / Wool 25% ‖ Polyester 100% | Nylon 45% / Cotton 30% / Wool 25% | 유지 |
 | Whitestuff | https://www.whitestuff.com/p/6834/womens-annie-collared-shirt-jersey/WHITE_PR | Cotton 100% / Polyester 100% | Cotton 100% | 유지 |
 | Whitestuff | https://www.whitestuff.com/p/8591/447995-aida-scallop-ls-tee/LGT_PINK | Cotton 95% / Elastane 5% | Cotton 95% ‖ Cotton 95% / Elastane 5% | 유지 |
@@ -410,6 +419,7 @@ ALC · Aerie · American Eagle · Apiece Apart · Bash · Beyond yoga · Boldest
 | Whitestuff | https://www.whitestuff.com/p/6412/womens-twister-cord-trouser/DARK_NAVY | Cotton 99% / Elastane 1% | Cotton 99% ‖ Cotton 99% / Elastane 1% | 유지 |
 | Whitestuff | https://www.whitestuff.com/p/8534/446863-belle-tweedy-wide-leg-trouser/GREY_MLT | Cotton 97% / Polyester 2% / Elastane 1% | Cotton 97% / Polyester 2% / Elastane 1% ‖ Polyester 100% | 유지 |
 | Whitestuff | https://www.whitestuff.com/p/8525/446877-twister-cord-trouser/KHAKI_GRN | Cotton 99% / Elastane 1% | Cotton 99% ‖ Cotton 99% / Elastane 1% | 유지 |
+| Whitestuff | https://www.whitestuff.com/p/8529/447717-belle-tweedy-wide-leg-trouser/BROWN_MLT | Polyester 66% / Wool 28% / Viscose 5% / Elastane 1% | Polyester 66% / Wool 28% / Viscose 5% / Elastane 1% ‖ Polyester 100% | 유지 |
 | Whitestuff | https://www.whitestuff.com/p/5526/twister-chino-wide-leg-trouser/DARK_NAVY | Cotton 66% / Linen 18% / Viscose 15% / Elastane 1% | Cotton 67% / Linen 18% / Viscose 14% / Elastane 1% | 유지 |
 | Whitestuff | https://www.whitestuff.com/p/8529/447717-belle-tweedy-wide-leg-trouser/BROWN_MLT | Polyester 66% / Wool 28% / Viscose 5% / Elastane 1% | Polyester 66% / Wool 28% / Viscose 5% / Elastane 1% ‖ Polyester 100% | 유지 |
 | Xirena | https://www.xirena.com/products/heather-grey-crispin-sweatpant | Cotton 90% / Polyester 10% | Cotton 100% | 유지 |
