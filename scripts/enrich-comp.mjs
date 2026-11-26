@@ -333,10 +333,11 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
   let html = "";
   let readOk = false;
   let bv = "";   // 이번에 막힌 읽기 방식(오버레이 bv) — impit 이 생긴 뒤 아직 impit 으로 안 본 상품을 가린다
+  let viaImpit = false;
   try { html = await get(url); readOk = realPage(html); } catch (e) { html = ""; }
   // 평 fetch 가 막혔거나 봇 확인 화면이면 impit(크롬 TLS 지문)으로 한 번 더.
   if (!readOk && IMPIT_ON) {
-    try { const h2 = await getImpit(url); if (realPage(h2)) { html = h2; readOk = true; stat.impit = (stat.impit || 0) + 1; } } catch (e) {}
+    try { const h2 = await getImpit(url); if (realPage(h2)) { html = h2; readOk = true; viaImpit = true; stat.impit = (stat.impit || 0) + 1; } } catch (e) {}
     if (!readOk) bv = "fetch,impit";
   }
   if (!readOk && !html) stat.blocked++;
@@ -358,9 +359,26 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
     // Massimo Dutti 형(소재가 페이지 JSON parts/components 에만)은 본문·글에서 못 찾았을 때만.
     const ldComp = (ld.composition && ld.composition.length && validComp(asComp(ld.composition))) ? asComp(ld.composition) : "";
     const pageComp = ldComp ? "" : (asComp(compFromHtml(html)) || asComp(compFromText(text)));
-    const partsComp = ldComp || pageComp || shell ? "" : asComp(compFromPartsJson(html, url));
+    let partsComp = ldComp || pageComp || shell ? "" : asComp(compFromPartsJson(html, url));
+    // 평 fetch 로 읽었는데 혼용률이 없으면 impit(크롬 TLS 지문)으로 한 번 더 본다 — 같은 주소에 다른 판을 주는 사이트가 있다.
+    // 2026-11-26 측정: Spanx·Everlane 빈 칸 상품을 impit 으로 열면 'Body: 53% Viscose …' 가 있는데(현장 측정 45776247588),
+    // 야간 보강(평 fetch)은 같은 상품을 '읽었는데 없음'으로 적었다(측정 실행 45779388161). 상품 주소당 요청은 2번(fetch·impit).
+    let comp2 = "", html2 = "";
+    if (!ldComp && !pageComp && !partsComp && !viaImpit && IMPIT_ON && !shell) {
+      try {
+        const h2 = await getImpit(url);
+        if (realPage(h2) && productRead(h2, name)) {
+          let ld2 = {};
+          try { ld2 = fromJsonLd(h2); } catch (e) {}
+          const t2 = h2.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ");
+          comp2 = (ld2.composition && ld2.composition.length && validComp(asComp(ld2.composition))) ? asComp(ld2.composition)
+            : (asComp(compFromHtml(h2)) || asComp(compFromText(t2)) || asComp(compFromPartsJson(h2, url)));
+          if (validComp(comp2)) { html2 = h2; stat.impit2 = (stat.impit2 || 0) + 1; } else comp2 = "";
+        }
+      } catch (e) {}
+    }
     const out = {
-      comp: ldComp || pageComp || partsComp,
+      comp: ldComp || pageComp || partsComp || comp2,
       // 색은 JSON-LD 에 없는 경우가 더 많다 — 페이지의 색상 선택 옵션에서도 읽는다.
       // 마지막으로 제목 "<상품명> in <컬러> | <브랜드>" — White Stuff·The Upside 는 컬러를 제목에만 적는다(scripts/title-color.mjs).
       color: ld.color || colorFromHtml(html) || d.color || (shell ? "" : colorFromTitle(html, url)) || "",
@@ -369,7 +387,7 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
       priceOrig: ld.price_original || d.priceOrig || "",
     };
     if (!shell) out.det = detailRecord(d);
-    if (DRY && out.comp) { out.src = ldComp ? "JSON-LD" : pageComp ? "본문" : "페이지 JSON(parts)"; out.ev = evidenceOf(html, out.comp); }
+    if (DRY && out.comp) { out.src = ldComp ? "JSON-LD" : pageComp ? "본문" : partsComp ? "페이지 JSON(parts)" : "impit 로 다시 읽음"; out.ev = evidenceOf(html2 || html, out.comp); }
     if (has(out)) { stat.page++; return merge(out, typeof partial === "undefined" ? null : partial); }
     // 혼용률·컬러·가격은 없어도 설명·디테일이 나왔으면 그것만이라도 넘긴다(아래 none 판정은 그대로).
     if (out.det && (out.det.desc || out.det.feat)) var detOnly = out.det;
@@ -1229,12 +1247,12 @@ md += `${RETRY_DAYS}일 안에 시도해 본 상품은 건너뛴다 — 사이�
 // noData/blocked/fail 만 실패다. 예전 리포트의 'page=505' 를 '505개 실패'로 읽었다.
 const PATH_LABEL = {
   shopify: "쇼피JSON", page: "페이지", worker: "우회", wayback: "아카이브",
-  noData: "정보없음", blocked: "직접차단", fail: "오류", shell: "껍데기", impit: "impit",
+  noData: "정보없음", blocked: "직접차단", fail: "오류", shell: "껍데기", impit: "impit", impit2: "impit 다시",
   wbNone: "보관본없음", wbReject: "아카이브거부", wbErr: "아카이브오류",
 };
 const pathStr = (st) => {
   if (!st) return "";
-  const ok = ["shopify", "page", "impit", "worker", "wayback"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
+  const ok = ["shopify", "page", "impit", "impit2", "worker", "wayback"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k] || k} ${st[k]}`);
   const ng = ["noData", "blocked", "shell", "fail", "wbNone", "wbReject", "wbErr"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
   return [ok.length ? "성공 " + ok.join("·") : "", st.none ? `미표기 ${st.none}` : "", st.held ? `가드 보류 ${st.held}` : "", ng.length ? "실패 " + ng.join("·") : "",
     st.skip429 ? `429 로 멈춤 ${st.skip429}` : "", st.late ? `시간 끝 ${st.late}` : ""].filter(Boolean).join(" / ");

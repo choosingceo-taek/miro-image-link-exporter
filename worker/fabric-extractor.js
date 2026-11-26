@@ -1267,9 +1267,9 @@ function bareRunAt(src) {
 // 부위 이름 — 겉감(main)이 보이면 장식(trim·rib·주머니 안감 …) 줄은 혼용률이 아니다. 2026-11-25 Boden:
 // "Main: 50% recycled polyester, 30% polyester, 20% elastane · Trims: 100% polyester" 에서 겉감이 같은 섬유 두 번
 // (재생 폴리 + 폴리)이라 조각으로 끊기고, 온전한 한 벌인 장식 줄 "Polyester 100%" 만 남아 저장됐다.
-// 'secondary fabric' — 2026-11-26 Vanessa Bruno "Composition : 100% viscose. Secondary fabric 100% cotton. Embroidery 100% polyester"
+// 'secondary fabric' · 'tertiary fabric' — 2026-11-26 Vanessa Bruno "Composition : 100% viscose. Secondary fabric 100% cotton. Embroidery 100% polyester"
 // (배색 원단 — combo 와 같이 본다).
-const PART_MINOR_RX = /(?<![A-Za-z])(?:trims?|trimming|rib(?:bing|bed)?|pocket(?:\s+lining)?|pocketing|contrast|combo|secondary(?:\s+fabric)?|embroidery|lace|cuffs?|collar|binding|piping|insert|applique|appliqué|패치|배색)(?![A-Za-z])[^%]{0,24}$/i;
+const PART_MINOR_RX = /(?<![A-Za-z])(?:trims?|trimming|rib(?:bing|bed)?|pocket(?:\s+lining)?|pocketing|contrast|combo|secondary(?:\s+fabric)?|tertiary(?:\s+fabric)?|embroidery|lace|cuffs?|collar|binding|piping|insert|applique|appliqué|패치|배색)(?![A-Za-z])[^%]{0,24}$/i;
 const PART_LINING_RX = /(?<![A-Za-z])(?:lining|lined|안감)(?![A-Za-z])[^%]{0,24}$/i;
 // 하이픈에 붙은 낱말은 부위 이름이 아니다 — 2026-11-26 Spanx: 깨진 클래스 글 'leading-[var(--body-leading)]"> Bodice:' 의 'body' 를
 // 겉감으로 읽어 'Bottom:' 줄을 장식으로 뺐다.
@@ -1512,10 +1512,14 @@ function compFromHtml(html) {
   // 스크립트 경로는 여러 상품이 섞이기 쉽다. 줄이 나뉘어 있으면(원단 두 가지)
   // 그건 한 상품의 표기가 아니라 다른 상품이 섞인 것으로 본다 — 본문과 달리
   // 여기서는 어느 상품의 것인지 확인할 방법이 없다.
-  if (out.some((c) => (c.line || 0) > 0)) return [];
+  // 단, "Composition: Main, …,main 2, …" 처럼 이 상품의 소재 문자열이 부위 이름과 함께 통째로 있으면 그 두 줄은 한 상품의 것이다 —
+  // 2026-11-26 Mint Velvet: 평 fetch 로 받은 HTML 에는 소재가 테마 설정 JSON('"content": " Composition: Main, 52% polyamide, 48% viscose,
+  // main 2, 84% lyocell, 16% polyester "')에만 있어 두 줄이라는 이유로 버려졌다(측정 실행 45779388161 표본).
+  if (out.some((c) => (c.line || 0) > 0)) return LABELLED_COMP_RX.test(win) ? out : [];
   const total = out.reduce((n, c) => n + c.percent, 0);
   return total > 105 ? [] : out;   // 여러 상품이 섞였을 가능성 — 버린다
 }
+const LABELLED_COMP_RX = /composition\s*[:：]\s*(?:main|shell|outer(?:\s+shell)?|body)\s*[,:：]/i;
 
 // ── 컬러웨이: 상품 페이지의 "색상 선택 옵션"에서 읽는다 ─────────────────
 // 색은 상품명에 없는 경우가 많고("한정판: Olive Tree", "코어"), 사전에 없는

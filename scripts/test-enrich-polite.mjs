@@ -110,6 +110,26 @@ const items = (n0, n1) => (base) => Array.from({ length: n1 - n0 + 1 }, (_, k) =
   if (o1.color !== "Navy" || o1.cv) fail(`[${L}] 컬러를 채운 상품 기록이 이상하다: ${JSON.stringify(o1)}`); else ok("컬러를 채우면 cv 를 지운다");
 }
 
+// ── ①-3 평 fetch 로 읽었는데 혼용률이 없으면 impit 으로 한 번 더(Spanx·Everlane 형) ──
+{
+  const L = "impit 다시";
+  const IMPIT_MODULE = join(ROOT, "scripts/fixtures/fake-impit.mjs");
+  const fk = await startFake({
+    items: items(1, 2),
+    overlay: {},
+    pages: { "/p/1": page("Tee 1", "<p>Machine wash.</p>"), "/p/2": page("Tee 2", "<div>Composition: 100% Linen</div>") },
+    impitAlt: { "/p/1": page("Tee 1", "<ul><li>Body: 53% Viscose, 44% Nylon, 3% Elastane.</li></ul>") },
+  });
+  const { code, out } = await runEnrich(fk.base, { IMPIT_MODULE, WAYBACK: "0", WORKER_BYPASS: "0" });
+  await fk.close();
+  if (code !== 0) { console.error(out); fail(`[${L}] 종료 코드 ${code}`); }
+  const o1 = fk.state.overlay[`${fk.base}/p/1`] || {};
+  if (o1.comp !== "Viscose 53% / Nylon 44% / Elastane 3%") fail(`[${L}] impit 판의 혼용률을 못 받았다: ${JSON.stringify(o1)}`);
+  else ok("평 fetch 판에 혼용률이 없으면 impit 으로 한 번 더 읽어 채운다");
+  if ((fk.state.hits["/p/1"] || 0) > 3) fail(`[${L}] 한 주소에 ${fk.state.hits["/p/1"]}번 요청했다(3번 이하)`); else ok(`한 주소 요청 ${fk.state.hits["/p/1"]}번(3번 이하)`);
+  if (fk.state.hits["impit:/p/2"]) fail(`[${L}] 평 fetch 로 혼용률을 읽은 상품까지 impit 으로 다시 열었다`); else ok("평 fetch 로 읽힌 상품은 impit 으로 다시 열지 않는다");
+}
+
 // ── ② 429 ──
 {
   const L = "429";

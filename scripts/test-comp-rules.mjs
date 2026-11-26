@@ -58,6 +58,7 @@ const TEXT = [
   ["끊어도 장식 줄은 여전히 뺀다", "Main: 95% cotton, 5% elastane, Trim: 100% polyester", "Cotton 95% / Elastane 5%"],
   // ── 겉감 이름 없이 장식·배색 줄 빼기(Vanessa Bruno)
   ["Secondary fabric · Embroidery", "Ref : 6HVA32 Composition : 100% viscose. Secondary fabric 100% cotton. Embroidery 100% polyester Origin: India", "Viscose 100%"],
+  ["Vanessa Bruno tertiary fabric · embroidery · lace", "Ref : 6HVA27-V09920-048 Composition : 100% cotton / tertiary fabric 62% cotton, 38% polyester / embroidery 100% polyester / lace 62% cotton, 38% polyester Origin", "Cotton 100%"],
   ["이름 없는 한 벌 + Trim", "100% cotton. Trim: 100% polyester. Machine wash.", "Cotton 100%"],
   // ── 다른 줄의 조각을 되풀이한 줄(Everlane)
   ["Why It's Better 의 97% organic cotton", "Materials: 97% Organic Cotton 3% Elastane Why It's Better This style is made with 97% organic cotton, certified", "Cotton 97% / Elastane 3%"],
@@ -71,6 +72,13 @@ for (const [label, text, want] of TEXT) eq(label, asStr(compFromText(text)), wan
     `<li>Bodice: 49% Polyester, 44% Tencel™ Modal, 7% Elastane. Bottom: 47% Tencel™ Modal, 46% Polyester, 7% Elastane.</li>` +
     `<li>Machine Wash Cold, Gentle Cycle.</li></ul></body></html>`;
   eq("Spanx — '--body-leading' 클래스 글 뒤 Bodice + Bottom 두 줄", asStr(compFromHtml(html)), "Polyester 49% / Modal 44% / Elastane 7%\nModal 47% / Polyester 46% / Elastane 7%");
+}
+// 페이지 JSON 안의 "Composition: Main, …,main 2, …" — 두 줄이어도 한 상품의 소재 문자열이다(Mint Velvet, 평 fetch 판)
+{
+  const html = `<html><body><h1>Black Knit Top</h1><p>Lovely top.</p><script>var s={"type":"@theme","settings":{"content":" Composition: Main, 52% polyamide, 48% viscose,main 2, 84% lyocell, 16% polyester ","text_alignment":"left"}}</script></body></html>`;
+  eq("Mint Velvet — 테마 JSON 의 Composition: Main, … main 2", asStr(compFromHtml(html)), "Nylon 52% / Viscose 48%\nLyocell 84% / Polyester 16%");
+  const recs = `<html><body><h1>Top</h1><script>var recs=[{"d":"100% cotton tee"},{"d":"95% viscose 5% elastane dress"}]</script></body></html>`;
+  eq("부위 이름 없는 JSON 의 두 조성(추천 상품)은 예전처럼 버린다", asStr(compFromHtml(recs)), "");
 }
 // 사이트가 첫 섬유만 적은 값(Wilson '46% Cotton')은 옳은 값이 아니다 — 저장하지 않는다.
 eq("Wilson — '46% Cotton' 하나는 옳은 값이 아니다", String(validComp(asStr(compFromText("Product details table Composition 46% Cotton Fit Type Easy")))), "false");
