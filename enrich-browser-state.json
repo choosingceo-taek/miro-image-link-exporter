@@ -3,8 +3,8 @@
   "shop.lululemon.com.lululemon": {
    "playwright": {
     "brand": "Lululemon",
-    "until": 1795568769054,
-    "at": "2026-11-11",
+    "until": 1796874450419,
+    "at": "2026-11-26",
     "ratio": 100
    }
   },
@@ -50,24 +50,24 @@
   "www2.hm.com.hm": {
    "playwright": {
     "brand": "H&M",
-    "until": 1795568760308,
-    "at": "2026-11-11",
+    "until": 1796873098271,
+    "at": "2026-11-26",
     "ratio": 100
    }
   },
   "fatface.com.fatface": {
    "playwright": {
     "brand": "Fatface",
-    "until": 1795568765498,
-    "at": "2026-11-11",
+    "until": 1796873100157,
+    "at": "2026-11-26",
     "ratio": 100
    }
   },
   "sezane.com.sezane": {
    "playwright": {
     "brand": "Sezane",
-    "until": 1795658934115,
-    "at": "2026-11-12",
+    "until": 1796874454646,
+    "at": "2026-11-26",
     "ratio": 100
    }
   },
@@ -98,8 +98,8 @@
   "anthropologie.com.anthropologie": {
    "playwright": {
     "brand": "Anthropologie",
-    "until": 1795568777277,
-    "at": "2026-11-11",
+    "until": 1796874462894,
+    "at": "2026-11-26",
     "ratio": 100
    }
   },
