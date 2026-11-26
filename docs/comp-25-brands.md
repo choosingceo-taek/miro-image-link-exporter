@@ -209,8 +209,31 @@ J.Crew·Massimo Dutti(옛 미표기 390개가 '채운 것'처럼 세져 77% 로 
 | https://www.theupside.com/rylan-hooded-anorak-chai-usw126092h/ | Nylon 100% | [care-instructions] 100% Nylon Cold machine wash |
 | https://athleta.gap.com/browse/product.do?pid=845697032 | Nylon 78% / Polyester 19% / Elastane 3% | Fabric & care 78% Nylon/19% Polyester/3% spandex |
 
-- 확인이 더 필요한 값: Massimo Dutti 측정 45778482116 에서 서로 다른 상품 셋(buttoned henley · lingerie-inspired tee · asymmetric flowing top)이 모두 'Lyocell 70% / Wool 30%' 였다.
-  셋째의 값은 시험 자료 HTML 에서 그 상품의 것임을 확인했지만(compositionDetail), 앞의 둘은 HTML 을 남기지 않아 확인하지 못했다 — 페이지 JSON 에 다른 상품의 소재가 실렸을 수 있다 [추정].
+### Massimo Dutti — 소재 블록이 이 상품의 것인지 (측정 45794717936, 파이어폭스 새 창, 읽기만)
+
+측정 45778482116 에서 서로 다른 세 상품이 모두 'Lyocell 70% / Wool 30%' 였다. 한 페이지의 JSON 에 다른 상품(추천·다른 색)의 소재가 실려 그것을
+읽었을 수 있어, 그 셋과 7개를 더 파이어폭스 새 창으로 다시 열어(10쪽, 읽힌 7쪽 · 껍데기 3쪽) 페이지의 소재 블록마다 바로 앞의
+"reference":"C<상품번호><색상>-…" 를 주소의 상품번호(…-l<숫자>)와 견줬다. 페이지는 색상마다 상품 객체가 있고, 객체 안에서 reference 가 먼저,
+compositionDetail 이 뒤에 온다.
+
+| 상품(주소) | 뽑은 값 | 블록 수 · 바로 앞 reference | JSON-LD Product sku |
+|---|---|---|---|
+| https://www.massimodutti.com/us/buttoned-henley-tshirt-l06863575 | Lyocell 70% / Wool 30% | 2 · 모두 C06863575… | 65191201 |
+| https://www.massimodutti.com/us/long-sleeve-tshirt-with-lingerieinspired-detail-l06874575 | Lyocell 70% / Wool 30% | 3 · 모두 C06874575… | 65267111 |
+| https://www.massimodutti.com/us/asymmetric-long-sleeve-flowing-top-l06873575 | Lyocell 70% / Wool 30% | 2 · 모두 C06873575… | 65268623 |
+| https://www.massimodutti.com/us/cotton-blend-bib-detail-tshirt-l06615918 | Cotton 96% / Elastane 4% ‖ Cotton 97% / Elastane 3% (MAIN FABRIC 83% · SECONDARY FABRIC 17%) | 2 · 모두 C06615918… | 64465929 |
+| https://www.massimodutti.com/us/100-cotton-henley-tshirt-l06203115 | Cotton 100% | 5 · 모두 C06203115… | 64334261 |
+| https://www.massimodutti.com/us/striped-interlock-sweatshirt-l06211810 | Cotton 99% / Elastane 1% | 2 · 모두 C06211810… | 65405711 |
+| https://www.massimodutti.com/us/ribbed-short-sleeve-tshirt-l06247810 | Cotton 100% | 5 · 모두 C06247810… | 61726083 |
+| …/100-cotton-interlock-vneck-tshirt-l06834542 · …/100-cotton-long-sleeve-polo-shirt-l06204115 · …/cotton-blend-strappy-top-l06612200 | (껍데기 — 상품 본문이 안 그려짐, 값 없음) | — | — |
+
+- 결론 [측정]: 읽힌 7쪽 모두, 페이지에 있는 소재 블록은 전부 그 페이지 상품번호의 것이었다. 세 상품의 'Lyocell 70% / Wool 30%' 는 세 상품이 각자
+  자기 JSON 에 적은 값이다(henley 설명도 "crafted from fluid wool-blend fabric"). 다른 상품의 블록을 읽은 경우는 없었다.
+- 그래도 막아 두었다: 소재 블록 바로 앞의 reference 가 주소의 상품번호와 다른 블록만 있으면 쓰지 않는다(worker 의 partsOwnerOk —
+  야간·크롬 보강·Worker ?comp·현장 측정이 모두 거친다). 시험: test-comp-rules.mjs 'MD —' 네 건(두 상품 JSON 을 한 페이지에 둔 경우 포함) ·
+  detail-pages 의 실제 페이지 3쪽(henley · lingerie tee · striped interlock). 기존 시험 자료 287쪽의 값은 바뀌지 않았다.
+- Massimo Dutti 는 파이어폭스 차선에 그대로 둔다.
+
 
 ## 읽기만 했다는 증거 (로그 줄)
 

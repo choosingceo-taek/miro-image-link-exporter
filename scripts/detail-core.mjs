@@ -26,7 +26,9 @@ const api = new Function(
 export const { detailOf, compFromPartsJson, dtText, dtBody, dtSections, dtFromLd, dtFromShopify, dtFromMeta, dtHeadKind, DETAIL_CAP } = api;
 
 // 혼용률·컬러 규칙(기존) — 현장 지도가 같은 페이지에서 함께 잰다.
-export const { compFromHtml, compFromText } = new Function(slice("const FIBRES = {", "function titleCase") + "\n return { compFromHtml, compFromText };")();
+export const { compFromHtml, compFromText, partsOwnerOk } = new Function(slice("const FIBRES = {", "function titleCase") + "\n return { compFromHtml, compFromText, partsOwnerOk };")();
+// 페이지 JSON(parts) 소재 — 이 상품의 블록일 때만(worker 의 partsOwnerOk 머리말). 야간·크롬 보강·현장 측정이 이것을 쓴다.
+export const compFromOwnPartsJson = (html, url) => (partsOwnerOk(html, url) ? compFromPartsJson(html, url) : []);
 export const colorFromHtml = new Function(slice("const COLOR_JUNK", "function titleCase") + "\n return colorFromHtml;")();
 export const fromJsonLd = new Function(slice("function fromJsonLd(html) {", "const FIBRES = {") + slice("function titleCase(s) {", "// 페이지 제목") + "\n return fromJsonLd;")();
 export const { validComp, validColor } = new Function(slice("const COMP_ITEM_RX", "// ── 페이지 HTML 전체에서 혼용률") + "\n return { validComp, validColor };")();
@@ -46,7 +48,7 @@ export function compOf(html, url) {
   if (ld.composition && ld.composition.length && validComp(asComp(ld.composition))) return { comp: asComp(ld.composition), src: "jsonld" };
   const h = asComp(compFromHtml(html));
   if (h) return { comp: h, src: "page" };
-  const p = asComp(compFromPartsJson(html, url));
+  const p = asComp(compFromOwnPartsJson(html, url));
   if (p) return { comp: p, src: "parts-json" };
   return { comp: "", src: "" };
 }

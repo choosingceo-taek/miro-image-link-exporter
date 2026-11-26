@@ -146,7 +146,7 @@ export default {
         // JSON-LD 의 소재는 옳을 때만 먼저 쓴다(옳지 않으면 본문으로 — Buck Mason).
         const ldOk = ld.composition && ld.composition.length && validComp(ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / '));
         const compList = ldOk ? ld.composition
-          : (fromHtml.length ? fromHtml : (fromText.length ? fromText : compFromPartsJson(page.html || '', compUrl)));
+          : (fromHtml.length ? fromHtml : (fromText.length ? fromText : (partsOwnerOk(page.html || '', compUrl) ? compFromPartsJson(page.html || '', compUrl) : [])));
         const comp = compList.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
         const sizes = (sp.sizes && sp.sizes.length ? sp.sizes : (ld.sizes || [])).slice(0, 30).join(', ');
         // 상품 상세(설명·디테일·사진 전부·컬러 전부·코드·통화·재고 사이즈) — 아래 '상품 상세(detail) 추출' 구간.
@@ -794,7 +794,7 @@ async function extractFabric(url, apiKey) {
   const plainComp = htmlComp.length ? [] : compFromText(page.text);
   const ldOk = ld.composition && ld.composition.length && validComp(ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / '));
   const textComp = ldOk ? ld.composition
-    : (htmlComp.length ? htmlComp : (plainComp.length ? plainComp : compFromPartsJson(page.html || '', url)));
+    : (htmlComp.length ? htmlComp : (plainComp.length ? plainComp : (partsOwnerOk(page.html || '', url) ? compFromPartsJson(page.html || '', url) : [])));
   // 상품 상세(설명·디테일·사진 전부 …) — 응답에 함께 싣는다(AI 와 무관, 구조화 데이터·본문 칸에서).
   const det = detailOf(page.html || '', url, page.shopifyRaw || null);
   const detBits = { desc: det.desc || '', feat: det.feat || [], imgs: det.imgs || [], colors: det.colors || [],
@@ -1518,6 +1518,25 @@ function compFromHtml(html) {
   if (out.some((c) => (c.line || 0) > 0)) return LABELLED_COMP_RX.test(win) ? out : [];
   const total = out.reduce((n, c) => n + c.percent, 0);
   return total > 105 ? [] : out;   // 여러 상품이 섞였을 가능성 — 버린다
+}
+// ── 페이지 JSON(parts/components) 소재가 이 상품의 것인가 ───────────────────
+// Massimo Dutti 형 페이지는 색상마다 상품 객체가 있고, 객체마다 "reference":"C<상품번호><색상>-…" 가 먼저 오고 그 뒤에
+// "compositionDetail":{"parts":[…]} 가 온다. 주소의 상품번호(…-l06863575)와 '바로 앞 reference' 가 다른 블록만 있으면
+// (추천·다른 상품의 JSON) 그 소재는 이 상품의 것이 아니다 — 쓰지 않는다. 주소에 상품번호가 없거나 reference 를 못 찾으면
+// 예전처럼 둔다(compFromPartsJson 이 고른다). 2026-11-26 실측: 읽힌 9쪽(측정 45794717936)의 블록은 모두 그 쪽 상품번호의 것이었다.
+function partsOwnerOk(html, url) {
+  const id = (String(url || '').match(/[lp](\d{7,9})(?:[?#./]|$)/i) || [])[1];
+  if (!id) return true;
+  const h = String(html || '').replace(/\\"/g, '"');
+  let own = false, other = false;
+  for (const m of h.matchAll(/"parts"\s*:\s*\[/g)) {
+    const before = h.slice(Math.max(0, m.index - 60000), m.index);
+    let last = '';
+    for (const r of before.matchAll(/"reference"\s*:\s*"C(\d{7,9})/g)) last = r[1];
+    if (!last) continue;
+    if (last.startsWith(id) || id.startsWith(last)) own = true; else other = true;
+  }
+  return own || !other;
 }
 const LABELLED_COMP_RX = /composition\s*[:：]\s*(?:main|shell|outer(?:\s+shell)?|body)\s*[,:：]/i;
 

@@ -792,5 +792,35 @@
   "expect": {
    "comp": "Cotton 86% / Polyester 14%"
   }
+ },
+ {
+  "brand": "Massimo Dutti (henley — 이 상품 블록, C06863575)",
+  "file": "massimodutti-buttonedhenleytshirtl06863575.html.gz",
+  "url": "https://www.massimodutti.com/us/buttoned-henley-tshirt-l06863575",
+  "name": "",
+  "why": "페이지 JSON 의 색상 객체 둘이 모두 \"reference\":\"C06863575…\" 뒤에 \"compositionDetail\":{…\"OUTER SHELL\"…\"lyocell\",\"percentage\":\"70%\"…\"wool\",\"percentage\":\"30%\"}. JSON-LD Product sku 65191201 (측정 45794717936, 파이어폭스 새 창).",
+  "expect": {
+   "comp": "Lyocell 70% / Wool 30%"
+  }
+ },
+ {
+  "brand": "Massimo Dutti (lingerie-inspired tee — C06874575)",
+  "file": "massimodutti-longsleevetshirtwithlingerieinspireddeta.html.gz",
+  "url": "https://www.massimodutti.com/us/long-sleeve-tshirt-with-lingerieinspired-detail-l06874575",
+  "name": "",
+  "why": "색상 객체 셋이 모두 \"reference\":\"C06874575…\" 뒤에 OUTER SHELL 70% lyocell · 30% wool. JSON-LD sku 65267111 (측정 45794717936).",
+  "expect": {
+   "comp": "Lyocell 70% / Wool 30%"
+  }
+ },
+ {
+  "brand": "Massimo Dutti (striped interlock — C06211810)",
+  "file": "massimodutti-stripedinterlocksweatshirtl06211810.html.gz",
+  "url": "https://www.massimodutti.com/us/striped-interlock-sweatshirt-l06211810",
+  "name": "",
+  "why": "\"reference\":\"C06211810…\" 뒤에 OUTER SHELL 99% cotton · 1% elastane. JSON-LD sku 65405711 (측정 45794717936).",
+  "expect": {
+   "comp": "Cotton 99% / Elastane 1%"
+  }
  }
 ]

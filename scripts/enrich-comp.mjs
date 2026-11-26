@@ -27,7 +27,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { urlGuard, urlKey, archivePageCheck, archivedOriginal, archivedTimestamp, samePage } from "./wayback-guard.mjs";
 import { guardRun, flagText } from "./comp-guard.mjs";
-import { detailOf, compFromPartsJson, detailRecord } from "./detail-core.mjs";
+import { detailOf, compFromOwnPartsJson as compFromPartsJson, detailRecord } from "./detail-core.mjs";
 import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
 import { ruleVersion, colorVersion } from "./rule-version.mjs";
 import { colorFromTitle } from "./title-color.mjs";

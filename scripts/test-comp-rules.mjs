@@ -83,5 +83,22 @@ for (const [label, text, want] of TEXT) eq(label, asStr(compFromText(text)), wan
 // 사이트가 첫 섬유만 적은 값(Wilson '46% Cotton')은 옳은 값이 아니다 — 저장하지 않는다.
 eq("Wilson — '46% Cotton' 하나는 옳은 값이 아니다", String(validComp(asStr(compFromText("Product details table Composition 46% Cotton Fit Type Easy")))), "false");
 
+// ── Massimo Dutti 형 페이지 JSON — 이 상품의 블록만(worker 의 partsOwnerOk). 블록 모양은 실제 페이지(측정 45794717936)에서 줄여 옮겼다:
+// 색상 객체마다 "reference":"C<상품번호><색상>-I2026" 가 먼저, 그 뒤에 "compositionDetail":{"parts":[…]}.
+{
+  const { compOf } = await import("./detail-core.mjs");
+  const obj = (ref, name, comps) => `{"reference":"${ref}","name":"${name}","longDescription":"…","sizes":[{"id":1,"name":"S"}],` +
+    `"compositionDetail":{"parts":[{"id":"1","description":"OUTER SHELL","areas":[],"components":[${comps.map(([m, pc], k) => `{"id":${k + 1},"material":"${m}","percentage":"${pc}"}`).join(",")}],"microcontents":[],"reinforcements":[]}],"exceptions":[]}}`;
+  const HENLEY = obj("C06863575800-I2026", "BUTTONED HENLEY T-SHIRT", [["lyocell", "70%"], ["wool", "30%"]]);
+  const RAMIE = obj("C05184684513-I2026", "FLOWING POCKET SHIRT", [["ramie", "100%"]]);   // 이름에 소재를 넣지 않는다 — 여기서는 블록만 시험
+  const page = (json) => `<html><head><title>Buttoned henley T-shirt · Black · T-shirt | Massimo Dutti</title></head><body><h1>Buttoned henley T-shirt</h1>` +
+    `<script>window.__STATE__={"products":[${json}]}</script></body></html>`;
+  const URL = "https://www.massimodutti.com/us/buttoned-henley-tshirt-l06863575";
+  eq("MD — 이 상품(C06863575)의 블록만 있으면 그 값", compOf(page(HENLEY), URL).comp, "Lyocell 70% / Wool 30%");
+  eq("MD — 다른 상품(C05184684)의 블록만 있으면 쓰지 않는다", compOf(page(RAMIE), URL).comp, "");
+  eq("MD — 다른 상품 블록이 앞에 있어도 이 상품의 것", compOf(page(RAMIE + "," + HENLEY), URL).comp, "Lyocell 70% / Wool 30%");
+  eq("MD — 주소에 상품번호가 없으면 예전처럼(블록이 하나면 그 값)", compOf(page(RAMIE), "https://www.massimodutti.com/us/some-page").comp, "Ramie 100%");
+}
+
 console.log(bad ? `\n${bad}/${n}개 실패` : `\n✅ 2026-11-26 혼용률 규칙 ${n}건 통과`);
 process.exit(bad ? 1 : 0);
