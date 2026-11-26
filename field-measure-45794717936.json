@@ -1,0 +1,854 @@
+{
+ "runId": "45794717936",
+ "at": "2026-11-26T09:44:42.145Z",
+ "ip": "172.172.237.x",
+ "part": "1/1",
+ "brands": [
+  {
+   "brand": "Massimo Dutti",
+   "site": "massimodutti.com.massimodutti",
+   "products": [
+    {
+     "url": "https://www.massimodutti.com/us/buttoned-henley-tshirt-l06863575",
+     "name": "Close-up of the neckline of a black T-shirt with a crew neck and front button placket.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2275,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 742568,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Buttoned henley T-shirt",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/ae93/4a07/7c634ba181d1/88ab4e86a7bb/06863575800-t/06863575800-t.jpg?ts=1788967081711"
+      ],
+      "price": "$90",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "BLACK",
+      "colors": [
+       "BLACK"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Lyocell 70% / Wool 30%",
+      "desc": "Buttoned Henley T-shirt",
+      "feat": [],
+      "sku": "65191201"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "parts-json",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 742568
+     },
+     "fixture": {
+      "file": "massimodutti-buttonedhenleytshirtl06863575.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/cotton-blend-bib-detail-tshirt-l06615918",
+     "name": "Oyster-white fitted sleeveless T-shirt with a round neckline, button-loop placket and buttons, and dark jeans.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2302,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 768071,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Cotton blend bib detail T-shirt",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/9756/9bb3/926c4acc8857/02770beb84a8/06615918251-t/06615918251-t.jpg?ts=1785141831028"
+      ],
+      "price": "$70",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Off white",
+      "colors": [
+       "Off white"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Cotton 96% / Elastane 4%\nCotton 97% / Elastane 3%",
+      "desc": "Cotton Blend Bib Detail T-shirt",
+      "feat": [],
+      "sku": "64465929"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "parts-json",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [
+       "parts/components"
+      ],
+      "platform": "",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 768071
+     },
+     "fixture": {
+      "file": "massimodutti-cottonblendbibdetailtshirtl06615918.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/100-cotton-henley-tshirt-l06203115",
+     "name": "Red long-sleeved henley shirt, dark jeans, and beige trench coat set.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2280,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1036251,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "100% cotton henley T-shirt",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/1821/ea3e/b0e447019134/31c18acdcfaf/06203115250-t/06203115250-t.jpg?ts=1784877925648"
+      ],
+      "price": "$70",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "WHITE",
+      "colors": [
+       "WHITE",
+       "BLUE",
+       "DARK PINK",
+       "MINK"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Cotton 100%",
+      "desc": "100% Cotton Henley T-shirt",
+      "feat": [],
+      "sku": "64334261"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "product care"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 2,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 1036251
+     },
+     "fixture": {
+      "file": "massimodutti-100cottonhenleytshirtl06203115.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/striped-interlock-sweatshirt-l06211810",
+     "name": "Brown striped long-sleeve, crew-neck sweatshirt set with light blue jeans featuring back pockets and a belt.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2297,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 675742,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Striped interlock sweatshirt",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/7878/eba3/724b441899e7/98e7827652ff/06211810700-t/06211810700-t.jpg?ts=1786442651288"
+      ],
+      "price": "$90",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "BROWN",
+      "colors": [
+       "BROWN"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Cotton 99% / Elastane 1%",
+      "desc": "Striped Interlock Sweatshirt",
+      "feat": [],
+      "sku": "65405711"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "parts-json",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 675742
+     },
+     "fixture": {
+      "file": "massimodutti-stripedinterlocksweatshirtl06211810.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/long-sleeve-tshirt-with-lingerieinspired-detail-l06874575",
+     "name": "Close-up of the neckline of a black V-neck T-shirt with lace detailing.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2366,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 740262,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Long sleeve T-shirt with lingerie-inspired detail",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/30cd/8f33/ae0540de9aaf/a4f0c7c04584/06874575700-o1/06874575700-o1.jpg?ts=1791186408014"
+      ],
+      "price": "$90",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "BROWN",
+      "colors": [
+       "BROWN",
+       "BLACK"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Lyocell 70% / Wool 30%",
+      "desc": "Long Sleeve T-shirt With Lingerie-inspired Detail",
+      "feat": [],
+      "sku": "65267111"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "parts-json",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 740262
+     },
+     "fixture": {
+      "file": "massimodutti-longsleevetshirtwithlingerieinspireddeta.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/100-cotton-interlock-vneck-tshirt-l06834542",
+     "name": "Set consisting of a white short-sleeve T-shirt and dark blue jeans with a back pocket.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2313,
+       "final": ""
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 714939,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.massimodutti.com/us/100-cotton-long-sleeve-polo-shirt-l06204115",
+     "name": "Long-sleeve polo set in oyster-white with a buttoned collar, straight-cut jeans in washed blue, and a handbag in a gray tone.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2313,
+       "final": ""
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 684976,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.massimodutti.com/us/cotton-blend-strappy-top-l06612200",
+     "name": "round-neck tank top set with spaghetti straps, wide-leg black pleated trousers, sunglasses, and sandals.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2280,
+       "final": ""
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 537484,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.massimodutti.com/us/ribbed-short-sleeve-tshirt-l06247810",
+     "name": "fitted t-shirt set, short sleeves and round neck, blue jeans with front pockets and a belt with a buckle.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2289,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 923827,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Ribbed short sleeve T-shirt",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/5580/83aa/1803467ba312/cc499fa9ece3/06247810251-o1/06247810251-o1.jpg?ts=1783608059659"
+      ],
+      "price": "$60",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Off white",
+      "colors": [
+       "Off white",
+       "NAVY BLUE",
+       "BROWN",
+       "BLACK"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Cotton 100%",
+      "desc": "Ribbed Short Sleeve T-shirt",
+      "feat": [],
+      "sku": "61726083"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 923827
+     },
+     "fixture": {
+      "file": "massimodutti-ribbedshortsleevetshirtl06247810.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/asymmetric-long-sleeve-flowing-top-l06873575",
+     "name": "Asymmetrical long-sleeved burgundy top set with side draping, beige wide-leg pants with pockets, and black shoes.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2319,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 802702,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Asymmetric long sleeve flowing top",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/dae8/ac98/18d342ff9146/91e2298a0434/06873575606-o1/06873575606-o1.jpg?ts=1791296609984"
+      ],
+      "price": "$90",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "BURGUNDY",
+      "colors": [
+       "BURGUNDY"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "Lyocell 70% / Wool 30%",
+      "desc": "Asymmetric Long Sleeve Flowing Top",
+      "feat": [],
+      "sku": "65268623"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "parts-json",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 802702
+     },
+     "fixture": {
+      "file": "massimodutti-asymmetriclongsleeveflowingtopl06873575.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 606,
+    "withRow": 606,
+    "comp": 5,
+    "color": 4,
+    "sizes": 0,
+    "price": 0,
+    "tried": 606,
+    "in5d": 567,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 390,
+    "noneNv": {
+     "(예전)": 390
+    },
+    "oldestT": 1795222852536,
+    "newestT": 1795664993571,
+    "emptyIn5d": 562,
+    "emptyKind": {
+     "none": 390,
+     "blocked": 0,
+     "bvImpit": 115,
+     "wt": 82,
+     "plain": 211
+    }
+   },
+   "total": 606,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "picked": 10,
+   "notProduct": 0
+  }
+ ]
+}
