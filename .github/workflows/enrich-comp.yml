@@ -110,9 +110,9 @@ jobs:
           # 측정 실행 — '1' 일 때만 켜진다. 예약 실행에서는 빈 값이라 평소대로 저장한다.
           DRY: ${{ github.event.inputs.dry == '1' && '1' || '' }}
           BRANDS: ${{ github.event.inputs.brands || '' }}
-          # 측정 실행은 정중하게: 한 사이트 요청 간격 1초 · Worker 우회 끔(우회는 같은 상품 주소를 Worker 가 두세 번 더 연다 —
+          # 측정 실행은 정중하게: 한 사이트 요청 간격 2초(1초로는 Shopify 세 곳이 429 — 측정 45779388161) · Worker 우회 끔(우회는 같은 상품 주소를 Worker 가 두세 번 더 연다 —
           # 상품 주소당 요청을 평 fetch · impit 두 번으로 묶는다). 리포트는 실행 번호를 붙인 파일에.
-          HOST_GAP_MS: ${{ github.event.inputs.dry == '1' && '1000' || '' }}
+          HOST_GAP_MS: ${{ github.event.inputs.dry == '1' && '2000' || '' }}
           WORKER_BYPASS: ${{ github.event.inputs.dry == '1' && '0' || '' }}
           DRY_TAG: ${{ github.event.inputs.dry == '1' && github.run_id || '' }}
           # 웹 아카이브 층 — 저장소 변수로만 바꾼다(비면 스크립트 기본값: 켬 · 400 · 브랜드당 40).
