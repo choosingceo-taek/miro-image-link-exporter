@@ -1,0 +1,240 @@
+{
+ "when": "2026-11-26T10:44:32.104Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "chromium"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "L.L bean",
+   "site": "global.llbean.com.llbean",
+   "engine": "chromium",
+   "engineSource": "default",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 228,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 69,
+    "pants": 51,
+    "sweatshirts": 40,
+    "shirts": 48,
+    "dresses": 20
+   },
+   "perUrl": [
+    {
+     "url": "https://www.llbean.com/llb/shop/504209?page=womens-tees-and-tanks&nav=gnro",
+     "count": 49,
+     "productShaped": 37,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Pima Cotton Tee, Long-Sleeve Open V-Neck, New",
+       "productUrl": "https://www.llbean.com/llb/shop/5879147",
+       "price": "$36.95"
+      },
+      {
+       "name": "Women's L.L.Bean Tee, Long-Sleeve Crewneck",
+       "productUrl": "https://www.llbean.com/llb/shop/40104",
+       "price": "$29.95"
+      },
+      {
+       "name": "Women's Soft Stretch Supima-Blend Tee, Turtleneck",
+       "productUrl": "https://www.llbean.com/llb/shop/128498",
+       "price": "$44.99"
+      }
+     ],
+     "rej": {
+      "total": 335,
+      "noImage": 22,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 142,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 117,
+      "offSite": 3
+     }
+    },
+    {
+     "url": "https://www.llbean.com/llb/shop/886?page=womens-sweatshirts&nav=gnro",
+     "count": 55,
+     "productShaped": 53,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Quilted Half-Snap Sweatshirt, New",
+       "productUrl": "https://www.llbean.com/llb/shop/20010772",
+       "price": "$89.95"
+      },
+      {
+       "name": "Women's VentureSoft Quilted Funnelneck Pullover",
+       "productUrl": "https://www.llbean.com/llb/shop/5840241",
+       "price": "$49.99"
+      },
+      {
+       "name": "Women's L.L.Bean Sweater Fleece Long Vest",
+       "productUrl": "https://www.llbean.com/llb/shop/124571",
+       "price": "$59.99"
+      }
+     ],
+     "rej": {
+      "total": 351,
+      "noImage": 18,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 20,
+      "banner": 0,
+      "dup": 136,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 117,
+      "offSite": 3
+     }
+    },
+    {
+     "url": "https://www.llbean.com/llb/shop/502972?page=womens-shirts-and-button-downs",
+     "count": 48,
+     "productShaped": 45,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Comfort Corduroy Big Shirt, New",
+       "productUrl": "https://www.llbean.com/llb/shop/5868075",
+       "price": "$69.95"
+      },
+      {
+       "name": "Women's Scotch Plaid Flannel Shirt, Boyfriend",
+       "productUrl": "https://www.llbean.com/llb/shop/5820233",
+       "price": "$69.95"
+      },
+      {
+       "name": "Women's Scotch Plaid Flannel Shirt, Sherpa-Lined Zip Hoodie",
+       "productUrl": "https://www.llbean.com/llb/shop/121603",
+       "price": "$110"
+      }
+     ],
+     "rej": {
+      "total": 359,
+      "noImage": 19,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 20,
+      "banner": 0,
+      "dup": 146,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 121,
+      "offSite": 3
+     }
+    },
+    {
+     "url": "https://www.llbean.com/llb/shop/506213?page=womens-dresses-and-skirts&nav=gnro",
+     "count": 31,
+     "productShaped": 29,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's L.L. Bean Heritage Washed Denim Shirt Dress",
+       "productUrl": "https://www.llbean.com/llb/shop/129901",
+       "price": "$73.99"
+      },
+      {
+       "name": "Women's Cloud Gauze Short-Sleeve Shift Dress",
+       "productUrl": "https://www.llbean.com/llb/shop/20010007",
+       "price": "$34.99"
+      },
+      {
+       "name": "Women's Cloud Gauze Cover-Up Shirt, Stripe",
+       "productUrl": "https://www.llbean.com/llb/shop/129277",
+       "price": "$44.99"
+      }
+     ],
+     "rej": {
+      "total": 270,
+      "noImage": 17,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 10,
+      "banner": 0,
+      "dup": 81,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 126,
+      "offSite": 3
+     }
+    },
+    {
+     "url": "https://www.llbean.com/llb/shop/622?page=womens-pants-and-jeans&nav=gnro",
+     "count": 50,
+     "productShaped": 40,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's L.L.Bean Go-Anywhere Corduroy Pants, Mid-Rise Ultimate Straight-Leg, New",
+       "productUrl": "https://www.llbean.com/llb/shop/5865338",
+       "price": "$89.95"
+      },
+      {
+       "name": "Women's Lakewashed Pull-On Chinos, Mid-Rise Wide-Leg Chambray",
+       "productUrl": "https://www.llbean.com/llb/shop/126607",
+       "price": "$49.99"
+      },
+      {
+       "name": "Women's PrimaLoft ThermaStretch Fleece Pocket Tights, Mid-Rise",
+       "productUrl": "https://www.llbean.com/llb/shop/124950",
+       "price": "$79.99"
+      }
+     ],
+     "rej": {
+      "total": 376,
+      "noImage": 21,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 20,
+      "banner": 0,
+      "dup": 142,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 138,
+      "offSite": 3
+     }
+    }
+   ],
+   "secs": 340,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Women's Pima Cotton Tee, Long-Sleeve Open V-Neck, New",
+     "productUrl": "https://www.llbean.com/llb/shop/5879147"
+    },
+    {
+     "name": "Women's Signature Premium Essential Pointelle Tee, Long-Sleeve Henley, New",
+     "productUrl": "https://www.llbean.com/llb/shop/5863826"
+    },
+    {
+     "name": "Women's Soft Stretch Supima-Blend Tee, Long Dolman-Sleeve Jewelneck, New",
+     "productUrl": "https://www.llbean.com/llb/shop/20010773"
+    },
+    {
+     "name": "Four people gather around a lakeside campfire in winter hats, with the text “The gifts that make the moment.”",
+     "productUrl": "https://www.llbean.com/llb/shop/509870"
+    },
+    {
+     "name": "Women's Waffle-Knit Top, Long-Sleeve Jewelneck, New",
+     "productUrl": "https://www.llbean.com/llb/shop/5872360"
+    }
+   ],
+   "verdict": "자동화 가능"
+  }
+ ]
+}
