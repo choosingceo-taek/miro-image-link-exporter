@@ -1,0 +1,727 @@
+{
+ "when": "2026-11-26T10:19:45.844Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "chromium"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "Carlhartt",
+   "site": "carhartt.com.carlhartt",
+   "engine": "chromium",
+   "engineSource": "default",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 88,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "shirts": 18,
+    "tops": 25,
+    "sweatshirts": 24,
+    "pants": 21
+   },
+   "perUrl": [
+    {
+     "url": "https://www.carhartt.com/c/women-tops-tshirt",
+     "count": 24,
+     "productShaped": 24,
+     "note": "",
+     "sample": [
+      {
+       "name": "womens irvine relaxed t shirt",
+       "productUrl": "https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt",
+       "price": "$9.99"
+      },
+      {
+       "name": "Women's TENCEL™ Fiber Series Loose Floral T-Shirt",
+       "productUrl": "https://www.carhartt.com/product/107478/womens-tencel-fiber-series-loose-floral-t-shirt",
+       "price": "$16.49"
+      },
+      {
+       "name": "Women's TENCEL™ Fiber Series Loose Fit Long-Sleeve Logo Graphic T-Shirt",
+       "productUrl": "https://www.carhartt.com/product/106574/womens-tencel-fiber-series-loose-fit-long-sleeve-logo-graphic-t-shirt",
+       "price": "$17.49"
+      }
+     ],
+     "rej": {
+      "total": 886,
+      "noImage": 714,
+      "tinyImage": 24,
+      "shortPath": 4,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 15,
+      "nonProduct": 65,
+      "landing": 2,
+      "siteMenu": 38,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-hoodies-sweatshirts",
+     "count": 25,
+     "productShaped": 24,
+     "note": "",
+     "sample": [
+      {
+       "name": "womens clarksburg quarter zip sweatshirt",
+       "productUrl": "https://www.carhartt.com/product/105295/womens-clarksburg-quarter-zip-sweatshirt",
+       "price": "$54.99"
+      },
+      {
+       "name": "Women's TENCEL™ Fiber Series Full-Zip Sweatshirt",
+       "productUrl": "https://www.carhartt.com/product/106837/womens-tencel-fiber-series-full-zip-sweatshirt",
+       "price": "$32.49"
+      },
+      {
+       "name": "terms conditions",
+       "productUrl": "https://www.carhartt.com/terms-conditions",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 888,
+      "noImage": 714,
+      "tinyImage": 24,
+      "shortPath": 4,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 17,
+      "nonProduct": 65,
+      "landing": 2,
+      "siteMenu": 38,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-tops",
+     "count": 11,
+     "productShaped": 11,
+     "note": "",
+     "sample": [
+      {
+       "name": "womens paxton quilted shirt jac",
+       "productUrl": "https://www.carhartt.com/product/107872/womens-paxton-quilted-shirt-jac",
+       "price": "$94.99"
+      },
+      {
+       "name": "Women's Relaxed Fit Midweight Denim Long-Sleeve Over Shirt",
+       "productUrl": "https://www.carhartt.com/product/105492/womens-relaxed-fit-midweight-denim-long-sleeve-over-shirt",
+       "price": "$34.99"
+      },
+      {
+       "name": "Women's Loose Fit Lightweight Twill Short-Sleeve Plaid Shirt",
+       "productUrl": "https://www.carhartt.com/product/105260/womens-loose-fit-lightweight-twill-short-sleeve-plaid-shirt",
+       "price": "$20.00"
+      }
+     ],
+     "rej": {
+      "total": 844,
+      "noImage": 708,
+      "tinyImage": 11,
+      "shortPath": 4,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 5,
+      "nonProduct": 65,
+      "landing": 2,
+      "siteMenu": 38,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-bibs-overalls",
+     "count": 10,
+     "productShaped": 10,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Ashland Bib Overall",
+       "productUrl": "https://www.carhartt.com/product/106001/womens-ashland-bib-overall",
+       "price": "$99.99"
+      },
+      {
+       "name": "Women's Ashland Shortall",
+       "productUrl": "https://www.carhartt.com/product/106197/womens-ashland-shortall",
+       "price": "$39.99"
+      },
+      {
+       "name": "Women's Rugged Flex® Relaxed Fit Denim Bib Overall",
+       "productUrl": "https://www.carhartt.com/product/106002/womens-rugged-flex-relaxed-fit-denim-bib-overall",
+       "price": "$44.99"
+      }
+     ],
+     "rej": {
+      "total": 838,
+      "noImage": 708,
+      "tinyImage": 8,
+      "shortPath": 4,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 3,
+      "nonProduct": 65,
+      "landing": 2,
+      "siteMenu": 38,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.carhartt.com/c/women-pants",
+     "count": 24,
+     "productShaped": 24,
+     "note": "",
+     "sample": [
+      {
+       "name": "womens essential ashland pant",
+       "productUrl": "https://www.carhartt.com/product/105113/womens-essential-ashland-pant",
+       "price": "$64.99"
+      },
+      {
+       "name": "FR Tiller Jean",
+       "productUrl": "https://www.carhartt.com/product/107228/fr-tiller-jean",
+       "price": "$119.99"
+      },
+      {
+       "name": "Women's Joggers - Relaxed Fit",
+       "productUrl": "https://www.carhartt.com/product/105510/womens-joggers---relaxed-fit",
+       "price": "$27.49"
+      }
+     ],
+     "rej": {
+      "total": 874,
+      "noImage": 713,
+      "tinyImage": 20,
+      "shortPath": 4,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 8,
+      "nonProduct": 65,
+      "landing": 2,
+      "siteMenu": 38,
+      "offSite": 0
+     }
+    }
+   ],
+   "secs": 300,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "womens irvine relaxed t shirt",
+     "productUrl": "https://www.carhartt.com/product/107391/womens-irvine-relaxed-t-shirt"
+    },
+    {
+     "name": "womens irvine loose ls logo t shirt",
+     "productUrl": "https://www.carhartt.com/product/107742/womens-irvine-loose-ls-logo-t-shirt"
+    },
+    {
+     "name": "womens irvine loose ls pocket t shirt",
+     "productUrl": "https://www.carhartt.com/product/107973/womens-irvine-loose-ls-pocket-t-shirt"
+    },
+    {
+     "name": "Women's Irvine Relaxed Floral Pocket T-Shirt",
+     "productUrl": "https://www.carhartt.com/product/107869/womens-irvine-relaxed-floral-pocket-t-shirt"
+    },
+    {
+     "name": "womens tencel fiber series loose t shirt",
+     "productUrl": "https://www.carhartt.com/product/106122/womens-tencel-fiber-series-loose-t-shirt"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "American Eagle",
+   "site": "ae.com.americaneagle",
+   "engine": "chromium",
+   "engineSource": "default",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 675,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 245,
+    "shirts": 40,
+    "pants": 153,
+    "sweatshirts": 120,
+    "dresses": 117
+   },
+   "perUrl": [
+    {
+     "url": "https://www.ae.com/us/en/c/women/tops/t-shirts/cat90030",
+     "count": 208,
+     "productShaped": 207,
+     "note": "",
+     "sample": [
+      {
+       "name": "New! The Lowest Rise Extra Baggy Jean",
+       "productUrl": "https://www.ae.com/us/en/x/jeans",
+       "price": ""
+      },
+      {
+       "name": "AE Boxy Snoopy Graphic T-Shirt",
+       "productUrl": "https://www.ae.com/us/en/p/women/tops/t-shirts/ae-boxy-snoopy-graphic-t-shirt/1307_1671_500",
+       "price": ""
+      },
+      {
+       "name": "AE Ohio State Buckeyes Off-the-Shoulder Graphic T-Shirt",
+       "productUrl": "https://www.ae.com/us/en/p/women/tops/t-shirts/ae-ohio-state-buckeyes-off-the-shoulder-graphic-t-shirt/1301_1972_600",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 890,
+      "noImage": 184,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 213,
+      "nonProduct": 226,
+      "landing": 0,
+      "siteMenu": 58,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.ae.com/us/en/c/women/tops/tank-tops-tube-tops/cat380157",
+     "count": 87,
+     "productShaped": 86,
+     "note": "",
+     "sample": [
+      {
+       "name": "New! The Lowest Rise Extra Baggy Jean",
+       "productUrl": "https://www.ae.com/us/en/x/jeans",
+       "price": ""
+      },
+      {
+       "name": "AE Twice As Nice Pointelle Tank Top",
+       "productUrl": "https://www.ae.com/us/en/p/women/tops/tank-tops/ae-twice-as-nice-pointelle-tank-top/3171_6738_006",
+       "price": ""
+      },
+      {
+       "name": "AE77 Slip Lace Cami Top",
+       "productUrl": "https://www.ae.com/us/en/p/women/ae77-premium-collection/tops/ae77-slip-lace-cami-top/0351_5203_309",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 525,
+      "noImage": 182,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 92,
+      "nonProduct": 105,
+      "landing": 0,
+      "siteMenu": 58,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.ae.com/us/en/c/women/tops/hoodies-sweatshirts/cat90048",
+     "count": 118,
+     "productShaped": 117,
+     "note": "",
+     "sample": [
+      {
+       "name": "New! The Lowest Rise Extra Baggy Jean",
+       "productUrl": "https://www.ae.com/us/en/x/jeans",
+       "price": ""
+      },
+      {
+       "name": "AE Big Hug V-Neck Waffle Sweatshirt",
+       "productUrl": "https://www.ae.com/us/en/p/women/tops/hoodies-sweatshirts/ae-big-hug-v-neck-waffle-sweatshirt/1457_3132_006",
+       "price": ""
+      },
+      {
+       "name": "AE Alabama Crimson Tide V-Neck Graphic Sweatshirt",
+       "productUrl": "https://www.ae.com/us/en/p/women/tops/hoodies-sweatshirts/ae-alabama-crimson-tide-v-neck-graphic-sweatshirt/0454_3227_617",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 623,
+      "noImage": 185,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 117,
+      "nonProduct": 143,
+      "landing": 0,
+      "siteMenu": 59,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.ae.com/us/en/c/women/tops/shirts-blouses/cat360002",
+     "count": 72,
+     "productShaped": 71,
+     "note": "",
+     "sample": [
+      {
+       "name": "New! The Lowest Rise Extra Baggy Jean",
+       "productUrl": "https://www.ae.com/us/en/x/jeans",
+       "price": ""
+      },
+      {
+       "name": "AE Cropped Button-Up Shirt",
+       "productUrl": "https://www.ae.com/us/en/p/women/tops/blouses-button-up-shirts/ae-cropped-button-up-shirt/0355_7159_131",
+       "price": ""
+      },
+      {
+       "name": "AE Ruched V-Neck Top",
+       "productUrl": "https://www.ae.com/us/en/p/women/tops/blouses-button-up-shirts/ae-ruched-v-neck-top/0358_7210_001",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 474,
+      "noImage": 179,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 75,
+      "nonProduct": 89,
+      "landing": 0,
+      "siteMenu": 58,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.ae.com/us/en/c/women/dresses/cat1320034",
+     "count": 119,
+     "productShaped": 118,
+     "note": "",
+     "sample": [
+      {
+       "name": "New! The Lowest Rise Extra Baggy Jean",
+       "productUrl": "https://www.ae.com/us/en/x/jeans",
+       "price": ""
+      },
+      {
+       "name": "AE Sweetheart Lace Mini Dress",
+       "productUrl": "https://www.ae.com/us/en/p/women/dresses/mini-dresses/ae-sweetheart-lace-mini-dress/1399_9690_106",
+       "price": ""
+      },
+      {
+       "name": "AE77 Strapless Linen Midi Dress",
+       "productUrl": "https://www.ae.com/us/en/p/women/ae77-premium-collection/dresses-jumpsuits/ae77-strapless-linen-midi-dress/3428_5025_800",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 615,
+      "noImage": 182,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 120,
+      "nonProduct": 143,
+      "landing": 0,
+      "siteMenu": 50,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.ae.com/us/en/c/women/bottoms/cat10051",
+     "count": 210,
+     "productShaped": 209,
+     "note": "",
+     "sample": [
+      {
+       "name": "New! The Lowest Rise Extra Baggy Jean",
+       "productUrl": "https://www.ae.com/us/en/x/jeans",
+       "price": ""
+      },
+      {
+       "name": "AE Mom Jean",
+       "productUrl": "https://www.ae.com/us/en/p/women/jeans/mom-jeans/ae-mom-jean/0436_5369_911",
+       "price": ""
+      },
+      {
+       "name": "AE Notre Dame Fleece Short",
+       "productUrl": "https://www.ae.com/us/en/p/women/shorts/pull-on-lounge-shorts/ae-notre-dame-fleece-short/2545_9038_300",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 899,
+      "noImage": 193,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 211,
+      "nonProduct": 231,
+      "landing": 0,
+      "siteMenu": 53,
+      "offSite": 0
+     }
+    }
+   ],
+   "secs": 162,
+   "dropped": 1,
+   "cut": false,
+   "sample": [
+    {
+     "name": "AE Cozy Crew Neck Long Sleeve T-Shirt",
+     "productUrl": "https://www.ae.com/us/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2025_309"
+    },
+    {
+     "name": "AE Cozy Crew Neck Long Sleeve T-Shirt",
+     "productUrl": "https://www.ae.com/us/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2041_286"
+    },
+    {
+     "name": "AE Soft & Sexy Waffle Mock Neck Tee",
+     "productUrl": "https://www.ae.com/us/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_1888_285"
+    },
+    {
+     "name": "AE Cozy Crew Neck Long Sleeve T-Shirt",
+     "productUrl": "https://www.ae.com/us/en/p/women/tops/t-shirts/ae-cozy-crew-neck-long-sleeve-t-shirt/3376_2169_337"
+    },
+    {
+     "name": "AE Soft & Sexy Waffle Mock Neck Tee",
+     "productUrl": "https://www.ae.com/us/en/p/women/tops/t-shirts/ae-soft-sexy-waffle-mock-neck-tee/3376_1888_337"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "L.L bean",
+   "site": "global.llbean.com.llbean",
+   "engine": "chromium",
+   "engineSource": "default",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 226,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 68,
+    "pants": 50,
+    "sweatshirts": 40,
+    "shirts": 48,
+    "dresses": 20
+   },
+   "perUrl": [
+    {
+     "url": "https://www.llbean.com/llb/shop/504209?page=womens-tees-and-tanks&nav=gnro",
+     "count": 49,
+     "productShaped": 37,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Pima Cotton Tee, Long-Sleeve Open V-Neck, New",
+       "productUrl": "https://www.llbean.com/llb/shop/5879147",
+       "price": "$36.95"
+      },
+      {
+       "name": "Women's L.L.Bean Tee, Long-Sleeve Crewneck",
+       "productUrl": "https://www.llbean.com/llb/shop/40104",
+       "price": "$29.95"
+      },
+      {
+       "name": "Women's Soft Stretch Supima-Blend Tee, Turtleneck",
+       "productUrl": "https://www.llbean.com/llb/shop/128498",
+       "price": "$44.99"
+      }
+     ],
+     "rej": {
+      "total": 335,
+      "noImage": 22,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 142,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 117,
+      "offSite": 3
+     }
+    },
+    {
+     "url": "https://www.llbean.com/llb/shop/886?page=womens-sweatshirts&nav=gnro",
+     "count": 55,
+     "productShaped": 53,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Quilted Half-Snap Sweatshirt, New",
+       "productUrl": "https://www.llbean.com/llb/shop/20010772",
+       "price": "$89.95"
+      },
+      {
+       "name": "Women's VentureSoft Quilted Funnelneck Pullover",
+       "productUrl": "https://www.llbean.com/llb/shop/5840241",
+       "price": "$49.99"
+      },
+      {
+       "name": "Women's L.L.Bean Sweater Fleece Long Vest",
+       "productUrl": "https://www.llbean.com/llb/shop/124571",
+       "price": "$59.99"
+      }
+     ],
+     "rej": {
+      "total": 351,
+      "noImage": 18,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 20,
+      "banner": 0,
+      "dup": 136,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 117,
+      "offSite": 3
+     }
+    },
+    {
+     "url": "https://www.llbean.com/llb/shop/516735?prefn1=refinementGender&prefv1=Womens&nav=gnro",
+     "count": 45,
+     "productShaped": 36,
+     "note": "",
+     "sample": [
+      {
+       "name": "Men's Scotch Plaid Flannel Shirt, Slightly Fitted Untucked, New",
+       "productUrl": "https://www.llbean.com/llb/shop/5884871",
+       "price": "$59.95"
+      },
+      {
+       "name": "Men's Sherpa-Lined Scotch Plaid Shirt, Slightly Fitted",
+       "productUrl": "https://www.llbean.com/llb/shop/121567",
+       "price": "$99.99"
+      },
+      {
+       "name": "Men's Signature 1965 Chamois Cloth Stag Jacket, Slim Fit, Plaid",
+       "productUrl": "https://www.llbean.com/llb/shop/20010180",
+       "price": "$109.99"
+      }
+     ],
+     "rej": {
+      "total": 317,
+      "noImage": 19,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 140,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 108,
+      "offSite": 3
+     }
+    },
+    {
+     "url": "https://www.llbean.com/llb/shop/506213?page=womens-dresses-and-skirts&nav=gnro",
+     "count": 31,
+     "productShaped": 29,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's L.L. Bean Heritage Washed Denim Shirt Dress",
+       "productUrl": "https://www.llbean.com/llb/shop/129901",
+       "price": "$73.99"
+      },
+      {
+       "name": "Women's Cloud Gauze Short-Sleeve Shift Dress",
+       "productUrl": "https://www.llbean.com/llb/shop/20010007",
+       "price": "$34.99"
+      },
+      {
+       "name": "Women's Cloud Gauze Cover-Up Shirt, Stripe",
+       "productUrl": "https://www.llbean.com/llb/shop/129277",
+       "price": "$44.99"
+      }
+     ],
+     "rej": {
+      "total": 270,
+      "noImage": 17,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 10,
+      "banner": 0,
+      "dup": 81,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 126,
+      "offSite": 3
+     }
+    },
+    {
+     "url": "https://www.llbean.com/llb/shop/622?page=womens-pants-and-jeans&nav=gnro",
+     "count": 50,
+     "productShaped": 40,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's L.L.Bean Go-Anywhere Corduroy Pants, Mid-Rise Ultimate Straight-Leg, New",
+       "productUrl": "https://www.llbean.com/llb/shop/5865338",
+       "price": "$89.95"
+      },
+      {
+       "name": "Women's Lakewashed Pull-On Chinos, Mid-Rise Wide-Leg Chambray",
+       "productUrl": "https://www.llbean.com/llb/shop/126607",
+       "price": "$49.99"
+      },
+      {
+       "name": "Women's PrimaLoft ThermaStretch Fleece Pocket Tights, Mid-Rise",
+       "productUrl": "https://www.llbean.com/llb/shop/124950",
+       "price": "$79.99"
+      }
+     ],
+     "rej": {
+      "total": 376,
+      "noImage": 21,
+      "tinyImage": 1,
+      "shortPath": 1,
+      "samePage": 20,
+      "banner": 0,
+      "dup": 142,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 138,
+      "offSite": 3
+     }
+    }
+   ],
+   "secs": 343,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Women's Pima Cotton Tee, Long-Sleeve Open V-Neck, New",
+     "productUrl": "https://www.llbean.com/llb/shop/5879147"
+    },
+    {
+     "name": "Women's Signature Premium Essential Pointelle Tee, Long-Sleeve Henley, New",
+     "productUrl": "https://www.llbean.com/llb/shop/5863826"
+    },
+    {
+     "name": "Women's Soft Stretch Supima-Blend Tee, Long Dolman-Sleeve Jewelneck, New",
+     "productUrl": "https://www.llbean.com/llb/shop/20010773"
+    },
+    {
+     "name": "Four people gather around a lakeside campfire in winter hats, with the text “The gifts that make the moment.”",
+     "productUrl": "https://www.llbean.com/llb/shop/509870"
+    },
+    {
+     "name": "Women's Waffle-Knit Top, Long-Sleeve Jewelneck, New",
+     "productUrl": "https://www.llbean.com/llb/shop/5872360"
+    }
+   ],
+   "verdict": "자동화 가능"
+  }
+ ]
+}
