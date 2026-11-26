@@ -1,0 +1,510 @@
+{
+ "at": "2026-11-26T09:51:10.553Z",
+ "meta": {
+  "at": "2026-11-26T09:50:59.899Z",
+  "runId": "45795558811",
+  "runner": "GitHub Actions 1000008904",
+  "ip": "52.156.111.x"
+ },
+ "engines": [
+  "impit"
+ ],
+ "runInfo": {
+  "impit": "정상 · 10쪽 · 10s"
+ },
+ "targets": [
+  {
+   "kind": "product",
+   "brand": "ba-sh.com",
+   "url": "https://ba-sh.com/us/pants-jeans/"
+  },
+  {
+   "kind": "product",
+   "brand": "ba-sh.com",
+   "url": "https://ba-sh.com/us/trousers-jeans/"
+  },
+  {
+   "kind": "product",
+   "brand": "ba-sh.com",
+   "url": "https://ba-sh.com/us/t-shirts/"
+  },
+  {
+   "kind": "product",
+   "brand": "ba-sh.com",
+   "url": "https://ba-sh.com/us/sweatshirts/"
+  },
+  {
+   "kind": "product",
+   "brand": "ba-sh.com",
+   "url": "https://ba-sh.com/us/tops-shirts/"
+  },
+  {
+   "kind": "product",
+   "brand": "ba-sh.com",
+   "url": "https://ba-sh.com/us/dresses/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.ae.com",
+   "url": "https://www.ae.com/us/en/c/women/tops/t-shirts/cat90030"
+  },
+  {
+   "kind": "product",
+   "brand": "www.poetryfashion.com",
+   "url": "https://www.poetryfashion.com/category-POAST/shirts-tunics.htm"
+  },
+  {
+   "kind": "product",
+   "brand": "www.poetryfashion.com",
+   "url": "https://www.poetryfashion.com/category-POADS/dresses-skirts.htm"
+  },
+  {
+   "kind": "product",
+   "brand": "www.barbour.com",
+   "url": "https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts"
+  }
+ ],
+ "results": {
+  "impit": {
+   "https://ba-sh.com/us/pants-jeans/": {
+    "v": "open",
+    "note": "글 4722자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Jeans for Women - Stylish Denim, Pleated & Joggers | ba&sh US",
+     "bytes": 266186,
+     "textLen": 4608,
+     "headers": {
+      "cf-cache-status": "BYPASS",
+      "cf-ray": "a607fdfb7f2d84b3-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "frz-referrer"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Jeans for Women - Stylish Denim, Pleated & Joggers | ba&sh US Skip to main content Skip to main content ba&sh ba&sh Search Search Search Search in the catalog Trending searches dress skirt jacket belt leather jacket Clos"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://www.ae.com/us/en/c/women/tops/t-shirts/cat90030": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle",
+     "bytes": 840261,
+     "textLen": 10971,
+     "headers": {
+      "akamai-grn": "0.9215d617.1795686660.2a1fe1a8",
+      "content-type": "text/html; charset=utf-8",
+      "server": "istio-envoy",
+      "x-akamai-transformed": "l - 0 -"
+     },
+     "cookies": [
+      "TLTUID",
+      "akaalb_PROD_ALB",
+      "aeoStyliticsSegment",
+      "_br_uid_2",
+      "optimizelyEndUserId",
+      "aeoUserIp",
+      "aeoUserLocation",
+      "_abck",
+      "ak_bmsc",
+      "bm_mi",
+      "bm_sz"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women's Graphic, Cropped, and Oversized T-Shirts | American Eagle Enable Accessibility Enable Accessibility Accessibility Statement Go to Shop AE homepage. Go to Shop Aerie homepage. Account Favorites Checkout Search Sea"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_mi, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.poetryfashion.com/category-POAST/shirts-tunics.htm": {
+    "v": "open",
+    "note": "글 3772자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.poetryfashion.com/poast/shirts-and-tunics",
+     "redirect": "path",
+     "title": "POETRY - Shirts & Tunics",
+     "bytes": 1589958,
+     "textLen": 3710,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607fe094dbceb43-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXiZUT7_B2sBAAB_"
+     },
+     "cookies": [
+      "dwac_de37c8076c689b61626fbd417f",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_1d13d00da8742c6d036c3743f536c7e4",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Shirts & Tunics Skip to main content Skip to footer content Search Call us 1 888 369 3616 Search Clear We could't find any matching results. Try another search term or perhaps you'd like to browse the collection"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_de37c8076c689b61626fbd417f, 쿠키 dwanonymous_1d13d00da8742c6d036c3743f536c7e4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.barbour.com/row/womens/womens-clothing/womens-t-shirts": {
+    "v": "open",
+    "note": "글 14621자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's T-Shirts | Barbour",
+     "bytes": 1002994,
+     "textLen": 14553,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607fe0eda4b7b4d-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "3QHnX__6B2sBAAB_"
+     },
+     "cookies": [
+      "dwac_1e532452c54fb0368ba9b98273",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women's T-Shirts | Barbour Click to view our Accessibility Statement Skip to main content Skip to footer content Barbour Home Barbour Home Barbour Home search Search hamburger Barbour Home Barbour Home close arrow Back B"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_1e532452c54fb0368ba9b98273, 쿠키 dwanonymous_fad861a9ba68573238e98b619c71bf9d, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://ba-sh.com/us/trousers-jeans/": {
+    "v": "open",
+    "note": "글 4722자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://ba-sh.com/us/pants-jeans/",
+     "redirect": "path",
+     "title": "Jeans for Women - Stylish Denim, Pleated & Joggers | ba&sh US",
+     "bytes": 266186,
+     "textLen": 4608,
+     "headers": {
+      "cf-cache-status": "BYPASS",
+      "cf-ray": "a607fe12f9ae84b3-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "frz-referrer"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Jeans for Women - Stylish Denim, Pleated & Joggers | ba&sh US Skip to main content Skip to main content ba&sh ba&sh Search Search Search Search in the catalog Trending searches dress skirt jacket belt leather jacket Clos"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://www.poetryfashion.com/category-POADS/dresses-skirts.htm": {
+    "v": "open",
+    "note": "글 4425자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.poetryfashion.com/poads/dresses-and-skirts",
+     "redirect": "path",
+     "title": "POETRY - Dresses & Skirts",
+     "bytes": 1555825,
+     "textLen": 4327,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607fe158cd8eb43-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXjeIdv8B2sBAAB_"
+     },
+     "cookies": [
+      "dwac_de37c8076c689b61626fbd417f",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_1d13d00da8742c6d036c3743f536c7e4",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Dresses & Skirts Skip to main content Skip to footer content Search Call us 1 888 369 3616 Search Clear We could't find any matching results. Try another search term or perhaps you'd like to browse the collectio"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_de37c8076c689b61626fbd417f, 쿠키 dwanonymous_1d13d00da8742c6d036c3743f536c7e4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://ba-sh.com/us/t-shirts/": {
+    "v": "open",
+    "note": "글 8013자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women T-Shirts & Tank Tops - Stylish Graphic Tees & V-Necks | ba&sh US",
+     "bytes": 222942,
+     "textLen": 7891,
+     "headers": {
+      "cf-cache-status": "BYPASS",
+      "cf-ray": "a607fe1aec3e84b3-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "frz-referrer"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women T-Shirts & Tank Tops - Stylish Graphic Tees & V-Necks | ba&sh US Skip to main content Skip to main content ba&sh ba&sh Search Search Search Search in the catalog Trending searches dress skirt jacket belt leather ja"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://ba-sh.com/us/sweatshirts/": {
+    "v": "open",
+    "note": "글 5005자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://ba-sh.com/us/black-friday/sweaters/",
+     "redirect": "path",
+     "title": "Black Friday Sweater Sale - Up To 40% Off Hoodies & Sweatshirts | ba&sh US",
+     "bytes": 414595,
+     "textLen": 4895,
+     "headers": {
+      "cf-cache-status": "BYPASS",
+      "cf-ray": "a607fe272ce884b3-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "frz-referrer"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Black Friday Sweater Sale - Up To 40% Off Hoodies & Sweatshirts | ba&sh US Skip to main content Skip to main content ba&sh ba&sh Search Search in the catalog Trending searches dress skirt jacket belt leather jacket Close"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://ba-sh.com/us/tops-shirts/": {
+    "v": "open",
+    "note": "글 7862자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Tops & Shirts For Women - Patterned & Floral Print | ba&sh US",
+     "bytes": 268516,
+     "textLen": 7740,
+     "headers": {
+      "cf-cache-status": "BYPASS",
+      "cf-ray": "a607fe2daa0784b3-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "frz-referrer"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Tops & Shirts For Women - Patterned & Floral Print | ba&sh US Skip to main content Skip to main content ba&sh ba&sh Search Search Search Search in the catalog Trending searches dress skirt jacket belt leather jacket Clos"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://ba-sh.com/us/dresses/": {
+    "v": "open",
+    "note": "글 14450자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Dresses For Women - Mini, Maxi, Midi Length Dresses | ba&sh US",
+     "bytes": 843401,
+     "textLen": 14168,
+     "headers": {
+      "cf-cache-status": "BYPASS",
+      "cf-ray": "a607fe370aa384b3-SEA",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "7Sa_TOX8B2sBAAB_"
+     },
+     "cookies": [
+      "dwac_934d62719b796d302d6d547b7e",
+      "cqcid",
+      "cquid",
+      "GlobalE_Data",
+      "sid",
+      "dwanonymous_3844c0b69bfe3e048dd1c65e47cdf49f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Dresses For Women - Mini, Maxi, Midi Length Dresses | ba&sh US Skip to main content Skip to main content Black Friday: extra 15% off with the code EXTRA15 ba&sh ba&sh Search Black Friday Black Friday By category Dresses "
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_934d62719b796d302d6d547b7e, 쿠키 dwanonymous_3844c0b69bfe3e048dd1c65e47cdf49f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   }
+  }
+ },
+ "catalogs": []
+}
