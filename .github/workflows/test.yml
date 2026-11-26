@@ -58,8 +58,10 @@ jobs:
         run: node scripts/test-enrich-wayback.mjs
       - name: Run diagnose target selection test
         run: node scripts/test-diagnose-select.mjs
-      - name: Run morning report combine test (extra-brands job shows up)
+      - name: Run morning report combine test (extra-brands job · Oysho job show up)
         run: node scripts/test-combine-reports.mjs
+      - name: Run nightly collect job split test (main · extra · oysho · store guard)
+        run: node scripts/test-collect-workflow.mjs
       - name: Run access evidence & paid-service slot test (fake API · key never logged)
         run: node scripts/test-access-evidence.mjs
       - name: Run stored composition audit signature test

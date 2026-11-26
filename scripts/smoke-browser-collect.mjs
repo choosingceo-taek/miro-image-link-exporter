@@ -350,6 +350,30 @@ try {
     else if (nm(on) !== "Kilo,November,Oscar,Papa") fail(`[${L}] EXTRA_MODE=only: ${nm(on)}`);
     else ok("EXTRA_MODE=skip 은 Render 그룹만(엔진 바꾸기 유지), only 는 새 추가 브랜드만 — 두 잡이 겹치지도 빠지지도 않는다");
 
+    // 자기 잡(job) — "job" 이 적힌 브랜드는 EXTRA_JOB 이 같은 잡에서만 돈다(예: Oysho 46분).
+    // 세 잡(skip · only · only+EXTRA_JOB)이 겹치지도 빠지지도 않아야 하고, BRANDS 로 그 브랜드만 골라도 그렇다.
+    other("Romeo", four);
+    const jobFile = join(dir, "extra-job.json");
+    writeFileSync(jobFile, JSON.stringify({ brands: [
+      { brand: "Kilo", engine: "firefox" },
+      { brand: "Alpha", engine: "firefox", fresh: true },
+      { brand: "Romeo", engine: "firefox", fresh: true, job: "Romeo" },   // 대소문자 무시
+    ] }));
+    const jSk = await plan({ EXTRA_BRANDS_FILE: jobFile, EXTRA_MODE: "skip" });
+    const jOn = await plan({ EXTRA_BRANDS_FILE: jobFile, EXTRA_MODE: "only" });
+    const jJob = await plan({ EXTRA_BRANDS_FILE: jobFile, EXTRA_MODE: "only", EXTRA_JOB: "romeo" });
+    const jr = jJob.plan && jJob.plan.targets[0];
+    if (nm(jSk) !== "Alpha" || nm(jOn) !== "Kilo" || nm(jJob) !== "Romeo") fail(`[${L}] job 나누기: skip ${nm(jSk)} · only ${nm(jOn)} · only+job ${nm(jJob)}`);
+    else if (!jr || jr.engine !== "firefox" || !jr.fresh || jr.job !== "romeo" || jr.urls.length !== 4) fail(`[${L}] job 잡의 Romeo 설정: ${JSON.stringify(jr)}`);
+    else ok("job 이 적힌 브랜드는 그 잡(EXTRA_JOB)에서만, 적힌 엔진·새 창으로 돈다 — 공용 추가 잡·Render 잡에는 없다");
+    // 측정 실행처럼 BRANDS=Romeo 로 고르면: Render 잡·공용 추가 잡은 할 일 없이 0 으로 끝나고, job 잡만 돈다
+    const bSk = await plan({ EXTRA_BRANDS_FILE: jobFile, EXTRA_MODE: "skip", BRANDS: "Romeo" });
+    const bOn = await plan({ EXTRA_BRANDS_FILE: jobFile, EXTRA_MODE: "only", BRANDS: "Romeo" });
+    const bJob = await plan({ EXTRA_BRANDS_FILE: jobFile, EXTRA_MODE: "only", EXTRA_JOB: "romeo", BRANDS: "Romeo" });
+    if (bSk.code !== 0 || bSk.plan || !/대상 없음/.test(bSk.out) || bOn.code !== 0 || bOn.plan || !/대상 없음/.test(bOn.out) || nm(bJob) !== "Romeo") {
+      fail(`[${L}] BRANDS=Romeo: skip ${bSk.code}/${nm(bSk)} · only ${bOn.code}/${nm(bOn)} · job ${nm(bJob)}`);
+    } else ok("BRANDS 로 job 브랜드만 고르면 다른 두 잡은 '대상 없음'으로 끝나고(종료 0) job 잡만 돈다 — 크롬으로 따로 돌지 않는다");
+
     // 저장 조건(여기엔 파이어폭스가 없어 ENGINE=chromium 으로 돌린다 — 조건은 엔진과 무관하다)
     writeFileSync(file, JSON.stringify({ brands: ["Kilo", "November", "Oscar"].map((brand) => ({ brand, engine: "firefox" })) }));
     state.catalogs = [
