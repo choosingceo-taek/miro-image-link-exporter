@@ -1,4 +1,4 @@
-# 엑셀 4항목 채움률 (2026-11-26T10:20Z)
+# 엑셀 4항목 채움률 (2026-11-26T10:40Z)
 
 보드 스캐너 엑셀에 실제로 찍히는 값이다. 빈 칸은 '확인 필요'로 표시된다.
 
@@ -111,7 +111,7 @@
 **확장 실행 필요 2개** — 36시간 넘게 갱신되지 않았습니다.
 개인/회사 PC 크롬에서 `RACK 상품 수집기` 팝업의 전체 수집을 한 번 돌리세요.
 
-- ⚠ Prana — 1549시간 전 · 81개
+- ⚠ Prana — 1550시간 전 · 81개
 - ⚠ Fatface — 43시간 전 · 374개
 
 <details><summary>정상 32개</summary>
@@ -126,9 +126,9 @@
 - Massimo Dutti — 20시간 전 · 606개
 - Sezane — 20시간 전 · 203개
 - Garnet hill — 20시간 전 · 108개
-- Anthropologie — 19시간 전 · 263개
-- Paige — 19시간 전 · 61개
-- Eileen fisher — 19시간 전 · 545개
+- Anthropologie — 20시간 전 · 263개
+- Paige — 20시간 전 · 61개
+- Eileen fisher — 20시간 전 · 545개
 - Oysho — 19시간 전 · 20개
 - Lululemon — 19시간 전 · 512개
 - Abercrombie & Fitch — 19시간 전 · 224개
@@ -141,13 +141,13 @@
 - &Other Stories — 19시간 전 · 472개
 - Patagonia — 19시간 전 · 168개
 - Addidas — 19시간 전 · 537개
-- Wilson — 18시간 전 · 51개
-- H&M — 4시간 전 · 743개
-- Seasalt cornwall — 4시간 전 · 274개
-- Gap — 4시간 전 · 481개
-- Old Navy — 4시간 전 · 684개
-- Athleta — 4시간 전 · 407개
-- Banana Republic — 4시간 전 · 510개
+- Wilson — 19시간 전 · 51개
+- H&M — 5시간 전 · 743개
+- Seasalt cornwall — 5시간 전 · 274개
+- Gap — 5시간 전 · 481개
+- Old Navy — 5시간 전 · 684개
+- Athleta — 5시간 전 · 407개
+- Banana Republic — 5시간 전 · 510개
 
 </details>
 
@@ -360,7 +360,7 @@
 
 - https://www.llbean.com/llb/shop/504209?page=womens-tees-and-tanks&nav=gnro
 - https://www.llbean.com/llb/shop/886?page=womens-sweatshirts&nav=gnro
-- https://www.llbean.com/llb/shop/516735?prefn1=refinementGender&prefv1=Womens&nav=gnro
+- https://www.llbean.com/llb/shop/502972?page=womens-shirts-and-button-downs
 - https://www.llbean.com/llb/shop/506213?page=womens-dresses-and-skirts&nav=gnro
 - https://www.llbean.com/llb/shop/622?page=womens-pants-and-jeans&nav=gnro
 
@@ -406,7 +406,7 @@
 
 ---
 
-# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-26T10:20Z)
+# 저장 카탈로그 점검 — 상품이 아닌 항목 (2026-11-26T10:40Z)
 
 - 카탈로그 134개 · 상품 42940개 검사 · **문제 항목 41개**
 - 문제가 있는 브랜드 24개
