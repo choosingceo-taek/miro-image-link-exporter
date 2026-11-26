@@ -772,5 +772,25 @@
   "expect": {
    "comp": ""
   }
+ },
+ {
+  "brand": "Banana Republic (viscose rayon · ECOVERO™ (viscose rayon) · elastane spandex)",
+  "file": "bananarepublic-productdo1203518002.html.gz",
+  "url": "https://bananarepublic.gap.com/browse/product.do?pid=1203518002",
+  "name": "",
+  "why": "페이지 글 'Fabric & care 84% viscose rayon, 15% LENZING™ ECOVERO™ (viscose rayon), 1% elastane spandex.' — 같은 섬유 둘을 더한다 (측정 45780157872).",
+  "expect": {
+   "comp": "Viscose 99% / Elastane 1%"
+  }
+ },
+ {
+  "brand": "Gap (설명의 'Made with 14%' 와 추천 카드 '100% Cotton …' 빼기)",
+  "file": "gap-productdo856413002.html.gz",
+  "url": "https://www.gap.com/browse/product.do?pid=856413002",
+  "name": "",
+  "why": "페이지 글 'Made with 14% recycled polyester.' … 'Fabric & care 86% Cotton, 14% Recycled Polyester.' … 추천 카드 '100% Cotton Track Sweater Pants' (측정 45780157872).",
+  "expect": {
+   "comp": "Cotton 86% / Polyester 14%"
+  }
  }
 ]

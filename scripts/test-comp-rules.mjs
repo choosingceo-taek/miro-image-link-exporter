@@ -40,6 +40,9 @@ const TEXT = [
   ["Marine Layer TENCEL™ Modal", "49% Cotton, 47% TENCEL™ Modal, 4% Spandex Hugs the body", "Cotton 49% / Modal 47% / Elastane 4%"],
   ["Athleta LYCRA® Elastane", "Fabric & care 75% Nylon/25% LYCRA® Elastane", "Nylon 75% / Elastane 25%"],
   ["상표만 있으면 상표가 섬유(예전과 같다)", "Made of 100% Tencel. Machine wash.", "Lyocell 100%"],
+  ["Banana Republic viscose rayon · ECOVERO™ (viscose rayon) · elastane spandex", "Fabric & care 84% viscose rayon, 15% LENZING™ ECOVERO™ (viscose rayon), 1% elastane spandex. Machine wash cold", "Viscose 99% / Elastane 1%"],
+  // ── 떨어진 퍼센트는 한 벌이 아니다 · 'Fabric & care' 는 소재 제목(Gap)
+  ["Gap — 설명의 'Made with 14%' + Fabric & care + 추천 카드", "Elasticized hems. Made with 14% recycled polyester. Compared to virgin materials, using recycled materials helps reduce resource use and waste. Product #856413 Size & fit Fit: Relaxed. Fabric & care 86% Cotton, 14% Recycled Polyester. Machine wash cold. Imported. Shipping & returns Shop the collection " + "VintageSoft Hoodie $79.95 50% off at checkout ".repeat(8) + "100% Cotton Track Sweater Pants $99.95", "Cotton 86% / Polyester 14%"],
   // ── 새 섬유 이름
   ["Mint Velvet metallised fibre", "Composition: Main, 31% metallised fibre, 69% viscose Wash Care", "Metallic 31% / Viscose 69%"],
   ["ba&sh METALLIZED FIBER", "Material: 62% VISCOSE / 38% METALLIZED FIBER Made in: China", "Viscose 62% / Metallic 38%"],
