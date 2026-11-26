@@ -52,6 +52,8 @@ jobs:
         run: node scripts/test-enrich-merge.mjs
       - name: Run enrich dry-run test (no writes · BRANDS filter)
         run: node scripts/test-enrich-dry.mjs
+      - name: Enrich — rule version retry · 429 stop · polite measurement
+        run: node scripts/test-enrich-polite.mjs
       - name: Run wayback guard test (category/listing false positives)
         run: node scripts/test-wayback-guard.mjs
       - name: Run enrich wayback layer test (fake archive)

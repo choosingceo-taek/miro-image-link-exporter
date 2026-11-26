@@ -29,6 +29,7 @@ import { urlGuard, urlKey, archivePageCheck, archivedOriginal, archivedTimestamp
 import { guardRun, flagText } from "./comp-guard.mjs";
 import { detailOf, compFromPartsJson, detailRecord } from "./detail-core.mjs";
 import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
+import { ruleVersion } from "./rule-version.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -84,7 +85,35 @@ if (DRY) {
 // 맞도록 글자·숫자만 남겨 비교한다.
 const normBrand = (s2) => String(s2 || "").toLowerCase().replace(/[^a-z0-9가-힣]/g, "");
 const BRANDS = String(process.env.BRANDS || "").split(",").map(normBrand).filter(Boolean);
-const REPORT_FILE = DRY ? "enrich-comp-dry-report.md" : "enrich-comp-report.md";
+// 측정 실행은 실행 번호를 붙인 파일에도 쓴다 — 두 측정을 나란히 돌려도 한쪽이 다른 쪽을 덮지 않게(RUN_ID 가 있을 때만).
+const REPORT_FILE = DRY ? (process.env.RUN_ID ? `enrich-comp-dry-${process.env.RUN_ID}.md` : "enrich-comp-dry-report.md") : "enrich-comp-report.md";
+
+// ── 한 사이트에 정중하게 ─────────────────────────────────────────────
+// HOST_GAP_MS: 같은 호스트로 가는 요청 사이 최소 간격(ms). 기본 0(야간 그대로) — 측정 실행(DRY)은 워크플로가 1000 을 준다.
+// 429: 어떤 호스트든 429 를 한 번 받으면 이 실행에서는 그 호스트에 더 묻지 않는다(야간에도). 그 뒤의 상품은 시도 시각을
+//      찍지 않고 남겨 다음 실행이 읽는다 — '막힘'으로 적어 재시도 창(5일)에 가두지 않는다.
+// WORKER_BYPASS=0: Worker 우회(?comp)를 끈다. Worker 는 같은 상품 주소를 직접 두 번·리더로 한 번 더 열어서, 측정 실행이
+//      상품 주소당 요청을 3번 이하(평 fetch · impit)로 묶으려면 꺼야 한다. 야간은 켠다(기본).
+const HOST_GAP_MS = Math.max(0, Number(process.env.HOST_GAP_MS) || 0);
+const WORKER_BYPASS = process.env.WORKER_BYPASS !== "0";
+const hostOf = (u) => { try { return new URL(u).hostname; } catch (e) { return ""; } };
+const hostNext = new Map();
+const stop429 = new Map();   // 호스트 → 429 를 받은 주소
+const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+async function hostSlot(url) {
+  const h = hostOf(url);
+  if (stop429.has(h)) throw new Error("STOP429 " + h);
+  if (!HOST_GAP_MS || !h) return;
+  const at = Math.max(Date.now(), hostNext.get(h) || 0);
+  hostNext.set(h, at + HOST_GAP_MS);
+  if (at > Date.now()) await pause(at - Date.now());
+  if (stop429.has(h)) throw new Error("STOP429 " + h);
+}
+function note429(url, status) {
+  if (status !== 429) return;
+  const h = hostOf(url);
+  if (h && !stop429.has(h)) { stop429.set(h, url); console.log(`  !! ${h} 가 429(요청 과다) — 이 실행에서는 이 사이트에 더 묻지 않는다`); }
+}
 
 // ── worker 의 추출 블록을 그대로 실행(단일 소스 유지) ─────────────────────
 const workerSrc = readFileSync(join(ROOT, "worker/fabric-extractor.js"), "utf8");
@@ -133,6 +162,31 @@ const fromJsonLd = new Function(
   slice("function titleCase(s) {", "// 페이지 제목") + "\n return fromJsonLd;",
 )();
 
+// ── 추출 규칙 판(rv) — scripts/rule-version.mjs 머리말. 읽었는데 비었던 상품은 판이 바뀌면 재시도 창과 무관하게 한 번 더 연다.
+const RULE_V = ruleVersion();
+
+// ── 측정 실행의 근거 글 — 뽑은 값이 페이지의 어느 글에서 왔나(DRY 리포트의 표본 칸) ──────────────
+// 값의 첫 항목("Cotton 60%")을 페이지 글에서 다시 찾아 앞뒤를 잘라 보여 준다. 추출기와 따로 찾으므로 사람이 맞는지 볼 수 있다.
+function evidenceOf(src, comp) {
+  const first = String(comp || "").split(/\n| \/ /)[0].trim();
+  const m = first.match(/^(.+) (\d{1,3})%$/);
+  if (!m || !src) return "";
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const keys = Object.keys(FIBRE_MAP).filter((k) => FIBRE_MAP[k] === m[1]).sort((a, z) => z.length - a.length).map(esc);
+  const alt = (keys.length ? keys : [esc(m[1])]).join("|");
+  const rx = new RegExp(`(?<![\\d.])${m[2]}\\s*(?:%|percent)[^%]{0,40}?(?:${alt})|(?:${alt})[^%\\d]{0,30}?${m[2]}\\s*%`, "i");
+  const h = String(src);
+  const vis = h.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/\s+/g, " ");
+  const raw = h.replace(/\\u003c/gi, "<").replace(/\\u003e/gi, ">").replace(/\\u0026/gi, "&").replace(/\\"/g, '"').replace(/\\\//g, "/")
+    .replace(/<[^>]+>/g, " ").replace(/\\[nrt]/g, " ").replace(/\s+/g, " ");
+  for (const [where, t] of [["화면 글", vis], ["페이지 JSON", raw]]) {
+    const x = t.match(rx);
+    if (x) return `${where}: …${t.slice(Math.max(0, x.index - 90), x.index + x[0].length + 110).trim()}…`;
+  }
+  return "";
+}
+
 const _unusedCompOfJsonLd = (html) => {
   try {
     const ld = fromJsonLd(html);
@@ -157,8 +211,9 @@ if (process.env.IMPIT !== "0") {
 }
 const IMPIT_ON = !!impitClient;
 async function getImpit(url) {
+  await hostSlot(url);
   const r = await impitClient.fetch(url, { headers: { "Accept-Language": "en-US,en;q=0.9" } });
-  if (r.status >= 400) throw new Error("HTTP " + r.status);
+  if (r.status >= 400) { note429(url, r.status); throw new Error("HTTP " + r.status); }
   return r.text();
 }
 
@@ -171,12 +226,13 @@ const DETAIL_RETRY_MS = Math.max(1, Number(process.env.DETAIL_RETRY_DAYS) || 30)
 const STOP_AT = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 95) * 60_000;
 
 async function get(url, accept, timeoutMs = 20000) {
+  await hostSlot(url);
   const r = await fetch(url, {
     headers: { "user-agent": UA, accept: accept || "text/html,*/*;q=0.8", "accept-language": "en-US,en;q=0.9" },
     redirect: "follow",
     signal: AbortSignal.timeout(timeoutMs),
   });
-  if (!r.ok) throw new Error("HTTP " + r.status);
+  if (!r.ok) { note429(url, r.status); throw new Error("HTTP " + r.status); }
   return r.text();
 }
 
@@ -240,6 +296,7 @@ function productRead(html, name) {
 
 // 한 상품의 네 항목(혼용률·컬러·사이즈·가격). 실패는 null — 이유는 세어서 리포트로.
 async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
+  if (stop429.has(hostOf(url))) return { skip429: true };
   // ① Shopify JSON — 가장 싸고 정확. variants/options 에 사이즈·컬러·가격이 구조화돼 있다.
   const m = url.match(/^(https?:\/\/[^/]+).*?\/products\/([^/?#]+)/i);
   let shopPr = null;
@@ -263,6 +320,7 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
         };
         // 혼용률까지 나왔으면 여기서 끝 — 단, 디테일 글머리표·본문 칸은 페이지에만 있는 사이트가 많아
         // 상세가 비면(설명·디테일 둘 다 없음) 페이지도 연다.
+        if (DRY && out.comp) { out.src = "Shopify JSON"; out.ev = evidenceOf(String(pr.body_html || pr.description || ""), out.comp); }
         if (out.comp && (out.det.desc || out.det.feat)) { stat.shopify++; return out; }
         if (out.comp || has(out)) { stat.shopify++; var partial = out; }
       }
@@ -293,12 +351,13 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
     const text = html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ");
     // 상품 상세 — 이 상품의 본문이 그려진 페이지일 때만(껍데기의 글은 다른 상품·사이트 공통 글이다).
     const d = shell ? {} : detailOf(html, url, shopPr);
+    // JSON-LD 소재는 옳을 때만 먼저(옳지 않으면 본문으로 — Buck Mason 'Cotton - With Double The 100%').
+    // Massimo Dutti 형(소재가 페이지 JSON parts/components 에만)은 본문·글에서 못 찾았을 때만.
+    const ldComp = (ld.composition && ld.composition.length && validComp(asComp(ld.composition))) ? asComp(ld.composition) : "";
+    const pageComp = ldComp ? "" : (asComp(compFromHtml(html)) || asComp(compFromText(text)));
+    const partsComp = ldComp || pageComp || shell ? "" : asComp(compFromPartsJson(html, url));
     const out = {
-      // JSON-LD 소재는 옳을 때만 먼저(옳지 않으면 본문으로 — Buck Mason 'Cotton - With Double The 100%').
-      comp: (ld.composition && ld.composition.length && validComp(asComp(ld.composition)))
-        ? asComp(ld.composition)
-        // Massimo Dutti 형(소재가 페이지 JSON parts/components 에만)은 본문·글에서 못 찾았을 때만.
-        : (asComp(compFromHtml(html)) || asComp(compFromText(text)) || (shell ? "" : asComp(compFromPartsJson(html, url)))),
+      comp: ldComp || pageComp || partsComp,
       // 색은 JSON-LD 에 없는 경우가 더 많다 — 페이지의 색상 선택 옵션에서도 읽는다.
       color: ld.color || colorFromHtml(html) || d.color || "",
       sizes: (ld.sizes && ld.sizes.length ? ld.sizes : (d.sizes || [])).slice(0, 30).join(", "),
@@ -306,6 +365,7 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
       priceOrig: ld.price_original || d.priceOrig || "",
     };
     if (!shell) out.det = detailRecord(d);
+    if (DRY && out.comp) { out.src = ldComp ? "JSON-LD" : pageComp ? "본문" : "페이지 JSON(parts)"; out.ev = evidenceOf(html, out.comp); }
     if (has(out)) { stat.page++; return merge(out, typeof partial === "undefined" ? null : partial); }
     // 혼용률·컬러·가격은 없어도 설명·디테일이 나왔으면 그것만이라도 넘긴다(아래 none 판정은 그대로).
     if (out.det && (out.det.desc || out.det.feat)) var detOnly = out.det;
@@ -322,7 +382,7 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
   // ③ Worker 우회 — GitHub Actions IP 는 많은 쇼핑몰에서 403 이지만 Cloudflare IP 는
   //    통과하는 경우가 많다. Worker 안에서 Shopify JSON → 직접 → 리더까지 다시 시도한다.
   let viaWorker = null;
-  try {
+  if (WORKER_BYPASS) try {
     const r = await fetch(WORKER + "/?comp=" + encodeURIComponent(url) + tok, {
       signal: AbortSignal.timeout(20000),
     });
@@ -336,6 +396,7 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
     }
     else stat.noData++;
   } catch (e) { stat.fail++; }
+  if (DRY && viaWorker && viaWorker.comp && !viaWorker.src) { viaWorker.src = "Worker 우회"; viaWorker.ev = "(Worker 가 읽음 — 이 실행은 페이지 글을 갖고 있지 않다)"; }
   // ④ 웹 아카이브 — 지금 페이지를 진짜로 못 읽었고(차단·봇 확인·빈 껍데기) 앞 경로에서
   //    혼용률이 안 나왔을 때만. 소재는 시간이 지나도 안 바뀌므로 몇 달 전 보관본이어도
   //    값이 같다. 가격·사이즈·재고는 바뀌므로 보관본에서는 혼용률·컬러만 받는다.
@@ -524,7 +585,8 @@ async function waybackOf(url, stat, o, ctx) {
     stat.wayback++;
     wbNote("찾음", brand, url, `${ts.slice(0, 8)} · ${comp.replace(/\n/g, " | ")}${target !== bare ? " · 쿼리 포함 주소" : ""}`);
     // 가격·사이즈·정가는 일부러 싣지 않는다 — 보관본 시점의 값이라 지금과 다르다.
-    return { comp, color: validColor(color) ? color : "", via: "wayback", wd: ts.slice(0, 8), wt: Date.now(), arcOnly: true };
+    return { comp, color: validColor(color) ? color : "", via: "wayback", wd: ts.slice(0, 8), wt: Date.now(), arcOnly: true,
+      ...(DRY ? { src: `보관본 ${ts.slice(0, 8)}`, ev: evidenceOf(html, comp) } : {}) };
   } catch (e) {
     stat.wbErr++;
     wbNote("아카이브 오류", brand, url, String((e && e.message) || e).slice(0, 120));
@@ -588,6 +650,8 @@ function merge(a, b) {
   for (const k of ["comp", "color", "sizes", "price", "priceOrig"]) if (!out[k] && a[k]) out[k] = a[k];
   // 상세는 칸별로 합친다. 페이지 쪽(a)이 이긴다 — 페이지 추출은 Shopify JSON 까지 함께 보고 본문 칸의 글머리표를 더한 것이다.
   if (a.det || b.det) out.det = { ...(b.det || {}), ...(a.det || {}) };
+  // 측정 실행의 출처·근거 글은 혼용률을 준 쪽 것을 따라간다.
+  if (a.comp && out.comp === a.comp && a.src) { out.src = a.src; out.ev = a.ev; }
   return out;
 }
 
@@ -663,6 +727,23 @@ const detailNoStore = new Set();   // DRY 에서 Worker 상세 칸을 못 읽은
 const detailHeld = [];
 // 껍데기(차단 화면은 아닌데 상품명이 화면 글에 없음)로 센 페이지의 예 — 리포트에 남긴다.
 const shellEx = [];
+// 측정 실행(DRY)의 브랜드별 표본 — 채운 것(값 · 출처 · 페이지 글), 읽었는데 빈 것, 못 읽은 것. 사람이 페이지를 열어 확인한다.
+const SAMPLE_N = Math.max(1, Number(process.env.SAMPLE_N) || 3);
+const samples = new Map();
+function sampleOf(brand, p, got) {
+  const s = samples.get(brand) || { filled: [], none: [], blocked: [], filledN: 0, noneN: 0, blockedN: 0 };
+  samples.set(brand, s);
+  const comp = got ? asComp(got.comp) : "";
+  if (got && validComp(comp)) {
+    s.filledN++;
+    // 앞·뒤를 고루 보려고 처음 둘과 그 뒤 5번째마다 하나를 바꿔 넣는다(최대 SAMPLE_N+2)
+    if (s.filled.length < SAMPLE_N + 2) s.filled.push({ url: p.productUrl, name: p.name || "", comp, src: got.src || "", ev: got.ev || "" });
+  } else if (got && !got.blocked && (got.none || has(got))) {
+    // 페이지(또는 Shopify JSON)는 읽었는데 혼용률이 없다 — 미표기로 적혔거나, 컬러·가격만 나온 상품
+    s.noneN++;
+    if (s.none.length < SAMPLE_N) s.none.push({ url: p.productUrl, name: p.name || "", why: got.none ? "미표기" : "컬러·가격만" });
+  } else { s.blockedN++; if (s.blocked.length < SAMPLE_N) s.blocked.push({ url: p.productUrl, name: p.name || "", why: got && got.blocked ? (got.bv ? "막힘(" + got.bv + ")" : "막힘·껍데기") : "값 없음" }); }
+}
 // 같은 브랜드가 1차·2차 두 번 처리되므로 결과를 한 줄로 합친다.
 const rowBySite = new Map();
 const addRow = (r) => {
@@ -766,6 +847,11 @@ async function processBrand(c, phase) {
     // Buck Mason·Dickies·Everlane·Whitestuff … 의 빈 혼용률이 평 fetch 차단 한 번으로 계속 비어 있었다.
     // 사이트 미표기(none)로 판정된 상품은 아니다. 한 번 impit 으로 보고 나면 bv 에 impit 이 남아 다시 창을 지킨다.
     if (IMPIT_ON && FIELDS.includes("comp") && !okOf(o, "comp") && !o.none && o.t && !String(o.bv || "").includes("impit")) return false;
+    // 추출 규칙이 바뀐 뒤 — 읽었는데 비었던 상품(사이트 미표기 포함)은 창과 무관하게 한 번 더 연다(RULE_V 주석).
+    //   rv 가 있으면 그 판과 지금 판을 견준다. rv 가 없는 예전 기록은 '읽었는데 비었던' 흔적(사이트 미표기 none, 또는 컬러·가격·
+    //   사이즈는 읽힘)이 있을 때만 — 시도 시각만 있는 기록은 막혔던 것일 수 있어 창을 지킨다(impit 까지 막힘 bv 도 마찬가지).
+    if (FIELDS.includes("comp") && !okOf(o, "comp") && o.t && (o.rv ? o.rv !== RULE_V
+      : !o.bv && !!(o.none || valOf(o, "color") || valOf(o, "price") || valOf(o, "sizes")))) return false;
     if (RETRY_ALL) return false;          // 창을 무시하고 다시 읽는다
     return o.t && now - o.t < RETRY_MS;   // 최근 시도 → 이번엔 넘긴다
   };
@@ -820,7 +906,12 @@ async function processBrand(c, phase) {
   const details = {};
   await pool(todo, PAGE_POOL, async (p) => {
     if (phase === PHASE_DETAIL && Date.now() > STOP_AT) return;   // 3차는 시간이 다 되면 멈춘다(남은 것은 다음 밤)
+    // 2차도 시간이 다 되면 새로 열지 않는다 — 워크플로 제한 시간에 걸리면 리포트·검색 인덱스를 못 쓴다. 남은 것은 다음 밤.
+    if (phase === PHASE_OLD && Date.now() > STOP_AT) { stat.late = (stat.late || 0) + 1; return; }
     const got = await enrichOf(p.productUrl, stat, ov(p), wbCtx, p.name || "");
+    // 이 사이트가 429 를 준 뒤 — 시도 기록을 남기지 않는다(다음 실행이 읽는다). 이번 상품이 429 를 받은 경우도 같다.
+    if ((got && got.skip429) || (stop429.has(hostOf(p.productUrl)) && !(got && validComp(asComp(got.comp))))) { stat.skip429 = (stat.skip429 || 0) + 1; return; }
+    if (DRY) sampleOf(cat.brand || c.brand || c.site, p, got);
     // 상세: 페이지(또는 Shopify JSON)를 읽었을 때만 남긴다 — 빈 기록도 남겨 '봤다'(dt)를 찍는다. 막힌 상품은 남기지 않는다.
     if (got && !got.blocked && (got.det || has(got) || got.none)) details[p.productUrl] = got.det || {};
     // 빈 결과도 넣는다 — 저장 단계에서 '시도 시각'만 찍혀 다음 실행이 건너뛴다.
@@ -912,6 +1003,9 @@ async function processBrand(c, phase) {
       // 엑셀에서 '확인 필요'(아직 못 구함)와 다르게 '정보 없음'으로 보여 주기 위한 표시다.
       // 값을 찾았으면 지운다 — 사이트가 나중에 표기를 추가했을 수 있다.
       // nv 에 'fetch' 를 남긴다 — 크롬 보강이 다른 엔진으로 한 번 더 확인할 수 있게(markNone).
+      // 어느 규칙 판으로 시도했나 — 혼용률이 비어 있을 때만 남긴다(판이 바뀌면 다시 읽으려고, RULE_V). 막힌 시도도 적는다:
+      // 안 적으면 그 상품은 예전 기록으로 보여 매 실행 다시 열린다. 판이 바뀔 때 한 번 더 열릴 뿐이다.
+      if (!okOf(cur, "comp")) cur.rv = RULE_V; else delete cur.rv;
       if (inc.none && !cur.comp) markNone(cur, "fetch");
       else if (cur.comp) clearNone(cur);
       // 오늘 읽으려 했는데 막혔다면 '사이트가 안 적는다'고 단정할 근거가 없다.
@@ -1088,6 +1182,10 @@ if (BRANDS.length) {
   md += `대상 브랜드(BRANDS): ${list.map((c) => c.brand || c.site).join(", ") || "(없음)"}` +
     (unmatchedBrands.length ? ` · 못 찾은 이름: ${unmatchedBrands.join(", ")}` : "") + `\n\n`;
 }
+md += `- 설정: 재시도 창 ${RETRY_DAYS}일${RETRY_ALL ? "(무시 — RETRY_ALL)" : ""} · 추출 규칙 판 ${RULE_V} · 한 사이트 요청 간격 ${HOST_GAP_MS}ms · ` +
+  `Worker 우회 ${WORKER_BYPASS ? "켬" : "끔(측정 — 상품 주소당 요청 3번 이하)"} · impit ${IMPIT_ON ? "켬" : "없음"}\n`;
+if (stop429.size) md += `- **429 를 받아 이 실행에서 그만 물은 사이트**: ${[...stop429].map(([h, u]) => `${h}(${u})`).join(" · ")} — 그 뒤 상품은 시도 기록 없이 남겼다\n`;
+md += `\n`;
 // ── 엑셀 열 개방 기준 ──────────────────────────────────────────────
 // 절반만 찬 표는 쓸 수 없다는 판단으로, 두 항목이 모두 GATE% 를 넘을 때만
 // 보드 스캐너 엑셀에 열을 연다(index.html 의 SHOW_FABRIC_COLUMNS).
@@ -1130,7 +1228,8 @@ const pathStr = (st) => {
   if (!st) return "";
   const ok = ["shopify", "page", "impit", "worker", "wayback"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
   const ng = ["noData", "blocked", "shell", "fail", "wbNone", "wbReject", "wbErr"].filter((k) => st[k]).map((k) => `${PATH_LABEL[k]} ${st[k]}`);
-  return [ok.length ? "성공 " + ok.join("·") : "", st.none ? `미표기 ${st.none}` : "", st.held ? `가드 보류 ${st.held}` : "", ng.length ? "실패 " + ng.join("·") : ""].filter(Boolean).join(" / ");
+  return [ok.length ? "성공 " + ok.join("·") : "", st.none ? `미표기 ${st.none}` : "", st.held ? `가드 보류 ${st.held}` : "", ng.length ? "실패 " + ng.join("·") : "",
+    st.skip429 ? `429 로 멈춤 ${st.skip429}` : "", st.late ? `시간 끝 ${st.late}` : ""].filter(Boolean).join(" / ");
 };
 const gaps = done.filter((r) => r.total).sort((a, z) => (a.have / a.total) - (z.have / z.total));
 if (gaps.length) {
@@ -1183,6 +1282,19 @@ if (guardHeld.length) {
     md += `| ${x.brand} | [${String(x.name || "(이름 없음)").replace(/\|/g, "/").slice(0, 60)}](${x.url}) | ${String(x.comp).replace(/\n/g, " ‖ ")} | ${x.why.replace(/\|/g, "/")} |\n`;
   }
   md += `\n`;
+}
+// ── 측정 실행의 표본(DRY) ─────────────────────────────────────────
+if (DRY && samples.size) {
+  md += `## 브랜드별 표본 — 사람이 열어 확인할 것\n\n`;
+  md += `채운 것: 이번에 읽은 값 · 출처 · 그 값을 페이지 글에서 다시 찾은 자리(추출기와 따로 찾음 — 못 찾으면 비어 있다).\n`;
+  md += `빈 것: 페이지는 읽었는데 혼용률이 없던 상품(사이트 미표기로 적었을 것). 못 읽음: 막힘·껍데기·값 없음.\n\n`;
+  for (const [brand, x] of [...samples].sort((a, z) => (a[0] < z[0] ? -1 : 1))) {
+    md += `### ${brand} — 채움 ${x.filledN} · 빈 것 ${x.noneN} · 못 읽음 ${x.blockedN}\n\n`;
+    for (const f of x.filled) md += `- ✅ ${f.url}\n  - 값: **${f.comp.replace(/\n/g, " ‖ ")}** (${f.src || "?"})\n  - 페이지 글: ${(f.ev || "(다시 찾지 못함)").replace(/\|/g, "/").slice(0, 320)}\n`;
+    for (const f of x.none) md += `- ⬜ 빈 것(${f.why}) · ${f.url}\n`;
+    for (const f of x.blocked) md += `- ⛔ ${f.why} · ${f.url}\n`;
+    md += `\n`;
+  }
 }
 // ── 웹 아카이브 층 ─────────────────────────────────────────────────
 if (WAYBACK) {
