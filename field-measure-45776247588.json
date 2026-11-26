@@ -1,0 +1,4708 @@
+{
+ "runId": "45776247588",
+ "at": "2026-11-26T07:34:14.062Z",
+ "ip": "4.246.119.x",
+ "part": "1/1",
+ "brands": [
+  {
+   "brand": "Buck Mason",
+   "site": "buckmason.com.buckmason",
+   "products": [
+    {
+     "url": "https://www.buckmason.com/products/natural-sea-breeze-linen-coastline-cami",
+     "name": "Close-up of a white linen cami with thin straps, cropped at the torso",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 73967,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 137643,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Natural Sea Breeze Linen Coastline Cami",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW14259.1503NAT_SEABREEZELINENPULL-ONPANT_NATURAL_20.jpg?v=1778183968",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW14259.1503NAT_SEABREEZELINENPULL-ONPANT_NATURAL_20960.jpg?v=1778183968",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW14259.1503NAT_SEABREEZELINENPULL-ONPANT_NATURAL_20977.jpg?v=1778183968",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW14259.1503NAT_SEABREEZELINENPULL-ONPANT_NATURAL_20991.jpg?v=1778183968",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13494.1503NAT_NATURALSEABREEZELINENCOASTLINECAMI_1.jpg?v=1778777333",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13494.1503NAT_NATURALSEABREEZELINENCOASTLINECAMI_3_1.jpg?v=1778777333",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13494.1503NAT_NATURALSEABREEZELINENCOASTLINECAMI_2.jpg?v=1778777333"
+      ],
+      "price": "$108",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "natural",
+      "colors": [
+       "natural"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "A cropped, square-neck linen tank with fully adjustable self-tie straps.",
+      "feat": [
+       "Cropped",
+       "Slubby Linen"
+      ],
+      "sku": "7883870896211"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "color",
+        "size",
+        "material",
+        "priceCurrency",
+        "price",
+        "lowPrice",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "product:price:amount",
+       "og:price:currency",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 4,
+      "sizeBtns": 12,
+      "priceEls": 25,
+      "strike": false,
+      "galleryImgs": 7,
+      "len": 137643
+     },
+     "clickOnly": {
+      "featImpit": 2,
+      "featFirefox": 2,
+      "descImpit": 72,
+      "descFirefox": 72
+     },
+     "fixture": {
+      "file": "buckmason-naturalseabreezelinencoastlinecami.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.buckmason.com/products/dark-navy-draped-twill-cpo-shirt",
+     "name": "Dark Navy Draped Twill Cpo Shirt",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 76480,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 140326,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Dark Navy Draped Twill Cpo Shirt",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13470.1499DKN_DRAPEDTWILLCPOSHIRT_DARKNAVY_20171.jpg?v=1776274471",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13470.1499DKN_DRAPEDTWILLCPOSHIRT_DARKNAVY_20km.jpg?v=1776274471",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13470.1499DKN_DRAPEDTWILLCPOSHIRT_DARKNAVY_20177.jpg?v=1776274471",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13470.1499DKN_DRAPEDTWILLCPOSHIRT_DARKNAVY_20192.jpg?v=1776274471",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13470.1499DKN_DRAPEDTWILLCPOSHIRT_DARKNAVY_20200.jpg?v=1776274471",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13470.1499DKN_DARKNAVYDRAPEDTWILLCPOSHIRTDarkNavy_1.jpg?v=1776274405",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW13470.1499DKN_DARKNAVYDRAPEDTWILLCPOSHIRTDarkNavy_2.jpg?v=1776274471"
+      ],
+      "price": "$168",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "dark navy",
+      "colors": [
+       "dark navy"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "L"
+      ],
+      "comp": "",
+      "desc": "A relaxed Naval CPO cut from a drapey, dressier slubbed linen/Tencel blend.",
+      "feat": [
+       "Relaxed",
+       "Linen/Tencel"
+      ],
+      "sku": "7883870404691"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "color",
+        "size",
+        "material",
+        "priceCurrency",
+        "price",
+        "lowPrice",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "product:price:amount",
+       "og:price:currency",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 6,
+      "sizeBtns": 12,
+      "priceEls": 27,
+      "strike": false,
+      "galleryImgs": 7,
+      "len": 140326
+     },
+     "clickOnly": {
+      "featImpit": 2,
+      "featFirefox": 2,
+      "descImpit": 75,
+      "descFirefox": 75
+     },
+     "fixture": {
+      "file": "buckmason-darknavydrapedtwillcposhirt.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.buckmason.com/products/black-after-hours-silky-pant",
+     "name": "After Hours Silky Pant",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 73973,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 137349,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Black After Hours Silky Pant",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW14255.1130_BLACK_AFTERHOURSSILKYPANT_69644_1.jpg?v=1794255528",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW16617.629_BLACK_FEATHERWEIGHTSILKCASHMEREV-NECKCARDIGAN_69605_1_d0ddf428-5c57-4789-be7e-bf47c7eb5fb4.jpg?v=1794255528",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW14255.1130_BLACK_AFTERHOURSSILKYPANT_69668_2.jpg?v=1794255528",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW14255.1130_AFTERHOURSSILKYPANTBLACK_1.jpg?v=1794256033",
+       "https://cdn.shopify.com/s/files/1/0123/5065/2473/files/BW14255.1130_AFTERHOURSSILKYPANTBLACK_2.jpg?v=1794256035"
+      ],
+      "price": "$208",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "black",
+      "colors": [
+       "black"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "sizesIn": [
+       "XS",
+       "M",
+       "L"
+      ],
+      "comp": "",
+      "desc": "A silky pull-on trouser inspired by 1940s tuxedo and pajama pants.",
+      "feat": [
+       "Classic fit."
+      ],
+      "sku": "8022927081555"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "color",
+        "size",
+        "material",
+        "priceCurrency",
+        "price",
+        "lowPrice",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "product:price:amount",
+       "og:price:currency",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 4,
+      "sizeBtns": 10,
+      "priceEls": 28,
+      "strike": false,
+      "galleryImgs": 5,
+      "len": 137349
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 1,
+      "descImpit": 66,
+      "descFirefox": 66
+     },
+     "fixture": {
+      "file": "buckmason-blackafterhourssilkypant.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 118,
+    "withRow": 118,
+    "comp": 111,
+    "color": 117,
+    "sizes": 118,
+    "price": 118,
+    "tried": 118,
+    "in5d": 118,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 4,
+    "noneNv": {
+     "(예전)": 4
+    },
+    "oldestT": 1795661684057,
+    "newestT": 1795678152698,
+    "emptyIn5d": 7,
+    "emptyKind": {
+     "none": 4,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 0,
+     "plain": 3
+    }
+   },
+   "total": 118,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Chico's",
+   "site": "chicos.com.chicos",
+   "products": [
+    {
+     "url": "https://www.chicos.com/store/product/touch-of-cool-cheetah-v-neck-layering-tee/570418143?inseam=regular&sizeType=regular&color=001&catId=cat11199293&collectionId=category&parentId=199761355020",
+     "name": "Touch of Cool™ Cheetah V-Neck Layering Tee",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 623,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 403,
+       "len": 514,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.chicos.com/store/product/ponte-godet-long-sleeve-dress/570414273?inseam=regular&sizeType=regular&color=7069&catId=cat40004&collectionId=category&queryId=69f942d373838142b3227896643a9e15&indexName=prod_chs_products&parentId=199761089680",
+     "name": "Ponte Godet Long-Sleeve Dress",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 599,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 403,
+       "len": 502,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.chicos.com/store/product/shimmering-christmas-cheer-long-sleeve-layering-tee/570423126?inseam=regular&sizeType=regular&color=001&catId=cat40002&collectionId=category&queryId=49f1a0ea3acddb548ed9a0a72a0e1bab&indexName=prod_chs_products&parentId=199761629558",
+     "name": "Shimmering Christmas Cheer Long Sleeve Layering Tee",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 629,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 403,
+       "len": 524,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    }
+   ],
+   "overlay": {
+    "items": 800,
+    "withRow": 800,
+    "comp": 45,
+    "color": 44,
+    "sizes": 0,
+    "price": 30,
+    "tried": 800,
+    "in5d": 536,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795225196765,
+    "newestT": 1795664886573,
+    "emptyIn5d": 491,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 24,
+     "wt": 24,
+     "plain": 755
+    }
+   },
+   "total": 800,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Coldwatercreek",
+   "site": "coldwatercreek.com.coldwatercreek",
+   "products": [
+    {
+     "url": "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/",
+     "name": "Wintertide Waffle Tee",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 6062,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1266127,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Wintertide Waffle Tee",
+      "imgs": [
+       "https://cdn11.bigcommerce.com/s-lulfv0vz2b/images/stencil/1280x1280/products/11648/180275/wintertide-waffle-tee__sapphire-multi_0__44841.1795033649.jpg?c=1"
+      ],
+      "price": "$79.95",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options for Winter’s Dream Waffle Tunic",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Alpine motifs give this light, waffle knit tee a folkloric feel. Embroidered at the shoulders and sleeves, with a split neck and curved hem.",
+      "feat": [
+       "Misses 26\" long; Petites 24\"; Women’s 28\"",
+       "Hits mid hip",
+       "Relaxed fit",
+       "Cotton/spandex",
+       "Machine wash",
+       "Imported"
+      ],
+      "sku": "22279"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 3,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "lowPrice",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "highlights",
+       "features",
+       "product description",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 66,
+      "sizeBtns": 25,
+      "priceEls": 11,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1266127
+     },
+     "fixture": {
+      "file": "coldwatercreek-22279.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.coldwatercreek.com/soft-plaid-pocket-dress/23937/",
+     "name": "Soft Plaid Pocket Dress",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 6089,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1181838,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Soft Plaid Pocket Dress",
+      "imgs": [
+       "https://cdn11.bigcommerce.com/s-lulfv0vz2b/images/stencil/1280x1280/products/13919/175836/soft-plaid-pocket-dress__charcoal-multi_0__14934.1792636634.jpg?c=1"
+      ],
+      "price": "$139.95",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options for Soft Touch Plaid Shirtdress",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Spice up your wardrobe with this brushed knit dress, soft and stretchy in a bold blocked plaid. Midweight slipover style has a high, shirred waist seam and large patch pockets.",
+      "feat": [
+       "Misses 45\" long; Petites 41\"; Women’s 46\"",
+       "Hits high calf",
+       "Relaxed fit",
+       "3/4 sleeves",
+       "Large patch pockets",
+       "Polyester/rayon/spandex",
+       "Machine wash",
+       "Imported"
+      ],
+      "sku": "23937"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 3,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "lowPrice",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "highlights",
+       "features",
+       "product description",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 65,
+      "sizeBtns": 25,
+      "priceEls": 10,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 1181838
+     },
+     "fixture": {
+      "file": "coldwatercreek-23937.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.coldwatercreek.com/lightweight-chino-barrel-leg-pants/25466/",
+     "name": "Lightweight Chino Barrel-Leg Pants",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 6122,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1199194,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Lightweight Chino Barrel-Leg Pants",
+      "imgs": [
+       "https://cdn11.bigcommerce.com/s-lulfv0vz2b/images/stencil/1280x1280/products/15037/178600/lightweight-chino-barrel-leg-pants__white_0__75034.1794409176.jpg?c=1"
+      ],
+      "price": "$39.95",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "options for Lantern-Leg Linen Pants",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Our barrel-leg chino pants offer a fresh take on pull-on comfort with their soft, relaxed silhouette and lightweight stretch twill fabric. The wide, tapered legs create a contemporary look that hits at the ankle, while the pull-on waist and four pockets deliver everyday ease for work-from-home days to neighborhood walks.",
+      "feat": [
+       "Mid rise sits slightly below the waist",
+       "Hits at ankle",
+       "Misses 28\" inseam; Petites 25\"; Women's 28\"",
+       "Pull-on waist",
+       "Barrel leg, 16\" leg opening",
+       "Four pockets",
+       "Cotton/spandex",
+       "Machine wash",
+       "Imported"
+      ],
+      "sku": "25466"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 3,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "lowPrice",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "product:price:amount",
+       "product:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "highlights",
+       "features",
+       "product description",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": true,
+      "swatches": 53,
+      "sizeBtns": 29,
+      "priceEls": 11,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1199194
+     },
+     "fixture": {
+      "file": "coldwatercreek-25466.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 200,
+    "withRow": 200,
+    "comp": 71,
+    "color": 113,
+    "sizes": 0,
+    "price": 198,
+    "tried": 200,
+    "in5d": 200,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 128,
+    "noneNv": {
+     "chromium,fetch,firefox": 112,
+     "firefox": 1,
+     "(예전)": 3,
+     "chromium,fetch": 12
+    },
+    "oldestT": 1795546689573,
+    "newestT": 1795678159966,
+    "emptyIn5d": 129,
+    "emptyKind": {
+     "none": 128,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 1,
+     "plain": 1
+    }
+   },
+   "total": 200,
+   "byName": true,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 200
+  },
+  {
+   "brand": "Dickies",
+   "site": "dickies.com.dickies",
+   "products": [
+    {
+     "url": "https://www.dickies.com/products/dk-balance-v-neck-top-dk875-roy",
+     "name": "Women's Balance V-Neck Scrub Top",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 894809,
+       "final": "https://www.dickies.com/en-us/products/dk-balance-v-neck-top-dk875-roy"
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1213588,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 2,
+      "variants": 10,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 512
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Women's Balance V-Neck Scrub Top",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0692/5752/7484/files/DK875_ROY_OM-F_badb7bd9-55bc-4367-9a38-1fc39f085cca.jpg?v=1785950432",
+       "https://cdn.shopify.com/s/files/1/0692/5752/7484/files/DK875_ROY_OM-B_265e324b-cb28-4f66-aca7-b4e4a78c5377.jpg?v=1785950375"
+      ],
+      "price": "$27.19",
+      "priceOrig": "$36.99",
+      "cur": "USD",
+      "color": "ROYAL (RYLZ)",
+      "colors": [
+       "ROYAL (RYLZ)"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL",
+       "3XL",
+       "4XL",
+       "5XL"
+      ],
+      "sizesIn": [
+       "XXS",
+       "XL",
+       "2XL",
+       "3XL",
+       "4XL",
+       "5XL"
+      ],
+      "comp": "",
+      "desc": "This Contemporary fit, short sleeve V-neck top has two roomy patch pockets, two side seam pockets, secured zip pocket along with comfort knit at front and back side panels. It also features front and back yoke seams with a bungee loop at the right front yoke seam. Shirttail hem gives a flattering look. Center back length: 26\"",
+      "feat": [
+       "V-Neck Top",
+       "Fabric Composition: 77%Poly 20%Rayon 3%Spandex",
+       "Fabric description: 2-Way Stretch",
+       "Pockets: 5 Pockets",
+       "Fit: Contemporary",
+       "Sleeves: Short Sleeve",
+       "Neck: V-Neck",
+       "Length: 26\""
+      ],
+      "sku": "737314760"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "details",
+       "description",
+       "features"
+      ],
+      "domDesc": false,
+      "swatches": 60,
+      "sizeBtns": 72,
+      "priceEls": 15,
+      "strike": true,
+      "galleryImgs": 4,
+      "len": 1213588
+     },
+     "clickOnly": {
+      "featImpit": 8,
+      "featFirefox": 8,
+      "descImpit": 327,
+      "descFirefox": 327
+     },
+     "fixture": {
+      "file": "dickies-dkbalancevnecktopdk875roy.html.gz",
+      "shopFile": "dickies-dkbalancevnecktopdk875roy.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.dickies.com/products/dk-forge-womens-v-neck-top-dk856-gngw",
+     "name": "Women's Forge V-Neck Scrub Top",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 823861,
+       "final": "https://www.dickies.com/en-us/products/dk-forge-womens-v-neck-top-dk856-gngw"
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1143233,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 2,
+      "variants": 7,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 740
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Women's Forge V-Neck Scrub Top",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0692/5752/7484/files/DK856_GNGW_OM-F_e329e73d-9a78-4151-a271-3c9123c8dcef.jpg?v=1785950424",
+       "https://cdn.shopify.com/s/files/1/0692/5752/7484/files/DK856_GNGW_OM-B_1c3ea6e4-75c6-4f73-8052-a6b9c09d8a08.jpg?v=1785950387"
+      ],
+      "price": "$22.39",
+      "priceOrig": "$30.99",
+      "cur": "USD",
+      "color": "Ginger (G2E)",
+      "colors": [
+       "Ginger (G2E)"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL",
+       "3XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL",
+       "3XL"
+      ],
+      "comp": "",
+      "desc": "A classic scrub top upgraded with hardworking details. This V-neck style features a banded neckline and short sleeves for a clean, professional look, while camo print at the neck facing adds hidden character. Two patch pockets keep essentials close, enhanced with a utility loop and ring snap on the right and a pen slot on the left for smart organization. Side vents ensure easy movement, and triple-needle stitching delivers the durability you expect from Dickies, finished with a signature logo label at the sleeve.\nCenter back length: 26\"",
+      "feat": [
+       "Women's V-neck Top",
+       "Fabric Composition: 55%CTN 34%POLY 8%NYLON 3%SPAN",
+       "Fabric description: 2-Way Stretch",
+       "Pockets: 2 Pockets",
+       "Fit: Modern Classic",
+       "Sleeves: Short Sleeve",
+       "Neck: V-Neck",
+       "Length: 28\""
+      ],
+      "sku": "840521219"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "details",
+       "description",
+       "features"
+      ],
+      "domDesc": false,
+      "swatches": 51,
+      "sizeBtns": 54,
+      "priceEls": 12,
+      "strike": true,
+      "galleryImgs": 4,
+      "len": 1143233
+     },
+     "clickOnly": {
+      "featImpit": 8,
+      "featFirefox": 8,
+      "descImpit": 542,
+      "descFirefox": 542
+     },
+     "fixture": {
+      "file": "dickies-dkforgewomensvnecktopdk856gngw.html.gz",
+      "shopFile": "dickies-dkforgewomensvnecktopdk856gngw.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.dickies.com/products/dk-forge-womens-mide-rise-cargo-jogger-dk275-winn",
+     "name": "Women's Forge Mid Rise Cargo Scrub Jogger",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1078628,
+       "final": "https://www.dickies.com/en-us/products/dk-forge-womens-mide-rise-cargo-jogger-dk275-winn"
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1399158,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 2,
+      "variants": 17,
+      "options": [
+       "Color",
+       "Size",
+       "Length"
+      ],
+      "hasAvail": true,
+      "descLen": 672
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Women's Forge Mid Rise Cargo Scrub Jogger",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0692/5752/7484/files/DK275_WINN_OM-F_e12ec44a-e01d-4c49-90ba-b9424e23715b.jpg?v=1785950438",
+       "https://cdn.shopify.com/s/files/1/0692/5752/7484/files/DK275_WINN_OM-B_f3306d20-4c03-45d3-9647-bf70236fbfa9.jpg?v=1785950378"
+      ],
+      "price": "$27.19",
+      "priceOrig": "$36.99",
+      "cur": "USD",
+      "color": "Wine (WIN)",
+      "colors": [
+       "Wine (WIN)"
+      ],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL",
+       "3XL",
+       "4XL",
+       "5XL"
+      ],
+      "sizesIn": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL",
+       "3XL",
+       "4XL",
+       "5XL"
+      ],
+      "comp": "",
+      "desc": "Durability with a modern edge. These mid-rise jogger scrub pants feature a pull-on elastic waistband with an interior drawstring and knit cuffs for a secure fit that moves with you. Five pockets-including front patch pockets, angled cargo pockets with a pen slot and back patch pockets with ring snaps-keep gear organized. Finished with camo facing inside the waistband, triple-needle stitching for extra strength, and a woven logo detail at the cargo pocket.",
+      "feat": [
+       "Women's Mide Rise Cargo Jogger",
+       "Fabric Composition: 55%CTN 34%POLY 8%NYLON 3%SPAN",
+       "Fabric description: 2-Way Stretch",
+       "Closure: Drawstring Waist",
+       "Pockets: 6 Pockets",
+       "Fit: Modern Classic",
+       "Waist: Drawstring Waist"
+      ],
+      "sku": "716605"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "details",
+       "description",
+       "features"
+      ],
+      "domDesc": false,
+      "swatches": 60,
+      "sizeBtns": 89,
+      "priceEls": 22,
+      "strike": true,
+      "galleryImgs": 4,
+      "len": 1399158
+     },
+     "clickOnly": {
+      "featImpit": 7,
+      "featFirefox": 7,
+      "descImpit": 459,
+      "descFirefox": 459
+     },
+     "fixture": {
+      "file": "dickies-dkforgewomensmiderisecargojoggerdk275win.html.gz",
+      "shopFile": "dickies-dkforgewomensmiderisecargojoggerdk275win.shop.json.gz",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 264,
+    "withRow": 264,
+    "comp": 148,
+    "color": 264,
+    "sizes": 264,
+    "price": 264,
+    "tried": 264,
+    "in5d": 264,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795660985966,
+    "newestT": 1795678172789,
+    "emptyIn5d": 116,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 12,
+     "wt": 48,
+     "plain": 116
+    }
+   },
+   "total": 264,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Everlane",
+   "site": "everlane.com.everlane",
+   "products": [
+    {
+     "url": "https://www.everlane.com/products/womens-100-my-body-box-cut-tee-white",
+     "name": "The 100% My Body Box-Cut Tee | White",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 976521,
+       "final": ""
+      },
+      "firefox": {
+       "v": "err",
+       "note": "90초 넘게 응답 없음"
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 1,
+      "variants": 8,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 217
+     },
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "The 100% My Body Box-Cut Tee | White",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0623/7916/3734/files/ba8ab5cd_9c13.jpg?v=1750093862"
+      ],
+      "price": "$7",
+      "priceOrig": "$35",
+      "cur": "USD",
+      "color": "White",
+      "colors": [],
+      "sizes": [
+       "XXS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL",
+       "XXXL"
+      ],
+      "sizesIn": [
+       "XXS"
+      ],
+      "comp": "",
+      "desc": "100% of the profits (with a minimum donation of $22 per T-shirt) will be donated to the ACLU.\nSupport the ACLU with this limited-edition tee.\nDates of support from the sales of these t-shirts are 6/26/2022--6/30/2024.",
+      "feat": [
+       "Questions about fit?",
+       "CHAT WITH AN EXPERT"
+      ],
+      "sku": "F-T-CTN-BOX-BDY-WHT"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "color": "title",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "fit",
+       "description"
+      ],
+      "domDesc": true,
+      "swatches": 13,
+      "sizeBtns": 788,
+      "priceEls": 21,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 976521
+     },
+     "fixture": {
+      "file": "everlane-womens100mybodyboxcutteewhite.html.gz",
+      "shopFile": "everlane-womens100mybodyboxcutteewhite.shop.json.gz",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://www.everlane.com/products/womens-dream-90s-midi-shift-dress-black",
+     "name": "The Dream '90s Midi Dress | Black",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 12986,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1160564,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": false,
+      "status": 429
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "The Dream '90s Midi Dress | Black",
+      "imgs": [
+       "https://www.everlane.com/cdn/shop/files/4fcde061_2813.jpg?v=1753411639&width=1920"
+      ],
+      "price": "$38",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Black",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "This piece features a slim fit, sleeveless silhouette, crew neckline, back zipper at the neck, midi-length with a tall back slit for easy movement, in our soft, double-knit Dream fabric with a hint of stretch.",
+      "feat": [],
+      "sku": "7539387564118"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "title",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 7,
+      "priceEls": 38,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1160564
+     },
+     "fixture": {
+      "file": "everlane-womensdream90smidishiftdressblack.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.everlane.com/products/womens-utility-cigarette-pant-bone",
+     "name": "Utility Cigarette Pant",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 14753,
+       "final": "https://www.everlane.com/products/womens-utility-cigarette-pant-bone?__shopify_bv_challenge=AaIWym3LAAEBrNWG51MIDasImAREsmLNGt1Ygu2NNFBm2xZLItJohbbYDrvJTHy62ni1nbDjQmF7IJXP0C57OwxL7q0Nhk8-2NJGculBD9Pf"
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1281227,
+       "clicked": 4
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": false,
+      "status": 429
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Utility Cigarette Pant | Bone",
+      "imgs": [
+       "https://www.everlane.com/cdn/shop/files/2026-08-23_F-BTM-UTW-CIG-PNT-BNE_01.jpg?v=1786648740&width=1920"
+      ],
+      "price": "$71",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Bone",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 97% / Elastane 3%\nCotton 97%",
+      "desc": "A slim, straight-leg pant designed to hit at the ankle. Heavyweight organic cotton twill with a touch of stretch gives the silhouette a clean line, while the softly brushed, garment-dyed finish makes it comfortable from the first wear.",
+      "feat": [
+       "Questions about fit?",
+       "CHAT WITH AN EXPERT",
+       "97% Organic Cotton 3% Elastane",
+       "Machine Wash Cold With Like Colors . Only Non-Chlorine Bleach When Needed . Tumble Dry Low . Warm Iron When Needed.",
+       "Made at Poong In in Vietnam."
+      ],
+      "sku": "7980642533462"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "title",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "fit",
+       "details",
+       "description",
+       "materials & care"
+      ],
+      "domDesc": true,
+      "swatches": 26,
+      "sizeBtns": 560,
+      "priceEls": 47,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1281227
+     },
+     "fixture": {
+      "file": "everlane-womensutilitycigarettepantbone.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 443,
+    "withRow": 443,
+    "comp": 332,
+    "color": 245,
+    "sizes": 443,
+    "price": 443,
+    "tried": 443,
+    "in5d": 443,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 9,
+    "noneNv": {
+     "(예전)": 9
+    },
+    "oldestT": 1795660987256,
+    "newestT": 1795678184478,
+    "emptyIn5d": 111,
+    "emptyKind": {
+     "none": 9,
+     "blocked": 0,
+     "bvImpit": 5,
+     "wt": 2,
+     "plain": 102
+    }
+   },
+   "total": 443,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Garnet hill",
+   "site": "garnethill.com.garnethill",
+   "products": [
+    {
+     "url": "https://www.bbb.org/us/nh/franconia/profile/catalog-shopping/garnet-hill-inc-0051-13000170",
+     "name": "Better Business Bureau Accredited Site",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 15133,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 403,
+       "len": 15218,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.garnethill.com/essential-three-quarter-sleeve-boatneck-tee/holiday-gifts/shops/gifts-for-her/481867",
+     "name": "Essential Three-Quarter-Sleeve Boatneck Tee",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 42358,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 357777,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Essential Three-Quarter-Sleeve Boatneck Tee",
+      "imgs": [
+       "https://akamai-scene7.garnethill.com/is/image/garnethill/44639_main?$ghpdp_hero2$",
+       "https://akamai-scene7.garnethill.com/is/image/garnethill/44639_alt1?$ghpdp_hero2$",
+       "https://akamai-scene7.garnethill.com/is/image/garnethill/44639_alt2?$ghpdp_hero2$",
+       "https://akamai-scene7.garnethill.com/is/image/garnethill/44639_alt3?$ghpdp_hero2$"
+      ],
+      "price": "$44",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Experience the perfect blend of comfort and style with our Essential Boatneck Tee, crafted from soft Peruvian organic pima cotton and TENCEL Modal. Shop tees at Garnet Hill.",
+      "feat": [
+       "Exclusive",
+       "Boat-neckline",
+       "3/4 sleeves",
+       "Peru",
+       "Organic pima cotton/TENCEL™ Modal/spandex",
+       "Machine wash",
+       "Organic-pima-cotton fibers are farmed without pesticides, GMOs, or chemical defoliants",
+       "Classic fit — follows your shape without being snug",
+       "Low-hip length",
+       "25 ½\" L from high point shoulder"
+      ],
+      "sku": "44639"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "description",
+        "image",
+        "sku",
+        "priceCurrency",
+        "lowPrice",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "features",
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 30,
+      "sizeBtns": 18,
+      "priceEls": 16,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 357777
+     },
+     "fixture": {
+      "file": "garnethill-481867.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.garnethill.com/soleil-vintage-knit-top/holiday-gifts/shops/gifts-under-100/618850",
+     "name": "Soleil Vintage Knit Top",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 41481,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 304059,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Soleil Vintage Knit Top",
+      "imgs": [
+       "https://akamai-scene7.garnethill.com/is/image/garnethill/50365_main?$ghpdp_hero2$",
+       "https://akamai-scene7.garnethill.com/is/image/garnethill/50365_alt1?$ghpdp_hero2$",
+       "https://akamai-scene7.garnethill.com/is/image/garnethill/50365_alt2?$ghpdp_hero2$",
+       "https://akamai-scene7.garnethill.com/is/image/garnethill/50365_alt3?$ghpdp_hero2$"
+      ],
+      "price": "$99",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Embrace retro charm with the Soleil Vintage Knit Top, featuring a chic boat-neck and unique side button details in organic cotton. Shop tops at Garnet Hill.",
+      "feat": [],
+      "sku": "50365"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "description",
+        "image",
+        "sku",
+        "priceCurrency",
+        "lowPrice",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "features"
+      ],
+      "domDesc": false,
+      "swatches": 36,
+      "sizeBtns": 10,
+      "priceEls": 1,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 304059
+     },
+     "fixture": {
+      "file": "garnethill-618850.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 108,
+    "withRow": 108,
+    "comp": 2,
+    "color": 0,
+    "sizes": 0,
+    "price": 37,
+    "tried": 108,
+    "in5d": 108,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795306302743,
+    "newestT": 1795663958770,
+    "emptyIn5d": 106,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 60,
+     "wt": 26,
+     "plain": 106
+    }
+   },
+   "total": 108,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 1
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 101
+  },
+  {
+   "brand": "J crew",
+   "site": "jcrew.com.jcrew",
+   "products": [
+    {
+     "url": "https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341",
+     "name": "MQ341",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 1432555,
+       "final": ""
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 1639030,
+       "clicked": 5
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.jcrew.com/m/womens/categories/clothing/shirts-and-tops/MQ306",
+     "name": "MQ306",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 1372434,
+       "final": ""
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 1520358,
+       "clicked": 8
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.jcrew.com/p/womens/categories/clothing/pants/relaxed/petite-cosmo-pant-in-luster-charmeuse/CN714",
+     "name": "CN714",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 1598271,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1765516,
+       "clicked": 5
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Cosmo pant in luster charmeuse",
+      "imgs": [
+       "https://www.jcrew.com/s7-img-facade/CN714_BR6256",
+       "https://www.jcrew.com/s7-img-facade/CN714_BR6256_m",
+       "https://www.jcrew.com/s7-img-facade/CN714_BR6256_d1",
+       "https://www.jcrew.com/s7-img-facade/CN714_BR6256_d2",
+       "https://www.jcrew.com/s7-img-facade/CN714_BR6256_d3",
+       "https://www.jcrew.com/s7-img-facade/CN714_BK0001",
+       "https://www.jcrew.com/s7-img-facade/CN714_BK0001_m",
+       "https://www.jcrew.com/s7-img-facade/CN714_BK0001_d1",
+       "https://www.jcrew.com/s7-img-facade/CN714_BK0001_d2",
+       "https://www.jcrew.com/s7-img-facade/CN714_BK0001_d3",
+       "https://www.jcrew.com/s7-img-facade/CN714_BL8133",
+       "https://www.jcrew.com/s7-img-facade/CN714_BL8133_m",
+       "https://www.jcrew.com/s7-img-facade/CN714_BL8133_d1",
+       "https://www.jcrew.com/s7-img-facade/CN714_BL8133_d2",
+       "https://www.jcrew.com/s7-img-facade/CN714_BL8133_d3",
+       "https://www.jcrew.com/s7-img-facade/CN714_PR0127",
+       "https://www.jcrew.com/s7-img-facade/CN714_PR0127_m",
+       "https://www.jcrew.com/s7-img-facade/CN714_PR0127_d1",
+       "https://www.jcrew.com/s7-img-facade/CN714_PR0127_d2",
+       "https://www.jcrew.com/s7-img-facade/CN714_PR0127_d3"
+      ],
+      "price": "$94.8",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "CUBEB BERRY",
+      "colors": [
+       "BLACK",
+       "NAVY",
+       "SUBTLE MAUVE",
+       "CANDLELIGHT",
+       "LAKESHORE",
+       "WINDSWEPT",
+       "CUBEB BERRY",
+       "LODEN GREEN",
+       "IVORY",
+       "FROSTY LILAC",
+       "SMOKY WOOD"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Viscose 100%",
+      "desc": "Cosmo pant in luster charmeuse for women - Find the best selection available in-stores and online at J.Crew.",
+      "feat": [],
+      "sku": "CN714-BR6256"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [
+       "__NEXT_DATA__"
+      ],
+      "platform": "salesforce",
+      "heads": [
+       "details",
+       "product details",
+       "size & fit"
+      ],
+      "domDesc": true,
+      "swatches": 357,
+      "sizeBtns": 3,
+      "priceEls": 71,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1765516
+     },
+     "fixture": {
+      "file": "jcrew-cn714.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 202,
+    "withRow": 202,
+    "comp": 61,
+    "color": 201,
+    "sizes": 0,
+    "price": 0,
+    "tried": 202,
+    "in5d": 201,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1794182200789,
+    "newestT": 1795677169837,
+    "emptyIn5d": 141,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 134,
+     "wt": 2,
+     "plain": 141
+    }
+   },
+   "total": 202,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 2
+  },
+  {
+   "brand": "Massimo Dutti",
+   "site": "massimodutti.com.massimodutti",
+   "products": [
+    {
+     "url": "https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106",
+     "name": "Long-sleeve crewneck t-shirt in a mid-shot with a mock neck and buttons. Features a print of horizontal stripes in navy blue and brown.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2281,
+       "final": ""
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 721704,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.massimodutti.com/us/100-ramie-flowing-pocket-shirt-l05184684",
+     "name": "Set with a turquoise blue button-up shirt with chest patch pockets, beige pants, and a white sweater tied around the waist.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2294,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 698791,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "100% ramie flowing pocket shirt",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/2901/dfd9/c8bb480b8977/a5042f49a4e5/05184684451-o1/05184684451-o1.jpg?ts=1780926511225"
+      ],
+      "price": "$130",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "TURQUOISE",
+      "colors": [
+       "TURQUOISE"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "sizesIn": null,
+      "comp": "Ramie 100%",
+      "desc": "100% Ramie Flowing Pocket Shirt",
+      "feat": [],
+      "sku": "61728507"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 698791
+     },
+     "fixture": {
+      "file": "massimodutti-100ramieflowingpocketshirtl05184684.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/lightweight-linen-blend-pants-l05040888",
+     "name": "Beige sleeveless U-neck top set with fitted navy blue capri pants featuring side slits at the hem.",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 200,
+       "len": 2292,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 833866,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Lightweight linen blend pants",
+      "imgs": [
+       "https://static.massimodutti.net/assets/public/d906/c199/ddaf4abc868e/aa0d16fee452/05040888401-o1/05040888401-o1.jpg?ts=1780497141181"
+      ],
+      "price": "$130",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "NAVY BLUE",
+      "colors": [
+       "NAVY BLUE"
+      ],
+      "sizes": [
+       "2",
+       "4",
+       "6",
+       "8",
+       "10"
+      ],
+      "sizesIn": null,
+      "comp": "Linen 51% / Viscose 48% / Elastane 1%\nCotton 100%",
+      "desc": "Lightweight Linen Blend Pants",
+      "feat": [],
+      "sku": "61734728"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "parts-json",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 0,
+      "priceEls": 0,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 833866
+     },
+     "fixture": {
+      "file": "massimodutti-lightweightlinenblendpantsl05040888.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 606,
+    "withRow": 606,
+    "comp": 5,
+    "color": 4,
+    "sizes": 0,
+    "price": 0,
+    "tried": 606,
+    "in5d": 592,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 390,
+    "noneNv": {
+     "(예전)": 390
+    },
+    "oldestT": 1795222852536,
+    "newestT": 1795664993571,
+    "emptyIn5d": 587,
+    "emptyKind": {
+     "none": 390,
+     "blocked": 0,
+     "bvImpit": 115,
+     "wt": 82,
+     "plain": 211
+    }
+   },
+   "total": 606,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Mint velvet",
+   "site": "mintvelvet.com.mintvelvet",
+   "products": [
+    {
+     "url": "https://mintvelvet.com/products/black-knit-sheer-sleeve-zip-detail-top",
+     "name": "Black Knit Sheer Sleeve Zip Detail Top",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 508885,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 764016,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 7,
+      "variants": 5,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 0
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Black Knit Sheer Sleeve Zip Detail Top",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-woven-knit-mix-top_001042455_1_202609081328.jpg?v=1788874121",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-woven-knit-mix-top_001042455_2_202609081328.jpg?v=1788874120",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-woven-knit-mix-top_001042455_3_202609081328.jpg?v=1788874121",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-woven-knit-mix-top_001042455_4_202609081328.jpg?v=1788874121",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-woven-knit-mix-top_001042455_5_202609081328.jpg?v=1788874121",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-woven-knit-mix-top_001042455_7_202608260944.jpg?v=1787737480",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-woven-knit-mix-top_001042455_8_202608260944.jpg?v=1787737480"
+      ],
+      "price": "$99",
+      "priceOrig": "",
+      "cur": "GBP",
+      "color": "Black",
+      "colors": [],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "comp": "Nylon 52% / Viscose 48%\nLyocell 84% / Polyester 16%",
+      "desc": "Black top featuring a V-neckline, long sheer sleeves, fitted waist with a zip fastening through the front.",
+      "feat": [
+       "Composition: Main, 52% polyamide, 48% viscose,main 2, 84% lyocell, 16% polyester",
+       "Wash Care: Cool hand wash",
+       "Style ID: 001042455",
+       "Country of Origin: China"
+      ],
+      "sku": "042455BLCK00"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 12,
+      "sizeBtns": 8,
+      "priceEls": 12,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 764016
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 4,
+      "descImpit": 106,
+      "descFirefox": 106
+     },
+     "fixture": {
+      "file": "mintvelvet-blackknitsheersleevezipdetailtop.html.gz",
+      "shopFile": "mintvelvet-blackknitsheersleevezipdetailtop.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://mintvelvet.com/products/black-velvet-spotted-ruffle-maxi-dress",
+     "name": "Black Velvet Spotted Ruffle Maxi Dress",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 514182,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 778947,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 8,
+      "variants": 7,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 0
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Black Velvet Spotted Ruffle Maxi Dress",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-spot-velvet-midi-dress_023042416_1_202608112148.jpg?v=1786484928",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-spot-velvet-midi-dress_023042416_2_202608112148.jpg?v=1786484929",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-spot-velvet-midi-dress_023042416_3_202608112148.jpg?v=1786484929",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-spot-velvet-midi-dress_023042416_4_202608112148.jpg?v=1786484929",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-spot-velvet-midi-dress_023042416_5_202608112148.jpg?v=1786484929",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-spot-velvet-midi-dress_023042416_6_202608112148.jpg?v=1786484929",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-spot-velvet-midi-dress_023042416_7_202608260948.jpg?v=1787737695",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/black-spot-velvet-midi-dress_023042416_8_202608260948.jpg?v=1787737695"
+      ],
+      "price": "$230",
+      "priceOrig": "",
+      "cur": "GBP",
+      "color": "Black",
+      "colors": [],
+      "sizes": [
+       "06",
+       "08",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18"
+      ],
+      "sizesIn": [
+       "06",
+       "08",
+       "10",
+       "12",
+       "14",
+       "16",
+       "18"
+      ],
+      "comp": "",
+      "desc": "Black velvet spotted dress in a maxi silhouette featuring a crew neckline, short ruffle sleeves with a ruffle fit and flare shape and a zip fastening through the back.",
+      "feat": [
+       "Composition: Main, 41% polyamide, 59% viscose,lining, 3% elastane, 97% polyester",
+       "Wash Care: Dry clean only",
+       "Style ID: 023042416",
+       "Country of Origin: China"
+      ],
+      "sku": "042416BLCK00"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 20,
+      "sizeBtns": 11,
+      "priceEls": 12,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 778947
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 4,
+      "descImpit": 167,
+      "descFirefox": 167
+     },
+     "fixture": {
+      "file": "mintvelvet-blackvelvetspottedrufflemaxidress.html.gz",
+      "shopFile": "mintvelvet-blackvelvetspottedrufflemaxidress.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://mintvelvet.com/products/gold-balloon-trousers",
+     "name": "Gold Metallic Balloon Trousers",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 504279,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 761385,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 7,
+      "variants": 5,
+      "options": [
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 0
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Gold Metallic Balloon Trousers",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/gold-balloon-trousers_001040630_1_202605011453.jpg?v=1777647202",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/gold-balloon-trousers_001040630_2_202605011453.jpg?v=1777647201",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/gold-balloon-trousers_001040630_3_202605011453.jpg?v=1777647202",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/gold-balloon-trousers_001040630_4_202605011453.jpg?v=1777647201",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/gold-balloon-trousers_001040630_5_202605011453.jpg?v=1777647201",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/gold-balloon-trousers_001040630_7_202606030958.jpg?v=1780480683",
+       "https://cdn.shopify.com/s/files/1/0568/3632/5535/files/gold-balloon-trousers_001040630_8_202606030958.jpg?v=1780480683"
+      ],
+      "price": "$39",
+      "priceOrig": "$110",
+      "cur": "GBP",
+      "color": "Gold",
+      "colors": [],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M"
+      ],
+      "comp": "",
+      "desc": "Elasticated waistband.",
+      "feat": [
+       "Composition: Main, 31% metallised fibre, 69% viscose",
+       "Wash Care: Cool hand wash",
+       "Style ID: 001040630",
+       "Country of Origin: China"
+      ],
+      "sku": "040630GOLD00"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 12,
+      "sizeBtns": 9,
+      "priceEls": 14,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 761385
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 4,
+      "descImpit": 22,
+      "descFirefox": 22
+     },
+     "fixture": {
+      "file": "mintvelvet-goldballoontrousers.html.gz",
+      "shopFile": "mintvelvet-goldballoontrousers.shop.json.gz",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 416,
+    "withRow": 416,
+    "comp": 319,
+    "color": 305,
+    "sizes": 416,
+    "price": 416,
+    "tried": 416,
+    "in5d": 416,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 13,
+    "noneNv": {
+     "(예전)": 13
+    },
+    "oldestT": 1795662392675,
+    "newestT": 1795664996036,
+    "emptyIn5d": 97,
+    "emptyKind": {
+     "none": 13,
+     "blocked": 0,
+     "bvImpit": 7,
+     "wt": 0,
+     "plain": 84
+    }
+   },
+   "total": 416,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Poetry",
+   "site": "poetryfashion.co.uk.poetry",
+   "products": [
+    {
+     "url": "https://www.poetryfashion.co.uk/poest/shirts-and-tunics",
+     "name": "Shirts & Tunics",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1627390,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1686878,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Make a statement in our silk, cotton and linen blend shirts and tunics.",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "desc": "meta",
+      "comp": "",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 0,
+       "group": 0,
+       "fields": []
+      },
+      "meta": [],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 865,
+      "sizeBtns": 1,
+      "priceEls": 313,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1686878
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 71,
+      "descFirefox": 71
+     },
+     "fixture": {
+      "file": "poetry-shirtsandtunics.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.poetryfashion.co.uk/dresses-and-skirts/cotton-cord-pull-on-skirt-dark-chocolate/RL36.C.html",
+     "name": "Pull-on skirt",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 240899,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 300716,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Pull-on skirt",
+      "imgs": [],
+      "price": "£159",
+      "priceOrig": "",
+      "cur": "GBP",
+      "color": "Dark chocolate",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Pull-on skirt",
+      "feat": [
+       "Machine wash",
+       "Hemp, organic cotton and yak chunky and soft cord",
+       "Flared skirt shape",
+       "Elasticated waistband",
+       "Belt-loops",
+       "Waist-channel with herringbone-tape tie",
+       "Asymmetric pleats on front waist",
+       "Side-seam pockets with press-stud fastening",
+       "Factory"
+      ],
+      "sku": "RL36.C"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "details"
+      ],
+      "domDesc": true,
+      "swatches": 5,
+      "sizeBtns": 24,
+      "priceEls": 12,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 300716
+     },
+     "clickOnly": {
+      "featImpit": 9,
+      "featFirefox": 9,
+      "descImpit": 13,
+      "descFirefox": 13
+     },
+     "fixture": {
+      "file": "poetry-rl36chtml.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.poetryfashion.co.uk/sale/italian-lyocell-wool-tailored-trousers-ink/RJ23.B.html",
+     "name": "Tailored trousers",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 258810,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 317663,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Tailored trousers",
+      "imgs": [],
+      "price": "£199",
+      "priceOrig": "",
+      "cur": "GBP",
+      "color": "Ink",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Tailored trousers",
+      "feat": [
+       "Dry clean",
+       "New Italian lyocell and virgin wool crêpe drapey fabric",
+       "Tailored straight-leg silhouette",
+       "Full leg length",
+       "Panelled side-seam detail",
+       "Real horn buttons, a by-product from the food industry",
+       "Extra button on inside of waistband",
+       "Stitched-through grown-on waistband, faced in cotton",
+       "Metal zip fly fastening",
+       "Pockets in side-seams",
+       "Back yoke seam with pockets and button fastening",
+       "Blind stitch hem",
+       "Factory"
+      ],
+      "sku": "RJ23.B"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "salesforce",
+      "heads": [
+       "details"
+      ],
+      "domDesc": true,
+      "swatches": 5,
+      "sizeBtns": 18,
+      "priceEls": 17,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 317663
+     },
+     "clickOnly": {
+      "featImpit": 13,
+      "featFirefox": 13,
+      "descImpit": 17,
+      "descFirefox": 17
+     },
+     "fixture": {
+      "file": "poetry-rj23bhtml.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 303,
+    "withRow": 303,
+    "comp": 240,
+    "color": 299,
+    "sizes": 0,
+    "price": 299,
+    "tried": 303,
+    "in5d": 303,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 4,
+    "noneNv": {
+     "chromium,fetch": 4
+    },
+    "oldestT": 1795663013939,
+    "newestT": 1795664806211,
+    "emptyIn5d": 63,
+    "emptyKind": {
+     "none": 4,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 0,
+     "plain": 59
+    }
+   },
+   "total": 303,
+   "byName": true,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 303
+  },
+  {
+   "brand": "Spanx",
+   "site": "spanx.com.spanx",
+   "products": [
+    {
+     "url": "https://spanx.com/products/spanx-ponte-jacquard-tailored-vest?v=48685653852371&bau-context=standard&Color=Timeless+Navy+Gingham",
+     "name": "SPANX® Ponte Jacquard Tailored Vest | Timeless Navy Gingham",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 524589,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 553333,
+       "clicked": 4
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "SPANX® Ponte Jacquard Tailored Vest",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0549/4895/4134/files/22865R-TmNvyJacq_PDP_050_A562BB79-0B9A-4B2C-8FF6EC54AB85702F.jpg?v=1788544940"
+      ],
+      "price": "$89.6",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Timeless Navy Gingham",
+      "colors": [
+       "Timeless Navy Gingham"
+      ],
+      "sizes": [
+       "XS"
+      ],
+      "sizesIn": [
+       "XS"
+      ],
+      "comp": "Viscose 53% / Nylon 44% / Elastane 3%\nPolyester 92% / Elastane 8%",
+      "desc": "Our SPANX® Ponte Jacquard Tailored Vest is crafted from premium ponte fabric with 4-way stretch that looks as good as it feels. Featuring a polished but...",
+      "feat": [],
+      "sku": "196992596420"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "size & fit",
+       "details",
+       "care"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 47,
+      "priceEls": 0,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 553333
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 155,
+      "descFirefox": 155
+     },
+     "fixture": {
+      "file": "spanx-spanxpontejacquardtailoredvest.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://spanx.com/products/spanx-airessentials-collared-tie-waist-jumpsuit?v=48685237043411&bau-context=standard&Color=Rain",
+     "name": "SPANX AirEssentials ® SPANX AirEssentials ® Collared Tie-Waist Jumpsuit USD $59.00 USD Regular, Petite, Tall",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 536980,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 824198,
+       "clicked": 4
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "SPANX AirEssentials® Collared Tie-Waist Jumpsuit",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0549/4895/4134/files/22804R-Rain_PDP_030.jpg?v=1775755426"
+      ],
+      "price": "$59",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Rain",
+      "colors": [
+       "Rain"
+      ],
+      "sizes": [
+       "XS"
+      ],
+      "sizesIn": [
+       "XS"
+      ],
+      "comp": "Polyester 49% / Lyocell 44% / Elastane 7%",
+      "desc": "Shop the SPANX AirEssentials® Collared Tie-Waist Jumpsuit—light-as-air, ultra-soft, and effortlessly polished. A versatile, one-and-done outfit for trav...",
+      "feat": [],
+      "sku": "196992541987"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "size & fit",
+       "details",
+       "care"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 78,
+      "priceEls": 0,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 824198
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 155,
+      "descFirefox": 155
+     },
+     "fixture": {
+      "file": "spanx-spanxairessentialscollaredtiewaistjumpsu.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://spanx.com/products/spanxsupersmooth-perfectfit-ponte-slim-straight-pant?v=48683138613459&bau-context=standard&Color=Timeless+Navy",
+     "name": "SPANXsupersmooth ® PerfectFit SPANXsupersmooth ® PerfectFit Ponte Slim Straight Pant USD $99.00 USD Best Seller Regular, Petite, Tall",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 614738,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 909698,
+       "clicked": 4
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": false,
+      "status": 404
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "SPANXsupersmooth® PerfectFit Ponte Slim Straight Pant",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0549/4895/4134/files/20254R-TimelessNavy_PDP_004_HN.jpg?v=1756927689",
+       "https://cdn.shopify.com/s/files/1/0549/4895/4134/files/20254R-ClassicBlack_PDP_043_64852F3C-8BF3-43AC-BBA7A155F800B1A6.jpg?v=1794877408"
+      ],
+      "price": "$79",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Classic Black",
+      "colors": [
+       "Classic Black",
+       "Timeless Navy"
+      ],
+      "sizes": [
+       "XS"
+      ],
+      "sizesIn": [
+       "XS"
+      ],
+      "comp": "Viscose 68% / Nylon 28% / Elastane 4%\nPolyester 80% / Elastane 20%",
+      "desc": "High-rise ponte slim straight pants with built-in compression, smoothing 4-way stretch, and a sleek pull-on fit for everyday comfort.",
+      "feat": [],
+      "sku": "196992287731"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sizes": "jsonld",
+      "sizesIn": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "color",
+        "size",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "description",
+       "size & fit",
+       "details",
+       "care"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 77,
+      "priceEls": 0,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 909698
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 133,
+      "descFirefox": 133
+     },
+     "fixture": {
+      "file": "spanx-spanxsupersmoothperfectfitponteslimstrai.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 120,
+    "withRow": 120,
+    "comp": 99,
+    "color": 120,
+    "sizes": 120,
+    "price": 120,
+    "tried": 120,
+    "in5d": 120,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795661008301,
+    "newestT": 1795664825742,
+    "emptyIn5d": 21,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 0,
+     "plain": 21
+    }
+   },
+   "total": 120,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "WHBM",
+   "site": "whitehouseblackmarket.com.whbm",
+   "products": [
+    {
+     "url": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643",
+     "name": "Satin Front Short Sleeve Tee",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 626,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1496720,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Satin Front Short Sleeve Tee",
+      "imgs": [
+       "https://www.whitehouseblackmarket.com/_assets/products/content/5ofzqgoz60/jpeg/WHBM_SS%20Woven%20Front%20Tee_570421368_IVO000190_OF_MAIN.jpeg?position=c&color=ffffffff&quality=100&u=9o1w1f&versionId=8375cb97"
+      ],
+      "price": "$29.4",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Ecru",
+      "colors": [
+       "Ecru"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Polyester 96% / Elastane 4%\nCotton 54% / Modal 41% / Elastane 5%",
+      "desc": "We've combined two of your favorite fabrics into one versatile top. Crafted with a blend of satin + knit fabrics, this design features a satin front, elevating this smart-casual design. It perfectly blends ease with polish, making it one of our new favorites for weekend wear.\nModern, effortless fit\nShort sleeve\nCrew neck\nRegular length: 23 1/4”\nFront: 96% Polyester, 4% Spandex\nBack: 54% Cotton, 41% Modal, 5% Spandex\nMachine wash cold\nTumble dry low\nImported",
+      "feat": [
+       "Modern, effortless fit",
+       "Short sleeve",
+       "Crew neck",
+       "Regular length: 23 1/4”",
+       "Front: 96% Polyester, 4% Spandex",
+       "Back: 54% Cotton, 41% Modal, 5% Spandex",
+       "Machine wash cold",
+       "Tumble dry low",
+       "Imported"
+      ],
+      "sku": "199761603442"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 4,
+      "sizeBtns": 12,
+      "priceEls": 16,
+      "strike": false,
+      "galleryImgs": 6,
+      "len": 1496720
+     },
+     "fixture": {
+      "file": "whbm-570421368.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.whitehouseblackmarket.com/store/product/luxe-stretch-high-rise-elle-slim-ankle-pant/570418714?inseam=regular&sizeType=regular&color=3009&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196535941878",
+     "name": "Luxe Stretch High-Rise Elle Slim Ankle Pant",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 653,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1931081,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Luxe Stretch High-Rise Elle Slim Ankle Pant",
+      "imgs": [
+       "https://www.whitehouseblackmarket.com/_assets/products/content/6crcxgzrud/jpeg/WHBM_Elle%20Slim%20Ankle%20LDW_570418714_BRN003009_OF_MAIN.jpeg?position=c&color=ffffffff&quality=100&u=9o1w1f&versionId=9fdd3b46"
+      ],
+      "price": "$72",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Ravine",
+      "colors": [
+       "Ravine"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Polyester 75% / Viscose 18% / Elastane 7%",
+      "desc": "Reintroducing our bestselling Elle Slim Ankle Pant, now better than ever (read: more style, more comfort). This pair is cut from a luxe double weave fabric that’s soft, yet gives you a perfectly tailored look.\nWe’ve updated this closet staple with our new Signature Stretch Waistband™ that gives flexibility + fit that contours to you. For a complete look match with coordinating vest and jacket.\nFit: slim through hips & thighs to the knee\nHigh-rise\nAnkle length\nSignature Stretch Waistband™ with flexibility + fit that contours to you\nZipper with hook + bar closure\nSlant pockets + back welt pockets\nBelt loops\nRegular inseam: 27 1/2\", Short: 25 1/2\", Long: 29 ½”\nPetite inseam: 25 1/2\"\n75% Polyester, 18% Viscose, 7% Elastane\nMachine wash cold\nImported",
+      "feat": [
+       "Fit: slim through hips & thighs to the knee",
+       "High-rise",
+       "Ankle length",
+       "Signature Stretch Waistband ™ with flexibility + fit that contours to you",
+       "Zipper with hook + bar closure",
+       "Slant pockets + back welt pockets",
+       "Belt loops",
+       "Regular inseam: 27 1/2\", Short: 25 1/2\", Long: 29 ½”",
+       "Petite inseam: 25 1/2\"",
+       "75% Polyester, 18% Viscose, 7% Elastane",
+       "Machine wash cold",
+       "Imported"
+      ],
+      "sku": "199761399055"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 20,
+      "sizeBtns": 13,
+      "priceEls": 4,
+      "strike": false,
+      "galleryImgs": 7,
+      "len": 1931081
+     },
+     "fixture": {
+      "file": "whbm-570418714.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.whitehouseblackmarket.com/store/product/petite-velvet-high-rise-riley-trouser/570420952?inseam=regular&sizeType=petite&color=001&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=199761534852",
+     "name": "Petite Velvet High-Rise Riley Trouser",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 403,
+       "len": 639,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1428695,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Velvet High-Rise Riley Trouser",
+      "imgs": [
+       "https://www.whitehouseblackmarket.com/_assets/products/content/6f6yxe8ntt/jpeg/WHBM_Riley%20Trouser%20Velvet_570420952_BLK000001_OF_MAIN.jpeg?position=c&color=ffffffff&quality=100&u=9o1w1f&versionId=62671985"
+      ],
+      "price": "$72",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Black",
+      "colors": [
+       "Black"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Polyester 91% / Elastane 9%",
+      "desc": "Introducing our new Riley Trouser, now in a luxe velvet fabric that's just right for the season. The Riley offers a true trouser shape that’s slimmer than a wide leg, but more relaxed than a straight. We love this pair with the coordinating blazer.\nWe also updated this closet staple with our new Signature Stretch Waistband™ that gives flexibility + fit that contours to you. PS: we heard you on our inseam, and we’ve shortened our regular length, while keeping the short and long lengths you love.\nRelaxed through the hips + thighs\nHigh rise\nFull length\nSignature Stretch Waistband™ with flexibility + fit that contours to you\nZipper with hook + bar closure\nFront slant pockets + back welt pockets\nBelt loops\nRegular inseam: 31 1/2\", Short: 29\", Long: 33 1/2”\nPetite inseam: 29\"\n91% Polyester, 9% Spandex\nMachine wash cold\nTumble dry low\nImported",
+      "feat": [
+       "Relaxed through the hips + thighs",
+       "High rise",
+       "Full length",
+       "Signature Stretch Waistband ™ with flexibility + fit that contours to you",
+       "Zipper with hook + bar closure",
+       "Front slant pockets + back welt pockets",
+       "Belt loops",
+       "Regular inseam: 31 1/2\", Short: 29\", Long: 33 1/2”",
+       "Petite inseam: 29\"",
+       "91% Polyester, 9% Spandex",
+       "Machine wash cold",
+       "Tumble dry low",
+       "Imported"
+      ],
+      "sku": "199761535309"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "product details"
+      ],
+      "domDesc": false,
+      "swatches": 2,
+      "sizeBtns": 13,
+      "priceEls": 4,
+      "strike": false,
+      "galleryImgs": 7,
+      "len": 1428695
+     },
+     "fixture": {
+      "file": "whbm-570420952.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 219,
+    "withRow": 219,
+    "comp": 75,
+    "color": 76,
+    "sizes": 0,
+    "price": 76,
+    "tried": 219,
+    "in5d": 219,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795662453797,
+    "newestT": 1795665059370,
+    "emptyIn5d": 144,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 144,
+     "wt": 0,
+     "plain": 144
+    }
+   },
+   "total": 219,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  },
+  {
+   "brand": "Wilson",
+   "site": "wilson.com.wilson",
+   "products": [
+    {
+     "url": "https://www.wilson.com/en-us/products/harper-crop-tee-we00370",
+     "name": "WE00370P051001_7_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1568010,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1707733,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 8,
+      "variants": 5,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 221
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Harper Crop Tee",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00370P051001_7_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK_chateauPink_01.png?v=1792646388",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00370P051001_8_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK_chateauPink_02.png?v=1792646387",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00370P051001_9_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK_chateauPink_03.png?v=1792646388",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00370P051001_3_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK_chateauPink_04.png?v=1792646389",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00370P051001_0_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK_chateauPink_05.png?v=1792646387",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00370P051001_1_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK_chateauPink_06.png?v=1792646388",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00370P051001_2_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK_chateauPink_07.png?v=1792646388",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00370P051001_50_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK_chateauPink_50.png?v=1792646385"
+      ],
+      "price": "$36",
+      "priceOrig": "$48",
+      "cur": "USD",
+      "color": "label",
+      "colors": [
+       "Chateau Pink"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XL"
+      ],
+      "comp": "",
+      "desc": "The Wilson Crop Tee is a daily staple that looks amazing with all your high-rise skirts and shorts. Pop it on to revel in the soft feel of tech cotton while giving a nod to heritage with Wilson's original tennis graphics.",
+      "feat": [],
+      "sku": "WE00370P051001"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details",
+       "composition"
+      ],
+      "domDesc": false,
+      "swatches": 6,
+      "sizeBtns": 21,
+      "priceEls": 12,
+      "strike": true,
+      "galleryImgs": 21,
+      "len": 1707733
+     },
+     "clickOnly": {
+      "featImpit": 14,
+      "featFirefox": 0,
+      "descImpit": 221,
+      "descFirefox": 221
+     },
+     "fixture": {
+      "file": "wilson-harpercropteewe00370.html.gz",
+      "shopFile": "wilson-harpercropteewe00370.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.wilson.com/en-us/products/tiebreaker-convertible-dress-we00199",
+     "name": "WE00199R043001_7_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1601243,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1742587,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 10,
+      "variants": 5,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 349
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Tiebreaker Convertible Dress",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_7_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_01.png?v=1791264078",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_8_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_02.png?v=1791264078",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_9_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_03.png?v=1791264080",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_3_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_04.png?v=1791264076",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_4_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_05.png?v=1791264076",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_0_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_06.png?v=1791264075",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_1_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_07.png?v=1791264076",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_2_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_08.png?v=1791264075",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_5_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_09.png?v=1791264075",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00199R043001_50_W_TIEBREAKER_CONVERTIBLE_DRESS_COLORBLOCKED_W_FIG_CLASSIC_NAVY_figClassicNavy_50.png?v=1791264073"
+      ],
+      "price": "$103.5",
+      "priceOrig": "$138",
+      "cur": "USD",
+      "color": "label",
+      "colors": [
+       "Fig / Classic Navy"
+      ],
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "comp": "",
+      "desc": "From pre-match warm-ups to winning that final set, the Wilson Tiebreaker Convertible Dress offers just-right coverage at every stage of play. It features a convertible construction with an outer shrug that can be zipped off to create a sleeveless dress. A perforated back panel keeps air flowing. Stretchy, sweat-wicking fabric reduces distractions.",
+      "feat": [],
+      "sku": "WE00199R043001"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details",
+       "composition"
+      ],
+      "domDesc": false,
+      "swatches": 6,
+      "sizeBtns": 21,
+      "priceEls": 12,
+      "strike": true,
+      "galleryImgs": 27,
+      "len": 1742587
+     },
+     "clickOnly": {
+      "featImpit": 16,
+      "featFirefox": 0,
+      "descImpit": 349,
+      "descFirefox": 349
+     },
+     "fixture": {
+      "file": "wilson-tiebreakerconvertibledresswe00199.html.gz",
+      "shopFile": "wilson-tiebreakerconvertibledresswe00199.shop.json.gz",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.wilson.com/en-us/products/best-point-pants-we00280",
+     "name": "WE00280U001001_7_W_BEST_POINT_PANTS_W_CLASSIC_NAVY",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1622398,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1760802,
+       "clicked": 2
+      }
+     },
+     "stored": "",
+     "shopify": {
+      "ok": true,
+      "keys": [
+       "id",
+       "title",
+       "handle",
+       "description",
+       "published_at",
+       "created_at",
+       "vendor",
+       "type",
+       "tags",
+       "price",
+       "price_min",
+       "price_max",
+       "available",
+       "price_varies",
+       "compare_at_price",
+       "compare_at_price_min",
+       "compare_at_price_max",
+       "compare_at_price_varies",
+       "variants",
+       "images",
+       "featured_image",
+       "options",
+       "url",
+       "media",
+       "requires_selling_plan",
+       "selling_plan_groups"
+      ],
+      "images": 20,
+      "variants": 12,
+      "options": [
+       "Color",
+       "Size"
+      ],
+      "hasAvail": true,
+      "descLen": 203
+     },
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Best Point Pants",
+      "imgs": [
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_7_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_01.png?v=1791264240",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_8_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_02.png?v=1791264240",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_9_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_03.png?v=1791264245",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_3_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_04.png?v=1791264240",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_4_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_05.png?v=1791264239",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_0_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_06.png?v=1791264237",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_1_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_07.png?v=1791264238",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_2_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_08.png?v=1791264245",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_5_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_09.png?v=1791264237",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280W002001_50_W_BEST_POINT_PANTS_W_SANDRIFT_sandrift_50.png?v=1791264235",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_7_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_01.png?v=1791264240",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_8_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_02.png?v=1791264241",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_9_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_03.png?v=1791264241",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_3_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_04.png?v=1791264240",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_4_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_05.png?v=1791264240",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_0_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_06.png?v=1791264238",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_1_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_07.png?v=1791264238",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_2_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_08.png?v=1791264238",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_5_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_09.png?v=1791264239",
+       "https://cdn.shopify.com/s/files/1/0996/7373/5482/files/WE00280U001001_50_W_BEST_POINT_PANTS_W_CLASSIC_NAVY_classicNavy_50.png?v=1791264235"
+      ],
+      "price": "$73.5",
+      "priceOrig": "$98",
+      "cur": "USD",
+      "color": "label",
+      "colors": [
+       "Sandrift",
+       "Classic Navy"
+      ],
+      "sizes": [
+       "2XS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "sizesIn": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "comp": "",
+      "desc": "Comfort meets court DNA. Pull on the Best Point Pant for walks to the court, post-practice errands and for celebrating your win in style. The logo gives a shoutout to Wilson's century of tennis heritage.",
+      "feat": [],
+      "sku": "WE00280"
+     },
+     "src": {
+      "name": "shopify",
+      "desc": "shopify",
+      "imgs": "shopify",
+      "colors": "shopify",
+      "sizes": "shopify",
+      "sizesIn": "shopify",
+      "sku": "shopify",
+      "cur": "jsonld",
+      "price": "shopify",
+      "priceOrig": "shopify",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 1,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "productGroupID",
+        "hasVariant",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:price:amount",
+       "og:price:currency",
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "shopify",
+      "heads": [
+       "product details",
+       "composition"
+      ],
+      "domDesc": false,
+      "swatches": 7,
+      "sizeBtns": 22,
+      "priceEls": 12,
+      "strike": true,
+      "galleryImgs": 27,
+      "len": 1760802
+     },
+     "clickOnly": {
+      "featImpit": 16,
+      "featFirefox": 0,
+      "descImpit": 203,
+      "descFirefox": 203
+     },
+     "fixture": {
+      "file": "wilson-bestpointpantswe00280.html.gz",
+      "shopFile": "wilson-bestpointpantswe00280.shop.json.gz",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 51,
+    "withRow": 51,
+    "comp": 29,
+    "color": 38,
+    "sizes": 39,
+    "price": 39,
+    "tried": 51,
+    "in5d": 51,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795662457456,
+    "newestT": 1795665061252,
+    "emptyIn5d": 22,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 1,
+     "wt": 0,
+     "plain": 22
+    }
+   },
+   "total": 51,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 2
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 12
+  }
+ ]
+}
