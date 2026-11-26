@@ -1,0 +1,2096 @@
+{
+ "at": "2026-11-26T08:56:26.075Z",
+ "meta": {
+  "at": "2026-11-26T08:52:42.206Z",
+  "runId": "45786534557",
+  "runner": "GitHub Actions 1000008878",
+  "ip": "3.42.157.x"
+ },
+ "engines": [
+  "playwright",
+  "firefox-fresh",
+  "impit"
+ ],
+ "runInfo": {
+  "playwright": "정상 · 13쪽 · 108s",
+  "firefox-fresh": "정상 · 13쪽 · 107s",
+  "impit": "정상 · 13쪽 · 8s"
+ },
+ "targets": [
+  {
+   "kind": "product",
+   "brand": "www.thewhitecompany.com",
+   "url": "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts"
+  },
+  {
+   "kind": "product",
+   "brand": "www.thewhitecompany.com",
+   "url": "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts"
+  },
+  {
+   "kind": "product",
+   "brand": "www.thewhitecompany.com",
+   "url": "https://www.thewhitecompany.com/us/c/us/Clothing/c/Tops"
+  },
+  {
+   "kind": "product",
+   "brand": "www.thewhitecompany.com",
+   "url": "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/loungewear"
+  },
+  {
+   "kind": "product",
+   "brand": "www.thewhitecompany.com",
+   "url": "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/dresses-and-tunics"
+  },
+  {
+   "kind": "product",
+   "brand": "www.thewhitecompany.com",
+   "url": "https://www.thewhitecompany.com/us/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.phase-eight.com",
+   "url": "https://www.phase-eight.com/us/clothing/tops/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.phase-eight.com",
+   "url": "https://www.phase-eight.com/us/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.crewclothing.com",
+   "url": "https://www.crewclothing.com/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.crewclothing.co.uk",
+   "url": "https://www.crewclothing.co.uk/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.poetryfashion.com",
+   "url": "https://www.poetryfashion.com/"
+  },
+  {
+   "kind": "product",
+   "brand": "us.poetryfashion.com",
+   "url": "https://us.poetryfashion.com/"
+  },
+  {
+   "kind": "product",
+   "brand": "www.carhartt.com",
+   "url": "https://www.carhartt.com/c/women-pants"
+  }
+ ],
+ "results": {
+  "playwright": {
+   "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.thewhitecompany.com/us/?countryIsoCode=US&currencyIsoCode=USD&clear=true",
+     "redirect": "locale uk→us",
+     "title": "The White Company - US",
+     "bytes": 10516,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3952",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "ROUTE",
+      "bm_sz",
+      "RT",
+      "_abck"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.phase-eight.com/us/clothing/tops/": {
+    "v": "blocked",
+    "note": "HTTP 404 Sites-P8-UK-Site |",
+    "ev": {
+     "status": 404,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Sites-P8-UK-Site |",
+     "bytes": 380513,
+     "textLen": 10371,
+     "headers": {
+      "cf-ray": "a607a8cfbf0bef10-PDX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "-73pbGPzB2sBAAB_"
+     },
+     "cookies": [
+      "sid",
+      "dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f",
+      "dwac_b68853caff276aaea9ec9a5cc4",
+      "cquid",
+      "GlobalE_Data",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "GnattaWebChatApiKey",
+      "GnattaApiHost",
+      "GlobalE_Welcome_Data",
+      "_fbp",
+      "_clck",
+      "OptanonConsent",
+      "GnattaWebChatOriginator",
+      "GlobalE_Full_Redirect",
+      "_pin_unauth",
+      "_ga_CGSSWSV9RC",
+      "_ga",
+      "ABTastySession",
+      "ABTasty",
+      "_clsk",
+      "__cq_uuid",
+      "__cq_seg",
+      "FPAU",
+      "FPGSID",
+      "cqcid",
+      "__tfg_loc",
+      "_gtmeec",
+      "GlobalE_Analytics"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Sites-P8-UK-Site | Enjoy our great international shipping rates Chat Chat Chat TODAY'S DEAL: 40% OFF PARTYWEAR | SHOP NOW BLACK FRIDAY 30% OFF EVERYTHING* | SHOP NOW US ($) Menu Sign In clear phase-eight true clear Popul"
+    },
+    "cause": "dead",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "낮음",
+     "why": "CDN 헤더만 있음(차단 문구 없음)",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f, 쿠키 dwac_b68853caff276aaea9ec9a5cc4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.crewclothing.com/": {
+    "v": "open",
+    "note": "글 8523자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.crewclothing.co.uk/",
+     "redirect": "other-site",
+     "title": "Crew Clothing Company | smart. casual. everyday",
+     "bytes": 582534,
+     "textLen": 8125,
+     "headers": {
+      "cf-ray": "a607a90b2a66df2d-SEA",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "powered-by": "Shopify"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "cc_sf_token",
+      "__rtbh.lid",
+      "ff_uid",
+      "ometria",
+      "crew_uid_src",
+      "cc_session_id",
+      "_gcl_au",
+      "cart",
+      "__cf_bm",
+      "_clck",
+      "lantern",
+      "GlobalE_Analytics",
+      "_pandectes_gdpr",
+      "2c.cId",
+      "_clsk",
+      "_ga",
+      "_ga_ZFB20XJM0R",
+      "_shopify_cmp",
+      "mktz_sess",
+      "mktz_client",
+      "FPID",
+      "FPAU",
+      "sgtm_ff_uid",
+      "sgtm_crew_uid_src",
+      "sgtm_ga_cid",
+      "FPLC",
+      "mktz_ab",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "GlobalE_Consent",
+      "GLBE_SESS_ID",
+      "test",
+      "",
+      "__attn_shp_cid"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Crew Clothing Company | smart. casual. everyday your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping available on all orders! "
+    },
+    "cause": "dead",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/": {
+    "v": "open",
+    "note": "글 8523자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Crew Clothing Company | smart. casual. everyday",
+     "bytes": 586571,
+     "textLen": 8125,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607a945ec6af67a-SEA",
+      "content-type": "text/html; charset=utf-8",
+      "powered-by": "Shopify",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "cc_sf_token",
+      "ff_uid",
+      "cc_session_id",
+      "_gcl_au",
+      "cart",
+      "__cf_bm",
+      "_clck",
+      "lantern",
+      "_pandectes_gdpr",
+      "2c.cId",
+      "_ga",
+      "mktz_sess",
+      "FPID",
+      "FPAU",
+      "sgtm_ff_uid",
+      "sgtm_ga_cid",
+      "FPLC",
+      "mktz_ab",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "GlobalE_Consent",
+      "test",
+      "",
+      "__attn_shp_cid",
+      "_shopify_cmp",
+      "__rtbh.lid",
+      "mktz_client",
+      "ometria",
+      "_ga_ZFB20XJM0R",
+      "GlobalE_Analytics",
+      "crew_uid_src",
+      "sgtm_crew_uid_src",
+      "GLBE_SESS_ID",
+      "_clsk"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Crew Clothing Company | smart. casual. everyday your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping available on all orders! "
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.poetryfashion.com/": {
+    "v": "open",
+    "note": "글 14058자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.poetryfashion.com/home",
+     "redirect": "path",
+     "title": "POETRY - Women's Fashion - Spring Summer Collection",
+     "bytes": 295002,
+     "textLen": 13963,
+     "headers": {
+      "cf-ray": "a607a981a972b876-PDX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "WXg2nB54B2sBAAB_"
+     },
+     "cookies": [
+      "dwsid",
+      "dwac_de37c8076c689b61626fbd417f",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_1d13d00da8742c6d036c3743f536c7e4",
+      "__cq_dnt",
+      "dw_dnt"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Women's Fashion - Spring Summer Collection Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site na"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwsid, 쿠키 dwac_de37c8076c689b61626fbd417f, 쿠키 dwanonymous_1d13d00da8742c6d036c3743f536c7e4, 쿠키 __cq_dnt"
+     ]
+    }
+   },
+   "https://us.poetryfashion.com/": {
+    "v": "err",
+    "note": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://us.poetryfashion.com/",
+    "cause": "error"
+   },
+   "https://www.carhartt.com/c/women-pants": {
+    "v": "comp",
+    "note": "Cotton 97% / Elastane 3%",
+    "comp": "Cotton 97% / Elastane 3%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Womens Pants - Work & Casual Pants & Cargo Pants for Women | Carhartt",
+     "bytes": 1695370,
+     "textLen": 13246,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "*",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM,2"
+     },
+     "cookies": [
+      "transactionID",
+      "C4Country",
+      "AKCountry",
+      "AKA_CONTINENT",
+      "AKA_A2",
+      "bm_sz",
+      "PIM-SESSION-ID",
+      "_evga_58cb",
+      "_sfid_6185",
+      "gig_bootstrap_3_8MN0gP3k6zUsc4l3yF2SVQCvvGmbbR24c8FGThfTMT5gf3Nfs8da7GyKvggXDm13",
+      "AMCVS_8CBC67C25245ADB50A490D4C%40AdobeOrg",
+      "status",
+      "s_ecid",
+      "_scid",
+      "_scid_r",
+      "_rdt_uuid",
+      "_gcl_au",
+      "mp_carhartt_mixpanel",
+      "_fbp",
+      "nmstat",
+      "__pdst",
+      "s_ppvl",
+      "s_ppv",
+      "s_vnum",
+      "s_invisit",
+      "s_lv_s",
+      "gpv_pn",
+      "s_cc",
+      "bc_invalidateUrlCache_targeting",
+      "_pin_unauth",
+      "_ga_6R220VCGM2",
+      "_ga",
+      "_tt_enable_cookie",
+      "_ttp",
+      "bluecoreNV",
+      "tfpsi",
+      "AKA_ORIGIN",
+      "_abck",
+      "ttcsid",
+      "ttcsid_CCQPLVBC77U4JVV1D6HG"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Womens Pants - Work & Casual Pants & Cargo Pants for Women | Carhartt ✕ Skip to Header Skip to Main Content Skip to Footer Carhartt Reworked Carhartt Company Gear GIVE THE GIFT OF WARMTH &gt; SHOP OUTERWEAR FREE U.S. GRO"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: *, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10518,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3948",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "ROUTE",
+      "bm_sz",
+      "_abck",
+      "RT"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.phase-eight.com/us/": {
+    "v": "blocked",
+    "note": "HTTP 404 Sites-P8-UK-Site |",
+    "ev": {
+     "status": 404,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Sites-P8-UK-Site |",
+     "bytes": 377878,
+     "textLen": 10371,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607aa2a3ee7dd6a-PDX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "-737fpvzB2sBAAB_"
+     },
+     "cookies": [
+      "sid",
+      "dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f",
+      "dwac_b68853caff276aaea9ec9a5cc4",
+      "cquid",
+      "GlobalE_Data",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "GnattaWebChatApiKey",
+      "GnattaApiHost",
+      "GlobalE_Welcome_Data",
+      "_fbp",
+      "_clck",
+      "GnattaWebChatOriginator",
+      "GlobalE_Full_Redirect",
+      "_pin_unauth",
+      "_ga",
+      "__cq_uuid",
+      "__cq_seg",
+      "FPAU",
+      "FPGSID",
+      "cqcid",
+      "_gtmeec",
+      "_ga_CGSSWSV9RC",
+      "ABTastySession",
+      "ABTasty",
+      "OptanonConsent",
+      "_clsk",
+      "__tfg_loc",
+      "GlobalE_Analytics"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Sites-P8-UK-Site | Enjoy our great international shipping rates Chat Chat Chat TODAY'S DEAL: 40% OFF PARTYWEAR | SHOP NOW BLACK FRIDAY 30% OFF EVERYTHING* | SHOP NOW US ($) Menu Sign In clear phase-eight true clear Popul"
+    },
+    "cause": "dead",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "낮음",
+     "why": "CDN 헤더만 있음(차단 문구 없음)",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f, 쿠키 dwac_b68853caff276aaea9ec9a5cc4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/c/us/Clothing/c/Tops": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10517,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3955",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "ROUTE",
+      "bm_sz",
+      "_abck",
+      "RT"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/loungewear": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10520,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3959",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "ROUTE",
+      "bm_sz",
+      "_abck",
+      "RT"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/dresses-and-tunics": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10520,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3956",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "ROUTE",
+      "bm_sz",
+      "_abck",
+      "RT"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10520,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3955",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "ROUTE",
+      "bm_sz",
+      "_abck",
+      "RT"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   }
+  },
+  "firefox-fresh": {
+   "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.thewhitecompany.com/us/?countryIsoCode=US&currencyIsoCode=USD&clear=true",
+     "redirect": "locale uk→us",
+     "title": "The White Company - US",
+     "bytes": 10510,
+     "textLen": 310,
+     "headers": {
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM, 1",
+      "content-length": "3953"
+     },
+     "cookies": [
+      "JSESSIONID",
+      "ROUTE",
+      "ak_bmsc",
+      "bm_sz",
+      "RT",
+      "_abck"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 ak_bmsc, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.phase-eight.com/us/clothing/tops/": {
+    "v": "blocked",
+    "note": "HTTP 404 Sites-P8-UK-Site |",
+    "ev": {
+     "status": 404,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Sites-P8-UK-Site |",
+     "bytes": 380532,
+     "textLen": 10371,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "bHDsJ9DzB2sBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607ab783a94c654-PDX"
+     },
+     "cookies": [
+      "sid",
+      "dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f",
+      "dwac_b68853caff276aaea9ec9a5cc4",
+      "cquid",
+      "GlobalE_Data",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "GnattaWebChatApiKey",
+      "GnattaApiHost",
+      "GlobalE_Welcome_Data",
+      "cqcid",
+      "__tfg_loc",
+      "__cq_uuid",
+      "__cq_seg",
+      "_clck",
+      "_pin_unauth",
+      "GlobalE_Full_Redirect",
+      "_ga",
+      "_ga_CGSSWSV9RC",
+      "ABTastySession",
+      "ABTasty",
+      "FPAU",
+      "FPGSID",
+      "_fbp",
+      "_gtmeec",
+      "OptanonConsent",
+      "GnattaWebChatOriginator",
+      "_clsk",
+      "GlobalE_Analytics"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Sites-P8-UK-Site | Enjoy our great international shipping rates Chat Chat Chat TODAY'S DEAL: 40% OFF PARTYWEAR | SHOP NOW BLACK FRIDAY 30% OFF EVERYTHING* | SHOP NOW US ($) Menu Sign In clear phase-eight true clear Popul"
+    },
+    "cause": "dead",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "낮음",
+     "why": "CDN 헤더만 있음(차단 문구 없음)",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f, 쿠키 dwac_b68853caff276aaea9ec9a5cc4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.crewclothing.com/": {
+    "v": "open",
+    "note": "글 8523자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.crewclothing.co.uk/",
+     "redirect": "other-site",
+     "title": "Crew Clothing Company | smart. casual. everyday",
+     "bytes": 554041,
+     "textLen": 8125,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "77790",
+      "powered-by": "Shopify",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "cf-ray": "a607abb3da071846-SEA"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cc_sf_token",
+      "cc_session_id",
+      "_gcl_au",
+      "lantern",
+      "__rtbh.lid",
+      "__cf_bm",
+      "ometria",
+      "_pandectes_gdpr",
+      "_clck",
+      "GlobalE_Analytics",
+      "_ga",
+      "mktz_sess",
+      "mktz_client",
+      "_shopify_cmp",
+      "2c.cId",
+      "_ga_ZFB20XJM0R",
+      "GlobalE_Consent",
+      "GLBE_SESS_ID",
+      "FPID",
+      "FPLC",
+      "FPAU",
+      "uet_vid",
+      "sgtm_crew_uid_src",
+      "crew_uid_src",
+      "_clsk",
+      "cart",
+      "cart_currency",
+      "sgtm_ga_cid",
+      "ff_uid",
+      "sgtm_ff_uid",
+      "_fbp",
+      "_gtmeec-tt",
+      "_ttp",
+      "_gtmeec",
+      "mktz_ab",
+      "__obref"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Crew Clothing Company | smart. casual. everyday your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping available on all orders! "
+    },
+    "cause": "dead",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 _shopify_cmp"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/": {
+    "v": "open",
+    "note": "글 8523자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Crew Clothing Company | smart. casual. everyday",
+     "bytes": 554147,
+     "textLen": 8125,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "77790",
+      "powered-by": "Shopify",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "cf-ray": "a607abef9f579013-SEA"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cc_sf_token",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "lantern",
+      "_pandectes_gdpr",
+      "__cf_bm",
+      "mktz_sess",
+      "mktz_client",
+      "GlobalE_Analytics",
+      "cart",
+      "_clck",
+      "_ga",
+      "2c.cId",
+      "ometria",
+      "_shopify_cmp",
+      "_ga_ZFB20XJM0R",
+      "ff_uid",
+      "crew_uid_src",
+      "mktz_ab",
+      "FPID",
+      "FPAU",
+      "GlobalE_Consent",
+      "cart_currency",
+      "_clsk",
+      "FPLC",
+      "uet_vid",
+      "GLBE_SESS_ID",
+      "_fbp",
+      "_ttp",
+      "_gtmeec-tt",
+      "QuantumMetricSessionID",
+      "QuantumMetricUserID",
+      "__obref",
+      "_gtmeec",
+      "sgtm_ga_cid"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Crew Clothing Company | smart. casual. everyday your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping available on all orders! "
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 _shopify_cmp"
+     ]
+    }
+   },
+   "https://www.poetryfashion.com/": {
+    "v": "open",
+    "note": "글 14058자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.poetryfashion.com/home",
+     "redirect": "path",
+     "title": "POETRY - Women's Fashion - Spring Summer Collection",
+     "bytes": 294865,
+     "textLen": 13963,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "zXhu_h14B2sBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607ac2ac8d4ef20-PDX"
+     },
+     "cookies": [
+      "dwsid",
+      "dwac_de37c8076c689b61626fbd417f",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_1d13d00da8742c6d036c3743f536c7e4",
+      "__cq_dnt",
+      "dw_dnt"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Women's Fashion - Spring Summer Collection Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site na"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwsid, 쿠키 dwac_de37c8076c689b61626fbd417f, 쿠키 dwanonymous_1d13d00da8742c6d036c3743f536c7e4, 쿠키 __cq_dnt"
+     ]
+    }
+   },
+   "https://us.poetryfashion.com/": {
+    "v": "err",
+    "note": "page.goto: NS_ERROR_UNKNOWN_HOST",
+    "cause": "error"
+   },
+   "https://www.carhartt.com/c/women-pants": {
+    "v": "comp",
+    "note": "Cotton 97% / Elastane 3%",
+    "comp": "Cotton 97% / Elastane 3%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Womens Pants - Work & Casual Pants & Cargo Pants for Women | Carhartt",
+     "bytes": 1690220,
+     "textLen": 13246,
+     "headers": {
+      "server": "*",
+      "content-type": "text/html; charset=utf-8",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "C4Country",
+      "AKCountry",
+      "AKA_CONTINENT",
+      "AKA_A2",
+      "bm_sz",
+      "PIM-SESSION-ID",
+      "_sfid_6185",
+      "_abck",
+      "ak_bmsc",
+      "AKA_ORIGIN",
+      "_evga_58cb",
+      "bm_sv",
+      "RT",
+      "utag_main",
+      "_scid",
+      "_scid_r",
+      "_rdt_uuid",
+      "mp_carhartt_mixpanel",
+      "nmstat",
+      "_uetsid",
+      "_uetvid",
+      "AMCVS_8CBC67C25245ADB50A490D4C%40AdobeOrg",
+      "gig_bootstrap_3_8MN0gP3k6zUsc4l3yF2SVQCvvGmbbR24c8FGThfTMT5gf3Nfs8da7GyKvggXDm13",
+      "_fbp",
+      "_pin_unauth",
+      "_gcl_au",
+      "s_ecid",
+      "__pdst",
+      "AMCV_8CBC67C25245ADB50A490D4C%40AdobeOrg",
+      "bc_invalidateUrlCache_targeting",
+      "_tt_enable_cookie",
+      "_ttp",
+      "ttcsid_CCQPLVBC77U4JVV1D6HG",
+      "ttcsid",
+      "status",
+      "s_ppvl",
+      "s_ppv",
+      "s_vnum",
+      "s_invisit",
+      "s_lv_s"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.carhartt.com/akam/13/2eeb7059",
+      "www.carhartt.com/akam/13/pixel_2eeb7059"
+     ],
+     "snippet": "Womens Pants - Work & Casual Pants & Cargo Pants for Women | Carhartt ✕ Skip to Header Skip to Main Content Skip to Footer Carhartt Reworked Carhartt Company Gear GIVE THE GIFT OF WARMTH &gt; SHOP OUTERWEAR FREE U.S. GRO"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: *, 쿠키 bm_sz, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sv"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10509,
+     "textLen": 310,
+     "headers": {
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM, 1",
+      "content-length": "3954"
+     },
+     "cookies": [
+      "ak_bmsc",
+      "bm_sz",
+      "RT",
+      "_abck"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 ak_bmsc, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.phase-eight.com/us/": {
+    "v": "blocked",
+    "note": "HTTP 404 Sites-P8-UK-Site |",
+    "ev": {
+     "status": 404,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Sites-P8-UK-Site |",
+     "bytes": 380250,
+     "textLen": 10371,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "-737ngP0B2sBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607acb84f945332-PDX"
+     },
+     "cookies": [
+      "sid",
+      "dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f",
+      "dwac_b68853caff276aaea9ec9a5cc4",
+      "cquid",
+      "GlobalE_Data",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "GnattaWebChatApiKey",
+      "GnattaApiHost",
+      "GlobalE_Welcome_Data",
+      "GlobalE_Full_Redirect",
+      "_clck",
+      "OptanonConsent",
+      "GnattaWebChatOriginator",
+      "_pin_unauth",
+      "cqcid",
+      "__tfg_loc",
+      "_ga",
+      "_ga_CGSSWSV9RC",
+      "__cq_uuid",
+      "__cq_seg",
+      "ABTastySession",
+      "ABTasty",
+      "FPAU",
+      "FPGSID",
+      "_clsk",
+      "_fbp",
+      "_gtmeec",
+      "GlobalE_Analytics"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Sites-P8-UK-Site | Enjoy our great international shipping rates Chat Chat Chat TODAY'S DEAL: 40% OFF PARTYWEAR | SHOP NOW BLACK FRIDAY 30% OFF EVERYTHING* | SHOP NOW US ($) Menu Sign In clear phase-eight true clear Popul"
+    },
+    "cause": "dead",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "낮음",
+     "why": "CDN 헤더만 있음(차단 문구 없음)",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f, 쿠키 dwac_b68853caff276aaea9ec9a5cc4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/c/us/Clothing/c/Tops": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10511,
+     "textLen": 310,
+     "headers": {
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM, 1",
+      "content-length": "3950"
+     },
+     "cookies": [
+      "ak_bmsc",
+      "bm_sz",
+      "RT",
+      "_abck"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 ak_bmsc, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/loungewear": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10507,
+     "textLen": 310,
+     "headers": {
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM, 1",
+      "content-length": "3946"
+     },
+     "cookies": [
+      "ak_bmsc",
+      "bm_sz",
+      "RT",
+      "_abck"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 ak_bmsc, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/dresses-and-tunics": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10621,
+     "textLen": 310,
+     "headers": {
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM, 1",
+      "content-length": "3944"
+     },
+     "cookies": [
+      "ak_bmsc",
+      "bm_sz",
+      "RT",
+      "_abck"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 ak_bmsc, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/": {
+    "v": "open",
+    "note": "글 316자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 10507,
+     "textLen": 310,
+     "headers": {
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM, 1",
+      "content-length": "3945"
+     },
+     "cookies": [
+      "ak_bmsc",
+      "bm_sz",
+      "RT",
+      "_abck"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 ak_bmsc, 쿠키 bm_sz, 쿠키 _abck"
+     ]
+    }
+   }
+  },
+  "impit": {
+   "https://www.thewhitecompany.com/uk/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts": {
+    "v": "open",
+    "note": "글 312자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.thewhitecompany.com/us/?countryIsoCode=US&currencyIsoCode=USD&clear=true",
+     "redirect": "locale uk→us",
+     "title": "The White Company - US",
+     "bytes": 9486,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3946",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "_abck",
+      "ak_bmsc",
+      "bm_sz"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.phase-eight.com/us/clothing/tops/": {
+    "v": "blocked",
+    "note": "HTTP 404 Sites-P8-UK-Site | ",
+    "ev": {
+     "status": 404,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Sites-P8-UK-Site |",
+     "bytes": 208025,
+     "textLen": 5321,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607add9cdc69314-PDX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "-73arTL0B2sBAAB_"
+     },
+     "cookies": [
+      "sid",
+      "dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f",
+      "dwac_b68853caff276aaea9ec9a5cc4",
+      "cquid",
+      "GlobalE_Data",
+      "__cq_dnt",
+      "dw_dnt",
+      "__tfg_loc",
+      "dwsid"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Sites-P8-UK-Site | Chat Chat Chat TODAY'S DEAL: 40% OFF PARTYWEAR | SHOP NOW BLACK FRIDAY 30% OFF EVERYTHING* | SHOP NOW US &#40;$&#41; Menu Sign In clear phase-eight true clear Popular searches jumpsuit tops coat knitte"
+    },
+    "cause": "dead",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "낮음",
+     "why": "CDN 헤더만 있음(차단 문구 없음)",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f, 쿠키 dwac_b68853caff276aaea9ec9a5cc4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.crewclothing.com/": {
+    "v": "open",
+    "note": "글 8109자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.crewclothing.co.uk/",
+     "redirect": "other-site",
+     "title": "Crew Clothing Company | smart. casual. everyday",
+     "bytes": 601860,
+     "textLen": 7331,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607addc9df7bd66-SEA",
+      "content-length": "77794",
+      "content-type": "text/html; charset=utf-8",
+      "powered-by": "Shopify",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "_shopify_cmp"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Crew Clothing Company | smart. casual. everyday your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping available on all orders! "
+    },
+    "cause": "dead",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/": {
+    "v": "open",
+    "note": "글 8109자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Crew Clothing Company | smart. casual. everyday",
+     "bytes": 601860,
+     "textLen": 7331,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607adddf90bbd66-SEA",
+      "content-length": "77794",
+      "content-type": "text/html; charset=utf-8",
+      "powered-by": "Shopify",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "_shopify_cmp"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Crew Clothing Company | smart. casual. everyday your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping available on all orders! "
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.poetryfashion.com/": {
+    "v": "open",
+    "note": "글 3156자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.poetryfashion.com/home",
+     "redirect": "path",
+     "title": "POETRY - Women's Fashion - Spring Summer Collection",
+     "bytes": 232631,
+     "textLen": 3080,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607addfdc227b78-PDX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "zXhu_h14B2sBAAB_"
+     },
+     "cookies": [
+      "dwac_de37c8076c689b61626fbd417f",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_1d13d00da8742c6d036c3743f536c7e4",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Women's Fashion - Spring Summer Collection Skip to main content Skip to footer content Search Call us 1 888 369 3616 Search Clear We could't find any matching results. Try another search term or perhaps you'd li"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_de37c8076c689b61626fbd417f, 쿠키 dwanonymous_1d13d00da8742c6d036c3743f536c7e4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://us.poetryfashion.com/": {
+    "v": "err",
+    "note": "Failed to connect to the server.",
+    "cause": "error"
+   },
+   "https://www.carhartt.com/c/women-pants": {
+    "v": "comp",
+    "note": "Cotton 97% / Elastane 3%",
+    "comp": "Cotton 97% / Elastane 3%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Womens Pants - Work &amp; Casual Pants &amp; Cargo Pants for Women | Carhartt",
+     "bytes": 2079996,
+     "textLen": 23046,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "*",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM,2"
+     },
+     "cookies": [
+      "AKA_ORIGIN",
+      "C4Country",
+      "AKCountry",
+      "AKA_CONTINENT",
+      "AKA_A2",
+      "_abck",
+      "ak_bmsc",
+      "bm_mi",
+      "bm_sz"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Womens Pants - Work & Casual Pants & Cargo Pants for Women | Carhartt Skip to Header Skip to Main Content Skip to Footer Carhartt Reworked Carhartt Company Gear GIVE THE GIFT OF WARMTH &gt; SHOP OUTERWEAR FREE U.S. GROUN"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: server: *, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_mi, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/Tops/c/tops-and-t-shirts": {
+    "v": "open",
+    "note": "글 312자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 9485,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3944",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "_abck",
+      "ak_bmsc",
+      "bm_sz"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.phase-eight.com/us/": {
+    "v": "blocked",
+    "note": "HTTP 404 Sites-P8-UK-Site | ",
+    "ev": {
+     "status": 404,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Sites-P8-UK-Site |",
+     "bytes": 208025,
+     "textLen": 5321,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a607ade66a739314-PDX",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "-71orjT0B2sBAAB_"
+     },
+     "cookies": [
+      "sid",
+      "dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f",
+      "dwac_b68853caff276aaea9ec9a5cc4",
+      "cquid",
+      "GlobalE_Data",
+      "__cq_dnt",
+      "dw_dnt",
+      "__tfg_loc",
+      "dwsid"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Sites-P8-UK-Site | Chat Chat Chat TODAY'S DEAL: 40% OFF PARTYWEAR | SHOP NOW BLACK FRIDAY 30% OFF EVERYTHING* | SHOP NOW US &#40;$&#41; Menu Sign In clear phase-eight true clear Popular searches jumpsuit tops coat knitte"
+    },
+    "cause": "dead",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "낮음",
+     "why": "CDN 헤더만 있음(차단 문구 없음)",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwanonymous_90fe26f2e0af8dfc2722a28aeaa6722f, 쿠키 dwac_b68853caff276aaea9ec9a5cc4, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/c/us/Clothing/c/Tops": {
+    "v": "open",
+    "note": "글 312자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 9485,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3945",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "_abck",
+      "ak_bmsc",
+      "bm_sz"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/loungewear": {
+    "v": "open",
+    "note": "글 312자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 9485,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3945",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "_abck",
+      "ak_bmsc",
+      "bm_sz"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/Clothing/View-All-Clothing/c/dresses-and-tunics": {
+    "v": "open",
+    "note": "글 312자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 9485,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3943",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "_abck",
+      "ak_bmsc",
+      "bm_sz"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.thewhitecompany.com/us/": {
+    "v": "open",
+    "note": "글 312자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "The White Company - US",
+     "bytes": 9485,
+     "textLen": 310,
+     "headers": {
+      "content-length": "3946",
+      "content-type": "text/html",
+      "x-akamai-transformed": "9l 4746 0 pmb=mRUM,1"
+     },
+     "cookies": [
+      "_abck",
+      "ak_bmsc",
+      "bm_sz"
+     ],
+     "markers": [
+      "geo"
+     ],
+     "vendorRequests": [],
+     "snippet": "The White Company - US We're sorry. The White Company is not currently able to ship orders to the United States of America If you have recently placed an order, please use the order tracking & returns options on our UK s"
+    },
+    "cause": "geo",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sz"
+     ]
+    }
+   }
+  }
+ },
+ "catalogs": []
+}
