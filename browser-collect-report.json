@@ -1,5 +1,5 @@
 {
- "when": "2026-11-26T03:17:42.442Z",
+ "when": "2026-11-26T07:10:09.697Z",
  "store": true,
  "engine": "per-brand",
  "engines": [
@@ -20,21 +20,21 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 162,
-   "stored": 162,
+   "collected": 141,
+   "stored": 141,
    "storeErr": "",
    "cats": {
-    "tops": 62,
-    "sweatshirts": 60,
-    "pants": 13,
+    "tops": 47,
+    "sweatshirts": 56,
+    "pants": 11,
     "dresses": 27
    },
    "perUrl": [
     {
      "url": "https://www.luckybrand.com/women/clothing/shirts/tshirts-tanktops",
-     "count": 59,
-     "productShaped": 56,
-     "note": "",
+     "count": 80,
+     "productShaped": 77,
+     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=406&catid=w-clothi)",
      "sample": [
       {
        "name": "clearance",
@@ -42,49 +42,13 @@
        "price": "$14.99"
       },
       {
-       "name": "Madhappy x Lucky Brand Crochet Hoodie, image 3",
-       "productUrl": "https://www.luckybrand.com/madhappy-x-lucky-brand-crochet-hoodie/186493.html",
+       "name": "CLOUD WAFFLE HOODIE, image 4",
+       "productUrl": "https://www.luckybrand.com/cloud-waffle-hoodie/177061.html",
        "price": ""
       },
       {
-       "name": "SHORT SLEEVE SANDWASH DOLMAN TEE, image 4",
-       "productUrl": "https://www.luckybrand.com/short-sleeve-sandwash-dolman-tee/7W66564.html",
-       "price": ""
-      }
-     ],
-     "rej": {
-      "total": 325,
-      "noImage": 242,
-      "tinyImage": 4,
-      "shortPath": 18,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 5,
-      "nonProduct": 4,
-      "landing": 1,
-      "siteMenu": 46,
-      "offSite": 2
-     }
-    },
-    {
-     "url": "https://www.luckybrand.com/women/clothing/sweaters",
-     "count": 88,
-     "productShaped": 86,
-     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=463&catid=w-clothi)",
-     "sample": [
-      {
-       "name": "clearance",
-       "productUrl": "https://www.luckybrand.com/clearance",
-       "price": "$14.99"
-      },
-      {
-       "name": "CLOUD SOFT CABLE CARDIGAN, image 4",
-       "productUrl": "https://www.luckybrand.com/cloud-soft-cable-cardigan/173606.html",
-       "price": ""
-      },
-      {
-       "name": "Square Neck long sleeve top., image 4",
-       "productUrl": "https://www.luckybrand.com/square-neck-long-sleeve-top./119733.html",
+       "name": "CABLE HEARTS BOAT NECK, image 4",
+       "productUrl": "https://www.luckybrand.com/cable-hearts-boat-neck/179478.html",
        "price": ""
       }
      ],
@@ -103,17 +67,53 @@
      }
     },
     {
+     "url": "https://www.luckybrand.com/women/clothing/sweaters",
+     "count": 88,
+     "productShaped": 86,
+     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=406&catid=w-clothi)",
+     "sample": [
+      {
+       "name": "clearance",
+       "productUrl": "https://www.luckybrand.com/clearance",
+       "price": "$14.99"
+      },
+      {
+       "name": "CLOUD SOFT CABLE CARDIGAN, image 4",
+       "productUrl": "https://www.luckybrand.com/cloud-soft-cable-cardigan/173606.html",
+       "price": ""
+      },
+      {
+       "name": "Square Neck long sleeve top., image 4",
+       "productUrl": "https://www.luckybrand.com/square-neck-long-sleeve-top./119733.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 579,
+      "noImage": 373,
+      "tinyImage": 62,
+      "shortPath": 18,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 44,
+      "nonProduct": 4,
+      "landing": 1,
+      "siteMenu": 46,
+      "offSite": 2
+     }
+    },
+    {
      "url": "https://www.luckybrand.com/women/clothing/shirts/blouses",
      "count": 0,
      "productShaped": 0,
-     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=463&catid=w-clothi)",
+     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=406&catid=w-clothi)",
      "sample": []
     },
     {
      "url": "https://www.luckybrand.com/women/clothing/dresses",
      "count": 66,
      "productShaped": 64,
-     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=463&catid=w-clothi)",
+     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=406&catid=w-clothi)",
      "sample": [
       {
        "name": "clearance",
@@ -149,7 +149,7 @@
      "url": "https://www.luckybrand.com/women/clothing/pants",
      "count": 35,
      "productShaped": 33,
-     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=463&catid=w-clothi)",
+     "note": "수집 중 다른 페이지로 넘어가 여기까지만 씀(https://www.luckybrand.com/plaid-button-down-shirt/169962.html?dwvar_169962_color=406&catid=w-clothi)",
      "sample": [
       {
        "name": "clearance",
@@ -162,19 +162,19 @@
        "price": ""
       },
       {
-       "name": "CABLE HEARTS BOAT NECK, image 4",
-       "productUrl": "https://www.luckybrand.com/cable-hearts-boat-neck/179478.html",
+       "name": "LACE PETER PAN CARDIGAN, image 4",
+       "productUrl": "https://www.luckybrand.com/lace-peter-pan-cardigan/180200.html",
        "price": ""
       }
      ],
      "rej": {
-      "total": 578,
-      "noImage": 372,
-      "tinyImage": 61,
+      "total": 579,
+      "noImage": 373,
+      "tinyImage": 62,
       "shortPath": 18,
       "samePage": 0,
       "banner": 0,
-      "dup": 45,
+      "dup": 44,
       "nonProduct": 4,
       "landing": 1,
       "siteMenu": 46,
@@ -182,8 +182,8 @@
      }
     }
    ],
-   "secs": 450,
-   "dropped": 8,
+   "secs": 475,
+   "dropped": 29,
    "cut": false,
    "sample": [
     {
@@ -216,20 +216,20 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 454,
-   "stored": 454,
+   "collected": 456,
+   "stored": 456,
    "storeErr": "",
    "cats": {
     "tops": 114,
     "sweatshirts": 14,
-    "shirts": 49,
-    "dresses": 131,
+    "shirts": 50,
+    "dresses": 132,
     "pants": 146
    },
    "perUrl": [
     {
      "url": "https://www.meandem.com/us/tops/t-shirts",
-     "count": 47,
+     "count": 48,
      "productShaped": 0,
      "note": "",
      "sample": [
@@ -317,8 +317,8 @@
       },
       {
        "name": "Henley Knit Vest",
-       "productUrl": "https://www.meandem.com/us/henley-straight-knit-vest-merlot-red",
-       "price": ""
+       "productUrl": "https://www.meandem.com/us/henley-straight-knit-vest-navy",
+       "price": "$165.00"
       }
      ],
      "rej": {
@@ -337,7 +337,7 @@
     },
     {
      "url": "https://www.meandem.com/us/dresses",
-     "count": 135,
+     "count": 136,
      "productShaped": 0,
      "note": "",
      "sample": [
@@ -347,9 +347,9 @@
        "price": ""
       },
       {
-       "name": "Elongator Knit Maxi Dress",
-       "productUrl": "https://www.meandem.com/us/merino-stripe-knit-maxi-dress-charcoal-multi",
-       "price": "$465.00"
+       "name": "Fit + Flare Knit Maxi Dress",
+       "productUrl": "https://www.meandem.com/us/pleated-metallic-stripe-fit-and-flare-knit-maxi-dress-port-brown-gold",
+       "price": "$425.00"
       },
       {
        "name": "Belted Full-Length Dress",
@@ -408,7 +408,7 @@
      }
     }
    ],
-   "secs": 168,
+   "secs": 175,
    "dropped": 3,
    "cut": false,
    "sample": [
@@ -442,14 +442,14 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 558,
-   "stored": 558,
+   "collected": 557,
+   "stored": 557,
    "storeErr": "",
    "cats": {
-    "tops": 134,
+    "tops": 135,
     "shirts": 27,
-    "sweatshirts": 78,
-    "pants": 286,
+    "sweatshirts": 77,
+    "pants": 285,
     "dresses": 33
    },
    "perUrl": [
@@ -465,20 +465,20 @@
        "price": ""
       },
       {
-       "name": "IM6788 010",
-       "productUrl": "https://www.nike.com/t/jordan-flight-fleece-womens-corset-e7hxNFVD/IM6788-010",
-       "price": "$42.97"
+       "name": "Nike Sportswear Classic Women's Oversized T-Shirt (Plus Size)",
+       "productUrl": "https://www.nike.com/t/sportswear-classic-womens-oversized-t-shirt-plus-size-QJNy9ntj/IM6431-010",
+       "price": "$23.97"
       },
       {
-       "name": "Nike Victory Women's Dri-FIT Sleeveless Printed Golf Polo",
-       "productUrl": "https://www.nike.com/t/victory-womens-dri-fit-sleeveless-printed-golf-polo-yzjCrXlM/IR0051-100",
-       "price": "$59.97"
+       "name": "IM3777 437",
+       "productUrl": "https://www.nike.com/t/sportswear-t-shirt-ugHetH0f/IM3777-437",
+       "price": "$30.97"
       }
      ],
      "rej": {
-      "total": 1428,
+      "total": 1429,
       "noImage": 150,
-      "tinyImage": 514,
+      "tinyImage": 515,
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
@@ -512,9 +512,9 @@
       }
      ],
      "rej": {
-      "total": 1556,
+      "total": 1557,
       "noImage": 159,
-      "tinyImage": 683,
+      "tinyImage": 684,
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
@@ -578,27 +578,27 @@
        "price": "$69.97"
       },
       {
-       "name": "IM9953 010",
-       "productUrl": "https://www.nike.com/t/pro-womens-mid-rise-7-8-leggings-rve2ElgI/IM9953-010",
-       "price": "$56.97"
+       "name": "IQ0884 010",
+       "productUrl": "https://www.nike.com/t/pro-womens-mid-rise-crop-leggings-cdx0YMa3/IQ0884-010",
+       "price": "$43.97"
       }
      ],
      "rej": {
-      "total": 1482,
-      "noImage": 162,
-      "tinyImage": 527,
+      "total": 1389,
+      "noImage": 151,
+      "tinyImage": 481,
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
-      "dup": 116,
-      "nonProduct": 8,
+      "dup": 79,
+      "nonProduct": 9,
       "landing": 0,
       "siteMenu": 453,
       "offSite": 0
      }
     }
    ],
-   "secs": 296,
+   "secs": 293,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -632,11 +632,11 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 264,
-   "stored": 264,
+   "collected": 265,
+   "stored": 265,
    "storeErr": "",
    "cats": {
-    "tops": 158,
+    "tops": 159,
     "shirts": 6,
     "sweatshirts": 47,
     "pants": 48,
@@ -645,8 +645,8 @@
    "perUrl": [
     {
      "url": "https://www.on.com/en-us/shop/womens/apparel/tops-tshirts",
-     "count": 166,
-     "productShaped": 166,
+     "count": 165,
+     "productShaped": 165,
      "note": "",
      "sample": [
       {
@@ -655,14 +655,14 @@
        "price": "$70.00"
       },
       {
-       "name": "On Court-T Cassis Women – Tennis Tops and t-shirts Tennis",
-       "productUrl": "https://www.on.com/en-us/products/court-t-w-1wg1027/womens/cassis-apparel-1WG10275007",
+       "name": "On Race Singlet LN1 Fresco Women – Running, racing Tops and t-shirts",
+       "productUrl": "https://www.on.com/en-us/products/race-singlet-ln1-w-1wg3185/womens/fresco-apparel-1WG31855681",
        "price": "$80.00"
       },
       {
-       "name": "Core Jacket",
-       "productUrl": "https://www.on.com/en-us/products/core-jacket-w-1we1041/womens/black-apparel-1WE10410553",
-       "price": "$200.00"
+       "name": "Weather Jacket Insulated",
+       "productUrl": "https://www.on.com/en-us/products/weather-jacket-insulated-1we3008/womens/black-apparel-1WE30080553",
+       "price": "$250.00"
       }
      ],
      "rej": {
@@ -672,7 +672,7 @@
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
-      "dup": 121,
+      "dup": 122,
       "nonProduct": 0,
       "landing": 1,
       "siteMenu": 205,
@@ -681,8 +681,8 @@
     },
     {
      "url": "https://www.on.com/en-us/shop/womens/apparel/hoodies-sweatshirts",
-     "count": 71,
-     "productShaped": 71,
+     "count": 75,
+     "productShaped": 73,
      "note": "",
      "sample": [
       {
@@ -691,13 +691,13 @@
        "price": "$130.00"
       },
       {
-       "name": "Crater",
-       "productUrl": "https://www.on.com/en-us/products/club-collective-hoodie-w-1wg1108/womens/crater-apparel-1WG11081756",
+       "name": "White",
+       "productUrl": "https://www.on.com/en-us/products/climate-shirt-w-1wg3075/womens/white-apparel-1WG30750069",
        "price": ""
       },
       {
-       "name": "Club-T",
-       "productUrl": "https://www.on.com/en-us/products/club-t-w-1we1006/womens/black-apparel-1WE10060553",
+       "name": "Core Tank",
+       "productUrl": "https://www.on.com/en-us/products/core-tank-w-1we1093/womens/black-apparel-1WE10930553",
        "price": "$50.00"
       }
      ],
@@ -753,8 +753,8 @@
     },
     {
      "url": "https://www.on.com/en-us/shop/womens/apparel/pants",
-     "count": 61,
-     "productShaped": 61,
+     "count": 60,
+     "productShaped": 60,
      "note": "",
      "sample": [
       {
@@ -768,9 +768,9 @@
        "price": "$120.00"
       },
       {
-       "name": "Core Tank",
-       "productUrl": "https://www.on.com/en-us/products/core-tank-w-1we1093/womens/black-apparel-1WE10930553",
-       "price": "$50.00"
+       "name": "Cyclon-T",
+       "productUrl": "https://www.on.com/en-us/products/cyclon-t-891/womens/undyed-white-apparel-891.01244",
+       "price": ""
       }
      ],
      "rej": {
@@ -780,7 +780,7 @@
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
-      "dup": 50,
+      "dup": 49,
       "nonProduct": 0,
       "landing": 1,
       "siteMenu": 210,
@@ -788,8 +788,8 @@
      }
     }
    ],
-   "secs": 123,
-   "dropped": 5,
+   "secs": 135,
+   "dropped": 6,
    "cut": false,
    "sample": [
     {
@@ -845,13 +845,13 @@
        "price": ""
       },
       {
-       "name": "Jersey striped shirt",
-       "productUrl": "https://www.poetryfashion.co.uk/t-shirts-and-tops/hemp-cotton-jersey-striped-shirt-chartreuse-cream/UZ64.A.html",
-       "price": ""
+       "name": "Ribbed long-sleeve top",
+       "productUrl": "https://www.poetryfashion.co.uk/t-shirts-and-tops/ribbed-hemp-cotton-long-sleeve-top-forest/RU44.C.html",
+       "price": "£55"
       },
       {
-       "name": "Striped top",
-       "productUrl": "https://www.poetryfashion.co.uk/sale/hemp-cotton-curved-hem-top-soft-indigo/UF29.G.html",
+       "name": "Jewellery",
+       "productUrl": "https://www.poetryfashion.co.uk/poejw/jewellery",
        "price": ""
       }
      ],
@@ -912,7 +912,7 @@
      "note": "",
      "sample": [
       {
-       "name": "Pleated waist dress",
+       "name": "Pleated waist dress, Teal brown, large",
        "productUrl": "https://www.poetryfashion.co.uk/dresses-and-skirts/printed-silk-pleated-waist-dress-teal-brown/RW07.A.html",
        "price": ""
       },
@@ -953,13 +953,13 @@
        "price": ""
       },
       {
-       "name": "Jersey trousers",
-       "productUrl": "https://www.poetryfashion.co.uk/trousers/pleat-front-cotton-jersey-trousers-aubergine/RA30.L.html",
-       "price": ""
+       "name": "Barrel-leg trousers",
+       "productUrl": "https://www.poetryfashion.co.uk/trousers/linen-wool-barrel-leg-trousers-monochrome/RL83.G.html",
+       "price": "£189"
       },
       {
-       "name": "Indigo straight-leg jeans",
-       "productUrl": "https://www.poetryfashion.co.uk/trousers/indigo-straight-leg-jeans-pale-wash/RJ32.B.html",
+       "name": "Jewellery",
+       "productUrl": "https://www.poetryfashion.co.uk/poejw/jewellery",
        "price": ""
       }
      ],
@@ -978,7 +978,7 @@
      }
     }
    ],
-   "secs": 193,
+   "secs": 282,
    "dropped": 6,
    "cut": false,
    "sample": [
@@ -1061,8 +1061,8 @@
     },
     {
      "url": "https://www.shopbop.com/clothing-tops/br/v=1/13332.htm?f=MATopsStyle-Sweatshirt",
-     "count": 210,
-     "productShaped": 210,
+     "count": 211,
+     "productShaped": 211,
      "note": "",
      "sample": [
       {
@@ -1076,13 +1076,13 @@
        "price": "$138.00"
       },
       {
-       "name": "1505558912.htm",
-       "productUrl": "https://www.shopbop.com/fotl-crew-neck-sweatshirt-hommegirls/vp/v=1/1505558912.htm",
-       "price": "$150.00"
+       "name": "Designer Boutique",
+       "productUrl": "https://www.shopbop.com/hoodie-contrasted-ami-coeur/vp/v=1/1576679323.htm",
+       "price": "$420.00"
       }
      ],
      "rej": {
-      "total": 584,
+      "total": 585,
       "noImage": 31,
       "tinyImage": 1,
       "shortPath": 0,
@@ -1168,7 +1168,7 @@
      }
     }
    ],
-   "secs": 117,
+   "secs": 118,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -1202,12 +1202,12 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 75,
+   "collected": 76,
    "stored": 410,
    "storeErr": "",
    "cats": {
     "sweatshirts": 23,
-    "tops": 13,
+    "tops": 14,
     "pants": 27,
     "shirts": 1,
     "dresses": 11
@@ -1225,9 +1225,9 @@
        "price": "$ 148.00"
       },
       {
-       "name": "evergreen active fleece half zip SB04536 HeritageBlue.html",
-       "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/evergreen-active-fleece-half-zip-SB04536_HeritageBlue.html",
-       "price": "$ 144.00"
+       "name": "glow studio short sleeve tee SB10846B BlackMarl.html",
+       "productUrl": "https://www.sweatybetty.com/us/shop/tops/t-shirts/glow-studio-short-sleeve-tee-SB10846B_BlackMarl.html",
+       "price": "$ 84.00"
       },
       {
        "name": "wanderer utility waterproof short jacket SB04473 MalbecRed.html",
@@ -1251,24 +1251,24 @@
     },
     {
      "url": "https://www.sweatybetty.com/us/shop/tops/sweatshirts-and-hoodies",
-     "count": 24,
+     "count": 25,
      "productShaped": 0,
      "note": "",
      "sample": [
       {
        "name": "textured fleece half zip sweater SB04564 FrenchNavyBlue.html",
        "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/textured-fleece-half-zip-sweater-SB04564_FrenchNavyBlue.html",
-       "price": "$ 148.00"
+       "price": ""
       },
       {
-       "name": "textured pique crew neck sweatshirt SB04675 FrenchNavyBlue.html",
-       "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/textured-pique-crew-neck-sweatshirt-SB04675_FrenchNavyBlue.html",
-       "price": "$ 70.40"
+       "name": "textured trainer half zip SB05012 FrenchNavyBlue.html",
+       "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/textured-trainer-half-zip-SB05012_FrenchNavyBlue.html",
+       "price": ""
       },
       {
-       "name": "canyon fleece zip up SB04523 BayGreen.html",
-       "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/canyon-fleece-zip-up-SB04523_BayGreen.html",
-       "price": "$ 204.00"
+       "name": "all day side stripe hoodie SB10325 BlackEspressoBrown.html",
+       "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/all-day-side-stripe-hoodie-SB10325_BlackEspressoBrown.html",
+       "price": "$ 91.20"
       }
      ],
      "rej": {
@@ -1344,8 +1344,8 @@
       }
      ],
      "rej": {
-      "total": 134,
-      "noImage": 10,
+      "total": 137,
+      "noImage": 13,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 0,
@@ -1358,7 +1358,7 @@
      }
     }
    ],
-   "secs": 121,
+   "secs": 143,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -1379,8 +1379,8 @@
      "productUrl": "https://www.sweatybetty.com/us/shop/tops/long-sleeve-tops/fair-isle-seamless-base-layer-top-SB04688_TaupeBeige.html"
     },
     {
-     "name": "plush fleece ribbed zip up SB03287 EspressoBrown.html",
-     "productUrl": "https://www.sweatybetty.com/us/shop/tops/jumpers-hoodies/plush-fleece-ribbed-zip-up-SB03287_EspressoBrown.html"
+     "name": "nimbus longline waterproof puffer SB10381 Black.html",
+     "productUrl": "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_Black.html"
     }
    ],
    "verdict": "자동화 가능"
@@ -1392,11 +1392,11 @@
    "engineSource": "extra-override",
    "fresh": true,
    "storeMode": "replace",
-   "collected": 168,
+   "collected": 167,
    "stored": 0,
-   "storeErr": "지금 저장본 429개의 절반 미만(168개) — 저장 안 함(이전 저장본 유지)",
+   "storeErr": "지금 저장본 429개의 절반 미만(167개) — 저장 안 함(이전 저장본 유지)",
    "cats": {
-    "tops": 55,
+    "tops": 54,
     "sweatshirts": 43,
     "dresses": 14,
     "pants": 56
@@ -1440,7 +1440,7 @@
     },
     {
      "url": "https://www.theupside.com/shop/tops/knitwear/",
-     "count": 45,
+     "count": 44,
      "productShaped": 44,
      "note": "",
      "sample": [
@@ -1450,8 +1450,8 @@
        "price": ""
       },
       {
-       "name": "FENWAY SEBASTIAN KNIT CREW - CREME [USW424028]",
-       "productUrl": "https://www.theupside.com/fenway-sebastian-knit-crew-creme-usw424028/",
+       "name": "CASTILLA CLEMENTINE KNIT CREW - OLIVE [USW126120]",
+       "productUrl": "https://www.theupside.com/castilla-clementine-knit-crew-olive-usw126120/",
        "price": ""
       },
       {
@@ -1461,8 +1461,8 @@
       }
      ],
      "rej": {
-      "total": 385,
-      "noImage": 91,
+      "total": 2,
+      "noImage": 0,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 0,
@@ -1470,7 +1470,7 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 294,
+      "siteMenu": 2,
       "offSite": 0
      }
     },
@@ -1773,7 +1773,7 @@
      }
     }
    ],
-   "secs": 257,
+   "secs": 297,
    "dropped": 4,
    "cut": false,
    "sample": [
@@ -1807,20 +1807,20 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 406,
-   "stored": 406,
+   "collected": 404,
+   "stored": 404,
    "storeErr": "",
    "cats": {
     "sweatshirts": 178,
-    "tops": 49,
+    "tops": 47,
     "dresses": 19,
     "pants": 160
    },
    "perUrl": [
     {
      "url": "https://www.ae.com/us/en/c/aerie/clothing/tops/cat4130031",
-     "count": 209,
-     "productShaped": 209,
+     "count": 212,
+     "productShaped": 212,
      "note": "",
      "sample": [
       {
@@ -1829,13 +1829,13 @@
        "price": "$35"
       },
       {
-       "name": "OFFLINE By Aerie Fluff Love Quarter Snap Jacket",
-       "productUrl": "https://www.ae.com/us/en/p/aerie/tops/jackets/offline-by-aerie-fluff-love-quarter-snap-jacket/2168_2416_618",
+       "name": "Superchill Modal Long Sleeve T-Shirt",
+       "productUrl": "https://www.ae.com/us/en/p/aerie/tops/long-sleeve-t-shirts/superchill-modal-long-sleeve-t-shirt/1694_4456_109",
        "price": ""
       },
       {
-       "name": "OFFLINE By Aerie The Hugger Tank Top",
-       "productUrl": "https://www.ae.com/us/en/p/aerie/tops/tank-tops/offline-by-aerie-the-hugger-tank-top/2163_1616_073",
+       "name": "Aerie Faux Fur Jacket",
+       "productUrl": "https://www.ae.com/us/en/p/aerie/tops/jackets/aerie-faux-fur-jacket/0783_4175_119",
        "price": ""
       }
      ],
@@ -1846,7 +1846,7 @@
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
-      "dup": 214,
+      "dup": 211,
       "nonProduct": 241,
       "landing": 0,
       "siteMenu": 62,
@@ -1855,8 +1855,8 @@
     },
     {
      "url": "https://www.ae.com/us/en/c/aerie/tops/hoodies-sweatshirts/cat7030169",
-     "count": 178,
-     "productShaped": 178,
+     "count": 184,
+     "productShaped": 184,
      "note": "",
      "sample": [
       {
@@ -1865,8 +1865,8 @@
        "price": ""
       },
       {
-       "name": "Aerie Oh Snap! Sweatshirt",
-       "productUrl": "https://www.ae.com/us/en/p/aerie/black-friday-deals/oh-zip-sweatshirts-pants/aerie-oh-snap-sweatshirt/0743_3810_752",
+       "name": "OFFLINE By Aerie Cloud Fleece Classic Length Hoodie",
+       "productUrl": "https://www.ae.com/us/en/p/aerie/tops/sweatshirts-hoodies/offline-by-aerie-cloud-fleece-classic-length-hoodie/2164_2184_192",
        "price": ""
       },
       {
@@ -1876,14 +1876,14 @@
       }
      ],
      "rej": {
-      "total": 805,
+      "total": 820,
       "noImage": 180,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
-      "dup": 182,
-      "nonProduct": 202,
+      "dup": 186,
+      "nonProduct": 207,
       "landing": 0,
       "siteMenu": 63,
       "offSite": 0
@@ -1942,8 +1942,8 @@
        "price": ""
       },
       {
-       "name": "OFFLINE By Aerie OTT Fleece Super Wide Leg Pant",
-       "productUrl": "https://www.ae.com/us/en/p/aerie/bottoms/joggers-sweatpants/offline-by-aerie-ott-fleece-super-wide-leg-pant/1703_1248_169",
+       "name": "OFFLINE By Aerie The Hugger High Waisted Bootcut Legging",
+       "productUrl": "https://www.ae.com/us/en/p/aerie/bottoms/leggings-yoga-pants/offline-by-aerie-the-hugger-high-waisted-bootcut-legging/0449_6104_618",
        "price": ""
       }
      ],
@@ -1962,7 +1962,7 @@
      }
     }
    ],
-   "secs": 76,
+   "secs": 87,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -1996,15 +1996,15 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 604,
-   "stored": 604,
+   "collected": 607,
+   "stored": 607,
    "storeErr": "",
    "cats": {
-    "tops": 223,
-    "shirts": 32,
+    "tops": 224,
+    "shirts": 33,
     "pants": 154,
-    "sweatshirts": 105,
-    "dresses": 90
+    "sweatshirts": 107,
+    "dresses": 89
    },
    "perUrl": [
     {
@@ -2019,8 +2019,8 @@
        "price": ""
       },
       {
-       "name": "AE V-Neck Hey Baby Tee",
-       "productUrl": "https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-v-neck-hey-baby-tee/3375_1741_073",
+       "name": "AE Striped Long Sleeve T-Shirt",
+       "productUrl": "https://www.ae.com/intl/en/p/women/tops/t-shirts/ae-striped-long-sleeve-t-shirt/3375_1441_410",
        "price": ""
       },
       {
@@ -2030,14 +2030,14 @@
       }
      ],
      "rej": {
-      "total": 814,
+      "total": 808,
       "noImage": 159,
       "tinyImage": 4,
       "shortPath": 0,
       "samePage": 1,
       "banner": 0,
-      "dup": 205,
-      "nonProduct": 202,
+      "dup": 201,
+      "nonProduct": 200,
       "landing": 0,
       "siteMenu": 44,
       "offSite": 0
@@ -2060,8 +2060,8 @@
        "price": ""
       },
       {
-       "name": "NFL Pittsburgh Steelers Daily Fave Tank Top",
-       "productUrl": "https://www.ae.com/intl/en/p/women/tops/tank-tops/nfl-pittsburgh-steelers-daily-fave-tank-top/0301_6684_700",
+       "name": "AE Georgia Bulldogs Strappy-Go-Lucky Tank Top",
+       "productUrl": "https://www.ae.com/intl/en/p/women/tops/tank-tops/ae-georgia-bulldogs-strappy-go-lucky-tank-top/0301_6672_001",
        "price": ""
       }
      ],
@@ -2081,8 +2081,8 @@
     },
     {
      "url": "https://www.ae.com/intl/en/c/women/tops/hoodies-sweatshirts/cat90048",
-     "count": 103,
-     "productShaped": 103,
+     "count": 105,
+     "productShaped": 105,
      "note": "",
      "sample": [
       {
@@ -2092,7 +2092,7 @@
       },
       {
        "name": "AE Everyday Luxe Mock Neck Sweatshirt",
-       "productUrl": "https://www.ae.com/intl/en/p/women/tops/hoodies-sweatshirts/ae-everyday-luxe-mock-neck-sweatshirt/1455_3248_131",
+       "productUrl": "https://www.ae.com/intl/en/p/women/tops/hoodies-sweatshirts/ae-everyday-luxe-mock-neck-sweatshirt/1455_3280_448",
        "price": ""
       },
       {
@@ -2102,14 +2102,14 @@
       }
      ],
      "rej": {
-      "total": 520,
+      "total": 526,
       "noImage": 158,
       "tinyImage": 4,
       "shortPath": 0,
       "samePage": 1,
       "banner": 0,
-      "dup": 105,
-      "nonProduct": 104,
+      "dup": 107,
+      "nonProduct": 106,
       "landing": 0,
       "siteMenu": 45,
       "offSite": 0
@@ -2117,8 +2117,8 @@
     },
     {
      "url": "https://www.ae.com/intl/en/c/women/tops/shirts-blouses/cat360002",
-     "count": 60,
-     "productShaped": 60,
+     "count": 62,
+     "productShaped": 62,
      "note": "",
      "sample": [
       {
@@ -2127,13 +2127,13 @@
        "price": ""
       },
       {
-       "name": "AE Plaid Fitted Button-Up Blouse",
-       "productUrl": "https://www.ae.com/intl/en/p/women/tops/blouses-button-up-shirts/ae-plaid-fitted-button-up-blouse/0358_7145_300",
+       "name": "AE Corset Cami Top",
+       "productUrl": "https://www.ae.com/intl/en/p/women/tops/blouses-button-up-shirts/ae-corset-cami-top/0358_7146_660",
        "price": ""
       },
       {
-       "name": "AE Short-Sleeve Button-Up Top",
-       "productUrl": "https://www.ae.com/intl/en/p/women/tops/blouses-button-up-shirts/ae-short-sleeve-button-up-top/2351_7096_215",
+       "name": "AE Short-Sleeve V-Neck Top",
+       "productUrl": "https://www.ae.com/intl/en/p/women/tops/blouses-button-up-shirts/ae-short-sleeve-v-neck-top/0358_7148_001",
        "price": ""
       }
      ],
@@ -2153,8 +2153,8 @@
     },
     {
      "url": "https://www.ae.com/intl/en/c/women/dresses/cat1320034",
-     "count": 90,
-     "productShaped": 90,
+     "count": 89,
+     "productShaped": 89,
      "note": "",
      "sample": [
       {
@@ -2163,13 +2163,13 @@
        "price": ""
       },
       {
-       "name": "AE Cowl Neck Mini Dress",
-       "productUrl": "https://www.ae.com/intl/en/p/women/dresses/mini-dresses/ae-cowl-neck-mini-dress/1399_9517_431",
+       "name": "AE Ruffle Collar Mini Dress",
+       "productUrl": "https://www.ae.com/intl/en/p/women/dresses/mini-dresses/ae-ruffle-collar-mini-dress/1399_9453_410",
        "price": ""
       },
       {
-       "name": "AE77 Strappy Button-Up Maxi Dress",
-       "productUrl": "https://www.ae.com/intl/en/p/women/ae77-premium-collection/dresses-jumpsuits/ae77-strappy-button-up-maxi-dress/3428_5098_100",
+       "name": "AE77 Premium Smocked Maxi Dress",
+       "productUrl": "https://www.ae.com/intl/en/p/women/ae77-premium-collection/dresses-jumpsuits/ae77-premium-smocked-maxi-dress/3428_4987_200",
        "price": ""
       }
      ],
@@ -2180,7 +2180,7 @@
       "shortPath": 0,
       "samePage": 1,
       "banner": 0,
-      "dup": 90,
+      "dup": 91,
       "nonProduct": 90,
       "landing": 0,
       "siteMenu": 36,
@@ -2199,13 +2199,13 @@
        "price": ""
       },
       {
-       "name": "AE Curvy Super High-Waisted Baggy Jean",
-       "productUrl": "https://www.ae.com/intl/en/p/women/jeans/curvy-jeans/ae-curvy-super-high-waisted-baggy-jean/4436_6050_484",
+       "name": "AE Low-Rise Flare Jean",
+       "productUrl": "https://www.ae.com/intl/en/p/women/jeans/flare-bootcut-jeans/ae-low-rise-flare-jean/1436_6023_959",
        "price": ""
       },
       {
-       "name": "AE High-Waisted Stovepipe Jean",
-       "productUrl": "https://www.ae.com/intl/en/p/women/jeans/stovepipe-straight-leg-jeans/ae-high-waisted-stovepipe-jean/4435_6458_913",
+       "name": "AE Low-Rise Kick Boot Jean",
+       "productUrl": "https://www.ae.com/intl/en/p/women/jeans/flare-bootcut-jeans/ae-low-rise-kick-boot-jean/1437_6161_915",
        "price": ""
       }
      ],
@@ -2224,7 +2224,7 @@
      }
     }
    ],
-   "secs": 151,
+   "secs": 175,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -2603,7 +2603,7 @@
      }
     }
    ],
-   "secs": 296,
+   "secs": 297,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -2720,7 +2720,7 @@
      }
     }
    ],
-   "secs": 69,
+   "secs": 75,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -2760,8 +2760,8 @@
    "cats": {
     "tops": 45,
     "sweatshirts": 51,
-    "shirts": 60,
-    "dresses": 36,
+    "shirts": 59,
+    "dresses": 37,
     "pants": 48
    },
    "perUrl": [
@@ -2777,8 +2777,8 @@
        "price": ""
       },
       {
-       "name": "Perfect V Neck Slub T-Shirt in White",
-       "productUrl": "https://www.crewclothing.co.uk/products/perfect-v-neck-slub-t-shirt-in-white",
+       "name": "Superluxe Tee in Blue",
+       "productUrl": "https://www.crewclothing.co.uk/products/superluxe-tee-in-blue",
        "price": ""
       },
       {
@@ -2818,8 +2818,8 @@
        "price": ""
       },
       {
-       "name": "SuperLuxe Dolman Crew Sweat in Light Blue",
-       "productUrl": "https://www.crewclothing.co.uk/products/superluxe-dolman-crew-sweat-in-light-blue",
+       "name": "Henley Half-Zip Sweatshirt in White and Grey",
+       "productUrl": "https://www.crewclothing.co.uk/products/henley-half-zip-sweatshirt-in-white-and-grey",
        "price": ""
       }
      ],
@@ -2890,19 +2890,19 @@
        "price": ""
       },
       {
-       "name": "Eleanor Daisy Printed Shirt Dress in Red",
-       "productUrl": "https://www.crewclothing.co.uk/products/eleanor-daisy-printed-shirt-dress-in-red",
+       "name": "Emma Jersey Shell Printed Short Sleeve Dress in Pink",
+       "productUrl": "https://www.crewclothing.co.uk/products/emma-jersey-shell-printed-short-sleeve-dress-in-pink",
        "price": ""
       }
      ],
      "rej": {
-      "total": 467,
+      "total": 468,
       "noImage": 187,
       "tinyImage": 0,
       "shortPath": 1,
       "samePage": 0,
       "banner": 0,
-      "dup": 56,
+      "dup": 57,
       "nonProduct": 5,
       "landing": 0,
       "siteMenu": 169,
@@ -2926,8 +2926,8 @@
        "price": ""
       },
       {
-       "name": "Wide Leg Jean in Midwash Blue",
-       "productUrl": "https://www.crewclothing.co.uk/products/wide-leg-jean-in-midwash-blue",
+       "name": "Smart Chinos in Pink",
+       "productUrl": "https://www.crewclothing.co.uk/products/smart-chinos-in-pink",
        "price": ""
       }
      ],
@@ -2946,7 +2946,7 @@
      }
     }
    ],
-   "secs": 338,
+   "secs": 342,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -2980,14 +2980,14 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 71,
+   "collected": 70,
    "stored": 148,
    "storeErr": "",
    "cats": {
     "shirts": 18,
     "tops": 25,
     "sweatshirts": 24,
-    "pants": 4
+    "pants": 3
    },
    "perUrl": [
     {
@@ -3033,13 +3033,13 @@
      "note": "",
      "sample": [
       {
-       "name": "womens iconic clarksburg logo sweatshirt",
-       "productUrl": "https://www.carhartt.com/product/102791/womens-iconic-clarksburg-logo-sweatshirt",
-       "price": "$44.99"
+       "name": "womens clarksburg quarter zip sweatshirt",
+       "productUrl": "https://www.carhartt.com/product/105295/womens-clarksburg-quarter-zip-sweatshirt",
+       "price": "$54.99"
       },
       {
-       "name": "Women's Carhartt Force® Oversized-Fit Fleece Hooded Sweatshirt",
-       "productUrl": "https://www.carhartt.com/product/107142/womens-carhartt-force-oversized-fit-fleece-hooded-sweatshirt",
+       "name": "Women's TENCEL™ Fiber Series Full-Zip Sweatshirt",
+       "productUrl": "https://www.carhartt.com/product/106837/womens-tencel-fiber-series-full-zip-sweatshirt",
        "price": "$32.49"
       },
       {
@@ -3136,32 +3136,26 @@
     },
     {
      "url": "https://www.carhartt.com/en-eu/c/women/trousers-jeans/sweatpants/euw3000017",
-     "count": 1,
-     "productShaped": 1,
-     "note": "",
-     "sample": [
-      {
-       "name": "Relaxed Fit Fleece Joggers",
-       "productUrl": "https://www.carhartt.com/en-eu/p/relaxed-fit-fleece-joggers/105510",
-       "price": "31,99 €"
-      }
-     ],
+     "count": 0,
+     "productShaped": 0,
+     "note": "상품 0개 · 최종주소 https://www.carhartt.com/en-eu/ · 제목 \"Women's Sweatpants | Carhartt\" · 링크 0/이미지 4 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=0 offSite=0] · \"Skip to Header Skip to Main Content Skip to Footer Buyer Protection 4.33 (2.4k) Good\"",
+     "sample": [],
      "rej": {
-      "total": 254,
-      "noImage": 8,
-      "tinyImage": 1,
+      "total": 0,
+      "noImage": 0,
+      "tinyImage": 0,
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 244,
+      "siteMenu": 0,
       "offSite": 0
      }
     }
    ],
-   "secs": 300,
+   "secs": 252,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -3201,8 +3195,8 @@
    "cats": {
     "tops": 63,
     "sweatshirts": 44,
-    "shirts": 26,
-    "dresses": 33,
+    "shirts": 25,
+    "dresses": 34,
     "pants": 34
    },
    "perUrl": [
@@ -3218,9 +3212,9 @@
        "price": "$79.95"
       },
       {
-       "name": "Colorwash Long Tunic Sweatshirt",
-       "productUrl": "https://www.coldwatercreek.com/longer-length-colorwash-sweatshirt/16658/",
-       "price": "$99.95"
+       "name": "PrimaKnit® Midnight Blossom Turtleneck",
+       "productUrl": "https://www.coldwatercreek.com/primaknit-midnight-blossom-turtleneck/24085/",
+       "price": "$54.95"
       },
       {
        "name": "Knit Denim High Rise Straight-Leg Jeans",
@@ -3254,8 +3248,8 @@
        "price": "$89.95"
       },
       {
-       "name": "Harvest Watch Sweatshirt",
-       "productUrl": "https://www.coldwatercreek.com/harvest-watch-sweatshirt/25909/",
+       "name": "Sweet Hearts Sweatshirt",
+       "productUrl": "https://www.coldwatercreek.com/sweet-hearts-sweatshirt/24299/",
        "price": "$89.95"
       },
       {
@@ -3362,9 +3356,9 @@
        "price": "$69.95"
       },
       {
-       "name": "Pikes Peak Pants",
-       "productUrl": "https://www.coldwatercreek.com/pikes-peak-pants/18306/",
-       "price": "$29.95"
+       "name": "Endless Comfort Shorts",
+       "productUrl": "https://www.coldwatercreek.com/endless-comfort-shorts/21861/",
+       "price": "$19.95"
       },
       {
        "name": "Colorwash Tunic Sweatshirt",
@@ -3387,7 +3381,7 @@
      }
     }
    ],
-   "secs": 360,
+   "secs": 363,
    "dropped": 12,
    "cut": false,
    "sample": [
@@ -3444,18 +3438,18 @@
        "price": "$14.99"
       },
       {
-       "name": "Active Form Longsleeve, CHESTNUT",
-       "productUrl": "https://cottonon.com/US/active-form-longsleeve/6340239-02.html",
+       "name": "Ultra Soft Contrast Layer Tank, PREP SPORT NAVY/ULTRAMARINE",
+       "productUrl": "https://cottonon.com/US/ultra-soft-contrast-layer-tank/6339989-06.html",
        "price": "$20.99"
       },
       {
-       "name": "Ultra Soft V Neck Racer Back Tank, PREP SPORT NAVY",
-       "productUrl": "https://cottonon.com/US/ultra-soft-v-neck-racer-back-tank/6340254-03.html",
-       "price": "$17.99"
+       "name": "The Original Graphic Tee, DELUSIONAL BUT THRIVING/ DARK OAK",
+       "productUrl": "https://cottonon.com/US/the-original-graphic-tee/2060300-38.html",
+       "price": "$20.99"
       }
      ],
      "rej": {
-      "total": 777,
+      "total": 778,
       "noImage": 299,
       "tinyImage": 0,
       "shortPath": 1,
@@ -3464,7 +3458,7 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 413,
+      "siteMenu": 414,
       "offSite": 0
      }
     },
@@ -3480,8 +3474,8 @@
        "price": "$29.99"
       },
       {
-       "name": "Plush Cropped Bubble Hoodie, PREP SPORT NAVY",
-       "productUrl": "https://cottonon.com/US/plush-cropped-bubble-hoodie/6339823-07.html",
+       "name": "Barrel Leg Sweatpant, DARK OAK",
+       "productUrl": "https://cottonon.com/US/barrel-leg-sweatpant/2061888-03.html",
        "price": "$29.99"
       },
       {
@@ -3491,7 +3485,7 @@
       }
      ],
      "rej": {
-      "total": 736,
+      "total": 737,
       "noImage": 257,
       "tinyImage": 0,
       "shortPath": 1,
@@ -3500,7 +3494,7 @@
       "dup": 1,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 413,
+      "siteMenu": 414,
       "offSite": 0
      }
     },
@@ -3527,7 +3521,7 @@
       }
      ],
      "rej": {
-      "total": 647,
+      "total": 648,
       "noImage": 203,
       "tinyImage": 0,
       "shortPath": 1,
@@ -3536,7 +3530,7 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 415,
+      "siteMenu": 416,
       "offSite": 0
      }
     },
@@ -3563,7 +3557,7 @@
       }
      ],
      "rej": {
-      "total": 699,
+      "total": 700,
       "noImage": 239,
       "tinyImage": 0,
       "shortPath": 1,
@@ -3572,14 +3566,14 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 413,
+      "siteMenu": 414,
       "offSite": 0
      }
     },
     {
      "url": "https://cottonon.com/US/co/women/women-clothing/womens-pants/",
-     "count": 183,
-     "productShaped": 180,
+     "count": 182,
+     "productShaped": 179,
      "note": "",
      "sample": [
       {
@@ -3588,18 +3582,18 @@
        "price": "$29.99"
       },
       {
-       "name": "Utility Baggy Pant, BLACK",
-       "productUrl": "https://cottonon.com/US/utility-baggy-pant/6339869-01.html",
-       "price": "$35.99"
+       "name": "Velour Fold Over Sweatpant, SHADOW NAVY/STRIPE",
+       "productUrl": "https://cottonon.com/US/velour-fold-over-sweatpant/2062179-02.html",
+       "price": "$29.99"
       },
       {
-       "name": "Curvy Barrel Jean, MOVIN BLUE",
-       "productUrl": "https://cottonon.com/US/curvy-barrel-jean/2059745-08.html",
+       "name": "Curvy Low Rise Straight Jean, DOMINO BLACK",
+       "productUrl": "https://cottonon.com/US/curvy-low-rise-straight-jean/2059747-10.html",
        "price": "$18.00"
       }
      ],
      "rej": {
-      "total": 745,
+      "total": 746,
       "noImage": 267,
       "tinyImage": 0,
       "shortPath": 1,
@@ -3608,12 +3602,12 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 413,
+      "siteMenu": 414,
       "offSite": 0
      }
     }
    ],
-   "secs": 521,
+   "secs": 527,
    "dropped": 3,
    "cut": false,
    "sample": [
@@ -3673,8 +3667,8 @@
        "price": "$108.75"
       },
       {
-       "name": "t shirt babs det24e2086301",
-       "productUrl": "https://gerarddarel.com/en-us/products/t-shirt-babs_det24e2086301",
+       "name": "t shirt bambi det20e2119100",
+       "productUrl": "https://gerarddarel.com/en-us/products/t-shirt-bambi_det20e2119100",
        "price": ""
       }
      ],
@@ -3801,7 +3795,7 @@
      }
     }
    ],
-   "secs": 240,
+   "secs": 243,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -3869,7 +3863,7 @@
       }
      ],
      "rej": {
-      "total": 120,
+      "total": 119,
       "noImage": 14,
       "tinyImage": 0,
       "shortPath": 0,
@@ -3878,7 +3872,7 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 106,
+      "siteMenu": 105,
       "offSite": 0
      }
     },
@@ -3905,7 +3899,7 @@
       }
      ],
      "rej": {
-      "total": 116,
+      "total": 115,
       "noImage": 10,
       "tinyImage": 0,
       "shortPath": 0,
@@ -3914,7 +3908,7 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 106,
+      "siteMenu": 105,
       "offSite": 0
      }
     },
@@ -3941,7 +3935,7 @@
       }
      ],
      "rej": {
-      "total": 119,
+      "total": 118,
       "noImage": 13,
       "tinyImage": 0,
       "shortPath": 0,
@@ -3950,7 +3944,7 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 106,
+      "siteMenu": 105,
       "offSite": 0
      }
     },
@@ -3977,7 +3971,7 @@
       }
      ],
      "rej": {
-      "total": 116,
+      "total": 115,
       "noImage": 10,
       "tinyImage": 0,
       "shortPath": 0,
@@ -3986,7 +3980,7 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 106,
+      "siteMenu": 105,
       "offSite": 0
      }
     },
@@ -4013,7 +4007,7 @@
       }
      ],
      "rej": {
-      "total": 214,
+      "total": 213,
       "noImage": 18,
       "tinyImage": 0,
       "shortPath": 0,
@@ -4022,7 +4016,7 @@
       "dup": 29,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 106,
+      "siteMenu": 105,
       "offSite": 0
      }
     },
@@ -4049,7 +4043,7 @@
       }
      ],
      "rej": {
-      "total": 115,
+      "total": 114,
       "noImage": 9,
       "tinyImage": 0,
       "shortPath": 0,
@@ -4058,12 +4052,12 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 106,
+      "siteMenu": 105,
       "offSite": 0
      }
     }
    ],
-   "secs": 208,
+   "secs": 201,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -4097,21 +4091,21 @@
    "engineSource": "default",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 196,
-   "stored": 196,
+   "collected": 202,
+   "stored": 202,
    "storeErr": "",
    "cats": {
-    "tops": 29,
+    "tops": 30,
     "sweatshirts": 4,
-    "pants": 84,
-    "shirts": 38,
-    "dresses": 41
+    "pants": 85,
+    "shirts": 39,
+    "dresses": 44
    },
    "perUrl": [
     {
      "url": "https://www.jcrew.com/plp/womens/categories/clothing/tees-and-tanks",
-     "count": 29,
-     "productShaped": 27,
+     "count": 30,
+     "productShaped": 28,
      "note": "",
      "sample": [
       {
@@ -4120,9 +4114,9 @@
        "price": "$29.70"
       },
       {
-       "name": "CZ835",
-       "productUrl": "https://www.jcrew.com/p/womens/categories/clothing/tees-and-tanks/CZ835",
-       "price": "$35.70"
+       "name": "ME842",
+       "productUrl": "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/ME842",
+       "price": "$23.70"
       },
       {
        "name": "sweaters",
@@ -4131,13 +4125,13 @@
       }
      ],
      "rej": {
-      "total": 647,
+      "total": 645,
       "noImage": 19,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 4,
       "banner": 0,
-      "dup": 150,
+      "dup": 147,
       "nonProduct": 3,
       "landing": 0,
       "siteMenu": 442,
@@ -4182,8 +4176,8 @@
     },
     {
      "url": "https://www.jcrew.com/plp/womens/categories/clothing/shirts-and-tops",
-     "count": 44,
-     "productShaped": 41,
+     "count": 45,
+     "productShaped": 42,
      "note": "",
      "sample": [
       {
@@ -4192,9 +4186,9 @@
        "price": "$94.80"
       },
       {
-       "name": "CX475",
-       "productUrl": "https://www.jcrew.com/p/womens/categories/clothing/shirts-and-tops/CX475",
-       "price": "$76.80"
+       "name": "ME311",
+       "productUrl": "https://www.jcrew.com/m/womens/categories/clothing/shirts-and-tops/ME311",
+       "price": "$70.80"
       },
       {
        "name": "sweaters",
@@ -4209,7 +4203,7 @@
       "shortPath": 0,
       "samePage": 4,
       "banner": 0,
-      "dup": 112,
+      "dup": 111,
       "nonProduct": 4,
       "landing": 0,
       "siteMenu": 442,
@@ -4218,8 +4212,8 @@
     },
     {
      "url": "https://www.jcrew.com/plp/womens/categories/clothing/dresses-and-jumpsuits",
-     "count": 43,
-     "productShaped": 40,
+     "count": 46,
+     "productShaped": 43,
      "note": "",
      "sample": [
       {
@@ -4228,8 +4222,8 @@
        "price": "$106.80"
       },
       {
-       "name": "MQ299",
-       "productUrl": "https://www.jcrew.com/m/womens/categories/clothing/dresses-and-jumpsuits/parc-dress-in-four-season-stretch/MQ299",
+       "name": "CZ484",
+       "productUrl": "https://www.jcrew.com/p/womens/categories/clothing/dresses-and-jumpsuits/shift-dress-in-tartan-taffeta/CZ484",
        "price": "$118.80"
       },
       {
@@ -4239,13 +4233,13 @@
       }
      ],
      "rej": {
-      "total": 616,
+      "total": 623,
       "noImage": 34,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 4,
       "banner": 0,
-      "dup": 89,
+      "dup": 93,
       "nonProduct": 4,
       "landing": 0,
       "siteMenu": 442,
@@ -4254,8 +4248,8 @@
     },
     {
      "url": "https://www.jcrew.com/plp/womens/categories/clothing/pants",
-     "count": 59,
-     "productShaped": 57,
+     "count": 60,
+     "productShaped": 58,
      "note": "",
      "sample": [
       {
@@ -4264,9 +4258,9 @@
        "price": "$76.80"
       },
       {
-       "name": "sweaters",
-       "productUrl": "https://www.jcrew.com/plp/womens/categories/clothing/sweaters",
-       "price": ""
+       "name": "CZ619",
+       "productUrl": "https://www.jcrew.com/p/womens/categories/clothing/pants/barrel/remi-exaggerated-barrel-pant-in-double-faced-satin/CZ619",
+       "price": "$168"
       },
       {
        "name": "CX497",
@@ -4275,13 +4269,13 @@
       }
      ],
      "rej": {
-      "total": 521,
-      "noImage": 23,
+      "total": 524,
+      "noImage": 24,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 5,
       "banner": 0,
-      "dup": 34,
+      "dup": 35,
       "nonProduct": 3,
       "landing": 0,
       "siteMenu": 442,
@@ -4289,7 +4283,7 @@
      }
     }
    ],
-   "secs": 183,
+   "secs": 254,
    "dropped": 2,
    "cut": false,
    "sample": [
@@ -4479,7 +4473,7 @@
      }
     }
    ],
-   "secs": 114,
+   "secs": 115,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -4735,7 +4729,7 @@
      }
     }
    ],
-   "secs": 238,
+   "secs": 267,
    "dropped": 0,
    "cut": false,
    "sample": [
