@@ -335,7 +335,9 @@ for (const c of brands) {
     }
     // 시험 자료(브랜드당 1개)
     if (best && !RECHECK && (!fixtureSaved || URLS.length || PICK)) {
-      const slug = (norm(B.brand).slice(0, 40) || norm(c.site)) + (URLS.length || PICK ? "-" + norm(p.productUrl.split(/[?#]/)[0].split("/").filter(Boolean).pop()).slice(0, 40) : "");
+      // 주소 끝이 같은 상품틀(Gap 계열 '/browse/product.do?pid=…')이면 pid 를 붙인다 — 안 붙이면 세 표본이 한 파일에 덮어써진다(측정 45776242765).
+      const pidQ = (p.productUrl.match(/[?&](?:pid|productId|id)=([^&#]+)/i) || [])[1] || "";
+      const slug = (norm(B.brand).slice(0, 40) || norm(c.site)) + (URLS.length || PICK ? "-" + norm(p.productUrl.split(/[?#]/)[0].split("/").filter(Boolean).pop()).slice(0, 40) + (pidQ ? norm(pidQ).slice(0, 20) : "") : "");
       const file = `${slug}.html.gz`;
       writeFileSync(join(FIX_DIR, file), gzipSync(trimForFixture(best.body), { level: 9 }));
       let shopFile = "";

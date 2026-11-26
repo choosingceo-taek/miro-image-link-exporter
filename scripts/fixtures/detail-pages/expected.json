@@ -632,5 +632,145 @@
    "comp": "Cotton 64% / Polyester 36%"
   },
   "shop": "ccc-halfzipsweatshirtinwhiteandnavystripes.shop.json.gz"
+ },
+ {
+  "brand": "Dickies (줄임말 Poly · Rayon · Spandex)",
+  "file": "dickies-dkbalancevnecktopdk875roy.html.gz",
+  "url": "https://www.dickies.com/products/dk-balance-v-neck-top-dk875-roy",
+  "name": "DK Balance V-Neck Top",
+  "why": "페이지 글 'Fabric Composition: 77%Poly 20%Rayon 3%Spandex' (측정 45776247588, 파이어폭스).",
+  "expect": {
+   "comp": "Polyester 77% / Viscose 20% / Elastane 3%"
+  }
+ },
+ {
+  "brand": "Dickies (줄임말 CTN · POLY · SPAN)",
+  "file": "dickies-dkforgewomensvnecktopdk856gngw.html.gz",
+  "url": "https://www.dickies.com/products/dk-forge-womens-v-neck-top-dk856-gngw",
+  "name": "DK Forge Women's V-Neck Top",
+  "why": "페이지 글 'Fabric Composition: 55%CTN 34%POLY 8%NYLON 3%SPAN' (측정 45776247588).",
+  "expect": {
+   "comp": "Cotton 55% / Polyester 34% / Nylon 8% / Elastane 3%"
+  }
+ },
+ {
+  "brand": "Mint Velvet (목록 안의 lining, 에서 끊기)",
+  "file": "mintvelvet-blackvelvetspottedrufflemaxidress.html.gz",
+  "url": "https://mintvelvet.com/products/black-velvet-spotted-ruffle-maxi-dress",
+  "name": "Black Velvet Spotted Ruffle Maxi Dress",
+  "why": "페이지 글 'Composition: Main, 41% polyamide, 59% viscose,lining, 3% elastane, 97% polyester' — 겉감 + 안감 두 줄 (측정 45776247588).",
+  "expect": {
+   "comp": "Nylon 41% / Viscose 59%\nElastane 3% / Polyester 97%"
+  }
+ },
+ {
+  "brand": "Mint Velvet (metallised fibre)",
+  "file": "mintvelvet-goldballoontrousers.html.gz",
+  "url": "https://mintvelvet.com/products/gold-balloon-trousers",
+  "name": "Gold Metallic Balloon Trousers",
+  "why": "페이지 글 'Composition: Main, 31% metallised fibre, 69% viscose' (측정 45776247588).",
+  "expect": {
+   "comp": "Metallic 31% / Viscose 69%"
+  }
+ },
+ {
+  "brand": "Poetry (yak)",
+  "file": "poetry-rl36chtml.html.gz",
+  "url": "https://www.poetryfashion.co.uk/dresses-and-skirts/cotton-cord-pull-on-skirt-dark-chocolate/RL36.C.html",
+  "name": "Cotton cord pull-on skirt",
+  "why": "페이지의 <span class=\"b-pdp_composition\"> 50% hemp 44% organic cotton 6% yak </span> (측정 45776247588).",
+  "expect": {
+   "comp": "Hemp 50% / Cotton 44% / Yak 6%"
+  }
+ },
+ {
+  "brand": "Poetry (TENCEL™ lyocell)",
+  "file": "poetry-rj23bhtml.html.gz",
+  "url": "https://www.poetryfashion.co.uk/sale/italian-lyocell-wool-tailored-trousers-ink/RJ23.B.html",
+  "name": "Italian lyocell wool tailored trousers",
+  "why": "페이지의 <span class=\"b-pdp_composition\"> 79% TENCEL™ lyocell 21% virgin wool </span> (측정 45776247588).",
+  "expect": {
+   "comp": "Lyocell 79% / Wool 21%"
+  }
+ },
+ {
+  "brand": "Spanx (Tencel™ Modal 은 Modal · Bodice + Bottom)",
+  "file": "spanx-spanxairessentialscollaredtiewaistjumpsu.html.gz",
+  "url": "https://spanx.com/products/spanx-airessentials-collared-tie-waist-jumpsuit",
+  "name": "AirEssentials Collared Tie-Waist Jumpsuit",
+  "why": "페이지 글 'Bodice: 49% Polyester, 44% Tencel™ Modal, 7% Elastane. Bottom: 47% Tencel™ Modal, 46% Polyester, 7% Elastane.' (측정 45776247588). 텐셀은 상표 — 섬유는 Modal.",
+  "expect": {
+   "comp": "Polyester 49% / Modal 44% / Elastane 7%\nModal 47% / Polyester 46% / Elastane 7%"
+  }
+ },
+ {
+  "brand": "ba&sh (METALLIZED FIBER)",
+  "file": "bash-topzariadore3667436071300html.html.gz",
+  "url": "https://ba-sh.com/fr/en/p/top-zaria-dore-3667436071300.html",
+  "name": "Top Zaria",
+  "why": "페이지 글 'Material: 62% VISCOSE / 38% METALLIZED FIBER' (측정 45776242765).",
+  "expect": {
+   "comp": "Viscose 62% / Metallic 38%"
+  }
+ },
+ {
+  "brand": "ba&sh (ELASTOMULTIESTER)",
+  "file": "bash-jeansaommiebrut3667436083914html.html.gz",
+  "url": "https://ba-sh.com/fr/en/p/jeans-aommie-brut-3667436083914.html",
+  "name": "Jeans Aommie",
+  "why": "페이지 글 'Material: 92% COTTON / 6% ELASTOMULTIESTER / 2% ELASTANE' (측정 45776242765).",
+  "expect": {
+   "comp": "Cotton 92% / Elastomultiester 6% / Elastane 2%"
+  }
+ },
+ {
+  "brand": "ba&sh (프랑스어 LAINE · ELASTHANNE)",
+  "file": "bash-leggingslalomnoir3667436131509html.html.gz",
+  "url": "https://ba-sh.com/fr/fr/p/legging-slalom-noir-3667436131509.html",
+  "name": "Legging Slalom",
+  "why": "프랑스어 페이지 글 'Composition: 85% LAINE / 14% POLYAMIDE / 1% ELASTHANNE' (측정 45776242765).",
+  "expect": {
+   "comp": "Wool 85% / Nylon 14% / Elastane 1%"
+  }
+ },
+ {
+  "brand": "Vanessa Bruno (Secondary fabric · Embroidery 빼기)",
+  "file": "vanessabruno-haldoembroideredblouse54343html.html.gz",
+  "url": "https://www.vanessabruno.com/p/haldo-embroidered-blouse-54343.html",
+  "name": "Haldo embroidered blouse",
+  "why": "페이지 글 'Composition : 100% viscose. Secondary fabric 100% cotton. Embroidery 100% polyester' — 겉감만 (측정 45776242765).",
+  "expect": {
+   "comp": "Viscose 100%"
+  }
+ },
+ {
+  "brand": "Everlane (설명이 되풀이한 조각 줄 빼기)",
+  "file": "everlane-womensutilitycigarettepantbone.html.gz",
+  "url": "https://www.everlane.com/products/womens-utility-cigarette-pant-bone",
+  "name": "The Utility Cigarette Pant",
+  "why": "페이지 글 'Materials: 97% Organic Cotton 3% Elastane Why It's Better This style is made with 97% organic cotton' (측정 45776247588).",
+  "expect": {
+   "comp": "Cotton 97% / Elastane 3%"
+  }
+ },
+ {
+  "brand": "Wilson (사이트가 첫 섬유만 적음 — 비워 둠)",
+  "file": "wilson-harpercropteewe00370.html.gz",
+  "url": "https://www.wilson.com/en-us/products/harper-crop-tee-we00370",
+  "name": "Harper Crop Tee",
+  "why": "페이지의 Composition 칸이 '46% Cotton' 하나뿐 — 나머지를 사이트가 안 적었다. 절반 값은 저장하지 않는다 (측정 45776247588).",
+  "expect": {
+   "comp": ""
+  }
+ },
+ {
+  "brand": "Coldwater Creek (퍼센트 없이 'Cotton/spandex' — 비워 둠)",
+  "file": "coldwatercreek-22279.html.gz",
+  "url": "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/",
+  "name": "Wintertide Waffle Tee",
+  "why": "페이지 글 'Fabric & Care Cotton/spandex Machine wash Imported' — 퍼센트가 없다 (측정 45776247588, 파이어폭스).",
+  "expect": {
+   "comp": ""
+  }
  }
 ]

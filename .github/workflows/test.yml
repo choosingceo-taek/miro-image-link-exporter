@@ -24,6 +24,8 @@ jobs:
         run: node scripts/test-jsonld.mjs
       - name: Run composition-from-text tests
         run: node scripts/test-composition.mjs
+      - name: Composition rules added 2026-11-26 (abbreviations · brand+generic fibre · part breaks · fragments)
+        run: node scripts/test-comp-rules.mjs
       - name: Run colorway extraction tests
         run: node scripts/test-color.mjs
       - name: Run value validity tests
