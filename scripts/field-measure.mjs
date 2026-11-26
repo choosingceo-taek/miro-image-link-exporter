@@ -41,7 +41,10 @@ const OUT_MD = process.env.OUT_MD || `field-measure-${RUN_ID}.md`;
 //   시험 자료는 남기지 않는다. 운영에 틀린 값이 몇 개 저장돼 있는지 어림하는 데 쓴다(쓰기 없음).
 const URLS = String(process.env.URLS || "").split(",").map((x) => x.trim()).filter((x) => /^https?:\/\//.test(x));
 const RECHECK = process.env.RECHECK === "1";
-const FIX_DIR = join(ROOT, process.env.FIX_DIR || (URLS.length ? "scripts/fixtures/witness" : "scripts/fixtures/pages"));
+// PICK=empty: 혼용률이 빈(오버레이에 옳은 값이 없는) 상품에서 PER 개를 고른다 — '왜 비었나'를 볼 때. 읽힌 페이지는 전부
+//   시험 자료로(scripts/fixtures/witness) 남기고, 파이어폭스로도 전부 연다(눌러야 그려지는 칸까지 보려고).
+const PICK = String(process.env.PICK || "").trim().toLowerCase() === "empty" ? "empty" : "";
+const FIX_DIR = join(ROOT, process.env.FIX_DIR || (URLS.length || PICK ? "scripts/fixtures/witness" : "scripts/fixtures/pages"));
 const DEADLINE = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 95) * 60_000;
 const NAV_MS = 45_000;
 
@@ -251,6 +254,13 @@ for (const c of brands) {
         s.newestT = Math.max(s.newestT, o.t);
         if (o.blocked && in5) s.blockedIn5d++;
       }
+      // 빈 칸의 모양 — 사이트 미표기(none) · 막힘(blocked) · impit 까지 막힘(bv) · 표시 없이 비었음
+      if (!validComp(String(o.comp || ""))) {
+        s.emptyKind = s.emptyKind || { none: 0, blocked: 0, bvImpit: 0, wt: 0, plain: 0 };
+        if (o.none) s.emptyKind.none++; else if (o.blocked) s.emptyKind.blocked++; else s.emptyKind.plain++;
+        if (String(o.bv || "").includes("impit")) s.emptyKind.bvImpit++;
+        if (o.wt) s.emptyKind.wt++;
+      }
       if (o.blocked) s.blocked++;
       if (o.none) { s.none++; const k = o.nv || "(예전)"; s.noneNv[k] = (s.noneNv[k] || 0) + 1; }
     }
@@ -262,6 +272,16 @@ for (const c of brands) {
   let cand = items.filter((p) => p && p.productUrl && looksLikeProduct(p.productUrl) && String(p.name || "").trim());
   if (!cand.length) { cand = items.filter((p) => p && p.productUrl && String(p.name || "").trim()); B.byName = true; }
   if (URLS.length) { const want = new Set(URLS); cand = items.filter((p) => p && want.has(p.productUrl)); if (!cand.length) { out.brands.pop(); continue; } }
+  // 카탈로그에 상품이 아닌 주소가 섞였나(그림 파일·주소 없는 상품 틀) — 보강이 열어 봐야 소용없는 항목
+  B.urlShapes = {
+    image: items.filter((p) => p && /\.(?:webp|jpe?g|png|gif|avif)(?:[%?\s]|$)/i.test(String(p.productUrl || ""))).length,
+    noQuery: items.filter((p) => p && /\/product\.do$/i.test(String(p.productUrl || ""))).length,
+    offSite: items.filter((p) => { try { return hostKey(new URL(p.productUrl).hostname.replace(/^www\./, "")) !== hostKey(String(c.site)); } catch (e) { return true; } }).length,
+  };
+  if (PICK === "empty") {
+    const e = cand.filter((p) => !validComp(String(((ov || {})[p.productUrl] || {}).comp || "")));
+    if (e.length) { cand = e; B.pick = "empty"; }
+  }
   const idx = cand.length <= PER ? cand.map((_, i) => i) : [...new Set(Array.from({ length: PER }, (_, k) => Math.round((k * (cand.length - 1)) / (PER - 1 || 1))))];
   B.picked = idx.length;
   B.notProduct = items.length - items.filter((p) => p && looksLikeProduct(p.productUrl)).length;
@@ -285,7 +305,7 @@ for (const c of brands) {
       P._impit = r;
     } catch (e) { P.engines.impit = { v: "err", note: String(e.message || e).slice(0, 80) }; }
     // 파이어폭스 — impit 이 못 읽었거나, 브랜드 첫 상품(클릭해야 그려지는 칸 확인)
-    if (FIREFOX && (!best || k === 0) && Date.now() < DEADLINE) {
+    if (FIREFOX && (!best || k === 0 || PICK) && Date.now() < DEADLINE) {
       try {
         const r = await firefoxGet(p.productUrl);
         const v = judgeRead(r, p.name);
@@ -314,8 +334,8 @@ for (const c of brands) {
       P.clickOnly = { featImpit: (di.feat || []).length, featFirefox: (d.feat || []).length, descImpit: (di.desc || "").length, descFirefox: (d.desc || "").length };
     }
     // 시험 자료(브랜드당 1개)
-    if (best && !RECHECK && (!fixtureSaved || URLS.length)) {
-      const slug = (norm(B.brand).slice(0, 40) || norm(c.site)) + (URLS.length ? "-" + norm(p.productUrl.split(/[?#]/)[0].split("/").filter(Boolean).pop()).slice(0, 40) : "");
+    if (best && !RECHECK && (!fixtureSaved || URLS.length || PICK)) {
+      const slug = (norm(B.brand).slice(0, 40) || norm(c.site)) + (URLS.length || PICK ? "-" + norm(p.productUrl.split(/[?#]/)[0].split("/").filter(Boolean).pop()).slice(0, 40) : "");
       const file = `${slug}.html.gz`;
       writeFileSync(join(FIX_DIR, file), gzipSync(trimForFixture(best.body), { level: 9 }));
       let shopFile = "";
@@ -345,6 +365,19 @@ for (const B of out.brands) {
     return n ? `${n}${srcs ? " " + srcs : ""}` : "0";
   };
   L.push(`| ${B.brand} | ${rd.length}/${B.products.length} ${[...new Set(rd.map((p) => p.engine))].join("/")} | ${FIELD_KEYS.map(cell).join(" | ")} |`);
+}
+// 상품별 — 빈 칸 표본(PICK=empty)이나 주소 지정(URLS)일 때 사람이 페이지를 열어 보는 목록
+if (PICK || URLS.length) {
+  L.push("", "## 상품별", "", "| 브랜드 | 상품 | 엔진별 | 읽은 엔진 | 지금 규칙 혼용률 | 저장값 | 시험 자료 |", "|---|---|---|---|---|---|---|");
+  for (const B of out.brands) for (const P of B.products || []) {
+    const eng = Object.entries(P.engines || {}).map(([k, v]) => `${k}:${v.v}${v.status ? "/" + v.status : ""}`).join(" ");
+    L.push(`| ${B.brand} | ${P.url} | ${eng} | ${P.engine || "—"} | ${(P.got && P.got.comp || "").replace(/\n/g, " ‖ ") || "(빈 칸)"} | ${String(P.stored || "").replace(/\n/g, " ‖ ") || "(빈 칸)"} | ${(P.fixture && P.fixture.file) || ""} |`);
+  }
+  L.push("", "## 오버레이 빈 칸의 모양 · 카탈로그 주소", "", "| 브랜드 | 상품 | 혼용률 | 빈 칸: 미표기 · 막힘 · 표시 없음 · impit 막힘 · 아카이브 물음 | 그림 주소 · 주소 없는 상품틀 · 다른 사이트 |", "|---|---:|---:|---|---|");
+  for (const B of out.brands) {
+    const o = B.overlay || {}, e = o.emptyKind || {}, u = B.urlShapes || {};
+    L.push(`| ${B.brand} | ${B.total || 0} | ${o.comp || 0} | ${e.none || 0} · ${e.blocked || 0} · ${e.plain || 0} · ${e.bvImpit || 0} · ${e.wt || 0} | ${u.image || 0} · ${u.noQuery || 0} · ${u.offSite || 0} |`);
+  }
 }
 writeFileSync(join(ROOT, OUT_MD), L.join("\n") + "\n");
 console.log(`\n끝 — ${OUT_JSON} · ${OUT_MD}`);

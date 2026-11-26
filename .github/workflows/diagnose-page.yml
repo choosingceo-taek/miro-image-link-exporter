@@ -37,7 +37,7 @@ on:
         required: false
         default: "3"
       match:
-        description: "mode=engines 일 때 카탈로그에서 이름·주소가 이 정규식에 맞는 상품만(예: jacket|coat)"
+        description: "mode=engines 일 때 카탈로그에서 이름·주소가 이 정규식에 맞는 상품만(예: jacket|coat) · mode=fields 일 때 empty 면 혼용률이 빈 상품에서 고른다"
         required: false
         default: ""
       confirm:
@@ -244,6 +244,8 @@ jobs:
           # urls = 이 상품 주소만 열고 전부 시험 자료로(scripts/fixtures/witness) · dump=1 = RECHECK(저장된 혼용률과 지금 규칙 견주기, impit 만)
           URLS: ${{ github.event.inputs.urls }}
           RECHECK: ${{ github.event.inputs.dump == '1' && '1' || '' }}
+          # match=empty 이면 혼용률이 빈 상품에서 고르고, 읽힌 페이지를 전부 시험 자료로(scripts/fixtures/witness)
+          PICK: ${{ github.event.inputs.match }}
         run: node scripts/field-measure.mjs
       - name: Commit report
         if: always()
