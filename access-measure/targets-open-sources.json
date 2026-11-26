@@ -1,0 +1,245 @@
+{
+ "_설명": "공개 출처(robots.txt·사이트맵·웹 아카이브) 측정 대상 — 접근 지도(access-map.json)가 목록 또는 상품 페이지를 '집 IP 에서만'·'어디서도 막힘'으로 적은 브랜드와, Akamai 때문에 목록이 '일부만'인 Chico's·WHBM·Garnet hill. origin 은 접근 지도의 상품(없으면 목록) 주소 호스트 — 실행 때 저장된 카탈로그의 상품 주소 호스트가 있으면 그것을 쓴다. scripts/open-sources.mjs 가 읽는다.",
+ "brands": [
+  {
+   "brand": "&Other Stories",
+   "origin": "https://www.stories.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "products": 343,
+   "compMissing": 200
+  },
+  {
+   "brand": "Abercrombie & Fitch",
+   "origin": "https://www.abercrombie.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "products": 214,
+   "compMissing": 78
+  },
+  {
+   "brand": "Addidas",
+   "origin": "https://www.adidas.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "products": 408,
+   "compMissing": 405
+  },
+  {
+   "brand": "Ann Taylor",
+   "origin": "https://www.anntaylor.com",
+   "listing": "home-only",
+   "product": "works",
+   "products": 381,
+   "compMissing": 32
+  },
+  {
+   "brand": "Anthropologie",
+   "origin": "https://www.anthropologie.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "products": 270,
+   "compMissing": 266
+  },
+  {
+   "brand": "Aritzia",
+   "origin": "https://www.aritzia.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "products": 800,
+   "compMissing": 299
+  },
+  {
+   "brand": "Arket",
+   "origin": "https://www.arket.com",
+   "listing": "home-only",
+   "product": "partial",
+   "products": 285,
+   "compMissing": 142
+  },
+  {
+   "brand": "Chico's",
+   "origin": "https://www.chicos.com",
+   "listing": "partial",
+   "product": "partial",
+   "products": 800,
+   "compMissing": 800
+  },
+  {
+   "brand": "Eileen fisher",
+   "origin": "https://www.eileenfisher.com",
+   "listing": "home-only",
+   "product": "works",
+   "products": 545,
+   "compMissing": 37
+  },
+  {
+   "brand": "Fatface",
+   "origin": "https://www.fatface.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "products": 374,
+   "compMissing": 374
+  },
+  {
+   "brand": "FP Movement",
+   "origin": "https://www.freepeople.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "products": 58,
+   "compMissing": 52
+  },
+  {
+   "brand": "Free People",
+   "origin": "https://www.freepeople.com",
+   "listing": "home-only",
+   "product": "partial",
+   "products": 190,
+   "compMissing": 181
+  },
+  {
+   "brand": "Garnet hill",
+   "origin": "https://www.garnethill.com",
+   "listing": "partial",
+   "product": "partial",
+   "products": 108,
+   "compMissing": 106
+  },
+  {
+   "brand": "H&M",
+   "origin": "https://www2.hm.com",
+   "listing": "works",
+   "product": "blocked",
+   "products": 744,
+   "compMissing": 744
+  },
+  {
+   "brand": "Joules",
+   "origin": "https://www.joules.com",
+   "listing": "home-only",
+   "product": "partial",
+   "products": 459,
+   "compMissing": 459
+  },
+  {
+   "brand": "L.L bean",
+   "origin": "https://global.llbean.com",
+   "listing": "home-only",
+   "product": "works",
+   "products": 310,
+   "compMissing": 17
+  },
+  {
+   "brand": "Lands end",
+   "origin": "https://www.landsend.com",
+   "listing": "home-only",
+   "product": "works",
+   "products": 469,
+   "compMissing": 58
+  },
+  {
+   "brand": "Loft",
+   "origin": "https://www.loft.com",
+   "listing": "home-only",
+   "product": "partial",
+   "products": 673,
+   "compMissing": 389
+  },
+  {
+   "brand": "Lululemon",
+   "origin": "https://shop.lululemon.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "products": 476,
+   "compMissing": 476
+  },
+  {
+   "brand": "Madewell",
+   "origin": "https://www.madewell.com",
+   "listing": "home-only",
+   "product": "works",
+   "products": 75,
+   "compMissing": 8
+  },
+  {
+   "brand": "Mango",
+   "origin": "https://shop.mango.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "products": 93,
+   "compMissing": 39
+  },
+  {
+   "brand": "Massimo Dutti",
+   "origin": "https://www.massimodutti.com",
+   "listing": "home-only",
+   "product": "misread",
+   "products": 603,
+   "compMissing": 602
+  },
+  {
+   "brand": "Paige",
+   "origin": "https://paige.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "products": 60,
+   "compMissing": 22
+  },
+  {
+   "brand": "Patagonia",
+   "origin": "https://www.patagonia.com",
+   "listing": "home-only",
+   "product": "partial",
+   "products": 168,
+   "compMissing": 167
+  },
+  {
+   "brand": "Prana",
+   "origin": "https://www.prana.com",
+   "listing": "blocked",
+   "product": "blocked",
+   "products": 81,
+   "compMissing": 81
+  },
+  {
+   "brand": "Sezane",
+   "origin": "https://www.sezane.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "products": 206,
+   "compMissing": 205
+  },
+  {
+   "brand": "The white company",
+   "origin": "https://www.thewhitecompany.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "products": 68,
+   "compMissing": 68
+  },
+  {
+   "brand": "Theory",
+   "origin": "https://www.theory.com",
+   "listing": "home-only",
+   "product": "works",
+   "products": 379,
+   "compMissing": 14
+  },
+  {
+   "brand": "WHBM",
+   "origin": "https://www.whitehouseblackmarket.com",
+   "listing": "partial",
+   "product": "partial",
+   "products": 219,
+   "compMissing": 144
+  },
+  {
+   "brand": "Wilson",
+   "origin": "https://www.wilson.com",
+   "listing": "home-only",
+   "product": "partial",
+   "products": 52,
+   "compMissing": 24
+  }
+ ]
+}
