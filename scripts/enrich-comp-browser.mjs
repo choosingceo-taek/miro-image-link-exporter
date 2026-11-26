@@ -70,8 +70,8 @@ const want = (process.env.BRANDS || "").split(",").map((s) => s.trim().toLowerCa
 const TABS = Math.max(1, Number(process.env.TABS) || 4);
 // 한 탭이 페이지 하나를 본 뒤 쉬는 시간(ms, 0.5~1.5배로 흔든다). 0 이면 안 쉰다.
 const PAUSE_MS = Math.max(0, Number(process.env.PAUSE_MS) || 0);
-// 이 시각이 지나면 새 상품을 열지 않는다(워크플로 제한 90분 안에 저장·리포트를 끝내려고). 남은 것은 다음 밤.
-const DEADLINE = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 75) * 60_000;
+// 이 시각(시작 뒤 65분)이 지나면 새 상품을 열지 않는다(설치 10~20분 + 워크플로 제한 90분 안에 저장·리포트를 끝내려고). 남은 것은 다음 밤.
+const DEADLINE = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 65) * 60_000;
 const DRY_TAG = process.env.DRY_TAG || "";
 // 저장하지 않는 실행(STORE=0 · DRY=1)은 Worker 에 GET 만 보낸다 — fetch 를 감싸 다른 요청은 보내기 전에 막는다.
 if (!STORE) {

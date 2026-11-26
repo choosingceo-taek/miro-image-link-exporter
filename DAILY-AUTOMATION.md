@@ -103,7 +103,7 @@
 
 - `"fresh": true` — 상품마다 쿠키가 빈 새 창으로 연다(첫 페이지만 열리고 다음부터 막히는 사이트).
 - 파이어폭스로 연달아 막힌 기록(`enrich-browser-state.json`)이 있으면 그 기간에는 건너뛴다.
-- 크롬 보강은 75분이 지나면 새 상품을 열지 않는다(90분 제한 안에 저장·리포트).
+- 크롬 보강은 시작 뒤 65분이 지나면 새 상품을 열지 않는다(설치 시간 + 90분 제한 안에 저장·리포트). 차선이 맨 앞이라 시간이 모자라면 순위 브랜드가 덜 돈다.
 - 측정: Actions → **Enrich compositions (real Chrome)** → `store=0`(읽기만, 로그 첫머리 `STORE: 0`) · `engine=firefox` 또는
   `firefox-fresh` · `tabs=1` · `pause_ms=2000`. 결과는 `enrich-browser-dry-<실행 번호>.md` 에 따로 남고 운영 리포트는 그대로다.
 
