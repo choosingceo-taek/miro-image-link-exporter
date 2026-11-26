@@ -1,0 +1,240 @@
+{
+ "when": "2026-11-26T10:06:57.289Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "chromium"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "Bash",
+   "site": "ba-sh.com.bash",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 340,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "pants": 69,
+    "dresses": 100,
+    "tops": 79,
+    "shirts": 61,
+    "sweatshirts": 31
+   },
+   "perUrl": [
+    {
+     "url": "https://ba-sh.com/us/t-shirts/",
+     "count": 52,
+     "productShaped": 51,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans VANA",
+       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
+       "price": "$164.50"
+      },
+      {
+       "name": "T-shirt BLANCA",
+       "productUrl": "https://ba-sh.com/us/p/t-shirt-blanca-kaki-3667436022616.html",
+       "price": "$87.50"
+      },
+      {
+       "name": "bra GISOR",
+       "productUrl": "https://ba-sh.com/us/p/bra-gisor-ebene-3664784950295.html",
+       "price": "$100"
+      }
+     ],
+     "rej": {
+      "total": 524,
+      "noImage": 51,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 75,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 344,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.",
+     "count": 37,
+     "productShaped": 37,
+     "note": "",
+     "sample": [
+      {
+       "name": "cardigan MAJA",
+       "productUrl": "https://ba-sh.com/fr/en/p/cardigan-maja-multico-3667436072963.html",
+       "price": "€ 275"
+      },
+      {
+       "name": "sweatshirt BENJAMIN",
+       "productUrl": "https://ba-sh.com/fr/en/p/sweatshirt-benjamin-fuchsia-3667436111020.html",
+       "price": "€ 145"
+      },
+      {
+       "name": "SWEATSHIRT MAIA",
+       "productUrl": "https://ba-sh.com/fr/en/p/sweatshirt-maia-bleu-3667436042423.html",
+       "price": "€ 155"
+      }
+     ],
+     "rej": {
+      "total": 471,
+      "noImage": 40,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 61,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 332,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://ba-sh.com/us/tops-shirts/",
+     "count": 98,
+     "productShaped": 98,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans VANA",
+       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
+       "price": "$164.50"
+      },
+      {
+       "name": "blouse POEME",
+       "productUrl": "https://ba-sh.com/us/p/blouse-poeme-amande-3667436085826.html",
+       "price": "$171"
+      },
+      {
+       "name": "shirt SISA",
+       "productUrl": "https://ba-sh.com/us/p/shirt-sisa-ecru-3667436108150.html",
+       "price": "$275"
+      }
+     ],
+     "rej": {
+      "total": 546,
+      "noImage": 65,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 96,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 344,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://ba-sh.com/us/dresses/",
+     "count": 108,
+     "productShaped": 105,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans VANA",
+       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
+       "price": "$164.50"
+      },
+      {
+       "name": "dress JEMA",
+       "productUrl": "https://ba-sh.com/us/p/dress-jema-noir-3667436089206.html",
+       "price": "$365"
+      },
+      {
+       "name": "dress PACIFICA",
+       "productUrl": "https://ba-sh.com/us/p/dress-pacifica-bleu-3667436025730.html",
+       "price": "$267"
+      }
+     ],
+     "rej": {
+      "total": 587,
+      "noImage": 65,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 123,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 344,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://ba-sh.com/us/pants-jeans/",
+     "count": 74,
+     "productShaped": 74,
+     "note": "",
+     "sample": [
+      {
+       "name": "jeans VANA",
+       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
+       "price": "$164.50"
+      },
+      {
+       "name": "pants REMEA",
+       "productUrl": "https://ba-sh.com/us/p/pants-remea-kaki-3667436074042.html",
+       "price": "$375"
+      },
+      {
+       "name": "pants FIMA",
+       "productUrl": "https://ba-sh.com/us/p/pants-fima-kaki-3664784869429.html",
+       "price": "$235"
+      }
+     ],
+     "rej": {
+      "total": 471,
+      "noImage": 54,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 57,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 344,
+      "offSite": 1
+     }
+    }
+   ],
+   "secs": 209,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "jeans VANA",
+     "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html"
+    },
+    {
+     "name": "dress KACY",
+     "productUrl": "https://ba-sh.com/us/p/dress-kacy-kaki-3667436072253.html"
+    },
+    {
+     "name": "COAT MADIE",
+     "productUrl": "https://ba-sh.com/us/p/coat-madie-noir-3667436043024.html"
+    },
+    {
+     "name": "skirt NOLLY",
+     "productUrl": "https://ba-sh.com/us/p/skirt-nolly-terre-3667436096891.html"
+    },
+    {
+     "name": "shirt CLEO",
+     "productUrl": "https://ba-sh.com/us/p/shirt-cleo-jaune-3667436081989.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  }
+ ]
+}
