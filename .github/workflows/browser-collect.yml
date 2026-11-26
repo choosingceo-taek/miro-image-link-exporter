@@ -161,6 +161,9 @@ jobs:
           EXTRA_MODE: ${{ matrix.part == 'main' && 'skip' || 'only' }}
           DIAG: ${{ github.event.inputs.diag }}
           REPORT_TAG: ${{ github.event.inputs.report_tag && format('{0}-{1}{2}', github.event.inputs.report_tag, github.run_id, matrix.part == 'extra' && '-extra' || '') || (matrix.part == 'extra' && 'extra-report' || '') }}
+          # 측정 실행 여부는 사람이 준 report_tag 로만 판단한다. 야간 추가 브랜드 잡은 리포트 이름만
+          # 'extra-report' 로 따로 쓰는 운영 실행이라 저장해야 한다(2026-11-26 첫 야간에서 아래 가드에 걸려 0초 만에 멈췄다).
+          MEASURE_TAG: ${{ github.event.inputs.report_tag }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: |
           if [ -z "$DEADLINE_MIN" ]; then
@@ -171,8 +174,8 @@ jobs:
           echo "시간 예산: ${DEADLINE_MIN}분"
           echo "STORE: $STORE · 잡: ${{ matrix.part }}(EXTRA_MODE=$EXTRA_MODE) · REPORT_TAG: ${REPORT_TAG:-(운영 리포트)} · EXTRA: ${EXTRA_BRANDS_FILE:-browser-extra-brands.json}"
           # 측정 실행이 저장까지 하면 운영 카탈로그를 바꾼다 — 막는다.
-          if [ -n "$DIAG" ] && [ -z "$REPORT_TAG" ]; then echo "::error::diag 는 report_tag(측정 실행)와 함께만"; exit 1; fi
-          if [ -n "$REPORT_TAG" ] && [ "$STORE" != "0" ]; then echo "::error::report_tag(측정 실행)는 store=0 으로만 돌린다"; exit 1; fi
+          if [ -n "$DIAG" ] && [ -z "$MEASURE_TAG" ]; then echo "::error::diag 는 report_tag(측정 실행)와 함께만"; exit 1; fi
+          if [ -n "$MEASURE_TAG" ] && [ "$STORE" != "0" ]; then echo "::error::report_tag(측정 실행)는 store=0 으로만 돌린다"; exit 1; fi
           node scripts/browser-collect.mjs
       - name: Upload report
         if: always()
