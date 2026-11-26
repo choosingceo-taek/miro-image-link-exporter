@@ -28,6 +28,8 @@ jobs:
         run: node scripts/test-comp-rules.mjs
       - name: Run colorway extraction tests
         run: node scripts/test-color.mjs
+      - name: Colorway from page title (White Stuff · The Upside)
+        run: node scripts/test-title-color.mjs
       - name: Run value validity tests
         run: node scripts/test-valid.mjs
       - name: Run panel load test

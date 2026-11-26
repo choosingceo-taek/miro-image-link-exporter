@@ -29,7 +29,8 @@ import { urlGuard, urlKey, archivePageCheck, archivedOriginal, archivedTimestamp
 import { guardRun, flagText } from "./comp-guard.mjs";
 import { detailOf, compFromPartsJson, detailRecord } from "./detail-core.mjs";
 import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
-import { ruleVersion } from "./rule-version.mjs";
+import { ruleVersion, colorVersion } from "./rule-version.mjs";
+import { colorFromTitle } from "./title-color.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -164,6 +165,8 @@ const fromJsonLd = new Function(
 
 // ── 추출 규칙 판(rv) — scripts/rule-version.mjs 머리말. 읽었는데 비었던 상품은 판이 바뀌면 재시도 창과 무관하게 한 번 더 연다.
 const RULE_V = ruleVersion();
+// 컬러 규칙 판(cv) — 컬러가 절반도 안 찬 브랜드에서, 컬러가 빈 상품은 판이 바뀌면 컬러 재시도 창(30일)과 무관하게 한 번 더 연다.
+const COLOR_V = colorVersion();
 
 // ── 측정 실행의 근거 글 — 뽑은 값이 페이지의 어느 글에서 왔나(DRY 리포트의 표본 칸) ──────────────
 // 값의 첫 항목("Cotton 60%")을 페이지 글에서 다시 찾아 앞뒤를 잘라 보여 준다. 추출기와 따로 찾으므로 사람이 맞는지 볼 수 있다.
@@ -359,7 +362,8 @@ async function enrichOf(url, stat, o = {}, wbCtx = { used: 0 }, name = "") {
     const out = {
       comp: ldComp || pageComp || partsComp,
       // 색은 JSON-LD 에 없는 경우가 더 많다 — 페이지의 색상 선택 옵션에서도 읽는다.
-      color: ld.color || colorFromHtml(html) || d.color || "",
+      // 마지막으로 제목 "<상품명> in <컬러> | <브랜드>" — White Stuff·The Upside 는 컬러를 제목에만 적는다(scripts/title-color.mjs).
+      color: ld.color || colorFromHtml(html) || d.color || (shell ? "" : colorFromTitle(html, url)) || "",
       sizes: (ld.sizes && ld.sizes.length ? ld.sizes : (d.sizes || [])).slice(0, 30).join(", "),
       price: ld.price || d.price || "",
       priceOrig: ld.price_original || d.priceOrig || "",
@@ -830,6 +834,7 @@ async function processBrand(c, phase) {
   const now = Date.now();
   const RETRY_MS = RETRY_DAYS * 24 * 3600 * 1000;
   const COLOR_RETRY_MS = COLOR_RETRY_DAYS * 24 * 3600 * 1000;
+  const lowColor = items.length > 0 && items.filter((p) => okOf(ov(p), "color")).length / items.length < 0.5;
   const full = (p) => {
     const o = ov(p);
     if (FIELDS.every((k) => okOf(o, k))) {
@@ -838,6 +843,8 @@ async function processBrand(c, phase) {
       // The upside 322 … 혼용률은 70% 안팎인데 컬러 0%). 컬러 시도 시각(ct)을 따로 두고
       // COLOR_RETRY_DAYS 에 한 번만 다시 연다 — 매번 열면 색을 안 적는 사이트에 예산이 샌다.
       if (!FIELDS.includes("color") && !okOf(o, "color") && !(o.ct && now - o.ct < COLOR_RETRY_MS)) return false;
+      // 컬러가 절반도 안 찬 브랜드 — 컬러 규칙 판이 바뀌었으면 창과 무관하게 한 번(막혔던 상품 bv 는 빼고).
+      if (!FIELDS.includes("color") && lowColor && !okOf(o, "color") && !o.bv && o.cv !== COLOR_V) return false;
       return true;
     }
     // 값이 들어 있는데 옳지 않으면(쓰레기·절반만 뽑힘) 시도 시각과 무관하게 다시 읽는다.
@@ -1006,6 +1013,7 @@ async function processBrand(c, phase) {
       // 어느 규칙 판으로 시도했나 — 혼용률이 비어 있을 때만 남긴다(판이 바뀌면 다시 읽으려고, RULE_V). 막힌 시도도 적는다:
       // 안 적으면 그 상품은 예전 기록으로 보여 매 실행 다시 열린다. 판이 바뀔 때 한 번 더 열릴 뿐이다.
       if (!okOf(cur, "comp")) cur.rv = RULE_V; else delete cur.rv;
+      if (!okOf(cur, "color")) cur.cv = COLOR_V; else delete cur.cv;
       if (inc.none && !cur.comp) markNone(cur, "fetch");
       else if (cur.comp) clearNone(cur);
       // 오늘 읽으려 했는데 막혔다면 '사이트가 안 적는다'고 단정할 근거가 없다.

@@ -23,6 +23,14 @@ function cut(src, a, b, what) {
   return src.slice(i, j);
 }
 
+// 컬러 규칙의 판(cv) — worker 의 컬러 구간(colorFromHtml)과 제목 컬러(title-color.mjs). 컬러가 빈 상품 중
+// 컬러가 거의 없는 브랜드(절반 미만)의 것은 판이 바뀌면 컬러 재시도 창(30일)과 무관하게 한 번 더 연다(enrich-comp.mjs).
+export function colorVersion(root = ROOT) {
+  const w = readFileSync(join(root, "worker/fabric-extractor.js"), "utf8");
+  const t = readFileSync(join(root, "scripts/title-color.mjs"), "utf8");
+  return createHash("sha1").update(cut(w, "const COLOR_JUNK", "function titleCase", "worker 컬러")).update(t).digest("hex").slice(0, 8);
+}
+
 export function ruleVersion(root = ROOT) {
   const w = readFileSync(join(root, "worker/fabric-extractor.js"), "utf8");
   const e = readFileSync(join(root, "scripts/enrich-comp.mjs"), "utf8");

@@ -11,7 +11,7 @@ import { readFileSync, writeFileSync, existsSync, unlinkSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { startFake, runEnrich } from "./fixtures/fake-enrich-env.mjs";
-import { ruleVersion } from "./rule-version.mjs";
+import { ruleVersion, colorVersion } from "./rule-version.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 let bad = 0;
@@ -83,6 +83,31 @@ const items = (n0, n1) => (base) => Array.from({ length: n1 - n0 + 1 }, (_, k) =
   else ok("막힌 상품에도 지금 판이 남는다(안 남기면 매 실행 다시 열린다) · 미표기는 적지 않는다");
   if (fk.state.hits.bypass) fail(`[${L}] WORKER_BYPASS=0 인데 Worker 우회를 불렀다(${fk.state.hits.bypass})`);
   else ok("WORKER_BYPASS=0 이면 Worker 우회(?comp)를 부르지 않는다");
+}
+
+// ── ①-2 컬러 규칙 판(cv) — 컬러가 절반도 안 찬 브랜드에서만, 컬러 재시도 창(30일)과 무관하게 한 번 ──
+{
+  const L = "컬러 판";
+  const CV = colorVersion();
+  const t = Date.now() - DAY;
+  const fk = await startFake({
+    items: items(1, 3),
+    overlay: (base) => ({
+      [`${base}/p/1`]: { t, ct: t, comp: "Cotton 100%" },                 // 컬러 빈 칸 · 예전 기록 → 다시 연다
+      [`${base}/p/2`]: { t, ct: t, comp: "Cotton 100%", cv: CV },         // 지금 판으로 봄 → 창을 지킨다
+      [`${base}/p/3`]: { t, ct: t, comp: "Cotton 100%", bv: "fetch,impit" },  // 막혔던 상품 → 창을 지킨다
+    }),
+    pages: Object.fromEntries([1, 2, 3].map((n) => [`/p/${n}`, page(`Tee ${n}`, "<div>Composition: 100% Cotton</div>")])),
+  });
+  const { code, out } = await runEnrich(fk.base, { IMPIT: "0", WAYBACK: "0" });
+  await fk.close();
+  if (code !== 0) { console.error(out); fail(`[${L}] 종료 코드 ${code}`); }
+  const h = (n) => fk.state.hits[`/p/${n}`] || 0;
+  if (!(h(1) >= 1)) fail(`[${L}] 컬러가 없는 브랜드의 예전 기록을 다시 열지 않았다`); else ok("컬러가 절반도 안 찬 브랜드 — 컬러 판이 다르면 30일 창 안이어도 연다");
+  if (h(2)) fail(`[${L}] 지금 컬러 판으로 본 상품을 다시 열었다`); else ok("지금 컬러 판으로 본 상품은 창을 지킨다");
+  if (h(3)) fail(`[${L}] 막혔던 상품을 열었다`); else ok("막혔던 상품(bv)은 창을 지킨다");
+  const o1 = fk.state.overlay[`${fk.base}/p/1`] || {};
+  if (o1.color !== "Navy" || o1.cv) fail(`[${L}] 컬러를 채운 상품 기록이 이상하다: ${JSON.stringify(o1)}`); else ok("컬러를 채우면 cv 를 지운다");
 }
 
 // ── ② 429 ──

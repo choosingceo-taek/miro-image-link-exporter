@@ -56,6 +56,7 @@ import { dirname, join, resolve } from "node:path";
 import { guardRun, flagText } from "./comp-guard.mjs";
 import { detailOf, compFromPartsJson, detailRecord } from "./detail-core.mjs";
 import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
+import { colorFromTitle } from "./title-color.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -493,7 +494,8 @@ for (const c of targets) {
             asComp(compFromText(html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<[^>]+>/g, " "))) ||
             // Massimo Dutti 형 — 소재가 페이지 JSON(parts/components)에만. 이 상품의 본문일 때만 믿는다.
             (isThis ? asComp(compFromPartsJson(html, p.productUrl)) : "");
-          const color = colorFromHtml(html);
+          // 제목 "<상품명> in <컬러> | <브랜드>" 도 본다 — The Upside 는 컬러를 제목에만 적는다(scripts/title-color.mjs).
+          const color = colorFromHtml(html) || (isThis ? colorFromTitle(html, p.productUrl) : "");
           // 상품 상세(설명·디테일·사진 전부 …) — 이 상품의 본문이 그려진 페이지일 때만.
           if (isThis) dpatch[p.productUrl] = detailRecord(detailOf(html, p.productUrl, null));
           if (validComp(comp)) {

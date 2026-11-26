@@ -13,6 +13,7 @@ import { spawn } from "node:child_process";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { colorVersion } from "./rule-version.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const REPORT = join(ROOT, "enrich-comp-report.md");
@@ -63,8 +64,9 @@ function seedOverlay(base, now) {
   return {
     // 혼용률 있음 · 컬러 없음 · 컬러 시도 기록 없음 → 다시 연다
     [u(1)]: { comp: "Cotton 100%", t: now - 10 * DAY },
-    // 혼용률 있음 · 컬러 없음 · 컬러 시도가 하루 전 → 건너뛴다(NEED_FIELDS=comp 일 때)
-    [u(2)]: { comp: "Cotton 100%", t: now - 10 * DAY, ct: now - 1 * DAY },
+    // 혼용률 있음 · 컬러 없음 · 컬러 시도가 하루 전(지금 컬러 규칙 판 cv 로) → 건너뛴다(NEED_FIELDS=comp 일 때)
+    // (cv 가 없거나 다르면 컬러가 절반도 안 찬 이 브랜드에서는 한 번 더 연다 — test-enrich-polite.mjs)
+    [u(2)]: { comp: "Cotton 100%", t: now - 10 * DAY, ct: now - 1 * DAY, cv: colorVersion() },
     // 컬러 시도가 31일 전 → 다시 연다
     [u(3)]: { comp: "Cotton 100%", t: now - 40 * DAY, ct: now - 31 * DAY },
     // 예전 판정이 찍어 둔 none — 오늘은 봇 확인 화면이 와서 못 읽음 → none 을 걷어 낸다
