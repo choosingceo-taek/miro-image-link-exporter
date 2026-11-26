@@ -564,4 +564,10 @@ GitHub Actions(데이터센터 IP)에서 진짜 브라우저로 확장 담당 �
 
 ## 🔧 보완 필요 (0)
 
+<!-- 추가 브랜드 잡(자동으로 붙임 — scripts/combine-collect-reports.mjs) -->
+
+## 추가 브랜드 잡 (browser-extra-brands.json)
+
+⚠ **결과 없음** — 추가 브랜드 잡 리포트(browser-collect-extra-report.*)가 없습니다. 오늘 그 잡이 실패했거나 돌지 않았습니다.
+
 
