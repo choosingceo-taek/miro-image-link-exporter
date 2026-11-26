@@ -1,0 +1,2176 @@
+{
+ "runId": "45780157872",
+ "at": "2026-11-26T08:05:16.850Z",
+ "ip": "52.186.175.x",
+ "part": "1/1",
+ "brands": [
+  {
+   "brand": "Athleta",
+   "site": "athleta.gap.com.athleta",
+   "products": [
+    {
+     "url": "https://athleta.gap.com/browse/product.do?pid=845688002",
+     "name": "Momentum Flex Top",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 3764718,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 4357862,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Momentum Flex Top",
+      "imgs": [
+       "https://athleta.gap.com/webcontent/0061/187/266/cn61187266.jpg",
+       "https://athleta.gap.com/webcontent/0061/496/505/cn61496505.jpg",
+       "https://athleta.gap.com/webcontent/0061/372/945/cn61372945.jpg",
+       "https://athleta.gap.com/webcontent/0061/266/230/cn61266230.jpg",
+       "https://athleta.gap.com/webcontent/0061/266/229/cn61266229.jpg",
+       "https://athleta.gap.com/webcontent/0061/496/501/cn61496501.jpg",
+       "https://athleta.gap.com/webcontent/0061/257/877/cn61257877.jpg"
+      ],
+      "price": "$34.5",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Bright White",
+      "colors": [
+       "Bright White"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Nylon 97% / Elastane 3%",
+      "desc": "FOR: Medium to high-impact workouts at the gym, studio, or outdoors FEEL: Enhanced yarns deliver soft stretch and quick recovery, keeping you comfortable while you push your limits FAVE: The workout top you love, now with upgraded stretch, sweat-wicking power, and sleek style Seamless construction for minimal chafing Functional mesh panels allow for optimal movement and breathability Thumbholes lock your fit in place Grippers at inner hem prevent it riding up Product #845688",
+      "feat": [
+       "XXS XS S M L XL 1X 2X"
+      ],
+      "sku": "845688002"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "size & fit",
+       "product details",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 129,
+      "sizeBtns": 19,
+      "priceEls": 89,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 4357862
+     },
+     "clickOnly": {
+      "featImpit": 1,
+      "featFirefox": 1,
+      "descImpit": 479,
+      "descFirefox": 479
+     },
+     "fixture": {
+      "file": "athleta-productdo845688002.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://athleta.gap.com/browse/product.do?pid=845697032",
+     "name": "Momentum Flex Tee",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 3772482,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 4355251,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Momentum Flex Tee",
+      "imgs": [
+       "https://athleta.gap.com/webcontent/0063/614/757/cn63614757.jpg",
+       "https://athleta.gap.com/webcontent/0063/614/769/cn63614769.jpg",
+       "https://athleta.gap.com/webcontent/0063/614/776/cn63614776.jpg",
+       "https://athleta.gap.com/webcontent/0062/074/736/cn62074736.jpg",
+       "https://athleta.gap.com/webcontent/0062/074/723/cn62074723.jpg",
+       "https://athleta.gap.com/webcontent/0062/147/073/cn62147073.jpg",
+       "https://athleta.gap.com/webcontent/0061/257/861/cn61257861.jpg"
+      ],
+      "price": "$29.5",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Pearl Mini Stripe",
+      "colors": [
+       "Pearl Mini Stripe"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Nylon 78% / Polyester 19% / Elastane 3%",
+      "desc": "FOR: Medium to high-impact workouts at the gym, studio, or outdoors FEEL: Enhanced yarns deliver soft stretch and quick recovery, keeping you comfortable while you push your limits FAVE: The workout top you love, now with upgraded stretch, sweat-wicking power, and sleek style Seamless construction for minimal chafing Functional mesh panels allow for optimal movement and breathability Product #845697",
+      "feat": [
+       "XXS XS S M L XL 1X 2X"
+      ],
+      "sku": "845697032"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "size & fit",
+       "product details",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 171,
+      "sizeBtns": 19,
+      "priceEls": 99,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 4355251
+     },
+     "clickOnly": {
+      "featImpit": 1,
+      "featFirefox": 1,
+      "descImpit": 402,
+      "descFirefox": 402
+     },
+     "fixture": {
+      "file": "athleta-productdo845697032.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://athleta.gap.com/browse/product.do?pid=531304032",
+     "name": "Salutation Stash High Rise Capri",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 3939948,
+       "final": ""
+      },
+      "firefox": {
+       "v": "err",
+       "note": "90초 넘게 응답 없음"
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Salutation Stash High Rise Capri",
+      "imgs": [
+       "https://athleta.gap.com/webcontent/0063/888/451/cn63888451.jpg",
+       "https://athleta.gap.com/webcontent/0063/888/445/cn63888445.jpg",
+       "https://athleta.gap.com/webcontent/0059/613/352/cn59613352.jpg",
+       "https://athleta.gap.com/webcontent/0059/722/348/cn59722348.jpg",
+       "https://athleta.gap.com/webcontent/0059/722/344/cn59722344.jpg",
+       "https://athleta.gap.com/webcontent/0061/407/520/cn61407520.jpg"
+      ],
+      "price": "$59.4",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Navy",
+      "colors": [
+       "Navy"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "FOR: Your yoga flow and sessions in the studio FEEL: Powervita fabric is buttery soft with support that feels like a gentle hug FAVE: Bonded side stash pockets hold your essentials Made with our customer-obsessed, second-skin Powervita fabric, our yoga leggings/pants are designed for your ultimate distraction-free practice Product #531304",
+      "feat": [
+       "Regular Tall Petite",
+       "XXS XS S M L XL 1X 2X 3X"
+      ],
+      "sku": "531304032"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "size & fit",
+       "product details",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 39,
+      "sizeBtns": 20,
+      "priceEls": 13,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 3939948
+     },
+     "fixture": {
+      "file": "athleta-productdo531304032.html.gz",
+      "shopFile": "",
+      "engine": "impit"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 407,
+    "withRow": 407,
+    "comp": 277,
+    "color": 380,
+    "sizes": 0,
+    "price": 380,
+    "tried": 407,
+    "in5d": 407,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795677140614,
+    "newestT": 1795677140614,
+    "emptyIn5d": 130,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 0,
+     "plain": 130
+    }
+   },
+   "total": 407,
+   "byName": true,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 407
+  },
+  {
+   "brand": "Banana Republic",
+   "site": "bananarepublic.gap.com.bananarepublic",
+   "products": [
+    {
+     "url": "https://bananarepublic.gap.com/browse/product.do?pid=1203518002",
+     "name": "Stretch-Satin Fringe Top",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 865010,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1266174,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Stretch-Satin Fringe Top",
+      "imgs": [
+       "https://bananarepublic.gap.com/webcontent/0064/238/380/cn64238380.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/238/459/cn64238459.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/238/445/cn64238445.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/238/461/cn64238461.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/318/459/cn64318459.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/316/819/cn64316819.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/295/114/cn64295114.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/295/129/cn64295129.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/365/345/cn64365345.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/295/148/cn64295148.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/316/799/cn64316799.jpg"
+      ],
+      "price": "$76.8",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Gilded Green",
+      "colors": [
+       "Gilded Green"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Time to make plans. We love this fringe top because it looks (and feels) fabulous on. Pair it with the matching pant for a head-to-toe moment. Classic Fit: A straight and easy fit. Square neck. Straight hem. Product #1203518",
+      "feat": [],
+      "sku": "1203518002"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "product details",
+       "size & fit",
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 12,
+      "sizeBtns": 11,
+      "priceEls": 4,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1266174
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 224,
+      "descFirefox": 224
+     },
+     "fixture": {
+      "file": "bananarepublic-productdo1203518002.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://bananarepublic.gap.com/browse/product.do?pid=1199181002",
+     "name": "Stretch-Satin Cowl-Neck Maxi Dress",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 922055,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1317386,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Stretch-Satin Cowl-Neck Maxi Dress",
+      "imgs": [
+       "https://bananarepublic.gap.com/webcontent/0064/009/738/cn64009738.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/009/803/cn64009803.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/009/847/cn64009847.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/047/896/cn64047896.jpg",
+       "https://bananarepublic.gap.com/webcontent/0063/962/823/cn63962823.jpg",
+       "https://bananarepublic.gap.com/webcontent/0063/962/896/cn63962896.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/133/661/cn64133661.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/009/839/cn64009839.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/090/907/cn64090907.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/090/822/cn64090822.jpg",
+       "https://bananarepublic.gap.com/webcontent/0064/141/499/cn64141499.jpg"
+      ],
+      "price": "$118.8",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Black",
+      "colors": [
+       "Black"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "We cut this sleeveless dress from a stretch-satin fabric so it looks (and feels) fabulous. We added a draped cowl neck that flatters like it was made for you. Because it was. Fit & Flare: Relaxed through chest and shoulders, fitted waist with a flare skirt. Cowl neck. Bra-friendly design. Unlined. Product #1199181",
+      "feat": [
+       "Regular Petite"
+      ],
+      "sku": "1199181002"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "fit",
+       "product details",
+       "size & fit",
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 18,
+      "sizeBtns": 11,
+      "priceEls": 4,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1317386
+     },
+     "clickOnly": {
+      "featImpit": 1,
+      "featFirefox": 1,
+      "descImpit": 315,
+      "descFirefox": 315
+     },
+     "fixture": {
+      "file": "bananarepublic-productdo1199181002.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://bananarepublic.gap.com/browse/product.do?pid=1182782002",
+     "name": "High-Rise Modern Flare Wool-Blend Pant with Side Slit",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 915023,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1322462,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "High-Rise Modern Flare Wool-Blend Pant with Side Slit",
+      "imgs": [
+       "https://bananarepublic.gap.com/webcontent/0063/611/074/cn63611074.jpg",
+       "https://bananarepublic.gap.com/webcontent/0063/611/076/cn63611076.jpg",
+       "https://bananarepublic.gap.com/webcontent/0063/611/077/cn63611077.jpg",
+       "https://bananarepublic.gap.com/webcontent/0063/683/223/cn63683223.jpg",
+       "https://bananarepublic.gap.com/webcontent/0063/611/064/cn63611064.jpg",
+       "https://bananarepublic.gap.com/webcontent/0063/667/534/cn63667534.jpg"
+      ],
+      "price": "$118.8",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Purple Plaid",
+      "colors": [
+       "Purple Plaid"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Wool 53% / Polyester 43% / Elastane 4%",
+      "desc": "The pant we've been dreaming of. This one brings the 2000s vibes with a high-rise flared silhouette and a barely-there waistband design. Cut in an wool-blend we love for its smooth look and stretch. Flare Fit: High-rise. Slim through the hip and thigh with a flared leg. Full length. Zip front with hook-and-bar closure. Back pockets. Soft trouser crease. Unlined. Product #1182782",
+      "feat": [
+       "Regular Petite"
+      ],
+      "sku": "1182782002"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "fit",
+       "product details",
+       "size & fit",
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 12,
+      "sizeBtns": 16,
+      "priceEls": 4,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1322462
+     },
+     "clickOnly": {
+      "featImpit": 1,
+      "featFirefox": 1,
+      "descImpit": 381,
+      "descFirefox": 381
+     },
+     "fixture": {
+      "file": "bananarepublic-productdo1182782002.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 510,
+    "withRow": 510,
+    "comp": 362,
+    "color": 510,
+    "sizes": 0,
+    "price": 510,
+    "tried": 510,
+    "in5d": 510,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795677141038,
+    "newestT": 1795677141038,
+    "emptyIn5d": 148,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 0,
+     "plain": 148
+    }
+   },
+   "total": 510,
+   "byName": true,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 510
+  },
+  {
+   "brand": "Sessun",
+   "site": "en.sessun.com.sessun",
+   "products": [
+    {
+     "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-025.webp%20924w",
+     "name": "WXL Otto Almond Carlea Black 025.Webp%20924w",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1130,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1128,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Yuki_forestlux-034_RTCH.webp%20924w",
+     "name": "WXL Yuki Forestlux 034 RTCH.Webp%20924w",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1130,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1128,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Oliveira_lilastone-007.webp%20924w",
+     "name": "Oliveira",
+     "engines": {
+      "impit": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1130,
+       "final": ""
+      },
+      "firefox": {
+       "v": "blocked",
+       "status": 404,
+       "len": 1128,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    }
+   ],
+   "overlay": {
+    "items": 290,
+    "withRow": 290,
+    "comp": 240,
+    "color": 0,
+    "sizes": 0,
+    "price": 243,
+    "tried": 290,
+    "in5d": 290,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795661911430,
+    "newestT": 1795678179053,
+    "emptyIn5d": 50,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 47,
+     "wt": 30,
+     "plain": 50
+    }
+   },
+   "total": 290,
+   "urlShapes": {
+    "image": 47,
+    "noQuery": 0,
+    "offSite": 79
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 243
+  },
+  {
+   "brand": "Gap",
+   "site": "gap.com.gap",
+   "products": [
+    {
+     "url": "https://www.gap.com/browse/product.do?pid=1180261062",
+     "name": "VintageSoft Terry Oversized Wedge Side-Slit Sweatshirt",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1581980,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 2158905,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "VintageSoft Terry Oversized Wedge Side-Slit Sweatshirt",
+      "imgs": [
+       "https://www.gap.com/webcontent/0064/195/759/cn64195759.jpg",
+       "https://www.gap.com/webcontent/0063/813/876/cn63813876.jpg",
+       "https://www.gap.com/webcontent/0063/813/878/cn63813878.jpg",
+       "https://www.gap.com/webcontent/0064/195/639/cn64195639.jpg",
+       "https://www.gap.com/webcontent/0063/813/892/cn63813892.jpg",
+       "https://www.gap.com/webcontent/0063/813/905/cn63813905.jpg",
+       "https://www.gap.com/webcontent/0063/813/906/cn63813906.jpg",
+       "https://www.gap.com/webcontent/0063/348/068/cn63348068.jpg",
+       "https://www.gap.com/webcontent/0063/348/097/cn63348097.jpg",
+       "https://www.gap.com/webcontent/0063/348/130/cn63348130.jpg",
+       "https://www.gap.com/webcontent/0063/348/099/cn63348099.jpg",
+       "https://www.gap.com/webcontent/0063/348/119/cn63348119.jpg",
+       "https://www.gap.com/webcontent/0063/361/040/cn63361040.jpg",
+       "https://www.gap.com/webcontent/0063/348/042/cn63348042.jpg",
+       "https://www.gap.com/webcontent/0063/348/080/cn63348080.jpg",
+       "https://www.gap.com/webcontent/0063/402/931/cn63402931.jpg",
+       "https://www.gap.com/webcontent/0063/348/089/cn63348089.jpg",
+       "https://www.gap.com/webcontent/0063/402/927/cn63402927.jpg",
+       "https://www.gap.com/webcontent/0063/402/955/cn63402955.jpg",
+       "https://www.gap.com/webcontent/0064/274/106/cn64274106.jpg"
+      ],
+      "price": "$23",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Red",
+      "colors": [
+       "Red"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 77% / Polyester 23%",
+      "desc": "Soft cotton-blend French terry pullover wedge sweatshirt. In an ultra oversized fit and slightly cropped length. Crewneck. Long sleeves with drop shoulders. Banded rib cuffs and hem. Slit at side hems. Made with 23% recycled polyester. Compared to virgin materials, using recycled materials helps reduce resource use and waste. Product #1180261",
+      "feat": [],
+      "sku": "1180261062"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "product details",
+       "size & fit",
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 84,
+      "sizeBtns": 13,
+      "priceEls": 40,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 2158905
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 344,
+      "descFirefox": 344
+     },
+     "fixture": {
+      "file": "gap-productdo1180261062.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.gap.com/browse/product.do?pid=856413002",
+     "name": "Gap × Summer Fridays Heavyweight Relaxed Logo Joggers",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1082664,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1638083,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Gap × Summer Fridays Heavyweight Relaxed Logo Joggers",
+      "imgs": [
+       "https://www.gap.com/webcontent/0061/255/911/cn61255911.jpg",
+       "https://www.gap.com/webcontent/0061/255/920/cn61255920.jpg",
+       "https://www.gap.com/webcontent/0061/255/923/cn61255923.jpg",
+       "https://www.gap.com/webcontent/0061/255/943/cn61255943.jpg",
+       "https://www.gap.com/webcontent/0061/255/949/cn61255949.jpg",
+       "https://www.gap.com/webcontent/0061/271/852/cn61271852.jpg",
+       "https://www.gap.com/webcontent/0061/235/002/cn61235002.jpg",
+       "https://www.gap.com/webcontent/0061/301/950/cn61301950.jpg",
+       "https://www.gap.com/webcontent/0061/518/108/cn61518108.jpg",
+       "https://www.gap.com/webcontent/0061/518/115/cn61518115.jpg",
+       "https://www.gap.com/webcontent/0061/518/122/cn61518122.jpg",
+       "https://www.gap.com/webcontent/0061/237/075/cn61237075.jpg",
+       "https://www.gap.com/webcontent/0061/425/627/cn61425627.jpg"
+      ],
+      "price": "$24.97",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Pale heather grey",
+      "colors": [
+       "Pale heather grey"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Soft, heavyweight fleece joggers. In a relaxed fit. Elasticized waist with drawcords. Slant pockets. Summer Fridays embroidered logo at thigh. Elasticized hems. Made with 14% recycled polyester. Compared to virgin materials, using recycled materials helps reduce resource use and waste. Product #856413",
+      "feat": [],
+      "sku": "856413002"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "product details",
+       "size & fit",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 12,
+      "sizeBtns": 14,
+      "priceEls": 41,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1638083
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 302,
+      "descFirefox": 302
+     },
+     "fixture": {
+      "file": "gap-productdo856413002.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.gap.com/browse/product.do?pid=817099012",
+     "name": "Heavyweight French Terry Barrel Sweatpants",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1071549,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1634516,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Heavyweight French Terry Barrel Sweatpants",
+      "imgs": [
+       "https://www.gap.com/webcontent/0060/083/019/cn60083019.jpg",
+       "https://www.gap.com/webcontent/0060/081/912/cn60081912.jpg",
+       "https://www.gap.com/webcontent/0060/083/044/cn60083044.jpg",
+       "https://www.gap.com/webcontent/0060/081/922/cn60081922.jpg",
+       "https://www.gap.com/webcontent/0060/081/918/cn60081918.jpg",
+       "https://www.gap.com/webcontent/0060/081/934/cn60081934.jpg",
+       "https://www.gap.com/webcontent/0061/332/390/cn61332390.jpg",
+       "https://www.gap.com/webcontent/0061/332/395/cn61332395.jpg",
+       "https://www.gap.com/webcontent/0061/332/420/cn61332420.jpg",
+       "https://www.gap.com/webcontent/0061/332/453/cn61332453.jpg",
+       "https://www.gap.com/webcontent/0061/332/467/cn61332467.jpg",
+       "https://www.gap.com/webcontent/0060/099/986/cn60099986.jpg",
+       "https://www.gap.com/webcontent/0060/100/027/cn60100027.jpg",
+       "https://www.gap.com/webcontent/0060/100/040/cn60100040.jpg",
+       "https://www.gap.com/webcontent/0059/733/705/cn59733705.jpg",
+       "https://www.gap.com/webcontent/0060/100/039/cn60100039.jpg"
+      ],
+      "price": "$69.97",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Black wash",
+      "colors": [
+       "Black wash"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 86% / Polyester 14%",
+      "desc": "Soft, heavyweight French terry barrel sweatpants. Elasticized waist with belt loops and faux fly. Classic five-pocket styling. Seam detailing at knees. Made with 14% recycled polyester. Compared to virgin materials, using recycled materials helps reduce resource use and waste. Explore our GapSweats Guide . This product was made in a factory that invests in gender equity and women’s empowerment through RISE. Learn more at gapinc.com/equity. Product #817099",
+      "feat": [],
+      "sku": "817099012"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "product details",
+       "size & fit",
+       "fabric & care",
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 6,
+      "sizeBtns": 13,
+      "priceEls": 39,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1634516
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 459,
+      "descFirefox": 459
+     },
+     "fixture": {
+      "file": "gap-productdo817099012.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 481,
+    "withRow": 481,
+    "comp": 333,
+    "color": 480,
+    "sizes": 0,
+    "price": 480,
+    "tried": 481,
+    "in5d": 481,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795677158643,
+    "newestT": 1795677158643,
+    "emptyIn5d": 148,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 1,
+     "wt": 0,
+     "plain": 148
+    }
+   },
+   "total": 481,
+   "byName": true,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 481
+  },
+  {
+   "brand": "Old Navy",
+   "site": "oldnavy.gap.com.oldnavy",
+   "products": [
+    {
+     "url": "https://oldnavy.gap.com/browse/product.do?pid=903179002",
+     "name": "Loose Sherpa Quarter-Zip Pullover",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1580594,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 2118624,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Loose Sherpa Quarter-Zip Pullover",
+      "imgs": [
+       "https://oldnavy.gap.com/webcontent/0062/850/216/cn62850216.jpg",
+       "https://oldnavy.gap.com/webcontent/0062/850/632/cn62850632.jpg",
+       "https://oldnavy.gap.com/webcontent/0062/848/476/cn62848476.jpg",
+       "https://oldnavy.gap.com/webcontent/0062/850/223/cn62850223.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/199/450/cn63199450.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/199/459/cn63199459.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/234/135/cn63234135.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/234/133/cn63234133.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/351/893/cn63351893.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/069/464/cn63069464.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/069/435/cn63069435.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/093/527/cn63093527.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/484/100/cn63484100.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/482/187/cn63482187.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/240/204/cn63240204.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/240/219/cn63240219.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/069/465/cn63069465.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/093/564/cn63093564.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/093/580/cn63093580.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/065/761/cn64065761.jpg"
+      ],
+      "price": "$24.99",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Mocha",
+      "colors": [
+       "Mocha"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 60% / Polyester 40%",
+      "desc": "quarter-zip funnel neck drop-shoulder sleeves front pockets elastic cuffs and hem Product #903179",
+      "feat": [
+       "Regular Tall Petite"
+      ],
+      "sku": "903179002"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "fit",
+       "product details",
+       "size & fit",
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 30,
+      "sizeBtns": 16,
+      "priceEls": 86,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 2118624
+     },
+     "clickOnly": {
+      "featImpit": 1,
+      "featFirefox": 1,
+      "descImpit": 97,
+      "descFirefox": 97
+     },
+     "fixture": {
+      "file": "oldnavy-productdo903179002.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/product.do?pid=777363012",
+     "name": "High-Waisted SoComfy Wide-Leg Sweatpants",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 2268501,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 2822198,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "High-Waisted SoComfy Wide-Leg Sweatpants",
+      "imgs": [
+       "https://oldnavy.gap.com/webcontent/0064/129/349/cn64129349.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/129/327/cn64129327.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/129/346/cn64129346.jpg",
+       "https://oldnavy.gap.com/webcontent/0058/129/525/cn58129525.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/166/028/cn64166028.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/166/194/cn64166194.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/166/187/cn64166187.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/166/029/cn64166029.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/166/066/cn64166066.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/214/157/cn64214157.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/064/391/cn64064391.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/954/559/cn63954559.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/954/543/cn63954543.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/259/381/cn64259381.jpg",
+       "https://oldnavy.gap.com/webcontent/0064/259/382/cn64259382.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/308/550/cn63308550.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/308/562/cn63308562.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/938/421/cn63938421.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/938/420/cn63938420.jpg",
+       "https://oldnavy.gap.com/webcontent/0058/129/468/cn58129468.jpg"
+      ],
+      "price": "$18.49",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Dusk Navy",
+      "colors": [
+       "Dusk Navy"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 90% / Polyester 10%",
+      "desc": "New! your favorite wide-leg sweatpants now with an improved waistband and internal drawstring on-seam pockets pull-on style Product #777363",
+      "feat": [
+       "Regular Tall Petite"
+      ],
+      "sku": "777363012"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "fit",
+       "product details",
+       "size & fit",
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 68,
+      "sizeBtns": 16,
+      "priceEls": 92,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 2822198
+     },
+     "clickOnly": {
+      "featImpit": 1,
+      "featFirefox": 1,
+      "descImpit": 139,
+      "descFirefox": 139
+     },
+     "fixture": {
+      "file": "oldnavy-productdo777363012.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://oldnavy.gap.com/browse/product.do?pid=861780012",
+     "name": "Relaxed Dynamic Fleece Shorts",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1405510,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1948857,
+       "clicked": 3
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Relaxed Dynamic Fleece Shorts",
+      "imgs": [
+       "https://oldnavy.gap.com/webcontent/0061/811/483/cn61811483.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/811/472/cn61811472.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/811/482/cn61811482.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/865/476/cn61865476.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/865/494/cn61865494.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/919/098/cn61919098.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/919/100/cn61919100.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/782/353/cn61782353.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/765/993/cn61765993.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/898/760/cn61898760.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/898/774/cn61898774.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/856/285/cn61856285.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/856/304/cn61856304.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/823/237/cn61823237.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/823/225/cn61823225.jpg",
+       "https://oldnavy.gap.com/webcontent/0061/719/448/cn61719448.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/019/279/cn63019279.jpg",
+       "https://oldnavy.gap.com/webcontent/0063/019/150/cn63019150.jpg",
+       "https://oldnavy.gap.com/webcontent/0062/632/837/cn62632837.jpg",
+       "https://oldnavy.gap.com/webcontent/0062/632/826/cn62632826.jpg"
+      ],
+      "price": "$13.49",
+      "priceOrig": "",
+      "cur": "USD",
+      "color": "Magnolia",
+      "colors": [
+       "Magnolia"
+      ],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 95% / Elastane 5%",
+      "desc": "elastic-drawstring waist side pockets breathable pull-on style Product #861780",
+      "feat": [],
+      "sku": "861780012"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "imgs": "jsonld",
+      "colors": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "color": "jsonld",
+      "comp": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "color",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "details",
+       "product details",
+       "size & fit",
+       "fabric & care"
+      ],
+      "domDesc": false,
+      "swatches": 14,
+      "sizeBtns": 16,
+      "priceEls": 92,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1948857
+     },
+     "clickOnly": {
+      "featImpit": 0,
+      "featFirefox": 0,
+      "descImpit": 78,
+      "descFirefox": 78
+     },
+     "fixture": {
+      "file": "oldnavy-productdo861780012.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 684,
+    "withRow": 684,
+    "comp": 664,
+    "color": 684,
+    "sizes": 0,
+    "price": 684,
+    "tried": 684,
+    "in5d": 684,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795677195474,
+    "newestT": 1795677195474,
+    "emptyIn5d": 20,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 0,
+     "plain": 20
+    }
+   },
+   "total": 684,
+   "byName": true,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 684
+  },
+  {
+   "brand": "Vanessa bruno",
+   "site": "vanessabruno.com.vanessabruno",
+   "products": [
+    {
+     "url": "https://www.vanessabruno.com/p/haldo-embroidered-blouse-54343.html",
+     "name": "Clothing - VANESSABRUNO",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 469364,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 315149,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Haldo Embroidered Blouse",
+      "imgs": [
+       "https://assets-tp.vanessabruno.com/com/54500/large/04W054075A.jpg",
+       "https://assets-tp.vanessabruno.com/com/54500/large/04W054075B.jpg",
+       "https://assets-tp.vanessabruno.com/com/54500/large/04W054075C.jpg",
+       "https://assets-tp.vanessabruno.com/com/54500/large/04W054075D.jpg",
+       "https://assets-tp.vanessabruno.com/com/54500/large/04W054075E.jpg"
+      ],
+      "price": "€245",
+      "priceOrig": "",
+      "cur": "EUR",
+      "color": "ECRU",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Viscose 100%",
+      "desc": "In embroidered ivory viscose, the Haldo blouse combines a buttoned mandarin collar with long puff sleeves.The fluid viscose is embroidered right up to the edge of the mother-of-pearl-effect button placket, fastened up to the collar. The full sleeves are gathered into a buttoned cuff.Under a navy blazer or on its own, tucked into wide trousers. Wear the collar open for a more relaxed look.",
+      "feat": [
+       "Embroidered viscose blouse, hip length",
+       "Mandarin collar",
+       "Mother-of-pearl-effect buttons up to the collar",
+       "Embroidery on the front",
+       "Long puff sleeves with buttoned cuffs",
+       "Colour: ivory",
+       "Oversized fit",
+       "Machine wash on a very gentle cycle at 30°C maximum. Do not bleach. Do not tumble dry. Iron at a maximum temperature of 150°C. Can also be dry cleaned."
+      ],
+      "sku": "04W054075"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "description"
+      ],
+      "domDesc": true,
+      "swatches": 0,
+      "sizeBtns": 114,
+      "priceEls": 1,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 315149
+     },
+     "clickOnly": {
+      "featImpit": 8,
+      "featFirefox": 8,
+      "descImpit": 391,
+      "descFirefox": 391
+     },
+     "fixture": {
+      "file": "vanessabruno-haldoembroideredblouse54343html.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.vanessabruno.com/p/fresia-sweater-51398.html",
+     "name": "Fresia Sweater 295 . 00 &euro;",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 363008,
+       "final": "https://www.vanessabruno.com/outlet/knitwear/knitwear.html"
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 285806,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "impit",
+     "got": {
+      "name": "Knitwear",
+      "imgs": [
+       "https://www.vanessabruno.comhttps://assets-tp.vanessabruno.com/com/51250/large/04W050897A.jpg"
+      ],
+      "price": "€201",
+      "priceOrig": "",
+      "cur": "EUR",
+      "color": "ecru",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Discover our selection of Knitwear . Shop our new arrivals of Knitwear on vanessabruno.com. Secure payments & Free returns",
+      "feat": [
+       "Cropped",
+       "Oversize",
+       "Wool"
+      ],
+      "sku": ""
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "meta",
+      "feat": "dom",
+      "imgs": "meta",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": "page"
+     },
+     "probe": {
+      "ld": {
+       "product": 2,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "priceCurrency",
+        "price",
+        "lowPrice"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [],
+      "platform": "",
+      "heads": [
+       "fit"
+      ],
+      "domDesc": false,
+      "swatches": 0,
+      "sizeBtns": 56,
+      "priceEls": 9,
+      "strike": false,
+      "galleryImgs": 0,
+      "len": 363008
+     },
+     "fixture": {
+      "file": "vanessabruno-fresiasweater51398html.html.gz",
+      "shopFile": "",
+      "engine": "impit"
+     }
+    },
+    {
+     "url": "https://www.vanessabruno.com/p/dixie-sweater-44856.html",
+     "name": "Dixie Sweater 210 . 00 &euro;",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 290333,
+       "final": "https://www.vanessabruno.com/z-offline/z-offline/z-offline.html"
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 207801,
+       "clicked": 0
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    }
+   ],
+   "overlay": {
+    "items": 193,
+    "withRow": 193,
+    "comp": 174,
+    "color": 193,
+    "sizes": 0,
+    "price": 193,
+    "tried": 193,
+    "in5d": 193,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1795663205087,
+    "newestT": 1795677253861,
+    "emptyIn5d": 19,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 0,
+     "plain": 19
+    }
+   },
+   "total": 193,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 8
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 17
+  },
+  {
+   "brand": "Whitestuff",
+   "site": "whitestuff.com.whitestuff",
+   "products": [
+    {
+     "url": "https://www.whitestuff.com/p/7379/nelly-cotton-notch-neck-t-shirt/TEAL_PR",
+     "name": "NELLY COTTON NOTCH NECK T-SHIRT",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 501377,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 819276,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "NELLY COTTON NOTCH NECK T-SHIRT",
+      "imgs": [
+       "https://cdn.media.amplience.net/i/whitestuff/446179-TEAL_PR-L"
+      ],
+      "price": "£17.7",
+      "priceOrig": "",
+      "cur": "GBP",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "Cotton 100%",
+      "desc": "Notch your average tee. No, really. This one’s part of our Fairtrade collection and comes with a notch-neck detail. Because, you know. It’s top notch.",
+      "feat": [
+       "100% Cotton",
+       "Model wears a size 10 and is 5'9\"/175cm",
+       "Size 12 high shoulder neck point to hem approx. 62CM",
+       "Notch Neck",
+       "Short Sleeve",
+       "Regular fit",
+       "Machine Washable"
+      ],
+      "sku": "446179"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "page",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [
+       "__NUXT__"
+      ],
+      "platform": "",
+      "heads": [
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 2,
+      "sizeBtns": 21,
+      "priceEls": 34,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 819276
+     },
+     "clickOnly": {
+      "featImpit": 7,
+      "featFirefox": 7,
+      "descImpit": 150,
+      "descFirefox": 150
+     },
+     "fixture": {
+      "file": "whitestuff-tealpr.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/p/8439/446603-bea-button-cotton-jumper/GREEN_MLT",
+     "name": "GREEN MLT swatch",
+     "engines": {
+      "impit": {
+       "v": "shell",
+       "status": 200,
+       "len": 526928,
+       "final": ""
+      },
+      "firefox": {
+       "v": "shell",
+       "status": 200,
+       "len": 838809,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "read": false,
+     "engine": "",
+     "got": {
+      "name": "",
+      "imgs": [],
+      "price": "",
+      "priceOrig": "",
+      "cur": "",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "",
+      "feat": [],
+      "sku": ""
+     },
+     "src": {
+      "comp": "",
+      "color": ""
+     },
+     "probe": null
+    },
+    {
+     "url": "https://www.whitestuff.com/p/5227/rowena-linen-trousers/MID_CHART",
+     "name": "MID CHART swatch",
+     "engines": {
+      "impit": {
+       "v": "read",
+       "status": 200,
+       "len": 1099743,
+       "final": ""
+      },
+      "firefox": {
+       "v": "read",
+       "status": 200,
+       "len": 1169137,
+       "clicked": 1
+      }
+     },
+     "stored": "",
+     "read": true,
+     "engine": "firefox",
+     "got": {
+      "name": "Rowena Linen Trousers",
+      "imgs": [
+       "https://cdn.media.amplience.net/i/whitestuff/442671-MID_CHART-MF"
+      ],
+      "price": "£32",
+      "priceOrig": "",
+      "cur": "GBP",
+      "color": "",
+      "colors": [],
+      "sizes": [],
+      "sizesIn": null,
+      "comp": "",
+      "desc": "Linen. The fashion symbol of summer. Which is why we love it. And because it's comfy, cool and breathable. In a tapered full-length, these trousers are the perfect pair to wear as summer begins (and ends, but we don't want to think about that).\nStyle with these Accessories",
+      "feat": [
+       "Regular",
+       "Long",
+       "Short / Petite",
+       "Short",
+       "Style with these Accessories",
+       "Product ID: 442671"
+      ],
+      "sku": "442671"
+     },
+     "src": {
+      "name": "jsonld",
+      "desc": "jsonld",
+      "feat": "dom",
+      "imgs": "jsonld",
+      "sku": "jsonld",
+      "cur": "jsonld",
+      "price": "jsonld",
+      "comp": "",
+      "color": ""
+     },
+     "probe": {
+      "ld": {
+       "product": 1,
+       "group": 0,
+       "fields": [
+        "name",
+        "image",
+        "description",
+        "sku",
+        "mpn",
+        "priceCurrency",
+        "price",
+        "availability"
+       ]
+      },
+      "meta": [
+       "og:image",
+       "og:description"
+      ],
+      "state": [
+       "__NUXT__"
+      ],
+      "platform": "",
+      "heads": [
+       "details"
+      ],
+      "domDesc": false,
+      "swatches": 16,
+      "sizeBtns": 21,
+      "priceEls": 13,
+      "strike": true,
+      "galleryImgs": 0,
+      "len": 1169137
+     },
+     "clickOnly": {
+      "featImpit": 2,
+      "featFirefox": 6,
+      "descImpit": 396,
+      "descFirefox": 273
+     },
+     "fixture": {
+      "file": "whitestuff-midchart.html.gz",
+      "shopFile": "",
+      "engine": "firefox"
+     }
+    }
+   ],
+   "overlay": {
+    "items": 665,
+    "withRow": 587,
+    "comp": 518,
+    "color": 0,
+    "sizes": 0,
+    "price": 529,
+    "tried": 587,
+    "in5d": 400,
+    "blocked": 0,
+    "blockedIn5d": 0,
+    "none": 0,
+    "noneNv": {},
+    "oldestT": 1785844777614,
+    "newestT": 1795677274553,
+    "emptyIn5d": 32,
+    "emptyKind": {
+     "none": 0,
+     "blocked": 0,
+     "bvImpit": 0,
+     "wt": 0,
+     "plain": 69
+    }
+   },
+   "total": 665,
+   "urlShapes": {
+    "image": 0,
+    "noQuery": 0,
+    "offSite": 0
+   },
+   "pick": "empty",
+   "picked": 3,
+   "notProduct": 0
+  }
+ ]
+}
