@@ -76,6 +76,7 @@ jobs:
   #            → browser-collect-oysho-report.*  · 시간 예산 75분(공용 잡의 105분과 따로)
   # budget: 시간 예산(분). 잡 시작부터 센다 — 설치에 쓴 시간만큼 줄어든다(최소 60).
   collect:
+    name: collect (${{ matrix.part }})
     strategy:
       fail-fast: false
       matrix:
