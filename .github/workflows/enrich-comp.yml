@@ -76,8 +76,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      # impit — 브라우저 없이 크롬의 TLS 지문으로 요청한다. 평 fetch(Node)가 TLS 지문 때문에 막히는 사이트
+      # (Whitestuff '직접차단' 76개 · J.Crew — 같은 페이지를 impit 은 3/3 읽었다)를 이것으로 다시 연다.
+      # 설치가 실패해도 보강은 평 fetch 만으로 예전처럼 돈다(스크립트가 impit 이 없으면 그 층을 끈다).
+      - name: Install impit
+        continue-on-error: true
+        timeout-minutes: 5
+        run: |
+          npm init -y >/dev/null
+          timeout 200 npm i --no-save impit@0.14.9
+          rm -f package.json package-lock.json
       - name: Enrich compositions
         env:
+          # 상품 상세(설명·디테일·사진 전부) 3차 — 혼용률은 찼는데 상세가 없는 상품을 남은 예산·시간 안에서 연다.
+          # 저장소 변수 DETAIL_BACKFILL=0 으로 끈다. TIME_MIN = 3차를 멈추는 시각(리포트·인덱스 쓸 시간을 남긴다).
+          DETAIL_BACKFILL: ${{ vars.DETAIL_BACKFILL || '1' }}
+          TIME_MIN: "95"
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
           PER_BRAND: ${{ github.event.inputs.per_brand }}
           TOTAL: ${{ github.event.inputs.total }}

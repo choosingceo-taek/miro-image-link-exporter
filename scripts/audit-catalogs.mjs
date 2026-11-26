@@ -51,7 +51,7 @@ const NON_PRODUCT_SEGMENTS = [
   "returns?", "shipping", "delivery", "terms", "privacy", "cookies?", "legal",
   "sitemap", "search", "newsletter", "subscribe", "sustainability", "lookbook",
   "campaigns?", "editorial", "inspiration", "guides?", "how-to", "klarna", "afterpay",
-  "loyalty", "rewards", "affiliates?",
+  "loyalty", "rewards", "affiliates?", "pages", "stores",
 ];
 const NON_PRODUCT_PATH = new RegExp("/(?:" + NON_PRODUCT_SEGMENTS.join("|") + ")(?:/|$)", "i");
 

@@ -1,0 +1,702 @@
+[
+ {
+  "kind": "listing",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/womens-tees-and-tanks-tops?pagefm=navigation-left+nav",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/womens-camis-and-tank-tops-tops?pagefm=navigation-left+nav",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/womens-hoodies-and-sweatshirts-tops?pagefm=navigation-left+nav",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/womens-shirts-and-blouses-tops?pagefm=navigation-left+nav",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/womens-dresses-and-jumpsuits",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/womens-sweatpants-and-joggers-bottoms?pagefm=navigation-left+nav",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Addidas",
+  "url": "https://www.adidas.com/us/women-tops?sort=newest-to-oldest",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Addidas",
+  "url": "https://www.adidas.com/us/women-hoodies_sweatshirts",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Addidas",
+  "url": "https://www.adidas.com/us/women-skirts_dresses",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Addidas",
+  "url": "https://www.adidas.com/us/women-pants",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Anthropologie",
+  "url": "https://www.anthropologie.com/tops-sweatshirts",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Anthropologie",
+  "url": "https://www.anthropologie.com/tops",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Anthropologie",
+  "url": "https://www.anthropologie.com/dresses",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Anthropologie",
+  "url": "https://www.anthropologie.com/bottoms",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Aritzia",
+  "url": "https://www.aritzia.com/us/en/clothing/tops",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Aritzia",
+  "url": "https://www.aritzia.com/us/en/clothing/sweatsuit-sets?lastViewed=74",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Aritzia",
+  "url": "https://www.aritzia.com/us/en/clothing/shirts-blouses",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Aritzia",
+  "url": "https://www.aritzia.com/us/en/clothing/dresses-3",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Aritzia",
+  "url": "https://www.aritzia.com/us/en/clothing/sweatsuit-sets/sweat-pants",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Chico's",
+  "url": "https://www.chicos.com/store/category/blouses-shirts/cat11199294",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Chico's",
+  "url": "https://www.chicos.com/store/category/pants/cat8289646",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Eileen fisher",
+  "url": "https://www.eileenfisher.com/shop/clothing/tops-tees",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Eileen fisher",
+  "url": "https://www.eileenfisher.com/shop/clothing/tanks-camis",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Eileen fisher",
+  "url": "https://www.eileenfisher.com/shop/clothing/dresses-skirts",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Eileen fisher",
+  "url": "https://www.eileenfisher.com/shop/clothing/pants-jumpsuits",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Fatface",
+  "url": "https://www.fatface.com/shop/womens/clothing/tops/t-shirts",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Fatface",
+  "url": "https://www.fatface.com/shop/womens/clothing/sweatshirts-and-hoodies",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Fatface",
+  "url": "https://www.fatface.com/shop/womens/clothing/dresses",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Fatface",
+  "url": "https://www.fatface.com/shop/womens/clothing/all-trousers",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "FP Movement",
+  "url": "https://www.freepeople.com/fpmovement/workout-tops/",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "FP Movement",
+  "url": "https://www.freepeople.com/fpmovement/hoodies-sweatshirts/",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "FP Movement",
+  "url": "https://www.freepeople.com/fpmovement/one-pieces/",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "FP Movement",
+  "url": "https://www.freepeople.com/fpmovement/workout-bottoms/",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Free People",
+  "url": "https://www.freepeople.com/tops/",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Free People",
+  "url": "https://www.freepeople.com/sweatshirts-pullovers/?vis_nav=4",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Free People",
+  "url": "https://www.freepeople.com/blouses/?feature-product-ids=FP-109929869-000&topper=2",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Free People",
+  "url": "https://www.freepeople.com/dresses/",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Free People",
+  "url": "https://www.freepeople.com/pants/",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Joules",
+  "url": "https://www.joules.com/shop/womens/clothing/tops",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Joules",
+  "url": "https://www.joules.com/shop/womens/clothing/sweatshirts-and-hoodies",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Joules",
+  "url": "https://www.joules.com/shop/womens/clothing/shirts-and-blouses",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Joules",
+  "url": "https://www.joules.com/shop/womens/clothing/dresses",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Joules",
+  "url": "https://www.joules.com/shop/womens/clothing/all-trousers?p=2#1454.34375",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lands end",
+  "url": "https://www.landsend.com/shop/womens-tops/S-xfe-xez-y5c-xec",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lands end",
+  "url": "https://www.landsend.com/shop/womens-sweatshirts-hoodies-tops-tees/S-xfe-16na-xez-y5c-xh1-y0d-xec",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lands end",
+  "url": "https://www.landsend.com/shop/womens-shirts-blouses-tops/S-xfe-xez-y5c-yql-xec",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lands end",
+  "url": "https://www.landsend.com/shop/womens-dresses/S-xfg-xez-y5c-xec",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lands end",
+  "url": "https://www.landsend.com/shop/womens-sweatpants-pants-bottoms/S-xff-xez-y5c-y7b-xh5-xec",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lululemon",
+  "url": "https://shop.lululemon.com/c/women-t-shirts/n1wx7w",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lululemon",
+  "url": "https://shop.lululemon.com/c/women-tank-tops/n1uk4w",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lululemon",
+  "url": "https://shop.lululemon.com/c/women-hoodies-and-sweatshirts/n1jux6",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lululemon",
+  "url": "https://shop.lululemon.com/c/women-dresses/n1mk31",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Lululemon",
+  "url": "https://shop.lululemon.com/c/women-sweatpants/n1m8w7",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Mango",
+  "url": "https://shop.mango.com/us/en/c/women/t-shirts/8e23bdfb",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Mango",
+  "url": "https://shop.mango.com/us/en/c/women/tops/227371cd",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Mango",
+  "url": "https://shop.mango.com/us/en/c/women/knitwear/7e46863e",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Mango",
+  "url": "https://shop.mango.com/us/en/c/women/shirts---blouses/b8003173",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Mango",
+  "url": "https://shop.mango.com/us/en/c/women/dresses-and-jumpsuits/e6bb8705",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Mango",
+  "url": "https://shop.mango.com/us/en/c/women/pants/0bf28b3b",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Massimo Dutti",
+  "url": "https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Massimo Dutti",
+  "url": "https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Oysho",
+  "url": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Oysho",
+  "url": "https://www.oysho.com/gb/womens-pants-n4813",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Paige",
+  "url": "https://paige.com/collection/women-tees-and-tanks",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Paige",
+  "url": "https://paige.com/collection/women-sweaters-and-sweatshirts",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Paige",
+  "url": "https://paige.com/collection/women-tops",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Paige",
+  "url": "https://paige.com/collection/women-dresses",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Paige",
+  "url": "https://paige.com/collection/women-pants",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Prana",
+  "url": "https://www.prana.com/women/tops/sweaters-hoodies.html",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Prana",
+  "url": "https://www.prana.com/women/dresses-skirts.html",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Prana",
+  "url": "https://www.prana.com/women/bottoms.html",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Sezane",
+  "url": "https://www.sezane.com/us-en/collection/t-shirts-sweatshirts-marinieres",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Sezane",
+  "url": "https://www.sezane.com/us-en/collection/sweat-shirts-sailor-tops",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Sezane",
+  "url": "https://www.sezane.com/us-en/collection/dresses",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Sezane",
+  "url": "https://www.sezane.com/us-en/collection/bottoms/trousers",
+  "cat": "pants"
+ },
+ {
+  "kind": "listing",
+  "brand": "Theory",
+  "url": "https://www.theory.com/women/t-shirts-and-tanks/",
+  "cat": "tops"
+ },
+ {
+  "kind": "listing",
+  "brand": "Theory",
+  "url": "https://www.theory.com/women/loungewear/",
+  "cat": "sweatshirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Theory",
+  "url": "https://www.theory.com/women/tops/",
+  "cat": "shirts"
+ },
+ {
+  "kind": "listing",
+  "brand": "Theory",
+  "url": "https://www.theory.com/women/dresses/",
+  "cat": "dresses"
+ },
+ {
+  "kind": "listing",
+  "brand": "Theory",
+  "url": "https://www.theory.com/women/pants/",
+  "cat": "pants"
+ },
+ {
+  "kind": "product",
+  "brand": "&Other Stories",
+  "url": "https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-dark-brown-1358924005/"
+ },
+ {
+  "kind": "product",
+  "brand": "&Other Stories",
+  "url": "https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-cream-1358924002/"
+ },
+ {
+  "kind": "product",
+  "brand": "&Other Stories",
+  "url": "https://www.stories.com/en-us/product/scuba-zip-up-jacket-dark-greenwhite-1323866001/"
+ },
+ {
+  "kind": "product",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/p/essential-polished-body-skimming-tee-62050821"
+ },
+ {
+  "kind": "product",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/p/double-lined-long-sleeve-baby-tee-61005323"
+ },
+ {
+  "kind": "product",
+  "brand": "Abercrombie & Fitch",
+  "url": "https://www.abercrombie.com/shop/wd/p/essential-baby-tee-56537321"
+ },
+ {
+  "kind": "product",
+  "brand": "Addidas",
+  "url": "https://www.adidas.com/us/essentials-small-logo-feel-cozy-sweatshirt/IX7943.html"
+ },
+ {
+  "kind": "product",
+  "brand": "Addidas",
+  "url": "https://www.adidas.com/us/essentials-small-logo-feel-cozy-sweatshirt/IX7940.html"
+ },
+ {
+  "kind": "product",
+  "brand": "Addidas",
+  "url": "https://www.adidas.com/us/knit-essentials-boucle-crew-sweatshirt/LI0121.html"
+ },
+ {
+  "kind": "product",
+  "brand": "Anthropologie",
+  "url": "https://www.anthropologie.com/shop/by-anthropologie-layered-lace-puff-sleeve-top"
+ },
+ {
+  "kind": "product",
+  "brand": "Anthropologie",
+  "url": "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank"
+ },
+ {
+  "kind": "product",
+  "brand": "Anthropologie",
+  "url": "https://www.anthropologie.com/shop/by-anthropologie-bruna-cashmere-modal-ribbed-top"
+ },
+ {
+  "kind": "product",
+  "brand": "Aritzia",
+  "url": "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html"
+ },
+ {
+  "kind": "product",
+  "brand": "Aritzia",
+  "url": "https://www.aritzia.com/intl/en/product/ezra-top/125956.html"
+ },
+ {
+  "kind": "product",
+  "brand": "Coldwatercreek",
+  "url": "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/"
+ },
+ {
+  "kind": "product",
+  "brand": "Fatface",
+  "url": "https://www.fatface.com/style/su990707/y56442"
+ },
+ {
+  "kind": "product",
+  "brand": "Fatface",
+  "url": "https://www.fatface.com/style/su990707/g78330"
+ },
+ {
+  "kind": "product",
+  "brand": "Fatface",
+  "url": "https://www.fatface.com/style/sv022065/v60690"
+ },
+ {
+  "kind": "product",
+  "brand": "Free People",
+  "url": "https://www.freepeople.com/shop/we-the-free-nolan-swit/"
+ },
+ {
+  "kind": "product",
+  "brand": "Garnet hill",
+  "url": "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762"
+ },
+ {
+  "kind": "product",
+  "brand": "Garnet hill",
+  "url": "https://www.garnethill.com/essential-short-sleeve-tee/holiday-gifts/shops/gifts-for-her/468763"
+ },
+ {
+  "kind": "product",
+  "brand": "Garnet hill",
+  "url": "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213"
+ },
+ {
+  "kind": "product",
+  "brand": "H&M",
+  "url": "https://www2.hm.com/en_us/productpage.1368126003.html"
+ },
+ {
+  "kind": "product",
+  "brand": "H&M",
+  "url": "https://www2.hm.com/en_us/productpage.1368126004.html"
+ },
+ {
+  "kind": "product",
+  "brand": "H&M",
+  "url": "https://www2.hm.com/en_us/productpage.1375905003.html"
+ },
+ {
+  "kind": "product",
+  "brand": "Joules",
+  "url": "https://www.joules.com/style/su928251/g50944"
+ },
+ {
+  "kind": "product",
+  "brand": "Joules",
+  "url": "https://www.joules.com/style/su796903/g49585"
+ },
+ {
+  "kind": "product",
+  "brand": "Loft",
+  "url": "https://www.loft.com/gifts/shop-all-gifts/cat3860003/"
+ },
+ {
+  "kind": "product",
+  "brand": "Loft",
+  "url": "https://www.loft.com/clothing/sweaters/catl000012/"
+ },
+ {
+  "kind": "product",
+  "brand": "Loft",
+  "url": "https://www.loft.com/clothing/tops/catl000011/diamond-slopes-long-sleeve-modern-tee/711761.html"
+ },
+ {
+  "kind": "product",
+  "brand": "Lululemon",
+  "url": "https://shop.lululemon.com/p/the-classic-jersey-tee/rf5usypnim"
+ },
+ {
+  "kind": "product",
+  "brand": "Lululemon",
+  "url": "https://shop.lululemon.com/p/forever-favourite-tee/g4tzotd8xm"
+ },
+ {
+  "kind": "product",
+  "brand": "Mango",
+  "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/100-cotton-round-neck-t-shirt/37091331/01/00"
+ },
+ {
+  "kind": "product",
+  "brand": "Mango",
+  "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/long-sleeved-boat-neck-t-shirt/37094103/32/00"
+ },
+ {
+  "kind": "product",
+  "brand": "Massimo Dutti",
+  "url": "https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106"
+ },
+ {
+  "kind": "product",
+  "brand": "Massimo Dutti",
+  "url": "https://www.massimodutti.com/us/cotton-blend-bib-detail-tshirt-l06615918"
+ },
+ {
+  "kind": "product",
+  "brand": "Paige",
+  "url": "https://paige.com/en-kr/products/women-rhodes-tee-whisper-pink"
+ },
+ {
+  "kind": "product",
+  "brand": "Paige",
+  "url": "https://paige.com/en-kr/products/women-shauntay-top-black"
+ },
+ {
+  "kind": "product",
+  "brand": "Paige",
+  "url": "https://paige.com/en-kr/products/women-rhodes-tee-white"
+ },
+ {
+  "kind": "product",
+  "brand": "Prana",
+  "url": "https://www.prana.com/p/cambria-cove-button-up-top/2179031.html?dwvar_2179031_color=Dawn%20Heather"
+ },
+ {
+  "kind": "product",
+  "brand": "Sessun",
+  "url": "https://static.sessun.com/icache/size/924c1156/themes/sessun/images/catalog/product/WXL_Otto_almond-Carlea_black-025.webp%20924w"
+ },
+ {
+  "kind": "product",
+  "brand": "Sezane",
+  "url": "https://www.sezane.com/us-en/product/leon-t-shirt/white"
+ },
+ {
+  "kind": "product",
+  "brand": "Sezane",
+  "url": "https://www.sezane.com/us-en/product/leon-t-shirt/navy"
+ },
+ {
+  "kind": "product",
+  "brand": "The upside",
+  "url": "https://www.theupside.com/hermosa-ava-double-layer-bra-navy-usw426084/"
+ }
+]

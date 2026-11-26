@@ -121,6 +121,13 @@ const COMPS = {
     "https://www.ae.com/p/ribbed-tank": { comp: "Cotton 100%" },
   },
 };
+// 상품 상세(detail:<site>) — 설명·디테일·컬러 전부·사진. 엑셀 추가 열과 상세 보기가 쓴다.
+const DETAILS = {
+  "vince.com.vince": {
+    "https://www.vince.com/p/silk-blouse": { desc: "A fluid silk blouse with a relaxed drape.", feat: ["Relaxed fit", "Button front"],
+      colors: ["Ivory", "Black"], imgs: ["https://img.example/a.jpg", "https://img.example/b.jpg"], sku: "V123" },
+  },
+};
 // 검색 인덱스: 야간에 만들어진 것이라 오버레이보다 낡았다(AE 혼용률이 비어 있다).
 const INDEX = { items: [
   ...CATALOG["vince.com.vince"].items.map((p) => ({ ...p, brand: "Vince", comp: p.name === "Silk Blouse" ? "Silk 100%" : "" })),
@@ -173,6 +180,7 @@ async function openApp(ctx, { renderMode = "ok", hash = "", viewport } = {}) {
       return j(COMPS[s] || {});
     }
     if (u.searchParams.has("index")) { counts.index++; return j(INDEX); }
+    if (u.searchParams.has("details")) return j(DETAILS[u.searchParams.get("details")] || {});
     if (u.searchParams.has("img")) return route.fulfill({ status: 200, contentType: "image/png",
       headers: { "Access-Control-Allow-Origin": "*" }, body: PNG });
     return route.fulfill({ status: 404, body: "?" });
@@ -296,10 +304,21 @@ await step("추출 후 상태 문구", async () => {
 });
 // 받은 파일을 실제로 열어 본다 — 내려받아졌다는 것만으로는 안이 맞는지 모른다.
 await step("엑셀 안에 혼용률 열과 썸네일이 들어 있다", async () => {
-  if (x1.head.join(",") !== "브랜드,썸네일,URL,상품명,혼용률") throw new Error("머리글: " + x1.head.join(","));
+  if (x1.head.join(",") !== "브랜드,썸네일,URL,상품명,혼용률,판매가,정가,사이즈,컬러 전부,설명,디테일,이미지 링크") throw new Error("머리글: " + x1.head.join(","));
   const comps = [x1.ws.getCell("E2").value, x1.ws.getCell("E3").value].sort();
   if (comps.join("|") !== "Silk 100%|Wool 70% / Nylon 30%") throw new Error("혼용률 칸: " + comps.join("|"));
   if (x1.ws.getImages().length !== 2) throw new Error("썸네일 " + x1.ws.getImages().length + "개");
+});
+// 추가 열: 기존 열 뒤에 판매가·정가·사이즈·컬러 전부·설명·디테일·이미지 링크 — 상세는 detail:<site> 에서.
+await step("엑셀 추가 열(판매가·컬러 전부·설명·디테일·이미지 링크)", async () => {
+  const row = [2, 3].map((r) => x1.ws.getRow(r).values.slice(1)).find((v) => String(v[3]).includes("Silk Blouse"));
+  if (!row) throw new Error("Silk Blouse 행 없음");
+  const [price, , , colors, desc, feat, imgs] = row.slice(5);
+  if (price !== "$295") throw new Error("판매가 " + price);
+  if (colors !== "Ivory, Black") throw new Error("컬러 전부 " + colors);
+  if (desc !== "A fluid silk blouse with a relaxed drape.") throw new Error("설명 " + desc);
+  if (feat !== "Relaxed fit\nButton front") throw new Error("디테일 " + JSON.stringify(feat));
+  if (imgs !== "https://img.example/a.jpg\nhttps://img.example/b.jpg") throw new Error("이미지 " + JSON.stringify(imgs));
 });
 await page.screenshot({ path: join(OUT, "app.png"), fullPage: true });
 
@@ -386,7 +405,7 @@ await step("섞인 선택(2/3)은 혼용률 열 없이, 행마다 자기 브랜�
   const x = await readXlsx(await dl, "mixed.xlsx");
   const day = new Date().toISOString().slice(0, 10);
   if (x.file !== `RACK_2brands_${day}.xlsx`) throw new Error("파일명 " + x.file);
-  if (x.head.join(",") !== "브랜드,썸네일,URL,상품명") throw new Error("머리글: " + x.head.join(","));
+  if (x.head.join(",") !== "브랜드,썸네일,URL,상품명,판매가,정가,사이즈,컬러 전부,설명,디테일,이미지 링크") throw new Error("머리글: " + x.head.join(","));
   if (x.rows.length !== 3) throw new Error("행 " + x.rows.length);
   const brands = x.rows.map((r) => r[0]);
   // 브랜드가 처음 담긴 순서대로 묶인다(Vince 먼저).
@@ -407,7 +426,7 @@ dl = page.waitForEvent("download", { timeout: 30000 });
 await page.locator("#xlsx").click();
 await step("혼용률 있는 것만 남기면 두 브랜드 엑셀에 혼용률 열이 열린다", async () => {
   const x = await readXlsx(await dl, "mixed2.xlsx");
-  if (x.head.join(",") !== "브랜드,썸네일,URL,상품명,혼용률") throw new Error("머리글: " + x.head.join(","));
+  if (x.head.join(",") !== "브랜드,썸네일,URL,상품명,혼용률,판매가,정가,사이즈,컬러 전부,설명,디테일,이미지 링크") throw new Error("머리글: " + x.head.join(","));
   const got = x.rows.map((r) => `${r[0]}:${r[4]}`).join("|");
   if (got !== "Vince:Wool 70% / Nylon 30%|American Eagle:Silk 92% / Elastane 8%") throw new Error(got);
 });

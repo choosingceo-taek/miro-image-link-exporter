@@ -1,0 +1,77 @@
+{
+ "_설명": "측정용 후보(저장 안 함 · report_tag 실행 전용). 운영 파일은 browser-extra-brands.json — 측정으로 기준을 넘은 브랜드만 그리로 옮긴다.",
+ "brands": [
+  {
+   "brand": "Sessun",
+   "engine": "impit",
+   "store": "merge"
+  },
+  {
+   "brand": "Dickies",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Bash",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Monsoon",
+   "engine": "impit",
+   "store": "merge",
+   "urls": [
+    "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/",
+    "https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/",
+    "https://www.monsoonlondon.com/kr/womens/dresses/",
+    "https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/"
+   ]
+  },
+  {
+   "brand": "Vanessa bruno",
+   "engine": "chromium",
+   "store": "merge",
+   "urls": [
+    "https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html",
+    "https://www.vanessabruno.com/clothing/shirts-tops/top.html",
+    "https://www.vanessabruno.com/last-chance/knitwear.html",
+    "https://www.vanessabruno.com/clothing/knitwear.html",
+    "https://www.vanessabruno.com/clothing/shirts-tops.html",
+    "https://www.vanessabruno.com/clothing/dresses-jumpsuits.html",
+    "https://www.vanessabruno.com/clothing/trousers.html"
+   ]
+  },
+  {
+   "brand": "vineyardvines",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Whitestuff",
+   "engine": "impit",
+   "store": "merge"
+  },
+  {
+   "brand": "James Perse",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Nation LTD",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Good American",
+   "engine": "chromium",
+   "store": "merge",
+   "urls": [
+    "https://www.goodamerican.com/en-kr/collections/tees-tanks",
+    "https://www.goodamerican.com/en-kr/collections/womens-tops",
+    "https://www.goodamerican.com/en-kr/collections/dresses",
+    "https://www.goodamerican.com/en-kr/collections/bottoms",
+    "https://www.goodamerican.com/collections/jeanius-sweats"
+   ]
+  }
+ ]
+}

@@ -146,6 +146,21 @@
       font-size: 11px; padding: 2px 7px; opacity: 0; transition: opacity .12s;
     }
     .card:hover a.open, .card a.open:focus { opacity: 1; }
+    /* 상품 상세(설명·디테일·컬러 전부·사이즈·사진) 보기 */
+    .card button.dt {
+      position: absolute; top: 34px; right: 8px; z-index: 2; border: 0; cursor: pointer;
+      background: rgba(0,0,0,.55); color: #fff; border-radius: 6px;
+      font-size: 11px; padding: 2px 7px; opacity: 0; transition: opacity .12s;
+    }
+    .card:hover button.dt, .card button.dt:focus { opacity: 1; }
+    dialog#det { max-width: 640px; max-height: 86vh; overflow: auto; }
+    #det h3 { margin: 0 0 4px; font-size: 15px; }
+    #det .sub { color: var(--dim); font-size: 12px; margin-bottom: 10px; }
+    #det .k { font-size: 11.5px; color: var(--dim); margin: 12px 0 3px; }
+    #det p { margin: 0; font-size: 13px; line-height: 1.5; white-space: pre-line; overflow-wrap: anywhere; }
+    #det ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; }
+    #det .imgs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+    #det .imgs img { height: 120px; border-radius: 6px; flex: none; background: var(--bg); }
 
     .bar {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
@@ -245,6 +260,11 @@
     <button class="go" id="xlsx" disabled>엑셀 추출</button>
   </div>
 
+  <dialog id="det" aria-label="상품 상세">
+    <div id="detBody"></div>
+    <div class="row"><button class="ghost" id="detClose">닫기</button></div>
+  </dialog>
+
   <dialog id="cfg">
     <b>연결 설정</b>
     <label for="cfgWorker">추출 Worker 주소</label>
@@ -314,6 +334,18 @@
   const basket = new Map();
   const catalogCache = new Map();   // site → Promise<items>
   const overlayCache = new Map();   // site → Promise<overlay>
+  // 상품 상세(detail:<site>) — 설명·디테일·사진 전부라 커서, 상세 보기·엑셀 추출 때만 받는다.
+  const detailCache = new Map();    // site → Promise<{상품URL: 상세}>
+  function getDetails(s) {
+    if (!s) return Promise.resolve({});
+    if (!detailCache.has(s)) {
+      const p = api('details=' + encodeURIComponent(s)).catch(() => { detailCache.delete(s); return {}; });
+      detailCache.set(s, p);
+    }
+    return detailCache.get(s);
+  }
+  // 이 상품의 사이트 키 — 브랜드 화면에서 담은 상품은 p.site 가 있고, 검색으로 담은 상품은 이름으로 찾는다.
+  const siteOf = (p) => p.site || sitesOfName(p.brand)[0] || '';
 
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -487,7 +519,7 @@
         const p = Promise.all([api('catalog=' + encodeURIComponent(s)), getOverlay(s)]).then(([cat0, ov]) => {
           const list = C.mergeOverlay(cat0.items || [], ov, cat0.brand || rec.brand || '');
           // 저장된 category 를 그대로 믿지 않는다 — 목록 페이지에 다른 종류가 섞인다.
-          list.forEach((p) => { p.cat = C.guessCat(p.productUrl, p.name); });
+          list.forEach((p) => { p.cat = C.guessCat(p.productUrl, p.name); p.site = s; });
           return list;
         });
         catalogCache.set(s, p);
@@ -706,6 +738,7 @@
       return `<div class="card${on ? ' sel' : ''}" data-i="${i}">` +
         `<input type="checkbox" class="chk"${on ? ' checked' : ''} aria-label="선택">` +
         `<a class="open" href="${esc(p.productUrl)}" target="_blank" rel="noopener">열기</a>` +
+        `<button type="button" class="dt" title="설명·디테일·컬러·사이즈·사진">상세</button>` +
         `<div class="ph${p.imageUrl ? '' : ' noimg'}">${p.imageUrl ? `<img src="${esc(p.imageUrl)}" alt="" loading="lazy">` : ''}</div>` +
         `<div class="meta">${br}<div class="nm">${esc(p.name) || '(이름 없음)'}</div>` +
         (p.price ? `<div class="pr">${esc(p.price)}</div>` : '') + cp + `</div></div>`;
@@ -731,6 +764,34 @@
     if (e.target.id === 'compView') { compView = e.target.checked; lastIdx = -1; draw(); }
   });
 
+  // ── 상품 상세 보기 ───────────────────────────────────────────────
+  // 사이트에 적힌 글 그대로 보여 준다. 아직 안 모인 칸은 '아직 없음'.
+  async function showDetail(p) {
+    const box = $('detBody');
+    box.innerHTML = `<h3>${esc(p.name || '(이름 없음)')}</h3><div class="sub">${esc(p.brand || '')} · 불러오는 중…</div>`;
+    if (!$('det').open) $('det').showModal();
+    let d = p.detail;
+    if (!d) {
+      const map = await getDetails(siteOf(p));
+      C.attachDetails([p], map);
+      d = p.detail || null;
+    }
+    const x = C.extraValues(p, d);
+    const row = (k, v, html) => `<div class="k">${esc(k)}</div>` + (v ? (html || `<p>${esc(v)}</p>`) : '<p class="sub">아직 없음</p>');
+    const feat = d && Array.isArray(d.feat) ? `<ul>${d.feat.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : '';
+    const imgs = d && Array.isArray(d.imgs) ? `<div class="imgs">${d.imgs.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener"><img src="${esc(u)}" alt="" loading="lazy"></a>`).join('')}</div>` : '';
+    box.innerHTML = `<h3>${esc(p.name || '(이름 없음)')}</h3>` +
+      `<div class="sub">${esc(p.brand || '')}${d && d.sku ? ' · 코드 ' + esc(d.sku) : ''} · <a href="${esc(p.productUrl)}" target="_blank" rel="noopener">상품 페이지</a></div>` +
+      row('가격', [x.price, x.priceOrig && '정가 ' + x.priceOrig].filter(Boolean).join(' · ')) +
+      row('혼용률', C.validComp(C.cleanVal(p.comp)) ? C.cleanVal(p.comp) : (p.compNone ? C.NO_INFO : '')) +
+      row('컬러', [C.cleanVal(p.color), x.colors && '전부: ' + x.colors].filter(Boolean).join(' · ')) +
+      row('사이즈', x.sizes) +
+      row('설명', x.desc) +
+      row('디테일', feat, feat) +
+      row('사진', imgs, imgs);
+  }
+  $('detClose').addEventListener('click', () => $('det').close());
+
   function setPicked(p, on) {
     if (on) basket.set(p.productUrl, p); else basket.delete(p.productUrl);
   }
@@ -744,6 +805,8 @@
   // Shift 를 누른 채 누르면 마지막으로 누른 카드까지 한꺼번에 고른다.
   $('grid').addEventListener('click', (e) => {
     if (e.target.closest('a.open')) return;
+    const dtb = e.target.closest('button.dt');
+    if (dtb) { const c = dtb.closest('.card'); const q = c && shown[Number(c.dataset.i)]; if (q) showDetail(q); return; }
     const br = e.target.closest('.br[data-site]');
     if (br) { openBrand(br.dataset.site); return; }
     const card = e.target.closest('.card');
@@ -864,8 +927,15 @@
 
     // 이 파일에 실리는 상품들만 보고 열을 정한다 — 브랜드 전체 평균이 아니다.
     const showColor = C.colorReady(sel), showComp = C.compReady(sel);
-    const cols = C.colsFor(showColor, showComp);
-    const rowCol = C.rowColFor(cols);
+    // 기존 열(순서·95% 기준 그대로) 뒤에 상품 상세 열(판매가·정가·사이즈·컬러 전부·설명·디테일·이미지 링크)을 붙인다.
+    const rowCol = C.rowColFor(C.colsFor(showColor, showComp));
+    const cols = C.exportCols(showColor, showComp);
+    const extraCol = C.extraColFor(cols);
+    // 상세는 브랜드별 저장값(detail:<site>)에서 — 담긴 상품의 브랜드만 받는다.
+    $('msg').textContent = '상품 상세 불러오는 중…';
+    const sites = [...new Set(sel.map(siteOf).filter(Boolean))];
+    const maps = await Promise.all(sites.map(getDetails));
+    for (const m of maps) C.attachDetails(sel, m);
 
     const wb = new ExcelJS.Workbook();
     const ws = wb.addWorksheet('상품정보');
@@ -881,13 +951,15 @@
         if (vals[k] === C.NEED) need.push(rowCol[k] + n);
         else if (vals[k] === C.NO_INFO) noInfo.push(rowCol[k] + n);
       }
-      const row = ws.addRow({ ...vals, img: '', link: '' });
+      const extra = C.extraValues(p, p.detail);
+      const row = ws.addRow({ ...vals, ...extra, img: '', link: '' });
       row.height = 60;
-      // 상품명·혼용률은 길어질 수 있어 줄바꿈해 둔다.
+      // 상품명·혼용률·설명·디테일은 길어질 수 있어 줄바꿈해 둔다.
       for (const k of Object.keys(rowCol)) {
         if (k === 'brand') continue;
         ws.getCell(`${rowCol[k]}${n}`).alignment = { wrapText: true, vertical: 'middle' };
       }
+      for (const k of Object.keys(extraCol)) ws.getCell(`${extraCol[k]}${n}`).alignment = { wrapText: true, vertical: 'top' };
       const c = ws.getCell('C' + n);
       c.value = { text: p.productUrl, hyperlink: p.productUrl };
       c.font = { color: { argb: 'FF4262FF' }, underline: true };

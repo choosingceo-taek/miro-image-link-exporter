@@ -218,11 +218,25 @@ export function shownItems(catItems, overlay) {
   });
 }
 
+// 점검할 카탈로그 고르기 — 정리(clean-stored-comp.mjs)도 같은 목록을 쓴다.
+// 같은 호스트의 옛 키(<host>)와 새 키(<host>.<slug>)가 함께 있으면 옛 키는 앱이 쓰지 않는다 — enrich-comp.mjs 와 같이 뺀다.
+// brands: 글자·숫자만 남긴 소문자 브랜드 이름 목록(비우면 전부).
+export const normBrand = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9가-힣]/g, "");
+export function pickCatalogs(rawList, brands = []) {
+  let list = [...(rawList || [])].sort((a, z) => (a.site < z.site ? -1 : 1));
+  const hosts = new Map();
+  for (const c of list) { const h = String(c.site || "").split(".").slice(0, 2).join("."); if (!hosts.has(h)) hosts.set(h, []); hosts.get(h).push(c); }
+  const skipOld = new Set();
+  for (const [h, g] of hosts) if (g.length > 1 && g.some((c) => c.site !== h)) for (const c of g) if (c.site === h) skipOld.add(c.site);
+  list = list.filter((c) => !skipOld.has(c.site));
+  if (brands.length) list = list.filter((c) => brands.includes(normBrand(c.brand)) || String(c.site).split(".").map(normBrand).some((x) => brands.includes(x)));
+  return { list, skipOld };
+}
+
 async function scan() {
   const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
   const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
   const tok = "&token=" + encodeURIComponent(TOKEN);
-  const normBrand = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9가-힣]/g, "");
   const BRANDS = String(process.env.BRANDS || "").split(",").map(normBrand).filter(Boolean);
   const VERIFY_PER = Math.max(1, Number(process.env.VERIFY_PER) || 4);
   const VERIFY_BRANDS = Math.max(1, Number(process.env.VERIFY_BRANDS) || 5);
@@ -239,14 +253,9 @@ async function scan() {
     throw last;
   };
 
-  let list = ((await getJson("catalogs=1")).list || []).sort((a, z) => (a.site < z.site ? -1 : 1));
-  // 같은 호스트의 옛 키(<host>)와 새 키(<host>.<slug>)가 함께 있으면 옛 키는 앱이 쓰지 않는다 — enrich-comp.mjs 와 같이 뺀다.
-  const hosts = new Map();
-  for (const c of list) { const h = String(c.site || "").split(".").slice(0, 2).join("."); if (!hosts.has(h)) hosts.set(h, []); hosts.get(h).push(c); }
-  const skipOld = new Set();
-  for (const [h, g] of hosts) if (g.length > 1 && g.some((c) => c.site !== h)) for (const c of g) if (c.site === h) skipOld.add(c.site);
-  list = list.filter((c) => !skipOld.has(c.site));
-  if (BRANDS.length) list = list.filter((c) => BRANDS.includes(normBrand(c.brand)) || String(c.site).split(".").map(normBrand).some((x) => BRANDS.includes(x)));
+  const picked = pickCatalogs((await getJson("catalogs=1")).list || [], BRANDS);
+  let list = picked.list;
+  const skipOld = picked.skipOld;
   console.log(`카탈로그 ${list.length}개(옛 키 ${skipOld.size}개 뺌) — 읽기만 한다`);
 
   const brands = [];

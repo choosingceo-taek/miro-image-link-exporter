@@ -58,26 +58,47 @@ jobs:
         run: node scripts/test-enrich-wayback.mjs
       - name: Run diagnose target selection test
         run: node scripts/test-diagnose-select.mjs
+      - name: Run morning report combine test (extra-brands job shows up)
+        run: node scripts/test-combine-reports.mjs
+      - name: Run access evidence & paid-service slot test (fake API · key never logged)
+        run: node scripts/test-access-evidence.mjs
       - name: Run stored composition audit signature test
         run: node scripts/test-audit-stored-comp.mjs
       - name: Run store-time composition guard test (site furniture repeated across a brand)
         run: node scripts/test-comp-guard.mjs
+      - name: Run stored composition cleanup test (dry · targets only · re-read · backup/restore · abort limits)
+        run: node scripts/test-clean-stored-comp.mjs
       - name: Run research app search/segment/basket test
         run: node scripts/test-app-basket.mjs
       - name: Run extension folder consistency test (manifest · CSP · changelog)
         run: node scripts/test-extension-manifest.mjs
+      - name: Run product-detail extractor test (rules · real page fixtures · extension copy)
+        run: node scripts/test-detail.mjs
+      - name: Run excel extra columns test (price · sizes · all colours · description · details · images)
+        run: node scripts/test-export-detail.mjs
+      - name: Run product-detail store-time guard test (site boilerplate repeated across a brand)
+        run: node scripts/test-detail-guard.mjs
+      - name: Run enrich product-detail / impit layer test (fake Worker · fake impit)
+        run: node scripts/test-enrich-detail.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
           node --check chrome-extension/collector.js
           node --check chrome-extension/popup.js
           node --check scripts/browser-collect.mjs
+          node --check scripts/listing-api.mjs
+          node --check scripts/combine-collect-reports.mjs
           node --check scripts/enrich-comp.mjs
           node --check scripts/wayback-guard.mjs
           node --check scripts/diagnose-page.mjs
           node --check scripts/audit-stored-comp.mjs
           node --check scripts/comp-guard.mjs
+          node --check scripts/clean-stored-comp.mjs
           node --check scripts/try-engines.mjs
+          node --check scripts/field-measure.mjs
+          node --check scripts/detail-core.mjs
+          node --check scripts/detail-guard.mjs
+          node --check scripts/access-evidence.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js
           node --check shared/product-core.js
@@ -96,7 +117,7 @@ jobs:
         timeout-minutes: 10
         run: |
           npm init -y >/dev/null
-          npm i --no-save playwright@1.49.1 exceljs@4.4.0
+          npm i --no-save playwright@1.49.1 exceljs@4.4.0 impit@0.14.9
           npx playwright install --with-deps chromium
           command -v xvfb-run >/dev/null || sudo apt-get install -y xvfb
       - name: Smoke — collector card images

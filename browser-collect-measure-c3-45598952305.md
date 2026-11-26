@@ -1,0 +1,284 @@
+# 헤드리스 브라우저 수집 테스트 (2026-11-25T11:19Z)
+
+GitHub Actions(데이터센터 IP)에서 진짜 브라우저로 확장 담당 브랜드를 돌린 결과.
+
+- 엔진: impit + chromium (브랜드별 기본)
+
+- 대상 10 · ✅ 자동화 가능 8 · ⛔ 확장 필요 0 · 🔧 보완 필요 2
+
+## ✅ 자동화 가능 (8)
+
+- **Sessun** [impit] — 211개 {"shirts":47,"sweatshirts":27,"tops":17,"dresses":25,"pants":95} · 공용 링크 11개 제외 (139s)
+  - 58개 · https://en.sessun.com/catalogue/t-shirts.html
+    - Our coats — https://en.sessun.com/catalogue/ready-to-wear.html
+    - Our coats — https://en.sessun.com/catalogue/coats.html
+    - Our bags — https://en.sessun.com/catalogue/bags.html
+  - 38개 · https://en.sessun.com/catalogue/sweatshirts.html
+    - Our coats — https://en.sessun.com/catalogue/ready-to-wear.html
+    - Our coats — https://en.sessun.com/catalogue/coats.html
+    - Our bags — https://en.sessun.com/catalogue/bags.html
+  - 28개 · https://en.sessun.com/catalogue/tops-and-bodies.html
+    - Our coats — https://en.sessun.com/catalogue/ready-to-wear.html
+    - Our coats — https://en.sessun.com/catalogue/coats.html
+    - Our bags — https://en.sessun.com/catalogue/bags.html
+  - 36개 · https://en.sessun.com/catalogue/dresses.html
+    - Our coats — https://en.sessun.com/catalogue/ready-to-wear.html
+    - Our coats — https://en.sessun.com/catalogue/coats.html
+    - Our bags — https://en.sessun.com/catalogue/bags.html
+  - 106개 · https://en.sessun.com/catalogue/trousers.html
+    - Our coats — https://en.sessun.com/catalogue/ready-to-wear.html
+    - Our coats — https://en.sessun.com/catalogue/coats.html
+    - Our bags — https://en.sessun.com/catalogue/bags.html
+  - 표본: Dorel — https://en.sessun.com/catalogue/t-shirts/dorel-ambrune.html
+  - 표본: Sergio — https://en.sessun.com/catalogue/t-shirts/sergio-rosee.html
+  - 표본: Dimentica — https://en.sessun.com/catalogue/t-shirts/dimentica-fleur-de-sel.html
+  - 표본: Erico — https://en.sessun.com/catalogue/t-shirts/erico-lava.html
+  - 표본: Serge — https://en.sessun.com/catalogue/t-shirts/serge-red-muse.html
+- **Monsoon** [impit] — 174개 {"shirts":30,"tops":20,"dresses":56,"sweatshirts":57,"pants":11} · 공용 링크 4개 제외 (368s)
+  - 50개 · https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/ ← impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/tops-blouses/
+    - New — https://www.monsoonlondon.com/us/new-in/
+    - Women — https://www.monsoonlondon.com/us/women/
+    - Party — https://www.monsoonlondon.com/us/occasionwear/
+  - 65개 · https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/ ← impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/knitwear/
+    - New — https://www.monsoonlondon.com/us/new-in/
+    - Women — https://www.monsoonlondon.com/us/women/
+    - Party — https://www.monsoonlondon.com/us/occasionwear/
+  - 62개 · https://www.monsoonlondon.com/kr/womens/dresses/ ← impit 최종주소 https://www.monsoonlondon.com/us/womens/dresses/
+    - New — https://www.monsoonlondon.com/us/new-in/
+    - Women — https://www.monsoonlondon.com/us/women/
+    - Party — https://www.monsoonlondon.com/us/occasionwear/
+  - 15개 · https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/ ← impit 최종주소 https://www.monsoonlondon.com/us/womens/womens-clothing/pants-shorts/
+    - New — https://www.monsoonlondon.com/us/new-in/
+    - Women — https://www.monsoonlondon.com/us/women/
+    - Party — https://www.monsoonlondon.com/us/occasionwear/
+  - 50개 · https://www.monsoonlondon.com/us/womens/womens-clothing/tops/ ← impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/tops-blouses/
+    - New — https://www.monsoonlondon.com/us/new-in/
+    - Women — https://www.monsoonlondon.com/us/women/
+    - Party — https://www.monsoonlondon.com/us/occasionwear/
+  - 68개 · https://www.monsoonlondon.com/us/womens/womens-clothing/knitwear/ ← impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/knitwear/
+    - New — https://www.monsoonlondon.com/us/new-in/
+    - Women — https://www.monsoonlondon.com/us/women/
+    - Party — https://www.monsoonlondon.com/us/occasionwear/
+  - 62개 · https://www.monsoonlondon.com/us/womens/dresses/
+    - New — https://www.monsoonlondon.com/us/new-in/
+    - Women — https://www.monsoonlondon.com/us/women/
+    - Party — https://www.monsoonlondon.com/us/occasionwear/
+  - 15개 · https://www.monsoonlondon.com/us/womens/womens-clothing/trousers-shorts/ ← impit 최종주소 https://www.monsoonlondon.com/us/womens/womens-clothing/pants-shorts/
+    - New — https://www.monsoonlondon.com/us/new-in/
+    - Women — https://www.monsoonlondon.com/us/women/
+    - Party — https://www.monsoonlondon.com/us/occasionwear/
+  - 표본: Jen Lace Jersey Blouse, Pink (BLUSH), large — https://www.monsoonlondon.com/us/jen-lace-jersey-blouse-pink-10091060046.html
+  - 표본: Claudia Floral Devoré Top, Black (BLACK), large — https://www.monsoonlondon.com/us/claudia-floral-devore-top-black-10081200001.html
+  - 표본: Imogen Lace Blouson Blouse, Ivory (IVORY), large — https://www.monsoonlondon.com/us/imogen-lace-blouson-blouse-ivory-10081370016.html
+  - 표본: Elsa Check Print Blouson Blouse, Brown (BROWN), large — https://www.monsoonlondon.com/us/elsa-check-print-blouson-blouse-brown-10064400012.html
+  - 표본: Emma Sleeveless Feather Velvet Top, Red (BURGUNDY), large — https://www.monsoonlondon.com/us/emma-sleeveless-feather-velvet-top-red-24010430055.html
+- **vineyardvines** [chromium] — 73개 {"sweatshirts":8,"tops":14,"shirts":14,"pants":22,"dresses":15} (99s)
+  - 11개 · https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9
+    - Deluxe Turtleneck ($68.00) — https://www.vineyardvines.com/product/womens-casual-knits/deluxe-turtleneck/2K005106.html
+    - Deluxe Ruffle Mockneck ($68.00) — https://www.vineyardvines.com/product/womens-casual-knits/deluxe-long-sleeve-ruffle-trim-crewneck/2K005709.html
+    - Slim Rib Turtleneck ($68.00) — https://www.vineyardvines.com/product/womens-casual-knits/tencel-rib-turtle-neck-tee/2K005706.html
+  - 12개 · https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3
+    - Dreamcloth® Fair Isle Relaxed Shep Shirt® ($158.00) — https://www.vineyardvines.com/product/womens-shep-shirts/fair-isle-dreamcloth-relaxed-shep-shirt/2K004143.html
+    - Dreamcloth® Joggers ($128.00) — https://www.vineyardvines.com/product/womens-pants/dreamcloth-joggers/2P001633.html
+    - Dreamcloth® Embroidered Shep Shirt® ($168.00) — https://www.vineyardvines.com/product/womens-shep-shirts/dreamcloth-embroidered-shep-shirt/2K004315.html
+  - 14개 · https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7
+    - Birdie Cropped Embellished Button-Down ($128.00) — https://www.vineyardvines.com/product/womens-woven-tops/cropped-birdie-embellished-button-down/2W002187.html
+    - Birdie Cropped Button-Down ($98.00) — https://www.vineyardvines.com/product/womens-woven-tops/birdie-cropped-button-down/2W002193.html
+    - Birdie Embroidered Button-Down ($128.00) — https://www.vineyardvines.com/product/womens-woven-tops/birdie-embroidered-button-down/2W002250.html
+  - 20개 · https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2
+    - Blythe Plaid Dress ($198.00) — https://www.vineyardvines.com/product/womens-dresses/blythe-plaid-dress/2Q012145.html
+    - Blythe Ponte Dress ($178.00) — https://www.vineyardvines.com/product/womens-dresses/blythe-ponte-dress/2Q011846.html
+    - Sophie Harbor Dress ($198.00) — https://www.vineyardvines.com/product/womens-dresses/printed-sophie-harbor-dress/2Q012107.html
+  - 16개 · https://www.vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--womens-clothing--8
+    - Peyton Plaid Ponte Pants ($128.00) — https://www.vineyardvines.com/product/womens-pants/peyton-tartan-pants/2P001641.html
+    - Plaid Peyton Pants ($128.00) — https://www.vineyardvines.com/product/womens-pants/plaid-peyton-pants/2P001704.html
+    - Peyton Jacquard Pants ($138.00) — https://www.vineyardvines.com/product/womens-pants/peyton-jacquard-pants/2P001698.html
+  - 표본: Deluxe Turtleneck — https://www.vineyardvines.com/product/womens-casual-knits/deluxe-turtleneck/2K005106.html
+  - 표본: Deluxe Ruffle Mockneck — https://www.vineyardvines.com/product/womens-casual-knits/deluxe-long-sleeve-ruffle-trim-crewneck/2K005709.html
+  - 표본: Slim Rib Turtleneck — https://www.vineyardvines.com/product/womens-casual-knits/tencel-rib-turtle-neck-tee/2K005706.html
+  - 표본: Women's Santa Sleigh Pups Long-Sleeve Pocket Tee — https://www.vineyardvines.com/product/womens-t-shirts/santa-sleigh-pups-long-sleeve-pocket-tee/2V003573.html
+  - 표본: Women's Doodle Sleigh Long-Sleeve Pocket Tee — https://www.vineyardvines.com/product/womens-t-shirts/doodle-sleigh-long-sleeve-pocket-tee/2V003574.html
+- **Whitestuff** [impit] — 652개 {"tops":228,"pants":130,"shirts":107,"sweatshirts":69,"dresses":118} · 공용 링크 10개 제외 (172s)
+  - 120개 · https://www.whitestuff.com/browse/collection/womens-t-shirts
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/christmas
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/browse/collection/40-off-selected-styles
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS — https://www.whitestuff.com/browse/womens
+  - 168개 · https://www.whitestuff.com/browse/womens/tops-and-tees
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/christmas
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/browse/collection/40-off-selected-styles
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS — https://www.whitestuff.com/browse/mens
+  - 177개 · https://www.whitestuff.com/browse/womens/knitwear
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/christmas
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/browse/collection/40-off-selected-styles
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS — https://www.whitestuff.com/browse/mens
+  - 121개 · https://www.whitestuff.com/browse/womens/shirts-and-blouses
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/christmas
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/browse/collection/40-off-selected-styles
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS — https://www.whitestuff.com/browse/mens
+  - 138개 · https://www.whitestuff.com/browse/womens/dresses
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/christmas
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/browse/collection/40-off-selected-styles
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS — https://www.whitestuff.com/browse/mens
+  - 141개 · https://www.whitestuff.com/browse/womens/trousers-and-leggings
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/christmas
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS (£20) — https://www.whitestuff.com/browse/collection/40-off-selected-styles
+    - 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS — https://www.whitestuff.com/browse/mens
+  - 표본: 40% OFF SELECTED STYLES EXCLUSIONS APPLY. SEE WHITESTUFF.COM/TERMS — https://www.whitestuff.com/browse/womens
+  - 표본: KIM BUTTON THROUGH TEE — https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI
+  - 표본: DK BROWN swatch — https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/DK_BROWN
+  - 표본: CLARA TEXTURE CREW NECK TEE — https://www.whitestuff.com/p/7087/clara-texture-crew-neck-tee/MID_BLUE
+  - 표본: CLARA LS TEXTURE TEE — https://www.whitestuff.com/p/8276/447077-clara-ls-texture-tee/PLUM_MLT
+- **Vanessa bruno** [chromium] — 79개 {"tops":33,"sweatshirts":9,"shirts":16,"dresses":12,"pants":9} · 공용 링크 20개 제외 (157s)
+  - 24개 · https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html
+    - private sale.html — https://www.vanessabruno.com/private-sale.html
+    - cabas tote bags.html — https://www.vanessabruno.com/private-sale/cabas-tote-bags.html
+    - coats jackets.html — https://www.vanessabruno.com/private-sale/coats-jackets.html
+  - 22개 · https://www.vanessabruno.com/clothing/shirts-tops/top.html
+    - private sale.html — https://www.vanessabruno.com/private-sale.html
+    - cabas tote bags.html — https://www.vanessabruno.com/private-sale/cabas-tote-bags.html
+    - coats jackets.html — https://www.vanessabruno.com/private-sale/coats-jackets.html
+  - 20개 · https://www.vanessabruno.com/last-chance/knitwear.html
+    - private sale.html — https://www.vanessabruno.com/private-sale.html
+    - cabas tote bags.html — https://www.vanessabruno.com/private-sale/cabas-tote-bags.html
+    - coats jackets.html — https://www.vanessabruno.com/private-sale/coats-jackets.html
+  - 53개 · https://www.vanessabruno.com/clothing/knitwear.html
+    - private sale.html — https://www.vanessabruno.com/private-sale.html
+    - cabas tote bags.html — https://www.vanessabruno.com/private-sale/cabas-tote-bags.html
+    - coats jackets.html — https://www.vanessabruno.com/private-sale/coats-jackets.html
+  - 61개 · https://www.vanessabruno.com/clothing/shirts-tops.html
+    - private sale.html — https://www.vanessabruno.com/private-sale.html
+    - cabas tote bags.html — https://www.vanessabruno.com/private-sale/cabas-tote-bags.html
+    - coats jackets.html — https://www.vanessabruno.com/private-sale/coats-jackets.html
+  - 55개 · https://www.vanessabruno.com/clothing/dresses-jumpsuits.html
+    - private sale.html — https://www.vanessabruno.com/private-sale.html
+    - cabas tote bags.html — https://www.vanessabruno.com/private-sale/cabas-tote-bags.html
+    - coats jackets.html — https://www.vanessabruno.com/private-sale/coats-jackets.html
+  - 29개 · https://www.vanessabruno.com/clothing/trousers.html
+    - private sale.html — https://www.vanessabruno.com/private-sale.html
+    - cabas tote bags.html — https://www.vanessabruno.com/private-sale/cabas-tote-bags.html
+    - coats jackets.html — https://www.vanessabruno.com/private-sale/coats-jackets.html
+  - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/hei-t-shirt-54829.html
+  - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/camomille-crop-t-shirt-54405.html
+  - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/camomille-t-shirt-45499.html
+  - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/glendon-t-shirt-52710.html
+  - 표본: Clothing Top - VANESSABRUNO — https://www.vanessabruno.com/p/harry-sleeveless-jacket-54407.html
+- **Dickies** [chromium] — 102개 {"tops":28,"pants":60,"shirts":10,"sweatshirts":3,"dresses":1} · 공용 링크 46개 제외 (78s)
+  - 90개 · https://www.dickies.com/collections/womens-tops
+    - DK00TJ150BK-FR ($48.99) — https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk
+    - DK0852830BK-FR ($24.49) — https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk
+    - DK0WS4500BV-FR ($11.89) — https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv
+  - 50개 · https://www.dickies.com/en-us/collections/womens-hoodies
+    - DK00TJ150BK-FR ($48.99) — https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk
+    - DK0852830BK-FR ($24.49) — https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk
+    - DK0WS4500BV-FR ($11.89) — https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv
+  - 49개 · https://www.dickies.com/en-us/collections/womens-shirt-jackets
+    - DK00TJ150BK-FR ($48.99) — https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk
+    - DK0852830BK-FR ($24.49) — https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk
+    - DK0WS4500BV-FR ($11.89) — https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv
+  - 52개 · https://www.dickies.com/collections/womens-skirts-dresses
+    - DK00TJ150BK-FR ($48.99) — https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk
+    - DK0852830BK-FR ($24.49) — https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk
+    - DK0WS4500BV-FR ($11.89) — https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv
+  - 91개 · https://www.dickies.com/collections/womens-pants
+    - DK00TJ150BK-FR ($48.99) — https://www.dickies.com/en-us/products/insulated-eisenhower-jacket-dk00tj150bk
+    - DK0852830BK-FR ($24.49) — https://www.dickies.com/en-us/products/loose-fit-double-knee-work-pants-dk0852830bk
+    - DK0WS4500BV-FR ($11.89) — https://www.dickies.com/en-us/products/heavyweight-short-sleeve-pocket-t-shirt-dk0ws4500bv
+  - 표본: Juniors Snap Front Top — https://www.dickies.com/en-us/products/juniors-snap-front-top-7dkz5b0066clbwb
+  - 표본: Juniors Lace Babydoll Tank — https://www.dickies.com/en-us/products/juniors-lace-babydoll-tank-7dkz5b0046clmp
+  - 표본: Junior's Short Sleeve Oversized Stripe Tee — https://www.dickies.com/en-us/products/jr-ss-oversized-stripe-tee-whn
+  - 표본: Junior's Short Sleeve Oversized Stripe Tee — https://www.dickies.com/en-us/products/jr-ss-oversized-stripe-tee-whr
+  - 표본: Juniors Longline Baby Tee — https://www.dickies.com/en-us/products/juniors-longline-baby-tee-7dkz9e0193clnbl
+- **Good American** [chromium] — 646개 {"tops":226,"pants":187,"sweatshirts":87,"dresses":116,"shirts":30} (211s)
+  - 136개 · https://www.goodamerican.com/en-kr/collections/tees-tanks
+    - New In — https://www.goodamerican.com/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/collections/everyday-layers
+  - 353개 · https://www.goodamerican.com/en-kr/collections/womens-tops
+    - New In — https://www.goodamerican.com/en-kr/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/en-kr/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/en-kr/collections/everyday-layers
+  - 93개 · https://www.goodamerican.com/en-kr/collections/dresses
+    - New In — https://www.goodamerican.com/en-kr/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/en-kr/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/en-kr/collections/everyday-layers
+  - 101개 · https://www.goodamerican.com/en-kr/collections/bottoms
+    - New In — https://www.goodamerican.com/en-kr/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/en-kr/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/en-kr/collections/everyday-layers
+  - 43개 · https://www.goodamerican.com/collections/jeanius-sweats
+    - New In — https://www.goodamerican.com/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/collections/everyday-layers
+  - 134개 · https://www.goodamerican.com/collections/tees-tanks
+    - New In — https://www.goodamerican.com/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/collections/everyday-layers
+  - 353개 · https://www.goodamerican.com/collections/womens-tops
+    - New In — https://www.goodamerican.com/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/collections/everyday-layers
+  - 93개 · https://www.goodamerican.com/collections/dresses
+    - New In — https://www.goodamerican.com/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/collections/everyday-layers
+  - 101개 · https://www.goodamerican.com/collections/bottoms
+    - New In — https://www.goodamerican.com/collections/new-arrivals
+    - Leather & Better Than Leather — https://www.goodamerican.com/collections/leather-better-than-leather
+    - Everyday Layers — https://www.goodamerican.com/collections/everyday-layers
+  - 표본: New In — https://www.goodamerican.com/collections/new-arrivals
+  - 표본: Leather & Better Than Leather — https://www.goodamerican.com/collections/leather-better-than-leather
+  - 표본: Everyday Layers — https://www.goodamerican.com/collections/everyday-layers
+  - 표본: Always Fits — https://www.goodamerican.com/collections/always-fits
+  - 표본: Soft Tech Denim — https://www.goodamerican.com/collections/soft-tech-denim
+- **Bash** [impit] — 32개 {"tops":8,"sweatshirts":5,"shirts":4,"dresses":7,"pants":8} · 공용 링크 1개 제외 (260s)
+  - 5개 · https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.
+    - event — https://ba-sh.com/fr/en/event/
+    - T-shirt IONI — https://ba-sh.com/fr/en/p/t-shirt-ioni-grischine-3667436152573.html
+    - t-shirt CORTOT — https://ba-sh.com/fr/en/p/t-shirt-cortot-encre-3667436089664.html
+  - 5개 · https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.
+    - event — https://ba-sh.com/fr/en/event/
+    - CRUSH SWEATSHIRT — https://ba-sh.com/fr/en/p/crush-sweatshirt-chocolat-3667436148194.html
+    - CRUSH SWEATSHIRT — https://ba-sh.com/fr/en/p/crush-sweatshirt-beige-3667436126765.html
+  - 9개 · https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ.
+    - event — https://ba-sh.com/fr/en/event/
+    - TOP CRISTA — https://ba-sh.com/fr/en/p/top-crista-noir-3667436126727.html
+    - shirt TONIA — https://ba-sh.com/fr/en/p/shirt-tonia-bleu-3667436073298.html
+  - 9개 · https://ba-sh.com/fr/en/ready-to-wear/dresses/?_gl=1*15p7q1u*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTYkajQxJGwwJGg1MzYzNDQ3NzQ.
+    - event — https://ba-sh.com/fr/en/event/
+    - dress DELORA — https://ba-sh.com/fr/en/p/dress-delora-noir-3667436088711.html
+    - DRESS DAPY — https://ba-sh.com/fr/en/p/dress-dapy-ecru-3667436126802.html
+  - 9개 · https://ba-sh.com/fr/en/trousers-jeans/?_gl=1*6jfisz*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MzUkajIyJGwwJGg1MzYzNDQ3NzQ.
+    - event — https://ba-sh.com/fr/en/event/
+    - PANTS FAIMI — https://ba-sh.com/fr/en/p/pants-faimi-blackstone-3667436126895.html
+    - leggings DYAS — https://ba-sh.com/fr/en/p/leggings-dyas-ecru-3667436126857.html
+  - 표본: T-shirt IONI — https://ba-sh.com/fr/en/p/t-shirt-ioni-grischine-3667436152573.html
+  - 표본: t-shirt CORTOT — https://ba-sh.com/fr/en/p/t-shirt-cortot-encre-3667436089664.html
+  - 표본: t-shirt ROSTA — https://ba-sh.com/fr/en/p/t-shirt-rosta-grischine-3667436069260.html
+  - 표본: t-shirt TAKE — https://ba-sh.com/fr/en/p/t-shirt-take-encre-3667436069628.html
+  - 표본: CRUSH SWEATSHIRT — https://ba-sh.com/fr/en/p/crush-sweatshirt-chocolat-3667436148194.html
+
+## ⛔ 확장 필요(봇 차단) (0)
+
+
+## 🔧 보완 필요 (2)
+
+- **Nation LTD** [impit] — 4개 {"tops":3,"pants":1} (62s)
+  - 4개 · https://nation.la/collections/tops
+    - Nation Los Angeles Best Selling Tops — https://nation.la/collections/best-selling-tops
+    - Nation Los Angeles Short Sleeves — https://nation.la/collections/short-sleeve
+    - Tanks — https://nation.la/collections/sleeveless-tops
+  - 0개 · https://nation.la/collections/sweatshirts ← 상품 0개 · 최종주소 https://nation.la/collections/sweatshirts · 제목 "Sweatshirts – Cozy, Stylish & Versatile | Nation Los Angeles" · 링크 80/이미지 1 · 탈락[total=80 noImage=79 tinyImage=0 shortPath=1 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "The Black Friday Sale Is on | 30% Off Sitewide Free Standard Shipping with orders $175+ SHOP NOW New Clothing Core Icons"
+  - 0개 · https://nation.la/collections/dresses ← 상품 0개 · 최종주소 https://nation.la/collections/dresses · 제목 "Dresses – Effortless, Ethical & Chic | Nation Los Angeles" · 링크 74/이미지 2 · 탈락[total=74 noImage=73 tinyImage=0 shortPath=1 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "The Black Friday Sale Is on | 30% Off Sitewide Free Standard Shipping with orders $175+ SHOP NOW New Clothing Core Icons"
+  - 0개 · https://nation.la/collections/sweatpants ← 상품 0개 · 최종주소 https://nation.la/collections/sweatpants · 제목 "Sweatpants – Comfy, Stylish & Relaxed | Nation Los Angeles" · 링크 52/이미지 1 · 탈락[total=52 noImage=51 tinyImage=0 shortPath=1 samePage=0 banner=0 dup=0 nonProduct=0 landing=0] · "The Black Friday Sale Is on | 30% Off Sitewide Free Standard Shipping with orders $175+ SHOP NOW New Clothing Core Icons"
+  - 표본: Nation Los Angeles Best Selling Tops — https://nation.la/collections/best-selling-tops
+  - 표본: Nation Los Angeles Short Sleeves — https://nation.la/collections/short-sleeve
+  - 표본: Tanks — https://nation.la/collections/sleeveless-tops
+  - 표본: Nation Los Angeles Long Sleeves — https://nation.la/collections/long-sleeves
+- **James Perse** [impit] — 0개 {} (93s)
+  - 0개 · https://www.jamesperse.com/collections/womens-t-shirts ← 상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-t-shirts · 제목 "Women's T-Shirts | James Perse Los Angeles" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · "End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING "
+  - 0개 · https://www.jamesperse.com/collections/womens-tanks ← 상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-tanks · 제목 "Women's Tanks | James Perse Los Angeles" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · "End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING "
+  - 0개 · https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms ← 상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms · 제목 "Women's Sweat Tops & Sweat Bottoms | James Perse Los Angeles" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · "End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING "
+  - 0개 · https://www.jamesperse.com/collections/womens-tops ← 상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-tops · 제목 "Women's Tops | James Perse Los Angeles" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · "End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING "
+  - 0개 · https://www.jamesperse.com/collections/womens-dresses-jumpsuits ← 상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-dresses-jumpsuits · 제목 "Women's Dresses & Jumpsuits | James Perse Los Angeles" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · "End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING "
+  - 0개 · https://www.jamesperse.com/collections/womens-pants-denim ← 상품 0개 · 최종주소 https://www.jamesperse.com/collections/womens-pants-denim · 제목 "Women's Pants & Denim | James Perse Los Angeles" · 링크 311/이미지 15 · 탈락[total=305 noImage=298 tinyImage=0 shortPath=4 samePage=1 banner=0 dup=0 nonProduct=2 landing=0] · "End of season sale - SHOP MENS | SHOP WOMENS NEW IN - SHOP MEN | SHOP WOMEN MEN New BEST SELLERS CASHMERE SHOP CLOTHING "
+

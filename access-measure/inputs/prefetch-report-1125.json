@@ -1,0 +1,655 @@
+{
+ "when": "2026-11-25T02:00:17.448Z",
+ "ok": 75,
+ "total": 78,
+ "results": [
+  {
+   "name": "Addison bay",
+   "url": "https://addisonbay.com/",
+   "ok": true,
+   "stored": 141,
+   "collected": 141,
+   "secs": 6
+  },
+  {
+   "name": "ALC",
+   "url": "https://alcltd.com/",
+   "ok": true,
+   "stored": 393,
+   "collected": 393,
+   "secs": 16
+  },
+  {
+   "name": "Alo",
+   "url": "https://www.aloyoga.com/",
+   "ok": true,
+   "stored": 190,
+   "collected": 190,
+   "secs": 21
+  },
+  {
+   "name": "Bash",
+   "url": "https://ba-sh.com/fr/en/",
+   "ok": true,
+   "stored": 50,
+   "collected": 50,
+   "secs": 49
+  },
+  {
+   "name": "Bassike",
+   "url": "https://www.bassike.com/",
+   "ok": true,
+   "stored": 318,
+   "collected": 318,
+   "secs": 15
+  },
+  {
+   "name": "Bellerose",
+   "url": "https://bellerose.com/",
+   "ok": true,
+   "stored": 231,
+   "collected": 231,
+   "secs": 28
+  },
+  {
+   "name": "Beyond yoga",
+   "url": "https://beyondyoga.com/",
+   "ok": true,
+   "stored": 175,
+   "collected": 175,
+   "secs": 9
+  },
+  {
+   "name": "Boden",
+   "url": "https://us.boden.com/",
+   "ok": true,
+   "stored": 331,
+   "collected": 331,
+   "secs": 9
+  },
+  {
+   "name": "Buck Mason",
+   "url": "https://www.buckmason.com/",
+   "ok": true,
+   "stored": 119,
+   "collected": 119,
+   "secs": 6
+  },
+  {
+   "name": "Chico's",
+   "url": "https://www.chicos.com/store",
+   "ok": false,
+   "stored": 0,
+   "collected": 3,
+   "note": "too few — kept previous snapshot",
+   "warns": [
+    "dresses: HTTP 403 at https://www.chicos.com/store/category/dresses/cat40004",
+    "dresses: worker-IP fallback failed (worker upstream 403) at https://www.chicos.com/store/category/dresses/cat40004",
+    "dresses: no readable product cards at https://www.chicos.com/store/category/dresses/cat40004",
+    "tops: HTTP 403 at https://www.chicos.com/store/category/tees-tanks/cat11199293",
+    "tops: worker-IP fallback failed (worker upstream 403) at https://www.chicos.com/store/category/tees-tanks/cat11199293"
+   ],
+   "secs": 47
+  },
+  {
+   "name": "Citizens of Humanity",
+   "url": "https://citizensofhumanity.com/",
+   "ok": true,
+   "stored": 171,
+   "collected": 171,
+   "secs": 14
+  },
+  {
+   "name": "Club monaco",
+   "url": "https://www.clubmonaco.com/",
+   "ok": true,
+   "stored": 169,
+   "collected": 169,
+   "secs": 27
+  },
+  {
+   "name": "Cotton citizen",
+   "url": "https://cottoncitizen.com/",
+   "ok": true,
+   "stored": 283,
+   "collected": 283,
+   "secs": 9
+  },
+  {
+   "name": "Damson Madder",
+   "url": "https://damsonmadder.com/",
+   "ok": true,
+   "stored": 385,
+   "collected": 385,
+   "secs": 13
+  },
+  {
+   "name": "Dickies",
+   "url": "https://www.dickies.com/",
+   "ok": true,
+   "stored": 260,
+   "collected": 72,
+   "secs": 6
+  },
+  {
+   "name": "Draper James",
+   "url": "https://draperjames.com/",
+   "ok": true,
+   "stored": 147,
+   "collected": 147,
+   "secs": 13
+  },
+  {
+   "name": "Eddie bauer",
+   "url": "https://www.eddiebauer.com/",
+   "ok": true,
+   "stored": 200,
+   "collected": 200,
+   "secs": 42
+  },
+  {
+   "name": "English factory",
+   "url": "https://shopenglishfactory.com/",
+   "ok": true,
+   "stored": 269,
+   "collected": 269,
+   "secs": 12
+  },
+  {
+   "name": "Evereve",
+   "url": "https://evereve.com/",
+   "ok": true,
+   "stored": 444,
+   "collected": 444,
+   "secs": 9
+  },
+  {
+   "name": "Everlane",
+   "url": "https://www.everlane.com/",
+   "ok": true,
+   "stored": 443,
+   "collected": 443,
+   "secs": 30
+  },
+  {
+   "name": "Faherty",
+   "url": "https://fahertybrand.com/",
+   "ok": true,
+   "stored": 170,
+   "collected": 170,
+   "secs": 7
+  },
+  {
+   "name": "Frame",
+   "url": "https://frame-store.com/",
+   "ok": true,
+   "stored": 189,
+   "collected": 189,
+   "secs": 5
+  },
+  {
+   "name": "Frank & Eileen",
+   "url": "https://www.frankandeileen.com/",
+   "ok": true,
+   "stored": 448,
+   "collected": 80,
+   "secs": 39
+  },
+  {
+   "name": "Goldie",
+   "url": "https://www.goldietees.com/",
+   "ok": true,
+   "stored": 139,
+   "collected": 139,
+   "secs": 8
+  },
+  {
+   "name": "Good American",
+   "url": "https://www.goodamerican.com/",
+   "ok": true,
+   "stored": 625,
+   "collected": 216,
+   "secs": 36
+  },
+  {
+   "name": "Greyson",
+   "url": "https://greysonclothiers.com/",
+   "ok": true,
+   "stored": 93,
+   "collected": 93,
+   "secs": 7
+  },
+  {
+   "name": "Gymshark",
+   "url": "https://row.gymshark.com/",
+   "ok": true,
+   "stored": 274,
+   "collected": 274,
+   "secs": 50
+  },
+  {
+   "name": "Hobbs",
+   "url": "https://www.hobbs.com/us/",
+   "ok": true,
+   "stored": 353,
+   "collected": 353,
+   "secs": 20
+  },
+  {
+   "name": "J.jill",
+   "url": "https://www.jjill.com/",
+   "ok": true,
+   "stored": 89,
+   "collected": 89,
+   "secs": 15
+  },
+  {
+   "name": "Jager",
+   "url": "https://www.marksandspencer.com/l/brands/jaeger",
+   "ok": true,
+   "stored": 402,
+   "collected": 402,
+   "secs": 33
+  },
+  {
+   "name": "James Perse",
+   "url": "https://www.jamesperse.com/",
+   "ok": true,
+   "stored": 526,
+   "collected": 142,
+   "secs": 24
+  },
+  {
+   "name": "Jigsaw",
+   "url": "https://www.jigsaw-online.com/",
+   "ok": true,
+   "stored": 315,
+   "collected": 315,
+   "secs": 42
+  },
+  {
+   "name": "La Ligne",
+   "url": "https://lalignenyc.com/",
+   "ok": true,
+   "stored": 397,
+   "collected": 397,
+   "secs": 28
+  },
+  {
+   "name": "Lilla P",
+   "url": "https://lillap.com/",
+   "ok": true,
+   "stored": 167,
+   "collected": 167,
+   "secs": 11
+  },
+  {
+   "name": "LNA",
+   "url": "https://www.lnaclothing.com/",
+   "ok": true,
+   "stored": 236,
+   "collected": 236,
+   "secs": 5
+  },
+  {
+   "name": "Marine Layer",
+   "url": "https://www.marinelayer.com/",
+   "ok": true,
+   "stored": 180,
+   "collected": 180,
+   "secs": 8
+  },
+  {
+   "name": "Michael Stars",
+   "url": "https://www.michaelstars.com/",
+   "ok": true,
+   "stored": 203,
+   "collected": 203,
+   "secs": 32
+  },
+  {
+   "name": "Mint velvet",
+   "url": "https://mintvelvet.com/",
+   "ok": true,
+   "stored": 416,
+   "collected": 416,
+   "secs": 16
+  },
+  {
+   "name": "Monrow",
+   "url": "https://www.monrow.com/",
+   "ok": true,
+   "stored": 200,
+   "collected": 200,
+   "secs": 8
+  },
+  {
+   "name": "Monsoon",
+   "url": "https://www.monsoonlondon.com/us/",
+   "ok": true,
+   "stored": 30,
+   "collected": 30,
+   "secs": 44
+  },
+  {
+   "name": "Nation LTD",
+   "url": "https://nation.la/",
+   "ok": true,
+   "stored": 525,
+   "collected": 161,
+   "secs": 13
+  },
+  {
+   "name": "Ninety Percent",
+   "url": "https://ninetypercent.com/",
+   "ok": true,
+   "stored": 156,
+   "collected": 156,
+   "secs": 5
+  },
+  {
+   "name": "Nylora",
+   "url": "https://nylora.com/",
+   "ok": true,
+   "stored": 237,
+   "collected": 237,
+   "secs": 6
+  },
+  {
+   "name": "Oak + Fort",
+   "url": "https://oakandfort.ca/",
+   "ok": true,
+   "stored": 336,
+   "collected": 336,
+   "secs": 6
+  },
+  {
+   "name": "Oasis",
+   "url": "https://www.oasisfashion.com/",
+   "ok": true,
+   "stored": 133,
+   "collected": 133,
+   "secs": 61
+  },
+  {
+   "name": "Outdoorvoices",
+   "url": "https://www.outdoorvoices.com/",
+   "ok": true,
+   "stored": 126,
+   "collected": 126,
+   "secs": 19
+  },
+  {
+   "name": "Phase eight",
+   "url": "https://www.phase-eight.com/row/",
+   "ok": true,
+   "stored": 400,
+   "collected": 400,
+   "secs": 20
+  },
+  {
+   "name": "Prana",
+   "url": "https://www.prana.com/",
+   "ok": false,
+   "stored": 0,
+   "collected": 1,
+   "note": "too few — kept previous snapshot",
+   "warns": [
+    "new: HTTP 403 at https://www.prana.com/collections/new-arrivals",
+    "new: worker-IP fallback failed (worker upstream 403) at https://www.prana.com/collections/new-arrivals",
+    "new: no readable product cards at https://www.prana.com/collections/new-arrivals",
+    "new: HTTP 403 at https://www.prana.com/collections/new",
+    "new: worker-IP fallback failed (worker upstream 403) at https://www.prana.com/collections/new"
+   ],
+   "secs": 42
+  },
+  {
+   "name": "Project Social T",
+   "url": "https://www.projectsocialt.com/",
+   "ok": true,
+   "stored": 275,
+   "collected": 275,
+   "secs": 10
+  },
+  {
+   "name": "Rag & bone",
+   "url": "https://www.rag-bone.com/",
+   "ok": true,
+   "stored": 244,
+   "collected": 244,
+   "secs": 67
+  },
+  {
+   "name": "Rails",
+   "url": "https://www.rails.com/",
+   "ok": true,
+   "stored": 290,
+   "collected": 290,
+   "secs": 9
+  },
+  {
+   "name": "Reformation",
+   "url": "https://www.thereformation.com/",
+   "ok": true,
+   "stored": 753,
+   "collected": 221,
+   "secs": 57
+  },
+  {
+   "name": "rouje",
+   "url": "https://www.rouje.com/en-int",
+   "ok": true,
+   "stored": 232,
+   "collected": 232,
+   "secs": 7
+  },
+  {
+   "name": "Sanctuary",
+   "url": "https://www.sanctuaryclothing.com/",
+   "ok": true,
+   "stored": 421,
+   "collected": 421,
+   "secs": 8
+  },
+  {
+   "name": "Scoth & soda",
+   "url": "https://scotchandsoda.com/",
+   "ok": true,
+   "stored": 378,
+   "collected": 378,
+   "secs": 22
+  },
+  {
+   "name": "Sessun",
+   "url": "https://en.sessun.com/",
+   "ok": true,
+   "stored": 81,
+   "collected": 81,
+   "secs": 76
+  },
+  {
+   "name": "Spanx",
+   "url": "https://spanx.com/",
+   "ok": true,
+   "stored": 84,
+   "collected": 84,
+   "secs": 84
+  },
+  {
+   "name": "Splendid",
+   "url": "https://splendid.com/",
+   "ok": true,
+   "stored": 404,
+   "collected": 404,
+   "secs": 28
+  },
+  {
+   "name": "Splits59",
+   "url": "https://www.splits59.com/?country=US",
+   "ok": true,
+   "stored": 162,
+   "collected": 162,
+   "secs": 4
+  },
+  {
+   "name": "Stateside",
+   "url": "https://shopstateside.us/",
+   "ok": true,
+   "stored": 335,
+   "collected": 335,
+   "secs": 6
+  },
+  {
+   "name": "Sundry",
+   "url": "https://sundryclothing.com/",
+   "ok": true,
+   "stored": 246,
+   "collected": 246,
+   "secs": 5
+  },
+  {
+   "name": "The Great",
+   "url": "https://thisisthegreat.com/",
+   "ok": true,
+   "stored": 240,
+   "collected": 240,
+   "secs": 69
+  },
+  {
+   "name": "Thread & supply",
+   "url": "https://threadandsupply.com/",
+   "ok": true,
+   "stored": 258,
+   "collected": 258,
+   "secs": 7
+  },
+  {
+   "name": "Tuckernuck",
+   "url": "https://tnuck.com/",
+   "ok": true,
+   "stored": 376,
+   "collected": 376,
+   "secs": 11
+  },
+  {
+   "name": "Ulla Johnson",
+   "url": "https://ullajohnson.com/",
+   "ok": true,
+   "stored": 307,
+   "collected": 307,
+   "secs": 14
+  },
+  {
+   "name": "Vanessa bruno",
+   "url": "https://www.vanessabruno.com/",
+   "ok": true,
+   "stored": 58,
+   "collected": 6,
+   "secs": 24
+  },
+  {
+   "name": "Varley",
+   "url": "https://www.varley.com/",
+   "ok": true,
+   "stored": 285,
+   "collected": 285,
+   "secs": 31
+  },
+  {
+   "name": "Velvet",
+   "url": "https://velvet-tees.com/",
+   "ok": true,
+   "stored": 352,
+   "collected": 352,
+   "secs": 10
+  },
+  {
+   "name": "Veronica Beard",
+   "url": "https://veronicabeard.com/",
+   "ok": true,
+   "stored": 339,
+   "collected": 339,
+   "secs": 17
+  },
+  {
+   "name": "Vince",
+   "url": "https://www.vince.com/home",
+   "ok": true,
+   "stored": 381,
+   "collected": 381,
+   "secs": 17
+  },
+  {
+   "name": "vineyardvines",
+   "url": "https://www.vineyardvines.com/",
+   "ok": true,
+   "stored": 560,
+   "collected": 151,
+   "secs": 85
+  },
+  {
+   "name": "Vuori",
+   "url": "https://vuoriclothing.com/",
+   "ok": true,
+   "stored": 219,
+   "collected": 219,
+   "secs": 118
+  },
+  {
+   "name": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store",
+   "ok": false,
+   "stored": 0,
+   "collected": 2,
+   "note": "too few — kept previous snapshot",
+   "warns": [
+    "pants: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+    "pants: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+    "pants: reader fallback failed (HTTP 429) at https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+    "tops: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
+    "tops: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/tees/cat4769286"
+   ],
+   "secs": 31
+  },
+  {
+   "name": "Whistles",
+   "url": "https://www.whistles.com/",
+   "ok": true,
+   "stored": 217,
+   "collected": 217,
+   "secs": 12
+  },
+  {
+   "name": "Whitestuff",
+   "url": "https://www.whitestuff.com/",
+   "ok": true,
+   "stored": 184,
+   "collected": 184,
+   "secs": 57
+  },
+  {
+   "name": "Xirena",
+   "url": "https://www.xirena.com/",
+   "ok": true,
+   "stored": 333,
+   "collected": 333,
+   "secs": 8
+  },
+  {
+   "name": "Z Supply",
+   "url": "https://zsupplyclothing.com/",
+   "ok": true,
+   "stored": 216,
+   "collected": 216,
+   "secs": 37
+  },
+  {
+   "name": "Zara",
+   "url": "https://www.zara.com/us/",
+   "ok": true,
+   "stored": 499,
+   "collected": 499,
+   "secs": 21
+  }
+ ]
+}

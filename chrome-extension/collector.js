@@ -5,7 +5,27 @@
 // 두 곳에서 같은 코드를 쓰기 위해 외부 의존성 없이 self-contained 로 유지할 것.
 
 // 페이지 컨텍스트에서 실행되는 수집기 (완전 self-contained: 자동 스크롤 후 상품 배열 반환)
-async function pageCollector() {
+// opts.cap: 이만큼 모이면 스크롤을 멈춘다(기본 600). 헤드리스 수집기는 카테고리당 150개만 쓰므로
+// 더 작게 준다 — 끝없이 이어지는 목록(Nike·Reformation)에서 한 카테고리에 10분 넘게 쓰던 것을 막는다.
+async function pageCollector(opts) {
+  const CAP = Math.max(20, Number(opts && opts.cap) || 600);
+  // 측정용(평소엔 안 씀): jump = 예전처럼 맨 아래로 한 번에 뛰고 끝의 화면만 센다(스크롤 방식 비교용) ·
+  // debug = 메뉴·경로 규칙·다른 사이트로 버린 링크 중 사진이 붙은 것을 이름·주소와 함께 돌려준다.
+  const JUMP = !!(opts && opts.jump), DEBUG = !!(opts && opts.debug);
+  const dbg = new Map();
+  const note = (why, a, href) => {
+    if (!DEBUG || dbg.size >= 600) return;
+    const key = why + ' ' + href.origin + href.pathname + href.search;
+    if (dbg.has(key)) return;
+    const c = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
+    const img = bestImage(a) || bestImage(c);
+    const im = a.querySelector('img') || c.querySelector('img');
+    const name = ((im && im.alt) || a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+    // 메뉴 칸이면 어느 칸인지도 적는다(태그·class 앞부분) — 상품이 메뉴로 잘못 걸렸는지 가리려고.
+    const box = why === 'siteMenu' ? a.closest('nav, footer, header, [role="navigation"], [role="contentinfo"], [role="menu"], [role="menubar"], [role="banner"]') : null;
+    dbg.set(key, { why, url: href.origin + href.pathname + href.search, name, img: !!img,
+      ...(box ? { box: (box.tagName.toLowerCase() + '.' + String(box.className || '').split(/\s+/).slice(0, 2).join('.')).slice(0, 60) } : {}) });
+  };
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const guessCategory = (u, name) => {
     const n = ' ' + String(name || '').toLowerCase() + ' ';
@@ -81,7 +101,9 @@ async function pageCollector() {
   // 목록 페이지 상단에는 하위 카테고리 타일("Tanks & Camis. Click to shop.")과
   // 로고·브레드크럼이 이미지와 함께 있어서, 그냥 두면 상품인 척 섞여 들어온다.
   // 'Logo Tee' 같은 진짜 상품을 죽이지 않도록, 로고는 "이름이 로고로 끝나는 짧은 링크"만 막는다.
-  const BANNER_NAME = /click to shop|shop the look|discover now|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|^.{0,24}\blogo\s*$/i;
+  // 앱 내려받기·선물 가게 타일도 같은 부류다(FP Movement·Free People 'Download on the App Store',
+  // L.L.Bean 'Gifts for Her' — 2026-11-25 저장본·측정 표본에 실제로 있던 것).
+  const BANNER_NAME = /click to shop|shop the look|discover now|download on the app store|get it on google play|\bgift (?:shop|guide|ideas)\b|^\s*gifts? for\b|^\s*(shop\b|discover\b|explore\b|view all|see all|shop all|new arrivals?\b|browse\b)|^.{0,24}\blogo\s*$/i;
   // 상품 페이지가 아닌 경로. 점검(scripts/audit-catalogs.mjs)이 사후에 잡아내는 것과
   // 같은 목록이다 — 잡아낼 수 있으면 애초에 담지 않는 게 맞다. 실제로 The white
   // company 는 /magazine/ 아래 기사 9개가 상품으로 들어가 있었다.
@@ -95,8 +117,47 @@ async function pageCollector() {
     'sitemap', 'search', 'newsletter', 'subscribe', 'sustainability', 'lookbook',
     'campaigns?', 'editorial', 'inspiration', 'guides?', 'how-to', 'klarna', 'afterpay',
     'loyalty', 'rewards', 'affiliates?',
+    // Shopify 의 /pages/ 는 안내 글(Leset Fabric Guide 의 /pages/fabric-set-guide) · 매장 안내(Me+Em /us/stores)
+    'pages', 'stores',
   ];
   const NON_PRODUCT_PATH = new RegExp('/(?:' + NON_PRODUCT_SEGMENTS.join('|') + ')(?:/|$)', 'i');
+  // 경로 모양만 봐도 상품이 아닌 링크(2026-11-25 접근 지도에서 실제로 상품으로 저장돼 있던 것들).
+  //  · 카테고리 경로 /c/… · /w/… · /collections/… — Reformation 기획전(/collections/holiday-launch), Carhartt 메뉴 타일(/c/black-friday, 이름 'arrow icon'),
+  //    Nike 필터 링크(/w/womens-…). 상품 표시(/p/ · /t/ · /product/)가 함께 있으면 상품으로 둔다.
+  //    '/categories/' 는 일부러 넣지 않았다 — J.Crew 는 진짜 상품이 /m/womens/categories/…/MQ341 이다.
+  //  · Inditex(Oysho·Massimo Dutti) 카테고리 주소 끝 '-n5063' — 상품은 '-l0581…'·'-c0p…' 모양이다.
+  //  · 이미지 파일 주소 — srcset 조각('…/x.webp%20924w')이 링크로 잡힌 경우(Sessun).
+  const CATEGORY_PATH = /\/(?:c|w|collections?)\/[^/]/i;
+  const PRODUCT_MARK = /\/(?:p|t|product|products)\//i;
+  const INDITEX_CATEGORY = /-n\d{3,5}$/i;
+  const IMAGE_FILE = /\.(?:jpe?g|png|webp|gif|avif|svg)(?:%20\d+[wx])?$/i;
+  //  · 끝 조각이 성별·부서 이름뿐인 기획전 주소(J.Crew /shop/party-dressing/womens).
+  const DEPARTMENT_END = /\/(?:womens?|mens?|ladies|kids|girls|boys|unisex)$/i;
+  const nonProductShape = (path) =>
+    (CATEGORY_PATH.test(path + '/') && !PRODUCT_MARK.test(path + '/')) ||
+    INDITEX_CATEGORY.test(path) || IMAGE_FILE.test(path) || DEPARTMENT_END.test(path);
+  // 다른 사이트로 가는 링크는 상품이 아니다(앱 스토어 itunes.apple.com 등).
+  // 하위 도메인은 같은 사이트로 본다(www2.hm.com·athleta.gap.com·global.llbean.com) — 끝 두 마디로 비교하고,
+  // co.uk 처럼 나라 도메인이 두 마디인 경우는 세 마디로 본다.
+  const siteOf = (host) => {
+    const p = String(host || '').toLowerCase().split('.').filter(Boolean);
+    const n = p.length >= 3 && p[p.length - 1].length === 2 && /^(?:co|com|org|net|ac|gov|ne|or)$/.test(p[p.length - 2]) ? 3 : 2;
+    return p.slice(-n).join('.');
+  };
+  // 상품 번호가 경로가 아니라 물음표 뒤에 있는 사이트(Gap 계열 /browse/product.do?pid=…).
+  // 예전에는 물음표 뒤를 모두 버려서 그 사이트의 상품이 전부 같은 주소 하나로 합쳐졌다 —
+  // Gap·Old Navy·Athleta·Banana Republic 이 집 IP 에서도 상품 1개만 남던 원인.
+  // 경로가 .do·.jsp 같은 프로그램 주소일 때만 상품 번호 이름표(pid 등) 하나를 남긴다.
+  const ID_PARAMS = ['pid', 'productid', 'product_id', 'styleid', 'itemid'];
+  const idQuery = (u) => {
+    if (!/\.(?:do|jsp|aspx?|php|cfm)$/i.test(u.pathname)) return '';
+    for (const [k, v] of u.searchParams) if (ID_PARAMS.includes(k.toLowerCase()) && v) return '?' + k + '=' + encodeURIComponent(v);
+    return '';
+  };
+  // 프로그램 주소인데 상품 번호가 없고 이름에도 상품을 가리키는 낱말이 없으면 안내·기획전 페이지다
+  // (Gap 계열 /browse/info.do 'GapSweats Guide' · 'Picks from our Giftfluencers').
+  const scriptNoProduct = (u) => /\.(?:do|jsp|aspx?|php|cfm)$/i.test(u.pathname) && !idQuery(u) &&
+    !/product|item|detail|prod|style|sku/i.test(u.pathname.split('/').pop() || '');
 
   // ── 가격 ────────────────────────────────────────────────────────────
   // 통화가 앞에 붙는 표기($128, ₩89,000, USD 128)와 뒤에 붙는 표기(129,00 zł, 1 290 kr)를
@@ -168,16 +229,45 @@ async function pageCollector() {
 
   // 0개로 끝났을 때 "왜 다 걸러졌는지" 세어 둔다. 추측 대신 숫자로 원인을 좁힌다.
   const rej = { total: 0, noImage: 0, tinyImage: 0, shortPath: 0, samePage: 0, banner: 0, dup: 0,
-    nonProduct: 0, landing: 0 };
+    nonProduct: 0, landing: 0, siteMenu: 0, offSite: 0 };
+
+  // 사이트 머리글·메뉴·바닥글 안의 링크는 상품이 아니다(2026-11-25 측정에서 실제로 잡힌 것:
+  // The upside 'Header Submenu Image' /active/tops/sports-bras/, Reformation 메뉴의
+  // /collections/holiday-launch, Old Navy 'Picks from our Giftfluencers', Banana Republic 'sign in').
+  // 상품 그리드는 이런 칸 안에 있지 않다. 다만 상품 카드 안에도 <header> 를 쓰는 사이트가 있어서,
+  // <header> 는 카드·목록·본문(main) 밖에 있는 '사이트 머리글'일 때만 메뉴로 본다.
+  // 단, 그 칸 안에 가격이 붙은 카드가 8개 이상이면 메뉴가 아니라 상품 그리드다 — Monsoon 은
+  // 상품 그리드 전체가 이런 칸 안에 들어 있어 이 규칙만으로는 상품 150개가 통째로 버려졌다
+  // (2026-11-25 run 45604834917). 한 번 판정한 칸은 기억해 둔다(harvest 마다 새로).
+  let menuBoxes = new Map();
+  const isMenuBox = (box) => {
+    if (menuBoxes.has(box)) return menuBoxes.get(box);
+    let priced = 0;
+    for (const x of box.querySelectorAll('a[href]')) {
+      const c = x.closest('article,li,[class*="card" i],[class*="product" i],[class*="tile" i]');
+      if (c && c !== box && box.contains(c) && PRICE_RX.test(c.textContent || '') && ++priced >= 8) break;
+    }
+    const menu = priced < 8;
+    menuBoxes.set(box, menu);
+    return menu;
+  };
+  const inSiteMenu = (a) => {
+    const n = a.closest('nav, footer, [role="navigation"], [role="contentinfo"], [role="menu"], [role="menubar"]');
+    if (n) return isMenuBox(n);
+    const h = a.closest('header, [role="banner"]');
+    return !!(h && !h.closest('main, article, li, [class*="product" i], [class*="card" i], [class*="tile" i]') && isMenuBox(h));
+  };
 
   const harvest = () => {
     const here = location.pathname.replace(/\/+$/, '');
     const seen = new Set(), items = [];
+    menuBoxes = new Map();
     for (const k of Object.keys(rej)) rej[k] = 0;
     document.querySelectorAll('a[href]').forEach((a) => {
       let href; try { href = new URL(a.href, location.href); } catch (e) { return; }
       if (!/^https?:/.test(href.protocol)) return;
       rej.total++;
+      if (inSiteMenu(a)) { rej.siteMenu++; note('siteMenu', a, href); return; }
       const card = a.closest('article,li,[class*="card"],[class*="product"],[class*="tile"],[class*="item"],div') || a;
       // 카드를 못 짚었으면 한두 단계 위까지 올라가 본다.
       // Apiece Apart 는 카드 전체를 덮는 투명 링크(<a class="absolute inset-0">)를 쓰는데,
@@ -214,10 +304,12 @@ async function pageCollector() {
       }
       const path = href.pathname.replace(/\/+$/, '');
       if (path.length < 8) { rej.shortPath++; return; }
-      if (NON_PRODUCT_PATH.test(path)) { rej.nonProduct++; return; }
-      if (path === here) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
+      if (NON_PRODUCT_PATH.test(path) || nonProductShape(path) || scriptNoProduct(href)) { rej.nonProduct++; note('nonProduct', a, href); return; }
+      if (siteOf(href.hostname) !== siteOf(location.hostname)) { rej.offSite++; note('offSite', a, href); return; }
+      const idq = idQuery(href);
+      if (path === here && !idq) { rej.samePage++; return; }        // 지금 보고 있는 목록 페이지 자체
       if (here.startsWith(path + '/')) { rej.samePage++; return; }   // 상위 카테고리(브레드크럼)
-      const key = href.origin + path;
+      const key = href.origin + path + idq;
       if (seen.has(key)) { rej.dup++; return; }
       seen.add(key);
       const nameEl = card.querySelector('h1,h2,h3,h4,[class*="name"],[class*="title"],[class*="Name"],[class*="Title"]');
@@ -246,7 +338,7 @@ async function pageCollector() {
       }
       items.push({
         name: name || decodeURIComponent(path.split('/').pop() || '').replace(/[-_]+/g, ' '),
-        imageUrl: src, productUrl: href.origin + href.pathname,
+        imageUrl: src, productUrl: href.origin + href.pathname + idq,
         price: pr.price, priceOrig: pr.priceOrig, category: guessCategory(href.pathname, name),
       });
     });
@@ -297,17 +389,48 @@ async function pageCollector() {
   // 스크롤 + "더 보기" 클릭을 상품 수가 늘지 않을 때까지 반복(무한스크롤·버튼형 모두 대응).
   // 예전에는 500ms×3회(=1.5초)만 안 늘면 끝냈는데, 다음 묶음을 받아오는 데 2~3초 걸리는
   // 사이트에서는 그 사이에 멈춰 버렸다. 기다림을 늘려 실제로 다 받을 때까지 본다.
+  //
+  // 한 화면씩 내려가며 그때마다 본 상품을 모두 모아 둔다(누적). 예전에는 맨 아래로 한 번에
+  // 뛰고, 끝에서 맨 위로 돌아와 '그 순간 화면에 있는 것'만 셌다. 그런데 화면 밖 카드를 지웠다가
+  // 다시 그리는 그리드(가상 스크롤)는 한 번에 뛰면 중간 줄이 아예 그려지지 않고, 맨 위로
+  // 돌아오면 아래쪽 카드가 사라진다 — Gap·Old Navy·Banana Republic 이 사진 달린 상품 카드
+  // 200개 가까이 있는 페이지(2026-11-25 진단)에서 30개 안팎만 남던 원인으로 보인다.
+  const acc = new Map();
+  const keep = (list) => { for (const it of list) if (!acc.has(it.productUrl)) acc.set(it.productUrl, it); };
+  if (JUMP) {
+    // 예전 방식 그대로(측정 비교용): 맨 아래로 뛰기 + 더 보기, 끝에 맨 위에서 한 번 센 것만.
+    let st = 0, last = -1;
+    for (let i = 0; i < 80; i++) {
+      window.scrollTo(0, document.documentElement.scrollHeight);
+      await sleep(700);
+      const btn = findLoadMore();
+      if (btn) { try { btn.click(); } catch (e) {} await sleep(1500); }
+      const n = harvest().length;
+      if (n === last) { if (++st >= (btn ? 6 : 5)) break; } else { st = 0; last = n; }
+    }
+    window.scrollTo(0, 0);
+    await sleep(250);
+    return { items: harvest(), nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej }, debug: [...dbg.values()] };
+  }
+  keep(harvest());
   let stable = 0, lastCount = -1;
-  for (let i = 0; i < 80; i++) {
-    window.scrollTo(0, document.documentElement.scrollHeight);
-    await sleep(700);
+  for (let i = 0; i < 140 && acc.size < CAP; i++) {
+    const doc = document.documentElement;
+    const atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 80;
+    if (atBottom) window.scrollTo(0, doc.scrollHeight);
+    else window.scrollBy(0, Math.max(400, Math.round(window.innerHeight * 0.85)));
+    await sleep(atBottom ? 700 : 350);
     const btn = findLoadMore();
     if (btn) { try { btn.click(); } catch (e) {} await sleep(1500); }
-    const n = harvest().length;
+    keep(harvest());
+    const n = acc.size;
+    // 아직 내려가는 중이면 멈추지 않는다 — 바닥에서 더 늘지 않을 때만 끝낸다.
+    if (!atBottom) { stable = 0; lastCount = n; continue; }
     if (n === lastCount) { if (++stable >= (btn ? 6 : 5)) break; } else { stable = 0; lastCount = n; }
   }
   window.scrollTo(0, 0);
   await sleep(250);
-  const out = harvest();
-  return { items: out, nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej } };
+  keep(harvest());
+  const out = [...acc.values()];
+  return { items: out, nextUrl: findNext(), subCats: [...subCats].slice(0, 8), rej: { ...rej }, ...(DEBUG ? { debug: [...dbg.values()] } : {}) };
 }

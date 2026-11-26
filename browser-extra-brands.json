@@ -1,10 +1,76 @@
 {
- "_설명": "Render blocked-brands.json 의 browser 그룹엔 없지만 헤드리스 수집기(scripts/browser-collect.mjs)가 함께 모을 브랜드. 서버 프리페치가 목록 페이지에서 막히는 브랜드를 채운다. 근거 없이 넣지 말 것 — 측정 기록은 browser-collect-firefox-measure.md, 규칙은 DAILY-AUTOMATION.md '추가 브랜드' 절.",
+ "_설명": "Render blocked-brands.json 의 browser 그룹엔 없지만 헤드리스 수집기(scripts/browser-collect.mjs)가 함께 모을 브랜드. 서버 프리페치가 목록 페이지에서 막히거나 적게 읽는 브랜드, 확장(집 IP)만 읽던 브랜드 중 데이터센터에서 열리는 브랜드를 채운다. 근거 없이 넣지 말 것 — 측정 기록은 docs/listing-doors.md · access-measure/RUNS.md, 규칙은 DAILY-AUTOMATION.md '추가 브랜드' 절. fresh: 카테고리마다 새 창 · store: \"merge\" 는 통째 교체 대신 합치기(서버가 쌓아 온 카탈로그를 줄이지 않게). Render browser 그룹 브랜드(The upside)는 새로 더하지 않고 엔진·새 창만 바꾼다.",
  "brands": [
   {
    "brand": "Veronica Beard",
    "engine": "chromium",
    "evidence": "2026-11-24 Actions 측정(저장 안 함): 크롬 run 45322447710 382개, 파이어폭스 run 45322433259 382개 · run 45323963263 354개. 카테고리 4개 모두 열림(tops·dresses·bottoms-pants·T-Shirts), 분포 tops 112 · shirts 64 · sweatshirts 11 · pants 68~96 · dresses 99. 표본은 실제 여성 상품 페이지(/products/drexler-henley-top-green-shadow 등). 서버 프리페치는 HTTP 403 으로 실패 중(저장본 337개 유지). 두 엔진 결과가 같아 설치가 필요 없는 크롬으로 둔다."
+  },
+  {
+   "brand": "H&M",
+   "engine": "firefox",
+   "evidence": "2026-11-25 저장 안 함 측정 4회(run 45598942983·45598957772·45605800257·45605806955): 745개, URL 156~176개씩 — 확장 저장 145~150개 이상. 크롬은 Akamai 403. 표본: Oversized Sweatshirt /en_us/productpage.1345017010.html"
+  },
+  {
+   "brand": "Seasalt cornwall",
+   "engine": "chromium",
+   "evidence": "2026-11-25 측정(run 45620020752·45620027222, 최종 코드에 가까운 3차): 276개, URL 141·91·58·88·53 — 확장 131·50·1·65·32 이상. 2차(45605800257) 는 tops 123 으로 미달이었다"
+  },
+  {
+   "brand": "Gap",
+   "engine": "chromium",
+   "evidence": "2026-11-25 측정(run 45604830101·45604840722): 472~473개, URL 201·205·203·68 — 확장 6개(전부 배너). 원인: 상품 번호가 ?pid= 에 있어 한 주소로 합쳐짐 + 가상 스크롤"
+  },
+  {
+   "brand": "Old Navy",
+   "engine": "chromium",
+   "evidence": "2026-11-25 측정(run 45604830101·45604840722): 693~694개, URL 203·200~205·114·197·157 — 확장 7개"
+  },
+  {
+   "brand": "Athleta",
+   "engine": "chromium",
+   "evidence": "2026-11-25 측정(run 45604830101·45604840722): 403~404개, URL 395·122·41·295 — 확장 1개"
+  },
+  {
+   "brand": "Banana Republic",
+   "engine": "chromium",
+   "evidence": "2026-11-25 측정(run 45604830101·45604840722): 511~512개, URL 106·164·131~132·136 — 확장 1개"
+  },
+  {
+   "brand": "The upside",
+   "engine": "firefox",
+   "fresh": true,
+   "evidence": "Render browser 그룹 — 엔진만 바꿈. 크롬 한 창이면 첫 카테고리만 열리고 나머지 403(야간 70·0·0·0). 파이어폭스+새 창 측정 4회(run 45604830101·45604840722·45620020752·45620027222): tops 58~119 · knitwear 45~46 · all-in-one 19 · bottoms 58~119. tops 58 은 야간 70 보다 적지만 야간 70 에는 메뉴 사진 타일 약 10개가 섞여 있었다(1차 측정 표본 'Header Submenu Image')"
+  },
+  {
+   "brand": "Reformation",
+   "engine": "chromium",
+   "store": "merge",
+   "evidence": "서버 프리페치 하루 221개(URL 57·1·27·0~56·36). 2026-11-25 크롬 측정(run 45604830101·45604840722): 535개, URL 613~614·50·61·600·168(상한 전). 합치기 저장"
+  },
+  {
+   "brand": "Sessun",
+   "engine": "impit",
+   "store": "merge",
+   "evidence": "서버 81개(일부는 사진 주소 조각). 2026-11-25 impit 측정(run 45604834917·45604846574): 211개, URL 47·27·17·25·95, 표본 /catalogue/t-shirts/dorel-ambrune.html. 합치기 저장"
+  },
+  {
+   "brand": "Whitestuff",
+   "engine": "impit",
+   "store": "merge",
+   "evidence": "서버는 직접 fetch 실패 → 리더 프록시로 114~267개. 2026-11-25 impit 측정 4회(run 45598952305·45598969872·45604834917·45604846574): 652~664개, URL 110~177 — 서버 URL 1~73. 합치기 저장"
+  },
+  {
+   "brand": "Bash",
+   "engine": "chromium",
+   "store": "merge",
+   "evidence": "서버 하루 34~56개(URL 4·4·4·10~24·7). 2026-11-25 크롬 측정(run 45604834917·45604846574): 295개, URL 35·38·97·107·76. 합치기 저장"
+  },
+  {
+   "brand": "Vanessa bruno",
+   "engine": "chromium",
+   "store": "merge",
+   "evidence": "서버 하루 6개(tops 만). 2026-11-25 크롬 측정(run 45604834917·45604846574): 207개 — tops 칸 4+2=6(서버와 같음), 셔츠 77·원피스 41·바지 25(서버 0). knitwear 엑셀 주소는 첫 화면으로 튕김 → docs/listing-doors.md URL 표. 합치기 저장"
   }
  ]
 }

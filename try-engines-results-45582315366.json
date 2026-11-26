@@ -1,0 +1,5632 @@
+{
+ "at": "2026-11-25T09:13:10.536Z",
+ "meta": {
+  "at": "2026-11-25T09:08:16.215Z",
+  "runId": "45582315366",
+  "runner": "GitHub Actions 1000008396",
+  "ip": "20.102.102.x"
+ },
+ "engines": [
+  "impit",
+  "site-api",
+  "wayback",
+  "playwright",
+  "firefox"
+ ],
+ "runInfo": {
+  "impit": "정상 · 23쪽 · 13s",
+  "site-api": "정상 · 23쪽 · 2s",
+  "wayback": "정상 · 23쪽 · 23s",
+  "playwright": "정상 · 23쪽 · 128s",
+  "firefox": "정상 · 23쪽 · 127s"
+ },
+ "targets": [
+  {
+   "kind": "product",
+   "brand": "Wrap",
+   "url": "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Wrap",
+   "url": "https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Barbour",
+   "url": "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Barbour",
+   "url": "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html"
+  },
+  {
+   "kind": "product",
+   "brand": "CCC",
+   "url": "https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes"
+  },
+  {
+   "kind": "product",
+   "brand": "CCC",
+   "url": "https://www.crewclothing.co.uk/products/perfect-crew-slub-t-shirt-in-pink"
+  },
+  {
+   "kind": "product",
+   "brand": "Coldwatercreek",
+   "url": "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/"
+  },
+  {
+   "kind": "product",
+   "brand": "Coldwatercreek",
+   "url": "https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/"
+  },
+  {
+   "kind": "product",
+   "brand": "Coldwatercreek",
+   "url": "https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/"
+  },
+  {
+   "kind": "product",
+   "brand": "J crew",
+   "url": "https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341"
+  },
+  {
+   "kind": "product",
+   "brand": "J crew",
+   "url": "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334"
+  },
+  {
+   "kind": "product",
+   "brand": "J crew",
+   "url": "https://www.jcrew.com/m/womens/categories/clothing/sweaters/crewneck/ME829"
+  },
+  {
+   "kind": "product",
+   "brand": "Lucky Brand",
+   "url": "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Lucky Brand",
+   "url": "https://www.luckybrand.com/lace-yoke-henley/169956.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Me+Em",
+   "url": "https://www.meandem.com/us/piped-fitted-t-shirt-soft-white-rich-olive-green"
+  },
+  {
+   "kind": "product",
+   "brand": "Me+Em",
+   "url": "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-black"
+  },
+  {
+   "kind": "product",
+   "brand": "On",
+   "url": "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013"
+  },
+  {
+   "kind": "product",
+   "brand": "On",
+   "url": "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/cassis-apparel-1WG10375007"
+  },
+  {
+   "kind": "product",
+   "brand": "Poetry",
+   "url": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Poetry",
+   "url": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Poetry",
+   "url": "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Sweaty betty",
+   "url": "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html"
+  },
+  {
+   "kind": "product",
+   "brand": "Sweaty betty",
+   "url": "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_Black.html"
+  }
+ ],
+ "results": {
+  "impit": {
+   "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html": {
+    "v": "open",
+    "note": "글 5048자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Wrap London - Tencel &amp; cotton striped jersey top",
+     "bytes": 241338,
+     "textLen": 4994,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff82034dd715b7-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXiAXyJmBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Wrap London - Tencel & cotton striped jersey top Skip to main content Skip to footer content Search Get in touch 1 855 920 6002 Search Clear We could't find any matching results. Try another search term or perhaps you'd "
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Buy Rosalie T-Shirt for N/A 0.0 | BARBOUR_ROW",
+     "bytes": 310124,
+     "textLen": 6668,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff8207988f1757-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "3QF-BIGlBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_1e532452c54fb0368ba9b98273",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Buy Rosalie T-Shirt for N/A 0.0 | BARBOUR_ROW Click to view our Accessibility Statement Skip to main content Skip to footer content Barbour Home Barbour Home Barbour Home search Search hamburger Barbour Home Barbour Home"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_1e532452c54fb0368ba9b98273, 쿠키 dwanonymous_fad861a9ba68573238e98b619c71bf9d, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women&#39;s Ultimate Breton in Sand and White Stripes from Crew Clothing Company",
+     "bytes": 651121,
+     "textLen": 12585,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff820b9ad3868a-IAD",
+      "content-length": "85622",
+      "content-type": "text/html; charset=utf-8",
+      "powered-by": "Shopify",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "_shopify_cmp"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women's Ultimate Breton in Sand and White Stripes from Crew Clothing Company your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipp"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6083,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ff820ebaafd707-IAD",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Feather Jersey Turtleneck In Plaid For Women | J.Crew",
+     "bytes": 1405407,
+     "textLen": 8919,
+     "headers": {
+      "akamai-grn": "0.d6ab3717.1795597698.25267ce0",
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM,2"
+     },
+     "cookies": [
+      "REQUEST_SESSION_ID",
+      "jcrew_country",
+      "AKA_A2",
+      "traffic_context",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Feather Jersey Turtleneck In Plaid For Women | J.Crew Skip to Main Content J.Crew Passport gives you... Free shipping on jcrew.com, personalized rewards & offers, birthday gifts and so much more. Sign up Learn more Alrea"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html": {
+    "v": "comp",
+    "note": "Polyester 63% / Viscose 33% / Elastane 4%",
+    "comp": "Polyester 63% / Viscose 33% / Elastane 4%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "BRUSHED BOAT NECK BANDED TOP | Lucky Brand",
+     "bytes": 372394,
+     "textLen": 9301,
+     "headers": {
+      "akamai-grn": "0.cf6adc17.1795597700.696e8afc",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff821eeee98e97-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "x-akamai-transformed": "9 - 0 pmb=mNONE,1mRUM,2",
+      "x-dw-request-base-id": "QnZ5aISlBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_e03650a5b0f56eb20d07b43e59",
+      "cqcid",
+      "cquid",
+      "sid",
+      "analyticsAnonymusCustomer",
+      "dwanonymous_daf97866bcb36047de9f0e88cb49cc50",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "AKA_A2",
+      "_abck",
+      "ak_bmsc",
+      "bm_sz"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "BRUSHED BOAT NECK BANDED TOP | Lucky Brand Skip to main content Black Friday Event! Details Shop Womens Shop Mens All Denim Now 40% Off! Details Shop Womens Shop Mens 50% off Sweaters and Jackets Shop Sweaters Shop Jacke"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sz",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_e03650a5b0f56eb20d07b43e59, 쿠키 dwanonymous_daf97866bcb36047de9f0e88cb49cc50, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.meandem.com/us/piped-fitted-t-shirt-soft-white-rich-olive-green": {
+    "v": "comp",
+    "note": "Cotton 52% / Modal 48% / Cotton 100%",
+    "comp": "Cotton 52% / Modal 48%\nCotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women&#x27;s White Contrast Trim Fitted Tee | ME+EM",
+     "bytes": 658341,
+     "textLen": 7504,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM,2",
+      "x-vercel-id": "lhr1::lhr1::gmwz9-1795597701605-dac17192020a"
+     },
+     "cookies": [
+      "ISO_639-1_language_code",
+      "ANONYMOUS_ANALYTICS_ID",
+      "is-paid-marketing-source"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women&#x27;s White Contrast Trim Fitted Tee | ME+EM Complimentary gift-wrapping is available Express Delivery & Free Returns Import Duties and Taxes paid Stores 1-800-346-3108 New In Clothing Dresses Gifting Shoes Access"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013": {
+    "v": "comp",
+    "note": "Polyester 91% / Elastane 9%",
+    "comp": "Polyester 91% / Elastane 9%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women&#x27;s Studio Long-T | Brown | On United States",
+     "bytes": 506463,
+     "textLen": 2517,
+     "headers": {
+      "cf-cache-status": "HIT",
+      "cf-ray": "a5ff82263a26f276-IAD",
+      "content-type": "text/html;charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Nuxt"
+     },
+     "cookies": [
+      "on_uuid",
+      "on_session_id",
+      "__cfwaitingroom_waitingroom"
+     ],
+     "markers": [
+      "maintenance",
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women&#x27;s Studio Long-T | Brown | On United States Skip to main content Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just adde"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk &amp; cotton jersey T-shirt",
+     "bytes": 252615,
+     "textLen": 4954,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff8227da52c983-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXh7opmbBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_0b368916da9b61fc75cbb04088",
+      "cqcid",
+      "cquid",
+      "dwanonymous_ec0ea5ba54cffae3eac8df2f4eed3f3d",
+      "sid",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Skip to main content Skip to footer content Search Call us 0800 066 8019 / Order by 8pm for next day delivery Search Clear We could't find any matching results. Try another search te"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0b368916da9b61fc75cbb04088, 쿠키 dwanonymous_ec0ea5ba54cffae3eac8df2f4eed3f3d, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html": {
+    "v": "comp",
+    "note": "Polyester 100% / Nylon 100%",
+    "comp": "Polyester 100%\nNylon 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Navigate Sherpa Longline Puffer - Black | Women&#x27;s Jackets + Coats | Sweaty Betty",
+     "bytes": 1236579,
+     "textLen": 2528,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff822cf967d7aa-IAD",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "via": "1.1 64d4305f6a0418824e90908ac490184e.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "4ncD3IqM42PusUXY9qEnVa-lZwn5N1opZyqa1qYct5HaoKF2kULZlg==",
+      "x-amz-cf-pop": "IAD61-P10",
+      "x-cache": "Miss from cloudfront"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Navigate Sherpa Longline Puffer - Black | Women&#x27;s Jackets + Coats | Sweaty Betty Created with Sketch. Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "CloudFront"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "CloudFront: x-amz-cf-* 헤더"
+     ]
+    }
+   },
+   "https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Wrap London - Cotton jersey high-neck sweatshirt",
+     "bytes": 234102,
+     "textLen": 4660,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff82321a1715b7-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXhqvzdbBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Wrap London - Cotton jersey high-neck sweatshirt Skip to main content Skip to footer content Search Get in touch 1 855 920 6002 Search Clear We could't find any matching results. Try another search term or perhaps you'd "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Buy Niamh Logo T-Shirt for N/A 0.0 | BARBOUR_ROW",
+     "bytes": 310933,
+     "textLen": 6861,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff82358fb71757-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "3gFya4ilBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_1e532452c54fb0368ba9b98273",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Buy Niamh Logo T-Shirt for N/A 0.0 | BARBOUR_ROW Click to view our Accessibility Statement Skip to main content Skip to footer content Barbour Home Barbour Home Barbour Home search Search hamburger Barbour Home Barbour H"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_1e532452c54fb0368ba9b98273, 쿠키 dwanonymous_fad861a9ba68573238e98b619c71bf9d, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/products/perfect-crew-slub-t-shirt-in-pink": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women&#39;s Perfect Crew Cotton-Slub Tee in White from Crew Clothing Company",
+     "bytes": 645572,
+     "textLen": 11860,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff823b8be2868a-IAD",
+      "content-length": "85113",
+      "content-type": "text/html; charset=utf-8",
+      "powered-by": "Shopify",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "_shopify_cmp"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women's Perfect Crew Cotton-Slub Tee in White from Crew Clothing Company your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6119,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ff823dab74d707-IAD",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334": {
+    "v": "open",
+    "note": "글 9556자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Perfect Rib Long-sleeve T-shirt In Stripe For Women | J.Crew",
+     "bytes": 1438436,
+     "textLen": 9282,
+     "headers": {
+      "akamai-grn": "0.d6ab3717.1795597705.25271678",
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM,2"
+     },
+     "cookies": [
+      "jcrew_country",
+      "AKA_A2",
+      "traffic_context",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Perfect Rib Long-sleeve T-shirt In Stripe For Women | J.Crew Skip to Main Content J.Crew Passport gives you... Free shipping on jcrew.com, personalized rewards & offers, birthday gifts and so much more. Sign up Learn mor"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.luckybrand.com/lace-yoke-henley/169956.html": {
+    "v": "comp",
+    "note": "Cotton 95% / Elastane 5%",
+    "comp": "Cotton 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "LACE YOKE HENLEY | Lucky Brand",
+     "bytes": 375476,
+     "textLen": 9447,
+     "headers": {
+      "akamai-grn": "0.cf6adc17.1795597706.696eb8d5",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff82424db93958-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "x-akamai-transformed": "9 - 0 pmb=mNONE,1mRUM,2",
+      "x-dw-request-base-id": "QnY97NijBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_e03650a5b0f56eb20d07b43e59",
+      "cqcid",
+      "cquid",
+      "sid",
+      "analyticsAnonymusCustomer",
+      "dwanonymous_daf97866bcb36047de9f0e88cb49cc50",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "AKA_A2",
+      "_abck",
+      "ak_bmsc",
+      "bm_sz"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "LACE YOKE HENLEY | Lucky Brand Skip to main content Black Friday Event! Details Shop Womens Shop Mens All Denim Now 40% Off! Details Shop Womens Shop Mens 50% off Sweaters and Jackets Shop Sweaters Shop Jackets Free Grou"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 ak_bmsc, 쿠키 bm_sz",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_e03650a5b0f56eb20d07b43e59, 쿠키 dwanonymous_daf97866bcb36047de9f0e88cb49cc50, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-black": {
+    "v": "comp",
+    "note": "Cotton 97% / Elastane 3%",
+    "comp": "Cotton 97% / Elastane 3%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women&#x27;s Black Ultimate Fitted Rib Crew Neck Tee | ME+EM",
+     "bytes": 656497,
+     "textLen": 7387,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM,2",
+      "x-vercel-id": "lhr1::lhr1::6zkdw-1795597707061-2386ee948191"
+     },
+     "cookies": [
+      "ISO_639-1_language_code",
+      "ANONYMOUS_ANALYTICS_ID",
+      "is-paid-marketing-source",
+      "AKA_A2"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women&#x27;s Black Ultimate Fitted Rib Crew Neck Tee | ME+EM Complimentary gift-wrapping is available Express Delivery & Free Returns Import Duties and Taxes paid Stores 1-800-346-3108 New In Clothing Dresses Gifting Sho"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: x-akamai-* 헤더",
+      "Vercel: x-vercel-id 헤더"
+     ]
+    }
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/cassis-apparel-1WG10375007": {
+    "v": "comp",
+    "note": "Polyester 91% / Elastane 9%",
+    "comp": "Polyester 91% / Elastane 9%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women&#x27;s Studio Long-T | Purple | On United States",
+     "bytes": 491883,
+     "textLen": 2373,
+     "headers": {
+      "cf-cache-status": "HIT",
+      "cf-ray": "a5ff82477cf3f276-IAD",
+      "content-type": "text/html;charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Nuxt"
+     },
+     "cookies": [
+      "on_uuid",
+      "on_session_id",
+      "__cfwaitingroom_waitingroom"
+     ],
+     "markers": [
+      "maintenance",
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women&#x27;s Studio Long-T | Purple | On United States Skip to main content Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just add"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk &amp; cotton jersey T-shirt",
+     "bytes": 261703,
+     "textLen": 5044,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff82483aefc983-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXhMSNUuBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_0b368916da9b61fc75cbb04088",
+      "cqcid",
+      "cquid",
+      "dwanonymous_ec0ea5ba54cffae3eac8df2f4eed3f3d",
+      "sid",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Skip to main content Skip to footer content Search Call us 0800 066 8019 / Order by 8pm for next day delivery Search Clear We could't find any matching results. Try another search te"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0b368916da9b61fc75cbb04088, 쿠키 dwanonymous_ec0ea5ba54cffae3eac8df2f4eed3f3d, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_Black.html": {
+    "v": "comp",
+    "note": "Polyester 100%",
+    "comp": "Polyester 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Nimbus Longline Waterproof Puffer - Black | Women&#x27;s Jackets + Coats | Sweaty Betty",
+     "bytes": 1258162,
+     "textLen": 2760,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff824b8918d7aa-IAD",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "via": "1.1 64d4305f6a0418824e90908ac490184e.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "iYbs5geJxazdAwuYLGWeT7UFl2fxrlGtKGR28pHTcStgRdBuLcOR2A==",
+      "x-amz-cf-pop": "IAD61-P10",
+      "x-cache": "Hit from cloudfront"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Nimbus Longline Waterproof Puffer - Black | Women&#x27;s Jackets + Coats | Sweaty Betty Created with Sketch. Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.j"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "CloudFront"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "CloudFront: x-amz-cf-* 헤더"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/": {
+    "v": "blocked",
+    "note": "HTTP 403 Just a moment...",
+    "ev": {
+     "status": 403,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Just a moment...",
+     "bytes": 6089,
+     "textLen": 58,
+     "headers": {
+      "cf-mitigated": "challenge",
+      "cf-ray": "a5ff824c2f93d707-IAD",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "__cf_bm"
+     ],
+     "markers": [
+      "cf-challenge"
+     ],
+     "vendorRequests": [],
+     "snippet": "Just a moment... Enable JavaScript and cookies to continue"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "높음",
+     "why": "차단 화면 자체의 흔적",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, cf-mitigated: challenge, 쿠키 __cf_bm, 화면 흔적 cf-challenge"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/sweaters/crewneck/ME829": {
+    "v": "open",
+    "note": "글 8846자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Studded Boyfriend Jersey Relaxed Long-sleeve T-shirt For Women | J.Crew",
+     "bytes": 1418840,
+     "textLen": 8572,
+     "headers": {
+      "akamai-grn": "0.d6ab3717.1795597708.2527431c",
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM,2"
+     },
+     "cookies": [
+      "jcrew_country",
+      "AKA_A2",
+      "traffic_context",
+      "_abck",
+      "bm_s",
+      "bm_so",
+      "bm_sz"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Studded Boyfriend Jersey Relaxed Long-sleeve T-shirt For Women | J.Crew Skip to Main Content J.Crew Passport gives you... Free shipping on jcrew.com, personalized rewards & offers, birthday gifts and so much more. Sign u"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 _abck, 쿠키 bm_s, 쿠키 bm_so, 쿠키 bm_sz"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk &amp; cotton jersey T-shirt",
+     "bytes": 258075,
+     "textLen": 5040,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff82519e33c983-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "zXhZqaOiBmsBAAB_"
+     },
+     "cookies": [
+      "dwac_0b368916da9b61fc75cbb04088",
+      "cqcid",
+      "cquid",
+      "dwanonymous_ec0ea5ba54cffae3eac8df2f4eed3f3d",
+      "sid",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Skip to main content Skip to footer content Search Call us 0800 066 8019 / Order by 8pm for next day delivery Search Clear We could't find any matching results. Try another search te"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_0b368916da9b61fc75cbb04088, 쿠키 dwanonymous_ec0ea5ba54cffae3eac8df2f4eed3f3d, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   }
+  },
+  "site-api": {
+   "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "",
+     "bytes": 5000,
+     "textLen": 5000,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff82568f068257-IAD",
+      "content-length": "1499",
+      "content-type": "application/json; charset=utf-8",
+      "powered-by": "Shopify",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "cart_currency"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "{\"product\":{\"id\":11386890060118,\"title\":\"Ultimate Breton in Sand and White Stripes\",\"body_html\":\"\\u003cp\\u003eOur ultimate Breton top remains a forever favourite. In sand and white stripes, this one features three-quarte"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.meandem.com/us/piped-fitted-t-shirt-soft-white-rich-olive-green": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013": {
+    "v": "blocked",
+    "note": "HTTP 200 · JSON 아님",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.on.com/en-us/shop",
+     "redirect": "locale -→en-us",
+     "title": "",
+     "bytes": 5000,
+     "textLen": 52,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff825beb9b8c9d-IAD",
+      "content-type": "text/html;charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Nuxt"
+     },
+     "cookies": [
+      "locale",
+      "force_cs_locale",
+      "on_uuid",
+      "on_session_id",
+      "__cfwaitingroom_waitingroom"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "<link rel=\"modulepreload\" as=\"script\" crossorigin hr"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "낮음",
+     "why": "CDN 헤더만 있음(차단 문구 없음)",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.crewclothing.co.uk/products/perfect-crew-slub-t-shirt-in-pink": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "",
+     "bytes": 5000,
+     "textLen": 5000,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff825fcced8257-IAD",
+      "content-length": "1359",
+      "content-type": "application/json; charset=utf-8",
+      "powered-by": "Shopify",
+      "server": "cloudflare"
+     },
+     "cookies": [
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "cart_currency"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "{\"product\":{\"id\":11387230486870,\"title\":\"Perfect Crew Slub T-Shirt in Pink\",\"body_html\":\"Let us present the perfect crew neck slub t-shirt in pink. With roll cuffs and side split seam detail, this takes the classic tee a"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.luckybrand.com/lace-yoke-henley/169956.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-black": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/cassis-apparel-1WG10375007": {
+    "v": "blocked",
+    "note": "HTTP 200 · JSON 아님",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.on.com/en-us/shop",
+     "redirect": "locale -→en-us",
+     "title": "",
+     "bytes": 5000,
+     "textLen": 52,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff82616aba8c9d-IAD",
+      "content-type": "text/html;charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Nuxt"
+     },
+     "cookies": [
+      "locale",
+      "force_cs_locale",
+      "on_uuid",
+      "on_session_id",
+      "__cfwaitingroom_waitingroom"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "<link rel=\"modulepreload\" as=\"script\" crossorigin hr"
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "Cloudflare",
+     "confidence": "낮음",
+     "why": "CDN 헤더만 있음(차단 문구 없음)",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [],
+     "signals": [
+      "Cloudflare: cf-ray 헤더"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_Black.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/sweaters/crewneck/ME829": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html": {
+    "v": "err",
+    "note": "이 사이트용 JSON 주소를 모름",
+    "cause": "error"
+   }
+  },
+  "wayback": {
+   "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html": {
+    "v": "comp",
+    "note": "20260914 보관본 · Cotton 100%",
+    "comp": "Cotton 100%",
+    "cause": "ok"
+   },
+   "https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/": {
+    "v": "open",
+    "note": "20260517 보관본 · 글 7744자",
+    "cause": "no-comp"
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.meandem.com/us/piped-fitted-t-shirt-soft-white-rich-olive-green": {
+    "v": "comp",
+    "note": "20260809 보관본 · Cotton 52% / Modal 48% / Cotton 100%",
+    "comp": "Cotton 52% / Modal 48%\nCotton 100%",
+    "cause": "ok"
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html": {
+    "v": "comp",
+    "note": "20261107 보관본 · Cotton 100%",
+    "comp": "Cotton 100%",
+    "cause": "ok"
+   },
+   "https://www.crewclothing.co.uk/products/perfect-crew-slub-t-shirt-in-pink": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.luckybrand.com/lace-yoke-henley/169956.html": {
+    "v": "comp",
+    "note": "20260808 보관본 · Cotton 95% / Elastane 5%",
+    "comp": "Cotton 95% / Elastane 5%",
+    "cause": "ok"
+   },
+   "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-black": {
+    "v": "comp",
+    "note": "20260812 보관본 · Cotton 97% / Elastane 3%",
+    "comp": "Cotton 97% / Elastane 3%",
+    "cause": "ok"
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/cassis-apparel-1WG10375007": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_Black.html": {
+    "v": "comp",
+    "note": "20260611 보관본 · Polyester 100%",
+    "comp": "Polyester 100%",
+    "cause": "ok"
+   },
+   "https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/sweaters/crewneck/ME829": {
+    "v": "comp",
+    "note": "20260213 보관본 · Cotton 100%",
+    "comp": "Cotton 100%",
+    "cause": "ok"
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html": {
+    "v": "err",
+    "note": "보관본 없음",
+    "cause": "no-archive"
+   }
+  },
+  "playwright": {
+   "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html": {
+    "v": "open",
+    "note": "글 15571자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Wrap London - Tencel & cotton striped jersey top",
+     "bytes": 299355,
+     "textLen": 15498,
+     "headers": {
+      "cf-ray": "a5ff82f6b9521d4c-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "zXhWiDQ4BmsBAAB_"
+     },
+     "cookies": [
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Wrap London - Tencel & cotton striped jersey top Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navig"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Buy Rosalie T-Shirt for N/A 0.0 | BARBOUR_ROW",
+     "bytes": 263858,
+     "textLen": 6976,
+     "headers": {
+      "cf-ray": "a5ff83090db0745b-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "3gH_baqlBmsBAAB_"
+     },
+     "cookies": [
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Buy Rosalie T-Shirt for N/A 0.0 | BARBOUR_ROW Click to view our Accessibility Statement Skip to main content Skip to footer content Barbour Home Barbour Home Barbour Home search Search hamburger Barbour Home Barbour Home"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Ultimate Breton in Sand and White Stripes from Crew Clothing Company",
+     "bytes": 600167,
+     "textLen": 12727,
+     "headers": {
+      "cf-ray": "a5ff834138ca868a-IAD",
+      "content-length": "85120",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "powered-by": "Shopify"
+     },
+     "cookies": [
+      "GlobalE_Analytics",
+      "wdid5174",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria",
+      "ts",
+      "lantern",
+      "_clck",
+      "ff_uid",
+      "g",
+      "c",
+      "5568_lantern",
+      "_ga"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women's Ultimate Breton in Sand and White Stripes from Crew Clothing Company your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipp"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify",
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/": {
+    "v": "open",
+    "note": "글 16448자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Wintertide Waffle Tee - Coldwater Creek",
+     "bytes": 1263284,
+     "textLen": 16211,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff835b6fb8d6e0-IAD",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "via": "1.1 google"
+     },
+     "cookies": [
+      "__apex_test__",
+      "__cf_ob",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria",
+      "ts",
+      "lantern",
+      "_clck",
+      "ff_uid",
+      "g",
+      "c"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/precurso"
+     ],
+     "snippet": "Wintertide Waffle Tee - Coldwater Creek 25% Off + FREE SHIPPING Your entire order with code CREEK25 Shop Now DETAILS × *Offer ends 11/28/26 at 11:59 p.m. ET. For online and phone orders, use the code CREEK25 to redeem of"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.coldwatercreek.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Feather Jersey Turtleneck In Plaid For Women | J.Crew",
+     "bytes": 1698134,
+     "textLen": 18310,
+     "headers": {
+      "akamai-grn": "0.d6ab3717.1795597761.252aa3cd",
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM,2"
+     },
+     "cookies": [
+      "__apex_test__",
+      "__cf_ob",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria",
+      "ts",
+      "lantern",
+      "_clck",
+      "ff_uid",
+      "g",
+      "c"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Feather Jersey Turtleneck In Plaid For Women | J.Crew Your browser does not support iframes. Skip to Main Content The Black Friday Event: 40% off your purchase* Shop women Shop men Shop girls Shop boys The Black Friday E"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Akamai: akamai-grn 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency",
+      "Cloudflare: 쿠키 __cf_bm"
+     ]
+    }
+   },
+   "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html": {
+    "v": "comp",
+    "note": "Polyester 63% / Viscose 33% / Elastane 4%",
+    "comp": "Polyester 63% / Viscose 33% / Elastane 4%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html#main",
+     "redirect": "",
+     "title": "BRUSHED BOAT NECK BANDED TOP | Lucky Brand",
+     "bytes": 485332,
+     "textLen": 10862,
+     "headers": {
+      "akamai-grn": "0.12deda17.1795597771.9e236a",
+      "cf-ray": "a5ff83d4e9fe180d-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "x-akamai-transformed": "9 - 0 pmb=mNONE,1mRUM,2",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "QnZ5aISlBmsBAAB_"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "_GRECAPTCHA",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.gstatic.com/recaptcha/api2/logo_48.png",
+      "www.google.com/recaptcha/api2/webworker.js"
+     ],
+     "snippet": "BRUSHED BOAT NECK BANDED TOP | Lucky Brand Enable accessibility Skip to main content Free Ground Shipping On All US Orders Over $85+ Details Black Friday Event! Details Shop Womens Shop Mens All Denim Now 40% Off! Detail"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Akamai: akamai-grn 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.meandem.com/us/piped-fitted-t-shirt-soft-white-rich-olive-green": {
+    "v": "comp",
+    "note": "Cotton 52% / Modal 48% / Cotton 100%",
+    "comp": "Cotton 52% / Modal 48%\nCotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's White Contrast Trim Fitted Tee | ME+EM",
+     "bytes": 782333,
+     "textLen": 7953,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-akamai-transformed": "9 93680 0 pmb=mRUM,2",
+      "x-vercel-id": "lhr1::lhr1::pltgf-1795597775769-1edc5d75bccc"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "_GRECAPTCHA",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women's White Contrast Trim Fitted Tee | ME+EM Complimentary gift-wrapping is available Express Delivery & Free Returns Import Duties and Taxes paid Stores 1-800-346-3108 New In Clothing Dresses Gifting Shoes Accessories"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Akamai: x-akamai-* 헤더",
+      "Vercel: x-vercel-id 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency",
+      "Cloudflare: 쿠키 __cf_bm"
+     ]
+    }
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013": {
+    "v": "comp",
+    "note": "Polyester 91% / Elastane 9%",
+    "comp": "Polyester 91% / Elastane 9%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Studio Long-T | Brown | On United States",
+     "bytes": 1006845,
+     "textLen": 13175,
+     "headers": {
+      "cf-cache-status": "HIT",
+      "cf-ray": "a5ff840fbf95f784-IAD",
+      "content-type": "text/html;charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Nuxt"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "GlobalE_Analytics",
+      "cuid",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.on.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.on.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.on.com/cdn-cgi/challenge-platform/h/b/jsd/ones"
+     ],
+     "snippet": "Women's Studio Long-T | Brown | On United States Skip to main content Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. Sh"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 불러온 주소 www.on.com/cdn-cgi/challenge-platform/scripts/jsd/, 불러온 주소 www.on.com/cdn-cgi/challenge-platform/h/b/scripts/, 불러온 주소 www.on.com/cdn-cgi/challenge-platform/h/b/jsd/ones",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk & cotton jersey T-shirt",
+     "bytes": 310971,
+     "textLen": 15852,
+     "headers": {
+      "cf-ray": "a5ff84488fbbc983-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "WXh7opmbBmsBAAB_"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "GlobalE_Analytics",
+      "cuid",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navigation, anal"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html": {
+    "v": "comp",
+    "note": "Polyester 100% / Nylon 100%",
+    "comp": "Polyester 100%\nNylon 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Navigate Sherpa Longline Puffer - Black | Women's Jackets + Coats | Sweaty Betty",
+     "bytes": 1462891,
+     "textLen": 7136,
+     "headers": {
+      "cf-ray": "a5ff845bbf3ed7aa-IAD",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "via": "1.1 64d4305f6a0418824e90908ac490184e.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "mfmZwWu0vsfQbKrg8iVG4fQvDCaOZGW2PBs9QoCDwtEEx2qf26X3xw==",
+      "x-amz-cf-pop": "IAD61-P10",
+      "x-cache": "Hit from cloudfront"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "GlobalE_Analytics",
+      "cuid",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.gstatic.com/recaptcha/api2/logo_48.png",
+      "www.google.com/recaptcha/api2/webworker.js"
+     ],
+     "snippet": "Navigate Sherpa Longline Puffer - Black | Women's Jackets + Coats | Sweaty Betty Created with Sketch. Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.2"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "CloudFront"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "CloudFront: x-amz-cf-* 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Wrap London - Cotton jersey high-neck sweatshirt",
+     "bytes": 291712,
+     "textLen": 15164,
+     "headers": {
+      "cf-ray": "a5ff846d189681bd-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "WXhqvzdbBmsBAAB_"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "GlobalE_Analytics",
+      "cuid",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Wrap London - Cotton jersey high-neck sweatshirt Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navig"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Buy Niamh Logo T-Shirt for N/A 0.0 | BARBOUR_ROW",
+     "bytes": 264688,
+     "textLen": 7169,
+     "headers": {
+      "cf-ray": "a5ff84804b57c991-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "3wF6pOalBmsBAAB_"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "GlobalE_Analytics",
+      "cuid",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "__rtbh.lid",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ometria",
+      "ts"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Buy Niamh Logo T-Shirt for N/A 0.0 | BARBOUR_ROW Click to view our Accessibility Statement Skip to main content Skip to footer content Barbour Home Barbour Home Barbour Home search Search hamburger Barbour Home Barbour H"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/products/perfect-crew-slub-t-shirt-in-pink": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Perfect Crew Cotton-Slub Tee in White from Crew Clothing Company",
+     "bytes": 636516,
+     "textLen": 13377,
+     "headers": {
+      "cf-ray": "a5ff84b82d83868a-IAD",
+      "content-length": "85140",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "powered-by": "Shopify"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women's Perfect Crew Cotton-Slub Tee in White from Crew Clothing Company your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify",
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Prancing Reindeer Embroidered Tee - Coldwater Creek",
+     "bytes": 970732,
+     "textLen": 15368,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff84d06d6177fd-IAD",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "via": "1.1 google"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/precurso"
+     ],
+     "snippet": "Prancing Reindeer Embroidered Tee - Coldwater Creek 25% Off + FREE SHIPPING Your entire order with code CREEK25 Shop Now DETAILS × *Offer ends 11/28/26 at 11:59 p.m. ET. For online and phone orders, use the code CREEK25 "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.coldwatercreek.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334": {
+    "v": "comp",
+    "note": "Cotton 57% / Lyocell 39% / Elastane 4%",
+    "comp": "Cotton 57% / Lyocell 39% / Elastane 4%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Perfect Rib Long-sleeve T-shirt In Stripe For Women | J.Crew",
+     "bytes": 1710206,
+     "textLen": 18602,
+     "headers": {
+      "akamai-grn": "0.d6ab3717.1795597814.252b3a5a",
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM,2"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Perfect Rib Long-sleeve T-shirt In Stripe For Women | J.Crew Your browser does not support iframes. Skip to Main Content The Black Friday Event: 40% off your purchase* Shop women Shop men Shop girls Shop boys The Black F"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Akamai: akamai-grn 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency",
+      "Cloudflare: 쿠키 __cf_bm"
+     ]
+    }
+   },
+   "https://www.luckybrand.com/lace-yoke-henley/169956.html": {
+    "v": "comp",
+    "note": "Cotton 95% / Elastane 5%",
+    "comp": "Cotton 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.luckybrand.com/lace-yoke-henley/169956.html#main",
+     "redirect": "",
+     "title": "LACE YOKE HENLEY | Lucky Brand",
+     "bytes": 631346,
+     "textLen": 14952,
+     "headers": {
+      "akamai-grn": "0.12deda17.1795597824.9e2aae",
+      "cf-ray": "a5ff852108d772d4-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "x-akamai-transformed": "9 - 0 pmb=mNONE,1mRUM,2",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "QnY97NijBmsBAAB_"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.gstatic.com/recaptcha/api2/logo_48.png",
+      "www.google.com/recaptcha/api2/webworker.js"
+     ],
+     "snippet": "LACE YOKE HENLEY | Lucky Brand Enable accessibility Skip to main content Free Ground Shipping On All US Orders Over $85+ Details Black Friday Event! Details Shop Womens Shop Mens All Denim Now 40% Off! Details Shop Women"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Akamai: akamai-grn 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-black": {
+    "v": "comp",
+    "note": "Cotton 97% / Elastane 3%",
+    "comp": "Cotton 97% / Elastane 3%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Black Ultimate Fitted Rib Crew Neck Tee | ME+EM",
+     "bytes": 782982,
+     "textLen": 8171,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM,2",
+      "x-vercel-id": "lhr1::lhr1::f7vz4-1795597828987-ce6d9219113c"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women's Black Ultimate Fitted Rib Crew Neck Tee | ME+EM Unlock 10% off your first order Share your email for early access to our newest collections and offers, plus a 10% off welcome code for your first full-price order."
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Akamai: x-akamai-* 헤더",
+      "Vercel: x-vercel-id 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency",
+      "Cloudflare: 쿠키 __cf_bm"
+     ]
+    }
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/cassis-apparel-1WG10375007": {
+    "v": "comp",
+    "note": "Polyester 91% / Elastane 9%",
+    "comp": "Polyester 91% / Elastane 9%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Studio Long-T | Purple | On United States",
+     "bytes": 1023361,
+     "textLen": 13653,
+     "headers": {
+      "cf-cache-status": "HIT",
+      "cf-ray": "a5ff85562e9cf784-IAD",
+      "content-type": "text/html;charset=utf-8",
+      "server": "cloudflare",
+      "x-powered-by": "Nuxt"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women's Studio Long-T | Purple | On United States Skip to main content Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. S"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk & cotton jersey T-shirt",
+     "bytes": 319477,
+     "textLen": 15936,
+     "headers": {
+      "cf-ray": "a5ff85918f6cc983-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "WXhMSNUuBmsBAAB_"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navigation, anal"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_Black.html": {
+    "v": "comp",
+    "note": "Polyester 100%",
+    "comp": "Polyester 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Nimbus Longline Waterproof Puffer - Black | Women's Jackets + Coats | Sweaty Betty",
+     "bytes": 1491122,
+     "textLen": 7469,
+     "headers": {
+      "cf-ray": "a5ff85a34bf3d7aa-IAD",
+      "content-type": "text/html; charset=utf-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "via": "1.1 64d4305f6a0418824e90908ac490184e.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "h_Hyi8MqnIP9xih0W4KWHP-ZHh7AQgo4LzH-btw3RJoPMKmUku0THw==",
+      "x-amz-cf-pop": "IAD61-P10",
+      "x-cache": "Miss from cloudfront"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern",
+      "_clck"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.gstatic.com/recaptcha/api2/logo_48.png",
+      "www.google.com/recaptcha/api2/webworker.js"
+     ],
+     "snippet": "Nimbus Longline Waterproof Puffer - Black | Women's Jackets + Coats | Sweaty Betty Created with Sketch. Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "CloudFront"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "CloudFront: x-amz-cf-* 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Gilded Bow Ornament Tee - Coldwater Creek",
+     "bytes": 936097,
+     "textLen": 14839,
+     "headers": {
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff85b8e890d641-IAD",
+      "content-type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "via": "1.1 google"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwapupreq",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/precurso"
+     ],
+     "snippet": "Gilded Bow Ornament Tee - Coldwater Creek 25% Off + FREE SHIPPING Your entire order with code CREEK25 Shop Now DETAILS × *Offer ends 11/28/26 at 11:59 p.m. ET. For online and phone orders, use the code CREEK25 to redeem "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 화면 흔적 cf-script, 불러온 주소 www.coldwatercreek.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/sweaters/crewneck/ME829": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Studded Boyfriend Jersey Relaxed Long-sleeve T-shirt For Women | J.Crew",
+     "bytes": 1716208,
+     "textLen": 18081,
+     "headers": {
+      "akamai-grn": "0.d6ab3717.1795597852.252ef181",
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM,2"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwapupreq",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Studded Boyfriend Jersey Relaxed Long-sleeve T-shirt For Women | J.Crew Your browser does not support iframes. Skip to Main Content The Black Friday Event: 40% off your purchase* Shop women Shop men Shop girls Shop boys "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Akamai: akamai-grn 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency",
+      "Cloudflare: 쿠키 __cf_bm"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk & cotton jersey T-shirt",
+     "bytes": 316235,
+     "textLen": 15938,
+     "headers": {
+      "cf-ray": "a5ff86033bf6de56-IAD",
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "WXiLlHFrBmsBAAB_"
+     },
+     "cookies": [
+      "cee",
+      "__apex_test__",
+      "__cf_ob",
+      "taboola_session_id",
+      "X-AB",
+      "_GRECAPTCHA",
+      "cuid",
+      "GlobalE_Analytics",
+      "wdid5174",
+      "bounceClientVisit4364c",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "dwapupreq",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "uuid",
+      "__cq_uuid",
+      "__cq_seg",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cart_currency",
+      "__cf_bm",
+      "cc_sf_token",
+      "cart",
+      "2c.cId",
+      "cc_session_id",
+      "_gcl_au",
+      "_pandectes_gdpr",
+      "ts",
+      "lantern"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navigation, anal"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud",
+      "Shopify"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt",
+      "Shopify: 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency"
+     ]
+    }
+   }
+  },
+  "firefox": {
+   "https://www.wraplondon.com/jersey-tops/tencel-cotton-striped-jersey-top-blue-stone/TH87.A.html": {
+    "v": "open",
+    "note": "글 15571자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Wrap London - Tencel & cotton striped jersey top",
+     "bytes": 299218,
+     "textLen": 15498,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXiAXyJmBmsBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff86217e6e15b7-IAD"
+     },
+     "cookies": [
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Wrap London - Tencel & cotton striped jersey top Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navig"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.barbour.com/row/rosalie-t-shirt-LTS0730WH11.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Buy Rosalie T-Shirt for N/A 0.0 | BARBOUR_ROW",
+     "bytes": 263926,
+     "textLen": 6976,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "3gH_baqlBmsBAAB_",
+      "server": "cloudflare",
+      "cf-ray": "a5ff86369a201757-IAD"
+     },
+     "cookies": [
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "uuid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Buy Rosalie T-Shirt for N/A 0.0 | BARBOUR_ROW Click to view our Accessibility Statement Skip to main content Skip to footer content Barbour Home Barbour Home Barbour Home search Search hamburger Barbour Home Barbour Home"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/products/ultimate-breton-in-sand-and-white-stripes": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Ultimate Breton in Sand and White Stripes from Crew Clothing Company",
+     "bytes": 609999,
+     "textLen": 13315,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "85100",
+      "powered-by": "Shopify",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "cf-ray": "a5ff866df995868a-IAD"
+     },
+     "cookies": [
+      "__cf_bm",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "test_cookie",
+      "5568_lantern",
+      "_shop_app_essential",
+      "g",
+      "c",
+      "ts",
+      "dwac_1e532452c54fb0368ba9b98273",
+      "dwanonymous_fad861a9ba68573238e98b619c71bf9d",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "usprivacy",
+      "_iub_cs-57449677-uspr",
+      "_shopify_essential",
+      "_shopify_analytics",
+      "_shopify_marketing",
+      "localization",
+      "cc_sf_token",
+      "cc_session_id",
+      "_gcl_au",
+      "lantern",
+      "cart",
+      "cart_currency",
+      "_ga",
+      "_clck",
+      "FPAU",
+      "_pandectes_gdpr",
+      "FPLC",
+      "_shopify_cmp",
+      "mktz_sess",
+      "mktz_client"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women's Ultimate Breton in Sand and White Stripes from Crew Clothing Company your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipp"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify",
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Shopify: x-shopify-*/powered-by 헤더, 쿠키 _shopify_essential, 쿠키 _shopify_analytics, 쿠키 _shopify_marketing, 쿠키 cart_currency",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/wintertide-waffle-tee/22279/": {
+    "v": "open",
+    "note": "글 16437자",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Wintertide Waffle Tee - Coldwater Creek",
+     "bytes": 1254188,
+     "textLen": 16200,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-ray": "a5ff868669f1e5f3-IAD",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 google"
+     },
+     "cookies": [
+      "browser_data",
+      "__cf_bm",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "IDE",
+      "_ttp",
+      "fr",
+      "5568_lantern",
+      "_shop_app_essential",
+      "SF-CSRF-TOKEN",
+      "fornax_anonymousId",
+      "athena_short_visit_id",
+      "Shopper-Pref",
+      "Shopper-Pref-v2",
+      "XSRF-TOKEN",
+      "SHOP_SESSION_TOKEN",
+      "SHOP_RENDER_VERIFICATION_TOKEN",
+      "ABTastySession",
+      "ABTasty",
+      "STORE_VISITOR",
+      "ssUserId",
+      "ssSessionId",
+      "ssViewedProducts",
+      "_hjSessionUser_5093710",
+      "_hjSession_5093710",
+      "_hjHasCachedUserAttributes",
+      "__apex_test__",
+      "cf_clearance",
+      "LaVisitorNew",
+      "LaVisitorId_Y29sZHdhdGVyY3JlZWsubGFkZXNrLmNvbS8",
+      "LaSID",
+      "yotpo_pixel",
+      "_clck",
+      "client_session_id"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/precurso"
+     ],
+     "snippet": "Wintertide Waffle Tee - Coldwater Creek 25% Off + FREE SHIPPING Your entire order with code CREEK25 Shop Now DETAILS × *Offer ends 11/28/26 at 11:59 p.m. ET. For online and phone orders, use the code CREEK25 to redeem of"
+    },
+    "cause": "no-comp",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 cf_clearance, 화면 흔적 cf-script, 불러온 주소 www.coldwatercreek.com/cdn-cgi/challenge-platform/",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/matching-sets/MQ341": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Feather Jersey Turtleneck In Plaid For Women | J.Crew",
+     "bytes": 1486774,
+     "textLen": 11304,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM, 2",
+      "akamai-grn": "0.4b6adc17.1795597890.25c6b0"
+     },
+     "cookies": [
+      "browser_data",
+      "uuid2",
+      "anj",
+      "__cf_bm",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "IDE",
+      "_pinterest_ct_ua",
+      "akloc",
+      "u",
+      "ab",
+      "sessionid",
+      "5568_lantern",
+      "_shop_app_essential",
+      "REQUEST_SESSION_ID",
+      "jcrew_country",
+      "AKA_A2",
+      "traffic_context",
+      "bm_so",
+      "rxVisitor",
+      "dtSa",
+      "PIM-SESSION-ID",
+      "ConstructorioID_client_id",
+      "bm_lso",
+      "gtp_pv",
+      "loyaltyTargetting",
+      "builder.userAttributes",
+      "insyncai_chat_uuid",
+      "_abck",
+      "bm_sz",
+      "dwac_0ca8e68c163dc97afe348ea810",
+      "visitsCount",
+      "dwanonymous_c02fe9a9869b5fa3470198fefacb6bcc",
+      "sessionBasket"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Feather Jersey Turtleneck In Plaid For Women | J.Crew Your browser does not support iframes. Skip to Main Content J.Crew Passport gives you... Free shipping on jcrew.com, personalized rewards & offers, birthday gifts and"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Akamai",
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Akamai: akamai-grn 헤더, 쿠키 bm_so, 쿠키 bm_lso, 쿠키 _abck, 쿠키 bm_sz",
+      "Cloudflare: 쿠키 __cf_bm",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html": {
+    "v": "comp",
+    "note": "Polyester 63% / Viscose 33% / Elastane 4%",
+    "comp": "Polyester 63% / Viscose 33% / Elastane 4%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.luckybrand.com/brushed-boat-neck-banded-top/170762.html#main",
+     "redirect": "",
+     "title": "BRUSHED BOAT NECK BANDED TOP | Lucky Brand",
+     "bytes": 445549,
+     "textLen": 10368,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "x-dw-request-base-id": "QnZ5aISlBmsBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff86eaed1b241f-IAD",
+      "x-akamai-transformed": "9 - 0 pmb=mNONE, 1mRUM, 2",
+      "akamai-grn": "0.08deda17.1795597897.2b401a1"
+     },
+     "cookies": [
+      "browser_data",
+      "uuid2",
+      "anj",
+      "__cf_bm",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "IDE",
+      "_pinterest_ct_ua",
+      "akloc",
+      "u",
+      "ab",
+      "sessionid",
+      "dwac_e03650a5b0f56eb20d07b43e59",
+      "analyticsAnonymusCustomer",
+      "dwanonymous_daf97866bcb36047de9f0e88cb49cc50",
+      "AKA_A2",
+      "ak_bmsc",
+      "bm_sz",
+      "__attn_eat_id",
+      "optimizelyEndUserId",
+      "_abck",
+      "_dd_s",
+      "__cq_uuid",
+      "__cq_bc",
+      "__cq_seg",
+      "__attentive_id",
+      "_attn_",
+      "__attentive_cco",
+      "gtm_sess_params",
+      "gtm_sess_ts",
+      "logged_in_status",
+      "gtmPageviewCount",
+      "_rdt_uuid",
+      "__rtbh.uid"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.gstatic.com/recaptcha/api2/logo_48.png",
+      "www.google.com/recaptcha/api2/webworker.js"
+     ],
+     "snippet": "BRUSHED BOAT NECK BANDED TOP | Lucky Brand Enable accessibility Skip to main content Free Ground Shipping On All US Orders Over $85+ Details Black Friday Event! Details Shop Womens Shop Mens All Denim Now 40% Off! Detail"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare",
+      "Akamai"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm",
+      "Akamai: akamai-grn 헤더, 쿠키 ak_bmsc, 쿠키 bm_sz, 쿠키 _abck",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.meandem.com/us/piped-fitted-t-shirt-soft-white-rich-olive-green": {
+    "v": "comp",
+    "note": "Cotton 52% / Modal 48% / Cotton 100%",
+    "comp": "Cotton 52% / Modal 48%\nCotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's White Contrast Trim Fitted Tee | ME+EM",
+     "bytes": 777862,
+     "textLen": 7844,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-vercel-id": "lhr1::lhr1::wdsqm-1795597901248-bf78e411efbf",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "browser_data",
+      "anj",
+      "uuid2",
+      "__cf_bm",
+      "GlobalE_Data",
+      "ISO_639-1_language_code",
+      "ANONYMOUS_ANALYTICS_ID",
+      "is-paid-marketing-source",
+      "AKA_A2",
+      "ometria",
+      "GlobalE_Full_Redirect",
+      "_gcl_au",
+      "_ga",
+      "GlobalE_SupportThirdPartCookies",
+      "OptanonConsent",
+      "FPAU",
+      "FPGSID",
+      "__Host-next-auth.csrf-token",
+      "__Secure-next-auth.callback-url",
+      "RT",
+      "OneTrustCookieBannerDisabled",
+      "_svsid",
+      "_dd_s",
+      "GlobalE_Analytics",
+      "_ALGOLIA",
+      "FPID",
+      "_gtmeec",
+      "_gtmeec-tt",
+      "FPLC",
+      "_ga_T33LY9PM88",
+      "_fbp",
+      "_ttp",
+      "_tt_enable_cookie",
+      "ttcsid_C70TVVDHGFJ2F6MAUKQG",
+      "ttcsid",
+      "_pin_unauth",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women's White Contrast Trim Fitted Tee | ME+EM Complimentary gift-wrapping is available Express Delivery & Free Returns Import Duties and Taxes paid Stores 1-800-346-3108 New In Clothing Dresses Gifting Shoes Accessories"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Akamai: x-akamai-* 헤더",
+      "Vercel: x-vercel-id 헤더",
+      "Cloudflare: 쿠키 __cf_bm",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e"
+     ]
+    }
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/clay-apparel-1WG10375013": {
+    "v": "comp",
+    "note": "Polyester 91% / Elastane 9%",
+    "comp": "Polyester 91% / Elastane 9%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Studio Long-T | Brown | On United States",
+     "bytes": 1001661,
+     "textLen": 13175,
+     "headers": {
+      "content-type": "text/html;charset=utf-8",
+      "cf-ray": "a5ff871bb905f276-IAD",
+      "cf-cache-status": "HIT",
+      "server": "cloudflare",
+      "x-powered-by": "Nuxt"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token",
+      "order_guest_token",
+      "v1_0_0",
+      "cai_sid"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.on.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "www.on.com/cdn-cgi/challenge-platform/h/g/scripts/",
+      "www.on.com/cdn-cgi/challenge-platform/h/g/jsd/ones"
+     ],
+     "snippet": "Women's Studio Long-T | Brown | On United States Skip to main content Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. Sh"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance, 불러온 주소 www.on.com/cdn-cgi/challenge-platform/scripts/jsd/",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-midnight/RW51.A.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk & cotton jersey T-shirt",
+     "bytes": 310836,
+     "textLen": 15852,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXh7opmbBmsBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff875a2dc1184b-IAD"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token",
+      "order_guest_token",
+      "v1_0_0",
+      "cai_sid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navigation, anal"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/navigate-sherpa-longline-puffer-SB04475_Black.html": {
+    "v": "comp",
+    "note": "Polyester 100% / Nylon 100%",
+    "comp": "Polyester 100%\nNylon 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Navigate Sherpa Longline Puffer - Black | Women's Jackets + Coats | Sweaty Betty",
+     "bytes": 1462733,
+     "textLen": 7136,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-cache": "Hit from cloudfront",
+      "via": "1.1 9bce423254194c16408d5cf7234126e2.cloudfront.net (CloudFront)",
+      "x-amz-cf-pop": "IAD61-P10",
+      "x-amz-cf-id": "ozfBoMCeblCEJkglSZWkWhJUHHbwhHjKID5nfECrlgP7fShX6Bpbdw==",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "cf-ray": "a5ff8778ffce5629-IAD"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token",
+      "order_guest_token",
+      "v1_0_0",
+      "cai_sid"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.gstatic.com/recaptcha/api2/logo_48.png",
+      "www.google.com/recaptcha/api2/webworker.js"
+     ],
+     "snippet": "Navigate Sherpa Longline Puffer - Black | Women's Jackets + Coats | Sweaty Betty Created with Sketch. Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.2"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "CloudFront"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "CloudFront: x-amz-cf-* 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.wraplondon.com/jersey-tops/cotton-jersey-high-neck-sweatshirt-soft-slate-blue/TH89.B.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Wrap London - Cotton jersey high-neck sweatshirt",
+     "bytes": 291575,
+     "textLen": 15164,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXhqvzdbBmsBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff878c981215b7-IAD"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token",
+      "order_guest_token",
+      "v1_0_0",
+      "cai_sid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Wrap London - Cotton jersey high-neck sweatshirt Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navig"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.barbour.com/row/niamh-logo-t-shirt-LTS0735WH11.html": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Buy Niamh Logo T-Shirt for N/A 0.0 | BARBOUR_ROW",
+     "bytes": 264687,
+     "textLen": 7169,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "cf-cache-status": "DYNAMIC",
+      "x-dw-request-base-id": "3gFya4ilBmsBAAB_",
+      "server": "cloudflare",
+      "cf-ray": "a5ff87a17ce41757-IAD"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token",
+      "order_guest_token",
+      "v1_0_0",
+      "cai_sid"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Buy Niamh Logo T-Shirt for N/A 0.0 | BARBOUR_ROW Click to view our Accessibility Statement Skip to main content Skip to footer content Barbour Home Barbour Home Barbour Home search Search hamburger Barbour Home Barbour H"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.crewclothing.co.uk/products/perfect-crew-slub-t-shirt-in-pink": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Perfect Crew Cotton-Slub Tee in White from Crew Clothing Company",
+     "bytes": 634786,
+     "textLen": 13330,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "content-length": "85134",
+      "powered-by": "Shopify",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "cf-ray": "a5ff87d87b764f0a-IAD"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token",
+      "order_guest_token",
+      "v1_0_0",
+      "cai_sid"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [],
+     "snippet": "Women's Perfect Crew Cotton-Slub Tee in White from Crew Clothing Company your bag is empty Item added to bag Loading... Subtotal £0.00 View bag Checkout now 40% Off Gifts* | Pyjamas, Scarves, Bags and more Free shipping "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Shopify",
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Shopify: x-shopify-*/powered-by 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/prancing-reindeer-embroidered-tee/26058/": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Prancing Reindeer Embroidered Tee - Coldwater Creek",
+     "bytes": 891404,
+     "textLen": 15130,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-ray": "a5ff87f14adab4a7-IAD",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 google"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token",
+      "order_guest_token"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/scripts/",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/b/precurso"
+     ],
+     "snippet": "Prancing Reindeer Embroidered Tee - Coldwater Creek 25% Off + FREE SHIPPING Your entire order with code CREEK25 Shop Now DETAILS × *Offer ends 11/28/26 at 11:59 p.m. ET. For online and phone orders, use the code CREEK25 "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance, 화면 흔적 cf-script",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/tees-and-tanks/MQ334": {
+    "v": "comp",
+    "note": "Cotton 57% / Lyocell 39% / Elastane 4%",
+    "comp": "Cotton 57% / Lyocell 39% / Elastane 4%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Perfect Rib Long-sleeve T-shirt In Stripe For Women | J.Crew",
+     "bytes": 1518510,
+     "textLen": 12087,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l 182597 0 pmb=mRUM, 2",
+      "akamai-grn": "0.4b6adc17.1795597943.2668eb"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token",
+      "order_guest_token"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Perfect Rib Long-sleeve T-shirt In Stripe For Women | J.Crew Your browser does not support iframes. Skip to Main Content J.Crew Passport gives you... Free shipping on jcrew.com, personalized rewards & offers, birthday gi"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Akamai: akamai-grn 헤더",
+      "Cloudflare: 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.luckybrand.com/lace-yoke-henley/169956.html": {
+    "v": "comp",
+    "note": "Cotton 95% / Elastane 5%",
+    "comp": "Cotton 95% / Elastane 5%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "https://www.luckybrand.com/lace-yoke-henley/169956.html#main",
+     "redirect": "",
+     "title": "LACE YOKE HENLEY | Lucky Brand",
+     "bytes": 492170,
+     "textLen": 10610,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "x-dw-request-base-id": "QnY97NijBmsBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff88300de14ba7-IAD",
+      "x-akamai-transformed": "9 - 0 pmb=mNONE, 1mRUM, 2",
+      "akamai-grn": "0.08deda17.1795597949.2b4e5e8"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "trk",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name",
+      "guest_token"
+     ],
+     "markers": [],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.gstatic.com/recaptcha/api2/logo_48.png",
+      "www.google.com/recaptcha/api2/webworker.js"
+     ],
+     "snippet": "LACE YOKE HENLEY | Lucky Brand Enable accessibility Skip to main content Free Ground Shipping On All US Orders Over $85+ Details Black Friday Event! Details Shop Womens Shop Mens All Denim Now 40% Off! Details Shop Women"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Akamai: akamai-grn 헤더",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.meandem.com/us/ultimate-fitted-rib-crew-neck-tee-black": {
+    "v": "comp",
+    "note": "Cotton 97% / Elastane 3%",
+    "comp": "Cotton 97% / Elastane 3%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Black Ultimate Fitted Rib Crew Neck Tee | ME+EM",
+     "bytes": 777701,
+     "textLen": 7727,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-vercel-id": "lhr1::lhr1::jwswp-1795597953490-90ab0de53330",
+      "x-akamai-transformed": "9 - 0 pmb=mRUM, 2"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "GCLB",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "trk",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "on_exp_allocation",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "locale",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "on_rollout_test_group",
+      "on_rollout_test_name"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women's Black Ultimate Fitted Rib Crew Neck Tee | ME+EM Complimentary gift-wrapping is available Express Delivery & Free Returns Import Duties and Taxes paid Stores 1-800-346-3108 New In Clothing Dresses Gifting Shoes Ac"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai",
+      "Vercel"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Akamai: x-akamai-* 헤더",
+      "Vercel: x-vercel-id 헤더",
+      "Cloudflare: 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.on.com/en-us/products/studio-long-t-w-1wg1037/womens/cassis-apparel-1WG10375007": {
+    "v": "comp",
+    "note": "Polyester 91% / Elastane 9%",
+    "comp": "Polyester 91% / Elastane 9%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Women's Studio Long-T | Purple | On United States",
+     "bytes": 1022767,
+     "textLen": 13653,
+     "headers": {
+      "content-type": "text/html;charset=utf-8",
+      "cf-ray": "a5ff8865aa508de6-IAD",
+      "cf-cache-status": "HIT",
+      "server": "cloudflare",
+      "x-powered-by": "Nuxt"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "GCLB",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "trk",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "guest_token",
+      "order_guest_token",
+      "AwinChannelCookie",
+      "EXP_37c05b1384_identity"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "Women's Studio Long-T | Purple | On United States Skip to main content Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. Shop Last Season Up to 40% off. New styles just added. S"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-blackberry/RW51.C.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk & cotton jersey T-shirt",
+     "bytes": 319457,
+     "textLen": 15936,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "zXj8zJCmBmsBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff88a8ae62184b-IAD"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "GCLB",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "trk",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "guest_token",
+      "order_guest_token",
+      "AwinChannelCookie",
+      "EXP_37c05b1384_identity"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navigation, anal"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   },
+   "https://www.sweatybetty.com/us/shop/tops/jackets/nimbus-longline-waterproof-puffer-SB10381_Black.html": {
+    "v": "comp",
+    "note": "Polyester 100%",
+    "comp": "Polyester 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Nimbus Longline Waterproof Puffer - Black | Women's Jackets + Coats | Sweaty Betty",
+     "bytes": 1491129,
+     "textLen": 7469,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "x-cache": "Hit from cloudfront",
+      "via": "1.1 ea9784182c7536f5ce15ec71cf0089d6.cloudfront.net (CloudFront)",
+      "x-amz-cf-pop": "IAD61-P10",
+      "x-amz-cf-id": "YDtdDd0XsJJET288GRKbNh2OxlnfcuOANySMQBeBT870_45qB4pbxA==",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "cf-ray": "a5ff88c75f6431b5-IAD"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "GCLB",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "trk",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "guest_token",
+      "order_guest_token",
+      "AwinChannelCookie",
+      "EXP_37c05b1384_identity"
+     ],
+     "markers": [
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.google.com/recaptcha/api2/anchor",
+      "www.gstatic.com/recaptcha/api2/logo_48.png",
+      "www.google.com/recaptcha/api2/webworker.js"
+     ],
+     "snippet": "Nimbus Longline Waterproof Puffer - Black | Women's Jackets + Coats | Sweaty Betty Created with Sketch. Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7.22 Created with Fabric.js 1.7"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare",
+      "CloudFront"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "CloudFront: x-amz-cf-* 헤더",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.coldwatercreek.com/gilded-bow-ornament-tee/26059/": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Gilded Bow Ornament Tee - Coldwater Creek",
+     "bytes": 836631,
+     "textLen": 14259,
+     "headers": {
+      "content-type": "text/html; charset=UTF-8",
+      "cf-ray": "a5ff88db2eca81f3-IAD",
+      "cf-cache-status": "DYNAMIC",
+      "server": "cloudflare",
+      "via": "1.1 google"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "GCLB",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "trk",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "guest_token",
+      "order_guest_token",
+      "AwinChannelCookie",
+      "EXP_37c05b1384_identity"
+     ],
+     "markers": [
+      "cf-script",
+      "captcha"
+     ],
+     "vendorRequests": [
+      "www.google.com/recaptcha/api.js",
+      "www.gstatic.com/recaptcha/releases/DqDoLJqJmjhqr0vRwNZ2",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/scripts/prec",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/g/scripts/",
+      "www.coldwatercreek.com/cdn-cgi/challenge-platform/h/g/precurso"
+     ],
+     "snippet": "Gilded Bow Ornament Tee - Coldwater Creek 25% Off + FREE SHIPPING Your entire order with code CREEK25 Shop Now DETAILS × *Offer ends 11/28/26 at 11:59 p.m. ET. For online and phone orders, use the code CREEK25 to redeem "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance, 화면 흔적 cf-script",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.jcrew.com/m/womens/categories/clothing/sweaters/crewneck/ME829": {
+    "v": "comp",
+    "note": "Cotton 100%",
+    "comp": "Cotton 100%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "Studded Boyfriend Jersey Relaxed Long-sleeve T-shirt For Women | J.Crew",
+     "bytes": 1483972,
+     "textLen": 11178,
+     "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "nginx",
+      "x-akamai-transformed": "9l - 0 pmb=mRUM, 2",
+      "akamai-grn": "0.4b6adc17.1795597980.26dad7"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "GCLB",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "trk",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "guest_token",
+      "order_guest_token",
+      "AwinChannelCookie",
+      "EXP_37c05b1384_identity"
+     ],
+     "markers": [
+      "notfound"
+     ],
+     "vendorRequests": [],
+     "snippet": "Studded Boyfriend Jersey Relaxed Long-sleeve T-shirt For Women | J.Crew Your browser does not support iframes. Skip to Main Content J.Crew Passport gives you... Free shipping on jcrew.com, personalized rewards & offers, "
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Akamai"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Akamai: akamai-grn 헤더",
+      "Cloudflare: 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt, 쿠키 dwsid"
+     ]
+    }
+   },
+   "https://www.poetryfashion.co.uk/t-shirts-and-tops/silk-cotton-jersey-t-shirt-aqua-mist/RW51.D.html": {
+    "v": "comp",
+    "note": "Silk 55% / Cotton 45%",
+    "comp": "Silk 55% / Cotton 45%",
+    "ev": {
+     "status": 200,
+     "finalUrl": "",
+     "redirect": "",
+     "title": "POETRY - Silk & cotton jersey T-shirt",
+     "bytes": 316100,
+     "textLen": 15938,
+     "headers": {
+      "content-type": "text/html;charset=UTF-8",
+      "server": "cloudflare",
+      "x-dw-request-base-id": "WXiLlHFrBmsBAAB_",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5ff891b2a05184b-IAD"
+     },
+     "cookies": [
+      "browser_data",
+      "sc_at",
+      "__cf_bm",
+      "GlobalE_Data",
+      "_cfuvid",
+      "X-AB",
+      "prod1-tf-prod-86479863pn",
+      "tfExperimentId",
+      "cee",
+      "dwac_860804ea114f19df18e8851f0e",
+      "cqcid",
+      "cquid",
+      "sid",
+      "dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f",
+      "__cq_dnt",
+      "dw_dnt",
+      "dwsid",
+      "uid",
+      "IDE",
+      "GCLB",
+      "u",
+      "ab",
+      "TapAd_TS",
+      "TapAd_DID",
+      "TapAd_3WAY_SYNCS",
+      "_dd_s",
+      "client_device_id_production",
+      "trk",
+      "thx_guid",
+      "tmx_guid",
+      "on_session_id",
+      "force_cs_locale",
+      "on_gender_affinity_experiment_variant",
+      "force_new_site_for_checkout",
+      "cf_clearance",
+      "api-router-id",
+      "guest_token",
+      "order_guest_token",
+      "AwinChannelCookie",
+      "EXP_37c05b1384_identity"
+     ],
+     "markers": [],
+     "vendorRequests": [],
+     "snippet": "POETRY - Silk & cotton jersey T-shirt Consent Details [#IABV2SETTINGS#] About This website uses cookies By clicking \"Accept and Proceed” you agree to the storing of cookies on your device to enhance site navigation, anal"
+    },
+    "cause": "ok",
+    "who": {
+     "by": "",
+     "confidence": "",
+     "why": "",
+     "protection": [
+      "Cloudflare"
+     ],
+     "cdn": [
+      "Cloudflare"
+     ],
+     "platform": [
+      "Salesforce Commerce Cloud"
+     ],
+     "signals": [
+      "Cloudflare: cf-ray 헤더, 쿠키 __cf_bm, 쿠키 _cfuvid, 쿠키 cf_clearance",
+      "Salesforce Commerce Cloud: x-dw/x-sfdc 헤더, 쿠키 dwac_860804ea114f19df18e8851f0e, 쿠키 dwanonymous_5c6bc43bd463bf3a315146c1c7c0ab7f, 쿠키 __cq_dnt, 쿠키 dw_dnt"
+     ]
+    }
+   }
+  }
+ },
+ "catalogs": []
+}

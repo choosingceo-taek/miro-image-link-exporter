@@ -36,7 +36,8 @@ function run(report, extraEnv = {}, args = []) {
   const rp = join(TMP, "report.json");
   writeFileSync(rp, JSON.stringify(report));
   const r = spawnSync(process.execPath, ["--import", HOOK, SCRIPT, ...args], {
-    env: { ...process.env, URLS: "", REPORT: rp, OUT: join(TMP, "diag.md"), ...extraEnv },
+    // 추가 브랜드 잡 리포트는 기본으로 '없음'(저장소에 실제 파일이 있어도 끼지 않게) — 필요한 시험만 준다.
+    env: { ...process.env, URLS: "", REPORT: rp, EXTRA_REPORT: join(TMP, "no-extra.json"), OUT: join(TMP, "diag.md"), ...extraEnv },
     encoding: "utf8", timeout: 30_000,
   });
   return { code: r.status, out: (r.stdout || "") + (r.stderr || "") };
@@ -79,6 +80,15 @@ try {
     if (JSON.stringify(got) !== JSON.stringify(want)) fail(`고른 주소가 다르다\n     기대 ${JSON.stringify(want)}\n     실제 ${JSON.stringify(got)}`);
     else ok("0개 페이지만 · 차단(403/429/봇 차단/응답 없음)·마감 제외 · 중복 제거 · 최대 6개");
     if (got.length > 6) fail(`최대 6개인데 ${got.length}개`);
+  }
+  // ── 추가 브랜드 잡 리포트(browser-collect-extra-report.json)의 0개 페이지도 고른다 ──
+  {
+    const xp = join(TMP, "extra.json");
+    writeFileSync(xp, JSON.stringify({ results: [{ brand: "Gap", perUrl: [zero("https://gap.example/tops"), { url: "https://gap.example/ok", count: 50, note: "" }] }] }));
+    const r = run({ results: [{ brand: "A", perUrl: [zero("https://a.com/tops")] }] }, { LIST_ONLY: "1", EXTRA_REPORT: xp });
+    const got = r.code === 0 ? JSON.parse(r.out.trim().split("\n").pop()) : null;
+    if (JSON.stringify(got) !== JSON.stringify(["https://a.com/tops", "https://gap.example/tops"])) fail("추가 브랜드 잡 리포트의 0개 페이지를 고르지 않는다: " + r.out.slice(0, 200));
+    else ok("추가 브랜드 잡 리포트의 0개 페이지도 고른다");
   }
   // ── 주소를 직접 주면 리포트는 보지 않는다 ──
   {

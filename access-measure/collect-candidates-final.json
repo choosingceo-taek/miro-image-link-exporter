@@ -1,0 +1,98 @@
+{
+ "_설명": "3차 측정(야간과 같은 모양: 두 잡 · 저장 안 함)용 — browser-extra-brands.json 에 넣을 후보 전체",
+ "brands": [
+  {
+   "brand": "Veronica Beard",
+   "engine": "chromium"
+  },
+  {
+   "brand": "H&M",
+   "engine": "firefox"
+  },
+  {
+   "brand": "Arket",
+   "engine": "firefox"
+  },
+  {
+   "brand": "&Other Stories",
+   "engine": "firefox"
+  },
+  {
+   "brand": "L.L bean",
+   "engine": "firefox"
+  },
+  {
+   "brand": "Seasalt cornwall",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Wilson",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Madewell",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Massimo Dutti",
+   "engine": "firefox",
+   "fresh": true
+  },
+  {
+   "brand": "Oysho",
+   "engine": "firefox",
+   "fresh": true
+  },
+  {
+   "brand": "Gap",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Old Navy",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Athleta",
+   "engine": "chromium"
+  },
+  {
+   "brand": "Banana Republic",
+   "engine": "chromium"
+  },
+  {
+   "brand": "The upside",
+   "engine": "firefox",
+   "fresh": true
+  },
+  {
+   "brand": "Reformation",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Sessun",
+   "engine": "impit",
+   "store": "merge"
+  },
+  {
+   "brand": "Whitestuff",
+   "engine": "impit",
+   "store": "merge"
+  },
+  {
+   "brand": "Bash",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Vanessa bruno",
+   "engine": "chromium",
+   "store": "merge"
+  },
+  {
+   "brand": "Monsoon",
+   "engine": "chromium",
+   "store": "merge"
+  }
+ ]
+}

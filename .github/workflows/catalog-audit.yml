@@ -8,6 +8,9 @@ on:
   workflow_run:
     workflows: ["Headless browser collect"]
     types: [completed]
+    # main 에서 돈 수집만 잇는다. 작업 브랜치의 측정 실행(저장 안 함)이 끝날 때마다 이 점검과
+    # 그 뒤의 혼용률 보강(운영 저장)이 따라 돌던 것을 막는다 — 2026-11-25 하루에 17번 따라 돌았다.
+    branches: [main]
   schedule:
     - cron: "0 20 * * *"    # UTC 20:00 = KST 05:00 — 위 연결이 끊겼을 때를 위한 예비
   workflow_dispatch:

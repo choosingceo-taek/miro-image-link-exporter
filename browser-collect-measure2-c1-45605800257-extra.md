@@ -1,0 +1,270 @@
+# 헤드리스 브라우저 수집 테스트 (2026-11-25T13:10Z)
+
+GitHub Actions(데이터센터 IP)에서 진짜 브라우저로 확장 담당 브랜드를 돌린 결과.
+
+- 엔진: firefox + chromium + api (브랜드별 기본)
+
+- 대상 10 · ✅ 자동화 가능 9 · ⛔ 확장 필요 0 · 🔧 보완 필요 1
+
+## ✅ 자동화 가능 (9)
+
+- **H&M** [firefox] — 745개 {"tops":181,"sweatshirts":112,"pants":155,"shirts":135,"dresses":162} (256s)
+  - 172개 (상품 주소 모양 170) · https://www2.hm.com/en_us/women/products/tops.html?sort=newProduct
+    - A long-sleeved top is facing front, showcasing a grey and black horizontal stripe pattern with a crew neckline and dropped shoulders. The top is displ ($20.99) — https://www2.hm.com/en_us/productpage.1377524001.html
+    - A black, long-sleeved jersey top featuring a V-neck is being worn by the model. The model is styling the fitted top with dark, wide-leg cuffed jeans a ($19.99) — https://www2.hm.com/en_us/productpage.1370920002.html
+    - A blue cotton jersey top with horizontal white stripes is facing front, featuring a round neckline and dropped shoulders. The top is showcasing long,  ($17.99) — https://www2.hm.com/en_us/productpage.1368807009.html
+  - 173개 (상품 주소 모양 171) · https://www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct
+    - Oversized Sweatshirt ($20.99) — https://www2.hm.com/en_us/productpage.1345017010.html
+    - A matching light grey fleece sweater and track pants set is being worn by the model, who is sitting cross-legged. The sweater features a high, ribbed  ($29.99) — https://www2.hm.com/en_us/productpage.1359326003.html
+    - Off-the-Shoulder Sweatshirt ($17.99) — https://www2.hm.com/en_us/productpage.1352154003.html
+  - 175개 (상품 주소 모양 173) · https://www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct
+    - Tapered-Waist Button-Front Blouse ($23.99) — https://www2.hm.com/en_us/productpage.1369642002.html
+    - Scarf-Collar Shirt ($23.99) — https://www2.hm.com/en_us/productpage.1358251001.html
+    - Poplin Hourglass Shirt ($89.99) — https://www2.hm.com/en_us/productpage.1356529001.html
+  - 176개 (상품 주소 모양 176) · https://www2.hm.com/en_us/women/products/dresses.html?sort=newProduct
+    - Tunic Dress with Collar ($23.99) — https://www2.hm.com/en_us/productpage.1371867002.html
+    - A short, fitted black cold-shoulder dress is being worn by the model, featuring a foldover top edge with a wrap-front design and narrow shoulder strap ($55.99) — https://www2.hm.com/en_us/productpage.1364348001.html
+    - A black heavyweight satin dress is being worn by the model, showing the back of the garment. The dress features a racerback design detailed with a cen ($23.99) — https://www2.hm.com/en_us/productpage.1363348001.html
+  - 166개 (상품 주소 모양 166) · https://www2.hm.com/en_us/women/products/pants.html?sort=newProduct
+    - These black relaxed-fit jersey pants are being shown from the front, highlighting the sewn-in creases running down the center of each leg. The pants a ($15.99) — https://www2.hm.com/en_us/productpage.1377639001.html
+    - Wide-Leg Sports Joggers ($33.99) — https://www2.hm.com/en_us/productpage.1362339003.html
+    - Wide-Leg Dress Pants ($39.99) — https://www2.hm.com/en_us/productpage.1351048002.html
+  - 표본: A long-sleeved top is facing front, showcasing a grey and black horizontal stripe pattern with a crew neckline and dropped shoulders. The top is displ — https://www2.hm.com/en_us/productpage.1377524001.html
+  - 표본: Glittery Knit Top — https://www2.hm.com/en_us/productpage.1368355003.html
+  - 표본: Glittery Knit Top — https://www2.hm.com/en_us/productpage.1368355004.html
+  - 표본: Draped Wrap Top — https://www2.hm.com/en_us/productpage.1377404002.html
+  - 표본: A brown satin top facing front is draping softly at the throat, featuring a high cowl neckline. The sleeveless design is showcasing an extra narrow cu — https://www2.hm.com/en_us/productpage.1366694002.html
+- **Massimo Dutti** [firefox·새 창] — 227개 {"tops":22,"pants":151,"sweatshirts":4,"shirts":12,"dresses":38} · 공용 링크 2개 제외 (497s)
+  - 66개 (상품 주소 모양 64) · https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518
+    - Long-sleeve crewneck t-shirt in a mid-shot with a mock neck and buttons. Features a print of horizontal stripes in navy blue and brown. — https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106
+    - Oyster-white short-sleeve t-shirt set, brown wide-leg pants with side pockets, and dark shoes. — https://www.massimodutti.com/us/100-cotton-short-sleeve-tshirt-l06207109
+    - Close-up of a dark gray long-sleeve T-shirt with a high neck, featuring a striped design with fine horizontal lines and a ribbed texture. — https://www.massimodutti.com/us/striped-high-neck-long-sleeve-tshirt-l06892572
+  - 12개 (상품 주소 모양 10) · https://www.massimodutti.com/us/s/w-tops-n2889
+    - Leather riding boots — https://www.massimodutti.com/us/leather-riding-boots-l11003650
+    - Leather knotted ballerina flats — https://www.massimodutti.com/us/leather-knotted-ballerina-flats-l11562750
+    - Powered by Onetrust — https://www.onetrust.com/solutions/consent-and-preferences/
+  - 65개 (상품 주소 모양 63) · https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012
+    - Black long-sleeve shirt set with a classic collar and button-front closure, dark straight-leg pants, and a small top-handle bag. — https://www.massimodutti.com/us/flowing-shirt-with-button-detail-l06839554
+    - Rust-colored long blouse set with a high neck, long sleeves, and tie belt, paired with wide-leg blue jeans and black sandals. — https://www.massimodutti.com/us/flowing-blouse-with-tie-detail-l05166542
+    - Mustard yellow wrap shirt set with a high neck and long sleeves, matching long skirt, sunglasses, and black slingback shoes. — https://www.massimodutti.com/us/100-silk-crossover-mock-neck-shirt-l05167543
+  - 39개 (상품 주소 모양 37) · https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374
+    - Set of a midi dress in a vintage gold color with a satin finish, thin straps, and a draped neckline. — https://www.massimodutti.com/us/flowing-satin-finish-midi-dress-l06631510
+    - Black fitted midi dress with thin straps and a square neckline. — https://www.massimodutti.com/us/linenblend-thin-strap-midi-dress-l06623509
+    - Yellow midi dress outfit with thin straps and a V-neckline, dark sunglasses, and black sandals. — https://www.massimodutti.com/us/flowing-lingerie-dress-with-ruffle-detail-l06655300
+  - 59개 (상품 주소 모양 57) · https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376
+    - Men’s long-sleeve brown shirt set with front pockets and black straight-leg pants with pleats, belt loops, and a button detail at the hem. — https://www.massimodutti.com/us/100-wool-pants-with-button-detail-l05063685
+    - Gray metallic mesh mock-neck sleeveless top, black flared-leg pants, and a black shoulder bag. — https://www.massimodutti.com/us/velvet-skinny-flare-fit-pants-l05041741
+    - Red long-sleeve top with buttons at the neckline and wide-leg indigo jeans with front pockets and contrasting turned-up cuffs. — https://www.massimodutti.com/us/midrise-wideleg-jeans-with-turnup-hems-l05045745
+  - 표본: Long-sleeve crewneck t-shirt in a mid-shot with a mock neck and buttons. Features a print of horizontal stripes in navy blue and brown. — https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106
+  - 표본: Fine-knit jersey set in terracotta with a round neck, and a khaki midi skirt with a cross-over lapel, buttons, and a side pocket. — https://www.massimodutti.com/us/long-sleeve-wool-blend-knit-tshirt-l06832552
+  - 표본: Black tank top set with lace detailing at the neckline and black jeans with a belt. — https://www.massimodutti.com/us/top-with-lace-neckline-detail-l06857575
+  - 표본: Black long-sleeve crewneck T-shirt in a medium shot, with diagonal draped detail on the chest. — https://www.massimodutti.com/us/wool-blend-gathered-detail-tshirt-l06866575
+  - 표본: Metallic ribbed long sleeve T-shirt — https://www.massimodutti.com/us/metallic-ribbed-long-sleeve-tshirt-l06828948
+- **&Other Stories** [firefox] — 475개 {"sweatshirts":22,"tops":139,"pants":93,"shirts":90,"dresses":131} (283s)
+  - 174개 (상품 주소 모양 170) · https://www.stories.com/en-us/clothing/tops/
+    - Embroidered Wool Polo Jumper - Grey - Lookbook ($ 96.75) — https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/
+    - Smocked Boatneck Top - Beige/Striped - Still Life ($ 59.25) — https://www.stories.com/en-us/product/smocked-boatneck-top-beigestriped-1321985001/
+    - Zip Front Collar Shirt - Dark Blue - Lookbook ($ 74.25) — https://www.stories.com/en-us/product/zip-front-collar-shirt-dark-blue-1341211001/
+  - 6개 (상품 주소 모양 6) · https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/
+    - Half-Zip Cotton Sweatshirt - Dark Brown - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-dark-brown-1358924005/
+    - Half-Zip Cotton Sweatshirt - Red - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-red-1358924001/
+    - Mock Neck Scuba Sweatshirt - Grey Melange - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/mock-neck-scuba-sweatshirt-grey-melange-1346527002/
+  - 99개 (상품 주소 모양 95) · https://www.stories.com/en-us/clothing/blouses-shirts/
+    - High-Neck Lace Blouse - Black - Lookbook ($ 96.75) — https://www.stories.com/en-us/product/high-neck-lace-blouse-black-1362393001/
+    - Sleeveless Suede Top - Dark Beige - Lookbook ($ 284.25) — https://www.stories.com/en-us/product/sleeveless-suede-top-dark-beige-1335025001/
+    - Gathered Blouse - Black/White Dots - Lookbook ($ 74.25) — https://www.stories.com/en-us/product/gathered-blouse-blackwhite-dots-1341218003/
+  - 141개 (상품 주소 모양 137) · https://www.stories.com/en-us/clothing/dresses/
+    - Short-Sleeve Long Dress - Dark Red - Lookbook ($ 134.25) — https://www.stories.com/en-us/product/short-sleeve-long-dress-dark-red-1325649008/
+    - Jacquard Mini Dress - Light Blue - Lookbook ($ 104.25) — https://www.stories.com/en-us/product/jacquard-mini-dress-light-blue-1350281002/
+    - Linen Mini Dress - Black - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/linen-mini-dress-black-1270022001/
+  - 96개 (상품 주소 모양 92) · https://www.stories.com/en-us/clothing/trousers/
+    - Straight Press-Crease Trousers - Black - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/wide-press-crease-trousers-black-1090941001/
+    - Low-Waist Denim Mini Shorts - Washed black - Lookbook ($ 59.25) — https://www.stories.com/en-us/product/low-waist-denim-mini-shorts-washed-black-1341084002/
+    - Wool-Blend Tailored Trousers - Dark Brown - Lookbook ($ 134.25) — https://www.stories.com/en-us/product/wool-blend-tailored-trousers-dark-brown-1319026005/
+  - 표본: Embroidered Wool Polo Jumper - Grey - Lookbook — https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/
+  - 표본: Wool Turtleneck Top - Black - Lookbook — https://www.stories.com/en-us/product/wool-turtleneck-top-black-1341950002/
+  - 표본: Mock-Neck Lace Top - Dark Brown - Lookbook — https://www.stories.com/en-us/product/mock-neck-lace-top-dark-brown-1373644001/
+  - 표본: Rhinestone-Trimmed Top - Black - Lookbook — https://www.stories.com/en-us/product/rhinestone-trimmed-top-black-1363489001/
+  - 표본: Mock-Neck Lace Top - Dark Red - Lookbook — https://www.stories.com/en-us/product/mock-neck-lace-top-dark-red-1373644002/
+- **L.L bean** [firefox] — 296개 {"tops":135,"sweatshirts":52,"shirts":18,"dresses":13,"pants":78} (839s)
+  - 109개 (상품 주소 모양 97) · https://global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro
+    - Women's Pima Cotton Tee, Long-Sleeve Crewneck — https://global.llbean.com/llb/shop/32708.html
+    - Women's Mountainside V-Neck Pocket Tee, Short Sleeve — https://global.llbean.com/llb/shop/5871867.html
+    - Women's Signature Premium Essential Pointelle Tee, Long-Sleeve Henley — https://global.llbean.com/llb/shop/5863826.html
+  - 75개 (상품 주소 모양 74) · https://global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro
+    - Women's L.L.Bean Sweater Fleece Full-Zip Jacket — https://global.llbean.com/llb/shop/120713.html
+    - Women's L.L.Bean Sweater Fleece Pullover, Print — https://global.llbean.com/llb/shop/113600.html
+    - Women's SunSmart Coolpro Half Zip Hoodie — https://global.llbean.com/llb/shop/5851505.html
+  - 16개 (상품 주소 모양 15) · https://global.llbean.com/llb/shop/516735/?prefn1=refinementGender&prefv1=Womens&nav=gnro
+    - Women's Scotch Plaid Flannel Shirt, Relaxed — https://global.llbean.com/llb/shop/70362.html
+    - Women's Fleece-Lined Flannel Shirt, Snap-Front Plaid — https://global.llbean.com/llb/shop/121604.html
+    - Women's Signature Camp Flannel Shirt — https://global.llbean.com/llb/shop/130131.html
+  - 17개 (상품 주소 모양 16) · https://global.llbean.com/llb/shop/506213/?page=womens-dresses-and-skirts&nav=gnro
+    - Women's Cloud Gauze Midi Dress, Stripe — https://global.llbean.com/llb/shop/20010010.html
+    - Women's Heritage Mariner Dress, Stripe — https://global.llbean.com/llb/shop/129308.html
+    - Women's Cloud Gauze Short-Sleeve Shift Dress — https://global.llbean.com/llb/shop/20010007.html
+  - 81개 (상품 주소 모양 71) · https://global.llbean.com/llb/shop/622/?page=womens-pants-and-jeans&nav=gnro
+    - Women's Perfect Fit Pants, Original Tapered-Leg — https://global.llbean.com/llb/shop/51535.html
+    - Women's L.L.Bean Go-Anywhere Knit Pants, High-Rise Straight-Leg — https://global.llbean.com/llb/shop/5879545.html
+    - Women's Comfort Stretch Pants, Mid-Rise Straight-Leg Cargo — https://global.llbean.com/llb/shop/129306.html
+  - 표본: Women's Pima Cotton Tee, Long-Sleeve Crewneck — https://global.llbean.com/llb/shop/32708.html
+  - 표본: Women's Pima Cotton Tee, Long-Sleeve Open V-Neck — https://global.llbean.com/llb/shop/5879147.html
+  - 표본: Women's Pima Cotton Tee, Long-Sleeve Mockneck — https://global.llbean.com/llb/shop/36296.html
+  - 표본: Women's Pima Cotton Tee, Short-Sleeve Crewneck — https://global.llbean.com/llb/shop/32709.html
+  - 표본: Women's Soft Stretch Supima-Blend Tee, Boatneck Bracelet-Sleeve Stripe — https://global.llbean.com/llb/shop/20010335.html
+- **Oysho** [firefox·새 창] — 448개 {"tops":210,"sweatshirts":27,"pants":150,"shirts":16,"dresses":45} · 공용 링크 1개 제외 (2740s)
+  - 145개 (상품 주소 모양 145) · https://www.oysho.com/gb/womens-sports-t-shirts-n4764 ← 수집 중 페이지가 바뀌어 다시 읽음(https://www.oysho.com/gb/womens-sports-t-shirts-n4764)
+    - Extra-fine lyocell-blend T-shirt — https://www.oysho.com/gb/extrafine-lyocellblend-tshirt-l37581348
+    - Regular Fit long-sleeve cotton-blend striped T-shirt — https://www.oysho.com/gb/regular-fit-longsleeve-cottonblend-striped-tshirt-l34258339
+    - Comfortlux cross-back T-shirt — https://www.oysho.com/gb/comfortlux-crossback-tshirt-l32962292
+  - 62개 (상품 주소 모양 62) · https://www.oysho.com/gb/womens-sports-tops-n5484
+    - Comfortlux long-sleeved sleeves — https://www.oysho.com/gb/comfortlux-longsleeved-sleeves-l32801904
+    - Comfortlux smock tank top — https://www.oysho.com/gb/comfortlux-smock-tank-top-l34281906
+    - Halter houndstooth print tank top — https://www.oysho.com/gb/halter-houndstooth-print-tank-top-l35759816
+  - 58개 (상품 주소 모양 58) · https://www.oysho.com/gb/womens-sweatshirts-n4922
+    - Half-zip sweatshirt with modal brushed — https://www.oysho.com/gb/halfzip-sweatshirt-with-modal-brushed-l36923158
+    - Soft-touch jacket with modal — https://www.oysho.com/gb/softtouch-jacket-with-modal-l34320791
+    - Cropped piqué utility jacket with belt — https://www.oysho.com/gb/cropped-pique-utility-jacket-with-belt-l35506338
+  - 48개 (상품 주소 모양 48) · https://www.oysho.com/gb/dresses-jumpsuits-n4954 ← 수집 중 페이지가 바뀌어 다시 읽음(https://www.oysho.com/gb/dresses-jumpsuits-n4954)
+    - Perfect-adapt long jumpsuit with contrast stitching — https://www.oysho.com/gb/perfectadapt-long-jumpsuit-with-contrast-stitching-l30792232
+    - Comfortlux short jumpsuit with heathered overlay — https://www.oysho.com/gb/comfortlux-short-jumpsuit-with-heathered-overlay-l35043965
+    - Short strappy 100% linen jumpsuit — https://www.oysho.com/gb/short-strappy-100-linen-jumpsuit-l35035119
+  - 174개 (상품 주소 모양 174) · https://www.oysho.com/gb/womens-pants-n4813 ← 수집 중 페이지가 바뀌어 다시 읽음(https://www.oysho.com/gb/womens-pants-n4813)
+    - Extra warm seamless jogger trousers in a cotton marl blend — https://www.oysho.com/gb/extra-warm-seamless-jogger-trousers-in-a-cotton-marl-blend-l36631398
+    - 5-pocket wide-leg trousers — https://www.oysho.com/gb/5pocket-wideleg-trousers-l35672920
+    - 100% linen straight-leg trousers — https://www.oysho.com/gb/100-linen-straightleg-trousers-l34118134
+  - 표본: Extra-fine lyocell-blend T-shirt — https://www.oysho.com/gb/extrafine-lyocellblend-tshirt-l37581348
+  - 표본: Base layers long-sleeved lyocell blend t-shirt — https://www.oysho.com/gb/base-layers-longsleeved-lyocell-blend-tshirt-l37571632
+  - 표본: Relaxed fit t-shirt with baker neckline and long sleeve — https://www.oysho.com/gb/relaxed-fit-tshirt-with-baker-neckline-and-long-sleeve-l37585350
+  - 표본: Striped relaxed long-sleeved 100% cotton T-shirt — https://www.oysho.com/gb/striped-relaxed-longsleeved-100-cotton-tshirt-l37575172
+  - 표본: Brushed relaxed long-sleeved T-shirt — https://www.oysho.com/gb/brushed-relaxed-longsleeved-tshirt-l37573352
+- **Seasalt cornwall** [chromium] — 278개 {"shirts":31,"tops":82,"sweatshirts":67,"dresses":66,"pants":32} · 공용 링크 2개 제외 (532s)
+  - 123개 (상품 주소 모양 0) · https://www.seasaltcornwall.com/clothing/tops
+    - Larissa Shirt — https://www.seasaltcornwall.com/larissa-printed-cotton-shirt
+    - Derwenn Button Down Vest — https://www.seasaltcornwall.com/derwenn-button-down-merino-wool-vest
+    - Wild Sorrel Button Up Top — https://www.seasaltcornwall.com/wild-sorrel-top
+  - 74개 (상품 주소 모양 0) · https://www.seasaltcornwall.com/clothing/jumpers-cardigans
+    - media/catalog/product/b/-/b-wm28183-36757_1 — https://www.seasaltcornwall.com/percella-cove-fair-isle-knitted-jumper
+    - giving consent to cookies — https://cookiepedia.co.uk/giving-consent-to-cookies
+    - Basset Cove Jumper Made With Merino Wool (£75.95) — https://www.seasaltcornwall.com/basset-cove-roll-neck-merino-wool-jumper
+  - 41개 (상품 주소 모양 0) · https://www.seasaltcornwall.com/clothing/shirts-blouses
+    - Larissa Shirt — https://www.seasaltcornwall.com/larissa-printed-cotton-shirt
+    - St Mawes Printed Top in GOTS-Certified Organic Cotton — https://www.seasaltcornwall.com/st-mawes-gots-organic-cotton-aline-top
+    - Wild Sorrel Button Up Top — https://www.seasaltcornwall.com/wild-sorrel-top
+  - 72개 (상품 주소 모양 0) · https://www.seasaltcornwall.com/clothing/dresses
+    - Veronica Midi Dress in GOTS-Certified Organic Cotton Jersey — https://www.seasaltcornwall.com/veronica-organic-cotton-jersey-midi-dress
+    - Wightwick Midi Dress (£85.95) — https://www.seasaltcornwall.com/wightwick-organic-cotton-cord-midi-dress
+    - Fenil Empire Line Midi Dress (£35.95) — https://www.seasaltcornwall.com/fenil-empire-line-midi-dress
+  - 35개 (상품 주소 모양 0) · https://www.seasaltcornwall.com/clothing/trousers-leggings-cropped
+    - Asphodel Wide Leg Cord Trousers — https://www.seasaltcornwall.com/asphodel-cropped-wide-cord-trousers
+    - Sholl Tapered Leg Jersey Joggers Model Image — https://www.seasaltcornwall.com/sholl-tapered-jersey-joggers
+    - Powered by Onetrust — https://www.onetrust.com/solutions/consent-and-preferences/
+  - 표본: Larissa Shirt — https://www.seasaltcornwall.com/larissa-printed-cotton-shirt
+  - 표본: Sailor Shirt in GOTS-Certified Organic Cotton Jersey — https://www.seasaltcornwall.com/sailor-striped-breton-top
+  - 표본: Easel Long Sleeve Top in GOTS-Certified Organic Cotton Jersey — https://www.seasaltcornwall.com/easel-cotton-jersey-top
+  - 표본: Landing Roll Neck Top in GOTS-Certified Organic Cotton — https://www.seasaltcornwall.com/landing-roll-neck-cotton-top
+  - 표본: Wavecrest Semi Fitted Jersey Shirt — https://www.seasaltcornwall.com/wavecrest-semi-fitted-jersey-shirt
+- **Wilson** [chromium] — 96개 {"tops":41,"sweatshirts":14,"dresses":31,"pants":10} (159s)
+  - 14개 (상품 주소 모양 14) · https://www.wilson.com/en-us/sportswear/women/tops/tanks
+    - Everyday Brami — https://www.wilson.com/en-us/products/everyday-brami-ww00015
+    - WE00003E079001_7_W_COURT_SEAMLESS_TANK_W_CASTOR_SANDRIFT — https://www.wilson.com/en-us/products/court-seamless-tank-we00003
+    - WE00317U089001_7_FIELDHOUSE_TANK_W_POSEIDON — https://www.wilson.com/en-us/products/fieldhouse-tank-we00317
+  - 6개 (상품 주소 모양 6) · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops
+    - WE00038L013001_7_W_MODERN_TEE_W_LILAC_ASH.png — https://www.wilson.com/en-us/products/modern-tee-we00038
+    - WE00370P051001_7_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK — https://www.wilson.com/en-us/products/harper-crop-tee-we00370
+    - WW00302411WTA_7_EASY_TEE_BRIGHT_WHITE_W_WTA — https://www.wilson.com/en-us/products/easy-tee-ww00302
+  - 8개 (상품 주소 모양 8) · https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops
+    - Pro Seamless Long Sleeve — https://www.wilson.com/en-us/products/pro-seamless-long-sleeve-ww00399
+    - WW00509U010001_7_W_LASER_LACE_LONG_SLEEVE_W_PLEIN_AIR — https://www.wilson.com/en-us/products/laser-lace-long-sleeve-ww00509
+    - WE00249E079001_7_W_COURT_3_HALF_ZIP_W_CASTOR — https://www.wilson.com/en-us/products/court-3-halfzip-jacket-we00249
+  - 15개 (상품 주소 모양 15) · https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts
+    - WW00562B002001_7_W_CLASSIC_CREW_W_ASPHALT — https://www.wilson.com/en-us/products/classic-crew-ww00562
+    - WM00251431MGV_10_WILSON_AMERICA_CREW_SWEATSHIRT_U_MGV — https://www.wilson.com/en-us/products/america-crewneck-wm00251
+    - WW00548531GYC_7_DAVENPORT_FLEECE_POPOVER_W_GYC — https://www.wilson.com/en-us/products/davenport-fleece-popover-ww00548
+  - 32개 (상품 주소 모양 32) · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits
+    - WE00363T001001_7_W_PLEATED_MESH_DRESS_FLOCKED_W_SAFARI — https://www.wilson.com/en-us/products/pleated-mesh-dress-we00363
+    - WW00592511WTA_7_TIEBREAKER_DRESS_UNLINED_W_WTA — https://www.wilson.com/en-us/products/tiebreaker-dress-unlined-ww00592
+    - WW00565511WTA_7_SPLIT_ROMPER_W_WTA.png — https://www.wilson.com/en-us/products/split-romper-ww00565
+  - 21개 (상품 주소 모양 21) · https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings
+    - Advantage Tennis Tight — https://www.wilson.com/en-us/products/advantage-tennis-tight-we00124
+    - WE00235U001001_7_W_CLUBHOUSE_KNIT_PANT_W_CLASSIC_NAVY.png — https://www.wilson.com/en-us/products/clubhouse-knit-pant-we00235
+    - WW00492531BKA_7_SLICE_SKIRTY_TIGHT_W_BKA — https://www.wilson.com/en-us/products/slice-tight-ww00492
+  - 표본: Everyday Brami — https://www.wilson.com/en-us/products/everyday-brami-ww00015
+  - 표본: On the Daily Brami — https://www.wilson.com/en-us/products/on-the-daily-brami-ww00284
+  - 표본: Pro Seamless Tank — https://www.wilson.com/en-us/products/pro-seamless-tank-ww00024
+  - 표본: Fieldhouse Tank Lite — https://www.wilson.com/en-us/products/fieldhouse-tank-lite-ww00156
+  - 표본: WE00001U001001_7_W_MELROSE_TANK_SEAMSEALED_W_CLASSIC_NAVY — https://www.wilson.com/en-us/products/melrose-tank-we00001
+- **Aritzia** [api] — 509개 {"tops":142,"sweatshirts":13,"shirts":69,"dresses":140,"pants":145} (1s)
+  - 142개 · api:aritzia-algolia:categories=tops
+    - Refine Shine™ Nominee Blouse ($70.4) — https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html
+    - Caprice Satin Bustier ($89.6) — https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html
+    - Ezra Top ($70.4) — https://www.aritzia.com/intl/en/product/ezra-top/125956.html
+  - 13개 · api:aritzia-algolia:categories=sweatshirts-hoodies
+    - Cozy Sweatfleece Perfect Hoodie ($59.5) — https://www.aritzia.com/intl/en/product/cozy-sweatfleece-perfect-hoodie/116209.html
+    - Cozy Sweatfleece Mega Zip Hoodie ($68.6) — https://www.aritzia.com/intl/en/product/cozy-sweatfleece-mega-zip-hoodie/130356.html
+    - Essential Cashmere Idyllic Zip Hoodie ($138.6) — https://www.aritzia.com/intl/en/product/essential-cashmere-idyllic-zip-hoodie/129668.html
+  - 127개 · api:aritzia-algolia:categories=shirts-blouses
+    - Refine Shine™ Nominee Blouse ($70.4) — https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html
+    - Refine Shine™ Audience Halter Top ($61.6) — https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-audience-halter-top/136051.html
+    - Heartstring Satin Bustier ($78.4) — https://www.aritzia.com/intl/en/product/heartstring-satin-bustier/137254.html
+  - 140개 · api:aritzia-algolia:categories=dresses
+    - Fan Satin Dress ($142.4) — https://www.aritzia.com/intl/en/product/fan-satin-dress/128699.html
+    - Bond Dress - Eversential™ ($88.8) — https://www.aritzia.com/intl/en/product/bond-dress/119868.html
+    - Closing Satin Dress ($134.4) — https://www.aritzia.com/intl/en/product/closing-satin-dress/135786.html
+  - 145개 · api:aritzia-algolia:categories=pants
+    - The Lodge Pant™ - Crepette™ ($110.4) — https://www.aritzia.com/intl/en/product/the-lodge-pant%E2%84%A2/118495.html
+    - Parity Pant - Eversential™ ($88.8) — https://www.aritzia.com/intl/en/product/parity-pant/130816.html
+    - The Effortless Pant™ - Crepette™ ($103.6) — https://www.aritzia.com/intl/en/product/the-effortless-pant%E2%84%A2/77775.html
+  - 표본: Refine Shine™ Nominee Blouse — https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html
+  - 표본: Caprice Satin Bustier — https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html
+  - 표본: Ezra Top — https://www.aritzia.com/intl/en/product/ezra-top/125956.html
+  - 표본: Sunlane Satin Camisole — https://www.aritzia.com/intl/en/product/sunlane-satin-camisole/132774.html
+  - 표본: Smooth Matter™ Ginger Top - Unlined — https://www.aritzia.com/intl/en/product/smooth-matter%E2%84%A2-ginger-top/133120.html
+- **Arket** [firefox] — 379개 {"tops":167,"sweatshirts":39,"shirts":104,"pants":4,"dresses":65} (179s)
+  - 191개 (상품 주소 모양 191) · https://www.arket.com/en-ww/women/clothing/tops/
+    - Signature Constructed T-Shirt-White-4931 — https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/
+    - Metallic Knit Top-Beige-21292 ($ 69) — https://www.arket.com/en-ww/product/metallic-knit-top-light-beige-1366559001/
+    - ARKET CAFÉ Short-Sleeve T-Shirt-White-21559 ($ 35) — https://www.arket.com/en-ww/product/arket-caf-short-sleeve-t-shirt-off-white-1377274001/
+  - 63개 (상품 주소 모양 63) · https://www.arket.com/en-ww/women/clothing/tops/t-shirts/
+    - Signature Constructed T-Shirt-White-4931 — https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/
+    - Slim Cap-Sleeve T-Shirt-Purple-19475 ($ 30) — https://www.arket.com/en-ww/product/slim-cap-sleeve-t-shirt-plum-1327998007/
+    - ARKET CAFÉ Printed T-Shirt-White-12767 ($ 35) — https://www.arket.com/en-ww/product/arket-caf-printed-t-shirt-off-whiteblack-1244346001/
+  - 33개 (상품 주소 모양 33) · https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/
+    - Terry Sweatshirt-Blue-20460 — https://www.arket.com/en-ww/product/terry-sweatshirt-dark-blue-1283133037/
+    - Cotton terry sweatshirt-Black-21012 ($ 59) — https://www.arket.com/en-ww/product/cotton-terry-sweatshirt-black-1371966002/
+    - Long Cotton Terry Sweatshirt-Pink-21416 ($ 79) — https://www.arket.com/en-ww/product/long-cotton-terry-sweatshirt-pink-1373717002/
+  - 114개 (상품 주소 모양 114) · https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/
+    - Cotton Wrap Shirt-White-19705 — https://www.arket.com/en-ww/product/cotton-wrap-shirt-white-1360101001/
+    - Linen Blend Wrap Blouse-Black-19177 ($ 99) — https://www.arket.com/en-ww/product/linen-blend-wrap-blouse-black-1347554001/
+    - ARKET CAFÉ Cotton Overshirt-Green-17493 ($ 119) — https://www.arket.com/en-ww/product/arket-caf-cotton-overshirt-dark-green-1302389001/
+  - 70개 (상품 주소 모양 70) · https://www.arket.com/en-ww/women/clothing/dresses/
+    - Silk Organza Dress-Black-20289 — https://www.arket.com/en-ww/product/silk-organza-dress-black-1340093001/
+    - Wrap Shirt Dress-Black-21293 ($ 259) — https://www.arket.com/en-ww/product/wrap-shirt-dress-black-1360316001/
+    - Bow Dress-Black-13536 ($ 139) — https://www.arket.com/en-ww/product/bow-dress-black-1253094001/
+  - 표본: Signature Constructed T-Shirt-White-4931 — https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/
+  - 표본: Signature Constructed T-Shirt-Beige-17513 — https://www.arket.com/en-ww/product/pearl-heavyweight-t-shirt-light-beige-1135758046/
+  - 표본: Wool Rib Top-Black-20580 — https://www.arket.com/en-ww/product/wool-rib-top-black-1357865001/
+  - 표본: Signature Boxy T-Shirt-White-14955 — https://www.arket.com/en-ww/product/alba-heavyweight-t-shirt-white-1283090001/
+  - 표본: Heavy Silk-Blend Tank Top-Black-20631 — https://www.arket.com/en-ww/product/heavy-silk-blend-tank-top-black-1370751001/
+
+## ⛔ 확장 필요(봇 차단) (0)
+
+
+## 🔧 보완 필요 (1)
+
+- **Madewell** [chromium] — 6개 {"tops":5,"shirts":1} (176s)
+  - 1개 (상품 주소 모양 0) · https://www.madewell.com/kr/womens/clothing/tees/
+    - womens tees — https://www.madewell.com/feature/womens-tees/
+  - 4개 (상품 주소 모양 3) · https://www.madewell.com/kr/womens/clothing/tops-shirts/
+    - OB685 — https://www.madewell.com/kr/p/OB685/
+    - OB052 — https://www.madewell.com/p/OB052/
+    - the corduroy shop — https://www.madewell.com/kr/womens/featured-shops/the-corduroy-shop/
+  - 0개 (상품 주소 모양 0) · https://www.madewell.com/kr/womens/clothing/dresses/ ← 상품 0개 · 최종주소 https://www.madewell.com/kr/womens/clothing/dresses/ · 제목 "Women's Work & Casual Dresses | Madewell" · 링크 288/이미지 348 · 탈락[total=288 noImage=18 tinyImage=33 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=237] · "The Black Friday Event: 40% off everything* • Shop Women's Shop Men's The Black Friday Event: Extra 40% off sale • Shop "
+  - 1개 (상품 주소 모양 1) · https://www.madewell.com/kr/womens/clothing/pants/
+    - NX207 — https://www.madewell.com/kr/p/NX207/
+  - 표본: womens tees — https://www.madewell.com/feature/womens-tees/
+  - 표본: OB685 — https://www.madewell.com/kr/p/OB685/
+  - 표본: OB063 — https://www.madewell.com/kr/p/womens/clothing/tops-shirts/button-downs/the-cropped-easy-shirt/OB063/
+  - 표본: OB052 — https://www.madewell.com/p/OB052/
+  - 표본: the corduroy shop — https://www.madewell.com/kr/womens/featured-shops/the-corduroy-shop/
+

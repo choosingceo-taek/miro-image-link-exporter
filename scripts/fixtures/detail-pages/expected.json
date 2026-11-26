@@ -1,0 +1,636 @@
+[
+ {
+  "brand": "Whitestuff",
+  "file": "whitestuff.html.gz",
+  "url": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI",
+  "name": "KIM BUTTON THROUGH TEE",
+  "why": "JSON-LD 설명 + DETAILS 아코디언의 <ul> 글머리표. 설명은 JSON-LD 그대로(Made with 100% organic cotton.).",
+  "expect": {
+   "desc": {
+    "has": "This long-sleeve tee has buttons down the front."
+   },
+   "feat": {
+    "has": "Crew Neck"
+   },
+   "comp": "Cotton 100%",
+   "sku": "447978",
+   "cur": "GBP"
+  }
+ },
+ {
+  "brand": "Whitestuff (desc 에 HTML 조각 없음)",
+  "file": "whitestuff.html.gz",
+  "url": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI",
+  "name": "KIM BUTTON THROUGH TEE",
+  "expect": {
+   "desc": {
+    "not": "<p>"
+   },
+   "feat": {
+    "has": "Long Sleeve"
+   }
+  }
+ },
+ {
+  "brand": "Massimo Dutti",
+  "file": "massimodutti.html.gz",
+  "url": "https://www.massimodutti.com/us/asymmetric-long-sleeve-flowing-top-l06873575",
+  "name": "Asymmetric long sleeve flowing top",
+  "why": "혼용률은 화면 글이 아니라 페이지 JSON 의 parts/components(OUTER SHELL: lyocell 70% · wool 30%)에만. JSON-LD ProductGroup 의 hasVariant 에 색·사이즈 배열.",
+  "expect": {
+   "comp": "Lyocell 70% / Wool 30%",
+   "name": "Asymmetric long sleeve flowing top",
+   "colors": [
+    "BURGUNDY"
+   ],
+   "sizes": {
+    "first": "XS"
+   },
+   "sku": "65268623"
+  }
+ },
+ {
+  "brand": "Bassike",
+  "file": "bassike.html.gz",
+  "shop": "bassike.shop.json.gz",
+  "url": "https://www.bassike.com/products/mesh-boxy-seam-detail-t-shirt-r26wft144-washed-ink",
+  "name": "Mesh Boxy Seam Detail T-Shirt",
+  "why": "Shopify 상품 JSON 의 설명 문단 + 줄로 적은 특징(Slouch fit · Boxy silhouette …).",
+  "expect": {
+   "desc": {
+    "has": "The Mesh Boxy Seam Detail T-Shirt, crafted for a relaxed silhouette."
+   },
+   "feat": {
+    "has": "Slouch fit"
+   },
+   "imgs": {
+    "min": 2
+   }
+  }
+ },
+ {
+  "brand": "Spanx",
+  "file": "spanx.html.gz",
+  "url": "https://spanx.com/products/spanx-airessentials-turtleneck-tunic?v=48683236458707&bau-context=standard&Color=Very+Black",
+  "name": "SPANX AirEssentials® Turtleneck Tunic",
+  "why": "JSON-LD ProductGroup(hasVariant 3개 — 컬러별) + 본문 혼용률 47% Lenzing Modal, 46% Polyester, 7% Elastane.",
+  "expect": {
+   "desc": {
+    "has": "Ultra-soft turtleneck tunic"
+   },
+   "colors": {
+    "has": "Very Black"
+   },
+   "comp": "Modal 47% / Polyester 46% / Elastane 7%"
+  }
+ },
+ {
+  "brand": "La Ligne",
+  "file": "laligne.html.gz",
+  "url": "https://lalignenyc.com/products/mabel-tank-spice",
+  "name": "Mabel Tank",
+  "why": "Details 아코디언의 <ul>: 80% acetate, 20% polyester · Lining: 100% polyester · Spice · Japanese satin · Made in New York · Scoop neck · Easy loose fit · Wide, bra-covering straps · Dry clean.",
+  "expect": {
+   "feat": {
+    "has": "Easy loose fit"
+   },
+   "comp": "Acetate 80% / Polyester 20%\nPolyester 100%",
+   "colors": {
+    "has": "Spice"
+   }
+  }
+ },
+ {
+  "brand": "La Ligne (글머리표)",
+  "file": "laligne.html.gz",
+  "url": "https://lalignenyc.com/products/mabel-tank-spice",
+  "name": "Mabel Tank",
+  "expect": {
+   "feat": {
+    "has": "Wide, bra-covering straps"
+   }
+  }
+ },
+ {
+  "brand": "Dickies",
+  "file": "dickies.html.gz",
+  "shop": "dickies.shop.json.gz",
+  "url": "https://www.dickies.com/products/womens-everyday-short-sleeve-t-shirt-clc",
+  "name": "Women's Everyday Short Sleeve T-Shirt",
+  "why": "Shopify 설명 문단 + 'Features' 아래 <ul>(Ss T-Shirt · Fabric Composition: 60 cotton/40 polyester · Fit: Relaxed Fit · Sleeves: Short Sleeve). 옵션: Color 1개, Size XS~2XL.",
+  "expect": {
+   "desc": {
+    "has": "Soft, easy, and made for everyday wear"
+   },
+   "feat": {
+    "has": "Fit: Relaxed Fit"
+   },
+   "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ],
+   "colors": [
+    "Brand Band Cloud Cream"
+   ]
+  }
+ },
+ {
+  "brand": "Mint Velvet",
+  "file": "mintvelvet.html.gz",
+  "shop": "mintvelvet.shop.json.gz",
+  "url": "https://mintvelvet.com/products/black-jersey-draped-sleeveless-top",
+  "name": "Black Jersey Draped Sleeveless Top",
+  "why": "Fabric & Care 아코디언 <li><strong>Composition: </strong>… · <strong>Wash Care: </strong>Cool machine wash at 30 degrees(굵은 이름표는 칸 제목이 아님) + Shopify 옵션 Size XS~XL, 상품 코드 042649BLCK00(사이즈 꼬리 앞), 가격 GBP.",
+  "expect": {
+   "feat": {
+    "has": "Wash Care: Cool machine wash at 30 degrees"
+   },
+   "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL"
+   ],
+   "sku": {
+    "has": "042649BLCK"
+   },
+   "cur": "GBP",
+   "imgs": {
+    "min": 3
+   }
+  }
+ },
+ {
+  "brand": "Jaeger(M&S)",
+  "file": "jager.html.gz",
+  "url": "https://www.marksandspencer.com/textured-striped-t-shirt/p/clp61248347",
+  "name": "Textured Striped T-Shirt",
+  "why": "가격이 JSON-LD offers.priceSpecification.price(69 GBP)에만. 'Details & care' 아래 Fit and style 줄(Product Length: Standard · Fit: Regular fit …).",
+  "expect": {
+   "price": "£69",
+   "cur": "GBP",
+   "sku": "P61248347",
+   "feat": {
+    "has": "Fit: Regular fit"
+   },
+   "desc": {
+    "has": "This short sleeve t-shirt from JAEGER"
+   }
+  }
+ },
+ {
+  "brand": "Everlane",
+  "file": "everlane.html.gz",
+  "shop": "everlane.shop.json.gz",
+  "url": "https://www.everlane.com/products/womens-organic-cotton-box-cut-tee-peyote",
+  "name": "The Box-Cut Tee in Essential Cotton",
+  "why": "설명은 Shopify·JSON-LD. 머리 메뉴(menu-drawer·mega-menu)의 'Fit' 칸(All Denim · Straight Jeans …)은 다른 상품 목록 — 디테일로 읽으면 안 된다.",
+  "expect": {
+   "desc": {
+    "has": "With over 1M sold"
+   },
+   "feat": {
+    "not": "All Denim"
+   }
+  }
+ },
+ {
+  "brand": "Buck Mason",
+  "file": "buckmason.html.gz",
+  "url": "https://www.buckmason.com/products/white-field-spec-boyfriend-crop-tee",
+  "name": "White Field Spec Boyfriend Crop Tee",
+  "why": "아코디언 단추 글 'Fit / Classic' · 'Fabric / 100% cotton' · 'Returns / 365 days'(사이트 공통). 아래 'PAIR IT WITH' 추천 칸은 다른 상품.",
+  "expect": {
+   "desc": {
+    "has": "Our heaviest women's tee"
+   },
+   "feat": {
+    "has": "100% cotton"
+   },
+   "comp": "Cotton 100%",
+   "price": "$62",
+   "cur": "USD"
+  }
+ },
+ {
+  "brand": "Buck Mason (추천·배송 빼기)",
+  "file": "buckmason.html.gz",
+  "url": "https://www.buckmason.com/products/white-field-spec-boyfriend-crop-tee",
+  "name": "White Field Spec Boyfriend Crop Tee",
+  "expect": {
+   "feat": {
+    "not": "PAIR IT WITH"
+   }
+  }
+ },
+ {
+  "brand": "Buck Mason (반품 안내 빼기)",
+  "file": "buckmason.html.gz",
+  "url": "https://www.buckmason.com/products/white-field-spec-boyfriend-crop-tee",
+  "name": "White Field Spec Boyfriend Crop Tee",
+  "expect": {
+   "feat": {
+    "not": "Returns"
+   }
+  }
+ },
+ {
+  "brand": "Boden",
+  "file": "boden.html.gz",
+  "shop": "boden.shop.json.gz",
+  "url": "https://us.boden.com/products/women-lace-trim-v-neck-velvet-top-beetroot-red-t2259red",
+  "name": "Lace Trim V-Neck Velvet Top-Beetroot Red",
+  "why": "본문 글머리표 'Main: 50% recycled polyester, 30% polyester, 20% elastane' · 'Trims: 100% polyester'. 겉감(재생 폴리 50 + 폴리 30 = 폴리 80, 엘라스테인 20)이 혼용률이고 장식 줄은 아니다. 이 페이지는 컬러 옵션·JSON-LD color 가 없고 상품명 끝(-Beetroot Red)과 주소(…-beetroot-red-t2259red)에만 컬러가 있다.",
+  "expect": {
+   "comp": "Polyester 80% / Elastane 20%",
+   "name": "Lace Trim V-Neck Velvet Top-Beetroot Red",
+   "color": "Beetroot Red",
+   "feat": {
+    "has": "Main: 50% recycled polyester, 30% polyester, 20% elastane"
+   }
+  }
+ },
+ {
+  "brand": "Boden (장식 줄만 남기지 않기)",
+  "file": "boden.html.gz",
+  "shop": "boden.shop.json.gz",
+  "url": "https://us.boden.com/products/women-lace-trim-v-neck-velvet-top-beetroot-red-t2259red",
+  "name": "Lace Trim V-Neck Velvet Top-Beetroot Red",
+  "expect": {
+   "comp": {
+    "not": "Polyester 100%"
+   }
+  }
+ },
+ {
+  "brand": "Zara",
+  "file": "zara.html.gz",
+  "url": "https://www.zara.com/us/en/long-sleeve-interlock-t-shirt-p04174639.html?v1=616513999",
+  "name": "LONG-SLEEVE INTERLOCK T-SHIRT",
+  "why": "'Composition & care' 칸: OUTER SHELL / 100% cotton(이름표와 값이 따로 그려짐) + 세탁 안내. 같은 목록의 'Check in-store availability' 는 단추, 연말 반품 안내는 사이트 공통 문구.",
+  "expect": {
+   "feat": {
+    "first": "OUTER SHELL: 100% cotton"
+   },
+   "comp": "Cotton 100%"
+  }
+ },
+ {
+  "brand": "Zara (단추 빼기)",
+  "file": "zara.html.gz",
+  "url": "https://www.zara.com/us/en/long-sleeve-interlock-t-shirt-p04174639.html?v1=616513999",
+  "name": "LONG-SLEEVE INTERLOCK T-SHIRT",
+  "expect": {
+   "feat": {
+    "not": "Check in-store availability"
+   }
+  }
+ },
+ {
+  "brand": "Zara (반품 안내 빼기)",
+  "file": "zara.html.gz",
+  "url": "https://www.zara.com/us/en/long-sleeve-interlock-t-shirt-p04174639.html?v1=616513999",
+  "name": "LONG-SLEEVE INTERLOCK T-SHIRT",
+  "expect": {
+   "feat": {
+    "not": "holiday season"
+   }
+  }
+ },
+ {
+  "brand": "Goldie",
+  "file": "goldie.html.gz",
+  "url": "https://www.goldietees.com/products/allure-tee",
+  "name": "Allure Tee",
+  "why": "<h1>Allure Tee · 상품 글: '… reversible essential … 50% cotton, 50% polyester'. 아래 사이트 공통 'FABRIC GUIDE' 아코디언의 'FABRICATION 100% Peruvian pima'(원단 종류 안내)는 이 상품의 혼용률이 아니다. 추천 칸은 <product-recommendations> 태그.",
+  "expect": {
+   "comp": "Cotton 50% / Polyester 50%"
+  }
+ },
+ {
+  "brand": "Rag & bone (Pocketing 빼기)",
+  "file": "ragbone-rbmiramardahliaflarepantrc7525h7mpohtml.html.gz",
+  "url": "https://www.rag-bone.com/p/rb-miramar-dahlia-flare-pant-RC7525H7MPO.html",
+  "name": "RB Miramar Dahlia Flare Pant",
+  "why": "'Composition: Body: 72% rayon, 23% polyamide, 5% elastane; Pocketing: 100% cotton' — 주머니감은 장식 줄.",
+  "expect": {
+   "comp": "Viscose 72% / Nylon 23% / Elastane 5%"
+  }
+ },
+ {
+  "brand": "Jaeger/M&S (Pocketing 빼기)",
+  "file": "jager-clp23084829.html.gz",
+  "url": "https://www.marksandspencer.com/cotton-rich-cord-wide-leg-trousers/p/clp23084829",
+  "name": "Cotton Rich Cord Wide Leg Trousers",
+  "why": "'Main - 99% cotton, 1% elastane, Pocketing - 65% polyester, 35% cotton'.",
+  "expect": {
+   "comp": "Cotton 99% / Elastane 1%"
+  }
+ },
+ {
+  "brand": "Tuckernuck (괄호 부위)",
+  "file": "tuckernuck-blueshiraembroideredmididress.html.gz",
+  "url": "https://tnuck.com/products/blue-shira-embroidered-midi-dress",
+  "name": "Blue Shira Embroidered Midi Dress",
+  "why": "'Material: 100% Cotton (outer), 100% Viscose (embroidery), 100% Polyester (lace)' — 겉감만.",
+  "expect": {
+   "comp": "Cotton 100%"
+  },
+  "shop": "tuckernuck-blueshiraembroideredmididress.shop.json.gz"
+ },
+ {
+  "brand": "Oak + Fort (소재 제목 뒤 줄)",
+  "file": "oakfort-knitsleevelessmididressdr15785w.html.gz",
+  "url": "https://oakandfort.ca/products/knit-sleeveless-midi-dress-dr-15785-w",
+  "name": "Knit Sleeveless Midi Dress",
+  "why": "'Materials & Care 55% Cotton, 43% Polyester, 2% Spandex | Exclusive of trims'. 뒤의 추천 카드 '100% WOOL …', '100% Merino Wool Sweater' 는 다른 상품.",
+  "expect": {
+   "comp": "Cotton 55% / Polyester 43% / Elastane 2%"
+  },
+  "shop": "oakfort-knitsleevelessmididressdr15785w.shop.json.gz"
+ },
+ {
+  "brand": "Bellerose (합 110% 표기 — 비워 둠)",
+  "file": "bellerose-womenshirtsjonniecheckabw262421c1455.html.gz",
+  "url": "https://bellerose.com/products/women-shirts-jonnie-check-a-bw262421-c1455",
+  "name": "Jonnie Check Shirt",
+  "why": "'Shell fabric : 66% Polyester / 22% Cotton / 2% Acrylic / 10% Wool / 10% Viscose' — 합 110%. 어느 숫자가 틀렸는지 알 수 없어 비운다(추천 카드의 '100% Cotton' 으로 대신하지 않음).",
+  "expect": {
+   "comp": ""
+  },
+  "shop": "bellerose-womenshirtsjonniecheckabw262421c1455.shop.json.gz"
+ },
+ {
+  "brand": "The Great (Details 100% Cotton)",
+  "file": "thegreat-theslouchsweatshirtdarkslate.html.gz",
+  "url": "https://thisisthegreat.com/collections/knit-shop-sweatshirts/products/the-slouch-sweatshirt-dark-slate",
+  "name": "The Slouch Sweatshirt",
+  "why": "'Size & Fit … Details 100% Cotton Machine Wash Cold' — 운영 저장값 'Modal 100%' 는 틀림.",
+  "expect": {
+   "comp": "Cotton 100%"
+  },
+  "shop": "thegreat-theslouchsweatshirtdarkslate.shop.json.gz"
+ },
+ {
+  "brand": "Faherty (같은 섬유 둘 더하기)",
+  "file": "faherty-sunseekerdresssausalitosunset.html.gz",
+  "url": "https://fahertybrand.com/products/sunseeker-dress-sausalito-sunset",
+  "name": "Sunseeker Dress",
+  "why": "'Material: 70% LIVA REVIVA™ Viscose, 30% CIRCULOSE® Viscose'.",
+  "expect": {
+   "comp": "Viscose 100%"
+  },
+  "shop": "faherty-sunseekerdresssausalitosunset.shop.json.gz"
+ },
+ {
+  "brand": "Tuckernuck (main · combo · embroidery)",
+  "file": "tuckernuck-kaiya.html.gz",
+  "url": "https://tnuck.com/products/cream-kaiya-floral-top",
+  "name": "Kaiya Floral Top",
+  "why": "'Material: 100% Cotton (main), 73% Cotton, 27% Nylon (combo), 100% Viscose (embroidery)' — 괄호 속 부위가 값 뒤에 붙는다. 겉감(main)만.",
+  "expect": {
+   "comp": "Cotton 100%"
+  }
+ },
+ {
+  "brand": "Rag & bone (설명의 이름 없는 줄 대신 Body)",
+  "file": "ragbone-lucymerinowoolhenleyrg4f26f6mmn110html.html.gz",
+  "url": "https://www.rag-bone.com/p/lucy-merino-wool-henley-RG4F26F6MMN_110.html",
+  "name": "Lucy Merino Wool Henley",
+  "why": "설명 끝 '100% Wool 100% Cotton'(부위 이름 없음) 뒤에 'Materials: • Body: 100% wool • Trim: 100% cotton'. 겉감만.",
+  "expect": {
+   "comp": "Wool 100%"
+  }
+ },
+ {
+  "brand": "Rag & bone (Rib trim 빼기)",
+  "file": "ragbone-vintageterryteere9j26pt3vw960html.html.gz",
+  "url": "https://www.rag-bone.com/p/vintage-terry-tee-RE9J26PT3VW_960.html",
+  "name": "Vintage Terry Tee",
+  "why": "'Body: 78% cotton, 22% polyester • Rib trim: 98% cotton, 2% elastane'.",
+  "expect": {
+   "comp": "Cotton 78% / Polyester 22%"
+  }
+ },
+ {
+  "brand": "Rag & bone (Trim 빼기)",
+  "file": "ragbone-arianasatinslipdressra5d26s3mswhtml.html.gz",
+  "url": "https://www.rag-bone.com/p/ariana-satin-slip-dress-RA5D26S3MSW.html",
+  "name": "Ariana Satin Slip Dress",
+  "why": "'Body: 100% polyester • Trim: 100% viscose'.",
+  "expect": {
+   "comp": "Polyester 100%"
+  }
+ },
+ {
+  "brand": "Rag & bone (Body + Lining 두 줄)",
+  "file": "ragbone-camrefineknitpantre7z26f71pwhtml.html.gz",
+  "url": "https://www.rag-bone.com/p/cam-refine-knit-pant-RE7Z26F71PW.html",
+  "name": "Cam Refine Knit Pant",
+  "why": "'Body: 66% viscose, 30% polyamide, 4% elastane • Lining: 94% polyester, 6% elastane' — 겉감 줄 + 안감 줄.",
+  "expect": {
+   "comp": "Viscose 66% / Nylon 30% / Elastane 4%\nPolyester 94% / Elastane 6%"
+  }
+ },
+ {
+  "brand": "Boden (Main + Bodice lining)",
+  "file": "boden-womenhonorcolumnvelvetmididressharbourbl.html.gz",
+  "url": "https://us.boden.com/products/women-honor-column-velvet-midi-dress-harbour-blue-d1849blu",
+  "name": "Honor Column Velvet Midi Dress",
+  "why": "'Composition Main: 60% recycled polyester, 30% polyester, 10% elastane Bodice lining: 100% recycled polyester'.",
+  "expect": {
+   "comp": "Polyester 90% / Elastane 10%\nPolyester 100%"
+  },
+  "shop": "boden-womenhonorcolumnvelvetmididressharbourbl.shop.json.gz"
+ },
+ {
+  "brand": "Boden (Main + Lace)",
+  "file": "boden-womenrufflevnecklacetopdeepwisteriat2180.html.gz",
+  "url": "https://us.boden.com/products/women-ruffle-v-neck-lace-top-deep-wisteria-t2180red",
+  "name": "Ruffle V-Neck Lace Top",
+  "why": "'Composition Main: 100% viscose Lace: 75% cotton, 25% nylon'. 레이스는 장식.",
+  "expect": {
+   "comp": "Viscose 100%"
+  },
+  "shop": "boden-womenrufflevnecklacetopdeepwisteriat2180.shop.json.gz"
+ },
+ {
+  "brand": "Boden (Main 한 줄)",
+  "file": "boden-womenlouisecordmidishirtdressstormblued1.html.gz",
+  "url": "https://us.boden.com/products/women-louise-cord-midi-shirt-dress-storm-blue-d1786blu",
+  "name": "Louise Cord Midi Shirt Dress",
+  "why": "'Composition Main: 100% cotton'.",
+  "expect": {
+   "comp": "Cotton 100%"
+  },
+  "shop": "boden-womenlouisecordmidishirtdressstormblued1.shop.json.gz"
+ },
+ {
+  "brand": "Oasis (Main 에 Metal · 안감 따로)",
+  "file": "oasis-bluevanillagoldlongsleeveturtleneckblous.html.gz",
+  "url": "https://www.oasisfashion.com/product/blue-vanilla-gold-long-sleeve-turtleneck-blouse_p-db13ef21-179d-4465-a045-5c809ad99f0c?colour=Gold",
+  "name": "Long Sleeve Turtleneck Blouse",
+  "why": "'Main: 60% Nylon, 40% Metal; Lining: 100% Polyester'. 금속사(Metal)를 섬유로 몰라 겉감이 조각이 되었었다.",
+  "expect": {
+   "comp": "Nylon 60% / Metallic 40%\nPolyester 100%"
+  }
+ },
+ {
+  "brand": "Oasis (Main 에 Metallic · 안감 따로)",
+  "file": "oasis-coastcoastmuseburnoutvelvetlongsleevemax.html.gz",
+  "url": "https://www.oasisfashion.com/product/coast-coast-muse-burnout-velvet-long-sleeve-maxi-dress-with-gold-trim_bcc14057?colour=olive",
+  "name": "Muse Burnout Velvet Maxi Dress",
+  "why": "페이지 JSON detailsAndCare 'Main: 88% Polyester 8% Metallic 4% Elastane\\nLining: 96% Polyester 4% Elastane'.",
+  "expect": {
+   "comp": "Polyester 88% / Metallic 8% / Elastane 4%\nPolyester 96% / Elastane 4%"
+  }
+ },
+ {
+  "brand": "The Great (창 이름 'Modal spinner' 를 소재로 읽지 않음)",
+  "file": "thegreat-theslouchycrewteetruewhite.html.gz",
+  "url": "https://thisisthegreat.com/products/the-slouchy-crew-tee-true-white",
+  "name": "The Slouchy Crew Tee",
+  "why": "'Fit Guide dialog Modal spinner Details 100% Cotton' — 'Modal' 은 창(dialog) 이름. 퍼센트 뒤에 바로 Cotton 이 온다.",
+  "expect": {
+   "comp": "Cotton 100%"
+  },
+  "shop": "thegreat-theslouchycrewteetruewhite.shop.json.gz"
+ },
+ {
+  "brand": "The Great (Details 90/10)",
+  "file": "thegreat-theoversizedrufflepeplumteeheathergrey.html.gz",
+  "url": "https://thisisthegreat.com/products/the-oversized-ruffle-peplum-tee-heather-grey",
+  "name": "The Oversized Ruffle Peplum Tee",
+  "why": "'Details 90% Cotton 10% Polyester'.",
+  "expect": {
+   "comp": "Cotton 90% / Polyester 10%"
+  },
+  "shop": "thegreat-theoversizedrufflepeplumteeheathergrey.shop.json.gz"
+ },
+ {
+  "brand": "Z Supply (메뉴 '100% Cotton Shop' 빼기)",
+  "file": "zsupply-arletstripethermaltop.html.gz",
+  "url": "https://zsupplyclothing.com/products/arlet-stripe-thermal-top",
+  "name": "Arlet Stripe Thermal Top",
+  "why": "메뉴에 '100% Cotton Shop'(기획전 이름), 본문 'Details … Waffle Thermal: 60% Cotton, 40% Polyester'.",
+  "expect": {
+   "comp": "Cotton 60% / Polyester 40%"
+  },
+  "shop": "zsupply-arletstripethermaltop.shop.json.gz"
+ },
+ {
+  "brand": "Z Supply (Linen 55 / Rayon 45)",
+  "file": "zsupply-sloanelinencroppedtank.html.gz",
+  "url": "https://zsupplyclothing.com/products/sloane-linen-cropped-tank",
+  "name": "Sloane Linen Cropped Tank",
+  "why": "'Washed Linen Blend: 55% Linen, 45% Rayon'.",
+  "expect": {
+   "comp": "Linen 55% / Viscose 45%"
+  },
+  "shop": "zsupply-sloanelinencroppedtank.shop.json.gz"
+ },
+ {
+  "brand": "Z Supply (메뉴 값이 저장돼 있던 것)",
+  "file": "zsupply-dazzletee.html.gz",
+  "url": "https://zsupplyclothing.com/products/dazzle-tee",
+  "name": "Dazzle Tee",
+  "why": "'Sequin Mesh: 95% Polyester, 5% Spandex'. 운영 저장값 Cotton 100% 는 메뉴 '100% Cotton Shop'.",
+  "expect": {
+   "comp": "Polyester 95% / Elastane 5%"
+  },
+  "shop": "zsupply-dazzletee.shop.json.gz"
+ },
+ {
+  "brand": "Jigsaw (Main 1 · Main 2 두 줄)",
+  "file": "jigsaw-tigerorchidknittankblue.html.gz",
+  "url": "https://www.jigsaw-online.com/products/tiger-orchid-knit-tank-blue",
+  "name": "Tiger Orchid Knit Tank",
+  "why": "'Materials and Care Main 1: 100% Cotton Main 2: 100% Silk' — 겉감 둘.",
+  "expect": {
+   "comp": "Cotton 100%\nSilk 100%"
+  },
+  "shop": "jigsaw-tigerorchidknittankblue.shop.json.gz"
+ },
+ {
+  "brand": "Jigsaw (Main + Trim)",
+  "file": "jigsaw-satinlacedetailcamibrown.html.gz",
+  "url": "https://www.jigsaw-online.com/products/satin-lace-detail-cami-brown",
+  "name": "Satin Lace Detail Cami",
+  "why": "'Main: 100% Viscose Trim: 100% Polyester'.",
+  "expect": {
+   "comp": "Viscose 100%"
+  },
+  "shop": "jigsaw-satinlacedetailcamibrown.shop.json.gz"
+ },
+ {
+  "brand": "Jigsaw (Main + Trim, 레이스)",
+  "file": "jigsaw-modallacecamiburgundy.html.gz",
+  "url": "https://www.jigsaw-online.com/products/modal-lace-cami-burgundy",
+  "name": "Modal Lace Cami",
+  "why": "'Main : 92% Modal, 8% Elastane Trim: 90% Polyamide, 10% Elastane'.",
+  "expect": {
+   "comp": "Modal 92% / Elastane 8%"
+  },
+  "shop": "jigsaw-modallacecamiburgundy.shop.json.gz"
+ },
+ {
+  "brand": "Jigsaw (Main + Trim, 콜론 없음)",
+  "file": "jigsaw-linensilkpocketskirtgreen.html.gz",
+  "url": "https://www.jigsaw-online.com/products/linen-silk-pocket-skirt-green",
+  "name": "Linen Silk Pocket Skirt",
+  "why": "'Main 100% Linen Trim 100% Silk'.",
+  "expect": {
+   "comp": "Linen 100%"
+  },
+  "shop": "jigsaw-linensilkpocketskirtgreen.shop.json.gz"
+ },
+ {
+  "brand": "Bellerose (Shell fabric 한 줄)",
+  "file": "bellerose-womentshirtsfioresdustyrose.html.gz",
+  "url": "https://bellerose.com/products/women-t-shirts-fiores-dusty-rose",
+  "name": "Fiores T-shirt",
+  "why": "'Composition & care Shell fabric : 100% Cotton'.",
+  "expect": {
+   "comp": "Cotton 100%"
+  },
+  "shop": "bellerose-womentshirtsfioresdustyrose.shop.json.gz"
+ },
+ {
+  "brand": "Bellerose (표기 합 178% — 비워 둠)",
+  "file": "bellerose-womenknitwearangletstripeabw262940k1356s.html.gz",
+  "url": "https://bellerose.com/products/women-knitwear-anglet-stripe-a-bw262940-k1356s",
+  "name": "Anglet Stripe Knit",
+  "why": "'Shell fabric : 78% Organic cotton / 63% Cotton / 37% Polyester' — 합 178%, 어느 숫자가 틀렸는지 알 수 없다.",
+  "expect": {
+   "comp": ""
+  },
+  "shop": "bellerose-womenknitwearangletstripeabw262940k1356s.shop.json.gz"
+ },
+ {
+  "brand": "Tuckernuck (outer + embroidery)",
+  "file": "tuckernuck-blueteaganeyeletshortsleevetop.html.gz",
+  "url": "https://tnuck.com/products/blue-teagan-eyelet-short-sleeve-top",
+  "name": "Teagan Eyelet Top",
+  "why": "'Material: 100% Cotton (outer), 100% Polyester (embroidery)'.",
+  "expect": {
+   "comp": "Cotton 100%"
+  },
+  "shop": "tuckernuck-blueteaganeyeletshortsleevetop.shop.json.gz"
+ },
+ {
+  "brand": "CCC (Body + Rib)",
+  "file": "ccc-halfzipsweatshirtinwhiteandnavystripes.html.gz",
+  "url": "https://www.crewclothing.co.uk/products/half-zip-sweatshirt-in-white-and-navy-stripes",
+  "name": "Half Zip Sweatshirt",
+  "why": "'• Body: 64% Cotton, 36% Polyester • Rib: 57% Cotton, 40% Polyester, 3% Elastane'.",
+  "expect": {
+   "comp": "Cotton 64% / Polyester 36%"
+  },
+  "shop": "ccc-halfzipsweatshirtinwhiteandnavystripes.shop.json.gz"
+ }
+]

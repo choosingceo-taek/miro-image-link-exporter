@@ -1,0 +1,267 @@
+# 헤드리스 브라우저 수집 테스트 (2026-11-25T12:20Z)
+
+GitHub Actions(데이터센터 IP)에서 진짜 브라우저로 확장 담당 브랜드를 돌린 결과.
+
+- 엔진: chromium + impit (브랜드별 기본)
+
+- 대상 10 · ✅ 자동화 가능 9 · ⛔ 확장 필요 0 · 🔧 보완 필요 1
+
+## ✅ 자동화 가능 (9)
+
+- **Nation LTD** [chromium] — 72개 {"tops":35,"sweatshirts":18,"dresses":15,"pants":4} (210s)
+  - 30개 (상품 주소 모양 30) · https://nation.la/collections/tops
+    - Loren Tee ($76) — https://nation.la/collections/tops/products/loren-tee-white-nps
+    - Neda Pleated Top ($125) — https://nation.la/collections/tops/products/neda-top-military-brown
+    - Stevie Tee ($92) — https://nation.la/products/stevie-tee-jet-black
+  - 23개 (상품 주소 모양 23) · https://nation.la/collections/sweatshirts
+    - Jessie Sweatshirt ($132) — https://nation.la/collections/sweatshirts/products/jessie-sweatshirt-heather-grey
+    - Jovie Crewneck ($122) — https://nation.la/collections/sweatshirts/products/jovie-crewneck-white
+    - Stevie Tee ($92) — https://nation.la/products/stevie-tee-jet-black
+  - 27개 (상품 주소 모양 27) · https://nation.la/collections/dresses
+    - Neva Dress ($139) — https://nation.la/collections/dresses/products/neva-dress-espresso
+    - Penelope Smocked Midi ($111) — https://nation.la/collections/dresses/products/penelope-smocked-midi-jet-black
+    - Brixton Top ($76) — https://nation.la/products/brixton-top-sagebrush
+  - 10개 (상품 주소 모양 10) · https://nation.la/collections/sweatpants
+    - Lincoln Knit Pant ($139) — https://nation.la/collections/sweatpants/products/lincoln-pant-jet-black
+    - Jaylen One Shoulder ($32) — https://nation.la/products/jaylen-top-camelia
+    - Brixton Top ($76) — https://nation.la/products/brixton-top-sagebrush
+  - 표본: Loren Tee — https://nation.la/collections/tops/products/loren-tee-white-nps
+  - 표본: Fable Turtleneck Tank — https://nation.la/collections/tops/products/fable-turtleneck-tank-espresso
+  - 표본: Fable Turtleneck — https://nation.la/collections/tops/products/fable-turtleneck-vintage-yarn-dye-stripe
+  - 표본: Fable Turtleneck — https://nation.la/collections/tops/products/fable-turtleneck-jet-black
+  - 표본: Loren Tee — https://nation.la/collections/tops/products/loren-tee-heather-grey-nps
+- **Sessun** [impit] — 211개 {"shirts":47,"sweatshirts":27,"tops":17,"dresses":25,"pants":95} (618s)
+  - 47개 (상품 주소 모양 0) · https://en.sessun.com/catalogue/t-shirts.html
+    - Dorel — https://en.sessun.com/catalogue/t-shirts/dorel-ambrune.html
+    - Serge — https://en.sessun.com/catalogue/t-shirts/serge-navy.html
+    - Serge co — https://en.sessun.com/catalogue/t-shirts/serge-co-black.html
+  - 27개 (상품 주소 모양 0) · https://en.sessun.com/catalogue/sweatshirts.html
+    - Chebbi — https://en.sessun.com/catalogue/sweatshirts/chebbi-sanstone.html
+    - Chebbi — https://en.sessun.com/catalogue/sweatshirts/chebbi-black-granit.html
+    - Inea — https://en.sessun.com/catalogue/sweatshirts/inea-redmuse.html
+  - 17개 (상품 주소 모양 0) · https://en.sessun.com/catalogue/tops-and-bodies.html
+    - Starlet — https://en.sessun.com/catalogue/tops-and-bodies/starlet-night-gold.html
+    - Minuit — https://en.sessun.com/catalogue/tops-and-bodies/minuit-murza.html
+    - Mocambo — https://en.sessun.com/catalogue/tops-and-bodies/mocambo-canopy.html
+  - 25개 (상품 주소 모양 0) · https://en.sessun.com/catalogue/dresses.html
+    - Hayworth — https://en.sessun.com/catalogue/dresses/hayworth-moka.html
+    - Yanza — https://en.sessun.com/catalogue/dresses/yanza-moss-bronze.html
+    - Swinging — https://en.sessun.com/catalogue/dresses/swinging-black.html
+  - 95개 (상품 주소 모양 0) · https://en.sessun.com/catalogue/trousers.html
+    - Provenco — https://en.sessun.com/catalogue/trousers/provenco-murza.html
+    - Manhatti — https://en.sessun.com/catalogue/trousers/manhatti-espresso.html
+    - Rim — https://en.sessun.com/catalogue/trousers/rim-black.html
+  - 표본: Dorel — https://en.sessun.com/catalogue/t-shirts/dorel-ambrune.html
+  - 표본: Sergio — https://en.sessun.com/catalogue/t-shirts/sergio-rosee.html
+  - 표본: Dimentica — https://en.sessun.com/catalogue/t-shirts/dimentica-fleur-de-sel.html
+  - 표본: Erico — https://en.sessun.com/catalogue/t-shirts/erico-lava.html
+  - 표본: Serge — https://en.sessun.com/catalogue/t-shirts/serge-red-muse.html
+- **vineyardvines** [chromium] — 134개 {"sweatshirts":17,"tops":32,"shirts":24,"pants":34,"dresses":27} (135s)
+  - 21개 (상품 주소 모양 21) · https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9
+    - Deluxe Turtleneck ($68.00) — https://www.vineyardvines.com/product/womens-casual-knits/deluxe-turtleneck/2K005106.html
+    - Women's Candy Cane Whales Long-Sleeve Boxy Tee ($55.00) — https://www.vineyardvines.com/product/womens-t-shirts/ho-ho-ho-candy-cane-whales-long-sleeve-boxy-tee/2V003577.html
+    - Women's Après Long-Sleeve Boxy Tee ($55.00) — https://www.vineyardvines.com/product/womens-t-shirts/apres-long-sleeve-boxy-tee/2V003599.html
+  - 28개 (상품 주소 모양 28) · https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3
+    - Dreamcloth® Fair Isle Relaxed Shep Shirt® ($158.00) — https://www.vineyardvines.com/product/womens-shep-shirts/fair-isle-dreamcloth-relaxed-shep-shirt/2K004143.html
+    - Dreamcloth® Quarter-Zip ($148.00) — https://www.vineyardvines.com/product/womens-fashion-knits/dreamcloth-quarter-zip/199254883474.html
+    - Dreamcloth® Quarter-Zip ($148.00) — https://www.vineyardvines.com/product/womens-fashion-knits/dreamcloth-quarter-zip/199969180639.html
+  - 28개 (상품 주소 모양 28) · https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7
+    - Birdie Cropped Embellished Button-Down ($128.00) — https://www.vineyardvines.com/product/womens-woven-tops/cropped-birdie-embellished-button-down/2W002187.html
+    - Deluxe Boatneck Tee ($68.00) — https://www.vineyardvines.com/product/womens-casual-knits/deluxe-boatneck-tee/2K005243.html
+    - Emilia Top ($118.00) — https://www.vineyardvines.com/product/womens-woven-tops/emilia-top/2W002129.html
+  - 39개 (상품 주소 모양 39) · https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2
+    - Blythe Plaid Dress ($198.00) — https://www.vineyardvines.com/product/womens-dresses/blythe-plaid-dress/2Q012145.html
+    - Bitsy Maxi Dress ($298.00) — https://www.vineyardvines.com/product/womens-dresses/bitsy-maxi-dress/2Q012147.html
+    - Naomi Appliqué Midi Dress ($298.00) — https://www.vineyardvines.com/product/womens-dresses/naomi-applique-midi/2Q012070.html
+  - 23개 (상품 주소 모양 23) · https://www.vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--womens-clothing--8
+    - Peyton Plaid Ponte Pants ($128.00) — https://www.vineyardvines.com/product/womens-pants/peyton-tartan-pants/2P001641.html
+    - Audrey Jeans ($138.00) — https://www.vineyardvines.com/product/womens-pants/audrey-jeans/199254375245.html
+    - Dreamy Jersey Pants ($118.00) — https://www.vineyardvines.com/product/womens-pants/dreamy-jersey-pants/2P001675.html
+  - 표본: Deluxe Turtleneck — https://www.vineyardvines.com/product/womens-casual-knits/deluxe-turtleneck/2K005106.html
+  - 표본: Deluxe Ruffle Mockneck — https://www.vineyardvines.com/product/womens-casual-knits/deluxe-long-sleeve-ruffle-trim-crewneck/2K005709.html
+  - 표본: Slim Rib Turtleneck — https://www.vineyardvines.com/product/womens-casual-knits/tencel-rib-turtle-neck-tee/2K005706.html
+  - 표본: Supima® Cotton Crewneck Tee — https://www.vineyardvines.com/product/womens-casual-knits/supima-ss-crew-with-whale/2K005983.html
+  - 표본: Pointelle Scoopneck Long-Sleeve Tee — https://www.vineyardvines.com/product/womens-casual-knits/pointelle-scoop-neck-long-sleeve/2K005729.html
+- **Whitestuff** [impit] — 664개 {"tops":236,"pants":130,"shirts":107,"sweatshirts":74,"dresses":117} (951s)
+  - 110개 (상품 주소 모양 110) · https://www.whitestuff.com/browse/collection/womens-t-shirts
+    - KIM BUTTON THROUGH TEE — https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI
+    - NELLY EMBROIDERED T-SHIRT — https://www.whitestuff.com/p/7267/nelly-embroidered-t-shirt/BRIL_WHITE
+    - IRIS LINEN TEE — https://www.whitestuff.com/p/9491/442987-iris-linen-tee/IVORY_PR
+  - 157개 (상품 주소 모양 157) · https://www.whitestuff.com/browse/womens/tops-and-tees
+    - KIM BUTTON THROUGH TEE — https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI
+    - LIZZIE LONG SLEEVE EMBROIDERY TOP — https://www.whitestuff.com/p/9510/448922-lizzie-long-sleeve-embroidery-top/NAVY_MULTI
+    - NINA NOTCH STRIPE BUTTON TEE — https://www.whitestuff.com/p/8809/448668-nina-notch-stripe-button-tee/PINK_MLT
+  - 170개 (상품 주소 모양 170) · https://www.whitestuff.com/browse/womens/knitwear
+    - LUCIE CREW NECK JUMPER — https://www.whitestuff.com/p/8688/446745-lucie-crew-neck-jumper/BRT_RED
+    - DK PINK swatch (£29.40) — https://www.whitestuff.com/p/8968/447456-sienna-jumper/DK_PINK
+    - KATIE WOOL BLEND JUMPER — https://www.whitestuff.com/p/6237/katie-jumper/MID_GREY
+  - 111개 (상품 주소 모양 111) · https://www.whitestuff.com/browse/womens/shirts-and-blouses
+    - LIBBY ORGANIC COTTON SHIRT — https://www.whitestuff.com/p/9420/448337-libby-organic-cotton-shirt/BRIL_WHITE
+    - ANNIE JERSEY SHIRT — https://www.whitestuff.com/p/8375/447982-annie-jersey-shirt/NAVY_MULTI
+    - MARLOW CHECK SHIRT — https://www.whitestuff.com/p/9569/448513-marlow-check-shirt/GREEN_MLT
+  - 127개 (상품 주소 모양 127) · https://www.whitestuff.com/browse/womens/dresses
+    - JOJO JERSEY SHIRT DRESS — https://www.whitestuff.com/p/9360/448930-jojo-jersey-shirt-dress/DARK_NAVY
+    - ADA SHORT SHIRRED DRESS — https://www.whitestuff.com/p/9379/447890-ada-short-shirred-dress/PINK_PR
+    - MID GREEN swatch (£51.00) — https://www.whitestuff.com/p/7924/millie-linen-shift-dress/MID_GREEN
+  - 131개 (상품 주소 모양 131) · https://www.whitestuff.com/browse/womens/trousers-and-leggings
+    - BELLE TWEEDY WIDE LEG TROUSER — https://www.whitestuff.com/p/8534/446863-belle-tweedy-wide-leg-trouser/GREY_MLT
+    - TWISTER CHINO WIDE LEG TROUSER — https://www.whitestuff.com/p/8522/446879-twister-chino-wide-leg-trouser/KHAKI_GRN
+    - LGT GREEN swatch — https://www.whitestuff.com/p/5794/tia-denim-shorts/LGT_GREEN
+  - 표본: KIM BUTTON THROUGH TEE — https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI
+  - 표본: DK BROWN swatch — https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/DK_BROWN
+  - 표본: CLARA TEXTURE CREW NECK TEE — https://www.whitestuff.com/p/7087/clara-texture-crew-neck-tee/MID_BLUE
+  - 표본: CLARA TEXTURE STRIPE TEE — https://www.whitestuff.com/p/9478/448158-clara-texture-stripe-tee/BRIL_WHITE
+  - 표본: MID PINK swatch — https://www.whitestuff.com/p/9478/448158-clara-texture-stripe-tee/MID_PINK
+- **Vanessa bruno** [chromium] — 207개 {"tops":39,"sweatshirts":49,"shirts":63,"pants":26,"dresses":30} (217s)
+  - 4개 (상품 주소 모양 4) · https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html
+    - Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/hei-t-shirt-54829.html
+    - Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/camomille-t-shirt-45499.html
+    - Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/glendon-t-shirt-52710.html
+  - 2개 (상품 주소 모양 2) · https://www.vanessabruno.com/clothing/shirts-tops/top.html
+    - Clothing Top - VANESSABRUNO — https://www.vanessabruno.com/p/harry-sleeveless-jacket-54407.html
+    - Clothing Top - VANESSABRUNO — https://www.vanessabruno.com/p/glycine-tank-top-53999.html
+  - 9개 (상품 주소 모양 0) · https://www.vanessabruno.com/last-chance/knitwear.html
+    - private sale.html — https://www.vanessabruno.com/private-sale.html
+    - DESKTOP PRODUIT-3 — https://www.vanessabruno.com/bags/moon.html
+    - DESKTOP CARRE-1 — https://www.vanessabruno.com/the-gift-edit/le-soir.html
+  - 73개 (상품 주소 모양 64) · https://www.vanessabruno.com/clothing/knitwear.html
+    - hideki sweater 55251.html — https://www.vanessabruno.com/p/hideki-sweater-55251.html
+    - Clothing - VANESSABRUNO — https://www.vanessabruno.com/p/douve-cardigan-45397.html
+    - DESKTOP CARRE-1 — https://www.vanessabruno.fr/the-gift-edit/le-soir.html
+  - 77개 (상품 주소 모양 68) · https://www.vanessabruno.com/clothing/shirts-tops.html
+    - heron blouse 55586.html — https://www.vanessabruno.com/p/heron-blouse-55586.html
+    - Clothing - VANESSABRUNO — https://www.vanessabruno.com/p/harry-sleeveless-jacket-54407.html
+    - DESKTOP CARRE-1 — https://www.vanessabruno.fr/the-gift-edit/le-soir.html
+  - 41개 (상품 주소 모양 32) · https://www.vanessabruno.com/clothing/dresses-jumpsuits.html
+    - jae long dress 55719.html — https://www.vanessabruno.com/p/jae-long-dress-55719.html
+    - Clothing All the products - VANESSABRUNO — https://www.vanessabruno.com/p/hillary-short-dress-54402.html
+    - DESKTOP CARRE-1 — https://www.vanessabruno.fr/the-gift-edit/le-soir.html
+  - 25개 (상품 주소 모양 25) · https://www.vanessabruno.com/clothing/trousers.html
+    - Clothing All the products - VANESSABRUNO — https://www.vanessabruno.com/p/cargo-trousers-55239.html
+    - Clothing All the products - VANESSABRUNO — https://www.vanessabruno.com/p/dompay-flare-pants-45309.html
+    - Clothing All the products - VANESSABRUNO — https://www.vanessabruno.com/p/dandy-pants-44630.html
+  - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/hei-t-shirt-54829.html
+  - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/camomille-crop-t-shirt-54405.html
+  - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/camomille-t-shirt-45499.html
+  - 표본: Clothing T-shirt - VANESSABRUNO — https://www.vanessabruno.com/p/glendon-t-shirt-52710.html
+  - 표본: Clothing Top - VANESSABRUNO — https://www.vanessabruno.com/p/harry-sleeveless-jacket-54407.html
+- **Dickies** [chromium] — 101개 {"tops":27,"pants":60,"shirts":10,"sweatshirts":3,"dresses":1} · 공용 링크 40개 제외 (91s)
+  - 84개 (상품 주소 모양 83) · https://www.dickies.com/collections/womens-tops
+    - Juniors Snap Front Top — https://www.dickies.com/en-us/products/juniors-snap-front-top-7dkz5b0066clbwb
+    - DK0A88GKL39-FR — https://www.dickies.com/en-us/products/womens-torrey-layered-t-shirt-dk0a88gkl39
+    - privacy policy — https://www.dickies.com/en-us/pages/privacy-policy
+  - 44개 (상품 주소 모양 43) · https://www.dickies.com/en-us/collections/womens-hoodies
+    - DK0A88RSBLK-FR — https://www.dickies.com/en-us/products/womens-wellsville-full-zip-sweater-dk0a88rsblk
+    - DK0A85XT0DS-FR — https://www.dickies.com/en-us/products/womens-super-flex-straight-leg-cargo-pants-dk0a85xt0ds
+    - privacy policy — https://www.dickies.com/en-us/pages/privacy-policy
+  - 43개 (상품 주소 모양 42) · https://www.dickies.com/en-us/collections/womens-shirt-jackets
+    - DK0A8799K99-FR — https://www.dickies.com/en-us/products/womens-flannel-shacket-dk0a8799k99
+    - DK0A85XT0DS-FR — https://www.dickies.com/en-us/products/womens-super-flex-straight-leg-cargo-pants-dk0a85xt0ds
+    - privacy policy — https://www.dickies.com/en-us/pages/privacy-policy
+  - 46개 (상품 주소 모양 45) · https://www.dickies.com/collections/womens-skirts-dresses
+    - Women's Flocked Low Rise Mini Skirt — https://www.dickies.com/en-us/products/flocked-low-rise-mini-skirt-cbf
+    - DK0FS574ASN-FR — https://www.dickies.com/en-us/products/womens-574-original-work-shirt-dk0fs574asn
+    - privacy policy — https://www.dickies.com/en-us/pages/privacy-policy
+  - 84개 (상품 주소 모양 83) · https://www.dickies.com/collections/womens-pants
+    - DK0DW8740AF-FR — https://www.dickies.com/en-us/products/women-s-874-r-work-pants-dk0dw8740af
+    - DK0A85XS0DS-FR — https://www.dickies.com/en-us/products/womens-super-flex-straight-leg-work-pants-dk0a85xs0ds
+    - privacy policy — https://www.dickies.com/en-us/pages/privacy-policy
+  - 표본: Juniors Snap Front Top — https://www.dickies.com/en-us/products/juniors-snap-front-top-7dkz5b0066clbwb
+  - 표본: Juniors Lace Babydoll Tank — https://www.dickies.com/en-us/products/juniors-lace-babydoll-tank-7dkz5b0046clmp
+  - 표본: Junior's Short Sleeve Oversized Stripe Tee — https://www.dickies.com/en-us/products/jr-ss-oversized-stripe-tee-whn
+  - 표본: Junior's Short Sleeve Oversized Stripe Tee — https://www.dickies.com/en-us/products/jr-ss-oversized-stripe-tee-whr
+  - 표본: Juniors Longline Baby Tee — https://www.dickies.com/en-us/products/juniors-longline-baby-tee-7dkz9e0193clnbl
+- **Good American** [chromium] — 398개 {"tops":195,"pants":77,"dresses":59,"sweatshirts":49,"shirts":18} · 공용 링크 1개 제외 (291s)
+  - 106개 (상품 주소 모양 103) · https://www.goodamerican.com/en-kr/collections/tees-tanks
+    - THE CAP SLEEVE TEE | WHITE001-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/the-cap-sleeve-tee-white
+    - THE RINGER BABY TEE | FLAMING HOT-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/super-stretch-baby-ringer-tee-flaming-hot
+    - SUPER STRETCH ONE SHOULDER TANK | WHITE001-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/super-stretch-cotton-one-shoulder-tank-white001-1
+  - 323개 (상품 주소 모양 322) · https://www.goodamerican.com/en-kr/collections/womens-tops
+    - THE SCULPTING MODERN LONG SLEEVE BODYSUIT | BLACK-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/scuba-crewneck-bodysuit-black001
+    - THE OPEN KNIT CARDIGAN | MIDNIGHT BLUE-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/long-sleeve-cardigan-midnight-blue
+    - SCULPTING CORSET STRAPLESS BODYSUIT | BLACK001-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/scuba-corset-strapless-bodysuit-black001
+  - 63개 (상품 주소 모양 62) · https://www.goodamerican.com/en-kr/collections/dresses
+    - THE CAP SLEEVE MINI DRESS | CHARCOAL MINI HOUNDSTOOTH-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/the-cap-sleeve-mini-dress-charcoal-mini-houndstooth
+    - SOFT STRETCH PONTE MINI DRESS | SUITING PINSTRIPE001-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/stripe-soft-stretch-ponte-mini-dress-suiting-pinstripe001
+    - SUPER STRETCH JERSEY MOCK NECK MINI DRESS | CLOUD WHITE-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/stretch-jersey-mock-neck-mini-dress-cloud-white
+  - 71개 (상품 주소 모양 70) · https://www.goodamerican.com/en-kr/collections/bottoms
+    - LOW SLUNG BAGGY TROUSER | NEW NAVY-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/low-slung-baggy-trouser-new-navy
+    - SOFT STRETCH PONTE STRAIGHT TROUSERS | BLACK001-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/soft-stretch-ponte-straight-trousers-black001
+    - PALAZZO CROPPED PANTS | GOOD KHAKI001-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/en-kr/products/canvas-palazzo-cropped-pants-good-khaki001
+  - 13개 (상품 주소 모양 12) · https://www.goodamerican.com/collections/jeanius-sweats
+    - JEANIUS GOOD SKATE SWEATPANTS | INDIGO586-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/jeanius-good-skate-sweatpants-indigo586
+    - JEANIUS ZIP UP HOODIE | INDIGO1157-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/jeanius-zip-up-hoodie-indigo1157
+    - Powered by Onetrust — https://onetrust.com/poweredbyonetrust
+  - 표본: THE CAP SLEEVE TEE | WHITE001-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/the-cap-sleeve-tee-white
+  - 표본: SCULPTING MODERN TANK BODYSUIT | BLACK-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/scuba-modern-tank-bodysuit-black001
+  - 표본: THE LAYERED TEE | BLACK-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/the-layered-tee-black
+  - 표본: THE LAYERED TEE | VINTAGE GREY-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/the-layered-tee-vintage-grey
+  - 표본: THE COMBO LAYERED TEE | CHALK WITH CHALK-1 | GOOD AMERICAN | MODEL_A — https://www.goodamerican.com/products/the-combo-layered-tee-chalk-with-chalk
+- **Bash** [chromium] — 295개 {"tops":49,"sweatshirts":28,"shirts":58,"dresses":95,"pants":65} · 공용 링크 11개 제외 (193s)
+  - 35개 (상품 주소 모양 35) · https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.
+    - jeans NIKO (€ 175) — https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html
+    - T-shirt IONI (€ 75) — https://ba-sh.com/fr/en/p/t-shirt-ioni-kaki-3667436072215.html
+    - TANK TOP SHADEY (€ 70) — https://ba-sh.com/fr/en/p/tank-top-shadey-champagne-3667436159237.html
+  - 38개 (상품 주소 모양 38) · https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.
+    - jeans NIKO (€ 175) — https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html
+    - BAPY SWEATSHIRT (€ 145) — https://ba-sh.com/fr/en/p/bapy-sweatshirt-ecru-3667436160745.html
+    - SWEATSHIRT MAIA (€ 155) — https://ba-sh.com/fr/en/p/sweatshirt-maia-bleu-3667436042423.html
+  - 97개 (상품 주소 모양 97) · https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ.
+    - jeans NIKO (€ 175) — https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html
+    - top HODA (€ 95) — https://ba-sh.com/fr/en/p/top-hoda-ecru-3667436086908.html
+    - shirt ROSEANNE (€ 136,50) — https://ba-sh.com/fr/en/p/shirt-roseanne-ecru-3667436073434.html
+  - 107개 (상품 주소 모양 107) · https://ba-sh.com/fr/en/ready-to-wear/dresses/?_gl=1*15p7q1u*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTYkajQxJGwwJGg1MzYzNDQ3NzQ.
+    - jeans NIKO (€ 175) — https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html
+    - dress JEMA (€ 245) — https://ba-sh.com/fr/en/p/dress-jema-noir-3667436089206.html
+    - dress PACIFICA (€ 177) — https://ba-sh.com/fr/en/p/dress-pacifica-bleu-3667436025730.html
+  - 76개 (상품 주소 모양 76) · https://ba-sh.com/fr/en/trousers-jeans/?_gl=1*6jfisz*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MzUkajIyJGwwJGg1MzYzNDQ3NzQ.
+    - jeans NIKO (€ 175) — https://ba-sh.com/fr/en/p/jeans-niko-lightusedgrey-3667436077890.html
+    - trousers VASSILI (€ 215) — https://ba-sh.com/fr/en/p/trousers-vassili-camel-3667436091834.html
+    - BLACK — https://ba-sh.com/fr/en/p/jeans-fadou-blackstone-3667436001888.html
+  - 표본: T-shirt IONI — https://ba-sh.com/fr/en/p/t-shirt-ioni-grischine-3667436152573.html
+  - 표본: t-shirt CORTOT — https://ba-sh.com/fr/en/p/t-shirt-cortot-encre-3667436089664.html
+  - 표본: t-shirt ROSTA — https://ba-sh.com/fr/en/p/t-shirt-rosta-grischine-3667436069260.html
+  - 표본: t-shirt TAKE — https://ba-sh.com/fr/en/p/t-shirt-take-encre-3667436069628.html
+  - 표본: T-shirt MORIS — https://ba-sh.com/fr/en/p/t-shirt-moris-greige-3667436090219.html
+- **James Perse** [chromium] — 182개 {"tops":65,"shirts":14,"pants":63,"sweatshirts":22,"dresses":18} (125s)
+  - 47개 (상품 주소 모양 47) · https://www.jamesperse.com/collections/womens-t-shirts
+    - slub jersey baseball tee coastal blue off white wjd3474 — https://www.jamesperse.com/products/slub-jersey-baseball-tee-coastal-blue-off-white-wjd3474
+    - Baby Tee In White | James Perse Los Angeles — https://www.jamesperse.com/products/baby-tee-white-wncj3475
+    - Wool Jersey Lounge Tee in Soft Beige | James Perse Los Angeles — https://www.jamesperse.com/products/wool-jersey-lounge-tee-soft-beige-wvwj3255
+  - 11개 (상품 주소 모양 11) · https://www.jamesperse.com/collections/womens-tanks
+    - Ribbed Daily Tank - White — https://www.jamesperse.com/products/ribbed-daily-tank-white
+    - WLVY3390 DKMO 1657 FLAT — https://www.jamesperse.com/products/linen-blend-sweater-tank-dark-moss-wlvy3390
+    - Cotton Linen Sweater Tank In Navy | James Perse Los Angeles — https://www.jamesperse.com/products/cotton-linen-sweater-tank-navy-wtal3332
+  - 36개 (상품 주소 모양 36) · https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms
+    - vintage french terry half zip sweatshirt off white wxa3460 — https://www.jamesperse.com/products/vintage-french-terry-half-zip-sweatshirt-off-white-wxa3460
+    - Brushed Cotton Side Stripe Track Pant in Black/Ivory | James Perse Los Angeles — https://www.jamesperse.com/products/brushed-cotton-side-stripe-track-pant-black-ivory-wbcb1219
+    - Knee Length Sweat Short In Porcupine | James Perse Los Angeles — https://www.jamesperse.com/products/knee-length-sweat-short-porcupine-wdft4396
+  - 33개 (상품 주소 모양 33) · https://www.jamesperse.com/collections/womens-tops
+    - cotton cashmere rib henley dark caramel wcsm3436 — https://www.jamesperse.com/products/cotton-cashmere-rib-henley-dark-caramel-wcsm3436
+    - Winter 2026 product flat — WSHB3397 WASB — https://www.jamesperse.com/products/washed-silk-slim-shirt-washed-black-wshb3397
+    - Supima Poplin Shirting in White | James Perse Los Angeles — https://www.jamesperse.com/products/supima-poplin-shirt-white-wspi3241
+  - 18개 (상품 주소 모양 18) · https://www.jamesperse.com/collections/womens-dresses-jumpsuits
+    - washed silk midi shirt dress washed brown wshb6014 — https://www.jamesperse.com/products/washed-silk-midi-shirt-dress-washed-brown-wshb6014
+    - Palm Paisley Linen Strappy Tie Dress in Brown Bandana Print | James Perse Los Angeles — https://www.jamesperse.com/products/palm-paisley-linen-strappy-tie-dress-brown-bandana-print-wpko6010
+    - Satin Cami Slip Dress in Ivory Pigment | James Perse Los Angeles — https://www.jamesperse.com/products/satin-cami-slip-dress-ivory-pigment-wswc6993
+  - 46개 (상품 주소 모양 46) · https://www.jamesperse.com/collections/womens-pants-denim
+    - corduroy mixed media pant sandshell pigment wwwa1188 — https://www.jamesperse.com/products/corduroy-mixed-media-pant-sandshell-pigment-wwwa1188
+    - Herringbone Wide Leg Utility Pant - Blue Noir Pigment — https://www.jamesperse.com/products/herringbone-wide-leg-utility-pant-blue-noir-pigment-whbs1185
+    - Stretch Suede Bootcut Pant in Ecru | James Perse Los Angeles — https://www.jamesperse.com/products/stretch-suede-bootcut-pant-ecru-wsls1157
+  - 표본: slub jersey baseball tee coastal blue off white wjd3474 — https://www.jamesperse.com/products/slub-jersey-baseball-tee-coastal-blue-off-white-wjd3474
+  - 표본: Slub Jersey Baseball Tee in Storm/Off White | James Perse Los Angeles — https://www.jamesperse.com/products/slub-jersey-baseball-tee-storm-off-white-wjd3474
+  - 표본: Slub Jersey Classic Tee In Stone Pigment | James Perse Los Angeles — https://www.jamesperse.com/products/slub-jersey-classic-tee-stone-pigment-wjd3417
+  - 표본: Slub Jersey Shrunken Tee in White | James Perse Los Angeles — https://www.jamesperse.com/products/slub-jersey-shrunken-tee-white-wjd3159
+  - 표본: Sheer Slub Crew Neck Tee in White | James Perse Los Angeles — https://www.jamesperse.com/products/sheer-slub-crew-neck-tee-white-wua3037
+
+## ⛔ 확장 필요(봇 차단) (0)
+
+
+## 🔧 보완 필요 (1)
+
+- **Monsoon** [impit] — 0개 {} (231s)
+  - 0개 (상품 주소 모양 0) · https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/ ← 상품 0개 · 최종주소 https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/ · 제목 "Women's Tops | Ladies Tops | Monsoon US" · 링크 166/이미지 63 · 탈락[total=166 noImage=16 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=150] · "Skip to main content 50% OFF FLASH SALE SHOP WOMEN UNITED STATES $ Change NEW WOMEN PARTY CLEARANCE SEARCH Search... Use" · impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/tops-blouses/
+  - 0개 (상품 주소 모양 0) · https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/ ← 상품 0개 · 최종주소 https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/ · 제목 "Knitwear | Monsoon US" · 링크 165/이미지 65 · 탈락[total=165 noImage=17 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=148] · "Skip to main content 50% OFF FLASH SALE SHOP WOMEN UNITED STATES $ Change NEW WOMEN PARTY CLEARANCE SEARCH Search... Use" · impit 최종주소 https://www.monsoonlondon.com/us/women/womens-clothing/knitwear/
+  - 0개 (상품 주소 모양 0) · https://www.monsoonlondon.com/kr/womens/dresses/ ← 상품 0개 · 최종주소 https://www.monsoonlondon.com/kr/womens/dresses/ · 제목 "Dresses | Dresses for Women | Monsoon US" · 링크 165/이미지 63 · 탈락[total=165 noImage=17 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=148] · "Skip to main content 50% OFF FLASH SALE SHOP WOMEN UNITED STATES $ Change NEW WOMEN PARTY CLEARANCE SEARCH Search... Use" · impit 최종주소 https://www.monsoonlondon.com/us/womens/dresses/
+  - 0개 (상품 주소 모양 0) · https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/ ← 상품 0개 · 최종주소 https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/ · 제목 "Women's Pants | Women's Shorts | Monsoon US" · 링크 106/이미지 29 · 탈락[total=106 noImage=16 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=90] · "Skip to main content 50% OFF FLASH SALE SHOP WOMEN UNITED STATES $ Change NEW WOMEN PARTY CLEARANCE SEARCH Search... Use" · impit 최종주소 https://www.monsoonlondon.com/us/womens/womens-clothing/pants-shorts/
+

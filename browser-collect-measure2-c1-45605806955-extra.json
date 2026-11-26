@@ -1,0 +1,2121 @@
+{
+ "when": "2026-11-25T13:10:16.723Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "firefox",
+  "chromium",
+  "api"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [],
+ "deferred": [],
+ "results": [
+  {
+   "brand": "H&M",
+   "site": "www2.hm.com.hm",
+   "engine": "firefox",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 745,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 181,
+    "sweatshirts": 112,
+    "pants": 155,
+    "shirts": 135,
+    "dresses": 162
+   },
+   "perUrl": [
+    {
+     "url": "https://www2.hm.com/en_us/women/products/tops.html?sort=newProduct",
+     "count": 172,
+     "productShaped": 170,
+     "note": "",
+     "sample": [
+      {
+       "name": "A long-sleeved top is facing front, showcasing a grey and black horizontal stripe pattern with a crew neckline and dropped shoulders. The top is displ",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1377524001.html",
+       "price": "$20.99"
+      },
+      {
+       "name": "A black, long-sleeved jersey top featuring a V-neck is being worn by the model. The model is styling the fitted top with dark, wide-leg cuffed jeans a",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1370920002.html",
+       "price": "$19.99"
+      },
+      {
+       "name": "A blue cotton jersey top with horizontal white stripes is facing front, featuring a round neckline and dropped shoulders. The top is showcasing long, ",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1368807009.html",
+       "price": "$17.99"
+      }
+     ],
+     "rej": {
+      "total": 228,
+      "noImage": 14,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 30,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 151
+     }
+    },
+    {
+     "url": "https://www2.hm.com/en_us/women/products/hoodies-sweatshirts.html?sort=newProduct",
+     "count": 173,
+     "productShaped": 171,
+     "note": "",
+     "sample": [
+      {
+       "name": "Oversized Sweatshirt",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1345017010.html",
+       "price": "$20.99"
+      },
+      {
+       "name": "A matching light grey fleece sweater and track pants set is being worn by the model, who is sitting cross-legged. The sweater features a high, ribbed ",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1359326003.html",
+       "price": "$29.99"
+      },
+      {
+       "name": "Off-the-Shoulder Sweatshirt",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1352154003.html",
+       "price": "$17.99"
+      }
+     ],
+     "rej": {
+      "total": 170,
+      "noImage": 2,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 36,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 93
+     }
+    },
+    {
+     "url": "https://www2.hm.com/en_us/women/products/shirts-blouses.html?sort=newProduct",
+     "count": 175,
+     "productShaped": 173,
+     "note": "",
+     "sample": [
+      {
+       "name": "Tapered-Waist Button-Front Blouse",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1369642002.html",
+       "price": "$23.99"
+      },
+      {
+       "name": "Scarf-Collar Shirt",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1358251001.html",
+       "price": "$23.99"
+      },
+      {
+       "name": "Poplin Hourglass Shirt",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1356529001.html",
+       "price": "$89.99"
+      }
+     ],
+     "rej": {
+      "total": 186,
+      "noImage": 4,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 35,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 109
+     }
+    },
+    {
+     "url": "https://www2.hm.com/en_us/women/products/dresses.html?sort=newProduct",
+     "count": 176,
+     "productShaped": 176,
+     "note": "",
+     "sample": [
+      {
+       "name": "Tunic Dress with Collar",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1371867002.html",
+       "price": "$23.99"
+      },
+      {
+       "name": "A short, fitted black cold-shoulder dress is being worn by the model, featuring a foldover top edge with a wrap-front design and narrow shoulder strap",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1364348001.html",
+       "price": "$55.99"
+      },
+      {
+       "name": "A black heavyweight satin dress is being worn by the model, showing the back of the garment. The dress features a racerback design detailed with a cen",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1363348001.html",
+       "price": "$23.99"
+      }
+     ],
+     "rej": {
+      "total": 286,
+      "noImage": 4,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 35,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 209
+     }
+    },
+    {
+     "url": "https://www2.hm.com/en_us/women/products/pants.html?sort=newProduct",
+     "count": 166,
+     "productShaped": 166,
+     "note": "",
+     "sample": [
+      {
+       "name": "These black relaxed-fit jersey pants are being shown from the front, highlighting the sewn-in creases running down the center of each leg. The pants a",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1377639001.html",
+       "price": "$15.99"
+      },
+      {
+       "name": "Wide-Leg Sports Joggers",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1362339003.html",
+       "price": "$33.99"
+      },
+      {
+       "name": "Wide-Leg Dress Pants",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1351048002.html",
+       "price": "$39.99"
+      }
+     ],
+     "rej": {
+      "total": 216,
+      "noImage": 6,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 34,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 139
+     }
+    }
+   ],
+   "secs": 261,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "A long-sleeved top is facing front, showcasing a grey and black horizontal stripe pattern with a crew neckline and dropped shoulders. The top is displ",
+     "productUrl": "https://www2.hm.com/en_us/productpage.1377524001.html"
+    },
+    {
+     "name": "Glittery Knit Top",
+     "productUrl": "https://www2.hm.com/en_us/productpage.1368355003.html"
+    },
+    {
+     "name": "Glittery Knit Top",
+     "productUrl": "https://www2.hm.com/en_us/productpage.1368355004.html"
+    },
+    {
+     "name": "Draped Wrap Top",
+     "productUrl": "https://www2.hm.com/en_us/productpage.1377404002.html"
+    },
+    {
+     "name": "A brown satin top facing front is draping softly at the throat, featuring a high cowl neckline. The sleeveless design is showcasing an extra narrow cu",
+     "productUrl": "https://www2.hm.com/en_us/productpage.1366694002.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Massimo Dutti",
+   "site": "massimodutti.com.massimodutti",
+   "engine": "firefox",
+   "engineSource": "extra",
+   "fresh": true,
+   "storeMode": "replace",
+   "collected": 227,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 21,
+    "sweatshirts": 4,
+    "pants": 149,
+    "shirts": 15,
+    "dresses": 38
+   },
+   "perUrl": [
+    {
+     "url": "https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518",
+     "count": 66,
+     "productShaped": 64,
+     "note": "",
+     "sample": [
+      {
+       "name": "Long-sleeve crewneck t-shirt in a mid-shot with a mock neck and buttons. Features a print of horizontal stripes in navy blue and brown.",
+       "productUrl": "https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106",
+       "price": ""
+      },
+      {
+       "name": "Oyster-white short-sleeve t-shirt set, brown wide-leg pants with side pockets, and dark shoes.",
+       "productUrl": "https://www.massimodutti.com/us/100-cotton-short-sleeve-tshirt-l06207109",
+       "price": ""
+      },
+      {
+       "name": "Close-up of a dark gray long-sleeve T-shirt with a high neck, featuring a striped design with fine horizontal lines and a ribbed texture.",
+       "productUrl": "https://www.massimodutti.com/us/striped-high-neck-long-sleeve-tshirt-l06892572",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 388,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 43,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 278
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/s/w-tops-n2889",
+     "count": 12,
+     "productShaped": 10,
+     "note": "",
+     "sample": [
+      {
+       "name": "Side view of a black high boot with a flat sole, back pull tab, and strap with gold-tone metal hardware at the top.",
+       "productUrl": "https://www.massimodutti.com/us/leather-riding-boots-l11003650",
+       "price": ""
+      },
+      {
+       "name": "Leather knotted ballerina flats",
+       "productUrl": "https://www.massimodutti.com/us/leather-knotted-ballerina-flats-l11562750",
+       "price": ""
+      },
+      {
+       "name": "Powered by Onetrust",
+       "productUrl": "https://www.onetrust.com/solutions/consent-and-preferences/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 286,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 2,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 271
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012",
+     "count": 65,
+     "productShaped": 63,
+     "note": "",
+     "sample": [
+      {
+       "name": "Black long-sleeve shirt set with a classic collar and button-front closure, dark straight-leg pants, and a small top-handle bag.",
+       "productUrl": "https://www.massimodutti.com/us/flowing-shirt-with-button-detail-l06839554",
+       "price": ""
+      },
+      {
+       "name": "Rust-colored long blouse set with a high neck, long sleeves, and tie belt, paired with wide-leg blue jeans and black sandals.",
+       "productUrl": "https://www.massimodutti.com/us/flowing-blouse-with-tie-detail-l05166542",
+       "price": ""
+      },
+      {
+       "name": "Mustard yellow wrap shirt set with a high neck and long sleeves, matching long skirt, sunglasses, and black slingback shoes.",
+       "productUrl": "https://www.massimodutti.com/us/100-silk-crossover-mock-neck-shirt-l05167543",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 381,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 38,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 277
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374",
+     "count": 39,
+     "productShaped": 37,
+     "note": "",
+     "sample": [
+      {
+       "name": "Set of a midi dress in a vintage gold color with a satin finish, thin straps, and a draped neckline.",
+       "productUrl": "https://www.massimodutti.com/us/flowing-satin-finish-midi-dress-l06631510",
+       "price": ""
+      },
+      {
+       "name": "Black fitted midi dress with thin straps and a square neckline.",
+       "productUrl": "https://www.massimodutti.com/us/linenblend-thin-strap-midi-dress-l06623509",
+       "price": ""
+      },
+      {
+       "name": "Yellow midi dress outfit with thin straps and a V-neckline, dark sunglasses, and black sandals.",
+       "productUrl": "https://www.massimodutti.com/us/flowing-lingerie-dress-with-ruffle-detail-l06655300",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 337,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 23,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 274
+     }
+    },
+    {
+     "url": "https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376",
+     "count": 59,
+     "productShaped": 57,
+     "note": "",
+     "sample": [
+      {
+       "name": "Men’s long-sleeve brown shirt set with front pockets and black straight-leg pants with pleats, belt loops, and a button detail at the hem.",
+       "productUrl": "https://www.massimodutti.com/us/100-wool-pants-with-button-detail-l05063685",
+       "price": ""
+      },
+      {
+       "name": "Velvet skinny flare fit pants",
+       "productUrl": "https://www.massimodutti.com/us/velvet-skinny-flare-fit-pants-l05041741",
+       "price": ""
+      },
+      {
+       "name": "Mid-rise wide-leg jeans with turn-up hems",
+       "productUrl": "https://www.massimodutti.com/us/midrise-wideleg-jeans-with-turnup-hems-l05045745",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 377,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 41,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 276
+     }
+    }
+   ],
+   "secs": 499,
+   "dropped": 2,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Long-sleeve crewneck t-shirt in a mid-shot with a mock neck and buttons. Features a print of horizontal stripes in navy blue and brown.",
+     "productUrl": "https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106"
+    },
+    {
+     "name": "Long sleeve wool blend knit T-shirt",
+     "productUrl": "https://www.massimodutti.com/us/long-sleeve-wool-blend-knit-tshirt-l06832552"
+    },
+    {
+     "name": "Black tank top set with lace detailing at the neckline and black jeans with a belt.",
+     "productUrl": "https://www.massimodutti.com/us/top-with-lace-neckline-detail-l06857575"
+    },
+    {
+     "name": "Black long-sleeve crewneck T-shirt in a medium shot, with diagonal draped detail on the chest.",
+     "productUrl": "https://www.massimodutti.com/us/wool-blend-gathered-detail-tshirt-l06866575"
+    },
+    {
+     "name": "Black long-sleeve T-shirt set with ribbed detail and a metallic finish, crew neck, black pants, and a belt with a silver buckle.",
+     "productUrl": "https://www.massimodutti.com/us/metallic-ribbed-long-sleeve-tshirt-l06828948"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Madewell",
+   "site": "madewell.com.madewell",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 6,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 5,
+    "shirts": 1
+   },
+   "perUrl": [
+    {
+     "url": "https://www.madewell.com/kr/womens/clothing/tees/",
+     "count": 1,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "womens tees",
+       "productUrl": "https://www.madewell.com/feature/womens-tees/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 313,
+      "noImage": 35,
+      "tinyImage": 36,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 241
+     }
+    },
+    {
+     "url": "https://www.madewell.com/kr/womens/clothing/tops-shirts/",
+     "count": 4,
+     "productShaped": 3,
+     "note": "",
+     "sample": [
+      {
+       "name": "OB685",
+       "productUrl": "https://www.madewell.com/kr/p/OB685/",
+       "price": ""
+      },
+      {
+       "name": "OB052",
+       "productUrl": "https://www.madewell.com/p/OB052/",
+       "price": ""
+      },
+      {
+       "name": "the corduroy shop",
+       "productUrl": "https://www.madewell.com/kr/womens/featured-shops/the-corduroy-shop/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 294,
+      "noImage": 18,
+      "tinyImage": 32,
+      "shortPath": 0,
+      "samePage": 3,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 241
+     }
+    },
+    {
+     "url": "https://www.madewell.com/kr/womens/clothing/dresses/",
+     "count": 0,
+     "productShaped": 0,
+     "note": "상품 0개 · 최종주소 https://www.madewell.com/kr/womens/clothing/dresses/ · 제목 \"Women's Work & Casual Dresses | Madewell\" · 링크 288/이미지 348 · 탈락[total=288 noImage=18 tinyImage=33 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=237] · \"The Black Friday Event: 40% off everything* • Shop Women's Shop Men's The Black Friday Event: Extra 40% off sale • Shop \"",
+     "sample": [],
+     "rej": {
+      "total": 288,
+      "noImage": 18,
+      "tinyImage": 33,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 237
+     }
+    },
+    {
+     "url": "https://www.madewell.com/kr/womens/clothing/pants/",
+     "count": 1,
+     "productShaped": 1,
+     "note": "",
+     "sample": [
+      {
+       "name": "NX207",
+       "productUrl": "https://www.madewell.com/kr/p/NX207/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 318,
+      "noImage": 25,
+      "tinyImage": 51,
+      "shortPath": 0,
+      "samePage": 4,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 237
+     }
+    }
+   ],
+   "secs": 169,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "womens tees",
+     "productUrl": "https://www.madewell.com/feature/womens-tees/"
+    },
+    {
+     "name": "OB685",
+     "productUrl": "https://www.madewell.com/kr/p/OB685/"
+    },
+    {
+     "name": "OB063",
+     "productUrl": "https://www.madewell.com/kr/p/womens/clothing/tops-shirts/button-downs/the-cropped-easy-shirt/OB063/"
+    },
+    {
+     "name": "OB052",
+     "productUrl": "https://www.madewell.com/p/OB052/"
+    },
+    {
+     "name": "the corduroy shop",
+     "productUrl": "https://www.madewell.com/kr/womens/featured-shops/the-corduroy-shop/"
+    }
+   ],
+   "verdict": "보완 필요(수집 0~소량)"
+  },
+  {
+   "brand": "&Other Stories",
+   "site": "stories.com.otherstories",
+   "engine": "firefox",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 479,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "sweatshirts": 25,
+    "tops": 137,
+    "pants": 92,
+    "shirts": 88,
+    "dresses": 137
+   },
+   "perUrl": [
+    {
+     "url": "https://www.stories.com/en-us/clothing/tops/",
+     "count": 185,
+     "productShaped": 181,
+     "note": "",
+     "sample": [
+      {
+       "name": "Embroidered Wool Polo Jumper - Grey - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/",
+       "price": "$ 96.75"
+      },
+      {
+       "name": "Smocked Boatneck Top - Dark Grey - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/smocked-boatneck-top-dark-grey-1321985002/",
+       "price": "$ 59.25"
+      },
+      {
+       "name": "Zip Front Collar Shirt - Dark Blue - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/zip-front-collar-shirt-dark-blue-1341211001/",
+       "price": "$ 74.25"
+      }
+     ],
+     "rej": {
+      "total": 197,
+      "noImage": 13,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 36,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 107
+     }
+    },
+    {
+     "url": "https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/",
+     "count": 6,
+     "productShaped": 6,
+     "note": "",
+     "sample": [
+      {
+       "name": "Half-Zip Cotton Sweatshirt - Dark Brown - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-dark-brown-1358924005/",
+       "price": "$ 89.25"
+      },
+      {
+       "name": "Half-Zip Cotton Sweatshirt - Red - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-red-1358924001/",
+       "price": "$ 89.25"
+      },
+      {
+       "name": "Mock Neck Scuba Sweatshirt - Grey Melange - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/mock-neck-scuba-sweatshirt-grey-melange-1346527002/",
+       "price": "$ 89.25"
+      }
+     ],
+     "rej": {
+      "total": 121,
+      "noImage": 14,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 107
+     }
+    },
+    {
+     "url": "https://www.stories.com/en-us/clothing/blouses-shirts/",
+     "count": 97,
+     "productShaped": 93,
+     "note": "",
+     "sample": [
+      {
+       "name": "High-Neck Lace Blouse - Black - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/high-neck-lace-blouse-black-1362393001/",
+       "price": "$ 96.75"
+      },
+      {
+       "name": "Gathered Blouse - Olive/Printed - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/gathered-cotton-blouse-oliveprinted-1365957001/",
+       "price": "$ 96.75"
+      },
+      {
+       "name": "Gathered Blouse - Black/White Dots - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/gathered-blouse-blackwhite-dots-1341218003/",
+       "price": "$ 74.25"
+      }
+     ],
+     "rej": {
+      "total": 118,
+      "noImage": 7,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 106
+     }
+    },
+    {
+     "url": "https://www.stories.com/en-us/clothing/dresses/",
+     "count": 147,
+     "productShaped": 143,
+     "note": "",
+     "sample": [
+      {
+       "name": "Short-Sleeve Long Dress - Dark Red - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/short-sleeve-long-dress-dark-red-1325649008/",
+       "price": "$ 134.25"
+      },
+      {
+       "name": "Tie-Neck Midi Dress - Red - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/tie-neck-midi-dress-red-1365992001/",
+       "price": "$ 126.75"
+      },
+      {
+       "name": "Linen Mini Dress - Black - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/linen-mini-dress-black-1270022001/",
+       "price": "$ 89.25"
+      }
+     ],
+     "rej": {
+      "total": 132,
+      "noImage": 19,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 108
+     }
+    },
+    {
+     "url": "https://www.stories.com/en-us/clothing/trousers/",
+     "count": 95,
+     "productShaped": 91,
+     "note": "",
+     "sample": [
+      {
+       "name": "Straight Press-Crease Trousers - Black - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/wide-press-crease-trousers-black-1090941001/",
+       "price": "$ 89.25"
+      },
+      {
+       "name": "Tailored Linen Trousers - Dark Brown - Still Life",
+       "productUrl": "https://www.stories.com/en-us/product/tailored-linen-trousers-dark-brown-1309847001/",
+       "price": "$ 96.75"
+      },
+      {
+       "name": "Wool-Blend Tailored Trousers - Dark Brown - Lookbook",
+       "productUrl": "https://www.stories.com/en-us/product/wool-blend-tailored-trousers-dark-brown-1319026005/",
+       "price": "$ 134.25"
+      }
+     ],
+     "rej": {
+      "total": 124,
+      "noImage": 11,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 108
+     }
+    }
+   ],
+   "secs": 271,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Embroidered Wool Polo Jumper - Grey - Lookbook",
+     "productUrl": "https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/"
+    },
+    {
+     "name": "Wool Turtleneck Top - Black - Lookbook",
+     "productUrl": "https://www.stories.com/en-us/product/wool-turtleneck-top-black-1341950002/"
+    },
+    {
+     "name": "Mock-Neck Lace Top - Dark Brown - Lookbook",
+     "productUrl": "https://www.stories.com/en-us/product/mock-neck-lace-top-dark-brown-1373644001/"
+    },
+    {
+     "name": "Rhinestone-Trimmed Top - Black - Lookbook",
+     "productUrl": "https://www.stories.com/en-us/product/rhinestone-trimmed-top-black-1363489001/"
+    },
+    {
+     "name": "Mock-Neck Lace Top - Dark Red - Lookbook",
+     "productUrl": "https://www.stories.com/en-us/product/mock-neck-lace-top-dark-red-1373644002/"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "L.L bean",
+   "site": "global.llbean.com.llbean",
+   "engine": "firefox",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 296,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 135,
+    "sweatshirts": 52,
+    "shirts": 18,
+    "dresses": 13,
+    "pants": 78
+   },
+   "perUrl": [
+    {
+     "url": "https://global.llbean.com/llb/shop/504209/?page=womens-tees-and-tanks&nav=gnro",
+     "count": 109,
+     "productShaped": 97,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Pima Cotton Tee, Long-Sleeve Crewneck",
+       "productUrl": "https://global.llbean.com/llb/shop/32708.html",
+       "price": ""
+      },
+      {
+       "name": "Women's Mountainside V-Neck Pocket Tee, Short Sleeve",
+       "productUrl": "https://global.llbean.com/llb/shop/5871867.html",
+       "price": ""
+      },
+      {
+       "name": "Women's Pima Cotton Tee, Long-Sleeve Crewneck Cardigan",
+       "productUrl": "https://global.llbean.com/llb/shop/5840712.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 130,
+      "noImage": 14,
+      "tinyImage": 90,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 13,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 0
+     }
+    },
+    {
+     "url": "https://global.llbean.com/llb/shop/886/?page=womens-sweatshirts&nav=gnro",
+     "count": 75,
+     "productShaped": 74,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's L.L.Bean Sweater Fleece Full-Zip Jacket",
+       "productUrl": "https://global.llbean.com/llb/shop/120713.html",
+       "price": ""
+      },
+      {
+       "name": "Women's L.L.Bean Sweater Fleece Pullover, Print",
+       "productUrl": "https://global.llbean.com/llb/shop/113600.html",
+       "price": ""
+      },
+      {
+       "name": "Women's SunSmart Coolpro Half Zip Hoodie",
+       "productUrl": "https://global.llbean.com/llb/shop/5851505.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 334,
+      "noImage": 28,
+      "tinyImage": 252,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 27,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 0
+     }
+    },
+    {
+     "url": "https://global.llbean.com/llb/shop/516735/?prefn1=refinementGender&prefv1=Womens&nav=gnro",
+     "count": 16,
+     "productShaped": 15,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Scotch Plaid Flannel Shirt, Relaxed",
+       "productUrl": "https://global.llbean.com/llb/shop/70362.html",
+       "price": ""
+      },
+      {
+       "name": "Women's Fleece-Lined Flannel Shirt, Snap-Front Plaid",
+       "productUrl": "https://global.llbean.com/llb/shop/121604.html",
+       "price": ""
+      },
+      {
+       "name": "Women's Signature Camp Flannel Shirt",
+       "productUrl": "https://global.llbean.com/llb/shop/130131.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 808,
+      "noImage": 20,
+      "tinyImage": 86,
+      "shortPath": 4,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 96,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 586
+     }
+    },
+    {
+     "url": "https://global.llbean.com/llb/shop/506213/?page=womens-dresses-and-skirts&nav=gnro",
+     "count": 17,
+     "productShaped": 16,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Cloud Gauze Midi Dress, Stripe",
+       "productUrl": "https://global.llbean.com/llb/shop/20010010.html",
+       "price": ""
+      },
+      {
+       "name": "Women's Heritage Mariner Dress, Stripe",
+       "productUrl": "https://global.llbean.com/llb/shop/129308.html",
+       "price": ""
+      },
+      {
+       "name": "Women's Cloud Gauze Short-Sleeve Shift Dress",
+       "productUrl": "https://global.llbean.com/llb/shop/20010007.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 719,
+      "noImage": 23,
+      "tinyImage": 36,
+      "shortPath": 4,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 51,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 588
+     }
+    },
+    {
+     "url": "https://global.llbean.com/llb/shop/622/?page=womens-pants-and-jeans&nav=gnro",
+     "count": 81,
+     "productShaped": 71,
+     "note": "",
+     "sample": [
+      {
+       "name": "Women's Perfect Fit Pants, Original Tapered-Leg",
+       "productUrl": "https://global.llbean.com/llb/shop/51535.html",
+       "price": ""
+      },
+      {
+       "name": "Women's L.L.Bean Go-Anywhere Knit Pants, High-Rise Straight-Leg",
+       "productUrl": "https://global.llbean.com/llb/shop/5879545.html",
+       "price": ""
+      },
+      {
+       "name": "Women's Comfort Stretch Pants, Mid-Rise Straight-Leg Cargo",
+       "productUrl": "https://global.llbean.com/llb/shop/129306.html",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 374,
+      "noImage": 34,
+      "tinyImage": 274,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 33,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 0
+     }
+    }
+   ],
+   "secs": 893,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Women's Pima Cotton Tee, Long-Sleeve Crewneck",
+     "productUrl": "https://global.llbean.com/llb/shop/32708.html"
+    },
+    {
+     "name": "Women's Pima Cotton Tee, Long-Sleeve Open V-Neck",
+     "productUrl": "https://global.llbean.com/llb/shop/5879147.html"
+    },
+    {
+     "name": "Women's Pima Cotton Tee, Long-Sleeve Mockneck",
+     "productUrl": "https://global.llbean.com/llb/shop/36296.html"
+    },
+    {
+     "name": "Women's Pima Cotton Tee, Short-Sleeve Crewneck",
+     "productUrl": "https://global.llbean.com/llb/shop/32709.html"
+    },
+    {
+     "name": "Women's Soft Stretch Supima-Blend Tee, Boatneck Bracelet-Sleeve Stripe",
+     "productUrl": "https://global.llbean.com/llb/shop/20010335.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Oysho",
+   "site": "oysho.com.oysho",
+   "engine": "firefox",
+   "engineSource": "extra",
+   "fresh": true,
+   "storeMode": "replace",
+   "collected": 448,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 210,
+    "sweatshirts": 27,
+    "pants": 150,
+    "shirts": 16,
+    "dresses": 45
+   },
+   "perUrl": [
+    {
+     "url": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+     "count": 145,
+     "productShaped": 145,
+     "note": "",
+     "sample": [
+      {
+       "name": "Extra-fine lyocell-blend T-shirt",
+       "productUrl": "https://www.oysho.com/gb/extrafine-lyocellblend-tshirt-l37581348",
+       "price": ""
+      },
+      {
+       "name": "Regular Fit long-sleeve cotton-blend striped T-shirt",
+       "productUrl": "https://www.oysho.com/gb/regular-fit-longsleeve-cottonblend-striped-tshirt-l34258339",
+       "price": ""
+      },
+      {
+       "name": "Comfortlux cross-back T-shirt",
+       "productUrl": "https://www.oysho.com/gb/comfortlux-crossback-tshirt-l32962292",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 541,
+      "noImage": 14,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 268,
+      "nonProduct": 10,
+      "landing": 0,
+      "siteMenu": 104
+     }
+    },
+    {
+     "url": "https://www.oysho.com/gb/womens-sports-tops-n5484",
+     "count": 62,
+     "productShaped": 62,
+     "note": "수집 중 페이지가 바뀌어 다시 읽음(https://www.oysho.com/gb/womens-sports-tops-n5484)",
+     "sample": [
+      {
+       "name": "Comfortlux long-sleeved sleeves",
+       "productUrl": "https://www.oysho.com/gb/comfortlux-longsleeved-sleeves-l32801904",
+       "price": ""
+      },
+      {
+       "name": "Comfortlux smock tank top",
+       "productUrl": "https://www.oysho.com/gb/comfortlux-smock-tank-top-l34281906",
+       "price": ""
+      },
+      {
+       "name": "Halter houndstooth print tank top",
+       "productUrl": "https://www.oysho.com/gb/halter-houndstooth-print-tank-top-l35759816",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 303,
+      "noImage": 14,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 113,
+      "nonProduct": 10,
+      "landing": 0,
+      "siteMenu": 104
+     }
+    },
+    {
+     "url": "https://www.oysho.com/gb/womens-sweatshirts-n4922",
+     "count": 58,
+     "productShaped": 58,
+     "note": "",
+     "sample": [
+      {
+       "name": "Half-zip sweatshirt with modal brushed",
+       "productUrl": "https://www.oysho.com/gb/halfzip-sweatshirt-with-modal-brushed-l36923158",
+       "price": ""
+      },
+      {
+       "name": "Soft-touch jacket with modal",
+       "productUrl": "https://www.oysho.com/gb/softtouch-jacket-with-modal-l34320791",
+       "price": ""
+      },
+      {
+       "name": "Cropped piqué utility jacket with belt",
+       "productUrl": "https://www.oysho.com/gb/cropped-pique-utility-jacket-with-belt-l35506338",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 285,
+      "noImage": 14,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 97,
+      "nonProduct": 12,
+      "landing": 0,
+      "siteMenu": 104
+     }
+    },
+    {
+     "url": "https://www.oysho.com/gb/dresses-jumpsuits-n4954",
+     "count": 48,
+     "productShaped": 48,
+     "note": "",
+     "sample": [
+      {
+       "name": "Perfect-adapt long jumpsuit with contrast stitching",
+       "productUrl": "https://www.oysho.com/gb/perfectadapt-long-jumpsuit-with-contrast-stitching-l30792232",
+       "price": ""
+      },
+      {
+       "name": "Comfortlux short jumpsuit with heathered overlay",
+       "productUrl": "https://www.oysho.com/gb/comfortlux-short-jumpsuit-with-heathered-overlay-l35043965",
+       "price": ""
+      },
+      {
+       "name": "Short strappy 100% linen jumpsuit",
+       "productUrl": "https://www.oysho.com/gb/short-strappy-100-linen-jumpsuit-l35035119",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 265,
+      "noImage": 51,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 63,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 103
+     }
+    },
+    {
+     "url": "https://www.oysho.com/gb/womens-pants-n4813",
+     "count": 174,
+     "productShaped": 174,
+     "note": "",
+     "sample": [
+      {
+       "name": "Extra warm seamless jogger trousers in a cotton marl blend",
+       "productUrl": "https://www.oysho.com/gb/extra-warm-seamless-jogger-trousers-in-a-cotton-marl-blend-l36631398",
+       "price": ""
+      },
+      {
+       "name": "5-pocket wide-leg trousers",
+       "productUrl": "https://www.oysho.com/gb/5pocket-wideleg-trousers-l35672920",
+       "price": ""
+      },
+      {
+       "name": "100% linen straight-leg trousers",
+       "productUrl": "https://www.oysho.com/gb/100-linen-straightleg-trousers-l34118134",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 663,
+      "noImage": 20,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 349,
+      "nonProduct": 16,
+      "landing": 0,
+      "siteMenu": 104
+     }
+    }
+   ],
+   "secs": 2730,
+   "dropped": 1,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Extra-fine lyocell-blend T-shirt",
+     "productUrl": "https://www.oysho.com/gb/extrafine-lyocellblend-tshirt-l37581348"
+    },
+    {
+     "name": "Base layers long-sleeved lyocell blend t-shirt",
+     "productUrl": "https://www.oysho.com/gb/base-layers-longsleeved-lyocell-blend-tshirt-l37571632"
+    },
+    {
+     "name": "Relaxed fit t-shirt with baker neckline and long sleeve",
+     "productUrl": "https://www.oysho.com/gb/relaxed-fit-tshirt-with-baker-neckline-and-long-sleeve-l37585350"
+    },
+    {
+     "name": "Striped relaxed long-sleeved 100% cotton T-shirt",
+     "productUrl": "https://www.oysho.com/gb/striped-relaxed-longsleeved-100-cotton-tshirt-l37575172"
+    },
+    {
+     "name": "Brushed relaxed long-sleeved T-shirt",
+     "productUrl": "https://www.oysho.com/gb/brushed-relaxed-longsleeved-tshirt-l37573352"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Seasalt cornwall",
+   "site": "seasaltcornwall.com.seasaltcornwall",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 278,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "shirts": 31,
+    "tops": 82,
+    "sweatshirts": 67,
+    "dresses": 66,
+    "pants": 32
+   },
+   "perUrl": [
+    {
+     "url": "https://www.seasaltcornwall.com/clothing/tops",
+     "count": 123,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Larissa Shirt",
+       "productUrl": "https://www.seasaltcornwall.com/larissa-printed-cotton-shirt",
+       "price": ""
+      },
+      {
+       "name": "Derwenn Button Down Vest",
+       "productUrl": "https://www.seasaltcornwall.com/derwenn-button-down-merino-wool-vest",
+       "price": ""
+      },
+      {
+       "name": "Wild Sorrel Button Up Top",
+       "productUrl": "https://www.seasaltcornwall.com/wild-sorrel-top",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 611,
+      "noImage": 97,
+      "tinyImage": 13,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 24,
+      "nonProduct": 1,
+      "landing": 0,
+      "siteMenu": 460
+     }
+    },
+    {
+     "url": "https://www.seasaltcornwall.com/clothing/jumpers-cardigans",
+     "count": 74,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "media/catalog/product/b/-/b-wm28183-36757_1",
+       "productUrl": "https://www.seasaltcornwall.com/percella-cove-fair-isle-knitted-jumper",
+       "price": ""
+      },
+      {
+       "name": "giving consent to cookies",
+       "productUrl": "https://cookiepedia.co.uk/giving-consent-to-cookies",
+       "price": ""
+      },
+      {
+       "name": "Basset Cove Jumper Made With Merino Wool",
+       "productUrl": "https://www.seasaltcornwall.com/basset-cove-roll-neck-merino-wool-jumper",
+       "price": "£75.95"
+      }
+     ],
+     "rej": {
+      "total": 672,
+      "noImage": 89,
+      "tinyImage": 13,
+      "shortPath": 0,
+      "samePage": 2,
+      "banner": 0,
+      "dup": 70,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 460
+     }
+    },
+    {
+     "url": "https://www.seasaltcornwall.com/clothing/shirts-blouses",
+     "count": 41,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Larissa Shirt",
+       "productUrl": "https://www.seasaltcornwall.com/larissa-printed-cotton-shirt",
+       "price": ""
+      },
+      {
+       "name": "St Mawes Printed Top in GOTS-Certified Organic Cotton",
+       "productUrl": "https://www.seasaltcornwall.com/st-mawes-gots-organic-cotton-aline-top",
+       "price": ""
+      },
+      {
+       "name": "Wild Sorrel Button Up Top",
+       "productUrl": "https://www.seasaltcornwall.com/wild-sorrel-top",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 556,
+      "noImage": 78,
+      "tinyImage": 10,
+      "shortPath": 0,
+      "samePage": 1,
+      "banner": 0,
+      "dup": 2,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 460
+     }
+    },
+    {
+     "url": "https://www.seasaltcornwall.com/clothing/dresses",
+     "count": 72,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Veronica Midi Dress in GOTS-Certified Organic Cotton Jersey",
+       "productUrl": "https://www.seasaltcornwall.com/veronica-organic-cotton-jersey-midi-dress",
+       "price": ""
+      },
+      {
+       "name": "Wightwick Midi Dress",
+       "productUrl": "https://www.seasaltcornwall.com/wightwick-organic-cotton-cord-midi-dress",
+       "price": "£85.95"
+      },
+      {
+       "name": "Fenil Empire Line Midi Dress",
+       "productUrl": "https://www.seasaltcornwall.com/fenil-empire-line-midi-dress",
+       "price": "£35.95"
+      }
+     ],
+     "rej": {
+      "total": 678,
+      "noImage": 104,
+      "tinyImage": 9,
+      "shortPath": 0,
+      "samePage": 2,
+      "banner": 0,
+      "dup": 66,
+      "nonProduct": 1,
+      "landing": 0,
+      "siteMenu": 460
+     }
+    },
+    {
+     "url": "https://www.seasaltcornwall.com/clothing/trousers-leggings-cropped",
+     "count": 35,
+     "productShaped": 0,
+     "note": "",
+     "sample": [
+      {
+       "name": "Asphodel Wide Leg Cord Trousers",
+       "productUrl": "https://www.seasaltcornwall.com/asphodel-cropped-wide-cord-trousers",
+       "price": ""
+      },
+      {
+       "name": "Sholl Tapered Leg Jersey Joggers Model Image",
+       "productUrl": "https://www.seasaltcornwall.com/sholl-tapered-jersey-joggers",
+       "price": ""
+      },
+      {
+       "name": "Powered by Onetrust",
+       "productUrl": "https://www.onetrust.com/solutions/consent-and-preferences/",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 673,
+      "noImage": 95,
+      "tinyImage": 10,
+      "shortPath": 0,
+      "samePage": 2,
+      "banner": 0,
+      "dup": 71,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 460
+     }
+    }
+   ],
+   "secs": 498,
+   "dropped": 2,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Larissa Shirt",
+     "productUrl": "https://www.seasaltcornwall.com/larissa-printed-cotton-shirt"
+    },
+    {
+     "name": "Sailor Shirt in GOTS-Certified Organic Cotton Jersey",
+     "productUrl": "https://www.seasaltcornwall.com/sailor-striped-breton-top"
+    },
+    {
+     "name": "Easel Long Sleeve Top in GOTS-Certified Organic Cotton Jersey",
+     "productUrl": "https://www.seasaltcornwall.com/easel-cotton-jersey-top"
+    },
+    {
+     "name": "Landing Roll Neck Top in GOTS-Certified Organic Cotton",
+     "productUrl": "https://www.seasaltcornwall.com/landing-roll-neck-cotton-top"
+    },
+    {
+     "name": "Wavecrest Semi Fitted Jersey Shirt",
+     "productUrl": "https://www.seasaltcornwall.com/wavecrest-semi-fitted-jersey-shirt"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Wilson",
+   "site": "wilson.com.wilson",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 96,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 41,
+    "sweatshirts": 14,
+    "dresses": 31,
+    "pants": 10
+   },
+   "perUrl": [
+    {
+     "url": "https://www.wilson.com/en-us/sportswear/women/tops/tanks",
+     "count": 14,
+     "productShaped": 14,
+     "note": "",
+     "sample": [
+      {
+       "name": "Everyday Brami",
+       "productUrl": "https://www.wilson.com/en-us/products/everyday-brami-ww00015",
+       "price": ""
+      },
+      {
+       "name": "WE00003E079001_7_W_COURT_SEAMLESS_TANK_W_CASTOR_SANDRIFT",
+       "productUrl": "https://www.wilson.com/en-us/products/court-seamless-tank-we00003",
+       "price": ""
+      },
+      {
+       "name": "WE00317U089001_7_FIELDHOUSE_TANK_W_POSEIDON",
+       "productUrl": "https://www.wilson.com/en-us/products/fieldhouse-tank-we00317",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 506,
+      "noImage": 15,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 3,
+      "landing": 0,
+      "siteMenu": 484
+     }
+    },
+    {
+     "url": "https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops",
+     "count": 6,
+     "productShaped": 6,
+     "note": "",
+     "sample": [
+      {
+       "name": "WE00038L013001_7_W_MODERN_TEE_W_LILAC_ASH.png",
+       "productUrl": "https://www.wilson.com/en-us/products/modern-tee-we00038",
+       "price": ""
+      },
+      {
+       "name": "WE00370P051001_7_W_HARPER_CROP_TEE_VINTAGE_WASH_W_CHATEAU_PINK",
+       "productUrl": "https://www.wilson.com/en-us/products/harper-crop-tee-we00370",
+       "price": ""
+      },
+      {
+       "name": "WW00302411WTA_7_EASY_TEE_BRIGHT_WHITE_W_WTA",
+       "productUrl": "https://www.wilson.com/en-us/products/easy-tee-ww00302",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 496,
+      "noImage": 12,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 3,
+      "landing": 0,
+      "siteMenu": 481
+     }
+    },
+    {
+     "url": "https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops",
+     "count": 8,
+     "productShaped": 8,
+     "note": "",
+     "sample": [
+      {
+       "name": "Pro Seamless Long Sleeve",
+       "productUrl": "https://www.wilson.com/en-us/products/pro-seamless-long-sleeve-ww00399",
+       "price": ""
+      },
+      {
+       "name": "WW00509U010001_7_W_LASER_LACE_LONG_SLEEVE_W_PLEIN_AIR",
+       "productUrl": "https://www.wilson.com/en-us/products/laser-lace-long-sleeve-ww00509",
+       "price": ""
+      },
+      {
+       "name": "WE00249E079001_7_W_COURT_3_HALF_ZIP_W_CASTOR",
+       "productUrl": "https://www.wilson.com/en-us/products/court-3-halfzip-jacket-we00249",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 500,
+      "noImage": 12,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 3,
+      "landing": 0,
+      "siteMenu": 481
+     }
+    },
+    {
+     "url": "https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts",
+     "count": 15,
+     "productShaped": 15,
+     "note": "",
+     "sample": [
+      {
+       "name": "WW00562B002001_7_W_CLASSIC_CREW_W_ASPHALT",
+       "productUrl": "https://www.wilson.com/en-us/products/classic-crew-ww00562",
+       "price": ""
+      },
+      {
+       "name": "WM00251431MGV_10_WILSON_AMERICA_CREW_SWEATSHIRT_U_MGV",
+       "productUrl": "https://www.wilson.com/en-us/products/america-crewneck-wm00251",
+       "price": ""
+      },
+      {
+       "name": "WW00548531GYC_7_DAVENPORT_FLEECE_POPOVER_W_GYC",
+       "productUrl": "https://www.wilson.com/en-us/products/davenport-fleece-popover-ww00548",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 496,
+      "noImage": 12,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 3,
+      "landing": 0,
+      "siteMenu": 481
+     }
+    },
+    {
+     "url": "https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits",
+     "count": 32,
+     "productShaped": 32,
+     "note": "",
+     "sample": [
+      {
+       "name": "WE00363T001001_7_W_PLEATED_MESH_DRESS_FLOCKED_W_SAFARI",
+       "productUrl": "https://www.wilson.com/en-us/products/pleated-mesh-dress-we00363",
+       "price": ""
+      },
+      {
+       "name": "WW00592511WTA_7_TIEBREAKER_DRESS_UNLINED_W_WTA",
+       "productUrl": "https://www.wilson.com/en-us/products/tiebreaker-dress-unlined-ww00592",
+       "price": ""
+      },
+      {
+       "name": "WW00565511WTA_7_SPLIT_ROMPER_W_WTA.png",
+       "productUrl": "https://www.wilson.com/en-us/products/split-romper-ww00565",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 501,
+      "noImage": 15,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 3,
+      "landing": 0,
+      "siteMenu": 483
+     }
+    },
+    {
+     "url": "https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings",
+     "count": 21,
+     "productShaped": 21,
+     "note": "",
+     "sample": [
+      {
+       "name": "Advantage Tennis Tight",
+       "productUrl": "https://www.wilson.com/en-us/products/advantage-tennis-tight-we00124",
+       "price": ""
+      },
+      {
+       "name": "WE00235U001001_7_W_CLUBHOUSE_KNIT_PANT_W_CLASSIC_NAVY.png",
+       "productUrl": "https://www.wilson.com/en-us/products/clubhouse-knit-pant-we00235",
+       "price": ""
+      },
+      {
+       "name": "WW00492531BKA_7_SLICE_SKIRTY_TIGHT_W_BKA",
+       "productUrl": "https://www.wilson.com/en-us/products/slice-tight-ww00492",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 500,
+      "noImage": 12,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 3,
+      "landing": 0,
+      "siteMenu": 481
+     }
+    }
+   ],
+   "secs": 161,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Everyday Brami",
+     "productUrl": "https://www.wilson.com/en-us/products/everyday-brami-ww00015"
+    },
+    {
+     "name": "On the Daily Brami",
+     "productUrl": "https://www.wilson.com/en-us/products/on-the-daily-brami-ww00284"
+    },
+    {
+     "name": "Pro Seamless Tank",
+     "productUrl": "https://www.wilson.com/en-us/products/pro-seamless-tank-ww00024"
+    },
+    {
+     "name": "Fieldhouse Tank Lite",
+     "productUrl": "https://www.wilson.com/en-us/products/fieldhouse-tank-lite-ww00156"
+    },
+    {
+     "name": "WE00001U001001_7_W_MELROSE_TANK_SEAMSEALED_W_CLASSIC_NAVY",
+     "productUrl": "https://www.wilson.com/en-us/products/melrose-tank-we00001"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Aritzia",
+   "site": "aritzia.com.aritzia",
+   "engine": "api",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 509,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 142,
+    "sweatshirts": 13,
+    "shirts": 69,
+    "dresses": 140,
+    "pants": 145
+   },
+   "perUrl": [
+    {
+     "url": "api:aritzia-algolia:categories=tops",
+     "count": 142,
+     "note": "",
+     "sample": [
+      {
+       "name": "Refine Shine™ Nominee Blouse",
+       "productUrl": "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html",
+       "price": "$70.4"
+      },
+      {
+       "name": "Caprice Satin Bustier",
+       "productUrl": "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html",
+       "price": "$89.6"
+      },
+      {
+       "name": "Ezra Top",
+       "productUrl": "https://www.aritzia.com/intl/en/product/ezra-top/125956.html",
+       "price": "$70.4"
+      }
+     ]
+    },
+    {
+     "url": "api:aritzia-algolia:categories=sweatshirts-hoodies",
+     "count": 13,
+     "note": "",
+     "sample": [
+      {
+       "name": "Cozy Sweatfleece Perfect Hoodie",
+       "productUrl": "https://www.aritzia.com/intl/en/product/cozy-sweatfleece-perfect-hoodie/116209.html",
+       "price": "$59.5"
+      },
+      {
+       "name": "Cozy Sweatfleece Mega Zip Hoodie",
+       "productUrl": "https://www.aritzia.com/intl/en/product/cozy-sweatfleece-mega-zip-hoodie/130356.html",
+       "price": "$68.6"
+      },
+      {
+       "name": "Essential Cashmere Idyllic Zip Hoodie",
+       "productUrl": "https://www.aritzia.com/intl/en/product/essential-cashmere-idyllic-zip-hoodie/129668.html",
+       "price": "$138.6"
+      }
+     ]
+    },
+    {
+     "url": "api:aritzia-algolia:categories=shirts-blouses",
+     "count": 127,
+     "note": "",
+     "sample": [
+      {
+       "name": "Refine Shine™ Nominee Blouse",
+       "productUrl": "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html",
+       "price": "$70.4"
+      },
+      {
+       "name": "Refine Shine™ Audience Halter Top",
+       "productUrl": "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-audience-halter-top/136051.html",
+       "price": "$61.6"
+      },
+      {
+       "name": "Heartstring Satin Bustier",
+       "productUrl": "https://www.aritzia.com/intl/en/product/heartstring-satin-bustier/137254.html",
+       "price": "$78.4"
+      }
+     ]
+    },
+    {
+     "url": "api:aritzia-algolia:categories=dresses",
+     "count": 140,
+     "note": "",
+     "sample": [
+      {
+       "name": "Fan Satin Dress",
+       "productUrl": "https://www.aritzia.com/intl/en/product/fan-satin-dress/128699.html",
+       "price": "$142.4"
+      },
+      {
+       "name": "Bond Dress - Eversential™",
+       "productUrl": "https://www.aritzia.com/intl/en/product/bond-dress/119868.html",
+       "price": "$88.8"
+      },
+      {
+       "name": "Closing Satin Dress",
+       "productUrl": "https://www.aritzia.com/intl/en/product/closing-satin-dress/135786.html",
+       "price": "$134.4"
+      }
+     ]
+    },
+    {
+     "url": "api:aritzia-algolia:categories=pants",
+     "count": 145,
+     "note": "",
+     "sample": [
+      {
+       "name": "The Lodge Pant™ - Crepette™",
+       "productUrl": "https://www.aritzia.com/intl/en/product/the-lodge-pant%E2%84%A2/118495.html",
+       "price": "$110.4"
+      },
+      {
+       "name": "Parity Pant - Eversential™",
+       "productUrl": "https://www.aritzia.com/intl/en/product/parity-pant/130816.html",
+       "price": "$88.8"
+      },
+      {
+       "name": "The Effortless Pant™ - Crepette™",
+       "productUrl": "https://www.aritzia.com/intl/en/product/the-effortless-pant%E2%84%A2/77775.html",
+       "price": "$103.6"
+      }
+     ]
+    }
+   ],
+   "secs": 1,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Refine Shine™ Nominee Blouse",
+     "productUrl": "https://www.aritzia.com/intl/en/product/refine-shine%E2%84%A2-nominee-blouse/120661.html"
+    },
+    {
+     "name": "Caprice Satin Bustier",
+     "productUrl": "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html"
+    },
+    {
+     "name": "Ezra Top",
+     "productUrl": "https://www.aritzia.com/intl/en/product/ezra-top/125956.html"
+    },
+    {
+     "name": "Sunlane Satin Camisole",
+     "productUrl": "https://www.aritzia.com/intl/en/product/sunlane-satin-camisole/132774.html"
+    },
+    {
+     "name": "Smooth Matter™ Ginger Top - Unlined",
+     "productUrl": "https://www.aritzia.com/intl/en/product/smooth-matter%E2%84%A2-ginger-top/133120.html"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Arket",
+   "site": "arket.com.arket",
+   "engine": "firefox",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "replace",
+   "collected": 381,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 165,
+    "sweatshirts": 40,
+    "shirts": 107,
+    "pants": 4,
+    "dresses": 65
+   },
+   "perUrl": [
+    {
+     "url": "https://www.arket.com/en-ww/women/clothing/tops/",
+     "count": 187,
+     "productShaped": 187,
+     "note": "",
+     "sample": [
+      {
+       "name": "Signature Constructed T-Shirt-White-4931",
+       "productUrl": "https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/",
+       "price": ""
+      },
+      {
+       "name": "Scallop Trim Strap Top-Black-20634",
+       "productUrl": "https://www.arket.com/en-ww/product/scallop-trim-strap-top-black-1360283001/",
+       "price": "$ 59"
+      },
+      {
+       "name": "ARKET CAFÉ Short-Sleeve T-Shirt-White-21559",
+       "productUrl": "https://www.arket.com/en-ww/product/arket-caf-short-sleeve-t-shirt-off-white-1377274001/",
+       "price": "$ 35"
+      }
+     ],
+     "rej": {
+      "total": 282,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 48,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 185
+     }
+    },
+    {
+     "url": "https://www.arket.com/en-ww/women/clothing/tops/t-shirts/",
+     "count": 62,
+     "productShaped": 62,
+     "note": "",
+     "sample": [
+      {
+       "name": "Signature Constructed T-Shirt-White-4931",
+       "productUrl": "https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/",
+       "price": ""
+      },
+      {
+       "name": "Slim Cap-Sleeve T-Shirt-Purple-19475",
+       "productUrl": "https://www.arket.com/en-ww/product/slim-cap-sleeve-t-shirt-plum-1327998007/",
+       "price": "$ 30"
+      },
+      {
+       "name": "ARKET CAFÉ Printed T-Shirt-White-12767",
+       "productUrl": "https://www.arket.com/en-ww/product/arket-caf-printed-t-shirt-off-whiteblack-1244346001/",
+       "price": "$ 35"
+      }
+     ],
+     "rej": {
+      "total": 283,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 48,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 186
+     }
+    },
+    {
+     "url": "https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/",
+     "count": 33,
+     "productShaped": 33,
+     "note": "",
+     "sample": [
+      {
+       "name": "Terry Sweatshirt-Blue-20460",
+       "productUrl": "https://www.arket.com/en-ww/product/terry-sweatshirt-dark-blue-1283133037/",
+       "price": ""
+      },
+      {
+       "name": "Cotton terry sweatshirt-Black-21012",
+       "productUrl": "https://www.arket.com/en-ww/product/cotton-terry-sweatshirt-black-1371966002/",
+       "price": "$ 59"
+      },
+      {
+       "name": "Long Cotton Terry Sweatshirt-Pink-21416",
+       "productUrl": "https://www.arket.com/en-ww/product/long-cotton-terry-sweatshirt-pink-1373717002/",
+       "price": "$ 79"
+      }
+     ],
+     "rej": {
+      "total": 247,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 33,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 180
+     }
+    },
+    {
+     "url": "https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/",
+     "count": 117,
+     "productShaped": 117,
+     "note": "",
+     "sample": [
+      {
+       "name": "Cotton Wrap Shirt-White-19705",
+       "productUrl": "https://www.arket.com/en-ww/product/cotton-wrap-shirt-white-1360101001/",
+       "price": ""
+      },
+      {
+       "name": "Silk Satin Shirt-Beige-21396",
+       "productUrl": "https://www.arket.com/en-ww/product/silk-satin-shirt-beige-1355525004/",
+       "price": "$ 149"
+      },
+      {
+       "name": "ARKET CAFÉ Cotton Overshirt-Green-17493",
+       "productUrl": "https://www.arket.com/en-ww/product/arket-caf-cotton-overshirt-dark-green-1302389001/",
+       "price": "$ 119"
+      }
+     ],
+     "rej": {
+      "total": 282,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 48,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 185
+     }
+    },
+    {
+     "url": "https://www.arket.com/en-ww/women/clothing/dresses/",
+     "count": 70,
+     "productShaped": 70,
+     "note": "",
+     "sample": [
+      {
+       "name": "Silk Organza Dress-Black-20289",
+       "productUrl": "https://www.arket.com/en-ww/product/silk-organza-dress-black-1340093001/",
+       "price": ""
+      },
+      {
+       "name": "Wrap Shirt Dress-Black-21293",
+       "productUrl": "https://www.arket.com/en-ww/product/wrap-shirt-dress-black-1360316001/",
+       "price": "$ 259"
+      },
+      {
+       "name": "Bow Dress-Black-13536",
+       "productUrl": "https://www.arket.com/en-ww/product/bow-dress-black-1253094001/",
+       "price": "$ 139"
+      }
+     ],
+     "rej": {
+      "total": 279,
+      "noImage": 1,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 48,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 182
+     }
+    }
+   ],
+   "secs": 179,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Signature Constructed T-Shirt-White-4931",
+     "productUrl": "https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/"
+    },
+    {
+     "name": "Signature Constructed T-Shirt-Beige-17513",
+     "productUrl": "https://www.arket.com/en-ww/product/pearl-heavyweight-t-shirt-light-beige-1135758046/"
+    },
+    {
+     "name": "Wool Rib Top-Black-20580",
+     "productUrl": "https://www.arket.com/en-ww/product/wool-rib-top-black-1357865001/"
+    },
+    {
+     "name": "Signature Boxy T-Shirt-White-14955",
+     "productUrl": "https://www.arket.com/en-ww/product/alba-heavyweight-t-shirt-white-1283090001/"
+    },
+    {
+     "name": "Heavy Silk-Blend Tank Top-Black-20631",
+     "productUrl": "https://www.arket.com/en-ww/product/heavy-silk-blend-tank-top-black-1370751001/"
+    }
+   ],
+   "verdict": "자동화 가능"
+  }
+ ]
+}

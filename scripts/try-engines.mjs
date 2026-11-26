@@ -5,15 +5,19 @@
 //
 // 엔진(기본 순서 — 싼 것부터):
 //   impit             브라우저 없이 브라우저의 TLS·HTTP2 지문으로 요청(Apify, curl_cffi 류)
-//   site-api          사이트가 자기 화면을 그릴 때 쓰는 JSON 주소를 직접 읽는다(지금은 Zara·Shopify)
-//   wayback           웹 아카이브(archive.org)에 보관된 같은 상품 페이지를 읽는다 — 차단과 무관
+//   site-api          사이트가 자기 화면을 그릴 때 쓰는 JSON 주소를 직접 읽는다(지금은 Zara·Shopify) — 상품만
+//   wayback           웹 아카이브(archive.org)에 보관된 같은 상품 페이지를 읽는다 — 차단과 무관 · 상품만
 //   playwright        지금 쓰는 헤드리스 크롬(기준선)
 //   firefox           그냥 Playwright 파이어폭스(지문 주입 없음, 파이어폭스 자기 UA 그대로)
+//   firefox-fresh     파이어폭스, 페이지마다 쿠키가 빈 새 창(첫 URL 만 열리고 뒤가 막히는 현상 가리기) — 기본 목록에는 없음
 //   firefox-fp        파이어폭스 + fingerprint-injector 만(Crawlee 크롤러 없이) — 기본 목록에는 없음
 //   patchright        자동화 흔적을 지운 Playwright 패치판
 //   crawlee-chromium  Crawlee PlaywrightCrawler + 지문 생성·주입(fingerprint-suite) + 세션 풀
 //   crawlee-firefox   같은 것을 파이어폭스로(Crawlee 문서가 차단 회피용으로 권하는 조합)
 //   camoufox          탐지 회피용으로 고친 파이어폭스(camoufox-js)
+//   server            Render 서버(야간 프리페치와 같은 길)에 그 브랜드의 목록을 물어본다 — 목록만 · 기본 목록에는 없음
+//   ext:<이름>        유료 수집 서비스 시험 칸 — 저장소 비밀 SCRAPE_API_CONFIG 가 있을 때만 생긴다(없으면 조용히 빠짐).
+//                     설정 모양은 scripts/access-evidence.mjs 의 loadExtConfigs 설명, 운영 안내는 docs/access-map.md.
 //
 // 엔진마다 따로 자식 프로세스로 돌린다. 11/24 실행에서 camoufox 가 시작하자마자
 // 프로세스 전체가 segfault(exit 139)로 죽어, 앞서 끝난 네 엔진의 페이지별 결과까지
@@ -21,37 +25,49 @@
 // 다음 엔진이 돈다. 자식은 페이지 하나를 볼 때마다 결과 파일을 갱신하므로, 시간
 // 제한(ENGINE_MIN)으로 끊겨도 거기까지 본 결과는 남는다.
 //
+// 페이지마다 '원인 근거'를 함께 남긴다(접근 지도 docs/access-map.md 의 근거): HTTP 상태 · 최종 주소 ·
+// 제목 · 차단 주체를 가리는 응답 헤더 · 쿠키 이름(값은 버림) · 차단 화면 흔적 · 보호 업체 스크립트 요청 ·
+// 목록이면 HTML 의 상품 링크 수와 실제 수집기(collector.js)가 잡은 상품 수. 판정 규칙은 access-evidence.mjs.
+//
 // env:
-//   ENGINES     쉼표 구분(기본: 위 전부)
-//   BRANDS      상품 페이지를 뽑을 브랜드(Worker 카탈로그에서 브랜드당 PER 개)
+//   ENGINES     쉼표 구분(기본: 위 전부 · 'ext' 는 설정된 외부 API 전부 · '-' 는 엔진 없이 카탈로그만 훑기)
+//   BRANDS      상품 페이지를 뽑을 브랜드(Worker 카탈로그에서 브랜드당 PER 개 · 'all' = 전부)
 //   PER         브랜드당 상품 수(기본 3). 상품이 아닌 주소(카테고리·기획전)는 건너뛴다.
 //   LISTINGS    목록 페이지 URL(쉼표 구분)
-//   URLS        위 둘 대신 이 URL 만(쉼표 구분)
+//   URLS        위 둘 대신 이 URL 만(쉼표 구분). 저장소 안 .json 파일 이름 하나면 TARGETS 로 읽는다.
+//   TARGETS     대상 파일(JSON 배열 [{kind:'listing'|'product', brand, url, cat?}]). BRANDS 를 함께 주면 그 상품도 더한다.
 //   ENGINE_MIN  엔진 하나에 주는 시간(분, 기본 12)
+//   HOST_GAP_MS 같은 사이트에 연달아 요청할 때 최소 간격(기본 1500) — 예의 있는 방문
 //   OUT         리포트 파일 이름(기본 try-engines-report.md)
+//   RESULTS_JSON 주면 엔진별·페이지별 결과(근거 포함)를 이 JSON 파일에도 남긴다
+//               (저장된 혼용률 점검 audit-stored-comp.mjs 와 접근 지도 build-access-map.mjs 가 읽는다)
 //   DUMP        1이면 페이지마다 "NN% 섬유"가 나오는 곳을 모두 덤프한다(try-engines-dump.md).
-//               추출기가 왜 그 값을 골랐는지 사람이 확인하려는 것 — 각 자리의 앞뒤 글,
-//               가장 가까운 앞 제목, 요소 경로, 화면에 보이는지, 추출기가 실제로 본 창(window),
-//               스크립트 JSON 속 소재처럼 보이는 조각. 크기는 DUMP_KB(기본 400)로 자른다.
 //   MATCH       카탈로그에서 상품을 고를 때 이름·주소가 이 정규식에 맞는 것만(예: jacket|coat)
-//   RESULTS_JSON 주면 엔진별·페이지별 결과(읽은 혼용률 전체 포함)를 이 JSON 파일에도 남긴다
-//               (저장된 혼용률 점검 audit-stored-comp.mjs 가 저장값과 견줄 때 쓴다)
+//   RENDER_URL  server 엔진이 물을 Render 주소(기본 운영 주소)
+//   SCRAPE_API_CONFIG  외부 API 엔진 설정(JSON). 키는 로그·리포트·결과 JSON 어디에도 쓰지 않는다.
 import { readFileSync, writeFileSync, renameSync, mkdtempSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
 import { spawn } from "node:child_process";
 import { tmpdir, constants as osConst } from "node:os";
+import {
+  looksLikeProduct, evidenceOf, identify, causeOf, cookieNamesFromSetCookie,
+  loadExtConfigs, secretsOf, redact, buildExtRequest, readExtResponse,
+} from "./access-evidence.mjs";
+
+export { looksLikeProduct };
 
 const SELF = fileURLToPath(import.meta.url);
 const ROOT = join(dirname(SELF), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
+const RENDER = (process.env.RENDER_URL || "https://market-research-uzs2.onrender.com").replace(/\/+$/, "");
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
 const DEFAULT_ENGINES = "impit,site-api,wayback,playwright,firefox,patchright,crawlee-chromium,crawlee-firefox,camoufox";
-const ENGINES = (process.env.ENGINES || DEFAULT_ENGINES).split(",").map((s) => s.trim()).filter(Boolean);
 const PER = Math.max(1, Number(process.env.PER) || 3);
 const ENGINE_MS = Math.max(0.05, Number(process.env.ENGINE_MIN) || 12) * 60_000;
 const MIN_TXT = `${Math.round(ENGINE_MS / 6000) / 10}분`;
 const NAV_MS = 45_000;
+const HOST_GAP_MS = Math.max(0, Number(process.env.HOST_GAP_MS ?? 1500));
 const list = (s) => String(s || "").split(",").map((x) => x.trim()).filter(Boolean);
 
 // 추출 규칙은 worker 한 벌을 쓴다(enrich-comp-browser 와 같은 방식).
@@ -66,28 +82,14 @@ const DUMP = process.env.DUMP === "1";
 const DUMP_KB = Math.max(50, Number(process.env.DUMP_KB) || 400);
 const MATCH = process.env.MATCH ? new RegExp(process.env.MATCH, "i") : null;
 
-// 상품이 아닌 경로 조각은 카탈로그 점검(audit-catalogs)과 같은 목록을 떼어 쓴다.
-const auditSrc = readFileSync(join(ROOT, "scripts/audit-catalogs.mjs"), "utf8");
-const NON_PRODUCT_SEGMENTS = new Function(slice(auditSrc, "const NON_PRODUCT_SEGMENTS = [", "const NON_PRODUCT_PATH") + "\n return NON_PRODUCT_SEGMENTS;")();
-const NON_PRODUCT_PATH = new RegExp("/(?:" + NON_PRODUCT_SEGMENTS.join("|") + ")(?:/|$)", "i");
+// 목록 페이지는 야간 수집과 같은 수집기(크롬 확장 collector.js)로 센다 — "열렸는데 우리가 못 읽음"을 가리려고.
+const collectorSrc = readFileSync(join(ROOT, "chrome-extension", "collector.js"), "utf8");
+const COLLECTOR = `(async () => { ${collectorSrc}\n return await pageCollector(); })()`;
 
-// 상품 상세 페이지로 보이는가. 카탈로그 앞쪽에 카테고리·기획전 주소가 섞인 브랜드가 있다
-// (11/24 표본: Adidas /us/black_friday · Aritzia /intl/en/new · Joules /shop/womens/clothing/tops/t-shirts ·
-//  Sezane /us-en/petit-sezane · Lululemon /c/… · &Other Stories /en-us/shoes/). 이런 페이지는 소재가
-// 원래 없으니 엔진 비교를 흐린다. 상품 주소에 흔한 표시가 하나라도 있어야 상품으로 본다.
-export function looksLikeProduct(url) {
-  let u;
-  try { u = new URL(url); } catch (e) { return false; }
-  const path = u.pathname;
-  if (NON_PRODUCT_PATH.test(path)) return false;
-  if (/\/(?:c|category|categories|collections?)(?:\/|$)/i.test(path) && !/\/products?\//i.test(path)) return false;
-  if (/\/(?:product|products|p|productpage|style|item|dp|prd)\//i.test(path)) return true;   // /product/… · /p/… · /style/…
-  if (/productpage\.|\/prod\d|_\/prod/i.test(path)) return true;                         // H&M · Lululemon
-  if (/\d{6,}/.test(path)) return true;                                                  // 상품 번호(Zara p04424306 · Fatface 968669)
-  if (/[A-Z]{2}\d{4}\.html$/i.test(path)) return true;                                   // Adidas IF1234.html
-  if (/^\/shop\/[^/]*-[^/]*-[^/]+\/?$/i.test(path)) return true;                         // Anthropologie·Free People /shop/<상품-이름>
-  return false;
-}
+// 외부 API(유료 서비스 시험 칸) 설정. 문제는 이름만 말하고 값은 절대 찍지 않는다.
+const EXT = loadExtConfigs(process.env.SCRAPE_API_CONFIG);
+const EXT_SECRETS = EXT.configs.flatMap((c) => secretsOf(c));
+const scrub = (s) => redact(s, EXT_SECRETS);
 
 const CHALLENGE_RX = /access denied|pardon our interruption|are you a human|attention required|verify you are human|unusual traffic|press (and|&) hold|just a moment|enable javascript and cookies|request unsuccessful|_Incapsula_Resource|captcha-delivery|403 forbidden/i;
 const FIBRE_RX = /\d{1,3}\s?%\s*(?:[A-Za-z]+\s)?(cotton|polyester|viscose|wool|linen|silk|nylon|polyamide|elastane|spandex|lyocell|modal|cashmere|acrylic|rayon|leather)/i;
@@ -198,12 +200,13 @@ function asComp(v) {
   return lines.filter(Boolean).map((l) => l.join(" / ")).join("\n");
 }
 
-// 한 페이지 결과 판정
-function judge(status, title, html, err) {
+// 한 페이지 결과 판정. kind=listing 이면 혼용률 대신 상품 수로 본다(5개 이상이면 'list').
+function judge(status, title, html, err, kind = "product", cards = 0) {
   if (err) return { v: "err", note: String(err).split("\n")[0].slice(0, 70) };
   const text = String(html || "").replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
   if (status >= 400 || CHALLENGE_RX.test(title + " " + text.slice(0, 1500))) return { v: "blocked", note: `HTTP ${status} ${String(title).slice(0, 40)}` };
+  if (kind === "listing") return { v: cards >= 5 ? "list" : "open", note: `상품 ${cards}개 · 글 ${text.length}자` };
   let ld = {};
   try { ld = fromJsonLd(html) || {}; } catch (e) {}
   const fromLd = !!(ld.composition && ld.composition.length);
@@ -214,8 +217,54 @@ function judge(status, title, html, err) {
   return { v: "open", note: `글 ${text.length}자` };
 }
 
-// 브라우저 페이지 공통: 열고, 접힌 소재 탭을 펼치고, 소재가 그려질 때까지 최대 6초
+// ── 자식 공통: 페이지 종류 · 사이트별 간격 · 결과 만들기 ─────────────────
+let KIND = new Map();   // url → 'product' | 'listing' (자식이 대상 파일에서 채운다)
+const kindOf = (u) => KIND.get(u) || "product";
+const lastHit = new Map();
+async function politeWait(url) {
+  let host = "";
+  try { host = new URL(url).hostname; } catch (e) { return; }
+  const wait = (lastHit.get(host) || 0) + HOST_GAP_MS - Date.now();
+  if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+  lastHit.set(host, Date.now());
+}
+// raw: { status, title, html, finalUrl, headers, cookies, requests, collector, collectorSample, err }
+function resultOf(url, raw) {
+  const kind = kindOf(url);
+  if (raw.err) {
+    const r = judge(0, "", "", raw.err);
+    if (raw.status || raw.finalUrl) r.ev = evidenceOf({ url, kind, ...raw, html: raw.html || "" });
+    return r;
+  }
+  const ev = evidenceOf({ url, kind, ...raw });
+  const htmlCards = Math.max(ev.productLinks || 0, ev.itemList || 0);
+  // 목록: 브라우저는 수집기가 잡은 수로, 브라우저가 없는 엔진(impit)은 HTML 의 상품 링크 수로 판정한다.
+  const r = { ...judge(raw.status, raw.title || ev.title, raw.html, "", kind, kind === "listing" ? (raw.collector ?? htmlCards) : 0), ev };
+  if (kind === "listing") {
+    r.cards = htmlCards;
+    if (raw.collector != null) { r.collector = raw.collector; r.sample = (raw.collectorSample || []).slice(0, 3); }
+    if (r.v !== "blocked") {
+      r.note = (raw.collector != null ? `수집기 ${raw.collector}개 · ` : "") + `HTML 상품 링크 ${htmlCards} · 이미지 링크 ${ev.imgLinks || 0} · 글 ${ev.textLen}자`;
+    }
+  }
+  return r;
+}
+
+// 브라우저 페이지: 보호 업체의 스크립트·확인 요청 주소를 따로 적어 둔다(차단 주체의 근거).
+const VENDOR_REQ = /perimeterx|px-cdn|px-cloud|\/_px\/|captcha-delivery|datadome|challenges\.cloudflare|cdn-cgi\/challenge|kpsdk|149e9513-01fa|awswaf|_Incapsula_Resource|\/_sec\/cp_challenge|\/akam\/\d+\/|hcaptcha|recaptcha|queue-it/i;
+function watchRequests(page) {
+  const reqs = [];
+  page.on("request", (q) => { const u = q.url(); if (reqs.length < 30 && VENDOR_REQ.test(u)) reqs.push(u); });
+  return reqs;
+}
+async function cookieNames(page) {
+  // 이 페이지 주소의 쿠키만 — 한 창(context)에 여러 사이트를 차례로 열므로, 주소 없이 부르면 앞 사이트의 쿠키까지 섞인다.
+  try { return [...new Set((await page.context().cookies(page.url())).map((c) => c.name))]; } catch (e) { return []; }
+}
+
+// 브라우저 페이지 공통(상품): 열고, 접힌 소재 탭을 펼치고, 소재가 그려질 때까지 최대 6초
 async function readPage(page, url) {
+  const reqs = watchRequests(page);
   const resp = await page.goto(url, { waitUntil: "domcontentloaded", timeout: NAV_MS });
   await page.waitForTimeout(2000);
   await page.evaluate(() => {
@@ -230,17 +279,59 @@ async function readPage(page, url) {
     FIBRE_RX.source, { timeout: 6000 }).catch(() => {});
   const html = await page.content();
   const dump = DUMP ? { ...htmlDump(html), dom: await domDump(page) } : undefined;
-  return { status: resp ? resp.status() : 0, title: await page.title().catch(() => ""), html, dump };
+  return {
+    status: resp ? resp.status() : 0, title: await page.title().catch(() => ""), html, dump,
+    finalUrl: page.url(), headers: resp ? await resp.allHeaders().catch(() => ({})) : {},
+    cookies: await cookieNames(page), requests: reqs,
+  };
+}
+
+// 브라우저 페이지 공통(목록): 열고, 야간 수집과 같은 수집기를 첫 화면에서 한 번 돌린다(자동 스크롤 포함).
+async function readListing(page, url) {
+  const reqs = watchRequests(page);
+  let resp;
+  try {
+    resp = await page.goto(url, { waitUntil: "domcontentloaded", timeout: NAV_MS });
+    await page.waitForTimeout(2500);
+  } catch (e) {
+    if (!/Timeout/i.test(String((e && e.message) || e))) throw e;
+    // 문서가 늦게 끝나는 사이트 — browser-collect 와 같이 'commit' 으로 한 번 더(헤더조차 안 오면 응답 없음)
+    resp = await page.goto(url, { waitUntil: "commit", timeout: NAV_MS }).catch(() => null);
+    if (!resp) throw new Error(`응답 없음(차단 의심) — 헤더조차 ${NAV_MS / 1000}초 안에 안 옴`);
+    await page.waitForTimeout(9000);
+  }
+  const status = resp ? resp.status() : 0;
+  let collector = null, sample = [];
+  if (status < 400) {
+    const res = await Promise.race([
+      page.evaluate(COLLECTOR).catch(() => null),
+      new Promise((r) => setTimeout(() => r(null), 60_000)),
+    ]);
+    if (res && Array.isArray(res.items)) {
+      const items = res.items.filter((it) => it && it.productUrl);
+      collector = items.length;
+      sample = items.slice(0, 3).map((it) => it.productUrl);
+    }
+  }
+  return {
+    status, title: await page.title().catch(() => ""), html: await page.content().catch(() => ""),
+    finalUrl: page.url(), headers: resp ? await resp.allHeaders().catch(() => ({})) : {},
+    cookies: await cookieNames(page), requests: reqs, collector, collectorSample: sample,
+  };
 }
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
 async function readAll(browserOrCtx, urls, put) {
   for (const url of urls) {
+    await politeWait(url);
     const page = await browserOrCtx.newPage();
-    try { const r = await readPage(page, url); put(url, { ...judge(r.status, r.title, r.html), ...(r.dump ? { dump: r.dump } : {}) }); }
-    catch (e) { put(url, judge(0, "", "", e.message)); }
-    finally { await page.close().catch(() => {}); }
+    try {
+      const r = kindOf(url) === "listing" ? await readListing(page, url) : await readPage(page, url);
+      put(url, { ...resultOf(url, r), ...(r.dump ? { dump: r.dump } : {}) });
+    } catch (e) {
+      put(url, resultOf(url, { err: e.message, finalUrl: page.url() !== "about:blank" ? page.url() : "" }));
+    } finally { await page.close().catch(() => {}); }
   }
 }
 
@@ -261,6 +352,19 @@ async function runFirefox(urls, put) {
   const browser = await firefox.launch();
   const ctx = await browser.newContext({ locale: "en-US" });
   await readAll(ctx, urls, put);
+  await browser.close();
+}
+
+// 파이어폭스, 페이지마다 쿠키가 빈 새 창. 11/25 측정에서 Prana·The upside·Reformation·Anthropologie 가
+// 브랜드의 첫 URL 만 열리고 다음부터 403 이었다 — 첫 방문 뒤 받은 봇 판정 쿠키 때문인지 가리려는 것.
+async function runFirefoxFresh(urls, put) {
+  const { firefox } = await import("playwright");
+  const browser = await firefox.launch();
+  for (const url of urls) {
+    const ctx = await browser.newContext({ locale: "en-US" });
+    await readAll(ctx, [url], put);
+    await ctx.close().catch(() => {});
+  }
   await browser.close();
 }
 
@@ -295,13 +399,24 @@ async function runCrawlee(browserName, urls, put) {
     requestHandlerTimeoutSecs: 90,
     headless: true,
     async requestHandler({ page, request, response }) {
-      await page.evaluate(() => { for (const d of document.querySelectorAll("details")) d.open = true; }).catch(() => {});
-      await page.waitForFunction((src) => new RegExp(src, "i").test((document.body && document.body.innerText) || ""),
-        FIBRE_RX.source, { timeout: 6000 }).catch(() => {});
-      put(request.userData.url, judge(response ? response.status() : 0, await page.title().catch(() => ""), await page.content()));
+      const url = request.userData.url;
+      let collector = null, sample = [];
+      if (kindOf(url) === "listing") {
+        const res = await page.evaluate(COLLECTOR).catch(() => null);
+        if (res && Array.isArray(res.items)) { const it = res.items.filter((x) => x && x.productUrl); collector = it.length; sample = it.slice(0, 3).map((x) => x.productUrl); }
+      } else {
+        await page.evaluate(() => { for (const d of document.querySelectorAll("details")) d.open = true; }).catch(() => {});
+        await page.waitForFunction((src) => new RegExp(src, "i").test((document.body && document.body.innerText) || ""),
+          FIBRE_RX.source, { timeout: 6000 }).catch(() => {});
+      }
+      put(url, resultOf(url, {
+        status: response ? response.status() : 0, title: await page.title().catch(() => ""), html: await page.content(),
+        finalUrl: page.url(), headers: response ? await response.allHeaders().catch(() => ({})) : {},
+        cookies: await cookieNames(page), collector, collectorSample: sample,
+      }));
     },
     failedRequestHandler({ request }, error) {
-      put(request.userData.url, judge(0, "", "", (error && error.message) || "failed"));
+      put(request.userData.url, resultOf(request.userData.url, { err: (error && error.message) || "failed" }));
     },
   }, config);
   await crawler.run(urls.map((url, i) => ({ url, uniqueKey: `${i}:${url}`, userData: { url } })));
@@ -314,15 +429,25 @@ async function runCamoufox(urls, put) {
   await browser.close();
 }
 
+function setCookieOf(headers) {
+  try {
+    if (typeof headers.getSetCookie === "function") return cookieNamesFromSetCookie(headers.getSetCookie());
+    return cookieNamesFromSetCookie(headers.get("set-cookie") || "");
+  } catch (e) { return []; }
+}
 async function runImpit(urls, put) {
   const { Impit } = await import("impit");
   const impit = new Impit({ browser: "chrome", followRedirects: true, timeout: NAV_MS });
   for (const url of urls) {
+    await politeWait(url);
     try {
       const r = await impit.fetch(url, { headers: { "Accept-Language": "en-US,en;q=0.9" } });
       const html = await r.text();
-      put(url, judge(r.status, (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1], html));
-    } catch (e) { put(url, judge(0, "", "", e.message)); }
+      put(url, resultOf(url, {
+        status: r.status, title: (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1], html,
+        finalUrl: r.url || url, headers: r.headers, cookies: setCookieOf(r.headers),
+      }));
+    } catch (e) { put(url, resultOf(url, { err: e.message })); }
   }
 }
 
@@ -352,13 +477,15 @@ async function runSiteApi(urls, put) {
   for (const url of urls) {
     const api = apiUrlOf(url);
     if (!api) { put(url, { v: "err", note: "이 사이트용 JSON 주소를 모름" }); continue; }
+    await politeWait(url);
     try {
       const r = await impit.fetch(api, { headers: { Accept: "application/json", "Accept-Language": "en-US,en;q=0.9" } });
       const body = await r.text();
-      if (r.status >= 400 || !/^\s*[\[{]/.test(body)) { put(url, { v: "blocked", note: `HTTP ${r.status} · JSON 아님` }); continue; }
+      const ev = evidenceOf({ url: api, finalUrl: r.url || api, status: r.status, html: body.slice(0, 5000), headers: r.headers, cookies: setCookieOf(r.headers) });
+      if (r.status >= 400 || !/^\s*[\[{]/.test(body)) { put(url, { v: "blocked", note: `HTTP ${r.status} · JSON 아님`, ev }); continue; }
       const flat = flattenComp(body);
       const j = judge(r.status, "", `<p>${flat}</p><p>${body.replace(/<[^>]+>/g, " ").slice(0, 200000)}</p>`);
-      put(url, j.v === "open" ? { v: "open", note: `JSON ${body.length}자 · 소재 못 찾음 · ${(body.match(/.{0,60}omposition.{0,120}/i) || [""])[0]}` } : j);
+      put(url, { ...(j.v === "open" ? { v: "open", note: `JSON ${body.length}자 · 소재 못 찾음 · ${(body.match(/.{0,60}omposition.{0,120}/i) || [""])[0]}` } : j), ev });
     } catch (e) { put(url, judge(0, "", "", e.message)); }
   }
 }
@@ -381,9 +508,70 @@ async function runWayback(urls, put) {
   }
 }
 
+// Render 서버(야간 프리페치와 같은 길)에 그 브랜드의 목록을 물어본다. 서버는 자기 category-links 로
+// 카테고리 URL 을 차례로 읽고, 실패한 URL 은 경고(warnings)에 남긴다 — 그 경고가 서버 쪽 근거다.
+// 상품이 어느 URL 에서 왔는지는 서버가 알려 주지 않아, 같은 카테고리의 URL 들은 같은 수를 받는다.
+async function runServer(urls, put) {
+  const targets = JSON.parse(readFileSync(argOf("--targets"), "utf8"));
+  const byUrl = new Map(targets.map((t) => [t.url, t]));
+  let brands = [];
+  for (let i = 0; i < 4 && !brands.length; i++) {
+    try { brands = ((await (await fetch(RENDER + "/api/brands", { signal: AbortSignal.timeout(90_000) })).json()).brands) || []; }
+    catch (e) { await new Promise((r) => setTimeout(r, 15_000)); }
+  }
+  const urlOf = new Map(brands.map((b) => [String(b.name).toLowerCase(), b.url]));
+  const groups = new Map();
+  for (const u of urls) {
+    const b = String((byUrl.get(u) || {}).brand || "").toLowerCase();
+    if (!groups.has(b)) groups.set(b, []);
+    groups.get(b).push(u);
+  }
+  for (const [b, us] of groups) {
+    const home = urlOf.get(b);
+    if (!home) { for (const u of us) put(u, { v: "err", note: "서버 브랜드 목록에 없음" }); continue; }
+    try {
+      const q = "/api/products?new=1&tops=150&sweatshirts=150&shirts=150&dresses=150&pants=150&url=" + encodeURIComponent(home);
+      const d = await (await fetch(RENDER + q, { signal: AbortSignal.timeout(240_000) })).json();
+      const prods = (d.products || []).filter((p) => p && p.category !== "new" && p.productUrl);
+      const warns = (d.warnings || []).map(String);
+      for (const u of us) {
+        const t = byUrl.get(u) || {};
+        const n = prods.filter((p) => p.category === t.cat).length;
+        const w = warns.filter((x) => x.includes(u));
+        const st = (w.join(" ").match(/HTTP (\d{3})/) || [])[1];
+        const v = w.length && !n ? (st && Number(st) >= 400 ? "blocked" : "open") : n >= 5 ? "list" : "open";
+        put(u, { v, note: `서버 ${t.cat || "?"} ${n}개${w.length ? " · 경고: " + w.map((x) => x.replace(u, "").replace(/\s+at\s*$/, "")).join(" / ").slice(0, 160) : ""}`,
+          cards: n, serverWarnings: w.slice(0, 4), ev: { status: st ? Number(st) : 0, markers: [], headers: {}, cookies: [] } });
+      }
+    } catch (e) { for (const u of us) put(u, { v: "err", note: "서버 응답 실패: " + String(e.message || e).slice(0, 60) }); }
+  }
+}
+
+// 외부 API 엔진(유료 서비스 시험 칸). 요청 주소·헤더·키는 결과에 남기지 않는다 — 대상 주소와 판정만.
+async function runExt(name, urls, put) {
+  const cfg = EXT.configs.find((c) => c.name === name);
+  if (!cfg) throw new Error("설정 없음");
+  let n = 0;
+  for (const url of urls) {
+    if (n >= cfg.maxRequests) { put(url, { v: "err", note: `요청 상한 ${cfg.maxRequests}회에서 멈춤` }); continue; }
+    n++;
+    if (cfg.gapMs) await new Promise((r) => setTimeout(r, cfg.gapMs));
+    try {
+      const { url: reqUrl, init } = buildExtRequest(cfg, url);
+      const r = await fetch(reqUrl, { ...init, signal: AbortSignal.timeout(cfg.timeoutSec * 1000) });
+      const body = await r.text();
+      const x = readExtResponse(cfg, r.status, body, (h) => r.headers.get(h));
+      if (!x.ok) { put(url, { v: x.apiStatus >= 400 || x.upstream >= 400 ? "blocked" : "err", note: scrub(x.note), ev: { status: x.upstream || 0, markers: [], headers: {}, cookies: [] } }); continue; }
+      const base = resultOf(url, { status: x.upstream || 200, html: x.html, finalUrl: url });
+      put(url, JSON.parse(scrub(JSON.stringify({ ...base, note: `${x.note} · ${base.note || ""}` }))));
+    } catch (e) { put(url, { v: "err", note: scrub(String((e && e.message) || e)).slice(0, 80) }); }
+  }
+}
+
 const RUN = {
   playwright: (u, put) => runPlainBrowser("playwright", u, put),
   firefox: (u, put) => runFirefox(u, put),
+  "firefox-fresh": (u, put) => runFirefoxFresh(u, put),
   "firefox-fp": (u, put) => runFirefoxFp(u, put),
   patchright: (u, put) => runPlainBrowser("patchright", u, put),
   "crawlee-chromium": (u, put) => runCrawlee("chromium", u, put),
@@ -392,17 +580,23 @@ const RUN = {
   impit: (u, put) => runImpit(u, put),
   "site-api": (u, put) => runSiteApi(u, put),
   wayback: (u, put) => runWayback(u, put),
+  server: (u, put) => runServer(u, put),
   // 격리가 제대로 되는지 확인하는 시험용 엔진(기본 목록에는 없다).
   "test-crash": async (u, put) => { put(u[0], { v: "open", note: "첫 페이지만 보고 죽음" }); process.kill(process.pid, "SIGSEGV"); },
   "test-hang": async (u, put) => { put(u[0], { v: "open", note: "첫 페이지만 보고 멈춤" }); await new Promise(() => setInterval(() => {}, 1000)); },
 };
+for (const c of EXT.configs) RUN[`ext:${c.name}`] = (u, put) => runExt(c.name, u, put);
+// 페이지 종류마다 돌 엔진: 아카이브·사이트 JSON 은 상품만, 서버는 목록만.
+const ONLY = { "site-api": "product", wayback: "product", server: "listing" };
 
 // ── 자식: 엔진 하나만 돌리고 결과 파일을 페이지마다 갱신한다 ─────────────
 const argv = process.argv.slice(2);
-const argOf = (k) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : ""; };
+function argOf(k) { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : ""; }
 if (argOf("--engine")) {
   const eng = argOf("--engine"), outPath = argOf("--out");
-  const urls = JSON.parse(readFileSync(argOf("--targets"), "utf8"));
+  const all = JSON.parse(readFileSync(argOf("--targets"), "utf8"));
+  KIND = new Map(all.map((t) => [t.url, t.kind]));
+  const urls = JSON.parse(readFileSync(argOf("--urls"), "utf8"));
   const out = { res: {}, error: "" };
   const flush = () => { writeFileSync(outPath + ".tmp", JSON.stringify(out)); renameSync(outPath + ".tmp", outPath); };
   flush();
@@ -410,25 +604,45 @@ if (argOf("--engine")) {
     if (!RUN[eng]) throw new Error("알 수 없는 엔진");
     await RUN[eng](urls, (url, r) => { out.res[url] = r; flush(); });
   } catch (e) {
-    out.error = String((e && e.message) || e).split("\n")[0].slice(0, 120);
+    out.error = scrub(String((e && e.message) || e).split("\n")[0]).slice(0, 120);
     console.log(`  !! ${eng} 실행 실패: ${out.error}`);
   }
   flush();
   process.exit(0);   // 브라우저가 남긴 핸들 때문에 안 끝나는 일이 없게
 }
 
+// ── 엔진 목록 ────────────────────────────────────────────────────────
+for (const p of EXT.problems) console.log("외부 API 설정 문제(이 칸은 빠짐): " + p);
+if (process.env.GITHUB_ACTIONS === "true") for (const s of EXT_SECRETS) console.log(`::add-mask::${s}`);
+const extNames = EXT.configs.map((c) => `ext:${c.name}`);
+let ENGINES = list(process.env.ENGINES || DEFAULT_ENGINES);
+if (ENGINES.includes("-") || ENGINES.includes("none")) ENGINES = [];
+ENGINES = ENGINES.flatMap((e) => (e === "ext" ? extNames : [e]));
+if (!process.env.ENGINES || !/\bext\b|ext:/.test(process.env.ENGINES)) ENGINES.push(...extNames.filter((e) => !ENGINES.includes(e)));
+ENGINES = ENGINES.filter((e, i, a) => a.indexOf(e) === i && (!e.startsWith("ext:") || extNames.includes(e)));
+
 // ── 대상 ─────────────────────────────────────────────────────────
-const targets = [];   // { kind: 'product'|'listing', brand, url }
+const targets = [];   // { kind: 'product'|'listing', brand, url, cat? }
 const picks = [];     // 브랜드별 고르기 기록 — 리포트에 남긴다
-if (list(process.env.URLS).length) {
-  for (const u of list(process.env.URLS)) targets.push({ kind: "product", brand: new URL(u).hostname, url: u });
-} else {
+const addTarget = (t) => { if (t && t.url && !targets.some((x) => x.url === t.url)) targets.push(t); };
+let targetsFile = process.env.TARGETS || "";
+if (!targetsFile && list(process.env.URLS).length === 1 && /^[\w./-]+\.json$/.test(list(process.env.URLS)[0]) && existsSync(resolve(ROOT, list(process.env.URLS)[0]))) targetsFile = list(process.env.URLS)[0];
+if (targetsFile) {
+  for (const t of JSON.parse(readFileSync(resolve(ROOT, targetsFile), "utf8"))) {
+    if (!t || !t.url) continue;
+    addTarget({ kind: t.kind === "listing" ? "listing" : "product", brand: t.brand || new URL(t.url).hostname, url: t.url, ...(t.cat ? { cat: t.cat } : {}) });
+  }
+}
+if (!targetsFile && list(process.env.URLS).length) {
+  for (const u of list(process.env.URLS)) addTarget({ kind: "product", brand: new URL(u).hostname, url: u });
+} else if (!targetsFile || process.env.BRANDS) {
+  const ALL = String(process.env.BRANDS || "").trim().toLowerCase() === "all";
   const want = list(process.env.BRANDS || "Zara,H&M,Massimo Dutti,Arket,&Other Stories,Lululemon,Chico's,Anthropologie,Free People,Joules,Patagonia,Addidas").map((s) => s.toLowerCase());
   const tq = "&token=" + encodeURIComponent(TOKEN);
   try {
     const cats = (await (await fetch(`${WORKER}/?catalogs=1${tq}`)).json()).list || [];
     for (const c of cats) {
-      if (!want.includes(String(c.brand || "").toLowerCase())) continue;
+      if (!ALL && !want.includes(String(c.brand || "").toLowerCase())) continue;
       const cat = await (await fetch(`${WORKER}/?catalog=${encodeURIComponent(c.site)}${tq}`)).json();
       const items = (cat.items || []).filter((p) => p && p.productUrl);
       let skippedBefore = 0, took = 0;
@@ -437,41 +651,61 @@ if (list(process.env.URLS).length) {
         if (took >= PER) break;
         if (!looksLikeProduct(p.productUrl)) { skippedBefore++; if (skippedEx.length < 2) skippedEx.push(p.productUrl); continue; }
         if (MATCH && !MATCH.test(`${p.name || ""} ${p.productUrl}`)) continue;
-        targets.push({ kind: "product", brand: c.brand, url: p.productUrl, name: p.name || "" }); took++;
+        if (ENGINES.length) addTarget({ kind: "product", brand: c.brand, url: p.productUrl, name: p.name || "" });
+        took++;
       }
       const nonAll = items.filter((p) => !looksLikeProduct(p.productUrl)).length;
-      picks.push({ brand: c.brand, took, skippedBefore, nonAll, total: items.length, skippedEx });
+      // 카테고리 URL(src)마다 몇 개를 저장했나 — 확장·헤드리스가 저장한 카탈로그에만 src 가 있다.
+      const bySrc = {};
+      for (const p of items) { const s = p.src || "(src 없음)"; bySrc[s] = (bySrc[s] || 0) + 1; }
+      picks.push({ brand: c.brand, site: c.site, took, skippedBefore, nonAll, total: items.length, skippedEx, bySrc, updated: c.updated || c.at || "" });
     }
   } catch (e) { console.error("Worker 카탈로그 읽기 실패: " + e.message); }
-  for (const w of want) if (!picks.some((p) => String(p.brand).toLowerCase() === w)) picks.push({ brand: w, missing: true });
-  for (const u of list(process.env.LISTINGS || [
+  if (!ALL) for (const w of want) if (!picks.some((p) => String(p.brand).toLowerCase() === w)) picks.push({ brand: w, missing: true });
+  if (!targetsFile) for (const u of list(process.env.LISTINGS || [
     "https://www.prana.com/women/tops.html",
     "https://www.whitehouseblackmarket.com/store/category/tops/cat210001",
     "https://www.chicos.com/store/category/dresses/cat40004",
     "https://veronicabeard.com/collections/tops",
-  ].join(","))) targets.push({ kind: "listing", brand: new URL(u).hostname.replace(/^www\./, ""), url: u });
+  ].join(","))) addTarget({ kind: "listing", brand: new URL(u).hostname.replace(/^www\./, ""), url: u });
 }
-if (!targets.length) { console.error("대상 없음"); process.exit(1); }
-console.log(`대상 ${targets.length}개 · 엔진 ${ENGINES.join(", ")} · 엔진당 ${MIN_TXT}\n`);
+if (!targets.length && ENGINES.length) { console.error("대상 없음"); process.exit(1); }
+console.log(`대상 ${targets.length}개(목록 ${targets.filter((t) => t.kind === "listing").length}) · 엔진 ${ENGINES.join(", ") || "없음"} · 엔진당 ${MIN_TXT}\n`);
 for (const p of picks) {
   if (p.missing) console.log(`  · ${p.brand}: 카탈로그 없음`);
   else console.log(`  · ${p.brand}: ${p.took}개 고름 · 앞에서 상품 아님으로 건너뜀 ${p.skippedBefore} · 카탈로그 전체 ${p.nonAll}/${p.total}개가 상품 아님으로 보임`);
 }
 
+// 러너 정보 — 같은 사이트가 러너(IP)마다 다르게 답하므로, 어느 러너에서 잰 것인지 남긴다.
+const META = { at: new Date().toISOString(), runId: process.env.GITHUB_RUN_ID || "", runner: process.env.RUNNER_NAME || "", ip: "" };
+if (process.env.GITHUB_ACTIONS === "true") {
+  try { META.ip = (await (await fetch("https://checkip.amazonaws.com", { signal: AbortSignal.timeout(10_000) })).text()).trim().replace(/\.\d+$/, ".x"); } catch (e) {}
+}
+
 // ── 엔진마다 자식 프로세스 ────────────────────────────────────────
-const urls = targets.map((t) => t.url);
+// 같은 사이트를 연달아 두드리지 않게 사이트별로 번갈아 세운다.
+function interleave(ts) {
+  const byHost = new Map();
+  for (const t of ts) { let h = ""; try { h = new URL(t.url).hostname; } catch (e) {} if (!byHost.has(h)) byHost.set(h, []); byHost.get(h).push(t); }
+  const qs = [...byHost.values()], out = [];
+  while (qs.some((q) => q.length)) for (const q of qs) if (q.length) out.push(q.shift());
+  return out;
+}
 const work = mkdtempSync(join(tmpdir(), "try-engines-"));
 const targetsPath = join(work, "targets.json");
-writeFileSync(targetsPath, JSON.stringify(urls));
-const results = {};   // engine → url → {v, note}
+writeFileSync(targetsPath, JSON.stringify(targets));
+const results = {};   // engine → url → {v, note, ev, ...}
 const runInfo = {};   // engine → 실행 상태 한 줄
 
-function runChild(eng) {
-  const outPath = join(work, `${eng}.json`);
+function runChild(eng, urlsPath) {
+  const outPath = join(work, `${eng.replace(/[^\w.-]/g, "_")}.json`);
   return new Promise((done) => {
+    // 외부 API 설정(키)은 그 엔진의 자식에게만 넘긴다.
+    const env = { ...process.env };
+    if (!eng.startsWith("ext:")) delete env.SCRAPE_API_CONFIG;
     // 자기 프로세스 그룹으로 띄워, 시간 초과 때 브라우저 자식까지 한꺼번에 끈다.
-    const child = spawn(process.execPath, [SELF, "--engine", eng, "--targets", targetsPath, "--out", outPath],
-      { stdio: ["ignore", "inherit", "inherit"], detached: true, env: process.env });
+    const child = spawn(process.execPath, [SELF, "--engine", eng, "--targets", targetsPath, "--urls", urlsPath, "--out", outPath],
+      { stdio: ["ignore", "inherit", "inherit"], detached: true, env });
     let timedOut = false;
     const timer = setTimeout(() => {
       timedOut = true;
@@ -489,37 +723,58 @@ function runChild(eng) {
   });
 }
 
+const kindByUrl = new Map(targets.map((t) => [t.url, t.kind]));
+function finish(r, url) {
+  const kind = kindByUrl.get(url) || "product";
+  r.cause = causeOf(r, kind);
+  if (r.ev && (r.v === "blocked" || ["rate-limit", "conn-drop", "timeout", "blocked"].includes(r.cause) || (r.ev.cookies || []).length || Object.keys(r.ev.headers || {}).length)) {
+    const who = identify(r.ev, r.v === "blocked" || ["blocked", "rate-limit"].includes(r.cause));
+    r.who = { by: who.by, confidence: who.confidence, why: who.why, protection: who.protection, cdn: who.cdn, platform: who.platform, signals: who.vendors.map((v) => `${v.vendor}: ${v.signals.join(", ")}`).slice(0, 6) };
+  }
+  return r;
+}
+
 for (const eng of ENGINES) {
   if (!RUN[eng]) { console.log(`알 수 없는 엔진: ${eng}`); continue; }
+  const mine = interleave(targets.filter((t) => !ONLY[eng] || ONLY[eng] === t.kind)).map((t) => t.url);
+  results[eng] = {};
+  for (const t of targets) if (!mine.includes(t.url)) results[eng][t.url] = { v: "skip", note: "이 종류의 페이지는 안 봄", cause: "skip" };
+  if (!mine.length) { runInfo[eng] = "대상 없음"; continue; }
+  const urlsPath = join(work, `urls-${eng.replace(/[^\w.-]/g, "_")}.json`);
+  writeFileSync(urlsPath, JSON.stringify(mine));
   const t0 = Date.now();
-  console.log(`\n▶ ${eng}`);
-  const { out, exit, signal, timedOut } = await runChild(eng);
+  console.log(`\n▶ ${eng} (${mine.length}쪽)`);
+  const { out, exit, signal, timedOut } = await runChild(eng, urlsPath);
   const secs = Math.round((Date.now() - t0) / 1000);
   const seen = Object.keys(out.res || {}).length;
   let why = "";
   if (timedOut) why = `시간 초과(${MIN_TXT}) — 못 본 페이지`;
   else if (exit !== 0) why = `엔진 실행 실패: exit ${exit}${signal ? ` (${signal})` : ""}`;
   else if (out.error) why = `엔진 실행 실패: ${out.error}`;
-  results[eng] = {};
-  for (const u of urls) results[eng][u] = (out.res || {})[u] || { v: "err", note: why || "결과 없음" };
-  runInfo[eng] = (why ? `${why.replace(" — 못 본 페이지", "")} · ${seen}/${urls.length}쪽까지` : `정상 · ${urls.length}쪽`) + ` · ${secs}s`;
-  const n = (v) => targets.filter((t) => results[eng][t.url].v === v).length;
-  console.log(`${eng}: 소재 ${n("comp")} · 열림 ${n("open")} · 차단 ${n("blocked")} · 오류 ${n("err")} · ${runInfo[eng]}`);
+  for (const u of mine) results[eng][u] = finish((out.res || {})[u] || { v: "err", note: why || "결과 없음" }, u);
+  runInfo[eng] = (why ? `${why.replace(" — 못 본 페이지", "")} · ${seen}/${mine.length}쪽까지` : `정상 · ${mine.length}쪽`) + ` · ${secs}s`;
+  const n = (v) => mine.filter((u) => results[eng][u].v === v).length;
+  console.log(`${eng}: 소재 ${n("comp")} · 목록 ${n("list")} · 열림 ${n("open")} · 차단 ${n("blocked")} · 오류 ${n("err")} · ${runInfo[eng]}`);
   // 엔진 하나가 끝날 때마다 리포트를 써 둔다 — 시간 제한에 걸려도 그때까지의 결과가 남는다.
   writeReport(true);
+  writeResults();
 }
 writeReport(false);
 if (DUMP) writeDump();
-if (process.env.RESULTS_JSON) {
+writeResults();
+
+function writeResults() {
+  if (!process.env.RESULTS_JSON) return;
   // 덤프(dump)는 크므로 뺀다.
   const slim = {};
   for (const [e, byUrl] of Object.entries(results)) {
     slim[e] = {};
     for (const [u, r] of Object.entries(byUrl)) { const { dump, ...rest } = r || {}; slim[e][u] = rest; }
   }
-  writeFileSync(resolve(ROOT, process.env.RESULTS_JSON), JSON.stringify({ at: new Date().toISOString(), engines: ENGINES, runInfo, targets, results: slim }, null, 1));
-  console.log("결과 JSON: " + process.env.RESULTS_JSON);
+  const text = scrub(JSON.stringify({ at: new Date().toISOString(), meta: META, engines: ENGINES, runInfo, targets, results: slim, catalogs: picks }, null, 1));
+  writeFileSync(resolve(ROOT, process.env.RESULTS_JSON), text);
 }
+if (process.env.RESULTS_JSON) console.log("결과 JSON: " + process.env.RESULTS_JSON);
 
 // ── 덤프(DUMP=1) ──────────────────────────────────────────────────
 function writeDump() {
@@ -560,7 +815,7 @@ function writeDump() {
 
 // ── 리포트 ────────────────────────────────────────────────────────
 function writeReport(partial) {
-  const ICON = { comp: "✅", open: "🟡", blocked: "⛔", err: "❌" };
+  const ICON = { comp: "✅", list: "✅", open: "🟡", blocked: "⛔", err: "❌", skip: "➖" };
   const engs = ENGINES.filter((e) => results[e]);
   const cnt = (e, v, kind) => targets.filter((t) => (!kind || t.kind === kind) && (results[e][t.url] || {}).v === v).length;
   const nProd = targets.filter((t) => t.kind === "product").length, nList = targets.length - nProd;
@@ -568,11 +823,12 @@ function writeReport(partial) {
   if (partial) md += `> ⏳ 진행 중 — ${engs.length}/${ENGINES.length}개 엔진까지의 중간 결과입니다.\n\n`;
   md += `GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔진마다 열어 본 결과입니다. 저장은 하지 않았습니다.\n`;
   md += `엔진마다 따로 프로세스로 돌려, 한 엔진이 죽어도 다른 엔진 결과는 남습니다.\n\n`;
-  md += `✅ 소재까지 읽음 · 🟡 페이지는 열림(소재 없음/목록) · ⛔ 차단 · ❌ 오류\n\n`;
+  if (META.runId || META.ip) md += `- 실행 ${META.runId || "-"} · 러너 ${META.runner || "-"} · 나가는 IP ${META.ip || "-"} · ${META.at.slice(0, 16)}Z\n\n`;
+  md += `✅ 소재까지 읽음(상품) · 상품 5개 이상(목록) · 🟡 페이지는 열림(소재 없음 / 목록 상품 5개 미만) · ⛔ 차단 · ❌ 오류 · ➖ 이 엔진은 그 종류를 안 봄\n\n`;
   md += `| 엔진 | ✅ | 🟡 | ⛔ | ❌ | 상품 ${nProd}쪽 ✅·🟡 | 목록 ${nList}쪽 ✅·🟡 | 실행 |\n|---|---:|---:|---:|---:|---:|---:|---|\n`;
   for (const e of engs) {
-    md += `| ${e} | ${cnt(e, "comp")} | ${cnt(e, "open")} | ${cnt(e, "blocked")} | ${cnt(e, "err")} | ` +
-      `${cnt(e, "comp", "product")}·${cnt(e, "open", "product")} | ${cnt(e, "comp", "listing")}·${cnt(e, "open", "listing")} | ${runInfo[e] || ""} |\n`;
+    md += `| ${e} | ${cnt(e, "comp") + cnt(e, "list")} | ${cnt(e, "open")} | ${cnt(e, "blocked")} | ${cnt(e, "err")} | ` +
+      `${cnt(e, "comp", "product")}·${cnt(e, "open", "product")} | ${cnt(e, "list", "listing")}·${cnt(e, "open", "listing")} | ${runInfo[e] || ""} |\n`;
   }
   if (picks.length) {
     md += `\n## 대상 고르기\n\n브랜드당 상품 ${PER}개. 카탈로그 앞쪽의 카테고리·기획전 주소는 상품이 아니라서 건너뛰었습니다.\n\n`;
@@ -582,16 +838,39 @@ function writeReport(partial) {
         : `| ${p.brand} | ${p.took} | ${p.skippedBefore} | ${p.nonAll}/${p.total} | ${p.skippedEx.map((u) => u.replace(/^https?:\/\/[^/]+/, "")).join(" · ")} |\n`;
     }
   }
-  md += `\n## 페이지별\n\n| 구분 | 브랜드 | ${engs.join(" | ")} |\n|---|---|${engs.map(() => ":-:").join("|")}|\n`;
+  const cell = (t, e) => {
+    const r = results[e][t.url] || {};
+    const icon = ICON[r.v] || "·";
+    if (t.kind === "listing" && (r.v === "list" || r.v === "open")) return `${icon} ${r.collector != null ? r.collector : r.cards ?? ""}`;
+    if (r.v === "blocked" && r.ev && r.ev.status) return `${icon} ${r.ev.status}`;
+    return icon;
+  };
+  md += `\n## 페이지별\n\n목록 칸의 숫자는 수집기(브라우저)·서버가 잡은 상품 수, impit 은 HTML 안의 상품 링크 수, ⛔ 옆 숫자는 HTTP 상태.\n\n`;
+  md += `| 구분 | 브랜드 | ${engs.join(" | ")} |\n|---|---|${engs.map(() => ":-:").join("|")}|\n`;
   for (const t of targets) {
-    md += `| ${t.kind === "listing" ? "목록" : "상품"} | [${t.brand}](${t.url}) | ${engs.map((e) => ICON[(results[e][t.url] || {}).v] || "·").join(" | ")} |\n`;
+    md += `| ${t.kind === "listing" ? "목록" : "상품"} | [${t.brand}](${t.url}) | ${engs.map((e) => cell(t, e)).join(" | ")} |\n`;
+  }
+  // 원인 근거 — 막힌 곳·이상한 곳만
+  const rows = [];
+  for (const t of targets) for (const e of engs) {
+    const r = results[e][t.url] || {};
+    if (!r.cause || ["ok", "skip"].includes(r.cause)) continue;
+    const ev = r.ev || {};
+    const sig = [ev.title && `제목 "${ev.title.slice(0, 40)}"`, ev.redirect && `이동 ${ev.redirect}`, (ev.markers || []).length && `흔적 ${ev.markers.join("·")}`,
+      r.who && r.who.signals.length && r.who.signals.join(" / ")].filter(Boolean).join(" · ");
+    rows.push(`| ${t.kind === "listing" ? "목록" : "상품"} | ${t.brand} | ${e} | ${r.cause} | ${ev.status || ""} | ${r.who && r.who.by ? `${r.who.by} (${r.who.confidence})` : ""} | ${sig.replace(/\|/g, "/").slice(0, 260)} | ${t.url.replace(/^https?:\/\//, "").slice(0, 70)} |`);
+  }
+  if (rows.length) {
+    md += `\n## 원인 근거(성공이 아닌 칸만)\n\n원인 어휘: blocked(차단 화면·403) · rate-limit(429) · conn-drop(접속을 끊음) · timeout · geo(지역 이동·배송 불가 화면) · dead(404·첫 화면으로 튕김) · shell(HTML 에 상품 없음 — 스크립트가 그림) · no-cards(열렸는데 상품 카드 없음) · selector(이미지 링크는 많은데 수집기 0) · no-comp(상품 페이지는 열렸는데 혼용률 못 읽음) · no-archive(보관본 없음) · maintenance · login · error.\n\n`;
+    md += `차단 주체는 응답의 흔적으로만 정했습니다 — 높음: 차단 화면 자체에 그 업체 흔적 · 중간: 차단 응답에 그 업체 쿠키·헤더·스크립트 · 낮음: CDN 헤더만.\n\n`;
+    md += `| 구분 | 브랜드 | 엔진 | 원인 | HTTP | 차단 주체(신뢰도) | 근거 | 주소 |\n|---|---|---|---|---:|---|---|---|\n` + rows.join("\n") + "\n";
   }
   md += `\n<details><summary>사유</summary>\n\n`;
   for (const t of targets) {
     md += `- ${t.brand} — ${t.url}\n`;
-    for (const e of engs) { const r = results[e][t.url] || {}; md += `  - ${e}: ${ICON[r.v] || "·"} ${r.note || ""}\n`; }
+    for (const e of engs) { const r = results[e][t.url] || {}; md += `  - ${e}: ${ICON[r.v] || "·"} ${String(r.note || "").replace(/\n/g, " ")}${r.sample && r.sample.length ? ` · 예 ${r.sample[0]}` : ""}\n`; }
   }
   md += `\n</details>\n`;
-  writeFileSync(resolve(ROOT, process.env.OUT || "try-engines-report.md"), md);
+  writeFileSync(resolve(ROOT, process.env.OUT || "try-engines-report.md"), scrub(md));
   if (!partial) console.log("\n리포트: " + (process.env.OUT || "try-engines-report.md"));
 }

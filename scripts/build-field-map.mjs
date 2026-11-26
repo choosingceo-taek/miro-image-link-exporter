@@ -1,0 +1,298 @@
+#!/usr/bin/env node
+// 현장 지도(field map) 만들기 — field-measure-*.json(측정 결과)을 모아 docs/field-map.md 와 field-map.json 을 쓴다.
+// 네트워크를 쓰지 않는다(저장소 안의 파일만 읽는다).
+//
+//   node scripts/build-field-map.mjs [측정 파일 …]   (비우면 저장소의 field-measure-*.json 전부 — 같은 브랜드는 나중 측정이 이긴다)
+//
+// 칸의 뜻(브랜드 × 항목):
+//   ✅ n/r 출처     읽힌 상품 r 개 중 n 개에서 그 항목을 읽었다(출처: shopify·jsonld·meta·dom·page·parts-json)
+//   📭 없음         상품 페이지는 읽혔는데 그 항목이 어디에도 없었다(사이트가 안 적음 — 또는 우리 규칙 밖, 아래 '흔적' 참고)
+//   ⛔ 막힘         상품 페이지를 어느 무료 엔진으로도 못 읽었다(차단 화면·껍데기). '안 적음'으로 세지 않는다.
+//   🔗 표본 없음    카탈로그에 상품 주소가 없다(목록 수집 문제 — 목록 담당).
+// '읽힘' = 이 상품의 이름이 화면 글에 있는 페이지(productRead). 차단 화면·빈 껍데기는 읽힘이 아니다.
+import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
+import { gunzipSync } from "node:zlib";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
+
+import { witnessOf } from "./comp-witness.mjs";
+import { detailOf, compOf } from "./detail-core.mjs";
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+const files = process.argv.slice(2).length ? process.argv.slice(2)
+  : readdirSync(ROOT).filter((f) => /^field-measure-\d+\.json$/.test(f)).sort();
+const FIELDS = [
+  ["name", "상품명"], ["imgs", "사진 전부"], ["price", "판매가"], ["priceOrig", "정가(할인 시)"], ["cur", "통화"],
+  ["color", "이 상품 컬러"], ["colors", "컬러 전부"], ["sizes", "사이즈"], ["sizesIn", "재고 사이즈"],
+  ["comp", "혼용률"], ["desc", "설명"], ["feat", "디테일 글머리표"], ["sku", "상품 코드"],
+];
+const SRC = { shopify: "Shopify JSON", jsonld: "JSON-LD", meta: "메타 태그", dom: "본문 칸", page: "본문", "parts-json": "페이지 JSON", "shopify-json": "Shopify JSON" };
+const has = (v) => (Array.isArray(v) ? v.length > 0 : v != null && String(v).trim() !== "");
+
+const runs = [];
+const byBrand = new Map();
+for (const f of files) {
+  const j = JSON.parse(readFileSync(join(ROOT, f), "utf8"));
+  runs.push({ file: f, runId: j.runId, at: j.at, ip: j.ip, part: j.part, brands: j.brands.length });
+  for (const b of j.brands) {
+    // 같은 브랜드를 여러 번 쟀으면 나중 것(파일 이름 순 = 실행 번호 순). 단, 나중 것이 시간 초과로 못 본 것이면 앞 것을 둔다.
+    if (b.skipped && byBrand.has(b.brand)) continue;
+    byBrand.set(b.brand, { ...b, runId: j.runId, ip: j.ip });
+  }
+}
+const access = existsSync(join(ROOT, "access-map.json")) ? JSON.parse(readFileSync(join(ROOT, "access-map.json"), "utf8")) : { brands: [] };
+const accessOf = new Map(access.brands.map((b) => [b.brand, b]));
+
+// 브랜드 한 줄
+function rowOf(b) {
+  const prods = b.products || [];
+  const read = prods.filter((p) => p.read);
+  const engines = [...new Set(read.map((p) => p.engine).filter(Boolean))];
+  const out = { brand: b.brand, site: b.site, total: b.total || 0, sampled: prods.length, read: read.length, engines, runId: b.runId, cells: {}, notes: [] };
+  if (b.skipped) { out.state = "skipped"; out.notes.push(b.skipped); }
+  else if (b.error) { out.state = "error"; out.notes.push(b.error); }
+  else if (!prods.length) { out.state = "nosample"; }
+  else if (!read.length) {
+    out.state = "blocked";
+    const ev = prods.map((p) => Object.entries(p.engines || {}).map(([e, r]) => `${e} ${r.v}${r.status ? " " + r.status : ""}`).join(", "));
+    out.notes.push([...new Set(ev)].join(" / "));
+    const a = accessOf.get(b.brand);
+    if (a && a.product && a.product.cause) out.notes.push("접근 지도: " + a.product.cause);
+  } else out.state = "read";
+  for (const [k] of FIELDS) {
+    if (out.state !== "read") { out.cells[k] = { s: out.state }; continue; }
+    const got = read.filter((p) => has(p.got && p.got[k]));
+    const src = [...new Set(got.map((p) => (p.src && p.src[k]) || (k === "name" || k === "imgs" ? "" : "")).filter(Boolean))];
+    out.cells[k] = got.length ? { s: "ok", n: got.length, of: read.length, src } : { s: "none", n: 0, of: read.length };
+  }
+  // 흔적: 본문 칸 제목이 있었는데 디테일을 못 읽었나 · 클릭해야 그려지는 칸이었나
+  const heads = [...new Set(read.flatMap((p) => (p.probe && p.probe.heads) || []))];
+  if (heads.length) out.heads = heads.slice(0, 8);
+  const click = read.filter((p) => p.clickOnly && p.clickOnly.featFirefox > p.clickOnly.featImpit);
+  if (click.length) out.notes.push(`클릭해야 그려지는 디테일: impit ${click[0].clickOnly.featImpit}줄 → 파이어폭스 ${click[0].clickOnly.featFirefox}줄`);
+  const plat = [...new Set(read.map((p) => p.probe && p.probe.platform).filter(Boolean))];
+  if (plat.length) out.platform = plat.join("/");
+  const state = [...new Set(read.flatMap((p) => (p.probe && p.probe.state) || []))];
+  if (state.length) out.state_json = state;
+  // 사람이 사이트와 대조할 표본 1개
+  const s = read[0];
+  if (s) {
+    const g = s.got || {};
+    out.sample = {
+      url: s.url, name: s.name, pageName: (s.got && s.got.name) || "", engine: s.engine,
+      read: {
+        price: g.price || "", priceOrig: g.priceOrig || "", cur: g.cur || "", color: g.color || "", colors: (g.colors || []).slice(0, 6),
+        sizes: (g.sizes || []).slice(0, 10), sizesIn: g.sizesIn ? g.sizesIn.slice(0, 10) : null, comp: g.comp || "", sku: g.sku || "",
+        desc: String(g.desc || "").slice(0, 160), feat: (g.feat || []).slice(0, 6), imgs: (g.imgs || []).length,
+      },
+      fixture: (read.find((p) => p.fixture) || {}).fixture || null,
+    };
+  }
+  if (b.byName) out.notes.push("상품 주소 모양이 규칙에 안 맞아 이름 있는 항목에서 표본을 골랐다");
+  if (b.overlay && !b.overlay.error) out.stored = b.overlay;
+  return out;
+}
+
+const rows = [...byBrand.values()].map(rowOf).sort((a, z) => a.brand.localeCompare(z.brand));
+const totalProducts = rows.reduce((n, r) => n + r.total, 0);
+// 항목별 요약 — '읽힘' 브랜드 중 그 항목을 읽은 수. 상품 수는 그 브랜드의 카탈로그 전체(3개 표본에서 미루어 본 값 — 추정).
+// 읽힌 표본의 절반 이상에서 읽혔으면 그 브랜드는 '읽힘'으로 센다.
+const summary = FIELDS.map(([k, label]) => {
+  const ok = rows.filter((r) => r.cells[k] && r.cells[k].s === "ok" && r.cells[k].n * 2 >= r.cells[k].of);
+  const none = rows.filter((r) => r.cells[k] && (r.cells[k].s === "none" || (r.cells[k].s === "ok" && r.cells[k].n * 2 < r.cells[k].of)));
+  const blocked = rows.filter((r) => r.state === "blocked");
+  const srcCount = {};
+  for (const r of ok) for (const s of r.cells[k].src || []) srcCount[s] = (srcCount[s] || 0) + 1;
+  return { key: k, label, brands: ok.length, products: ok.reduce((n, r) => n + r.total, 0), notStated: none.length, blocked: blocked.length, sources: srcCount };
+});
+// 저장값(오늘 Worker 오버레이) — 사이즈·컬러·가격·혼용률. 측정이 읽은 브랜드의 오버레이를 센 것(측정).
+const storedSum = { items: 0, comp: 0, color: 0, sizes: 0, price: 0 };
+for (const r of rows) if (r.stored) for (const k of Object.keys(storedSum)) storedSum[k] += r.stored[k] || 0;
+// 페이지에서 읽히는 브랜드의 카탈로그 상품 수(추정 상한) — 오늘 저장값과 나란히.
+const readable = (k) => rows.filter((r) => r.cells[k] && r.cells[k].s === "ok" && r.cells[k].n * 2 >= r.cells[k].of);
+const after = {};
+for (const k of ["sizes", "color", "price", "comp"]) {
+  // 읽히는 브랜드는 전 상품, 아닌 브랜드는 오늘 저장값 그대로로 본다.
+  const ok = new Set(readable(k === "color" ? "color" : k).map((r) => r.brand));
+  if (k === "color") for (const r of readable("colors")) ok.add(r.brand);   // 컬러 전부만 읽혀도 상품 컬러 칸을 채울 수 있다(옵션 하나면 그 값)
+  after[k] = rows.reduce((n, r) => n + (ok.has(r.brand) ? r.total : ((r.stored && r.stored[k]) || 0)), 0);
+}
+
+const pct = (n, d) => (d ? Math.round((n / d) * 100) : 0);
+const cellText = (c) => {
+  if (!c) return "";
+  if (c.s === "ok") return `✅ ${c.n}/${c.of} ${(c.src || []).map((s) => SRC[s] || s).join("·")}`;
+  if (c.s === "none") return `📭 0/${c.of}`;
+  if (c.s === "blocked") return "⛔";
+  if (c.s === "nosample") return "🔗";
+  return "…";
+};
+const esc = (s) => String(s == null ? "" : s).replace(/\|/g, "/").replace(/\n/g, " ");
+
+let md = `# 상품 정보 현장 지도 (field map)\n\n`;
+md += `> 만든 때 ${new Date().toISOString().slice(0, 16)}Z · 측정 실행 ${runs.map((r) => `${r.runId}(${r.part}, 러너 ${r.ip})`).join(" · ")}\n`;
+md += `> 만드는 법: \`node scripts/build-field-map.mjs\` — 측정은 \`diagnose-page.yml\` mode=fields(읽기만, 로그에 \`STORE: 0\`).\n\n`;
+md += `## 한눈에\n\n`;
+md += `브랜드마다 카탈로그에서 상품 3개(앞·가운데·끝)를 골라 상품 페이지를 무료 엔진(impit → 파이어폭스)으로 열고, 항목마다 읽히는지와 어디서 읽히는지를 쟀다. `;
+md += `상품 페이지는 브랜드 ${rows.filter((r) => r.state === "read").length}/${rows.length}개에서 읽혔고(${rows.filter((r) => r.state === "blocked").length}개는 막힘, ${rows.filter((r) => r.state === "nosample").length}개는 표본 없음), 카탈로그 상품은 모두 ${totalProducts.toLocaleString()}개다.\n\n`;
+md += `| 항목 | 읽히는 브랜드 | 그 브랜드의 카탈로그 상품(추정) | 읽혔는데 없음(브랜드) | 막힘(브랜드) | 주된 출처 |\n|---|---:|---:|---:|---:|---|\n`;
+for (const s of summary) {
+  md += `| ${s.label} | ${s.brands} | ${s.products.toLocaleString()} (${pct(s.products, totalProducts)}%) | ${s.notStated} | ${s.blocked} | ${Object.entries(s.sources).sort((a, z) => z[1] - a[1]).map(([k, n]) => `${SRC[k] || k} ${n}`).join(" · ")} |\n`;
+}
+md += `\n- **측정한 것**: 표본 상품 페이지에서 그 항목이 읽혔는지·출처(칸마다 n/r). **추정한 것**: '카탈로그 상품' 열 — 표본 3개에서 읽히면 그 브랜드의 상품 전부가 같은 틀이라고 보고 더한 값이다.\n`;
+md += `- '읽히는 브랜드' = 읽힌 표본의 절반 이상에서 그 항목이 나온 브랜드.\n\n`;
+md += `### 사이즈·컬러·가격 — 오늘 저장값과 페이지에서 읽히는 몫\n\n`;
+md += `| 항목 | 오늘 저장값(오버레이, 측정) | 페이지에서 읽히는 브랜드를 다 채우면(추정) |\n|---|---:|---:|\n`;
+for (const [k, label] of [["sizes", "사이즈"], ["color", "컬러"], ["price", "가격"], ["comp", "혼용률"]]) {
+  md += `| ${label} | ${storedSum[k].toLocaleString()}/${storedSum.items.toLocaleString()} (${pct(storedSum[k], storedSum.items)}%) | ${after[k].toLocaleString()}/${totalProducts.toLocaleString()} (${pct(after[k], totalProducts)}%) |\n`;
+}
+md += `\n가격은 카탈로그(목록 수집)에도 있어 화면에는 그쪽이 먼저 쓰인다 — 위 저장값은 오버레이(상품 페이지에서 읽은 값)만 센 것이다.\n\n`;
+
+md += `### 이 지도를 바탕으로 바꾼 것 (작업 브랜치에만 — 운영 반영은 담당자 승인 뒤)\n\n`;
+md += `- **상품 상세 추출기**(worker/fabric-extractor.js 의 '상품 상세(detail) 추출' 구간): 설명 · 디테일 글머리표 · 사진 전부 · 컬러 전부 · `;
+md += `상품 코드 · 통화 · 재고 사이즈, 그리고 사이즈·가격·정가·컬러를 위 표의 출처 순서(Shopify JSON → JSON-LD → 메타 → 제목 붙은 본문 칸)로 읽는다.\n`;
+md += `- **지키는 규칙**: 메뉴·사이트 머리/꼬리·추천 칸("Pair it with", "You may also like")·리뷰 칸의 글은 빼고, 제목 칸의 경계(부모 칸이 닫히는 곳)에서 멈춘다. `;
+md += `이 상품의 이름이 화면에 그려진 페이지에서만 믿는다. 브랜드 상품 대부분에 똑같이 붙는 글(배송 안내·브랜드 소개)은 저장 직전 가드가 뺀다(scripts/detail-guard.mjs).\n`;
+md += `- **길이 상한**: 설명 1,500자 · 글머리표 25줄(줄당 220자) · 사진 20장 · 컬러 30개 · 사이즈 40개 · 상품 코드 60자. 글은 사이트에 적힌 그대로(공백만 정리, 번역·고쳐 쓰기 없음).\n`;
+md += `- **저장**: Worker 의 별도 칸 detail:<사이트>(혼용률 오버레이와 나눔 — 이유는 worker/README.md). 엑셀 추출·상세 보기 때만 받는다.\n`;
+md += `- **연결**: 야간 보강(enrich-comp.mjs) · 크롬 보강(enrich-comp-browser.mjs) · 확장 1.7.24(background.js) · 리서치 앱(상세 보기, 엑셀 추가 열: 판매가 · 정가 · 사이즈 · 컬러 전부 · 설명 · 디테일 · 이미지 링크).\n`;
+md += `- **혼용률 보완**: Massimo Dutti 형(소재가 페이지 JSON parts/components 에만) · JSON-LD 소재가 옳지 않으면 본문으로(Buck Mason) · 평 fetch 가 TLS 지문으로 막히면 impit 으로 다시(Whitestuff·J.Crew 형).\n\n`;
+
+// ── 무료로 읽히는데 야간 보강이 못 채운 브랜드(접근 지도 단계 1) — 오버레이 기록으로 본 이유 ──
+const TIER1 = ["Buck Mason", "Dickies", "Everlane", "Mint velvet", "Spanx", "Wilson", "Poetry", "Whitestuff", "J crew", "Massimo Dutti"];
+md += `### 무료로 읽히는데 혼용률이 빈 브랜드 — 야간 보강이 왜 못 채웠나\n\n`;
+md += `오버레이(Worker 의 comp:<사이트>)에 남은 시도 기록을 측정 실행이 읽어 센 것(측정). '5일 안 시도·빈 칸' = 지난 5일 안에 열어 봤지만 `;
+md += `혼용률이 비어 있는 상품 — 야간 보강은 이런 상품을 5일 동안 다시 열지 않는다(재시도 창). 오늘 측정 열은 같은 브랜드 표본을 오늘 무료 엔진으로 연 결과.\n\n`;
+md += `| 브랜드 | 상품 | 혼용률 저장 | 시도 기록 | 5일 안 시도·빈 칸 | 사이트 미표기(none) | 오늘 측정(혼용률) | 오늘 읽은 엔진 |\n|---|---:|---:|---:|---:|---:|---|---|\n`;
+for (const name of TIER1) {
+  const r = rows.find((x) => x.brand.toLowerCase() === name.toLowerCase());
+  if (!r) { md += `| ${name} | — | — | — | — | — | 측정 없음 | |\n`; continue; }
+  const s = r.stored || {};
+  const c = r.cells.comp || {};
+  md += `| ${esc(r.brand)} | ${r.total} | ${s.comp ?? "—"} | ${s.tried ?? "—"} | ${s.emptyIn5d ?? "—"} | ${s.none ?? "—"} | ${cellText(c)} | ${r.engines.join("/") || r.state} |\n`;
+}
+md += `\n`;
+
+// ── 혼용률 두 번째 증인 ──────────────────────────────────────────────
+// 같은 페이지의 글머리표·설명 속 "퍼센트+섬유" 줄과 혼용률 칸을 견준다(scripts/comp-witness.mjs). 어긋난 표본은 증인 측정이
+// HTML 을 남겼고(scripts/fixtures/witness), 사람이 읽고 판정했다(scripts/fixtures/witness/verdicts.json).
+{
+  const verdicts = existsSync(join(ROOT, "scripts/fixtures/witness/verdicts.json")) ? JSON.parse(readFileSync(join(ROOT, "scripts/fixtures/witness/verdicts.json"), "utf8")) : {};
+  const wfile = readdirSync(ROOT).filter((f) => /^field-witness-\d+\.json$/.test(f)).sort().pop();
+  const nowOf = new Map();
+  if (wfile) {
+    for (const b of JSON.parse(readFileSync(join(ROOT, wfile), "utf8")).brands) for (const p of b.products || []) {
+      if (!p.fixture) { nowOf.set(p.url, { now: null, stored: p.stored }); continue; }
+      const html = gunzipSync(readFileSync(join(ROOT, "scripts/fixtures/witness", p.fixture.file))).toString("utf8");
+      nowOf.set(p.url, { now: compOf(html, p.url).comp, stored: p.stored });
+    }
+  }
+  const seen = new Map();
+  for (const b of byBrand.values()) for (const p of b.products || []) if (p.read) seen.set(p.url, { brand: b.brand, p });
+  let withW = 0;
+  const dis = [];
+  for (const { brand, p } of seen.values()) {
+    const w = witnessOf(p.got.comp, p.got.feat, p.got.desc);
+    if (!w) continue;
+    withW++;
+    if (!w.agree) dis.push({ brand, url: p.url, comp: p.got.comp, w, v: verdicts[p.url], n: nowOf.get(p.url) });
+  }
+  // 시험 자료(사람이 기대값을 적은 실제 페이지)도 지금 규칙으로 같은 비교
+  let fxN = 0, fxDis = [];
+  const exp = existsSync(join(ROOT, "scripts/fixtures/detail-pages/expected.json")) ? JSON.parse(readFileSync(join(ROOT, "scripts/fixtures/detail-pages/expected.json"), "utf8")) : [];
+  for (const f of [...new Map(exp.map((c) => [c.file, c])).values()]) {
+    const html = gunzipSync(readFileSync(join(ROOT, "scripts/fixtures/detail-pages", f.file))).toString("utf8");
+    const shop = f.shop ? JSON.parse(gunzipSync(readFileSync(join(ROOT, "scripts/fixtures/detail-pages", f.shop))).toString("utf8")) : null;
+    const d = detailOf(html, f.url, shop);
+    const w = witnessOf(compOf(html, f.url).comp, d.feat, d.desc);
+    if (!w) continue;
+    fxN++;
+    if (!w.agree) fxDis.push({ brand: f.brand, url: f.url, comp: compOf(html, f.url).comp, w });
+  }
+  const RIGHT = { bullet: "글머리표가 맞음", comp: "comp 가 맞음", neither: "둘 다 아님(페이지 표기 오류)", unread: "페이지 못 읽음" };
+  md += `### 혼용률 두 번째 증인 — 글머리표와 견준 결과\n\n`;
+  md += `같은 페이지를 두 번 읽은 것이다: 혼용률 칸(comp — JSON-LD·본문 창·페이지 JSON)과 디테일 글머리표·설명 속 '퍼센트+섬유' 줄(제목 붙은 본문 칸). `;
+  md += `측정 표본 중 글머리표에 소재 줄이 있는 ${withW}개 가운데 **${dis.length}개가 어긋났다**(측정 당시 규칙). 어긋난 표본은 증인 측정(${wfile ? wfile.match(/\d+/)[0] : "—"}, 읽기만)이 HTML 을 다시 받아 남겼고(scripts/fixtures/witness), `;
+  md += `판정은 그 HTML 을 사람이 읽고 적었다. '운영 저장값'은 같은 실행이 Worker 오버레이에서 읽은 값(쓰기 없음), '지금 규칙'은 이번에 고친 추출기로 같은 HTML 을 다시 읽은 값.\n\n`;
+  md += `| 브랜드 | 상품 | 측정 때 comp | 글머리표·설명의 소재 줄 | 판정(페이지 기준) | 운영 저장값 | 지금 규칙 | 근거 |\n|---|---|---|---|---|---|---|---|\n`;
+  for (const x of dis) {
+    const v = x.v || {};
+    md += `| ${esc(x.brand)} | ${x.url} | ${esc(x.comp) || "(빈 칸)"} | ${esc([...new Set(x.w.witness.map((t) => t.text))].join(" ¶ ")).slice(0, 220)} | ${RIGHT[v.right] || "판정 없음"} | ${x.n ? (esc(x.n.stored) || "(빈 칸)") : "—"} | ${x.n ? (x.n.now === null ? "(못 읽음)" : esc(x.n.now) || "(빈 칸)") : "—"} | ${esc(v.why || x.w.verdict || "")} |\n`;
+  }
+  md += `\n시험 자료(사람이 기대값을 적은 실제 페이지 ${exp.length ? new Set(exp.map((c) => c.file)).size : 0}개)를 지금 규칙으로 같은 비교: 소재 줄이 있는 ${fxN}개 중 어긋남 ${fxDis.length}개` +
+    (fxDis.length ? ` — ${fxDis.map((x) => `${esc(x.brand)}(comp ${esc(x.comp) || "빈 칸"} · 줄 ${esc(x.w.witness[0].text).slice(0, 60)})`).join(" · ")}` : "") + `.\n\n`;
+}
+
+// ── 운영 저장값 재확인 ──────────────────────────────────────────────
+// 어긋남이 나온 브랜드의 상품을 전부(최대 400) impit 으로 다시 읽어, Worker 오버레이에 저장된 혼용률과 지금 규칙의 값을 견줬다
+// (diagnose-page.yml mode=fields, dump=1 → RECHECK · 읽기만). 결과 파일은 field-recheck-<실행>.json.
+{
+  const files = readdirSync(ROOT).filter((f) => /^field-recheck-\d+\.json$/.test(f)).sort();
+  const rv = existsSync(join(ROOT, "scripts/fixtures/witness/recheck-verdicts.json")) ? JSON.parse(readFileSync(join(ROOT, "scripts/fixtures/witness/recheck-verdicts.json"), "utf8")) : {};
+  if (files.length) {
+    const nz = (s) => String(s || "").replace(/[ \t]+/g, " ").trim();
+    const lines = (s) => nz(s).split(/\n/).map((x) => x.trim()).filter(Boolean);
+    md += `### 운영에 이미 저장된 혼용률 — 지금 규칙으로 다시 읽으면\n\n`;
+    md += `어긋남이 나온 브랜드의 카탈로그 상품을 전부 impit 으로 다시 열어(읽기만 — 로그 \`STORE: 0\`, 실행 ${files.map((f) => f.match(/\d+/)[0]).join(" · ")}), `;
+    md += `Worker 오버레이에 저장된 값과 고친 추출기의 값을 견줬다. **세지만 고치지 않았다** — 운영 값은 다음 야간 보강이 새 규칙으로 다시 쓸 때 바뀐다(담당자 승인 뒤).\n\n`;
+    md += `| 브랜드 | 실행 | 상품 | 다시 읽힘 | 저장값 있음 | 같음 | 다름 — 덧붙은 줄(장식·주머니감 등)만 빠짐 | 다름 — 값이 바뀜 | 다름 — 지금 규칙은 빈 칸 |\n|---|---|---:|---:|---:|---:|---:|---:|---:|\n`;
+    const ex = [];
+    // 같은 브랜드를 여러 번 재확인했으면 가장 새 실행(파일 이름의 실행 번호가 큰 것)만 센다.
+    const latest = new Map();
+    for (const f of files) for (const B of JSON.parse(readFileSync(join(ROOT, f), "utf8")).brands) latest.set(B.brand, { ...B, run: f.match(/\d+/)[0] });
+    for (const B of latest.values()) {
+      const ps = B.products || [];
+      const c = { read: 0, st: 0, same: 0, extra: 0, changed: 0, empty: 0 };
+      for (const p of ps) {
+        const st = nz(p.stored), now = nz(p.got && p.got.comp);
+        if (st) c.st++;
+        if (!p.read) continue;
+        c.read++;
+        if (!st) continue;
+        if (st === now) { c.same++; continue; }
+        let kind;
+        if (!now) { c.empty++; kind = "empty"; }
+        else if (lines(now).every((l) => lines(st).includes(l))) { c.extra++; kind = "extra"; }
+        else { c.changed++; kind = "changed"; }
+        if (rv[p.url] || ex.filter((e) => e.brand === B.brand && e.kind === kind).length < 2) ex.push({ brand: B.brand, url: p.url, st, now, kind, v: rv[p.url] });
+      }
+      md += `| ${esc(B.brand)} | ${B.run} | ${ps.length} | ${c.read} | ${c.st} | ${c.same} | ${c.extra} | ${c.changed} | ${c.empty} |\n`;
+    }
+    const K = { extra: "덧붙은 줄만 빠짐", changed: "값이 바뀜", empty: "지금 규칙은 빈 칸" };
+    md += `\n보기(브랜드·갈래마다 2개, 그리고 HTML 을 받아 사람이 판정한 것 전부 — scripts/fixtures/witness/recheck-verdicts.json):\n\n`;
+    md += `| 브랜드 | 상품 | 갈래 | 운영 저장값 | 지금 규칙 | 판정(HTML 을 읽고) |\n|---|---|---|---|---|---|\n`;
+    for (const e of ex) md += `| ${esc(e.brand)} | ${e.url} | ${K[e.kind]} | ${esc(e.st.replace(/\n/g, " ‖ "))} | ${esc(((e.v && e.v.now) || e.now).replace(/\n/g, " ‖ ")) || "(빈 칸)"} | ${e.v ? esc(`${e.v.right === "now" ? "지금 규칙이 맞음" : e.v.right === "stored" ? "저장값이 맞음" : "둘 다 아님"} — ${e.v.why}`) : "—"} |\n`;
+    md += `\n재확인 실행 4565… 은 커밋 4520b4b(이 지도의 혼용률 규칙 전부)로 쟀다. 4563… 실행(a819ae5 규칙)은 같은 브랜드의 새 실행이 있어 표에서 뺐다. '값이 바뀜'·'빈 칸'은 HTML 을 받아 판정한 줄 말고는 규칙만으로 본 것이다 — 저장값이 맞고 지금 규칙이 틀린 경우도 있을 수 있어, 운영에 다시 쓰기 전에 판정 줄을 더 늘려 보는 것이 안전하다.\n\n**운영 값이 지금도 옛 규칙으로 다시 쓰이고 있다.** main 브랜치의 야간 보강(enrich-comp.yml, 이날 오후에도 여러 번 실행)이 옛 규칙으로 저장한다. 같은 The Great 상품의 저장값이 14:19 재확인에서는 'Cotton 100%'(맞음)였는데 16:03 재확인에서는 'Modal 100%'(창 이름 'Modal spinner' 를 읽은 틀린 값)로 바뀌어 있었다(78개). Z Supply 의 'Cotton 100%'(메뉴 '100% Cotton Shop') 도 같은 모양이다. 이 브랜치의 규칙이 main 에 들어가기 전까지는 틀린 값이 계속 다시 쓰인다.\n\n`;
+  }
+}
+
+md += `## 브랜드별 (${rows.length})\n\n`;
+md += `칸: ✅ 읽힌 수/읽힌 표본 · 출처 — 📭 읽혔는데 없음 — ⛔ 막힘 — 🔗 표본 없음\n\n`;
+md += `| 브랜드 | 상품 | 읽힘 | ${FIELDS.map(([, l]) => l).join(" | ")} |\n|---|---:|---|${FIELDS.map(() => "---").join("|")}|\n`;
+for (const r of rows) {
+  md += `| ${esc(r.brand)} | ${r.total} | ${r.state === "read" ? `${r.read}/${r.sampled} ${r.engines.join("/")}` : r.state === "blocked" ? "⛔ 막힘" : r.state === "nosample" ? "🔗 표본 없음" : r.state} | ${FIELDS.map(([k]) => cellText(r.cells[k])).join(" | ")} |\n`;
+}
+md += `\n## 막힌 브랜드 — 무엇이 막았나\n\n`;
+for (const r of rows.filter((x) => x.state === "blocked" || x.state === "nosample")) md += `- **${esc(r.brand)}** (${r.total}개) — ${esc(r.notes.join(" · ") || "카탈로그에 상품 주소가 없음")}\n`;
+md += `\n## 사람이 확인할 표본 (브랜드당 1개)\n\n`;
+md += `사이트를 열어 아래 값과 견주면 된다. 설명은 앞 160자, 디테일은 앞 6줄만 적었다. 시험 자료(HTML)는 \`scripts/fixtures/pages/\`.\n\n`;
+for (const r of rows.filter((x) => x.sample)) {
+  const s = r.sample, g = s.read;
+  md += `<details><summary><b>${esc(r.brand)}</b> — ${esc(s.name)} (${s.engine})</summary>\n\n`;
+  md += `- 주소: ${s.url}\n`;
+  // 카탈로그 이름(목록 수집이 붙인 것)과 페이지의 상품명이 다르면 둘 다 보인다 — Boden 은 목록 카드의 다른 색 이름이 붙어 있었다.
+  if (s.pageName && s.pageName !== s.name) md += `- 이름: 페이지 \"${esc(s.pageName)}\" · 카탈로그 \"${esc(s.name)}\"(목록 수집이 붙인 이름)\n`;
+  md += `- 가격 ${esc(g.price) || "—"}${g.priceOrig ? ` · 정가 ${esc(g.priceOrig)}` : ""} · 통화 ${g.cur || "—"} · 코드 ${esc(g.sku) || "—"}\n`;
+  md += `- 컬러 ${esc(g.color) || "—"} · 컬러 전부 ${esc(g.colors.join(", ")) || "—"}\n`;
+  md += `- 사이즈 ${esc(g.sizes.join(", ")) || "—"}${g.sizesIn ? ` · 재고 ${esc(g.sizesIn.join(", ")) || "(없음)"}` : ""}\n`;
+  md += `- 혼용률 ${esc(g.comp) || "—"} · 사진 ${g.imgs}장\n`;
+  md += `- 설명: ${esc(g.desc) || "—"}\n`;
+  md += `- 디테일: ${g.feat.length ? g.feat.map(esc).join(" · ") : "—"}\n`;
+  if (r.heads) md += `- 페이지의 칸 제목: ${r.heads.map(esc).join(" · ")}\n`;
+  if (r.notes.length) md += `- 메모: ${r.notes.map(esc).join(" · ")}\n`;
+  md += `\n</details>\n\n`;
+}
+writeFileSync(join(ROOT, "docs/field-map.md"), md);
+writeFileSync(join(ROOT, "field-map.json"), JSON.stringify({ generated: new Date().toISOString(), runs, fields: FIELDS.map(([k, l]) => ({ key: k, label: l })),
+  summary, stored: storedSum, readableAfter: after, totalProducts, brands: rows }, null, 1));
+console.log(`docs/field-map.md · field-map.json — 브랜드 ${rows.length} · 읽힘 ${rows.filter((r) => r.state === "read").length}`);

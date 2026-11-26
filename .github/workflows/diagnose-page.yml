@@ -17,7 +17,7 @@ on:
         required: false
         default: ""
       mode:
-        description: "page(기본, 목록 구조 진단) | engines(무료 크롤링 엔진 비교 — try-engines) | audit(저장된 혼용률 점검, 읽기만)"
+        description: "page(기본, 목록 구조 진단) | engines(무료 크롤링 엔진 비교 — try-engines) | audit(저장된 혼용률 점검, 읽기만) | clean(혼용률 정리 미리보기, 읽기만) | clean-apply(정리 적용 — confirm 필요) | clean-restore(정리 되돌리기 — confirm·backup 필요) | fields(상품 정보 항목별 현장 지도 측정, 읽기만 — engines 칸에 1/3 같은 나누기)"
         required: false
         default: "page"
       engines:
@@ -25,7 +25,7 @@ on:
         required: false
         default: ""
       brands:
-        description: "mode=engines 일 때 상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개) · mode=audit 일 때 이 브랜드만 점검(비우면 전부)"
+        description: "mode=engines 일 때 상품 페이지를 뽑을 브랜드(쉼표 구분, 비우면 기본 12개) · mode=audit·clean·clean-apply 일 때 이 브랜드만(비우면 전부 — 적용은 미리보기와 같은 값이어야 한다)"
         required: false
         default: ""
       dump:
@@ -40,19 +40,29 @@ on:
         description: "mode=engines 일 때 카탈로그에서 이름·주소가 이 정규식에 맞는 상품만(예: jacket|coat)"
         required: false
         default: ""
+      confirm:
+        description: "mode=clean-apply 일 때 apply-<승인한 미리보기 개수>(예: apply-819) · mode=clean-restore 일 때 restore. 그 밖에는 비워 둔다"
+        required: false
+        default: ""
+      backup:
+        description: "mode=clean-restore 일 때 되돌릴 백업 파일(예: stored-comp-clean-backup-123456789.json)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
 
 # 모드마다 따로 줄을 선다 — 엔진 비교(최대 2시간)가 저장값 점검·목록 진단을 막지 않게.
 # (한 그룹에는 대기 실행이 하나만 남아, 같은 그룹에 둘을 넣으면 앞서 기다리던 것이 취소된다)
+# 단, 엔진 비교(engines)는 실행마다 따로 — 읽기만 하고 실행별 파일에 쓰므로 서로 막을 일이 없고,
+# 접근 지도는 같은 대상을 다른 러너(IP)에서 동시에 재야 하기 때문이다(대기열 하나면 셋째가 둘째를 취소한다).
 concurrency:
-  group: diagnose-page-${{ github.event.inputs.mode || 'page' }}
+  group: diagnose-page-${{ github.event.inputs.mode || 'page' }}${{ (github.event.inputs.mode == 'engines' || github.event.inputs.mode == 'fields') && format('-{0}', github.run_id) || '' }}
   cancel-in-progress: false
 
 jobs:
   diagnose:
-    if: ${{ github.event.inputs.mode != 'engines' && github.event.inputs.mode != 'audit' }}
+    if: ${{ github.event.inputs.mode != 'engines' && github.event.inputs.mode != 'audit' && github.event.inputs.mode != 'fields' && !startsWith(github.event.inputs.mode, 'clean') }}
     runs-on: ubuntu-latest
     # 설치 재시도(최대 20분)에 자리를 내주고도 진단이 돌 수 있게 넉넉히 잡는다.
     timeout-minutes: 45
@@ -160,15 +170,24 @@ jobs:
           BRANDS: ${{ github.event.inputs.brands }}
           LISTINGS: ""
           # urls 를 주면 브랜드 대신 이 주소만 본다(two-part 옷처럼 특정 상품을 볼 때).
+          # 저장소 안의 .json 파일 이름 하나(예: access-measure/targets-listing-a.json)를 주면 그 파일의
+          # 목록·상품 주소를 본다(접근 지도 측정). brands 를 함께 주면 그 브랜드의 상품도 더한다.
           URLS: ${{ github.event.inputs.urls }}
+          # 대상 파일로 돌 때는 엔진당 시간을 넉넉히(대상이 많다).
+          ENGINE_MIN: ${{ endsWith(github.event.inputs.urls, '.json') && '30' || '12' }}
           DUMP: ${{ github.event.inputs.dump }}
           PER: ${{ github.event.inputs.per }}
           MATCH: ${{ github.event.inputs.match }}
           # 실행마다 다른 파일에 쓴다 — 두 실행이 겹쳐 끝나면 같은 파일의 커밋이 서로 섞인다.
           OUT: try-engines-report-${{ github.run_id }}.md
           DUMP_OUT: try-engines-dump-${{ github.run_id }}.md
+          # 페이지별 결과와 원인 근거(헤더·쿠키 이름·차단 화면 흔적) — 접근 지도(docs/access-map.md)가 읽는다.
+          RESULTS_JSON: try-engines-results-${{ github.run_id }}.json
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
+          # 유료 수집 서비스 시험 칸. 저장소 비밀이 없으면 비어 있고, 그러면 그 엔진은 조용히 빠진다.
+          # 키·주소는 스크립트가 로그·리포트·결과에서 가린다(설정 모양은 docs/access-map.md '유료 서비스 시험').
+          SCRAPE_API_CONFIG: ${{ secrets.SCRAPE_API_CONFIG }}
         run: node scripts/try-engines.mjs
       - name: Upload dump
         if: always()
@@ -178,6 +197,7 @@ jobs:
           path: |
             try-engines-report*.md
             try-engines-dump*.md
+            try-engines-results*.json
           if-no-files-found: ignore
       - name: Commit report
         if: always()
@@ -185,11 +205,58 @@ jobs:
           git config user.name "collect-bot"
           git config user.email "collect-bot@users.noreply.github.com"
           rm -f package.json package-lock.json
-          git add -A -- 'try-engines-report*.md' 'try-engines-dump*.md' || true
+          git add -A -- 'try-engines-report*.md' 'try-engines-dump*.md' 'try-engines-results*.json' || true
           git commit -m "try-engines: free crawler comparison" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
             sleep 5
+          done
+          echo "::warning::report push failed"
+
+  # 현장 지도(field map) 측정 — 브랜드마다 상품 3개를 impit·파이어폭스로 열어 항목별(이름·사진·가격·정가·통화·컬러·
+  # 컬러 전부·사이즈·혼용률·설명·디테일·코드)로 읽히는지·어디서인지 잰다. 읽기만 한다(스크립트가 GET 이 아닌 요청을
+  # 보내기 전에 막는다 — 로그의 "STORE: 0"). mode=fields 일 때 engines 칸은 브랜드 나누기("1/3" = 셋 중 첫째 몫)로 쓴다.
+  fields:
+    if: ${{ github.event.inputs.mode == 'fields' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 130
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install engines
+        timeout-minutes: 20
+        run: |
+          npm init -y >/dev/null
+          timeout 400 npm i --no-save playwright@1.49.1 impit@0.14.9
+          waitlock() { for _ in $(seq 1 60); do sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || return 0; sleep 5; done; }
+          waitlock
+          timeout 400 npx playwright install --with-deps firefox || timeout 400 npx playwright install firefox
+      - name: Measure fields (read-only)
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          PART: ${{ github.event.inputs.engines || '1/1' }}
+          PER: ${{ github.event.inputs.per }}
+          RUN_ID: ${{ github.run_id }}
+          TIME_MIN: "95"
+          # urls = 이 상품 주소만 열고 전부 시험 자료로(scripts/fixtures/witness) · dump=1 = RECHECK(저장된 혼용률과 지금 규칙 견주기, impit 만)
+          URLS: ${{ github.event.inputs.urls }}
+          RECHECK: ${{ github.event.inputs.dump == '1' && '1' || '' }}
+        run: node scripts/field-measure.mjs
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          rm -f package.json package-lock.json
+          # 경로마다 따로 넣는다 — 한 경로라도 없으면 git add 전체가 멈춰 보고서까지 빠진다(실행 45623665154).
+          for p in 'field-measure-*.json' 'field-measure-*.md' scripts/fixtures/pages scripts/fixtures/witness; do git add -A -- "$p" 2>/dev/null || true; done
+          git commit -m "field-measure: product field map (read-only)" || echo "no changes"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep $((5 * i))
           done
           echo "::warning::report push failed"
 
@@ -253,6 +320,156 @@ jobs:
           rm -f package.json package-lock.json
           git add -A -- stored-comp-audit.json stored-comp-audit-raw.md stored-comp-verify-engines.md stored-comp-verify.json stored-comp-verify-urls.txt || true
           git commit -m "audit: stored composition signatures (read-only)" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed"
+
+  # 저장된 혼용률 정리 — 미리보기(읽기만). 점검(docs/stored-comp-audit.md)의 '자동으로 지워도 되는 값'을 지금 저장값에서
+  # 다시 골라 지울 목록(stored-comp-clean-report.md)과 승인용 계획(stored-comp-clean-plan.json)을 남긴다.
+  # 스크립트는 APPLY=1 이 아니면 GET 이 아닌 요청을 보내기 전에 막는다.
+  clean:
+    if: ${{ github.event.inputs.mode == 'clean' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Select cleanup targets (dry — no writes)
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          APPLY: ""
+        run: node scripts/clean-stored-comp.mjs
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stored-comp-clean
+          path: |
+            stored-comp-clean-report.md
+            stored-comp-clean-plan.json
+          if-no-files-found: ignore
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- stored-comp-clean-report.md stored-comp-clean-plan.json || true
+          git commit -m "clean: stored composition cleanup targets (dry run)" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed"
+
+  # 정리 적용 — 담당자가 미리보기 목록을 승인한 뒤에만. 우연히 돌지 않게 세 겹으로 막는다:
+  #   ① mode=clean-apply 이고 confirm 이 apply- 로 시작해야 이 잡이 뜬다(기본값은 page·빈 칸)
+  #   ② 스크립트가 confirm 을 브랜치의 승인 목록(stored-comp-clean-plan.json) 개수와 맞춰 본다 — 다르면 아무것도 안 쓴다
+  #   ③ 야간 보강·크롬 보강·헤드리스 수집이 돌고 있으면(같은 오버레이·카탈로그를 통째로 쓴다) 시작하지 않는다
+  # 순서: 백업을 만들어 브랜치에 커밋·아티팩트로 올린 뒤에야 쓴다(STAGE=backup → 커밋 → STAGE=write).
+  clean-apply:
+    if: ${{ github.event.inputs.mode == 'clean-apply' && startsWith(github.event.inputs.confirm, 'apply-') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Refuse while nightly writers are running
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          busy=""
+          for st in in_progress queued; do
+            busy="$busy $(curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=$st&per_page=100" \
+              | jq -r '.workflow_runs[].path' | grep -E 'enrich-comp.yml|enrich-browser.yml|browser-collect.yml|merge-duplicate-keys.yml' || true)"
+          done
+          if [ -n "$(echo $busy | tr -d ' ')" ]; then echo "::error::같은 저장값을 쓰는 실행이 돌고 있다 — 끝난 뒤 다시: $busy"; exit 1; fi
+          echo "겹치는 실행 없음"
+      - name: Back up values to be cleared (no writes yet)
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          APPLY: "1"
+          STAGE: backup
+          CONFIRM: ${{ github.event.inputs.confirm }}
+          RUN_ID: ${{ github.run_id }}
+        run: node scripts/clean-stored-comp.mjs
+      - name: Upload backup (artifact, 90 days)
+        uses: actions/upload-artifact@v4
+        with:
+          name: stored-comp-clean-backup-${{ github.run_id }}
+          retention-days: 90
+          path: |
+            stored-comp-clean-backup-${{ github.run_id }}.json
+            stored-comp-clean-snapshot-${{ github.run_id }}/
+          if-no-files-found: error
+      - name: Commit backup (must succeed before any write)
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -- stored-comp-clean-backup-${{ github.run_id }}.json
+          git commit -m "clean: backup before clearing stored compositions (run ${{ github.run_id }})"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::error::백업을 올리지 못해 지우지 않는다"; exit 1
+      - name: Clear (only values identical in the backup)
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          BRANDS: ${{ github.event.inputs.brands }}
+          APPLY: "1"
+          STAGE: write
+          CONFIRM: ${{ github.event.inputs.confirm }}
+          BACKUP: stored-comp-clean-backup-${{ github.run_id }}.json
+          RUN_ID: ${{ github.run_id }}
+        run: node scripts/clean-stored-comp.mjs
+      - name: Commit apply report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- 'stored-comp-clean-apply-*.md' || true
+          git commit -m "clean: stored composition cleanup result (run ${{ github.run_id }})" || echo "no changes"
+          for i in 1 2 3; do
+            git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            sleep 5
+          done
+          echo "::warning::report push failed"
+
+  # 정리 되돌리기 — 백업 파일의 값을 제자리에(그 사이 새 값이 들어온 칸은 건드리지 않는다).
+  clean-restore:
+    if: ${{ github.event.inputs.mode == 'clean-restore' && github.event.inputs.confirm == 'restore' && github.event.inputs.backup != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Restore cleared values from backup
+        env:
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          APPLY: "1"
+          RESTORE: ${{ github.event.inputs.backup }}
+        run: node scripts/clean-stored-comp.mjs
+      - name: Commit restore report
+        if: always()
+        run: |
+          git config user.name "collect-bot"
+          git config user.email "collect-bot@users.noreply.github.com"
+          git add -A -- stored-comp-clean-restore-report.md || true
+          git commit -m "clean: restore stored compositions from backup" || echo "no changes"
           for i in 1 2 3; do
             git pull --rebase --autostash -X ours origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
             sleep 5

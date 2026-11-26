@@ -1,0 +1,1756 @@
+{
+ "at": "2026-11-25T08:52:04.649Z",
+ "meta": {
+  "at": "2026-11-25T08:44:30.169Z",
+  "runId": "45578702353",
+  "runner": "GitHub Actions 1000008379",
+  "ip": "52.159.227.x"
+ },
+ "engines": [
+  "server"
+ ],
+ "runInfo": {
+  "server": "정상 · 75쪽 · 454s"
+ },
+ "targets": [
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/tees-tanks/cat11199293",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/activewear/cat20059281",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/blouses-shirts/cat11199294",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/dresses/cat40004",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Chico's",
+   "url": "https://www.chicos.com/store/category/pants/cat8289646",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Prana",
+   "url": "https://www.prana.com/women/tops.html",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Prana",
+   "url": "https://www.prana.com/women/tops/sweaters-hoodies.html",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Prana",
+   "url": "https://www.prana.com/women/dresses-skirts.html",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Prana",
+   "url": "https://www.prana.com/women/bottoms.html",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/tops/cat210001",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "WHBM",
+   "url": "https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Dickies",
+   "url": "https://www.dickies.com/collections/womens-tops",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Dickies",
+   "url": "https://www.dickies.com/en-us/collections/womens-hoodies",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Dickies",
+   "url": "https://www.dickies.com/en-us/collections/womens-shirt-jackets",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Dickies",
+   "url": "https://www.dickies.com/collections/womens-skirts-dresses",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Dickies",
+   "url": "https://www.dickies.com/collections/womens-pants",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Frank & Eileen",
+   "url": "https://www.frankandeileen.com/collections/tees-tanks",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Frank & Eileen",
+   "url": "https://www.frankandeileen.com/collections/sweatshirts-capelets",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Frank & Eileen",
+   "url": "https://www.frankandeileen.com/collections/button-ups",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Frank & Eileen",
+   "url": "https://www.frankandeileen.com/collections/dresses",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Frank & Eileen",
+   "url": "https://www.frankandeileen.com/collections/bottoms",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Good American",
+   "url": "https://www.goodamerican.com/en-kr/collections/tees-tanks",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Good American",
+   "url": "https://www.goodamerican.com/collections/jeanius-sweats",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Good American",
+   "url": "https://www.goodamerican.com/en-kr/collections/womens-tops",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Good American",
+   "url": "https://www.goodamerican.com/en-kr/collections/dresses",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Good American",
+   "url": "https://www.goodamerican.com/en-kr/collections/bottoms",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "James Perse",
+   "url": "https://www.jamesperse.com/collections/womens-t-shirts",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "James Perse",
+   "url": "https://www.jamesperse.com/collections/womens-tanks",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "James Perse",
+   "url": "https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "James Perse",
+   "url": "https://www.jamesperse.com/collections/womens-tops",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "James Perse",
+   "url": "https://www.jamesperse.com/collections/womens-dresses-jumpsuits",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "James Perse",
+   "url": "https://www.jamesperse.com/collections/womens-pants-denim",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Nation LTD",
+   "url": "https://nation.la/collections/tops",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Nation LTD",
+   "url": "https://nation.la/collections/sweatshirts",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Nation LTD",
+   "url": "https://nation.la/collections/dresses",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Nation LTD",
+   "url": "https://nation.la/collections/sweatpants",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Reformation",
+   "url": "https://www.thereformation.com/tops",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Reformation",
+   "url": "https://www.thereformation.com/the-sweater-shop.html",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Reformation",
+   "url": "https://www.thereformation.com/tops/button-ups",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Reformation",
+   "url": "https://www.thereformation.com/dresses",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Reformation",
+   "url": "https://www.thereformation.com/clothing/pants",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "vineyardvines",
+   "url": "https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "vineyardvines",
+   "url": "https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "vineyardvines",
+   "url": "https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "vineyardvines",
+   "url": "https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "vineyardvines",
+   "url": "https://www.vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--womens-clothing--8",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Vanessa bruno",
+   "url": "https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Vanessa bruno",
+   "url": "https://www.vanessabruno.com/clothing/shirts-tops/top.html",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Vanessa bruno",
+   "url": "https://www.vanessabruno.com/last-chance/knitwear.html",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Vanessa bruno",
+   "url": "https://www.vanessabruno.com/clothing/shirts-tops.html",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Vanessa bruno",
+   "url": "https://www.vanessabruno.com/clothing/dresses-jumpsuits.html",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Vanessa bruno",
+   "url": "https://www.vanessabruno.com/clothing/trousers.html",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Bash",
+   "url": "https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Bash",
+   "url": "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Bash",
+   "url": "https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ.",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Bash",
+   "url": "https://ba-sh.com/fr/en/ready-to-wear/dresses/?_gl=1*15p7q1u*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTYkajQxJGwwJGg1MzYzNDQ3NzQ.",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Bash",
+   "url": "https://ba-sh.com/fr/en/trousers-jeans/?_gl=1*6jfisz*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MzUkajIyJGwwJGg1MzYzNDQ3NzQ.",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Monsoon",
+   "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Monsoon",
+   "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Monsoon",
+   "url": "https://www.monsoonlondon.com/kr/womens/dresses/",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Monsoon",
+   "url": "https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "The Great",
+   "url": "https://thisisthegreat.com/collections/the-great-knits",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "The Great",
+   "url": "https://thisisthegreat.com/collections/knit-shop-sweatshirts",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "The Great",
+   "url": "https://thisisthegreat.com/collections/tops",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "The Great",
+   "url": "https://thisisthegreat.com/collections/dresses",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "The Great",
+   "url": "https://thisisthegreat.com/collections/knit-shop-sweatpants",
+   "cat": "pants"
+  },
+  {
+   "kind": "listing",
+   "brand": "Whitestuff",
+   "url": "https://www.whitestuff.com/browse/collection/womens-t-shirts",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Whitestuff",
+   "url": "https://www.whitestuff.com/browse/womens/tops-and-tees",
+   "cat": "tops"
+  },
+  {
+   "kind": "listing",
+   "brand": "Whitestuff",
+   "url": "https://www.whitestuff.com/browse/womens/knitwear",
+   "cat": "sweatshirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Whitestuff",
+   "url": "https://www.whitestuff.com/browse/womens/shirts-and-blouses",
+   "cat": "shirts"
+  },
+  {
+   "kind": "listing",
+   "brand": "Whitestuff",
+   "url": "https://www.whitestuff.com/browse/womens/dresses",
+   "cat": "dresses"
+  },
+  {
+   "kind": "listing",
+   "brand": "Whitestuff",
+   "url": "https://www.whitestuff.com/browse/womens/trousers-and-leggings",
+   "cat": "pants"
+  }
+ ],
+ "results": {
+  "server": {
+   "https://www.chicos.com/store/category/tees-tanks/cat11199293": {
+    "v": "list",
+    "note": "서버 tops 72개 · 경고: tops: HTTP 403 / tops: worker-IP fallback failed (worker upstream 403) / tops: reader fallback failed (HTTP 429) / tops: HTTP 403 / tops: worker-IP fallback fai",
+    "cards": 72,
+    "serverWarnings": [
+     "tops: HTTP 403 at https://www.chicos.com/store/category/tees-tanks/cat11199293",
+     "tops: worker-IP fallback failed (worker upstream 403) at https://www.chicos.com/store/category/tees-tanks/cat11199293",
+     "tops: reader fallback failed (HTTP 429) at https://www.chicos.com/store/category/tees-tanks/cat11199293",
+     "tops: HTTP 403 at https://www.chicos.com/store/category/tees-tanks/cat11199293"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.prana.com/women/tops.html": {
+    "v": "blocked",
+    "note": "서버 tops 0개 · 경고: tops: HTTP 403 / tops: worker-IP fallback failed (worker upstream 403) / tops: reader fallback failed (HTTP 429) / tops: HTTP 403 / tops: worker-IP fallback fai",
+    "cards": 0,
+    "serverWarnings": [
+     "tops: HTTP 403 at https://www.prana.com/women/tops.html",
+     "tops: worker-IP fallback failed (worker upstream 403) at https://www.prana.com/women/tops.html",
+     "tops: reader fallback failed (HTTP 429) at https://www.prana.com/women/tops.html",
+     "tops: HTTP 403 at https://www.prana.com/women/tops.html"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/tees/cat4769286": {
+    "v": "list",
+    "note": "서버 tops 41개 · 경고: tops: HTTP 403 / tops: worker-IP fallback failed (worker upstream 403) / tops: HTTP 403 / tops: worker-IP fallback failed (worker upstream 403)",
+    "cards": 41,
+    "serverWarnings": [
+     "tops: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
+     "tops: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
+     "tops: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/tees/cat4769286",
+     "tops: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/tees/cat4769286"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.dickies.com/collections/womens-tops": {
+    "v": "list",
+    "note": "서버 tops 14개",
+    "cards": 14,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.frankandeileen.com/collections/tees-tanks": {
+    "v": "list",
+    "note": "서버 tops 33개",
+    "cards": 33,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.goodamerican.com/en-kr/collections/tees-tanks": {
+    "v": "list",
+    "note": "서버 tops 20개 · 경고: tops: reader fallback failed (HTTP 429)",
+    "cards": 20,
+    "serverWarnings": [
+     "tops: reader fallback failed (HTTP 429) at https://www.goodamerican.com/en-kr/collections/tees-tanks"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.jamesperse.com/collections/womens-t-shirts": {
+    "v": "list",
+    "note": "서버 tops 40개 · 경고: tops: reader fallback failed (HTTP 429)",
+    "cards": 40,
+    "serverWarnings": [
+     "tops: reader fallback failed (HTTP 429) at https://www.jamesperse.com/collections/womens-t-shirts"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://nation.la/collections/tops": {
+    "v": "list",
+    "note": "서버 tops 97개",
+    "cards": 97,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.thereformation.com/tops": {
+    "v": "list",
+    "note": "서버 tops 57개 · 경고: tops: HTTP 403 / tops: worker-IP fallback failed (worker upstream 403) / tops: reader fallback failed (HTTP 429) / shirts: HTTP 403 at /button-ups / shirts: wor",
+    "cards": 57,
+    "serverWarnings": [
+     "tops: HTTP 403 at https://www.thereformation.com/tops",
+     "tops: worker-IP fallback failed (worker upstream 403) at https://www.thereformation.com/tops",
+     "tops: reader fallback failed (HTTP 429) at https://www.thereformation.com/tops",
+     "shirts: HTTP 403 at https://www.thereformation.com/tops/button-ups"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9": {
+    "v": "list",
+    "note": "서버 tops 93개 · 경고: tops: no readable product cards",
+    "cards": 93,
+    "serverWarnings": [
+     "tops: no readable product cards at https://www.vineyardvines.com/category/womens-tees-tanks?nav=home--top_nav--Womens--womens-clothing--9"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.vanessabruno.com/clothing/shirts-tops/t-shirt.html": {
+    "v": "list",
+    "note": "서버 tops 6개",
+    "cards": 6,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://ba-sh.com/fr/en/t-shirts/?_gl=1*18k9v40*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ1OTckajYwJGwwJGg1MzYzNDQ3NzQ.": {
+    "v": "open",
+    "note": "서버 tops 4개",
+    "cards": 4,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/": {
+    "v": "list",
+    "note": "서버 tops 11개 · 경고: tops: reader fallback failed (HTTP 429)",
+    "cards": 11,
+    "serverWarnings": [
+     "tops: reader fallback failed (HTTP 429) at https://www.monsoonlondon.com/kr/womens/womens-clothing/tops/"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://thisisthegreat.com/collections/the-great-knits": {
+    "v": "list",
+    "note": "서버 tops 23개",
+    "cards": 23,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.whitestuff.com/browse/collection/womens-t-shirts": {
+    "v": "list",
+    "note": "서버 tops 60개 · 경고: tops: fetch failed / tops: worker-IP fallback failed (worker upstream 404) / tops: fetch failed / tops: worker-IP fallback failed (worker upstream 404)",
+    "cards": 60,
+    "serverWarnings": [
+     "tops: fetch failed at https://www.whitestuff.com/browse/collection/womens-t-shirts",
+     "tops: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/collection/womens-t-shirts",
+     "tops: fetch failed at https://www.whitestuff.com/browse/collection/womens-t-shirts",
+     "tops: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/collection/womens-t-shirts"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.chicos.com/store/category/activewear/cat20059281": {
+    "v": "list",
+    "note": "서버 sweatshirts 9개 · 경고: sweatshirts: HTTP 403 / sweatshirts: worker-IP fallback failed (worker upstream 403) / sweatshirts: HTTP 403 / sweatshirts: worker-IP fallback failed (worker up",
+    "cards": 9,
+    "serverWarnings": [
+     "sweatshirts: HTTP 403 at https://www.chicos.com/store/category/activewear/cat20059281",
+     "sweatshirts: worker-IP fallback failed (worker upstream 403) at https://www.chicos.com/store/category/activewear/cat20059281",
+     "sweatshirts: HTTP 403 at https://www.chicos.com/store/category/activewear/cat20059281",
+     "sweatshirts: worker-IP fallback failed (worker upstream 403) at https://www.chicos.com/store/category/activewear/cat20059281"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.prana.com/women/tops/sweaters-hoodies.html": {
+    "v": "blocked",
+    "note": "서버 sweatshirts 0개 · 경고: sweatshirts: HTTP 403 / sweatshirts: worker-IP fallback failed (worker upstream 403) / sweatshirts: reader fallback failed (HTTP 429) / sweatshirts: HTTP 403 / ",
+    "cards": 0,
+    "serverWarnings": [
+     "sweatshirts: HTTP 403 at https://www.prana.com/women/tops/sweaters-hoodies.html",
+     "sweatshirts: worker-IP fallback failed (worker upstream 403) at https://www.prana.com/women/tops/sweaters-hoodies.html",
+     "sweatshirts: reader fallback failed (HTTP 429) at https://www.prana.com/women/tops/sweaters-hoodies.html",
+     "sweatshirts: HTTP 403 at https://www.prana.com/women/tops/sweaters-hoodies.html"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/tops/cat210001": {
+    "v": "list",
+    "note": "서버 tops 41개 · 경고: tops: HTTP 403 / tops: worker-IP fallback failed (worker upstream 403) / tops: HTTP 403 / tops: worker-IP fallback failed (worker upstream 403)",
+    "cards": 41,
+    "serverWarnings": [
+     "tops: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/tops/cat210001",
+     "tops: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/tops/cat210001",
+     "tops: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/tops/cat210001",
+     "tops: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/tops/cat210001"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.dickies.com/en-us/collections/womens-hoodies": {
+    "v": "list",
+    "note": "서버 sweatshirts 48개",
+    "cards": 48,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.frankandeileen.com/collections/sweatshirts-capelets": {
+    "v": "list",
+    "note": "서버 sweatshirts 52개",
+    "cards": 52,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.goodamerican.com/collections/jeanius-sweats": {
+    "v": "list",
+    "note": "서버 sweatshirts 35개",
+    "cards": 35,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.jamesperse.com/collections/womens-tanks": {
+    "v": "list",
+    "note": "서버 tops 40개",
+    "cards": 40,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://nation.la/collections/sweatshirts": {
+    "v": "list",
+    "note": "서버 sweatshirts 39개",
+    "cards": 39,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.thereformation.com/the-sweater-shop.html": {
+    "v": "open",
+    "note": "서버 sweatshirts 1개 · 경고: sweatshirts: HTTP 403 / sweatshirts: worker-IP fallback failed (worker upstream 403) / sweatshirts: HTTP 403 / sweatshirts: worker-IP fallback failed (worker up",
+    "cards": 1,
+    "serverWarnings": [
+     "sweatshirts: HTTP 403 at https://www.thereformation.com/the-sweater-shop.html",
+     "sweatshirts: worker-IP fallback failed (worker upstream 403) at https://www.thereformation.com/the-sweater-shop.html",
+     "sweatshirts: HTTP 403 at https://www.thereformation.com/the-sweater-shop.html",
+     "sweatshirts: worker-IP fallback failed (worker upstream 403) at https://www.thereformation.com/the-sweater-shop.html"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3": {
+    "v": "blocked",
+    "note": "서버 sweatshirts 0개 · 경고: sweatshirts: reader fallback failed (HTTP 429)",
+    "cards": 0,
+    "serverWarnings": [
+     "sweatshirts: reader fallback failed (HTTP 429) at https://www.vineyardvines.com/category/women-sweatshirts?nav=category--top_nav--Womens--womens-clothing--3"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.vanessabruno.com/clothing/shirts-tops/top.html": {
+    "v": "list",
+    "note": "서버 tops 6개",
+    "cards": 6,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.": {
+    "v": "open",
+    "note": "서버 sweatshirts 4개",
+    "cards": 4,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/": {
+    "v": "open",
+    "note": "서버 sweatshirts 0개 · 경고: sweatshirts: no readable product cards",
+    "cards": 0,
+    "serverWarnings": [
+     "sweatshirts: no readable product cards at https://www.monsoonlondon.com/kr/womens/womens-clothing/knitwear/"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://thisisthegreat.com/collections/knit-shop-sweatshirts": {
+    "v": "list",
+    "note": "서버 sweatshirts 84개",
+    "cards": 84,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.whitestuff.com/browse/womens/tops-and-tees": {
+    "v": "list",
+    "note": "서버 tops 60개 · 경고: tops: fetch failed / tops: worker-IP fallback failed (worker upstream 404) / tops: reader fallback failed (HTTP 429) / tops: fetch failed / tops: worker-IP fall",
+    "cards": 60,
+    "serverWarnings": [
+     "tops: fetch failed at https://www.whitestuff.com/browse/womens/tops-and-tees",
+     "tops: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/tops-and-tees",
+     "tops: reader fallback failed (HTTP 429) at https://www.whitestuff.com/browse/womens/tops-and-tees",
+     "tops: fetch failed at https://www.whitestuff.com/browse/womens/tops-and-tees"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.chicos.com/store/category/blouses-shirts/cat11199294": {
+    "v": "blocked",
+    "note": "서버 shirts 0개 · 경고: shirts: HTTP 403 / shirts: worker-IP fallback failed (worker upstream 403) / shirts: reader fallback failed (HTTP 429) / shirts: HTTP 403 / shirts: worker-IP fa",
+    "cards": 0,
+    "serverWarnings": [
+     "shirts: HTTP 403 at https://www.chicos.com/store/category/blouses-shirts/cat11199294",
+     "shirts: worker-IP fallback failed (worker upstream 403) at https://www.chicos.com/store/category/blouses-shirts/cat11199294",
+     "shirts: reader fallback failed (HTTP 429) at https://www.chicos.com/store/category/blouses-shirts/cat11199294",
+     "shirts: HTTP 403 at https://www.chicos.com/store/category/blouses-shirts/cat11199294"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.prana.com/women/dresses-skirts.html": {
+    "v": "blocked",
+    "note": "서버 dresses 0개 · 경고: dresses: HTTP 403 / dresses: worker-IP fallback failed (worker upstream 403) / dresses: reader fallback failed (HTTP 429) / dresses: HTTP 403 / dresses: worker-",
+    "cards": 0,
+    "serverWarnings": [
+     "dresses: HTTP 403 at https://www.prana.com/women/dresses-skirts.html",
+     "dresses: worker-IP fallback failed (worker upstream 403) at https://www.prana.com/women/dresses-skirts.html",
+     "dresses: reader fallback failed (HTTP 429) at https://www.prana.com/women/dresses-skirts.html",
+     "dresses: HTTP 403 at https://www.prana.com/women/dresses-skirts.html"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287": {
+    "v": "list",
+    "note": "서버 shirts 39개 · 경고: shirts: HTTP 403 / shirts: worker-IP fallback failed (worker upstream 403) / shirts: reader fallback failed (HTTP 429) / shirts: HTTP 403 / shirts: worker-IP fa",
+    "cards": 39,
+    "serverWarnings": [
+     "shirts: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287",
+     "shirts: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287",
+     "shirts: reader fallback failed (HTTP 429) at https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287",
+     "shirts: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/blouses-shirts/cat4769287"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.dickies.com/en-us/collections/womens-shirt-jackets": {
+    "v": "open",
+    "note": "서버 shirts 3개",
+    "cards": 3,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.frankandeileen.com/collections/button-ups": {
+    "v": "list",
+    "note": "서버 shirts 99개",
+    "cards": 99,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.goodamerican.com/en-kr/collections/womens-tops": {
+    "v": "list",
+    "note": "서버 shirts 10개 · 경고: shirts: reader fallback failed (HTTP 429)",
+    "cards": 10,
+    "serverWarnings": [
+     "shirts: reader fallback failed (HTTP 429) at https://www.goodamerican.com/en-kr/collections/womens-tops"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.jamesperse.com/collections/womens-sweat-tops-sweat-bottoms": {
+    "v": "list",
+    "note": "서버 sweatshirts 34개",
+    "cards": 34,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://nation.la/collections/dresses": {
+    "v": "list",
+    "note": "서버 dresses 29개",
+    "cards": 29,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.thereformation.com/tops/button-ups": {
+    "v": "list",
+    "note": "서버 shirts 27개 · 경고: shirts: HTTP 403 / shirts: worker-IP fallback failed (worker upstream 403) / shirts: reader fallback failed (HTTP 429) / shirts: HTTP 403 / shirts: worker-IP fa",
+    "cards": 27,
+    "serverWarnings": [
+     "shirts: HTTP 403 at https://www.thereformation.com/tops/button-ups",
+     "shirts: worker-IP fallback failed (worker upstream 403) at https://www.thereformation.com/tops/button-ups",
+     "shirts: reader fallback failed (HTTP 429) at https://www.thereformation.com/tops/button-ups",
+     "shirts: HTTP 403 at https://www.thereformation.com/tops/button-ups"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7": {
+    "v": "open",
+    "note": "서버 shirts 0개 · 경고: shirts: no readable product cards",
+    "cards": 0,
+    "serverWarnings": [
+     "shirts: no readable product cards at https://www.vineyardvines.com/category/Womens-Shirts-Tunics?nav=category--top_nav--Womens--womens-clothing--7"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.vanessabruno.com/last-chance/knitwear.html": {
+    "v": "open",
+    "note": "서버 sweatshirts 0개 · 경고: sweatshirts: no readable product cards / sweatshirts: no readable product cards",
+    "cards": 0,
+    "serverWarnings": [
+     "sweatshirts: no readable product cards at https://www.vanessabruno.com/last-chance/knitwear.html",
+     "sweatshirts: no readable product cards at https://www.vanessabruno.com/last-chance/knitwear.html"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://ba-sh.com/fr/en/tops-shirts/?_gl=1*wv5ete*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTEkajQ2JGwwJGg1MzYzNDQ3NzQ.": {
+    "v": "open",
+    "note": "서버 shirts 4개",
+    "cards": 4,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.monsoonlondon.com/kr/womens/dresses/": {
+    "v": "list",
+    "note": "서버 dresses 22개 · 경고: dresses: no readable product cards",
+    "cards": 22,
+    "serverWarnings": [
+     "dresses: no readable product cards at https://www.monsoonlondon.com/kr/womens/dresses/"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://thisisthegreat.com/collections/tops": {
+    "v": "list",
+    "note": "서버 shirts 16개",
+    "cards": 16,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.whitestuff.com/browse/womens/knitwear": {
+    "v": "open",
+    "note": "서버 sweatshirts 1개 · 경고: sweatshirts: fetch failed / sweatshirts: worker-IP fallback failed (worker upstream 404) / sweatshirts: fetch failed / sweatshirts: worker-IP fallback failed (w",
+    "cards": 1,
+    "serverWarnings": [
+     "sweatshirts: fetch failed at https://www.whitestuff.com/browse/womens/knitwear",
+     "sweatshirts: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/knitwear",
+     "sweatshirts: fetch failed at https://www.whitestuff.com/browse/womens/knitwear",
+     "sweatshirts: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/knitwear"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.chicos.com/store/category/dresses/cat40004": {
+    "v": "list",
+    "note": "서버 dresses 62개 · 경고: dresses: HTTP 403 / dresses: worker-IP fallback failed (worker upstream 403) / dresses: reader fallback failed (HTTP 429) / dresses: HTTP 403 / dresses: worker-",
+    "cards": 62,
+    "serverWarnings": [
+     "dresses: HTTP 403 at https://www.chicos.com/store/category/dresses/cat40004",
+     "dresses: worker-IP fallback failed (worker upstream 403) at https://www.chicos.com/store/category/dresses/cat40004",
+     "dresses: reader fallback failed (HTTP 429) at https://www.chicos.com/store/category/dresses/cat40004",
+     "dresses: HTTP 403 at https://www.chicos.com/store/category/dresses/cat40004"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.prana.com/women/bottoms.html": {
+    "v": "open",
+    "note": "서버 pants 1개 · 경고: pants: HTTP 403 / pants: worker-IP fallback failed (worker upstream 403) / pants: reader fallback failed (HTTP 429) / pants: HTTP 403 / pants: worker-IP fallbac",
+    "cards": 1,
+    "serverWarnings": [
+     "pants: HTTP 403 at https://www.prana.com/women/bottoms.html",
+     "pants: worker-IP fallback failed (worker upstream 403) at https://www.prana.com/women/bottoms.html",
+     "pants: reader fallback failed (HTTP 429) at https://www.prana.com/women/bottoms.html",
+     "pants: HTTP 403 at https://www.prana.com/women/bottoms.html"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.whitehouseblackmarket.com/store/category/dresses/cat210002": {
+    "v": "list",
+    "note": "서버 dresses 83개 · 경고: dresses: HTTP 403 / dresses: worker-IP fallback failed (worker upstream 403) / dresses: HTTP 403 at / / dresses: worker-IP fallback failed (worker upstream 403)",
+    "cards": 83,
+    "serverWarnings": [
+     "dresses: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/dresses/cat210002",
+     "dresses: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/dresses/cat210002",
+     "dresses: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/dresses/cat210002/",
+     "dresses: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/dresses/cat210002/"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.dickies.com/collections/womens-skirts-dresses": {
+    "v": "open",
+    "note": "서버 dresses 2개",
+    "cards": 2,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.frankandeileen.com/collections/dresses": {
+    "v": "list",
+    "note": "서버 dresses 34개",
+    "cards": 34,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.goodamerican.com/en-kr/collections/dresses": {
+    "v": "list",
+    "note": "서버 dresses 47개 · 경고: dresses: reader fallback failed (HTTP 429)",
+    "cards": 47,
+    "serverWarnings": [
+     "dresses: reader fallback failed (HTTP 429) at https://www.goodamerican.com/en-kr/collections/dresses"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.jamesperse.com/collections/womens-tops": {
+    "v": "list",
+    "note": "서버 shirts 9개",
+    "cards": 9,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://nation.la/collections/sweatpants": {
+    "v": "list",
+    "note": "서버 pants 10개",
+    "cards": 10,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.thereformation.com/dresses": {
+    "v": "blocked",
+    "note": "서버 dresses 0개 · 경고: dresses: HTTP 403 / dresses: worker-IP fallback failed (worker upstream 403) / dresses: reader fallback failed (HTTP 429) / dresses: HTTP 403 at /best-of-dresse",
+    "cards": 0,
+    "serverWarnings": [
+     "dresses: HTTP 403 at https://www.thereformation.com/dresses",
+     "dresses: worker-IP fallback failed (worker upstream 403) at https://www.thereformation.com/dresses",
+     "dresses: reader fallback failed (HTTP 429) at https://www.thereformation.com/dresses",
+     "dresses: HTTP 403 at https://www.thereformation.com/dresses/best-of-dresses"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "blocked",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2": {
+    "v": "list",
+    "note": "서버 dresses 24개 · 경고: dresses: reader fallback failed (HTTP 429)",
+    "cards": 24,
+    "serverWarnings": [
+     "dresses: reader fallback failed (HTTP 429) at https://www.vineyardvines.com/category/womens-dresses?nav=category--top_nav--Womens--womens-clothing--2"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.vanessabruno.com/clothing/shirts-tops.html": {
+    "v": "open",
+    "note": "서버 shirts 0개",
+    "cards": 0,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://ba-sh.com/fr/en/ready-to-wear/dresses/?_gl=1*15p7q1u*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MTYkajQxJGwwJGg1MzYzNDQ3NzQ.": {
+    "v": "list",
+    "note": "서버 dresses 10개",
+    "cards": 10,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/": {
+    "v": "open",
+    "note": "서버 pants 1개 · 경고: pants: reader fallback failed (HTTP 429)",
+    "cards": 1,
+    "serverWarnings": [
+     "pants: reader fallback failed (HTTP 429) at https://www.monsoonlondon.com/kr/womens/womens-clothing/trousers-shorts/"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://thisisthegreat.com/collections/dresses": {
+    "v": "list",
+    "note": "서버 dresses 17개",
+    "cards": 17,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.whitestuff.com/browse/womens/shirts-and-blouses": {
+    "v": "list",
+    "note": "서버 shirts 42개 · 경고: shirts: fetch failed / shirts: worker-IP fallback failed (worker upstream 404) / shirts: fetch failed / shirts: worker-IP fallback failed (worker upstream 404)",
+    "cards": 42,
+    "serverWarnings": [
+     "shirts: fetch failed at https://www.whitestuff.com/browse/womens/shirts-and-blouses",
+     "shirts: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/shirts-and-blouses",
+     "shirts: fetch failed at https://www.whitestuff.com/browse/womens/shirts-and-blouses",
+     "shirts: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/shirts-and-blouses"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.chicos.com/store/category/pants/cat8289646": {
+    "v": "open",
+    "note": "서버 pants 1개 · 경고: pants: HTTP 403 / pants: worker-IP fallback failed (worker upstream 403) / pants: reader fallback failed (HTTP 429) / pants: HTTP 403 at /?_ics=1706808620672&ir",
+    "cards": 1,
+    "serverWarnings": [
+     "pants: HTTP 403 at https://www.chicos.com/store/category/pants/cat8289646",
+     "pants: worker-IP fallback failed (worker upstream 403) at https://www.chicos.com/store/category/pants/cat8289646",
+     "pants: reader fallback failed (HTTP 429) at https://www.chicos.com/store/category/pants/cat8289646",
+     "pants: HTTP 403 at https://www.chicos.com/store/category/pants/cat8289646/?_ics=1706808620672&irclickid=~14YOIHLHywmrszFKIJPWMDEGIORSNVSNRJzGHxypmi~2YWLJFvri"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.whitehouseblackmarket.com/store/category/pants/cat210003": {
+    "v": "list",
+    "note": "서버 pants 81개 · 경고: pants: HTTP 403 / pants: worker-IP fallback failed (worker upstream 403) / pants: reader fallback failed (HTTP 429) / pants: HTTP 403 at / / pants: worker-IP fa",
+    "cards": 81,
+    "serverWarnings": [
+     "pants: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+     "pants: worker-IP fallback failed (worker upstream 403) at https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+     "pants: reader fallback failed (HTTP 429) at https://www.whitehouseblackmarket.com/store/category/pants/cat210003",
+     "pants: HTTP 403 at https://www.whitehouseblackmarket.com/store/category/pants/cat210003/"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.dickies.com/collections/womens-pants": {
+    "v": "list",
+    "note": "서버 pants 5개",
+    "cards": 5,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.frankandeileen.com/collections/bottoms": {
+    "v": "list",
+    "note": "서버 pants 73개",
+    "cards": 73,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.goodamerican.com/en-kr/collections/bottoms": {
+    "v": "list",
+    "note": "서버 pants 53개",
+    "cards": 53,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.jamesperse.com/collections/womens-dresses-jumpsuits": {
+    "v": "list",
+    "note": "서버 dresses 15개",
+    "cards": 15,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.thereformation.com/clothing/pants": {
+    "v": "list",
+    "note": "서버 pants 36개 · 경고: pants: HTTP 403 / pants: worker-IP fallback failed (worker upstream 403) / pants: reader fallback failed (HTTP 429) / pants: HTTP 403 at /trend-pants / pants: w",
+    "cards": 36,
+    "serverWarnings": [
+     "pants: HTTP 403 at https://www.thereformation.com/clothing/pants",
+     "pants: worker-IP fallback failed (worker upstream 403) at https://www.thereformation.com/clothing/pants",
+     "pants: reader fallback failed (HTTP 429) at https://www.thereformation.com/clothing/pants",
+     "pants: HTTP 403 at https://www.thereformation.com/clothing/pants/trend-pants"
+    ],
+    "ev": {
+     "status": 403,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--womens-clothing--8": {
+    "v": "list",
+    "note": "서버 pants 27개 · 경고: pants: no readable product cards",
+    "cards": 27,
+    "serverWarnings": [
+     "pants: no readable product cards at https://www.vineyardvines.com/category/womens-pants-denim?nav=category--top_nav--Womens--womens-clothing--8"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.vanessabruno.com/clothing/dresses-jumpsuits.html": {
+    "v": "open",
+    "note": "서버 dresses 0개",
+    "cards": 0,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://ba-sh.com/fr/en/trousers-jeans/?_gl=1*6jfisz*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MzUkajIyJGwwJGg1MzYzNDQ3NzQ.": {
+    "v": "list",
+    "note": "서버 pants 7개",
+    "cards": 7,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://thisisthegreat.com/collections/knit-shop-sweatpants": {
+    "v": "list",
+    "note": "서버 pants 78개",
+    "cards": 78,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.whitestuff.com/browse/womens/dresses": {
+    "v": "list",
+    "note": "서버 dresses 73개 · 경고: dresses: fetch failed / dresses: worker-IP fallback failed (worker upstream 404) / dresses: fetch failed / dresses: worker-IP fallback failed (worker upstream 4",
+    "cards": 73,
+    "serverWarnings": [
+     "dresses: fetch failed at https://www.whitestuff.com/browse/womens/dresses",
+     "dresses: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/dresses",
+     "dresses: fetch failed at https://www.whitestuff.com/browse/womens/dresses",
+     "dresses: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/dresses"
+    ],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "ok"
+   },
+   "https://www.jamesperse.com/collections/womens-pants-denim": {
+    "v": "list",
+    "note": "서버 pants 44개 · 경고: pants: reader fallback failed (HTTP 429)",
+    "cards": 44,
+    "serverWarnings": [
+     "pants: reader fallback failed (HTTP 429) at https://www.jamesperse.com/collections/womens-pants-denim"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   },
+   "https://www.vanessabruno.com/clothing/trousers.html": {
+    "v": "open",
+    "note": "서버 pants 0개",
+    "cards": 0,
+    "serverWarnings": [],
+    "ev": {
+     "status": 0,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "shell"
+   },
+   "https://www.whitestuff.com/browse/womens/trousers-and-leggings": {
+    "v": "list",
+    "note": "서버 pants 28개 · 경고: pants: fetch failed / pants: worker-IP fallback failed (worker upstream 404) / pants: fetch failed / pants: worker-IP fallback failed (worker upstream 404) / pa",
+    "cards": 28,
+    "serverWarnings": [
+     "pants: fetch failed at https://www.whitestuff.com/browse/womens/trousers-and-leggings",
+     "pants: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/trousers-and-leggings",
+     "pants: fetch failed at https://www.whitestuff.com/browse/womens/trousers-and-leggings",
+     "pants: worker-IP fallback failed (worker upstream 404) at https://www.whitestuff.com/browse/womens/trousers-and-leggings"
+    ],
+    "ev": {
+     "status": 429,
+     "markers": [],
+     "headers": {},
+     "cookies": []
+    },
+    "cause": "rate-limit",
+    "who": {
+     "by": "알 수 없음",
+     "confidence": "-",
+     "why": "업체 흔적 없음",
+     "protection": [],
+     "cdn": [],
+     "platform": [],
+     "signals": []
+    }
+   }
+  }
+ },
+ "catalogs": []
+}

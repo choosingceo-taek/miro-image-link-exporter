@@ -100,7 +100,14 @@ let sw = ctx.serviceWorkers()[0];
 if (!sw) sw = await ctx.waitForEvent("serviceworker", { timeout: 20000 });
 const ID = new URL(sw.url()).host;
 const EXT_URL = `chrome-extension://${ID}`;
-console.log(`  확장 로드됨 — ${ID} (버전 ${await sw.evaluate(() => chrome.runtime.getManifest().version)})`);
+// 서비스 워커가 막 떴을 때는 chrome.runtime 이 아직 없을 수 있다(CI 에서 간헐적으로
+// "Cannot read properties of undefined (reading 'getManifest')"). 생길 때까지 잠깐 기다린다.
+let ver = "";
+for (let i = 0; i < 40 && !ver; i++) {
+  ver = await sw.evaluate(() => (globalThis.chrome && chrome.runtime && chrome.runtime.getManifest) ? chrome.runtime.getManifest().version : "").catch(() => "");
+  if (!ver) await new Promise((r) => setTimeout(r, 250));
+}
+console.log(`  확장 로드됨 — ${ID} (버전 ${ver || "확인 못 함"})`);
 
 const errs = [];
 // 팝업·옆 패널 페이지 자체의 오류만 모은다(iframe 안 앱의 오류는 smoke-app.mjs 몫).
