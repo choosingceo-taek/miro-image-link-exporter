@@ -1,15 +1,15 @@
-# 무료 크롤링 엔진 비교 (2026-11-26T10:35Z)
+# 무료 크롤링 엔진 비교 (2026-11-26T10:37Z)
 
 GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔진마다 열어 본 결과입니다. 저장은 하지 않았습니다.
 엔진마다 따로 프로세스로 돌려, 한 엔진이 죽어도 다른 엔진 결과는 남습니다.
 
-- 실행 45802040997 · 러너 GitHub Actions 1000008936 · 나가는 IP 172.171.12.x · 2026-11-26T10:34Z
+- 실행 45802704448 · 러너 GitHub Actions 1000008939 · 나가는 IP 52.159.247.x · 2026-11-26T10:36Z
 
 ✅ 소재까지 읽음(상품) · 상품 5개 이상(목록) · 🟡 페이지는 열림(소재 없음 / 목록 상품 5개 미만) · ⛔ 차단 · ❌ 오류 · ➖ 이 엔진은 그 종류를 안 봄
 
 | 엔진 | ✅ | 🟡 | ⛔ | ❌ | 상품 0쪽 ✅·🟡 | 목록 3쪽 ✅·🟡 | 실행 |
 |---|---:|---:|---:|---:|---:|---:|---|
-| playwright | 1 | 0 | 2 | 0 | 0·0 | 1·0 | 정상 · 3쪽 · 59s |
+| playwright | 1 | 0 | 2 | 0 | 0·0 | 1·0 | 정상 · 3쪽 · 60s |
 | impit | 3 | 0 | 0 | 0 | 0·0 | 3·0 | 정상 · 3쪽 · 2s |
 
 ## 대상 고르기
@@ -47,8 +47,8 @@ GitHub Actions(데이터센터 IP)에서 지금 막혀 있는 페이지를 엔�
   - playwright: ⛔ HTTP 403 Attention Required! | Cloudflare
   - impit: ✅ HTML 상품 링크 244 · 이미지 링크 28 · 글 22583자
 - llbean.com — https://www.llbean.com/llb/shop/502972?page=womens-shirts-and-button-downs
-  - playwright: ✅ 수집기 48개 · HTML 상품 링크 76 · 이미지 링크 49 · 글 15737자 · 예 https://www.llbean.com/llb/shop/5868075
-  - impit: ✅ HTML 상품 링크 76 · 이미지 링크 49 · 글 16008자
+  - playwright: ✅ 수집기 48개 · HTML 상품 링크 76 · 이미지 링크 49 · 글 15773자 · 예 https://www.llbean.com/llb/shop/5868075
+  - impit: ✅ HTML 상품 링크 76 · 이미지 링크 49 · 글 16044자
 - global.llbean.com — https://global.llbean.com/llb/shop/502972/?page=womens-shirts-and-button-downs
   - playwright: ⛔ HTTP 403 Attention Required! | Cloudflare
   - impit: ✅ HTML 상품 링크 275 · 이미지 링크 60 · 글 35990자
