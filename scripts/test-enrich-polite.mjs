@@ -7,7 +7,7 @@
 // ③ 측정 실행(DRY) — 한 사이트 요청 간격(HOST_GAP_MS) · Worker 우회 끄기(WORKER_BYPASS=0) · 실행 번호 붙은 리포트에
 //    브랜드별 표본(값 · 출처 · 그 값이 나온 페이지 글).
 //   node scripts/test-enrich-polite.mjs
-import { readFileSync, existsSync, unlinkSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, unlinkSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { startFake, runEnrich } from "./fixtures/fake-enrich-env.mjs";
@@ -18,6 +18,10 @@ let bad = 0;
 const fail = (m) => { console.error("  ❌ " + m); bad++; };
 const ok = (m) => console.log("  ✅ " + m);
 const RV = ruleVersion();
+// 진짜 실행(DRY 아님)은 enrich-comp-report.md 를 쓴다 — 끝나면 되돌린다.
+const REPORT = join(ROOT, "enrich-comp-report.md");
+const reportBak = existsSync(REPORT) ? readFileSync(REPORT) : null;
+process.on("exit", () => { if (reportBak) writeFileSync(REPORT, reportBak); else if (existsSync(REPORT)) unlinkSync(REPORT); });
 if (!/^[0-9a-f]{8}$/.test(RV)) fail(`규칙 판 모양이 이상하다: ${RV}`);
 
 const prose = ("Soft, breathable fabric with a relaxed fit. Machine wash cold, tumble dry low. Imported. ").repeat(8);
@@ -124,7 +128,7 @@ const items = (n0, n1) => (base) => Array.from({ length: n1 - n0 + 1 }, (_, k) =
     },
   });
   const t0 = Date.now();
-  const { code, out } = await runEnrich(fk.base, { IMPIT: "0", DRY: "1", RUN_ID: RUN, HOST_GAP_MS: "300", WORKER_BYPASS: "0", PAGE_POOL: "4", WAYBACK: "0" });
+  const { code, out } = await runEnrich(fk.base, { IMPIT: "0", DRY: "1", DRY_TAG: RUN, HOST_GAP_MS: "300", WORKER_BYPASS: "0", PAGE_POOL: "4", WAYBACK: "0" });
   const ms = Date.now() - t0;
   await fk.close();
   if (code !== 0) { console.error(out); fail(`[${L}] 종료 코드 ${code}`); }

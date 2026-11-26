@@ -114,7 +114,7 @@ jobs:
           # 상품 주소당 요청을 평 fetch · impit 두 번으로 묶는다). 리포트는 실행 번호를 붙인 파일에.
           HOST_GAP_MS: ${{ github.event.inputs.dry == '1' && '1000' || '' }}
           WORKER_BYPASS: ${{ github.event.inputs.dry == '1' && '0' || '' }}
-          RUN_ID: ${{ github.event.inputs.dry == '1' && github.run_id || '' }}
+          DRY_TAG: ${{ github.event.inputs.dry == '1' && github.run_id || '' }}
           # 웹 아카이브 층 — 저장소 변수로만 바꾼다(비면 스크립트 기본값: 켬 · 400 · 브랜드당 40).
           WAYBACK: ${{ vars.WAYBACK || '' }}
           WAYBACK_MAX: ${{ vars.WAYBACK_MAX || '' }}

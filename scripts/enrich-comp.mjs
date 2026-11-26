@@ -85,8 +85,8 @@ if (DRY) {
 // 맞도록 글자·숫자만 남겨 비교한다.
 const normBrand = (s2) => String(s2 || "").toLowerCase().replace(/[^a-z0-9가-힣]/g, "");
 const BRANDS = String(process.env.BRANDS || "").split(",").map(normBrand).filter(Boolean);
-// 측정 실행은 실행 번호를 붙인 파일에도 쓴다 — 두 측정을 나란히 돌려도 한쪽이 다른 쪽을 덮지 않게(RUN_ID 가 있을 때만).
-const REPORT_FILE = DRY ? (process.env.RUN_ID ? `enrich-comp-dry-${process.env.RUN_ID}.md` : "enrich-comp-dry-report.md") : "enrich-comp-report.md";
+// 측정 실행은 실행 번호를 붙인 파일에도 쓴다 — 두 측정을 나란히 돌려도 한쪽이 다른 쪽을 덮지 않게(DRY_TAG 가 있을 때만 — 워크플로가 실행 번호를 준다).
+const REPORT_FILE = DRY ? (process.env.DRY_TAG ? `enrich-comp-dry-${process.env.DRY_TAG}.md` : "enrich-comp-dry-report.md") : "enrich-comp-report.md";
 
 // ── 한 사이트에 정중하게 ─────────────────────────────────────────────
 // HOST_GAP_MS: 같은 호스트로 가는 요청 사이 최소 간격(ms). 기본 0(야간 그대로) — 측정 실행(DRY)은 워크플로가 1000 을 준다.

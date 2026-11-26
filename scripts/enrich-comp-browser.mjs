@@ -69,6 +69,24 @@ const want = (process.env.BRANDS || "").split(",").map((s) => s.trim().toLowerCa
 const TABS = Math.max(1, Number(process.env.TABS) || 4);
 // 한 탭이 페이지 하나를 본 뒤 쉬는 시간(ms, 0.5~1.5배로 흔든다). 0 이면 안 쉰다.
 const PAUSE_MS = Math.max(0, Number(process.env.PAUSE_MS) || 0);
+// 이 시각이 지나면 새 상품을 열지 않는다(워크플로 제한 90분 안에 저장·리포트를 끝내려고). 남은 것은 다음 밤.
+const DEADLINE = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 75) * 60_000;
+const DRY_TAG = process.env.DRY_TAG || "";
+// 저장하지 않는 실행(STORE=0 · DRY=1)은 Worker 에 GET 만 보낸다 — fetch 를 감싸 다른 요청은 보내기 전에 막는다.
+if (!STORE) {
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = (input, init) => {
+    const method = String((init && init.method) || (input && input.method) || "GET").toUpperCase();
+    if (method !== "GET" && method !== "HEAD") return Promise.reject(new Error(`STORE=0 — ${method} 요청을 막음`));
+    return realFetch(input, init);
+  };
+  console.log("STORE: 0 — 읽기만 한다(Worker 에 GET 만, 오버레이·상세·차단 이력 저장 안 함).");
+}
+// 파이어폭스 차선 — 상품 페이지가 파이어폭스로만 열리는 브랜드(enrich-firefox-brands.json, 근거와 함께).
+// 혼용률이 가장 빈 순서(TOP)로만 고르면 0~5% 브랜드가 매일 자리를 다 차지해, 20~40% 인 Zara 같은 브랜드는
+// 파이어폭스로 120/120 이 읽히는데도(11/24 측정) 차례가 오지 않았다. 차선 브랜드는 순위와 따로 매일 넣는다.
+const LANE_FILE = process.env.LANE_FILE ? resolve(process.env.LANE_FILE) : join(ROOT, "enrich-firefox-brands.json");
+const LANE_PER = Math.max(1, Number(process.env.LANE_PER) || 0) || null;
 
 // ── 추출 규칙은 worker 한 벌만 쓴다 ─────────────────────────────────
 const workerSrc = readFileSync(join(ROOT, "worker/fabric-extractor.js"), "utf8");
@@ -222,7 +240,10 @@ function recordResult(state, site, eng, r, now, skipDays, ratio, suspectDays = S
 // ── 엔진별 차단 이력 규칙 끝
 
 const BEST = "firefox";   // auto 가 크롬으로 막힌 브랜드에 쓰는 엔진(맨 위 주석의 실측 참고)
-const ENGINE_IN = (process.env.ENGINE || "playwright").toLowerCase();
+// firefox-fresh — 파이어폭스로, 상품마다 쿠키가 빈 새 창(첫 페이지만 열리고 다음부터 막히는 사이트를 재 보려고).
+const ENGINE_RAW = (process.env.ENGINE || "playwright").toLowerCase();
+const FRESH_ALL = ENGINE_RAW === "firefox-fresh";
+const ENGINE_IN = FRESH_ALL ? "firefox" : ENGINE_RAW;
 const ENGINE = ENGINE_IN === "auto" || ENGINES_OK.includes(ENGINE_IN) ? ENGINE_IN : "playwright";
 const AUTO_ENGINE = ENGINES_OK.includes(String(process.env.AUTO_ENGINE || "").toLowerCase())
   ? process.env.AUTO_ENGINE.toLowerCase() : BEST;
@@ -240,10 +261,26 @@ for (const c of catalogs) {
 }
 const skipped = [];
 const recheckBrands = [];   // auto 가 '다른 엔진이 적은 none 다시 보기'로 파이어폭스를 고른 브랜드
+const lane = [];
 if (!want.length) {
+  // 파이어폭스 차선 — 순위와 따로, 맨 앞에(시간이 모자라도 먼저 돈다).
+  let laneList = [];
+  try { laneList = (JSON.parse(readFileSync(LANE_FILE, "utf8")).brands || []).filter((b) => b && b.brand); } catch (e) {}
+  for (const b of laneList) {
+    const c = targets.find((t) => String(t.brand || "").toLowerCase() === String(b.brand).toLowerCase());
+    if (!c) continue;
+    if (isSkipped(state, c.site, "firefox", Date.now())) {
+      skipped.push(`${c.brand}(firefox ${Math.ceil((skipUntil(state, c.site, "firefox") - Date.now()) / 86400000)}일 · 차선)`);
+      continue;
+    }
+    lane.push({ ...c, engine: "firefox", fresh: !!b.fresh, per: Number(b.per) || LANE_PER || PER_BRAND, lane: true });
+  }
+  if (lane.length) console.log(`파이어폭스 차선 ${lane.length}개: ${lane.map((c) => `${c.brand}${c.fresh ? "(새 창)" : ""}`).join(", ")}`);
+  const inLane = new Set(lane.map((c) => c.site));
   // 비어 있는 순서대로. 오버레이를 읽어 혼용률이 없는 상품 수를 센다.
   const scored = [];
   for (const c of targets) {
+    if (inLane.has(c.site)) continue;
     // 이름을 직접 준 경우(BRANDS=)는 사람이 일부러 고른 것이므로 건너뛰지 않는다.
     // 이력은 이 브랜드를 읽을 엔진 기준으로 본다 — 크롬으로 막혔어도 파이어폭스로 읽을
     // 차례라면 건너뛰지 않는다.
@@ -282,7 +319,7 @@ if (!want.length) {
     if (miss > 30) scored.push({ ...c, miss, rate, engine: useEng });
   }
   scored.sort((a, b) => a.rate - b.rate || b.miss - a.miss);
-  targets = scored.slice(0, TOP);
+  targets = [...lane, ...scored.slice(0, TOP)];
 } else {
   targets = targets.slice(0, TOP);
 }
@@ -291,10 +328,13 @@ if (skipped.length) console.log(`건너뜀(차단 이력): ${skipped.join(" · "
 if (!targets.length) { console.log("대상 브랜드 없음"); process.exit(0); }
 console.log(`대상 ${targets.length}개: ${targets.map((t) => t.brand).join(", ")}\n`);
 
-for (const t of targets) t.engine = t.engine || engineOf(t.site);
+for (const t of targets) {
+  t.engine = t.engine || engineOf(t.site);
+  if (FRESH_ALL && t.engine === "firefox") t.fresh = true;
+}
 console.log(`엔진: ${ENGINE}${ENGINE === "auto" ? ` (크롬 차단 이력이 있으면 ${AUTO_ENGINE})` : ""}`);
 if (recheckBrands.length) console.log(`  (다른 엔진이 적은 미표기를 ${AUTO_ENGINE} 로 다시 볼 브랜드: ${recheckBrands.join(", ")})`);
-for (const t of targets) console.log(`  · ${t.brand} → ${t.engine}`);
+for (const t of targets) console.log(`  · ${t.brand} → ${t.engine}${t.fresh ? "(상품마다 새 창)" : ""}${t.lane ? " · 차선" : ""}`);
 if (process.env.PICK_ONLY === "1") process.exit(0);
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
@@ -302,6 +342,17 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
 const VIEW = { locale: "en-US", viewport: { width: 1366, height: 1400 } };
 const browsers = [];
 const ctxCache = {};
+const browserOf = {};
+// 상품마다 쓰는 새 창(쿠키 없음) — 같은 브라우저에서 컨텍스트만 새로 만든다. 다 쓰면 닫는다.
+async function freshContext(eng) {
+  await contextFor(eng);
+  const ctx = await browserOf[eng].newContext(eng === "firefox" ? VIEW : { userAgent: UA, ...VIEW });
+  await ctx.route("**/*", (route) => {
+    const t = route.request().resourceType();
+    return (t === "image" || t === "font" || t === "media") ? route.abort() : route.continue();
+  });
+  return ctx;
+}
 // 엔진마다 브라우저·컨텍스트를 한 번만 띄운다(auto 면 두 엔진이 섞일 수 있다).
 async function contextFor(eng) {
   if (ctxCache[eng]) return ctxCache[eng];
@@ -314,6 +365,7 @@ async function contextFor(eng) {
       args: ["--disable-blink-features=AutomationControlled", "--no-sandbox", "--disable-http2"],
     });
     browsers.push(browser);
+    browserOf[eng] = browser;
     // patchright 는 UA 를 덮어쓰면 오히려 지문이 어긋난다 — 크롬 자기 값을 쓰게 둔다.
     ctx = await browser.newContext({ ...(eng === "patchright" ? {} : { userAgent: UA }), ...VIEW });
     if (eng === "playwright") {
@@ -324,6 +376,7 @@ async function contextFor(eng) {
     const { firefox } = await import("playwright");
     const browser = await firefox.launch();
     browsers.push(browser);
+    browserOf[eng] = browser;
     ctx = await browser.newContext(VIEW);
   }
   // 이미지·폰트·영상은 받지 않는다. 혼용률은 글자에만 있고, 안 받으면 몇 배 빠르다.
@@ -384,12 +437,13 @@ for (const c of targets) {
       }
       return true;
     })
-    .slice(0, PER_BRAND);
+    .slice(0, c.per || PER_BRAND);
   if (skippedNone) console.log(`  · ${c.brand} — 사이트 미표기로 확인된 ${skippedNone}개는 건너뜀`);
   if (recheckNone) console.log(`  · ${c.brand} — 다른 엔진이 미표기로 적은 ${recheckNone}개를 ${c.engine} 로 다시 봄(대상 안에서 앞쪽 ${PER_BRAND}개까지)`);
   if (!todo.length) { console.log(`  · ${c.brand} — 채울 것 없음`); continue; }
 
-  const stat = { ok: 0, none: 0, shell: 0, blocked: 0, err: 0 };
+  const stat = { ok: 0, none: 0, shell: 0, blocked: 0, err: 0, late: 0, r429: 0 };
+  let stopBrand = "";   // 429 를 받으면 이 브랜드는 여기서 멈춘다
   const patch = {};
   const dpatch = {};   // 상품 상세 — detail:<site> 에 따로 저장
   let i = 0;
@@ -397,13 +451,17 @@ for (const c of targets) {
   try { ctx = await contextFor(c.engine); }
   catch (e) { console.log(`  !! ${c.brand} — ${c.engine} 브라우저를 띄우지 못함: ${String(e.message || e).split("\n")[0]}`); continue; }
   await Promise.all(Array.from({ length: Math.min(TABS, todo.length) }, async () => {
-    const page = await ctx.newPage();
+    let page = c.fresh ? null : await ctx.newPage();
     try {
       while (i < todo.length) {
+        if (stopBrand || Date.now() > DEADLINE) { stat.late += todo.length - i; i = todo.length; break; }
         const p = todo[i++];
+        let fctx = null;
         try {
+          if (c.fresh) { fctx = await freshContext(c.engine); page = await fctx.newPage(); }
           const resp = await page.goto(p.productUrl, { waitUntil: "domcontentloaded", timeout: 45000 });
           const status = resp ? resp.status() : 0;
+          if (status === 429) { stat.r429++; stopBrand = p.productUrl; console.log(`    !! ${c.brand} 429 — 이 브랜드는 이 실행에서 멈춤`); }
           if (status >= 400) { stat.blocked++; continue; }
           // 소재 정보가 접힌 탭 안에 있는 사이트가 많다. 펼쳐 두고 읽는다.
           await page.evaluate(() => {
@@ -458,10 +516,11 @@ for (const c of targets) {
           // 크롬은 net::ERR_…, 파이어폭스는 NS_ERROR_… 로 연결 거부를 알린다.
           if (/net::ERR|NS_ERROR|NS_BINDING|Timeout/i.test(msg)) stat.blocked++; else stat.err++;
         } finally {
-          if (PAUSE_MS && i < todo.length) await page.waitForTimeout(Math.round(PAUSE_MS * (0.5 + Math.random()))).catch(() => {});
+          if (fctx) { await fctx.close().catch(() => {}); page = null; }
+          if (PAUSE_MS && i < todo.length) await new Promise((r) => setTimeout(r, Math.round(PAUSE_MS * (0.5 + Math.random()))));
         }
       }
-    } finally { await page.close().catch(() => {}); }
+    } finally { if (page) await page.close().catch(() => {}); }
   }));
 
   // 저장 직전 가드(comp-guard.mjs) — 야간 보강과 같은 규칙. 이번에 읽은 값을 이 브랜드의 저장값과 함께 보고,
@@ -482,17 +541,18 @@ for (const c of targets) {
       stat.ok--; stat.held = (stat.held || 0) + 1;
     }
   }
-  grandFilled += stat.ok; grandTried += todo.length;
-  const line = `${c.brand} [${c.engine}] — 시도 ${todo.length} · ✅ ${stat.ok}${stat.held ? ` · 가드 보류 ${stat.held}` : ""} · 미표기 ${stat.none} · 껍데기 ${stat.shell} · 차단/타임아웃 ${stat.blocked} · 오류 ${stat.err}`;
+  grandFilled += stat.ok; grandTried += todo.length - stat.late;
+  const line = `${c.brand} [${c.engine}${c.fresh ? " 새 창" : ""}] — 시도 ${todo.length - stat.late} · ✅ ${stat.ok}${stat.held ? ` · 가드 보류 ${stat.held}` : ""} · 미표기 ${stat.none} · 껍데기 ${stat.shell} · 차단/타임아웃 ${stat.blocked} · 오류 ${stat.err}` +
+    (stat.r429 ? ` · 429 로 멈춤` : "") + (stat.late ? ` · 시간·멈춤으로 못 연 ${stat.late}` : "");
   console.log("  · " + line);
-  rows.push({ brand: c.brand, site: c.site, engine: c.engine, total: c.count, ...stat, tried: todo.length });
+  rows.push({ brand: c.brand, site: c.site, engine: c.engine + (c.fresh ? " 새 창" : "") + (c.lane ? " · 차선" : ""), total: c.count, ...stat, tried: todo.length - stat.late });
 
   // 이번 결과를 이력에 남긴다. 거의 다 막혔으면 한동안 후보에서 뺀다.
   // 반대로 하나라도 읽혔으면 이력을 지운다 — 사이트가 다시 열린 것이므로
   // 옛 판정에 발이 묶이면 안 된다.
   // 이력은 이 브랜드를 읽은 엔진 칸에만 적는다 — 크롬으로 막혔다고 파이어폭스 기록까지 잠그지 않는다.
   const verdict = recordResult(state, c.site, c.engine,
-    { brand: c.brand, tried: todo.length, blocked: stat.blocked + stat.shell, ok: stat.ok + (stat.held || 0) }, Date.now(), SKIP_DAYS, BLOCK_RATIO);
+    { brand: c.brand, tried: todo.length - stat.late, blocked: stat.blocked + stat.shell, ok: stat.ok + (stat.held || 0) }, Date.now(), SKIP_DAYS, BLOCK_RATIO);
   if (verdict === "blocked") console.log(`    → ${c.engine} 로는 ${SKIP_DAYS}일간 후보에서 제외(차단 ${state.blocked[c.site][c.engine].ratio}%, 연달아 막힘)`);
   if (verdict === "suspect") console.log(`    → ${c.engine} 로 처음 막힘(${state.blocked[c.site][c.engine].ratio}%) — ${SUSPECT_DAYS}일만 쉬고 다시 본다(또 막히면 ${SKIP_DAYS}일)`);
   if (verdict === "cleared") console.log(`    → ${c.engine} 로 다시 읽히기 시작 — 차단 이력 해제`);
@@ -620,7 +680,9 @@ const md = [
     "",
   ] : []),
 ].join("\n");
-writeFileSync(join(ROOT, "enrich-browser-report.md"), md);
+// 저장하지 않는 측정 실행은 실행 번호를 붙인 파일에 — 운영 리포트(enrich-browser-report.md)를 덮지 않게.
+const REPORT_FILE = !STORE && DRY_TAG ? `enrich-browser-dry-${DRY_TAG}.md` : "enrich-browser-report.md";
+writeFileSync(join(ROOT, REPORT_FILE), md);
 // 이력은 저장한 실행에서만 남긴다 — DRY 로 돌려 보다가 후보를 잠그면 곤란하다.
 if (STORE) writeFileSync(STATE_PATH, JSON.stringify(state, null, 1) + "\n");
-console.log(`\n총 ${grandFilled}/${grandTried} 채움 · 리포트: enrich-browser-report.md`);
+console.log(`\n총 ${grandFilled}/${grandTried} 채움 · 리포트: ${REPORT_FILE}`);

@@ -31,7 +31,7 @@ on:
         required: false
         default: "1"
       engine:
-        description: "auto(기본 — 지금 크롬으로 막힌 브랜드만 파이어폭스) | playwright | patchright | firefox"
+        description: "auto(기본 — 지금 크롬으로 막힌 브랜드만 파이어폭스) | playwright | patchright | firefox | firefox-fresh(상품마다 새 창)"
         required: false
         default: "auto"
       tabs:
@@ -47,7 +47,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: enrich-browser
+  # 저장하지 않는 측정 실행(store=0)은 실행마다 따로 — 야간 회차 줄에 끼어 대기 중인 야간 회차를 취소시키지 않게.
+  group: ${{ github.event.inputs.store == '0' && format('enrich-browser-dry-{0}', github.run_id) || 'enrich-browser' }}
   cancel-in-progress: false
 
 jobs:
@@ -103,7 +104,7 @@ jobs:
           timeout 300 npx playwright install chromium
       - name: Install Firefox
         # 파이어폭스를 쓰는 엔진일 때만 받는다(auto 는 크롬 차단 이력 브랜드에 파이어폭스를 쓴다).
-        if: ${{ env.ENGINE == 'firefox' || env.ENGINE == 'auto' }}
+        if: ${{ startsWith(env.ENGINE, 'firefox') || env.ENGINE == 'auto' }}
         timeout-minutes: 15
         run: |
           waitlock() { for _ in $(seq 1 60); do sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || return 0; sleep 5; done; }
@@ -124,6 +125,8 @@ jobs:
           STORE: ${{ github.event.inputs.store || '1' }}
           TABS: ${{ github.event.inputs.tabs }}
           PAUSE_MS: ${{ github.event.inputs.pause_ms }}
+          # 측정 실행(store=0)의 리포트는 enrich-browser-dry-<실행>.md 로 — 운영 리포트를 덮지 않는다.
+          DRY_TAG: ${{ github.run_id }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: node scripts/enrich-comp-browser.mjs
       - name: Upload report
@@ -134,6 +137,7 @@ jobs:
           path: |
             enrich-browser-report.md
             enrich-browser-state.json
+            enrich-browser-dry-*.md
           if-no-files-found: ignore
       - name: Commit report
         if: always()
@@ -143,7 +147,7 @@ jobs:
           rm -f package.json package-lock.json
           # 이력 파일도 함께 올려야 다음 실행이 차단 브랜드를 기억한다.
           # 이게 빠지면 매 실행이 백지에서 시작해 같은 벽에 다시 부딪힌다.
-          git add -A -- enrich-browser-report.md enrich-browser-state.json || true
+          git add -A -- enrich-browser-report.md enrich-browser-state.json 'enrich-browser-dry-*.md' || true
           git commit -m "enrich-browser: real-chrome composition pass" || echo "no changes"
           # 리포트는 매번 통째로 새로 쓰이므로, 충돌하면 이번 실행 결과를 채택한다.
           for i in 1 2 3; do
@@ -153,7 +157,7 @@ jobs:
               git rebase --abort || true
               git fetch origin ${{ github.ref_name }}
               git reset --soft origin/${{ github.ref_name }}
-              git add -A -- enrich-browser-report.md enrich-browser-state.json
+              git add -A -- enrich-browser-report.md enrich-browser-state.json 'enrich-browser-dry-*.md'
               git commit -m "enrich-browser: real-chrome composition pass" || true
             fi
             sleep 5

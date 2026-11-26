@@ -65,6 +65,54 @@ const plain = await pick("playwright", OLD);
 if (!/TestBrand → playwright/.test(plain)) fail("ENGINE=playwright 가 지켜지지 않는다\n" + plain);
 const bogus = await pick("nope", null);
 if (!/TestBrand → playwright/.test(bogus)) fail("모르는 엔진 이름이면 playwright 로 돌아가야 한다\n" + bogus);
+const fresh = await pick("firefox-fresh", null);
+if (!/TestBrand → firefox\(상품마다 새 창\)/.test(fresh)) fail("ENGINE=firefox-fresh 가 파이어폭스 + 상품마다 새 창이 아니다\n" + fresh);
+
+// ── 파이어폭스 차선(enrich-firefox-brands.json) — 브랜드를 안 줬을 때 순위와 따로 맨 앞에 들어간다 ──
+async function pickAuto(laneObj, stateObj) {
+  const lf = join(TMP, "lane.json"), sp = join(TMP, "pick-lane-state.json");
+  writeFileSync(lf, JSON.stringify(laneObj));
+  writeFileSync(sp, JSON.stringify(stateObj || { blocked: {} }));
+  const p = spawn(process.execPath, [join(ROOT, "scripts/enrich-comp-browser.mjs")], {
+    env: { ...process.env, WORKER_URL: `http://localhost:${PORT}`, WORKER_TOKEN: "", BRANDS: "", ENGINE: "auto",
+      PICK_ONLY: "1", STATE_PATH: sp, LANE_FILE: lf },
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  let o = "";
+  p.stdout.on("data", (d) => { o += String(d); });
+  p.stderr.on("data", (d) => { o += String(d); });
+  await new Promise((r) => p.on("close", r));
+  return o;
+}
+// 상품 9개뿐이라 순위(빈 칸 30개 넘는 브랜드)로는 안 뽑힌다 — 차선이어서 들어간다.
+const laneOn = await pickAuto({ brands: [{ brand: "testbrand", fresh: true, evidence: "smoke" }] });
+if (!/TestBrand → firefox\(상품마다 새 창\) · 차선/.test(laneOn)) fail("차선 브랜드가 파이어폭스(새 창)로 맨 앞에 들어가지 않는다\n" + laneOn);
+const laneBlocked = await pickAuto({ brands: [{ brand: "TestBrand" }] },
+  { blocked: { "test.com.testbrand": { firefox: { brand: "TestBrand", until: Date.now() + 86400000, at: "2026-11-26", ratio: 100 } } } });
+if (!/TestBrand\(firefox \d+일 · 차선\)/.test(laneBlocked) || /TestBrand → firefox/.test(laneBlocked)) fail("파이어폭스로 막힌 기록이 있는 차선 브랜드를 건너뛰지 않는다\n" + laneBlocked);
+
+// ── 저장하지 않는 실행(STORE=0) — Worker 에 GET 만, 리포트는 enrich-browser-dry-<태그>.md ──
+{
+  const savedBefore = (savedRaw.match(/^(SAVED|DETAILS):/gm) || []).length;
+  const tag = "smoke" + process.pid;
+  const p = spawn(process.execPath, [join(ROOT, "scripts/enrich-comp-browser.mjs")], {
+    env: { ...process.env, WORKER_URL: `http://localhost:${PORT}`, WORKER_TOKEN: "", BRANDS: "TestBrand",
+      STORE: "0", DRY_TAG: tag, STATE_PATH: join(TMP, "state-dry.json"), TABS: "1" },
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  let o = "";
+  p.stdout.on("data", (d) => { o += String(d); });
+  p.stderr.on("data", (d) => { o += String(d); });
+  const c2 = await new Promise((r) => p.on("close", r));
+  const savedAfter = (savedRaw.match(/^(SAVED|DETAILS):/gm) || []).length;
+  if (c2 !== 0) fail(`STORE=0 실행 종료 코드 ${c2}\n${o.slice(-800)}`);
+  if (!/STORE: 0/.test(o)) fail("STORE=0 실행이 로그 첫머리에 'STORE: 0' 을 남기지 않는다");
+  if (savedAfter !== savedBefore) fail(`STORE=0 인데 저장 요청이 갔다(${savedAfter - savedBefore}건)`);
+  if (existsSync(join(TMP, "state-dry.json"))) fail("STORE=0 인데 차단 이력을 썼다");
+  const dr = join(ROOT, `enrich-browser-dry-${tag}.md`);
+  if (!existsSync(dr)) fail("STORE=0 리포트가 enrich-browser-dry-<태그>.md 에 없다");
+  else { if (!/저장하지 않음/.test(readFileSync(dr, "utf8"))) fail("STORE=0 리포트에 '저장하지 않음' 표시가 없다"); unlinkSync(dr); }
+}
 fake.kill();
 
 if (code !== 0) { console.error(out); fail(`종료 코드 ${code}`); }
@@ -140,4 +188,4 @@ else {
 }
 
 if (bad) { console.error(`\n크롬 보강 ${bad}건 실패`); process.exit(1); }
-console.log("✅ 크롬 혼용률 보강 통과 — 평범·접힌탭 두겹·미표기·차단·봇확인화면·늦은표기·껍데기·예전 none 두 가지 + 저장 내용 + 엔진 고르기 4경우");
+console.log("✅ 크롬 혼용률 보강 통과 — 평범·접힌탭 두겹·미표기·차단·봇확인화면·늦은표기·껍데기·예전 none 두 가지 + 저장 내용 + 엔진 고르기 5경우 + 파이어폭스 차선 2경우 + STORE=0");
