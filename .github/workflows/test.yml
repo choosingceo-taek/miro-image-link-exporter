@@ -24,8 +24,12 @@ jobs:
         run: node scripts/test-jsonld.mjs
       - name: Run composition-from-text tests
         run: node scripts/test-composition.mjs
+      - name: Composition rules added 2026-11-26 (abbreviations · brand+generic fibre · part breaks · fragments)
+        run: node scripts/test-comp-rules.mjs
       - name: Run colorway extraction tests
         run: node scripts/test-color.mjs
+      - name: Colorway from page title (White Stuff · The Upside)
+        run: node scripts/test-title-color.mjs
       - name: Run value validity tests
         run: node scripts/test-valid.mjs
       - name: Run panel load test
@@ -52,14 +56,20 @@ jobs:
         run: node scripts/test-enrich-merge.mjs
       - name: Run enrich dry-run test (no writes · BRANDS filter)
         run: node scripts/test-enrich-dry.mjs
+      - name: Enrich — rule version retry · 429 stop · polite measurement
+        run: node scripts/test-enrich-polite.mjs
       - name: Run wayback guard test (category/listing false positives)
         run: node scripts/test-wayback-guard.mjs
       - name: Run enrich wayback layer test (fake archive)
         run: node scripts/test-enrich-wayback.mjs
       - name: Run diagnose target selection test
         run: node scripts/test-diagnose-select.mjs
-      - name: Run morning report combine test (extra-brands job shows up)
+      - name: Run morning report combine test (extra-brands job · Oysho job show up)
         run: node scripts/test-combine-reports.mjs
+      - name: Run nightly collect job split test (main · extra · oysho · store guard)
+        run: node scripts/test-collect-workflow.mjs
+      - name: Run open sources probe test (robots.txt · sitemaps · archives · GET only)
+        run: node scripts/test-open-sources.mjs
       - name: Run access evidence & paid-service slot test (fake API · key never logged)
         run: node scripts/test-access-evidence.mjs
       - name: Run stored composition audit signature test
@@ -99,6 +109,7 @@ jobs:
           node --check scripts/detail-core.mjs
           node --check scripts/detail-guard.mjs
           node --check scripts/access-evidence.mjs
+          node --check scripts/open-sources.mjs
           node --check rack-harvester.user.js
           node --check worker/fabric-extractor.js
           node --check shared/product-core.js

@@ -1,0 +1,3959 @@
+{
+ "when": "2026-11-26T01:37:57.918Z",
+ "run": "45736568952",
+ "readOnly": true,
+ "refusedNonGet": 0,
+ "crawls": [
+  "CC-MAIN-2026-47",
+  "CC-MAIN-2026-43"
+ ],
+ "requests": 192,
+ "hosts": {
+  "index.commoncrawl.org": {
+   "n": 1,
+   "stopped": ""
+  },
+  "www.stories.com": {
+   "n": 11,
+   "stopped": ""
+  },
+  "www.abercrombie.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.adidas.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "www.anntaylor.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.anthropologie.com": {
+   "n": 2,
+   "stopped": ""
+  },
+  "www.aritzia.com": {
+   "n": 2,
+   "stopped": ""
+  },
+  "www.arket.com": {
+   "n": 11,
+   "stopped": ""
+  },
+  "www.chicos.com": {
+   "n": 7,
+   "stopped": ""
+  },
+  "www.eileenfisher.com": {
+   "n": 2,
+   "stopped": ""
+  },
+  "www.fatface.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.freepeople.com": {
+   "n": 3,
+   "stopped": ""
+  },
+  "www.garnethill.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www2.hm.com": {
+   "n": 11,
+   "stopped": ""
+  },
+  "www.joules.com": {
+   "n": 7,
+   "stopped": ""
+  },
+  "global.llbean.com": {
+   "n": 3,
+   "stopped": ""
+  },
+  "www.landsend.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "www.loft.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "shop.lululemon.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.madewell.com": {
+   "n": 9,
+   "stopped": ""
+  },
+  "shop.mango.com": {
+   "n": 1,
+   "stopped": "HTTP 429 — 이 호스트는 이번 실행에서 그만"
+  },
+  "www.massimodutti.com": {
+   "n": 9,
+   "stopped": ""
+  },
+  "www.massimodutti.cn": {
+   "n": 4,
+   "stopped": ""
+  },
+  "paige.com": {
+   "n": 1,
+   "stopped": "HTTP 429 — 이 호스트는 이번 실행에서 그만"
+  },
+  "www.patagonia.com": {
+   "n": 9,
+   "stopped": ""
+  },
+  "www.prana.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "www.sezane.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.thewhitecompany.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.theory.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "www.whitehouseblackmarket.com": {
+   "n": 7,
+   "stopped": ""
+  },
+  "www.wilson.com": {
+   "n": 8,
+   "stopped": ""
+  }
+ },
+ "stops": [
+  {
+   "host": "shop.mango.com",
+   "status": 429,
+   "url": "https://shop.mango.com/robots.txt"
+  },
+  {
+   "host": "paige.com",
+   "status": 429,
+   "url": "https://paige.com/robots.txt"
+  }
+ ],
+ "rows": [
+  {
+   "brand": "&Other Stories",
+   "origin": "https://www.stories.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 472,
+   "storedEmpty": 296,
+   "storedCats": {
+    "tops": 138,
+    "sweatshirts": 24,
+    "pants": 90,
+    "shirts": 89,
+    "dresses": 131
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     138
+    ],
+    "sweatshirts": [
+     0,
+     24
+    ],
+    "pants": [
+     0,
+     90
+    ],
+    "shirts": [
+     0,
+     89
+    ],
+    "dresses": [
+     0,
+     131
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.stories.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 21,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.stories.com/kr_krw/sitemap_aos.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2461,
+      "depth": 0,
+      "lastmod": 2461
+     },
+     {
+      "url": "https://www.stories.com/en-dk/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 152,
+      "depth": 0
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-273.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 29,
+      "depth": 1,
+      "lastmod": 29
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-287.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 32,
+      "depth": 1,
+      "lastmod": 32
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-267.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 73,
+      "depth": 1,
+      "lastmod": 73
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-316.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 21,
+      "depth": 1,
+      "lastmod": 21
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-311.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 18,
+      "depth": 1,
+      "lastmod": 18
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-317.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 37,
+      "depth": 1,
+      "lastmod": 37
+     },
+     {
+      "url": "https://www.stories.com/nl-nl/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 152,
+      "depth": 0
+     },
+     {
+      "url": "https://www.stories.com/en-nl/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 152,
+      "depth": 0
+     }
+    ],
+    "children": {
+     "listed": 456,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 2671,
+    "productUrls": 2497,
+    "sample": [
+     "https://www.stories.com/kr_krw/product.silk-midi-skirt-green.1223263005.html",
+     "https://www.stories.com/kr_krw/product.cat-eye-sunglasses-beige.1211029002.html",
+     "https://www.stories.com/kr_krw/product.ruffled-corset-top-ivory.1175844001.html"
+    ],
+    "locale": "en-us",
+    "storedInMap": 0,
+    "storedChecked": 472,
+    "guessCats": {
+     "tops": 565,
+     "dresses": 284,
+     "shirts": 165,
+     "pants": 143,
+     "sweatshirts": 4
+    },
+    "newProductUrls": 2497
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Abercrombie & Fitch",
+   "origin": "https://www.abercrombie.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 224,
+   "storedEmpty": 84,
+   "storedCats": {
+    "tops": 94,
+    "sweatshirts": 20,
+    "shirts": 7,
+    "dresses": 52,
+    "pants": 51
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     94
+    ],
+    "sweatshirts": [
+     0,
+     20
+    ],
+    "shirts": [
+     0,
+     7
+    ],
+    "dresses": [
+     0,
+     52
+    ],
+    "pants": [
+     0,
+     51
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.abercrombie.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/index/anf",
+      "status": 200,
+      "kind": "index",
+      "n": 48,
+      "depth": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/product?targetStoreId=10051&targetLangId=-1",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5752,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/category?targetStoreId=10051&targetLangId=-1",
+      "status": 200,
+      "kind": "urlset",
+      "n": 778,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/others?targetStoreId=10051&targetLangId=-1",
+      "status": 200,
+      "kind": "urlset",
+      "n": 622,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/product?targetStoreId=10051&targetLangId=-1002",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5753,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/category?targetStoreId=10051&targetLangId=-1002",
+      "status": 200,
+      "kind": "urlset",
+      "n": 778,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/others?targetStoreId=10051&targetLangId=-1002",
+      "status": 200,
+      "kind": "urlset",
+      "n": 622,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 48,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 14305,
+    "productUrls": 11464,
+    "sample": [
+     "https://www.abercrombie.com/shop/us/p/90s-straight-jean-58398580",
+     "https://www.abercrombie.com/shop/us/p/premium-heavyweight-20-tee-58965824",
+     "https://www.abercrombie.com/shop/us/p/long-sleeve-rugby-polo-61711335"
+    ],
+    "locale": "",
+    "storedInMap": 0,
+    "storedChecked": 224,
+    "guessCats": {
+     "pants": 2756,
+     "tops": 1791,
+     "dresses": 510,
+     "shirts": 140,
+     "sweatshirts": 272
+    },
+    "newProductUrls": 11464
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Addidas",
+   "origin": "https://www.adidas.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 537,
+   "storedEmpty": 526,
+   "storedCats": {
+    "tops": 154,
+    "shirts": 8,
+    "sweatshirts": 111,
+    "pants": 213,
+    "dresses": 51
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     154
+    ],
+    "shirts": [
+     0,
+     8
+    ],
+    "sweatshirts": [
+     0,
+     111
+    ],
+    "pants": [
+     0,
+     213
+    ],
+    "dresses": [
+     0,
+     51
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.adidas.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 5,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.adidas.com/kw/ar/sitemap",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "HTTP 403"
+     },
+     {
+      "url": "https://www.adidas.com/kw/en/sitemap",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "HTTP 403"
+     },
+     {
+      "url": "https://www.adidas.com/om/ar/sitemap",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "HTTP 403"
+     },
+     {
+      "url": "https://www.adidas.com/om/en/sitemap",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "HTTP 403"
+     }
+    ],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 537,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Ann Taylor",
+   "origin": "https://www.anntaylor.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 381,
+   "storedEmpty": 32,
+   "storedCats": {
+    "tops": 23,
+    "sweatshirts": 4,
+    "pants": 235,
+    "dresses": 100,
+    "shirts": 19
+   },
+   "storedCatsInMap": {
+    "tops": [
+     19,
+     23
+    ],
+    "sweatshirts": [
+     2,
+     4
+    ],
+    "pants": [
+     59,
+     235
+    ],
+    "dresses": [
+     25,
+     100
+    ],
+    "shirts": [
+     8,
+     19
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.anntaylor.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.anntaylor.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 6,
+      "depth": 0
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 3154,
+      "depth": 1,
+      "lastmod": 3154
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap_2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2,
+      "depth": 1,
+      "lastmod": 2
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap-PSSitemap_AnnTaylor.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 10,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap-SDSitemap_AnnTaylor.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 224,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap-SRSitemap_AnnTaylor.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1579,
+      "depth": 1,
+      "lastmod": 1579
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 637,
+      "depth": 1,
+      "lastmod": 637
+     }
+    ],
+    "children": {
+     "listed": 6,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 5606,
+    "productUrls": 5351,
+    "sample": [
+     "https://www.anntaylor.com/accessories/jewelry/cata000021/modern-stud-earrings/181316.html",
+     "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/stretch-cami/311708.html",
+     "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/perfect-shirt/387660.html"
+    ],
+    "locale": "",
+    "storedInMap": 113,
+    "storedChecked": 381,
+    "guessCats": {
+     "tops": 1344,
+     "pants": 816,
+     "dresses": 662,
+     "sweatshirts": 9,
+     "shirts": 7
+    },
+    "newProductUrls": 5240
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Anthropologie",
+   "origin": "https://www.anthropologie.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 263,
+   "storedEmpty": 262,
+   "storedCats": {
+    "tops": 76,
+    "sweatshirts": 49,
+    "shirts": 15,
+    "pants": 51,
+    "dresses": 72
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     76
+    ],
+    "sweatshirts": [
+     0,
+     49
+    ],
+    "shirts": [
+     0,
+     15
+    ],
+    "pants": [
+     0,
+     51
+    ],
+    "dresses": [
+     0,
+     72
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.anthropologie.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "browserUa": true,
+     "challenge": "anthropologie.com",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "",
+    "storedInMap": 0,
+    "storedChecked": 263,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Aritzia",
+   "origin": "https://www.aritzia.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 800,
+   "storedEmpty": 297,
+   "storedCats": {
+    "tops": 335,
+    "sweatshirts": 144,
+    "dresses": 218,
+    "pants": 44,
+    "shirts": 59
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     335
+    ],
+    "sweatshirts": [
+     0,
+     144
+    ],
+    "dresses": [
+     0,
+     218
+    ],
+    "pants": [
+     0,
+     44
+    ],
+    "shirts": [
+     0,
+     59
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.aritzia.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "browserUa": true,
+     "challenge": "Just a moment...",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "intl",
+    "storedInMap": 0,
+    "storedChecked": 800,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Arket",
+   "origin": "https://www.arket.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 382,
+   "storedEmpty": 208,
+   "storedCats": {
+    "tops": 167,
+    "sweatshirts": 39,
+    "shirts": 107,
+    "pants": 4,
+    "dresses": 65
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     167
+    ],
+    "sweatshirts": [
+     0,
+     39
+    ],
+    "shirts": [
+     0,
+     107
+    ],
+    "pants": [
+     0,
+     4
+    ],
+    "dresses": [
+     0,
+     65
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.arket.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 20,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.arket.com/sitemapindex.xml",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "Access Denied"
+     },
+     {
+      "url": "https://www.arket.com/en.sitemap.xml",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "Access Denied"
+     },
+     {
+      "url": "https://www.arket.com/ko-kr/sitemap_ark.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2385,
+      "depth": 0,
+      "lastmod": 2385
+     },
+     {
+      "url": "https://www.arket.com/en-dk/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 268,
+      "depth": 0
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-804.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 49,
+      "depth": 1,
+      "lastmod": 49
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-644.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 126,
+      "depth": 1,
+      "lastmod": 126
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-619.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 42,
+      "depth": 1,
+      "lastmod": 42
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-678.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 404,
+      "depth": 1,
+      "lastmod": 404
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-470.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 112,
+      "depth": 1,
+      "lastmod": 112
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-763.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 26,
+      "depth": 1,
+      "lastmod": 26
+     }
+    ],
+    "children": {
+     "listed": 268,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 3144,
+    "productUrls": 2840,
+    "sample": [
+     "https://www.arket.com/ko-kr/women/all/product.rib-top-white.1289241001.html",
+     "https://www.arket.com/ko-kr/men/all/product.wool-jumper-blue.1305663002.html",
+     "https://www.arket.com/ko-kr/men/all/product.swim-shorts-blue.1262179009.html"
+    ],
+    "locale": "en-ww",
+    "storedInMap": 0,
+    "storedChecked": 382,
+    "guessCats": {
+     "tops": 816,
+     "pants": 241,
+     "shirts": 243,
+     "dresses": 75,
+     "sweatshirts": 168
+    },
+    "newProductUrls": 2840
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Chico's",
+   "origin": "https://www.chicos.com",
+   "listing": "partial",
+   "product": "partial",
+   "stored": 800,
+   "storedEmpty": 791,
+   "storedCats": {
+    "tops": 343,
+    "sweatshirts": 68,
+    "shirts": 106,
+    "dresses": 184,
+    "pants": 99
+   },
+   "storedCatsInMap": {
+    "tops": [
+     321,
+     343
+    ],
+    "sweatshirts": [
+     67,
+     68
+    ],
+    "shirts": [
+     106,
+     106
+    ],
+    "dresses": [
+     175,
+     184
+    ],
+    "pants": [
+     99,
+     99
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.chicos.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.chicos.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 5,
+      "depth": 0
+     },
+     {
+      "url": "https://www.chicos.com/sitemap/products-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2687,
+      "depth": 1,
+      "lastmod": 2687
+     },
+     {
+      "url": "https://www.chicos.com/locations/stat/assets/sitemap-0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1075,
+      "depth": 1,
+      "lastmod": 1075
+     },
+     {
+      "url": "https://www.chicos.com/sitemap/pages.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 44,
+      "depth": 1,
+      "lastmod": 44
+     },
+     {
+      "url": "https://www.chicos.com/sitemap/blog.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 101,
+      "depth": 1,
+      "lastmod": 101
+     },
+     {
+      "url": "https://www.chicos.com/sitemap/categories-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 374,
+      "depth": 1,
+      "lastmod": 374
+     }
+    ],
+    "children": {
+     "listed": 5,
+     "fetched": 5,
+     "blockedByRobots": []
+    },
+    "urls": 4281,
+    "productUrls": 2696,
+    "sample": [
+     "https://www.chicos.com/store/product/silver-tone-drop-pendant-earrings/100022650",
+     "https://www.chicos.com/store/product/silver-tone-rings-pendant-necklace/100040851",
+     "https://www.chicos.com/store/product/hexie-multi-strand-necklace/570088043"
+    ],
+    "locale": "",
+    "storedInMap": 296,
+    "storedChecked": 306,
+    "guessCats": {
+     "pants": 397,
+     "dresses": 119,
+     "shirts": 141,
+     "tops": 656,
+     "sweatshirts": 17
+    },
+    "newProductUrls": 2400
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Eileen fisher",
+   "origin": "https://www.eileenfisher.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 545,
+   "storedEmpty": 37,
+   "storedCats": {
+    "tops": 210,
+    "shirts": 26,
+    "pants": 194,
+    "sweatshirts": 24,
+    "dresses": 91
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     210
+    ],
+    "shirts": [
+     0,
+     26
+    ],
+    "pants": [
+     0,
+     194
+    ],
+    "sweatshirts": [
+     0,
+     24
+    ],
+    "dresses": [
+     0,
+     91
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.eileenfisher.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "browserUa": true,
+     "challenge": "Access Denied",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "",
+    "storedInMap": 0,
+    "storedChecked": 545,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Fatface",
+   "origin": "https://www.fatface.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 374,
+   "storedEmpty": 373,
+   "storedCats": {
+    "tops": 39,
+    "sweatshirts": 88,
+    "dresses": 110,
+    "pants": 137
+   },
+   "storedCatsInMap": {
+    "tops": [
+     36,
+     39
+    ],
+    "sweatshirts": [
+     75,
+     88
+    ],
+    "dresses": [
+     109,
+     110
+    ],
+    "pants": [
+     132,
+     137
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.fatface.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.fatface.com/sitemap-index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 12,
+      "depth": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-GB-EN-Products-Hreflang.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5949,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-US-EN-Products-Hreflang.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5198,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-IE-EN-Products-Hreflang.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5959,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-GB-EN-Category.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1646,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-US-EN-Category.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1786,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-IE-EN-Category.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1528,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 12,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 22066,
+    "productUrls": 17106,
+    "sample": [
+     "https://www.fatface.com/style/su701224/h15291",
+     "https://www.fatface.com/style/su704273/h16755",
+     "https://www.fatface.com/style/su701218/h15278"
+    ],
+    "locale": "",
+    "storedInMap": 352,
+    "storedChecked": 374,
+    "guessCats": {},
+    "newProductUrls": 16754
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "FP Movement",
+   "origin": "https://www.freepeople.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 72,
+   "storedEmpty": 67,
+   "storedCats": {
+    "tops": 43,
+    "shirts": 2,
+    "sweatshirts": 6,
+    "pants": 18,
+    "dresses": 3
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     43
+    ],
+    "shirts": [
+     0,
+     2
+    ],
+    "sweatshirts": [
+     0,
+     6
+    ],
+    "pants": [
+     0,
+     18
+    ],
+    "dresses": [
+     0,
+     3
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.freepeople.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "browserUa": true,
+     "challenge": "freepeople.com",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 72,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Free People",
+   "origin": "https://www.freepeople.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 189,
+   "storedEmpty": 184,
+   "storedCats": {
+    "tops": 63,
+    "shirts": 16,
+    "sweatshirts": 10,
+    "dresses": 76,
+    "pants": 24
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     63
+    ],
+    "shirts": [
+     0,
+     16
+    ],
+    "sweatshirts": [
+     0,
+     10
+    ],
+    "dresses": [
+     0,
+     76
+    ],
+    "pants": [
+     0,
+     24
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.freepeople.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "challenge": "freepeople.com",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 189,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Garnet hill",
+   "origin": "https://www.garnethill.com",
+   "listing": "partial",
+   "product": "partial",
+   "stored": 108,
+   "storedEmpty": 106,
+   "storedCats": {
+    "tops": 66,
+    "dresses": 10,
+    "sweatshirts": 18,
+    "shirts": 5,
+    "pants": 9
+   },
+   "storedCatsInMap": {
+    "tops": [
+     14,
+     66
+    ],
+    "dresses": [
+     0,
+     10
+    ],
+    "sweatshirts": [
+     4,
+     18
+    ],
+    "shirts": [
+     0,
+     5
+    ],
+    "pants": [
+     0,
+     9
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.garnethill.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.garnethill.com/SiteMapIndex_v2.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 11,
+      "depth": 0
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_001_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 332,
+      "depth": 1,
+      "lastmod": 298
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_002_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 332,
+      "depth": 1,
+      "lastmod": 304
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_003_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 332,
+      "depth": 1,
+      "lastmod": 309
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_004_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 332,
+      "depth": 1,
+      "lastmod": 306
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_005_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 331,
+      "depth": 1,
+      "lastmod": 316
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_CAT_001_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 39,
+      "depth": 1,
+      "lastmod": 20
+     }
+    ],
+    "children": {
+     "listed": 11,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 1698,
+    "productUrls": 1628,
+    "sample": [
+     "https://www.garnethill.com/2026-keepsake-embroidered-organic-cotton-pillow-cover/743145",
+     "https://www.garnethill.com/adelaide-botanical-heirloom-european-flax-linen-sham/713286",
+     "https://www.garnethill.com/agatha-hemstitched-linen-26amp-3b-organic-cotton-duvet-cover/741152"
+    ],
+    "locale": "us",
+    "storedInMap": 18,
+    "storedChecked": 108,
+    "guessCats": {
+     "dresses": 110,
+     "tops": 218,
+     "pants": 90,
+     "sweatshirts": 18,
+     "shirts": 35
+    },
+    "newProductUrls": 1628
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "H&M",
+   "origin": "https://www2.hm.com",
+   "listing": "works",
+   "product": "blocked",
+   "stored": 745,
+   "storedEmpty": 745,
+   "storedCats": {
+    "tops": 180,
+    "sweatshirts": 111,
+    "pants": 155,
+    "shirts": 136,
+    "dresses": 163
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     180
+    ],
+    "sweatshirts": [
+     0,
+     111
+    ],
+    "pants": [
+     0,
+     155
+    ],
+    "shirts": [
+     0,
+     136
+    ],
+    "dresses": [
+     0,
+     163
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www2.hm.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 48,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www2.hm.com/bg_bg.sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 569,
+      "depth": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.3.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.4.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.5.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/cs_cz.sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 579,
+      "depth": 0
+     },
+     {
+      "url": "https://www2.hm.com/da_dk.sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 1251,
+      "depth": 0
+     },
+     {
+      "url": "https://www2.hm.com/de_at.sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 952,
+      "depth": 0
+     }
+    ],
+    "children": {
+     "listed": 3351,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 432,
+    "productUrls": 432,
+    "sample": [
+     "https://www2.hm.com/bg_bg/productpage.1295947003.html",
+     "https://www2.hm.com/bg_bg/productpage.1318398001.html",
+     "https://www2.hm.com/bg_bg/productpage.1207354033.html"
+    ],
+    "locale": "en_us",
+    "storedInMap": 0,
+    "storedChecked": 745,
+    "guessCats": {},
+    "newProductUrls": 432
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Joules",
+   "origin": "https://www.joules.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 536,
+   "storedEmpty": 512,
+   "storedCats": {
+    "tops": 133,
+    "shirts": 123,
+    "sweatshirts": 45,
+    "dresses": 124,
+    "pants": 111
+   },
+   "storedCatsInMap": {
+    "tops": [
+     120,
+     133
+    ],
+    "shirts": [
+     114,
+     123
+    ],
+    "sweatshirts": [
+     41,
+     45
+    ],
+    "dresses": [
+     113,
+     124
+    ],
+    "pants": [
+     103,
+     111
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.joules.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.joules.com/sitemap-index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 5,
+      "depth": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Products.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 3585,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Editorial.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 65,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Homepage.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 14,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Categories.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1100,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Store.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 56,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 5,
+     "fetched": 5,
+     "blockedByRobots": []
+    },
+    "urls": 4820,
+    "productUrls": 3585,
+    "sample": [
+     "https://www.joules.com/style/st302533/u43959",
+     "https://www.joules.com/style/st302533/u43960",
+     "https://www.joules.com/style/st253900/c56124"
+    ],
+    "locale": "",
+    "storedInMap": 491,
+    "storedChecked": 536,
+    "guessCats": {},
+    "newProductUrls": 3099
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "L.L bean",
+   "origin": "https://global.llbean.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 313,
+   "storedEmpty": 17,
+   "storedCats": {
+    "tops": 149,
+    "sweatshirts": 53,
+    "shirts": 20,
+    "dresses": 13,
+    "pants": 78
+   },
+   "storedCatsInMap": {
+    "tops": [
+     148,
+     149
+    ],
+    "sweatshirts": [
+     53,
+     53
+    ],
+    "shirts": [
+     20,
+     20
+    ],
+    "dresses": [
+     13,
+     13
+    ],
+    "pants": [
+     76,
+     78
+    ]
+   },
+   "sitemap": {
+    "origin": "https://global.llbean.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://global.llbean.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 1,
+      "depth": 0
+     },
+     {
+      "url": "https://global.llbean.com/sitemap_0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 3393,
+      "depth": 1,
+      "lastmod": 3393
+     }
+    ],
+    "children": {
+     "listed": 1,
+     "fetched": 1,
+     "blockedByRobots": []
+    },
+    "urls": 3393,
+    "productUrls": 2982,
+    "sample": [
+     "https://global.llbean.com/llb/shop/110938.html",
+     "https://global.llbean.com/llb/shop/111152.html",
+     "https://global.llbean.com/llb/shop/111434.html"
+    ],
+    "locale": "",
+    "storedInMap": 310,
+    "storedChecked": 313,
+    "guessCats": {},
+    "newProductUrls": 2703
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Lands end",
+   "origin": "https://www.landsend.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 463,
+   "storedEmpty": 59,
+   "storedCats": {
+    "tops": 129,
+    "shirts": 87,
+    "sweatshirts": 83,
+    "dresses": 137,
+    "pants": 27
+   },
+   "storedCatsInMap": {
+    "tops": [
+     90,
+     129
+    ],
+    "shirts": [
+     65,
+     87
+    ],
+    "sweatshirts": [
+     49,
+     83
+    ],
+    "dresses": [
+     75,
+     137
+    ],
+    "pants": [
+     20,
+     27
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.landsend.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 6,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.landsend.com/sitemap/staticpage0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 118,
+      "depth": 0,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.landsend.com/sitemap/navigation0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 6164,
+      "depth": 0,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.landsend.com/sitemap/products/products.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 4160,
+      "depth": 0,
+      "lastmod": 4160
+     },
+     {
+      "url": "https://www.landsend.com/sitemap/us-xml-article-sitemap-13-08-2021.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1926,
+      "depth": 0,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 12368,
+    "productUrls": 4160,
+    "sample": [
+     "https://www.landsend.com/products/needlepoint-personalized-christmas-stocking/id_27370",
+     "https://www.landsend.com/products/womens-sport-knit-high-rise-corduroy-pants/id_46374",
+     "https://www.landsend.com/products/mens-jersey-knit-pant/id_54149"
+    ],
+    "locale": "",
+    "storedInMap": 299,
+    "storedChecked": 463,
+    "guessCats": {
+     "pants": 519,
+     "tops": 1022,
+     "dresses": 265,
+     "shirts": 283,
+     "sweatshirts": 132
+    },
+    "newProductUrls": 3874
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Loft",
+   "origin": "https://www.loft.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 672,
+   "storedEmpty": 389,
+   "storedCats": {
+    "tops": 141,
+    "sweatshirts": 41,
+    "shirts": 13,
+    "pants": 329,
+    "dresses": 148
+   },
+   "storedCatsInMap": {
+    "tops": [
+     36,
+     141
+    ],
+    "sweatshirts": [
+     10,
+     41
+    ],
+    "shirts": [
+     3,
+     13
+    ],
+    "pants": [
+     101,
+     329
+    ],
+    "dresses": [
+     28,
+     148
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.loft.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.loft.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 6,
+      "depth": 0
+     },
+     {
+      "url": "https://www.loft.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1907,
+      "depth": 1,
+      "lastmod": 1907
+     },
+     {
+      "url": "https://www.loft.com/sitemap_2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2,
+      "depth": 1,
+      "lastmod": 2
+     },
+     {
+      "url": "https://www.loft.com/sitemap-PSSitemap_Loft.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 0,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.loft.com/sitemap-SDSitemap_Loft.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 492,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.loft.com/sitemap-SRSitemap_Loft.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2744,
+      "depth": 1,
+      "lastmod": 2744
+     },
+     {
+      "url": "https://www.loft.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 392,
+      "depth": 1,
+      "lastmod": 392
+     }
+    ],
+    "children": {
+     "listed": 6,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 5537,
+    "productUrls": 5019,
+    "sample": [
+     "https://www.loft.com/clothing/tops/catl000011/lou-grey-signaturesoft-sweatshirt/510914.html",
+     "https://www.loft.com/clothing/pants/catl000014/lou-grey-signaturesoft-sweatpants/510918.html",
+     "https://www.loft.com/accessories-shoes/socks-tights/catl000026/basic-show-sock-set/544214.html"
+    ],
+    "locale": "",
+    "storedInMap": 178,
+    "storedChecked": 672,
+    "guessCats": {
+     "sweatshirts": 41,
+     "pants": 1009,
+     "tops": 958,
+     "dresses": 872,
+     "shirts": 167
+    },
+    "newProductUrls": 4842
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Lululemon",
+   "origin": "https://shop.lululemon.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 512,
+   "storedEmpty": 511,
+   "storedCats": {
+    "tops": 247,
+    "shirts": 82,
+    "sweatshirts": 59,
+    "pants": 70,
+    "dresses": 54
+   },
+   "storedCatsInMap": {
+    "tops": [
+     92,
+     247
+    ],
+    "shirts": [
+     32,
+     82
+    ],
+    "sweatshirts": [
+     18,
+     59
+    ],
+    "pants": [
+     23,
+     70
+    ],
+    "dresses": [
+     8,
+     54
+    ]
+   },
+   "sitemap": {
+    "origin": "https://shop.lululemon.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://shop.lululemon.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 21,
+      "depth": 0
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Product_Sitemap_en_CA.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1671,
+      "depth": 1,
+      "lastmod": 1671
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Product_Sitemap_en_US.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1155,
+      "depth": 1,
+      "lastmod": 1155
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Product_Sitemap_fr_CA.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1660,
+      "depth": 1,
+      "lastmod": 1660
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Category_Parent_Sitemap_en_CA.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 18,
+      "depth": 1,
+      "lastmod": 18
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Category_Parent_Sitemap_en_US.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 18,
+      "depth": 1,
+      "lastmod": 18
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Category_Parent_Sitemap_fr_CA.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 18,
+      "depth": 1,
+      "lastmod": 18
+     }
+    ],
+    "children": {
+     "listed": 21,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 4540,
+    "productUrls": 4486,
+    "sample": [
+     "https://shop.lululemon.com/en-ca/p/slouchy-sling-bag-6l/a01fyqv11n",
+     "https://shop.lululemon.com/en-ca/p/wanderlust-backpack-small-grip-handle/a0h44gw96v",
+     "https://shop.lululemon.com/en-ca/p/lululemon-align-halter-bra-light-c-d/a17af89vpz"
+    ],
+    "locale": "",
+    "storedInMap": 173,
+    "storedChecked": 512,
+    "guessCats": {
+     "shirts": 287,
+     "pants": 644,
+     "tops": 600,
+     "dresses": 36,
+     "sweatshirts": 176
+    },
+    "newProductUrls": 4313
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Madewell",
+   "origin": "https://www.madewell.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 75,
+   "storedEmpty": 8,
+   "storedCats": {
+    "tops": 34,
+    "sweatshirts": 6,
+    "pants": 9,
+    "shirts": 18,
+    "dresses": 8
+   },
+   "storedCatsInMap": {
+    "tops": [
+     5,
+     34
+    ],
+    "sweatshirts": [
+     0,
+     6
+    ],
+    "pants": [
+     1,
+     9
+    ],
+    "shirts": [
+     0,
+     18
+    ],
+    "dresses": [
+     0,
+     8
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.madewell.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.madewell.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 7,
+      "depth": 0
+     },
+     {
+      "url": "https://www.madewell.com/sitemap_2-folder.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 50,
+      "depth": 1,
+      "lastmod": 50
+     },
+     {
+      "url": "https://www.madewell.com/sitemap_3.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1,
+      "depth": 1,
+      "lastmod": 1
+     },
+     {
+      "url": "https://www.madewell.com/sitemap-adeptmind.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 1,
+      "depth": 1
+     },
+     {
+      "url": "https://www.madewell.com/buy/sitemap_en_us.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 2,
+      "depth": 2
+     },
+     {
+      "url": "https://www.madewell.com/sitemap-custom-sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2601,
+      "depth": 1,
+      "lastmod": 2601
+     },
+     {
+      "url": "https://www.madewell.com/sitemap-custom-sitemap_1-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 77,
+      "depth": 1,
+      "lastmod": 77
+     },
+     {
+      "url": "https://www.madewell.com/sitemap_0-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1077,
+      "depth": 1,
+      "lastmod": 1077
+     }
+    ],
+    "children": {
+     "listed": 8,
+     "fetched": 5,
+     "blockedByRobots": []
+    },
+    "urls": 3806,
+    "productUrls": 2686,
+    "sample": [
+     "https://www.madewell.com/p/womens/clothing/sweaters/cardigans/the-sophia-cardigan-in-100-softwool/OB238/",
+     "https://www.madewell.com/p/womens/featured-shops/picksy-x-madewell-exclusive-sale/tees/the-easy-crop-scoopneck-tank-in-soft-slub/OA315/",
+     "https://www.madewell.com/p/womens/clothing/tops-shirts/tops/shirred-scoopneck-top/OA409/"
+    ],
+    "locale": "kr",
+    "storedInMap": 6,
+    "storedChecked": 75,
+    "guessCats": {
+     "tops": 436,
+     "pants": 742,
+     "dresses": 168,
+     "sweatshirts": 70,
+     "shirts": 10
+    },
+    "newProductUrls": 2686
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Mango",
+   "origin": "https://shop.mango.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 88,
+   "storedEmpty": 36,
+   "storedCats": {
+    "tops": 25,
+    "pants": 26,
+    "sweatshirts": 13,
+    "shirts": 11,
+    "dresses": 13
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     25
+    ],
+    "pants": [
+     0,
+     26
+    ],
+    "sweatshirts": [
+     0,
+     13
+    ],
+    "shirts": [
+     0,
+     11
+    ],
+    "dresses": [
+     0,
+     13
+    ]
+   },
+   "sitemap": {
+    "origin": "https://shop.mango.com",
+    "robots": {
+     "status": 429,
+     "challenge": "Vercel Security Checkpoint",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 88,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Massimo Dutti",
+   "origin": "https://www.massimodutti.com",
+   "listing": "home-only",
+   "product": "misread",
+   "stored": 606,
+   "storedEmpty": 602,
+   "storedCats": {
+    "tops": 78,
+    "pants": 398,
+    "shirts": 31,
+    "sweatshirts": 24,
+    "dresses": 75
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     78
+    ],
+    "pants": [
+     0,
+     398
+    ],
+    "shirts": [
+     0,
+     31
+    ],
+    "sweatshirts": [
+     0,
+     24
+    ],
+    "dresses": [
+     0,
+     75
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.massimodutti.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 4,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-index-home-categories-md.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 83,
+      "depth": 0
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-us-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 550,
+      "depth": 1,
+      "lastmod": 550
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-th-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 496,
+      "depth": 1,
+      "lastmod": 496
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-do-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 508,
+      "depth": 1,
+      "lastmod": 508
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-il-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 510,
+      "depth": 1,
+      "lastmod": 510
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-ua-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 540,
+      "depth": 1,
+      "lastmod": 540
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-kr-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 550,
+      "depth": 1,
+      "lastmod": 550
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-index-products-md.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 22,
+      "depth": 0
+     },
+     {
+      "url": "https://www.massimodutti.cn/3/info/sitemaps/sitemap-home-categories-md-cn-0.xml.gz",
+      "status": 523,
+      "kind": "",
+      "n": 0,
+      "depth": 0
+     },
+     {
+      "url": "https://www.massimodutti.cn/3/info/sitemaps/sitemap-products-md-cn-0.xml.gz",
+      "status": 523,
+      "kind": "",
+      "n": 0,
+      "depth": 0
+     }
+    ],
+    "children": {
+     "listed": 105,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 3154,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 606,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Paige",
+   "origin": "https://paige.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 61,
+   "storedEmpty": 29,
+   "storedCats": {
+    "tops": 30,
+    "sweatshirts": 11,
+    "shirts": 4,
+    "dresses": 8,
+    "pants": 8
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     30
+    ],
+    "sweatshirts": [
+     0,
+     11
+    ],
+    "shirts": [
+     0,
+     4
+    ],
+    "dresses": [
+     0,
+     8
+    ],
+    "pants": [
+     0,
+     8
+    ]
+   },
+   "sitemap": {
+    "origin": "https://paige.com",
+    "robots": {
+     "status": 429,
+     "challenge": "Vercel Security Checkpoint",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "en-kr",
+    "storedInMap": 0,
+    "storedChecked": 61,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Patagonia",
+   "origin": "https://www.patagonia.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 168,
+   "storedEmpty": 161,
+   "storedCats": {
+    "tops": 44,
+    "shirts": 28,
+    "sweatshirts": 10,
+    "pants": 83,
+    "dresses": 3
+   },
+   "storedCatsInMap": {
+    "tops": [
+     44,
+     44
+    ],
+    "shirts": [
+     28,
+     28
+    ],
+    "sweatshirts": [
+     10,
+     10
+    ],
+    "pants": [
+     83,
+     83
+    ],
+    "dresses": [
+     3,
+     3
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.patagonia.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 2,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.patagonia.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 4,
+      "depth": 0
+     },
+     {
+      "url": "https://www.patagonia.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 3657,
+      "depth": 1,
+      "lastmod": 3657
+     },
+     {
+      "url": "https://www.patagonia.com/sitemap_3.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 83,
+      "depth": 1,
+      "lastmod": 83
+     },
+     {
+      "url": "https://www.patagonia.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1060,
+      "depth": 1,
+      "lastmod": 1060
+     },
+     {
+      "url": "https://www.patagonia.com/sitemap_2-content.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2821,
+      "depth": 1,
+      "lastmod": 2821
+     },
+     {
+      "url": "https://www.patagonia.com/actionworks/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 16,
+      "depth": 0
+     },
+     {
+      "url": "https://www.patagonia.com/actionworks/attachment-sitemap.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 877,
+      "depth": 1,
+      "lastmod": 877
+     },
+     {
+      "url": "https://www.patagonia.com/actionworks/attachment-sitemap2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 797,
+      "depth": 1,
+      "lastmod": 797
+     }
+    ],
+    "children": {
+     "listed": 20,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 9295,
+    "productUrls": 4190,
+    "sample": [
+     "https://www.patagonia.com/product/lightweight-beach-towel/20031.html",
+     "https://www.patagonia.com/product/mens-re-tool-air-snap-t-pullover/20190.html",
+     "https://www.patagonia.com/product/womens-re-tool-air-snap-t-pullover/20195.html"
+    ],
+    "locale": "",
+    "storedInMap": 168,
+    "storedChecked": 168,
+    "guessCats": {
+     "sweatshirts": 454,
+     "shirts": 309,
+     "tops": 332,
+     "pants": 458,
+     "dresses": 88
+    },
+    "newProductUrls": 4022
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Prana",
+   "origin": "https://www.prana.com",
+   "listing": "blocked",
+   "product": "blocked",
+   "stored": 81,
+   "storedEmpty": 77,
+   "storedCats": {
+    "tops": 12,
+    "sweatshirts": 20,
+    "dresses": 17,
+    "pants": 32
+   },
+   "storedCatsInMap": {
+    "tops": [
+     9,
+     12
+    ],
+    "sweatshirts": [
+     16,
+     20
+    ],
+    "dresses": [
+     15,
+     17
+    ],
+    "pants": [
+     32,
+     32
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.prana.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "막음",
+     "archiver": "막음"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.prana.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 3,
+      "depth": 0
+     },
+     {
+      "url": "https://www.prana.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 331,
+      "depth": 1,
+      "lastmod": 331
+     },
+     {
+      "url": "https://www.prana.com/sitemap_2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 48,
+      "depth": 1,
+      "lastmod": 48
+     },
+     {
+      "url": "https://www.prana.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 218,
+      "depth": 1,
+      "lastmod": 218
+     }
+    ],
+    "children": {
+     "listed": 3,
+     "fetched": 3,
+     "blockedByRobots": []
+    },
+    "urls": 597,
+    "productUrls": 331,
+    "sample": [
+     "https://www.prana.com/p/koen-capri/1961601.html",
+     "https://www.prana.com/p/kanab-mid-rise-jogger/1962631.html",
+     "https://www.prana.com/p/organic-headband/1963121.html"
+    ],
+    "locale": "",
+    "storedInMap": 72,
+    "storedChecked": 81,
+    "guessCats": {
+     "pants": 60,
+     "shirts": 19,
+     "tops": 78,
+     "sweatshirts": 19,
+     "dresses": 19
+    },
+    "newProductUrls": 259
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Sezane",
+   "origin": "https://www.sezane.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 203,
+   "storedEmpty": 202,
+   "storedCats": {
+    "tops": 70,
+    "sweatshirts": 8,
+    "shirts": 28,
+    "dresses": 27,
+    "pants": 70
+   },
+   "storedCatsInMap": {
+    "tops": [
+     67,
+     70
+    ],
+    "sweatshirts": [
+     8,
+     8
+    ],
+    "shirts": [
+     28,
+     28
+    ],
+    "dresses": [
+     27,
+     27
+    ],
+    "pants": [
+     69,
+     70
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.sezane.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.sezane.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 19,
+      "depth": 0
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-en.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 11463,
+      "depth": 1,
+      "lastmod": 11463
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-fr.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 12232,
+      "depth": 1,
+      "lastmod": 12232
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-us-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 13162,
+      "depth": 1,
+      "lastmod": 13162
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-us-2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 9621,
+      "depth": 1,
+      "lastmod": 9621
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-eu-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 13174,
+      "depth": 1,
+      "lastmod": 13174
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-eu-2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 12950,
+      "depth": 1,
+      "lastmod": 12950
+     }
+    ],
+    "children": {
+     "listed": 19,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 72602,
+    "productUrls": 67942,
+    "sample": [
+     "https://www.sezane.com/en-en/product/childrens-t-shirt-demain/white-multicolour",
+     "https://www.sezane.com/en-en/product/paola-ring/gold",
+     "https://www.sezane.com/en-en/product/sara-pendant-9-carat-gold-letters-i-to-p/letter-i"
+    ],
+    "locale": "us-en",
+    "storedInMap": 199,
+    "storedChecked": 203,
+    "guessCats": {
+     "tops": 7991,
+     "pants": 1666,
+     "shirts": 4854,
+     "dresses": 3859,
+     "sweatshirts": 158
+    },
+    "newProductUrls": 67790
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "The white company",
+   "origin": "https://www.thewhitecompany.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 68,
+   "storedEmpty": 68,
+   "storedCats": {
+    "sweatshirts": 27,
+    "pants": 23,
+    "tops": 13,
+    "dresses": 5
+   },
+   "storedCatsInMap": {
+    "sweatshirts": [
+     27,
+     27
+    ],
+    "pants": [
+     23,
+     23
+    ],
+    "tops": [
+     13,
+     13
+    ],
+    "dresses": [
+     5,
+     5
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.thewhitecompany.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.thewhitecompany.com/uk/uk-sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 7,
+      "depth": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_Product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 4598,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_OurWorld.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 227,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_Homepage.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_CategoryLanding.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 22,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_Category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 425,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_Store.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 93,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 7,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 5366,
+    "productUrls": 4467,
+    "sample": [
+     "https://www.thewhitecompany.com/uk/London-Toy-Bus/p/LBUBA",
+     "https://www.thewhitecompany.com/uk/Vilac-Ride-On-Car-Toy/p/RIUBA",
+     "https://www.thewhitecompany.com/uk/Fragrance-Diffuser-Tray/p/CLDDS"
+    ],
+    "locale": "uk",
+    "storedInMap": 68,
+    "storedChecked": 68,
+    "guessCats": {
+     "tops": 562,
+     "pants": 229,
+     "dresses": 198,
+     "shirts": 72,
+     "sweatshirts": 101
+    },
+    "newProductUrls": 4409
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Theory",
+   "origin": "https://www.theory.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 390,
+   "storedEmpty": 14,
+   "storedCats": {
+    "tops": 63,
+    "shirts": 102,
+    "sweatshirts": 25,
+    "pants": 141,
+    "dresses": 59
+   },
+   "storedCatsInMap": {
+    "tops": [
+     59,
+     63
+    ],
+    "shirts": [
+     100,
+     102
+    ],
+    "sweatshirts": [
+     23,
+     25
+    ],
+    "pants": [
+     135,
+     141
+    ],
+    "dresses": [
+     54,
+     59
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.theory.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.theory.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 3,
+      "depth": 0
+     },
+     {
+      "url": "https://www.theory.com/sitemap_1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1716,
+      "depth": 1,
+      "lastmod": 1716
+     },
+     {
+      "url": "https://www.theory.com/sitemap-PD-sitemap.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 6,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.theory.com/sitemap_0-image.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1109,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 3,
+     "fetched": 3,
+     "blockedByRobots": []
+    },
+    "urls": 2831,
+    "productUrls": 2219,
+    "sample": [
+     "https://www.theory.com/men/mens-outerwear/morvek-zip-jacket-in-leather/F0170411_001.html",
+     "https://www.theory.com/women/blazers-and-jackets/etiennette-blazer-in-good-wool/H0101113_001.html",
+     "https://www.theory.com/women/blazers-and-jackets/etiennette-blazer-in-good-wool/H0101113_A08.html"
+    ],
+    "locale": "",
+    "storedInMap": 370,
+    "storedChecked": 389,
+    "guessCats": {
+     "pants": 342,
+     "tops": 492,
+     "sweatshirts": 68,
+     "dresses": 108,
+     "shirts": 4
+    },
+    "newProductUrls": 1497
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "WHBM",
+   "origin": "https://www.whitehouseblackmarket.com",
+   "listing": "partial",
+   "product": "partial",
+   "stored": 219,
+   "storedEmpty": 144,
+   "storedCats": {
+    "tops": 19,
+    "shirts": 38,
+    "dresses": 82,
+    "pants": 80
+   },
+   "storedCatsInMap": {
+    "tops": [
+     17,
+     19
+    ],
+    "shirts": [
+     36,
+     38
+    ],
+    "dresses": [
+     79,
+     82
+    ],
+    "pants": [
+     79,
+     80
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.whitehouseblackmarket.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 5,
+      "depth": 0
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap/products-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2406,
+      "depth": 1,
+      "lastmod": 2406
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/locations/stat/assets/sitemap-0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 644,
+      "depth": 1,
+      "lastmod": 644
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap/pages.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 47,
+      "depth": 1,
+      "lastmod": 47
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap/blog.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 92,
+      "depth": 1,
+      "lastmod": 92
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap/categories-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 314,
+      "depth": 1,
+      "lastmod": 314
+     }
+    ],
+    "children": {
+     "listed": 5,
+     "fetched": 5,
+     "blockedByRobots": []
+    },
+    "urls": 3503,
+    "productUrls": 2411,
+    "sample": [
+     "https://www.whitehouseblackmarket.com/store/product/pav-accent-wide-stretch-bracelet/570266522",
+     "https://www.whitehouseblackmarket.com/store/product/slim-ankle-comfort-stretch-pants/570293592",
+     "https://www.whitehouseblackmarket.com/store/product/mid-rise-pret-a-play-shorts/570302694"
+    ],
+    "locale": "",
+    "storedInMap": 211,
+    "storedChecked": 219,
+    "guessCats": {
+     "pants": 423,
+     "tops": 481,
+     "dresses": 581,
+     "shirts": 161,
+     "sweatshirts": 27
+    },
+    "newProductUrls": 2200
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Wilson",
+   "origin": "https://www.wilson.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 51,
+   "storedEmpty": 23,
+   "storedCats": {
+    "tops": 34,
+    "sweatshirts": 3,
+    "dresses": 10,
+    "pants": 4
+   },
+   "storedCatsInMap": {
+    "tops": [
+     20,
+     34
+    ],
+    "sweatshirts": [
+     3,
+     3
+    ],
+    "dresses": [
+     10,
+     10
+    ],
+    "pants": [
+     4,
+     4
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.wilson.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.wilson.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 78,
+      "depth": 0
+     },
+     {
+      "url": "https://www.wilson.com/en-us/sitemap_products_1.xml?from=10315295392058&to=10400406831418",
+      "status": 200,
+      "kind": "urlset",
+      "n": 689,
+      "depth": 1,
+      "lastmod": 688
+     },
+     {
+      "url": "https://www.wilson.com/en-us/sitemap_products_2.xml?from=10400406864186&to=10400478003514",
+      "status": 200,
+      "kind": "urlset",
+      "n": 533,
+      "depth": 1,
+      "lastmod": 533
+     },
+     {
+      "url": "https://www.wilson.com/en-us/sitemap_products_3.xml?from=10400478069050&to=15541525053754",
+      "status": 200,
+      "kind": "urlset",
+      "n": 460,
+      "depth": 1,
+      "lastmod": 460
+     },
+     {
+      "url": "https://www.wilson.com/sitemap_agentic_discovery.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.wilson.com/sitemap_products_1.xml?from=10315295392058&to=10400406831418",
+      "status": 200,
+      "kind": "urlset",
+      "n": 689,
+      "depth": 1,
+      "lastmod": 688
+     },
+     {
+      "url": "https://www.wilson.com/sitemap_products_2.xml?from=10400406864186&to=10400478003514",
+      "status": 200,
+      "kind": "urlset",
+      "n": 533,
+      "depth": 1,
+      "lastmod": 533
+     }
+    ],
+    "children": {
+     "listed": 78,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 2905,
+    "productUrls": 2902,
+    "sample": [
+     "https://www.wilson.com/en-us/products/a360-sp13-13-slowpitch-softball-glove-wbw100786",
+     "https://www.wilson.com/en-us/products/2026-a1000-h12-12-infield-fastpitch-glove-wbw102570",
+     "https://www.wilson.com/en-us/products/2026-a1000-t125-125-outfield-fastpitch-glove-wbw102571"
+    ],
+    "locale": "en-us",
+    "storedInMap": 37,
+    "storedChecked": 51,
+    "guessCats": {
+     "tops": 160,
+     "dresses": 51,
+     "sweatshirts": 27,
+     "pants": 40,
+     "shirts": 2
+    },
+    "newProductUrls": 2865
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  }
+ ]
+}

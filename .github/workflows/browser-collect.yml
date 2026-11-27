@@ -8,6 +8,7 @@ name: Headless browser collect
 #
 # 저장소의 browser-extra-brands.json 에 적힌 브랜드도 함께 돈다(서버 프리페치가 목록에서
 # 막히는 브랜드 · 브랜드마다 엔진을 고른다). 저장 조건이 더 엄격하다 — DAILY-AUTOMATION.md 참고.
+# 그 파일에서 "job" 이 적힌 브랜드(Oysho — 한 번에 약 46분)는 자기 잡에서 따로 돈다(docs/oysho-job.md).
 on:
   schedule:
     - cron: "30 18 * * *"   # UTC 18:30 = KST 03:30 — 서버 프리페치(03:00) 뒤에 이어서
@@ -68,14 +69,30 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # 두 잡이 동시에 돈다(시간 예산 85분을 나눠 쓰지 않도록).
+  # 세 잡이 동시에 돈다(시간 예산을 나눠 쓰지 않도록 — 잡마다 러너·예산이 따로다).
   #  · main  — Render browser 그룹(추가 브랜드 파일의 엔진·새 창 바꾸기 포함) → browser-collect-report.*
-  #  · extra — 추가 브랜드 파일의 새 브랜드만 → browser-collect-extra-report.*
+  #  · extra — 추가 브랜드 파일의 새 브랜드 중 "job" 이 없는 것 → browser-collect-extra-report.*
+  #  · oysho — 추가 브랜드 파일에서 "job": "oysho" 인 브랜드(Oysho 한 곳, 파이어폭스·새 창, 한 번에 약 46분)
+  #            → browser-collect-oysho-report.*  · 시간 예산 75분(공용 잡의 105분과 따로)
+  # budget: 시간 예산(분). 잡 시작부터 센다 — 설치에 쓴 시간만큼 줄어든다(최소 60).
   collect:
+    name: collect (${{ matrix.part }})
     strategy:
       fail-fast: false
       matrix:
-        part: [main, extra]
+        include:
+          - part: main
+            extra_mode: skip
+            extra_job: ""
+            budget: 105
+          - part: extra
+            extra_mode: only
+            extra_job: ""
+            budget: 105
+          - part: oysho
+            extra_mode: only
+            extra_job: oysho
+            budget: 75
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -158,22 +175,26 @@ jobs:
           ENGINE: ${{ github.event.inputs.engine }}
           FRESH_CONTEXT: ${{ github.event.inputs.fresh_context || '0' }}
           EXTRA_BRANDS_FILE: ${{ github.event.inputs.extra_file }}
-          EXTRA_MODE: ${{ matrix.part == 'main' && 'skip' || 'only' }}
+          EXTRA_MODE: ${{ matrix.extra_mode }}
+          EXTRA_JOB: ${{ matrix.extra_job }}
+          BUDGET_MIN: ${{ matrix.budget }}
           DIAG: ${{ github.event.inputs.diag }}
-          REPORT_TAG: ${{ github.event.inputs.report_tag && format('{0}-{1}{2}', github.event.inputs.report_tag, github.run_id, matrix.part == 'extra' && '-extra' || '') || (matrix.part == 'extra' && 'extra-report' || '') }}
-          # 측정 실행 여부는 사람이 준 report_tag 로만 판단한다. 야간 추가 브랜드 잡은 리포트 이름만
-          # 'extra-report' 로 따로 쓰는 운영 실행이라 저장해야 한다(2026-11-26 첫 야간에서 아래 가드에 걸려 0초 만에 멈췄다).
+          # 측정 실행인지는 '입력' report_tag 로만 판단한다. 아래 REPORT_TAG 는 야간 실행에서도
+          # extra/oysho 잡이면 'extra-report'·'oysho-report' 가 들어가 비어 있지 않다.
           MEASURE_TAG: ${{ github.event.inputs.report_tag }}
+          REPORT_TAG: ${{ github.event.inputs.report_tag && format('{0}-{1}{2}', github.event.inputs.report_tag, github.run_id, matrix.part != 'main' && format('-{0}', matrix.part) || '') || (matrix.part != 'main' && format('{0}-report', matrix.part) || '') }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
         run: |
           if [ -z "$DEADLINE_MIN" ]; then
             used=$(( ( $(date +%s) - JOB_START ) / 60 ))
-            DEADLINE_MIN=$(( 105 - used )); [ "$DEADLINE_MIN" -lt 60 ] && DEADLINE_MIN=60
+            DEADLINE_MIN=$(( BUDGET_MIN - used )); [ "$DEADLINE_MIN" -lt 60 ] && DEADLINE_MIN=60
             export DEADLINE_MIN
           fi
           echo "시간 예산: ${DEADLINE_MIN}분"
-          echo "STORE: $STORE · 잡: ${{ matrix.part }}(EXTRA_MODE=$EXTRA_MODE) · REPORT_TAG: ${REPORT_TAG:-(운영 리포트)} · EXTRA: ${EXTRA_BRANDS_FILE:-browser-extra-brands.json}"
+          echo "STORE: $STORE · 잡: ${{ matrix.part }}(EXTRA_MODE=$EXTRA_MODE${EXTRA_JOB:+ · EXTRA_JOB=$EXTRA_JOB}) · REPORT_TAG: ${REPORT_TAG:-(운영 리포트)} · EXTRA: ${EXTRA_BRANDS_FILE:-browser-extra-brands.json}"
           # 측정 실행이 저장까지 하면 운영 카탈로그를 바꾼다 — 막는다.
+          # $REPORT_TAG 가 아니라 $MEASURE_TAG(입력)를 본다 — 야간 extra/oysho 잡은 REPORT_TAG 가
+          # 'extra-report'·'oysho-report' 라서, 예전 검사($REPORT_TAG)로는 야간 저장 실행이 여기서 멈췄다.
           if [ -n "$DIAG" ] && [ -z "$MEASURE_TAG" ]; then echo "::error::diag 는 report_tag(측정 실행)와 함께만"; exit 1; fi
           if [ -n "$MEASURE_TAG" ] && [ "$STORE" != "0" ]; then echo "::error::report_tag(측정 실행)는 store=0 으로만 돌린다"; exit 1; fi
           node scripts/browser-collect.mjs
@@ -214,8 +235,8 @@ jobs:
           done
           echo "::warning::report push failed after retries"
 
-  # 두 잡이 끝나면 추가 브랜드 잡 결과를 아침 리포트(browser-collect-report.md) 끝에 붙인다.
-  # 그 잡이 실패했거나 결과가 오래되면 ⚠ 로 적힌다(owner 는 이 파일 하나만 본다). 측정 실행(report_tag)은 건너뛴다.
+  # 세 잡이 끝나면 추가 브랜드 잡·Oysho 잡 결과를 아침 리포트(browser-collect-report.md) 끝에 붙인다.
+  # 어느 잡이든 실패했거나 결과가 오래되면 ⚠ 로 적힌다(owner 는 이 파일 하나만 본다). 측정 실행(report_tag)은 건너뛴다.
   combine:
     needs: collect
     if: ${{ always() && !github.event.inputs.report_tag }}
@@ -237,7 +258,7 @@ jobs:
             git reset --hard origin/${{ github.ref_name }}
             node scripts/combine-collect-reports.mjs
             git add -- browser-collect-report.md
-            git commit -m "browser-collect: 아침 리포트에 추가 브랜드 잡 붙임" || exit 0
+            git commit -m "browser-collect: 아침 리포트에 추가 브랜드 잡·Oysho 잡 붙임" || exit 0
             git push origin HEAD:${{ github.ref_name }} && exit 0
             sleep 5
           done

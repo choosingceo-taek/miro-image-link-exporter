@@ -63,6 +63,10 @@ const GROUP = (process.env.GROUP || "browser").toLowerCase();
 // 야간 실행은 두 잡으로 나눠 동시에 돈다(skip 잡 + only 잡) — 한 잡이면 85분 예산을 넘는다.
 const EXTRA_MODE = ["skip", "only"].includes(String(process.env.EXTRA_MODE || "").toLowerCase())
   ? String(process.env.EXTRA_MODE).toLowerCase() : "with";
+// EXTRA_JOB: 추가 브랜드 파일에서 "job" 이 적힌 브랜드는 자기 잡에서만 돈다(한 브랜드가 오래 걸려
+// 공용 잡의 시간 예산을 다 쓰는 경우 — 예: Oysho 46분). EXTRA_MODE=only 잡은 job 이 이 값과 같은
+// 브랜드만 고른다(비우면 job 이 없는 브랜드만). skip 잡(Render 그룹)에는 어느 쪽도 들어가지 않는다.
+const EXTRA_JOB = String(process.env.EXTRA_JOB || "").trim().toLowerCase();
 const REPORT_BASE = process.env.REPORT_TAG ? `browser-collect-${String(process.env.REPORT_TAG).replace(/[^\w.-]/g, "")}` : "browser-collect-report";
 const DRY_PLAN = process.env.DRY_PLAN === "1";
 
@@ -255,7 +259,7 @@ function targetsFromLastReport() {
         brand: r.brand, site: r.site, urls: r.perUrl.map((u) => u.url).filter(Boolean),
         // 지난 실행에서 브랜드별로 정해 둔 엔진(추가 브랜드 파일)을 이어 쓴다.
         ...(/^extra/.test(r.engineSource || "") && ENGINES.includes(r.engine)
-          ? { engine: r.engine, source: "extra", fresh: !!r.fresh, storeMode: r.storeMode === "merge" ? "merge" : "replace" } : {}),
+          ? { engine: r.engine, source: "extra", fresh: !!r.fresh, storeMode: r.storeMode === "merge" ? "merge" : "replace", job: String(r.job || "") } : {}),
       }));
   } catch (e) { return []; }
 }
@@ -264,6 +268,7 @@ let configNote = "";
 const extraNotes = [];   // 추가 브랜드 파일을 읽다가 건너뛴 사유
 // 추가 브랜드 파일. 형식: { "brands": [ { "brand": "Prana", "engine": "firefox", "urls": [선택], "evidence": "…" } ] }
 //   fresh: true      카테고리 URL 마다 쿠키가 빈 새 창(첫 페이지만 열리고 다음부터 403 인 사이트)
+//   job: "oysho"     이 브랜드는 자기 잡(EXTRA_JOB=oysho)에서만 돈다 — 공용 추가 브랜드 잡에서 빠진다
 //   store: "merge"   저장할 때 통째로 갈아끼우지 않고 합친다 — 서버 프리페치가 채워 온 카탈로그
 //                    (옛 수집분이 쌓여 있다)를 이 수집이 줄이지 않게. 기본은 "replace".
 function loadExtras() {
@@ -281,7 +286,8 @@ function loadExtras() {
     const engine = String(x.engine || "chromium").toLowerCase();
     if (!ENGINES.includes(engine)) { extraNotes.push(`${brand}: 모르는 엔진 "${x.engine}" — 건너뜀`); continue; }
     const urls = (Array.isArray(x.urls) ? x.urls : []).filter((u) => /^https?:\/\//i.test(u));
-    out.push({ brand, engine, urls, fresh: x.fresh === true, storeMode: x.store === "merge" ? "merge" : "replace" });
+    const job = String(x.job || "").trim().toLowerCase().replace(/[^a-z0-9-]/g, "");
+    out.push({ brand, engine, urls, fresh: x.fresh === true, storeMode: x.store === "merge" ? "merge" : "replace", job });
   }
   return out;
 }
@@ -352,12 +358,12 @@ async function buildTargets() {
       if (!urls.length) { extraNotes.push(`${x.brand}: 카테고리 URL 이 없어 건너뜀(category-links.json 에도, 추가 파일에도 없음)`); continue; }
       const b = byName.get(key);
       const name = (b && b.name) || x.brand;
-      const t = { brand: name, site: siteKeyOf(name, (b && b.url) || urls[0]), urls, engine: x.engine, source: "extra", fresh: x.fresh, storeMode: x.storeMode };
+      const t = { brand: name, site: siteKeyOf(name, (b && b.url) || urls[0]), urls, engine: x.engine, source: "extra", fresh: x.fresh, storeMode: x.storeMode, job: x.job };
       const i = groups.findIndex((g) => g.brand.toLowerCase() === key);   // BRANDS 로 이미 고른 경우
       if (i >= 0) groups[i] = t; else groups.push(t);
     }
   }
-  if (EXTRA_MODE === "only") return groups.filter((g) => g.source === "extra");
+  if (EXTRA_MODE === "only") return groups.filter((g) => g.source === "extra" && String(g.job || "") === EXTRA_JOB);
   if (EXTRA_MODE === "skip") return groups.filter((g) => g.source !== "extra");
   return groups;
 }
@@ -376,7 +382,7 @@ const targets = await buildTargets();
 for (const n of extraNotes) console.warn("추가 브랜드: " + n);
 if (!targets.length) {
   // 두 잡으로 나눈 실행(EXTRA_MODE)에서 한쪽에 할 일이 없는 것은 실패가 아니다(예: BRANDS 로 추가 브랜드만 고름).
-  if (EXTRA_MODE !== "with" && !configNote) { console.log(`대상 없음(EXTRA_MODE=${EXTRA_MODE}) — 이 잡은 할 일이 없습니다`); process.exit(0); }
+  if (EXTRA_MODE !== "with" && !configNote) { console.log(`대상 없음(EXTRA_MODE=${EXTRA_MODE}${EXTRA_JOB ? " · EXTRA_JOB=" + EXTRA_JOB : ""}) — 이 잡은 할 일이 없습니다`); process.exit(0); }
   console.error("no targets" + (configNote ? " — " + configNote : "")); process.exit(1);
 }
 // 마감에 걸리면 늘 뒤쪽 브랜드만 밀린다. 시작 위치를 날마다 돌려 밀리는 브랜드가 매일 같지 않게 한다.
@@ -624,7 +630,7 @@ for (const g of targets) {
   const secs = Math.round((Date.now() - t0) / 1000);
   results.push({
     brand: g.brand, site: g.site, engine: g.engine, engineSource: g.source || (ENGINE_ENV ? "env" : "default"),
-    fresh: !!(g.fresh || FRESH_CONTEXT), storeMode: g.storeMode || "replace",
+    fresh: !!(g.fresh || FRESH_CONTEXT), storeMode: g.storeMode || "replace", ...(g.job ? { job: g.job } : {}),
     collected: items.length, stored, storeErr, cats, perUrl, secs, dropped, cut,
     // 무엇이 잡혔는지 눈으로 확인할 수 있게 표본을 남긴다(선택자 오작동 진단용).
     sample: items.slice(0, 5).map((it) => ({ name: it.name, productUrl: it.productUrl })),
@@ -685,7 +691,7 @@ for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요
 // 지난 리포트가 아니라 오늘 대상(targets)에서 가져온다 — 오늘 설정 파일로 새로 들어온 브랜드는
 // 지난 리포트에 없어서, 미루는 순간 다음 대체 실행 목록에서 빠졌다.
 const carry = targets.filter((t) => deferred.some((d) => d.brand === t.brand) && !results.some((r) => r.brand === t.brand));
-const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, engine: t.engine, engineSource: t.source || (ENGINE_ENV ? "env" : "default"), collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
+const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, engine: t.engine, engineSource: t.source || (ENGINE_ENV ? "env" : "default"), ...(t.job ? { job: t.job, fresh: !!t.fresh, storeMode: t.storeMode } : {}), collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
 writeFileSync(join(REPORT_DIR, REPORT_BASE + ".json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, engine: ENGINE_ENV || "per-brand", engines: enginesUsed, freshContext: FRESH_CONTEXT, configNote, extraNotes, deferred, results: keep }, null, 1));
 writeFileSync(join(REPORT_DIR, REPORT_BASE + ".md"), md);
 console.log(`\n자동화 가능 ${auto.length} / 확장 필요 ${blk.length} / 보완 필요 ${fix.length}`);

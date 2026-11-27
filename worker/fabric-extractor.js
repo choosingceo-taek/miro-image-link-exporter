@@ -146,7 +146,7 @@ export default {
         // JSON-LD 의 소재는 옳을 때만 먼저 쓴다(옳지 않으면 본문으로 — Buck Mason).
         const ldOk = ld.composition && ld.composition.length && validComp(ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / '));
         const compList = ldOk ? ld.composition
-          : (fromHtml.length ? fromHtml : (fromText.length ? fromText : compFromPartsJson(page.html || '', compUrl)));
+          : (fromHtml.length ? fromHtml : (fromText.length ? fromText : (partsOwnerOk(page.html || '', compUrl) ? compFromPartsJson(page.html || '', compUrl) : [])));
         const comp = compList.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
         const sizes = (sp.sizes && sp.sizes.length ? sp.sizes : (ld.sizes || [])).slice(0, 30).join(', ');
         // 상품 상세(설명·디테일·사진 전부·컬러 전부·코드·통화·재고 사이즈) — 아래 '상품 상세(detail) 추출' 구간.
@@ -794,7 +794,7 @@ async function extractFabric(url, apiKey) {
   const plainComp = htmlComp.length ? [] : compFromText(page.text);
   const ldOk = ld.composition && ld.composition.length && validComp(ld.composition.map((c) => c.material + ' ' + c.percent + '%').join(' / '));
   const textComp = ldOk ? ld.composition
-    : (htmlComp.length ? htmlComp : (plainComp.length ? plainComp : compFromPartsJson(page.html || '', url)));
+    : (htmlComp.length ? htmlComp : (plainComp.length ? plainComp : (partsOwnerOk(page.html || '', url) ? compFromPartsJson(page.html || '', url) : [])));
   // 상품 상세(설명·디테일·사진 전부 …) — 응답에 함께 싣는다(AI 와 무관, 구조화 데이터·본문 칸에서).
   const det = detailOf(page.html || '', url, page.shopifyRaw || null);
   const detBits = { desc: det.desc || '', feat: det.feat || [], imgs: det.imgs || [], colors: det.colors || [],
@@ -1149,6 +1149,17 @@ const FIBRES = {
   ecovero: 'Viscose', micromodal: 'Modal', 'micro modal': 'Modal', 'sea cell': 'Lyocell',
   // 금속사 — Oasis 는 "Main: 60% Nylon, 40% Metal", "8% Metallic" 로 적는다. 모르면 겉감 줄이 조각이 되어 안감 줄이 대신 뽑혔다.
   metallic: 'Metallic', 'metallic fibre': 'Metallic', 'metallic fiber': 'Metallic', metal: 'Metallic', lurex: 'Metallic',
+  // 2026-11-26 Mint velvet "31% metallised fibre, 69% viscose" · ba&sh "62% VISCOSE / 38% METALLIZED FIBER" — 철자만 다른 금속사.
+  'metallised fibre': 'Metallic', 'metallized fibre': 'Metallic', 'metallised fiber': 'Metallic', 'metallized fiber': 'Metallic',
+  // 2026-11-26 ba&sh 데님 "92% COTTON / 6% ELASTOMULTIESTER / 2% ELASTANE" — 폴리에스테르계 신축사(EU 섬유 이름 그대로 둔다).
+  elastomultiester: 'Elastomultiester',
+  // 2026-11-26 Poetry "50% hemp 44% organic cotton 6% yak" — 야크 털을 몰라 합 94% 조각이 되어 통째로 비었다.
+  yak: 'Yak',
+  // 줄임말 — 2026-11-26 Dickies "77%Poly 20%Rayon 3%Spandex" · "55%CTN 34%POLY 8%NYLON 3%SPAN". 퍼센트 바로 뒤에서만 섬유로
+  // 읽힌다(COMP_RX 의 앞 방향은 수식어가 없을 때 이 낱말 자체가 섬유 자리다). 두 글자 줄임말(PA·EL·CO)은 오탐이 커서 넣지 않는다.
+  poly: 'Polyester', ctn: 'Cotton', span: 'Elastane',
+  // 프랑스어 표기 — 2026-11-26 ba&sh 프랑스어 페이지 "85% LAINE / 14% POLYAMIDE / 1% ELASTHANNE". 'lin'(리넨)은 짧아 오탐이 커서 뺀다.
+  laine: 'Wool', coton: 'Cotton', soie: 'Silk', cachemire: 'Cashmere', 'élasthanne': 'Elastane', elasthanne: 'Elastane',
   // 한국어 표기. 한 글자짜리(면·울)는 '화면'·'서울' 같은 낱말에 걸려 오탐이 나므로 뺀다.
   폴리에스테르: 'Polyester', 나일론: 'Nylon', 스판덱스: 'Elastane', 레이온: 'Viscose',
   모달: 'Modal', 리넨: 'Linen', 실크: 'Silk', 캐시미어: 'Cashmere', 아크릴: 'Acrylic',
@@ -1182,6 +1193,14 @@ const MOD_BAD_RX = /\b(off|sale|extra|save|discount|up|only|from|code|order|ship
 //    진짜 소재("Waffle Thermal: 60% Cotton, 40% Polyester")와 섞여 판단을 못 하거나, 메뉴 값이 그대로 저장됐다.
 const PCT_THEN_FIBRE_RX = new RegExp('^\\d{1,3}\\s*%\\s*(?:of\\s+)?(?:[A-Za-z™®\'’-]{2,20}\\s+){0,4}?(?:' + FIBRE_ALT + ')(?![A-Za-z])', 'i');
 const NAV_AFTER_RX = /^\s+(?:shop|collection|edit|essentials|capsule|store)\b/i;
+// 상표 이름 뒤에 섬유의 일반 이름이 붙은 표기 — 일반 이름이 섬유다. 2026-11-26 Spanx "44% Tencel™ Modal"(텐셀은 상표 — 모달인데
+// Lyocell 로 읽혔다) · Poetry "79% TENCEL™ lyocell 21% virgin wool"(뒤의 'lyocell 21%' 를 섬유+퍼센트로 다시 읽어 조각이 됐다) ·
+// Athleta "25% LYCRA® Elastane". 상표 뒤의 일반 이름까지 한 항목으로 먹고, 섬유는 일반 이름으로 적는다(m.fibKey).
+const BRAND_FIBRE_RX = /^(?:tencel|lycra|ecovero)$/i;
+const ABBR_FIBRE_RX = /^(?:poly|ctn|span)$/i;
+// 같은 섬유의 다른 이름이 바로 붙은 표기도 한 항목이다 — 2026-11-26 Banana Republic "84% viscose rayon, 15% LENZING™ ECOVERO™
+// (viscose rayon), 1% elastane spandex": 'rayon'·'(viscose rayon)'·'spandex' 꼬리 때문에 같은 섬유 둘이 이어지지 못해 통째로 비었다.
+const BRAND_TAIL_RX = new RegExp('^\\s*[\u2122\u00ae]?\\s*\\(?\\s*(' + FIBRE_ALT + ')(?![A-Za-z])(?:\\s+(?:' + FIBRE_ALT + ')(?![A-Za-z]))?\\s*\\)?', 'i');
 function compMatchAll(src) {
   const rx = new RegExp(COMP_RX.source, 'gi');
   const out = [];
@@ -1193,10 +1212,22 @@ function compMatchAll(src) {
       if (PCT_THEN_FIBRE_RX.test(src.slice(pctAt, pctAt + 120))) { rx.lastIndex = pctAt; continue; }
     }
     if (NAV_AFTER_RX.test(src.slice(m.index + m[0].length, m.index + m[0].length + 20))) continue;
+    // 줄임말(poly·ctn·span)은 퍼센트 바로 뒤에 수식어 없이 붙었을 때만 섬유다 — "Wing span 100%"·"100% of the span" 같은 글을 섬유로 읽지 않게.
+    if (ABBR_FIBRE_RX.test(String(g.fibr || '').trim()) || (ABBR_FIBRE_RX.test(String(g.fibf || '').trim()) && String(g.modf || '').trim())) continue;
+    if (g.fibf) {
+      const end = m.index + m[0].length;
+      const tail = src.slice(end, end + 40).match(BRAND_TAIL_RX);
+      const own = FIBRES[g.fibf.toLowerCase().trim()];
+      if (tail && BRAND_FIBRE_RX.test(g.fibf.trim()) && !BRAND_FIBRE_RX.test(tail[1])) { m.fibKey = tail[1]; m.tailEnd = end + tail[0].length; rx.lastIndex = m.tailEnd; }
+      else if (tail && FIBRES[tail[1].toLowerCase()] === own && !/\d/.test(tail[0])) { m.tailEnd = end + tail[0].length; rx.lastIndex = m.tailEnd; }
+    }
     out.push(m);
   }
   return out;
 }
+// 이 자리의 섬유 이름(상표 뒤 일반 이름이 있으면 그것)
+const fibKeyOf = (m) => String(m.fibKey || m.groups.fibf || m.groups.fibr || '').toLowerCase().trim();
+const matchEnd = (m) => m.tailEnd || (m.index + m[0].length);
 
 // 두 원단(겉감/안감 등)으로 볼 수 있는 거리. 두 벌이 이보다 멀리 떨어져 있고 둘 다 부위 이름
 // (OUTER SHELL · LINING …)이 붙어 있지 않으면, 한 옷의 두 원단이 아니라 서로 다른 곳에서 온
@@ -1218,8 +1249,8 @@ function bareRunAt(src) {
   const ms = [];
   for (const m of compMatchAll(String(src || ''))) {
     const g = m.groups;
-    const fib = FIBRES[String(g.fibf || g.fibr || '').toLowerCase().trim()];
-    if (fib) ms.push({ at: m.index, end: m.index + m[0].length, pct: Number(g.pctf || g.pctr), fib });
+    const fib = FIBRES[fibKeyOf(m)];
+    if (fib) ms.push({ at: m.index, end: matchEnd(m), pct: Number(g.pctf || g.pctr), fib });
   }
   const out = new Set();
   for (let i = 0; i < ms.length;) {
@@ -1236,9 +1267,13 @@ function bareRunAt(src) {
 // 부위 이름 — 겉감(main)이 보이면 장식(trim·rib·주머니 안감 …) 줄은 혼용률이 아니다. 2026-11-25 Boden:
 // "Main: 50% recycled polyester, 30% polyester, 20% elastane · Trims: 100% polyester" 에서 겉감이 같은 섬유 두 번
 // (재생 폴리 + 폴리)이라 조각으로 끊기고, 온전한 한 벌인 장식 줄 "Polyester 100%" 만 남아 저장됐다.
-const PART_MINOR_RX = /(?<![A-Za-z])(?:trims?|trimming|rib(?:bing|bed)?|pocket(?:\s+lining)?|pocketing|contrast|combo|embroidery|lace|cuffs?|collar|binding|piping|insert|applique|appliqué|패치|배색)(?![A-Za-z])[^%]{0,24}$/i;
+// 'secondary fabric' · 'tertiary fabric' — 2026-11-26 Vanessa Bruno "Composition : 100% viscose. Secondary fabric 100% cotton. Embroidery 100% polyester"
+// (배색 원단 — combo 와 같이 본다).
+const PART_MINOR_RX = /(?<![A-Za-z])(?:trims?|trimming|rib(?:bing|bed)?|pocket(?:\s+lining)?|pocketing|contrast|combo|secondary(?:\s+fabric)?|tertiary(?:\s+fabric)?|embroidery|lace|cuffs?|collar|binding|piping|insert|applique|appliqué|패치|배색)(?![A-Za-z])[^%]{0,24}$/i;
 const PART_LINING_RX = /(?<![A-Za-z])(?:lining|lined|안감)(?![A-Za-z])[^%]{0,24}$/i;
-const PART_MAIN_RX = /(?<![A-Za-z])(?:main|shell|outer|body|self|base\s+fabric|겉감)(?![A-Za-z])[^%]{0,24}$/i;
+// 하이픈에 붙은 낱말은 부위 이름이 아니다 — 2026-11-26 Spanx: 깨진 클래스 글 'leading-[var(--body-leading)]"> Bodice:' 의 'body' 를
+// 겉감으로 읽어 'Bottom:' 줄을 장식으로 뺐다.
+const PART_MAIN_RX = /(?<![A-Za-z-])(?:main|shell|outer|body|self|base\s+fabric|겉감)(?![A-Za-z-])[^%]{0,24}$/i;
 function partRole(src, at, end) {
   // 값 뒤 괄호에 부위가 붙는 표기가 먼저다 — Tuckernuck "100% Cotton (outer), 100% Viscose (embroidery), 100% Polyester (lace)"
   // (앞쪽 40자에는 앞 줄의 "(outer)," 가 들어 있어 앞에서 찾으면 틀린다)
@@ -1255,9 +1290,16 @@ function partRole(src, at, end) {
   return '';
 }
 // 소재 제목("Materials & Care" · "Composition:" · "Fabric content") 바로 뒤에 온 줄 — 여러 조성이 섞인 창에서 이 상품의 것.
-const COMP_TITLE_RX = /(?:composition|materials?(?:\s*(?:&|and)\s*care)?|fabric(?:\s+content)?|content|소재|혼용률?)\s*[:：]?\s*$/i;
+// 'Fabric & care' 도 소재 제목이다 — 2026-11-26 Gap 계열(Gap·Old Navy·Banana Republic·Athleta)이 이 제목을 쓰고, 같은 창의 추천 카드 이름
+// "100% Cotton Track Sweater Pants" 가 둘째 조성으로 잡혀 통째로 비었다.
+const COMP_TITLE_RX = /(?:composition|materials?(?:\s*(?:&|and)\s*care)?|fabric(?:\s+content|\s*(?:&|and)\s*care)?|content|소재|혼용률?)\s*[:：]?\s*$/i;
 // 같은 섬유가 쉼표·빗금만 사이에 두고 곧바로 다시 나오면(재생 폴리 + 폴리) 한 벌 안의 같은 섬유다 — 더한다.
 const SAME_FIBRE_GAP_RX = /^[\s,;\/&+]*(?:and\s+)?$/i;
+// 쉼표로 이어진 한 목록 안에 부위 이름이 끼면 거기서 한 벌이 끝난다 — 2026-11-26 Mint Velvet
+// "Composition: Main, 41% polyamide, 59% viscose,lining, 3% elastane, 97% polyester": 겉감(100%) 뒤 3% 가 105% 안이라 겉감에
+// 붙고, 97% 에서 넘쳐 '합 100% 넘는 목록'으로 통째로 버려졌다. 부위 이름 뒤에 콜론이 오거나(Lining:) 안감·Main N 뒤에 쉼표가 오면 끊는다.
+const ITEM_GAP = 120;
+const PART_BREAK_RX = /(?<![A-Za-z])(?:(?:lining|main(?:\s*\d+)?|shell|outer(?:\s+shell)?|body|trims?|contrast|pocket(?:ing|\s+lining)?|rib|lace|insert)\s*[:：]|(?:lining|main\s*\d+)\s*,)/i;
 function compFromText(text) {
   // 한 옷에 원단이 두 가지인 경우가 있다 — 겉감/안감, 몸판/배색, 색상별 사양.
   //   "Shell: 100% Cotton. Lining: 100% Polyester"
@@ -1275,15 +1317,20 @@ function compFromText(text) {
     const g = m.groups;
     const pct = Number(g.pctf || g.pctr);
     const mods = String(g.modf || g.modr || '');
-    const key = String(g.fibf || g.fibr || '').toLowerCase().trim();
+    const key = fibKeyOf(m);
     const material = FIBRES[key];
     if (!material || !Number.isFinite(pct) || pct <= 0 || pct > 100) continue;
     // "20% off cotton tees" 같은 판촉 문구를 소재로 읽지 않는다.
     if (mods && MOD_BAD_RX.test(mods)) continue;
+    // 목록 안에 부위 이름(Lining: · ",lining," · ",main 2,")이 끼면 앞 벌을 닫는다(PART_BREAK_RX).
+    if (cur.length && PART_BREAK_RX.test(src.slice(gEnd, m.index))) flush();
+    // 한 목록의 항목은 붙어 있다 — 120자 넘게 떨어진 퍼센트는 다른 글이다. 2026-11-26 Gap: 설명의 "Made with 14% recycled
+    // polyester" 와 몇 문장 뒤 "Fabric & care 86% Cotton, 14% Recycled Polyester" 가 한 벌로 묶였다.
+    if (cur.length && m.index - gEnd > ITEM_GAP) flush();
     // 같은 섬유가 곧바로 다시 나오면(재생 폴리 + 폴리) 더한다(SAME_FIBRE_GAP_RX).
     if (cur.length && seen.has(material) && total + pct <= 105 && SAME_FIBRE_GAP_RX.test(src.slice(gEnd, m.index))) {
       cur.find((c) => c.material === material).percent += pct;
-      total += pct; gEnd = m.index + m[0].length;
+      total += pct; gEnd = matchEnd(m);
       continue;
     }
     // 같은 섬유가 다시 나오거나 합이 100 을 넘기려 하면 한 벌이 끝난 것이다.
@@ -1291,7 +1338,7 @@ function compFromText(text) {
     if (cur.length && (seen.has(material) || total + pct > 105)) flush();
     if (!cur.length) gStart = m.index;
     cur.push({ material, percent: pct });
-    gEnd = m.index + m[0].length;
+    gEnd = matchEnd(m);
     total += pct;
     seen.add(material);
     if (cur.length >= 8) flush();
@@ -1311,6 +1358,10 @@ function compFromText(text) {
     // 부위 이름이 없는 줄도 뺀다 — 설명 글의 "100% Wool 100% Cotton" 처럼 겉감·장식을 이름 없이 늘어놓은 줄이
     // 'Body: 100% wool · Trim: 100% cotton' 보다 앞에 오면 장식이 둘째 줄로 붙었다(Rag & bone Lucy henley).
     for (let i = groups.length - 1; i >= 0; i--) if (groups[i].role !== 'main' && groups[i].role !== 'lining') groups.splice(i, 1);
+  } else if (groups.some((g) => g.role === 'minor') && groups.some((g) => g.role !== 'minor' && (() => { const t = g.items.reduce((n, c) => n + c.percent, 0); return t >= 95 && t <= 105; })())) {
+    // 겉감이라는 이름은 없어도 이름 없는 온전한 한 벌이 있으면 장식·배색(minor) 줄은 뺀다 —
+    // Vanessa Bruno "Composition : 100% viscose. Secondary fabric 100% cotton. Embroidery 100% polyester" 는 세 줄이라 통째로 비었다.
+    for (let i = groups.length - 1; i >= 0; i--) if (groups[i].role === 'minor') groups.splice(i, 1);
   }
 
   const asLine = (g) => g.items.map((c) => c.material + ' ' + c.percent + '%').join(' / ');
@@ -1325,6 +1376,12 @@ function compFromText(text) {
     const t = g.items.reduce((n, c) => n + c.percent, 0);
     return t >= 95 && t <= 105;
   });
+  // 다른 줄의 일부를 되풀이한 줄은 뺀다 — 2026-11-26 Everlane "Materials: 97% Organic Cotton 3% Elastane Why It's Better This style is
+  // made with 97% organic cotton" 이 'Cotton 97% / Elastane 3% ‖ Cotton 97%' 두 줄이 됐다(97% 하나도 95~105 라 '온전한 한 벌'로 쳤다).
+  for (let i = whole.length - 1; i >= 0; i--) {
+    const g = whole[i];
+    if (whole.some((o) => o !== g && o.items.length > g.items.length && g.items.every((c) => o.items.some((x) => x.material === c.material && x.percent === c.percent)))) whole.splice(i, 1);
+  }
   // 같은 줄이 반복되면 한 번만 ("100% Cotton ... 100% Cotton lining").
   const uniq = [];
   const seenLine = new Set();
@@ -1455,10 +1512,33 @@ function compFromHtml(html) {
   // 스크립트 경로는 여러 상품이 섞이기 쉽다. 줄이 나뉘어 있으면(원단 두 가지)
   // 그건 한 상품의 표기가 아니라 다른 상품이 섞인 것으로 본다 — 본문과 달리
   // 여기서는 어느 상품의 것인지 확인할 방법이 없다.
-  if (out.some((c) => (c.line || 0) > 0)) return [];
+  // 단, "Composition: Main, …,main 2, …" 처럼 이 상품의 소재 문자열이 부위 이름과 함께 통째로 있으면 그 두 줄은 한 상품의 것이다 —
+  // 2026-11-26 Mint Velvet: 평 fetch 로 받은 HTML 에는 소재가 테마 설정 JSON('"content": " Composition: Main, 52% polyamide, 48% viscose,
+  // main 2, 84% lyocell, 16% polyester "')에만 있어 두 줄이라는 이유로 버려졌다(측정 실행 45779388161 표본).
+  if (out.some((c) => (c.line || 0) > 0)) return LABELLED_COMP_RX.test(win) ? out : [];
   const total = out.reduce((n, c) => n + c.percent, 0);
   return total > 105 ? [] : out;   // 여러 상품이 섞였을 가능성 — 버린다
 }
+// ── 페이지 JSON(parts/components) 소재가 이 상품의 것인가 ───────────────────
+// Massimo Dutti 형 페이지는 색상마다 상품 객체가 있고, 객체마다 "reference":"C<상품번호><색상>-…" 가 먼저 오고 그 뒤에
+// "compositionDetail":{"parts":[…]} 가 온다. 주소의 상품번호(…-l06863575)와 '바로 앞 reference' 가 다른 블록만 있으면
+// (추천·다른 상품의 JSON) 그 소재는 이 상품의 것이 아니다 — 쓰지 않는다. 주소에 상품번호가 없거나 reference 를 못 찾으면
+// 예전처럼 둔다(compFromPartsJson 이 고른다). 2026-11-26 실측: 읽힌 9쪽(측정 45794717936)의 블록은 모두 그 쪽 상품번호의 것이었다.
+function partsOwnerOk(html, url) {
+  const id = (String(url || '').match(/[lp](\d{7,9})(?:[?#./]|$)/i) || [])[1];
+  if (!id) return true;
+  const h = String(html || '').replace(/\\"/g, '"');
+  let own = false, other = false;
+  for (const m of h.matchAll(/"parts"\s*:\s*\[/g)) {
+    const before = h.slice(Math.max(0, m.index - 60000), m.index);
+    let last = '';
+    for (const r of before.matchAll(/"reference"\s*:\s*"C(\d{7,9})/g)) last = r[1];
+    if (!last) continue;
+    if (last.startsWith(id) || id.startsWith(last)) own = true; else other = true;
+  }
+  return own || !other;
+}
+const LABELLED_COMP_RX = /composition\s*[:：]\s*(?:main|shell|outer(?:\s+shell)?|body)\s*[,:：]/i;
 
 // ── 컬러웨이: 상품 페이지의 "색상 선택 옵션"에서 읽는다 ─────────────────
 // 색은 상품명에 없는 경우가 많고("한정판: Olive Tree", "코어"), 사전에 없는

@@ -42,6 +42,12 @@ export async function startFake(opts = {}) {
         res.writeHead(200, { "Content-Type": "text/html" });
         return res.end(opts.impitOnly[u.pathname]);
       }
+      // impitAlt: 평 fetch 와 impit 에 다른 판을 주는 페이지(둘 다 200) — 평 fetch 판에는 소재가 없고 impit 판에만 있다.
+      if ((opts.impitAlt || {})[u.pathname] != null && req.headers["x-impit"]) {
+        state.hits["impit:" + u.pathname] = (state.hits["impit:" + u.pathname] || 0) + 1;
+        res.writeHead(200, { "Content-Type": "text/html" });
+        return res.end(opts.impitAlt[u.pathname]);
+      }
       const pg = (opts.pages || {})[u.pathname];
       if (pg == null) { res.writeHead(403); return res.end("Forbidden"); }
       const o = typeof pg === "string" ? { status: 200, body: pg } : pg;

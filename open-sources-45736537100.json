@@ -1,0 +1,6693 @@
+{
+ "when": "2026-11-26T02:04:40.682Z",
+ "run": "45736537100",
+ "readOnly": true,
+ "refusedNonGet": 0,
+ "crawls": [
+  "CC-MAIN-2026-47",
+  "CC-MAIN-2026-43"
+ ],
+ "requests": 924,
+ "hosts": {
+  "index.commoncrawl.org": {
+   "n": 412,
+   "stopped": ""
+  },
+  "www.stories.com": {
+   "n": 11,
+   "stopped": ""
+  },
+  "archive.org": {
+   "n": 315,
+   "stopped": ""
+  },
+  "www.abercrombie.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.adidas.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "data.commoncrawl.org": {
+   "n": 3,
+   "stopped": ""
+  },
+  "www.anntaylor.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.anthropologie.com": {
+   "n": 2,
+   "stopped": ""
+  },
+  "www.aritzia.com": {
+   "n": 2,
+   "stopped": ""
+  },
+  "www.arket.com": {
+   "n": 11,
+   "stopped": ""
+  },
+  "www.chicos.com": {
+   "n": 7,
+   "stopped": ""
+  },
+  "www.eileenfisher.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "www.fatface.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.freepeople.com": {
+   "n": 3,
+   "stopped": ""
+  },
+  "www.garnethill.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www2.hm.com": {
+   "n": 11,
+   "stopped": ""
+  },
+  "www.joules.com": {
+   "n": 7,
+   "stopped": ""
+  },
+  "global.llbean.com": {
+   "n": 3,
+   "stopped": ""
+  },
+  "www.landsend.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "www.loft.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "shop.lululemon.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.madewell.com": {
+   "n": 9,
+   "stopped": ""
+  },
+  "shop.mango.com": {
+   "n": 1,
+   "stopped": "HTTP 429 — 이 호스트는 이번 실행에서 그만"
+  },
+  "www.massimodutti.com": {
+   "n": 9,
+   "stopped": ""
+  },
+  "www.massimodutti.cn": {
+   "n": 4,
+   "stopped": ""
+  },
+  "paige.com": {
+   "n": 1,
+   "stopped": "HTTP 429 — 이 호스트는 이번 실행에서 그만"
+  },
+  "www.patagonia.com": {
+   "n": 9,
+   "stopped": ""
+  },
+  "www.prana.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "www.sezane.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.thewhitecompany.com": {
+   "n": 8,
+   "stopped": ""
+  },
+  "www.theory.com": {
+   "n": 5,
+   "stopped": ""
+  },
+  "www.whitehouseblackmarket.com": {
+   "n": 7,
+   "stopped": ""
+  },
+  "www.wilson.com": {
+   "n": 8,
+   "stopped": ""
+  }
+ },
+ "stops": [
+  {
+   "host": "shop.mango.com",
+   "status": 429,
+   "url": "https://shop.mango.com/robots.txt"
+  },
+  {
+   "host": "paige.com",
+   "status": 429,
+   "url": "https://paige.com/robots.txt"
+  }
+ ],
+ "rows": [
+  {
+   "brand": "&Other Stories",
+   "origin": "https://www.stories.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 472,
+   "storedEmpty": 296,
+   "storedCats": {
+    "tops": 138,
+    "sweatshirts": 24,
+    "pants": 90,
+    "shirts": 89,
+    "dresses": 131
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     138
+    ],
+    "sweatshirts": [
+     0,
+     24
+    ],
+    "pants": [
+     0,
+     90
+    ],
+    "shirts": [
+     0,
+     89
+    ],
+    "dresses": [
+     0,
+     131
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.stories.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 21,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.stories.com/kr_krw/sitemap_aos.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2461,
+      "depth": 0,
+      "lastmod": 2461
+     },
+     {
+      "url": "https://www.stories.com/en-dk/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 152,
+      "depth": 0
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-273.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 29,
+      "depth": 1,
+      "lastmod": 29
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-287.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 32,
+      "depth": 1,
+      "lastmod": 32
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-267.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 73,
+      "depth": 1,
+      "lastmod": 73
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-316.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 21,
+      "depth": 1,
+      "lastmod": 21
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-311.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 18,
+      "depth": 1,
+      "lastmod": 18
+     },
+     {
+      "url": "https://www.stories.com/en-dk/products-en-dk-317.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 37,
+      "depth": 1,
+      "lastmod": 37
+     },
+     {
+      "url": "https://www.stories.com/nl-nl/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 152,
+      "depth": 0
+     },
+     {
+      "url": "https://www.stories.com/en-nl/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 152,
+      "depth": 0
+     }
+    ],
+    "children": {
+     "listed": 456,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 2671,
+    "productUrls": 2497,
+    "sample": [
+     "https://www.stories.com/kr_krw/product.silk-midi-skirt-green.1223263005.html",
+     "https://www.stories.com/kr_krw/product.cat-eye-sunglasses-beige.1211029002.html",
+     "https://www.stories.com/kr_krw/product.ruffled-corset-top-ivory.1175844001.html"
+    ],
+    "locale": "en-us",
+    "storedInMap": 0,
+    "storedChecked": 472,
+    "guessCats": {
+     "tops": 565,
+     "dresses": 284,
+     "shirts": 165,
+     "pants": 143,
+     "sweatshirts": 4
+    },
+    "newProductUrls": 2497
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 3,
+    "read": 2,
+    "comp": 1,
+    "err": 0,
+    "why": "혼용률 여러 벌(목록) 1",
+    "items": [
+     {
+      "url": "https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/ribbed-t-shirt-white-1303999009/",
+      "cap": true,
+      "ts": "20260216080839",
+      "read": {
+       "ok": false,
+       "why": "혼용률 여러 벌(목록)"
+      }
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/ribbed-tank-top-dark-brown-1321973002/",
+      "cap": true,
+      "ts": "20260615073240",
+      "read": {
+       "ok": true,
+       "comp": "Viscose 72% / Nylon 26% / Elastane 2%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/relaxed-print-t-shirt-whiteprinted-1334435001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/pleated-sleeve-shirt-off-white-1367619001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/gathered-cropped-blouse-bright-orange-1335018002/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/scalloped-lace-dress-black-1368154001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/corset-mini-dress-greychecked-1256797004/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/tailored-barrel-trousers-black-1373990001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/scuba-track-trousers-dark-greenwhite-1323865001/",
+      "cap": true,
+      "ts": "20260518192550"
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 2,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/ribbed-t-shirt-white-1303999009/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/ribbed-tank-top-dark-brown-1321973002/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/relaxed-print-t-shirt-whiteprinted-1334435001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/pleated-sleeve-shirt-off-white-1367619001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/gathered-cropped-blouse-bright-orange-1335018002/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/scalloped-lace-dress-black-1368154001/",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/corset-mini-dress-greychecked-1256797004/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/tailored-barrel-trousers-black-1373990001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.stories.com/en-us/product/scuba-track-trousers-dark-greenwhite-1323865001/",
+      "cap": false,
+      "err": "HTTP 502"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Abercrombie & Fitch",
+   "origin": "https://www.abercrombie.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 224,
+   "storedEmpty": 84,
+   "storedCats": {
+    "tops": 94,
+    "sweatshirts": 20,
+    "shirts": 7,
+    "dresses": 52,
+    "pants": 51
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     94
+    ],
+    "sweatshirts": [
+     0,
+     20
+    ],
+    "shirts": [
+     0,
+     7
+    ],
+    "dresses": [
+     0,
+     52
+    ],
+    "pants": [
+     0,
+     51
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.abercrombie.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/index/anf",
+      "status": 200,
+      "kind": "index",
+      "n": 48,
+      "depth": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/product?targetStoreId=10051&targetLangId=-1",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5752,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/category?targetStoreId=10051&targetLangId=-1",
+      "status": 200,
+      "kind": "urlset",
+      "n": 778,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/others?targetStoreId=10051&targetLangId=-1",
+      "status": 200,
+      "kind": "urlset",
+      "n": 622,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/product?targetStoreId=10051&targetLangId=-1002",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5753,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/category?targetStoreId=10051&targetLangId=-1002",
+      "status": 200,
+      "kind": "urlset",
+      "n": 778,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.abercrombie.com/api/ecomm/util/sitemap/others?targetStoreId=10051&targetLangId=-1002",
+      "status": 200,
+      "kind": "urlset",
+      "n": 622,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 48,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 14305,
+    "productUrls": 11464,
+    "sample": [
+     "https://www.abercrombie.com/shop/us/p/90s-straight-jean-58398580",
+     "https://www.abercrombie.com/shop/us/p/premium-heavyweight-20-tee-58965824",
+     "https://www.abercrombie.com/shop/us/p/long-sleeve-rugby-polo-61711335"
+    ],
+    "locale": "",
+    "storedInMap": 0,
+    "storedChecked": 224,
+    "guessCats": {
+     "pants": 2756,
+     "tops": 1791,
+     "dresses": 510,
+     "shirts": 140,
+     "sweatshirts": 272
+    },
+    "newProductUrls": 11464
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/essential-polished-body-skimming-tee-62050821",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/bra-free-hardware-long-sleeve-top-61349371",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/everyday-slub-tee-62828490",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/ypb-studioflex-double-layered-tank-63119046",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/bra-free-rib-90s-cami-61013332",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/ypb-studioflex-curve-love-double-layered-sports-bra-63492865",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/heritage-heavyweight-crew-sweatshirt-63199320",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/bra-free-flocked-mesh-mini-dress-64009820",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/denim-bra-free-button-through-smocked-mini-dress-63108352",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/bra-free-button-through-smocked-maxi-dress-63453819",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 2,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/essential-polished-body-skimming-tee-62050821",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/bra-free-hardware-long-sleeve-top-61349371",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/everyday-slub-tee-62828490",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/ypb-studioflex-double-layered-tank-63119046",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/bra-free-rib-90s-cami-61013332",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/ypb-studioflex-curve-love-double-layered-sports-bra-63492865",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/heritage-heavyweight-crew-sweatshirt-63199320",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/bra-free-flocked-mesh-mini-dress-64009820",
+      "cap": false
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/denim-bra-free-button-through-smocked-mini-dress-63108352",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.abercrombie.com/shop/wd/p/bra-free-button-through-smocked-maxi-dress-63453819",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Addidas",
+   "origin": "https://www.adidas.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 537,
+   "storedEmpty": 526,
+   "storedCats": {
+    "tops": 154,
+    "shirts": 8,
+    "sweatshirts": 111,
+    "pants": 213,
+    "dresses": 51
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     154
+    ],
+    "shirts": [
+     0,
+     8
+    ],
+    "sweatshirts": [
+     0,
+     111
+    ],
+    "pants": [
+     0,
+     213
+    ],
+    "dresses": [
+     0,
+     51
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.adidas.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 5,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.adidas.com/kw/ar/sitemap",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "HTTP 403"
+     },
+     {
+      "url": "https://www.adidas.com/kw/en/sitemap",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "HTTP 403"
+     },
+     {
+      "url": "https://www.adidas.com/om/ar/sitemap",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "HTTP 403"
+     },
+     {
+      "url": "https://www.adidas.com/om/en/sitemap",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "HTTP 403"
+     }
+    ],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 537,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.adidas.com/us/adi365-running-climacool-iconic-t-shirt/JZ5162.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/adilenium-season-6-ruffled-track-pants/LH1929.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/penn-state-nittany-lions-womens-premium-fashion-tee/LC6509.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/70s-trefoil-sweater/LH9984.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/crewneck-sweatshirt/KY9252.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/short-front-zip-track-top/LE8321.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/originals-pleated-skort/KS5749.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/originals-tank-dress/KS5481.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/adisignature-3-stripes-open-hem-sweatpants/LC8984.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/tiro26-league-training-pants/KH1763.html",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 1,
+    "read": 1,
+    "comp": 0,
+    "err": 0,
+    "why": "보관본에 혼용률 없음 1",
+    "items": [
+     {
+      "url": "https://www.adidas.com/us/adi365-running-climacool-iconic-t-shirt/JZ5162.html",
+      "cap": true,
+      "crawl": "CC-MAIN-2026-43",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.adidas.com/us/adilenium-season-6-ruffled-track-pants/LH1929.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/penn-state-nittany-lions-womens-premium-fashion-tee/LC6509.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/70s-trefoil-sweater/LH9984.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/crewneck-sweatshirt/KY9252.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/short-front-zip-track-top/LE8321.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/originals-pleated-skort/KS5749.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/originals-tank-dress/KS5481.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/adisignature-3-stripes-open-hem-sweatpants/LC8984.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.adidas.com/us/tiro26-league-training-pants/KH1763.html",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Ann Taylor",
+   "origin": "https://www.anntaylor.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 381,
+   "storedEmpty": 32,
+   "storedCats": {
+    "tops": 23,
+    "sweatshirts": 4,
+    "pants": 235,
+    "dresses": 100,
+    "shirts": 19
+   },
+   "storedCatsInMap": {
+    "tops": [
+     19,
+     23
+    ],
+    "sweatshirts": [
+     2,
+     4
+    ],
+    "pants": [
+     59,
+     235
+    ],
+    "dresses": [
+     25,
+     100
+    ],
+    "shirts": [
+     8,
+     19
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.anntaylor.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.anntaylor.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 6,
+      "depth": 0
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 3154,
+      "depth": 1,
+      "lastmod": 3154
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap_2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2,
+      "depth": 1,
+      "lastmod": 2
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap-PSSitemap_AnnTaylor.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 10,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap-SDSitemap_AnnTaylor.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 224,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap-SRSitemap_AnnTaylor.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1579,
+      "depth": 1,
+      "lastmod": 1579
+     },
+     {
+      "url": "https://www.anntaylor.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 637,
+      "depth": 1,
+      "lastmod": 637
+     }
+    ],
+    "children": {
+     "listed": 6,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 5606,
+    "productUrls": 5351,
+    "sample": [
+     "https://www.anntaylor.com/accessories/jewelry/cata000021/modern-stud-earrings/181316.html",
+     "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/stretch-cami/311708.html",
+     "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/perfect-shirt/387660.html"
+    ],
+    "locale": "",
+    "storedInMap": 113,
+    "storedChecked": 381,
+    "guessCats": {
+     "tops": 1344,
+     "pants": 816,
+     "dresses": 662,
+     "sweatshirts": 9,
+     "shirts": 7
+    },
+    "newProductUrls": 5240
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 3,
+    "read": 3,
+    "comp": 0,
+    "err": 0,
+    "why": "상품 표시 없음 3",
+    "items": [
+     {
+      "url": "https://www.anntaylor.com/new-arrivals/the-gift-shop/cat4730013/",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/new-arrivals/trends-to-try/cata7000090/",
+      "cap": true,
+      "ts": "20260114121519",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://www.anntaylor.com/shoes/all-shoes/cata000020/",
+      "cap": true,
+      "ts": "20251227145208",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://www.anntaylor.com/accessories/jewelry/cata000021/",
+      "cap": true,
+      "ts": "20260110150752",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://www.anntaylor.com/new-arrivals/perfect-matches/cata7000082/",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/ruffle-smocked-top/844159.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/paisley-mock-neck-top/855884.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-pleat-front-top/844987.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/dresses/cata000012/weekend-rolled-neck-sweater-dress/737537.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/pants/cata000014/seamed-side-zip-legging-faux-leather/848728.html",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 1,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.anntaylor.com/new-arrivals/the-gift-shop/cat4730013/",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/new-arrivals/trends-to-try/cata7000090/",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/shoes/all-shoes/cata000020/",
+      "cap": false,
+      "crawl": "CC-MAIN-2026-43",
+      "only": "302"
+     },
+     {
+      "url": "https://www.anntaylor.com/accessories/jewelry/cata000021/",
+      "cap": false,
+      "crawl": "CC-MAIN-2026-47",
+      "only": "302"
+     },
+     {
+      "url": "https://www.anntaylor.com/new-arrivals/perfect-matches/cata7000082/",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/ruffle-smocked-top/844159.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/paisley-mock-neck-top/855884.html",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/mixed-media-pleat-front-top/844987.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/dresses/cata000012/weekend-rolled-neck-sweater-dress/737537.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.anntaylor.com/clothing/pants/cata000014/seamed-side-zip-legging-faux-leather/848728.html",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Anthropologie",
+   "origin": "https://www.anthropologie.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 263,
+   "storedEmpty": 262,
+   "storedCats": {
+    "tops": 76,
+    "sweatshirts": 49,
+    "shirts": 15,
+    "pants": 51,
+    "dresses": 72
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     76
+    ],
+    "sweatshirts": [
+     0,
+     49
+    ],
+    "shirts": [
+     0,
+     15
+    ],
+    "pants": [
+     0,
+     51
+    ],
+    "dresses": [
+     0,
+     72
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.anthropologie.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "browserUa": true,
+     "challenge": "anthropologie.com",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "",
+    "storedInMap": 0,
+    "storedChecked": 263,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/bridemerch-bridezilla-tee",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/maeve-caitlin-100-cotton-boxy-tee3",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/lspace-vincent-cotton-pullover",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/reformation-hadley-knit-top",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/z-supply-ashford-cardigan",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/hutch-amara-adjustable-corset-tulle-midi-dress",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/english-factory-100-cotton-knit-midi-dress",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/somerset-maxi-dress17",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/maeve-colette-high-rise-shorts6",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.anthropologie.com/shop/pilcro-sequined-twofer-tank",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/bridemerch-bridezilla-tee",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/maeve-caitlin-100-cotton-boxy-tee3",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/lspace-vincent-cotton-pullover",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/reformation-hadley-knit-top",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/z-supply-ashford-cardigan",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/hutch-amara-adjustable-corset-tulle-midi-dress",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/english-factory-100-cotton-knit-midi-dress",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/somerset-maxi-dress17",
+      "cap": false
+     },
+     {
+      "url": "https://www.anthropologie.com/shop/maeve-colette-high-rise-shorts6",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Aritzia",
+   "origin": "https://www.aritzia.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 800,
+   "storedEmpty": 297,
+   "storedCats": {
+    "tops": 335,
+    "sweatshirts": 144,
+    "dresses": 218,
+    "pants": 44,
+    "shirts": 59
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     335
+    ],
+    "sweatshirts": [
+     0,
+     144
+    ],
+    "dresses": [
+     0,
+     218
+    ],
+    "pants": [
+     0,
+     44
+    ],
+    "shirts": [
+     0,
+     59
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.aritzia.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "browserUa": true,
+     "challenge": "Attention Required! | Cloudflare",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "intl",
+    "storedInMap": 0,
+    "storedChecked": 800,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 1,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/charleston-satin-dress/129114.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/foxtrot-satin-camisole/128706.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/smooth-matter%E2%84%A2-wylder-halter-top/130441.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/envoy-dress/130226.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/smokescreen-satin-top/135774.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/portrait-camisole/131561.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/original-contour-amity-triangle-bralette/117146.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/dover-satin-shirt/127273.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/saturn-mini-dress/114666.html",
+      "cap": true,
+      "ts": "20260415214125"
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 1,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.aritzia.com/intl/en/product/caprice-satin-bustier/129128.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/charleston-satin-dress/129114.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/foxtrot-satin-camisole/128706.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/smooth-matter%E2%84%A2-wylder-halter-top/130441.html",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/envoy-dress/130226.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/smokescreen-satin-top/135774.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/portrait-camisole/131561.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/original-contour-amity-triangle-bralette/117146.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/dover-satin-shirt/127273.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.aritzia.com/intl/en/product/saturn-mini-dress/114666.html",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Arket",
+   "origin": "https://www.arket.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 382,
+   "storedEmpty": 208,
+   "storedCats": {
+    "tops": 167,
+    "sweatshirts": 39,
+    "shirts": 107,
+    "pants": 4,
+    "dresses": 65
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     167
+    ],
+    "sweatshirts": [
+     0,
+     39
+    ],
+    "shirts": [
+     0,
+     107
+    ],
+    "pants": [
+     0,
+     4
+    ],
+    "dresses": [
+     0,
+     65
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.arket.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 20,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.arket.com/sitemapindex.xml",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "Access Denied"
+     },
+     {
+      "url": "https://www.arket.com/en.sitemap.xml",
+      "status": 403,
+      "kind": "",
+      "n": 0,
+      "depth": 0,
+      "challenge": "Access Denied"
+     },
+     {
+      "url": "https://www.arket.com/ko-kr/sitemap_ark.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2385,
+      "depth": 0,
+      "lastmod": 2385
+     },
+     {
+      "url": "https://www.arket.com/en-dk/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 268,
+      "depth": 0
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-804.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 49,
+      "depth": 1,
+      "lastmod": 49
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-644.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 126,
+      "depth": 1,
+      "lastmod": 126
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-619.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 42,
+      "depth": 1,
+      "lastmod": 42
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-678.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 404,
+      "depth": 1,
+      "lastmod": 404
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-470.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 112,
+      "depth": 1,
+      "lastmod": 112
+     },
+     {
+      "url": "https://www.arket.com/en-dk/products-en-dk-763.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 26,
+      "depth": 1,
+      "lastmod": 26
+     }
+    ],
+    "children": {
+     "listed": 268,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 3144,
+    "productUrls": 2840,
+    "sample": [
+     "https://www.arket.com/ko-kr/women/all/product.rib-top-white.1289241001.html",
+     "https://www.arket.com/ko-kr/men/all/product.wool-jumper-blue.1305663002.html",
+     "https://www.arket.com/ko-kr/men/all/product.swim-shorts-blue.1262179009.html"
+    ],
+    "locale": "en-ww",
+    "storedInMap": 0,
+    "storedChecked": 382,
+    "guessCats": {
+     "tops": 816,
+     "pants": 241,
+     "shirts": 243,
+     "dresses": 75,
+     "sweatshirts": 168
+    },
+    "newProductUrls": 2840
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.arket.com/en-ww/product/wool-rib-top-black-1357865001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/off-shoulder-top-black-1366755001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/sleeveless-lurex-top-beige-1370188001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/wool-silk-tank-top-off-white-1349281001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/cotton-terry-sweatshirt-pink-1371966006/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/pima-cotton-shirt-blue-1366421003/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/pleated-tuxedo-shirt-black-1360267001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/relaxed-corduroy-overshirt-dark-mole-1352940003/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/sequin-dress-black-1306478001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/midi-drape-dress-khaki-green-1235757001/",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.arket.com/en-ww/product/wool-rib-top-black-1357865001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/off-shoulder-top-black-1366755001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/sleeveless-lurex-top-beige-1370188001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/wool-silk-tank-top-off-white-1349281001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/cotton-terry-sweatshirt-pink-1371966006/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/pima-cotton-shirt-blue-1366421003/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/pleated-tuxedo-shirt-black-1360267001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/relaxed-corduroy-overshirt-dark-mole-1352940003/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/sequin-dress-black-1306478001/",
+      "cap": false
+     },
+     {
+      "url": "https://www.arket.com/en-ww/product/midi-drape-dress-khaki-green-1235757001/",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Chico's",
+   "origin": "https://www.chicos.com",
+   "listing": "partial",
+   "product": "partial",
+   "stored": 800,
+   "storedEmpty": 791,
+   "storedCats": {
+    "tops": 343,
+    "sweatshirts": 68,
+    "shirts": 106,
+    "dresses": 184,
+    "pants": 99
+   },
+   "storedCatsInMap": {
+    "tops": [
+     321,
+     343
+    ],
+    "sweatshirts": [
+     67,
+     68
+    ],
+    "shirts": [
+     106,
+     106
+    ],
+    "dresses": [
+     175,
+     184
+    ],
+    "pants": [
+     99,
+     99
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.chicos.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.chicos.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 5,
+      "depth": 0
+     },
+     {
+      "url": "https://www.chicos.com/sitemap/products-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2687,
+      "depth": 1,
+      "lastmod": 2687
+     },
+     {
+      "url": "https://www.chicos.com/locations/stat/assets/sitemap-0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1075,
+      "depth": 1,
+      "lastmod": 1075
+     },
+     {
+      "url": "https://www.chicos.com/sitemap/pages.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 44,
+      "depth": 1,
+      "lastmod": 44
+     },
+     {
+      "url": "https://www.chicos.com/sitemap/blog.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 101,
+      "depth": 1,
+      "lastmod": 101
+     },
+     {
+      "url": "https://www.chicos.com/sitemap/categories-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 374,
+      "depth": 1,
+      "lastmod": 374
+     }
+    ],
+    "children": {
+     "listed": 5,
+     "fetched": 5,
+     "blockedByRobots": []
+    },
+    "urls": 4281,
+    "productUrls": 2696,
+    "sample": [
+     "https://www.chicos.com/store/product/silver-tone-drop-pendant-earrings/100022650",
+     "https://www.chicos.com/store/product/silver-tone-rings-pendant-necklace/100040851",
+     "https://www.chicos.com/store/product/hexie-multi-strand-necklace/570088043"
+    ],
+    "locale": "",
+    "storedInMap": 296,
+    "storedChecked": 306,
+    "guessCats": {
+     "pants": 397,
+     "dresses": 119,
+     "shirts": 141,
+     "tops": 656,
+     "sweatshirts": 17
+    },
+    "newProductUrls": 2400
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 3,
+    "read": 3,
+    "comp": 3,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/zenergy-french-terry-printed-half-zip-pullover/570418739?inseam=regular&sizeType=regular&color=001&catId=cat20059281&collectionId=category&parentId=199761374496",
+      "cap": true,
+      "ts": "20260930223957",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 57% / Modal 38% / Elastane 5%\nModal 38% / Elastane 4% / Cotton 58%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.chicos.com/store/product/no-iron-stretch-shirt/570321915?inseam=regular&sizeType=regular&color=001&catId=cat11199294&collectionId=category&queryId=349f7e8d6f97673a07684c0b79b5244d&indexName=prod_chs_products&parentId=196532876203",
+      "cap": true,
+      "ts": "20261013003348",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 62% / Polyester 33% / Elastane 5%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.chicos.com/store/product/zenergy-upf-sleeveless-animal-bungee-dress/570413284?inseam=regular&sizeType=regular&color=183&catId=cat40004&collectionId=category&queryId=bdca6a1cc229da41a59505a5c81d41bb&indexName=prod_chs_products&parentId=199761100958",
+      "cap": true,
+      "ts": "20261016020356",
+      "read": {
+       "ok": true,
+       "comp": "Polyester 88% / Elastane 12%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.chicos.com/store/product/foiled-microfiber-tank/570417960?inseam=regular&sizeType=regular&color=7147&catId=cat11199293&collectionId=category&queryId=220f3df9d6e778e1747c1b5c556bbcee&indexName=prod_chs_products&parentId=199761326372",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/velvet-v-neck-rhinestone-dress/570423268?inseam=regular&sizeType=regular&color=001&catId=cat40004&collectionId=category&queryId=69f942d373838142b3227896643a9e15&indexName=prod_chs_products&parentId=199761632978",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/artisanal-skinny-five-pocket-ponte-pants/570420581?inseam=regular&sizeType=regular&color=7174&catId=cat8289646&collectionId=category&queryId=84e9aaa044e6ce65d7f04fcb9f4e31cf&indexName=prod_chs_products&parentId=199761586332",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/bodre-long-sleeve-tee/570420617?inseam=regular&sizeType=regular&color=7138&catId=cat11199293&collectionId=category&queryId=52901945d6f50f8ca0b077c841a038f9&indexName=prod_chs_products&parentId=199761498437",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/clip-dot-maxi-dress/570415318?inseam=regular&sizeType=regular&color=001&catId=cat40004&collectionId=category&queryId=70923209580cae8e2336bacbc0b2d5d7&indexName=prod_chs_products&parentId=199761243594",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/travelers-velvet-burnout-crinkled-wide-leg-pants/570420577?inseam=regular&sizeType=regular&color=2664&catId=cat8289646&collectionId=category&parentId=199761514960",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.chicos.com/store/product/touch-of-cool-foiled-mockneck-layering-tee/570420622?inseam=regular&sizeType=regular&color=1469&catId=cat11199293&collectionId=category&parentId=199761497249",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/zenergy-french-terry-printed-half-zip-pullover/570418739?inseam=regular&sizeType=regular&color=001&catId=cat20059281&collectionId=category&parentId=199761374496",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/no-iron-stretch-shirt/570321915?inseam=regular&sizeType=regular&color=001&catId=cat11199294&collectionId=category&queryId=349f7e8d6f97673a07684c0b79b5244d&indexName=prod_chs_products&parentId=196532876203",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/zenergy-upf-sleeveless-animal-bungee-dress/570413284?inseam=regular&sizeType=regular&color=183&catId=cat40004&collectionId=category&queryId=bdca6a1cc229da41a59505a5c81d41bb&indexName=prod_chs_products&parentId=199761100958",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/foiled-microfiber-tank/570417960?inseam=regular&sizeType=regular&color=7147&catId=cat11199293&collectionId=category&queryId=220f3df9d6e778e1747c1b5c556bbcee&indexName=prod_chs_products&parentId=199761326372",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/velvet-v-neck-rhinestone-dress/570423268?inseam=regular&sizeType=regular&color=001&catId=cat40004&collectionId=category&queryId=69f942d373838142b3227896643a9e15&indexName=prod_chs_products&parentId=199761632978",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/artisanal-skinny-five-pocket-ponte-pants/570420581?inseam=regular&sizeType=regular&color=7174&catId=cat8289646&collectionId=category&queryId=84e9aaa044e6ce65d7f04fcb9f4e31cf&indexName=prod_chs_products&parentId=199761586332",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/bodre-long-sleeve-tee/570420617?inseam=regular&sizeType=regular&color=7138&catId=cat11199293&collectionId=category&queryId=52901945d6f50f8ca0b077c841a038f9&indexName=prod_chs_products&parentId=199761498437",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/clip-dot-maxi-dress/570415318?inseam=regular&sizeType=regular&color=001&catId=cat40004&collectionId=category&queryId=70923209580cae8e2336bacbc0b2d5d7&indexName=prod_chs_products&parentId=199761243594",
+      "cap": false
+     },
+     {
+      "url": "https://www.chicos.com/store/product/travelers-velvet-burnout-crinkled-wide-leg-pants/570420577?inseam=regular&sizeType=regular&color=2664&catId=cat8289646&collectionId=category&parentId=199761514960",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Eileen fisher",
+   "origin": "https://www.eileenfisher.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 545,
+   "storedEmpty": 37,
+   "storedCats": {
+    "tops": 210,
+    "shirts": 26,
+    "pants": 194,
+    "sweatshirts": 24,
+    "dresses": 91
+   },
+   "storedCatsInMap": {
+    "tops": [
+     181,
+     210
+    ],
+    "shirts": [
+     25,
+     26
+    ],
+    "pants": [
+     164,
+     194
+    ],
+    "sweatshirts": [
+     22,
+     24
+    ],
+    "dresses": [
+     80,
+     91
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.eileenfisher.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.eileenfisher.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 3,
+      "depth": 0
+     },
+     {
+      "url": "https://www.eileenfisher.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2172,
+      "depth": 1,
+      "lastmod": 2172
+     },
+     {
+      "url": "https://www.eileenfisher.com/sitemap_2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 60,
+      "depth": 1,
+      "lastmod": 60
+     },
+     {
+      "url": "https://www.eileenfisher.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 188,
+      "depth": 1,
+      "lastmod": 188
+     }
+    ],
+    "children": {
+     "listed": 3,
+     "fetched": 3,
+     "blockedByRobots": []
+    },
+    "urls": 2420,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "",
+    "storedInMap": 472,
+    "storedChecked": 545,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   },
+   "commoncrawl": {
+    "n": 0,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": []
+   }
+  },
+  {
+   "brand": "Fatface",
+   "origin": "https://www.fatface.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 374,
+   "storedEmpty": 373,
+   "storedCats": {
+    "tops": 39,
+    "sweatshirts": 88,
+    "dresses": 110,
+    "pants": 137
+   },
+   "storedCatsInMap": {
+    "tops": [
+     36,
+     39
+    ],
+    "sweatshirts": [
+     75,
+     88
+    ],
+    "dresses": [
+     109,
+     110
+    ],
+    "pants": [
+     132,
+     137
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.fatface.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.fatface.com/sitemap-index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 12,
+      "depth": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-GB-EN-Products-Hreflang.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5949,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-US-EN-Products-Hreflang.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5198,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-IE-EN-Products-Hreflang.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 5959,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-GB-EN-Category.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1646,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-US-EN-Category.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1786,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.fatface.com/FATFACE-IE-EN-Category.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1528,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 12,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 22066,
+    "productUrls": 17106,
+    "sample": [
+     "https://www.fatface.com/style/su701224/h15291",
+     "https://www.fatface.com/style/su704273/h16755",
+     "https://www.fatface.com/style/su701218/h15278"
+    ],
+    "locale": "",
+    "storedInMap": 352,
+    "storedChecked": 374,
+    "guessCats": {},
+    "newProductUrls": 16754
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 2,
+    "read": 2,
+    "comp": 2,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.fatface.com/style/su990707/y56442",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/su912918/g16292",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/su883825/y23364",
+      "cap": true,
+      "ts": "20260810192546",
+      "read": {
+       "ok": true,
+       "comp": "Main 100% / Trim 100%",
+       "src": "jsonld"
+      }
+     },
+     {
+      "url": "https://www.fatface.com/style/su785512/h67850",
+      "cap": true,
+      "ts": "20260207015711",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 89% / Polyester 11%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.fatface.com/style/su998025/g82792",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/su892983/g44122",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/sv456015/y72411",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/sv044837/g80616",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/sv049053/y47492",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/su630616/f40802",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 3,
+    "read": 2,
+    "comp": 2,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.fatface.com/style/su990707/y56442",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/su912918/g16292",
+      "cap": true,
+      "crawl": "CC-MAIN-2026-47",
+      "read": {
+       "ok": true,
+       "comp": "Polyester 100%\nCotton 100%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.fatface.com/style/su883825/y23364",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/su785512/h67850",
+      "cap": true,
+      "crawl": "CC-MAIN-2026-47",
+      "read": {
+       "ok": true,
+       "comp": "Body 89% / Recycled Polyester 11% / Rib 98% / Elastane 2%",
+       "src": "jsonld"
+      }
+     },
+     {
+      "url": "https://www.fatface.com/style/su998025/g82792",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/su892983/g44122",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/sv456015/y72411",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/sv044837/g80616",
+      "cap": true,
+      "crawl": "CC-MAIN-2026-47"
+     },
+     {
+      "url": "https://www.fatface.com/style/sv049053/y47492",
+      "cap": false
+     },
+     {
+      "url": "https://www.fatface.com/style/su630616/f40802",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "FP Movement",
+   "origin": "https://www.freepeople.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 72,
+   "storedEmpty": 67,
+   "storedCats": {
+    "tops": 43,
+    "shirts": 2,
+    "sweatshirts": 6,
+    "pants": 18,
+    "dresses": 3
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     43
+    ],
+    "shirts": [
+     0,
+     2
+    ],
+    "sweatshirts": [
+     0,
+     6
+    ],
+    "pants": [
+     0,
+     18
+    ],
+    "dresses": [
+     0,
+     3
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.freepeople.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "browserUa": true,
+     "challenge": "freepeople.com",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 72,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 1,
+    "cap": 1,
+    "read": 1,
+    "comp": 0,
+    "err": 0,
+    "why": "상품 표시 없음 1",
+    "items": [
+     {
+      "url": "https://itunes.apple.com/us/app/free-people/id659532790",
+      "cap": true,
+      "ts": "20181005234501",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 1,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://itunes.apple.com/us/app/free-people/id659532790",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Free People",
+   "origin": "https://www.freepeople.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 189,
+   "storedEmpty": 184,
+   "storedCats": {
+    "tops": 63,
+    "shirts": 16,
+    "sweatshirts": 10,
+    "dresses": 76,
+    "pants": 24
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     63
+    ],
+    "shirts": [
+     0,
+     16
+    ],
+    "sweatshirts": [
+     0,
+     10
+    ],
+    "dresses": [
+     0,
+     76
+    ],
+    "pants": [
+     0,
+     24
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.freepeople.com",
+    "robots": {
+     "status": 403,
+     "firstStatus": 403,
+     "challenge": "freepeople.com",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 189,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 2,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.freepeople.com/shop/we-the-free-nolan-swit/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/we-the-free-kylian-long-sleeve-tee/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/fp-one-zinnia-knit-cardi/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/we-the-free-faded-memory-long-sleeve-pullover/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/for-love-and-lemons-underwater-garden-top/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/petal-loom-fair-isle-mini-dress/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/sugar-plum-mini-dress/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/to-the-moon-maxi-dress/",
+      "cap": true,
+      "ts": "20260713180833"
+     },
+     {
+      "url": "https://www.freepeople.com/shop/arcina-ori-paloma-maxi-dress/",
+      "cap": true,
+      "ts": "20260123053545"
+     },
+     {
+      "url": "https://www.freepeople.com/shop/we-the-free-south-cape-pants/",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 1,
+    "read": 0,
+    "comp": 0,
+    "err": 2,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.freepeople.com/shop/we-the-free-nolan-swit/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/we-the-free-kylian-long-sleeve-tee/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/fp-one-zinnia-knit-cardi/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/we-the-free-faded-memory-long-sleeve-pullover/",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.freepeople.com/shop/for-love-and-lemons-underwater-garden-top/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/petal-loom-fair-isle-mini-dress/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/sugar-plum-mini-dress/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/to-the-moon-maxi-dress/",
+      "cap": true,
+      "crawl": "CC-MAIN-2026-47"
+     },
+     {
+      "url": "https://www.freepeople.com/shop/arcina-ori-paloma-maxi-dress/",
+      "cap": false
+     },
+     {
+      "url": "https://www.freepeople.com/shop/we-the-free-south-cape-pants/",
+      "cap": false,
+      "err": "HTTP 502"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Garnet hill",
+   "origin": "https://www.garnethill.com",
+   "listing": "partial",
+   "product": "partial",
+   "stored": 108,
+   "storedEmpty": 106,
+   "storedCats": {
+    "tops": 66,
+    "dresses": 10,
+    "sweatshirts": 18,
+    "shirts": 5,
+    "pants": 9
+   },
+   "storedCatsInMap": {
+    "tops": [
+     14,
+     66
+    ],
+    "dresses": [
+     0,
+     10
+    ],
+    "sweatshirts": [
+     4,
+     18
+    ],
+    "shirts": [
+     0,
+     5
+    ],
+    "pants": [
+     0,
+     9
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.garnethill.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.garnethill.com/SiteMapIndex_v2.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 11,
+      "depth": 0
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_001_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 332,
+      "depth": 1,
+      "lastmod": 298
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_002_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 332,
+      "depth": 1,
+      "lastmod": 304
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_003_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 332,
+      "depth": 1,
+      "lastmod": 309
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_004_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 332,
+      "depth": 1,
+      "lastmod": 306
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_PDP_005_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 331,
+      "depth": 1,
+      "lastmod": 316
+     },
+     {
+      "url": "https://www.garnethill.com/SiteMap_CAT_001_v2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 39,
+      "depth": 1,
+      "lastmod": 20
+     }
+    ],
+    "children": {
+     "listed": 11,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 1698,
+    "productUrls": 1628,
+    "sample": [
+     "https://www.garnethill.com/2026-keepsake-embroidered-organic-cotton-pillow-cover/743145",
+     "https://www.garnethill.com/adelaide-botanical-heirloom-european-flax-linen-sham/713286",
+     "https://www.garnethill.com/agatha-hemstitched-linen-26amp-3b-organic-cotton-duvet-cover/741152"
+    ],
+    "locale": "us",
+    "storedInMap": 18,
+    "storedChecked": 108,
+    "guessCats": {
+     "dresses": 110,
+     "tops": 218,
+     "pants": 90,
+     "sweatshirts": 18,
+     "shirts": 35
+    },
+    "newProductUrls": 1628
+   },
+   "wayback": {
+    "n": 7,
+    "cap": 6,
+    "read": 4,
+    "comp": 0,
+    "err": 0,
+    "why": "상품 표시 없음 1 · 보관본에 혼용률 없음 3",
+    "items": [
+     {
+      "url": "https://www.bbb.org/us/nh/franconia/profile/catalog-shopping/garnet-hill-inc-0051-13000170",
+      "cap": true,
+      "ts": "20260419060731",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762",
+      "cap": true,
+      "ts": "20261026042347",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213",
+      "cap": true,
+      "ts": "20261016112844",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.garnethill.com/essential-three-quarter-sleeve-boatneck-tee/holiday-gifts/shops/gifts-for-her/481867",
+      "cap": true,
+      "ts": "20261016113024",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.garnethill.com/weekender-v-neck-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/605686",
+      "cap": true,
+      "ts": "20261026134735"
+     },
+     {
+      "url": "https://www.garnethill.com/weekender-mock-neck-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/606285",
+      "cap": true,
+      "ts": "20261026083036"
+     },
+     {
+      "url": "https://www.garnethill.com/soleil-vintage-knit-top/holiday-gifts/shops/gifts-under-100/618850",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 7,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 2,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.bbb.org/us/nh/franconia/profile/catalog-shopping/garnet-hill-inc-0051-13000170",
+      "cap": false
+     },
+     {
+      "url": "https://www.garnethill.com/essential-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/468762",
+      "cap": false
+     },
+     {
+      "url": "https://www.garnethill.com/essential-turtleneck-tee/holiday-gifts/shops/gifts-for-her/473213",
+      "cap": false
+     },
+     {
+      "url": "https://www.garnethill.com/essential-three-quarter-sleeve-boatneck-tee/holiday-gifts/shops/gifts-for-her/481867",
+      "cap": false
+     },
+     {
+      "url": "https://www.garnethill.com/weekender-v-neck-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/605686",
+      "cap": false
+     },
+     {
+      "url": "https://www.garnethill.com/weekender-mock-neck-long-sleeve-tee/holiday-gifts/shops/gifts-for-her/606285",
+      "cap": false,
+      "err": "HTTP 504"
+     },
+     {
+      "url": "https://www.garnethill.com/soleil-vintage-knit-top/holiday-gifts/shops/gifts-under-100/618850",
+      "cap": false,
+      "err": "HTTP 502"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "H&M",
+   "origin": "https://www2.hm.com",
+   "listing": "works",
+   "product": "blocked",
+   "stored": 745,
+   "storedEmpty": 745,
+   "storedCats": {
+    "tops": 180,
+    "sweatshirts": 111,
+    "pants": 155,
+    "shirts": 136,
+    "dresses": 163
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     180
+    ],
+    "sweatshirts": [
+     0,
+     111
+    ],
+    "pants": [
+     0,
+     155
+    ],
+    "shirts": [
+     0,
+     136
+    ],
+    "dresses": [
+     0,
+     163
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www2.hm.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 48,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www2.hm.com/bg_bg.sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 569,
+      "depth": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.3.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.4.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/bg_bg.product.5.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 72,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www2.hm.com/cs_cz.sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 579,
+      "depth": 0
+     },
+     {
+      "url": "https://www2.hm.com/da_dk.sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 1251,
+      "depth": 0
+     },
+     {
+      "url": "https://www2.hm.com/de_at.sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 952,
+      "depth": 0
+     }
+    ],
+    "children": {
+     "listed": 3351,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 432,
+    "productUrls": 432,
+    "sample": [
+     "https://www2.hm.com/bg_bg/productpage.1295947003.html",
+     "https://www2.hm.com/bg_bg/productpage.1318398001.html",
+     "https://www2.hm.com/bg_bg/productpage.1207354033.html"
+    ],
+    "locale": "en_us",
+    "storedInMap": 0,
+    "storedChecked": 745,
+    "guessCats": {},
+    "newProductUrls": 432
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1377524001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1368960001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1360113001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1360348001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1307896028.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1364492001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1371867002.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1372161001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1385241001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1366038001.html",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 4,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1377524001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1368960001.html",
+      "cap": false,
+      "err": "HTTP 400"
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1360113001.html",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1360348001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1307896028.html",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1364492001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1371867002.html",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1372161001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1385241001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www2.hm.com/en_us/productpage.1366038001.html",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Joules",
+   "origin": "https://www.joules.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 536,
+   "storedEmpty": 512,
+   "storedCats": {
+    "tops": 133,
+    "shirts": 123,
+    "sweatshirts": 45,
+    "dresses": 124,
+    "pants": 111
+   },
+   "storedCatsInMap": {
+    "tops": [
+     120,
+     133
+    ],
+    "shirts": [
+     114,
+     123
+    ],
+    "sweatshirts": [
+     41,
+     45
+    ],
+    "dresses": [
+     113,
+     124
+    ],
+    "pants": [
+     103,
+     111
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.joules.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.joules.com/sitemap-index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 5,
+      "depth": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Products.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 3585,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Editorial.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 65,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Homepage.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 14,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Categories.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1100,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.joules.com/Joules-GB-EN-Store.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 56,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 5,
+     "fetched": 5,
+     "blockedByRobots": []
+    },
+    "urls": 4820,
+    "productUrls": 3585,
+    "sample": [
+     "https://www.joules.com/style/st302533/u43959",
+     "https://www.joules.com/style/st302533/u43960",
+     "https://www.joules.com/style/st253900/c56124"
+    ],
+    "locale": "",
+    "storedInMap": 491,
+    "storedChecked": 536,
+    "guessCats": {},
+    "newProductUrls": 3099
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 4,
+    "read": 1,
+    "comp": 1,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.joules.com/style/sv017987/y98755",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/su675751/w28621",
+      "cap": true,
+      "ts": "20260217191829",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 100%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.joules.com/style/sv457438/g57553",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/su924338/y97299",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/su699983/h14779",
+      "cap": true,
+      "ts": "20260217183010"
+     },
+     {
+      "url": "https://www.joules.com/style/su809885/w70555",
+      "cap": true,
+      "ts": "20260518130504"
+     },
+     {
+      "url": "https://www.joules.com/style/sv013302/g55803",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/sv258485/h75998",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/sv019177/v47056",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/su784407/w70746",
+      "cap": true,
+      "ts": "20260315114053"
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 1,
+    "read": 0,
+    "comp": 0,
+    "err": 4,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.joules.com/style/sv017987/y98755",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/su675751/w28621",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/sv457438/g57553",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/su924338/y97299",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/su699983/h14779",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.joules.com/style/su809885/w70555",
+      "cap": false
+     },
+     {
+      "url": "https://www.joules.com/style/sv013302/g55803",
+      "cap": false,
+      "err": "HTTP 400"
+     },
+     {
+      "url": "https://www.joules.com/style/sv258485/h75998",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.joules.com/style/sv019177/v47056",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.joules.com/style/su784407/w70746",
+      "cap": true,
+      "crawl": "CC-MAIN-2026-47"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "L.L bean",
+   "origin": "https://global.llbean.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 313,
+   "storedEmpty": 17,
+   "storedCats": {
+    "tops": 149,
+    "sweatshirts": 53,
+    "shirts": 20,
+    "dresses": 13,
+    "pants": 78
+   },
+   "storedCatsInMap": {
+    "tops": [
+     148,
+     149
+    ],
+    "sweatshirts": [
+     53,
+     53
+    ],
+    "shirts": [
+     20,
+     20
+    ],
+    "dresses": [
+     13,
+     13
+    ],
+    "pants": [
+     76,
+     78
+    ]
+   },
+   "sitemap": {
+    "origin": "https://global.llbean.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://global.llbean.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 1,
+      "depth": 0
+     },
+     {
+      "url": "https://global.llbean.com/sitemap_0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 3393,
+      "depth": 1,
+      "lastmod": 3393
+     }
+    ],
+    "children": {
+     "listed": 1,
+     "fetched": 1,
+     "blockedByRobots": []
+    },
+    "urls": 3393,
+    "productUrls": 2982,
+    "sample": [
+     "https://global.llbean.com/llb/shop/110938.html",
+     "https://global.llbean.com/llb/shop/111152.html",
+     "https://global.llbean.com/llb/shop/111434.html"
+    ],
+    "locale": "",
+    "storedInMap": 310,
+    "storedChecked": 313,
+    "guessCats": {},
+    "newProductUrls": 2703
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 9,
+    "read": 4,
+    "comp": 0,
+    "err": 0,
+    "why": "상품 표시 없음 4",
+    "items": [
+     {
+      "url": "https://global.llbean.com/llb/shop/509870/",
+      "cap": true,
+      "ts": "20250919060722",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/507087",
+      "cap": true,
+      "ts": "20260520074318",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/20010102/",
+      "cap": true,
+      "ts": "20260710234032",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/20010101/",
+      "cap": true,
+      "ts": "20260808013124",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/127345.html",
+      "cap": false
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/128315.html",
+      "cap": true,
+      "ts": "20251214165750"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/5835712.html",
+      "cap": true,
+      "ts": "20260216090553"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/127813.html",
+      "cap": true,
+      "ts": "20261031214956"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/5844242.html",
+      "cap": true,
+      "ts": "20260417083106"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/5821843.html",
+      "cap": true,
+      "ts": "20260114095941"
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 1,
+    "read": 0,
+    "comp": 0,
+    "err": 4,
+    "why": "",
+    "items": [
+     {
+      "url": "https://global.llbean.com/llb/shop/509870/",
+      "cap": false
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/507087",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/20010102/",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/20010101/",
+      "cap": false
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/127345.html",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/128315.html",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/5835712.html",
+      "cap": false
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/127813.html",
+      "cap": false
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/5844242.html",
+      "cap": true,
+      "crawl": "CC-MAIN-2026-43"
+     },
+     {
+      "url": "https://global.llbean.com/llb/shop/5821843.html",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Lands end",
+   "origin": "https://www.landsend.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 463,
+   "storedEmpty": 59,
+   "storedCats": {
+    "tops": 129,
+    "shirts": 87,
+    "sweatshirts": 83,
+    "dresses": 137,
+    "pants": 27
+   },
+   "storedCatsInMap": {
+    "tops": [
+     90,
+     129
+    ],
+    "shirts": [
+     65,
+     87
+    ],
+    "sweatshirts": [
+     49,
+     83
+    ],
+    "dresses": [
+     75,
+     137
+    ],
+    "pants": [
+     20,
+     27
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.landsend.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 6,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.landsend.com/sitemap/staticpage0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 118,
+      "depth": 0,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.landsend.com/sitemap/navigation0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 6164,
+      "depth": 0,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.landsend.com/sitemap/products/products.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 4160,
+      "depth": 0,
+      "lastmod": 4160
+     },
+     {
+      "url": "https://www.landsend.com/sitemap/us-xml-article-sitemap-13-08-2021.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1926,
+      "depth": 0,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 12368,
+    "productUrls": 4160,
+    "sample": [
+     "https://www.landsend.com/products/needlepoint-personalized-christmas-stocking/id_27370",
+     "https://www.landsend.com/products/womens-sport-knit-high-rise-corduroy-pants/id_46374",
+     "https://www.landsend.com/products/mens-jersey-knit-pant/id_54149"
+    ],
+    "locale": "",
+    "storedInMap": 299,
+    "storedChecked": 463,
+    "guessCats": {
+     "pants": 519,
+     "tops": 1022,
+     "dresses": 265,
+     "shirts": 283,
+     "sweatshirts": 132
+    },
+    "newProductUrls": 3874
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 4,
+    "read": 2,
+    "comp": 2,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.landsend.com/products/womens-relaxed-cotton-long-sleeve-mock-turtleneck/id_302525",
+      "cap": true,
+      "ts": "20260330083052",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 100%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-drifter-button-up-henley-sweater/id_406236",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-fine-gauge-cotton-sweater-jacket/id_387705",
+      "cap": true,
+      "ts": "20241228074012",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 100%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-cotton-mock-neck-quarter-zip-sweater/id_406814",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-34-sleeve-quilted-crew-neck-top/id_390969",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-cooling-button-front-shirt/id_386244",
+      "cap": true,
+      "ts": "20260330225644"
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-charmeuse-short-sleeve-cowl-neck-top/id_400959",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-charmeuse-long-sleeve-contrast-collar-blouse/id_404663",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-embroidered-poplin-long-sleeve-blouse/id_400577",
+      "cap": true,
+      "ts": "20260401201253"
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-sleeveless-scoop-neck-dress/id_403625",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 2,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.landsend.com/products/womens-relaxed-cotton-long-sleeve-mock-turtleneck/id_302525",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-drifter-button-up-henley-sweater/id_406236",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-fine-gauge-cotton-sweater-jacket/id_387705",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-cotton-mock-neck-quarter-zip-sweater/id_406814",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-34-sleeve-quilted-crew-neck-top/id_390969",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-cooling-button-front-shirt/id_386244",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-charmeuse-short-sleeve-cowl-neck-top/id_400959",
+      "cap": false,
+      "err": "HTTP 502"
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-charmeuse-long-sleeve-contrast-collar-blouse/id_404663",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-embroidered-poplin-long-sleeve-blouse/id_400577",
+      "cap": false
+     },
+     {
+      "url": "https://www.landsend.com/products/womens-sleeveless-scoop-neck-dress/id_403625",
+      "cap": false
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Loft",
+   "origin": "https://www.loft.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 672,
+   "storedEmpty": 389,
+   "storedCats": {
+    "tops": 141,
+    "sweatshirts": 41,
+    "shirts": 13,
+    "pants": 329,
+    "dresses": 148
+   },
+   "storedCatsInMap": {
+    "tops": [
+     36,
+     141
+    ],
+    "sweatshirts": [
+     10,
+     41
+    ],
+    "shirts": [
+     3,
+     13
+    ],
+    "pants": [
+     101,
+     329
+    ],
+    "dresses": [
+     28,
+     148
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.loft.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.loft.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 6,
+      "depth": 0
+     },
+     {
+      "url": "https://www.loft.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1907,
+      "depth": 1,
+      "lastmod": 1907
+     },
+     {
+      "url": "https://www.loft.com/sitemap_2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2,
+      "depth": 1,
+      "lastmod": 2
+     },
+     {
+      "url": "https://www.loft.com/sitemap-PSSitemap_Loft.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 0,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.loft.com/sitemap-SDSitemap_Loft.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 492,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.loft.com/sitemap-SRSitemap_Loft.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2744,
+      "depth": 1,
+      "lastmod": 2744
+     },
+     {
+      "url": "https://www.loft.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 392,
+      "depth": 1,
+      "lastmod": 392
+     }
+    ],
+    "children": {
+     "listed": 6,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 5537,
+    "productUrls": 5019,
+    "sample": [
+     "https://www.loft.com/clothing/tops/catl000011/lou-grey-signaturesoft-sweatshirt/510914.html",
+     "https://www.loft.com/clothing/pants/catl000014/lou-grey-signaturesoft-sweatpants/510918.html",
+     "https://www.loft.com/accessories-shoes/socks-tights/catl000026/basic-show-sock-set/544214.html"
+    ],
+    "locale": "",
+    "storedInMap": 178,
+    "storedChecked": 672,
+    "guessCats": {
+     "sweatshirts": 41,
+     "pants": 1009,
+     "tops": 958,
+     "dresses": 872,
+     "shirts": 167
+    },
+    "newProductUrls": 4842
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 1,
+    "read": 1,
+    "comp": 0,
+    "err": 0,
+    "why": "상품 표시 없음 1",
+    "items": [
+     {
+      "url": "https://www.loft.com/gifts/shop-all-gifts/cat3860003/",
+      "cap": true,
+      "ts": "20251219104249",
+      "read": {
+       "ok": false,
+       "why": "상품 표시 없음"
+      }
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/lou-grey-scubasoft-v-neck-tank-top/779994.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/junk-food-paris-room-view-original-tee/773578.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/junk-food-grateful-dead-shakedown-garden-vintage-tee/902752.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/lou-grey-terrysoft-cropped-hoodie/812066.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/pants/catl000014/lou-grey-garment-dyed-terrysoft-seamed-joggers/777228.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/apr-vibes-puff-sleeve-sweatshirt/785764.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/dresses/catl000013/heathered-seamed-mock-neck-maxi-dress/711293.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/dresses/catl000013/lately-velvet-cutout-midi-slip-dress/893593.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/pants/catl000014/pleated-palazzo-pants/784669.html",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 6,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.loft.com/gifts/shop-all-gifts/cat3860003/",
+      "cap": false,
+      "crawl": "CC-MAIN-2026-47",
+      "only": "302"
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/lou-grey-scubasoft-v-neck-tank-top/779994.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/junk-food-paris-room-view-original-tee/773578.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/junk-food-grateful-dead-shakedown-garden-vintage-tee/902752.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/lou-grey-terrysoft-cropped-hoodie/812066.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.loft.com/clothing/pants/catl000014/lou-grey-garment-dyed-terrysoft-seamed-joggers/777228.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.loft.com/clothing/tops/catl000011/apr-vibes-puff-sleeve-sweatshirt/785764.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.loft.com/clothing/dresses/catl000013/heathered-seamed-mock-neck-maxi-dress/711293.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.loft.com/clothing/dresses/catl000013/lately-velvet-cutout-midi-slip-dress/893593.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.loft.com/clothing/pants/catl000014/pleated-palazzo-pants/784669.html",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Lululemon",
+   "origin": "https://shop.lululemon.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 512,
+   "storedEmpty": 511,
+   "storedCats": {
+    "tops": 247,
+    "shirts": 82,
+    "sweatshirts": 59,
+    "pants": 70,
+    "dresses": 54
+   },
+   "storedCatsInMap": {
+    "tops": [
+     92,
+     247
+    ],
+    "shirts": [
+     32,
+     82
+    ],
+    "sweatshirts": [
+     18,
+     59
+    ],
+    "pants": [
+     23,
+     70
+    ],
+    "dresses": [
+     8,
+     54
+    ]
+   },
+   "sitemap": {
+    "origin": "https://shop.lululemon.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://shop.lululemon.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 21,
+      "depth": 0
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Product_Sitemap_en_CA.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1671,
+      "depth": 1,
+      "lastmod": 1671
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Product_Sitemap_en_US.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1155,
+      "depth": 1,
+      "lastmod": 1155
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Product_Sitemap_fr_CA.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1660,
+      "depth": 1,
+      "lastmod": 1660
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Category_Parent_Sitemap_en_CA.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 18,
+      "depth": 1,
+      "lastmod": 18
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Category_Parent_Sitemap_en_US.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 18,
+      "depth": 1,
+      "lastmod": 18
+     },
+     {
+      "url": "https://shop.lululemon.com/sitemap/Category_Parent_Sitemap_fr_CA.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 18,
+      "depth": 1,
+      "lastmod": 18
+     }
+    ],
+    "children": {
+     "listed": 21,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 4540,
+    "productUrls": 4486,
+    "sample": [
+     "https://shop.lululemon.com/en-ca/p/slouchy-sling-bag-6l/a01fyqv11n",
+     "https://shop.lululemon.com/en-ca/p/wanderlust-backpack-small-grip-handle/a0h44gw96v",
+     "https://shop.lululemon.com/en-ca/p/lululemon-align-halter-bra-light-c-d/a17af89vpz"
+    ],
+    "locale": "",
+    "storedInMap": 173,
+    "storedChecked": 512,
+    "guessCats": {
+     "shirts": 287,
+     "pants": 644,
+     "tops": 600,
+     "dresses": 36,
+     "sweatshirts": 176
+    },
+    "newProductUrls": 4313
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 1,
+    "read": 1,
+    "comp": 1,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://shop.lululemon.com/p/little-ribbed-tee/b5a7hl0ba8",
+      "cap": true,
+      "ts": "20260719003914",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 91% / Elastane 9%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://shop.lululemon.com/p/all-yours-organic-cotton-blend-crewneck-t-shirt/ft8520p63q",
+      "cap": false
+     },
+     {
+      "url": "https://shop.lululemon.com/p/side-ruched-running-short-sleeve-shirt/qyzovxdbnc",
+      "cap": false
+     },
+     {
+      "url": "https://shop.lululemon.com/p/wunder-under-cropped-tank-top-light-support-bc-cup/k31w262agr",
+      "cap": false
+     },
+     {
+      "url": "https://shop.lululemon.com/p/wundermost-usoft-nulu-spag-strap-cami-tank-adjust/os7q478lq1",
+      "cap": false
+     },
+     {
+      "url": "https://shop.lululemon.com/p/cropped-v-neck-tennis-tank-top/wjzfkgkqxt",
+      "cap": false
+     },
+     {
+      "url": "https://shop.lululemon.com/p/womens-steady-state-oversized-pullover-stripe/xx8nszlquq",
+      "cap": false
+     },
+     {
+      "url": "https://shop.lululemon.com/p/its-rulu-run-cropped-half-zip-ribbed/vidgkz81a7",
+      "cap": false
+     },
+     {
+      "url": "https://shop.lululemon.com/p/knit-sleeveless-golf-dress/gwdw26vztq",
+      "cap": false
+     },
+     {
+      "url": "https://shop.lululemon.com/p/scuba-mr-wide-leg-pant-regular/pn7q0wvton",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://shop.lululemon.com/p/little-ribbed-tee/b5a7hl0ba8",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/all-yours-organic-cotton-blend-crewneck-t-shirt/ft8520p63q",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/side-ruched-running-short-sleeve-shirt/qyzovxdbnc",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/wunder-under-cropped-tank-top-light-support-bc-cup/k31w262agr",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/wundermost-usoft-nulu-spag-strap-cami-tank-adjust/os7q478lq1",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/cropped-v-neck-tennis-tank-top/wjzfkgkqxt",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/womens-steady-state-oversized-pullover-stripe/xx8nszlquq",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/its-rulu-run-cropped-half-zip-ribbed/vidgkz81a7",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/knit-sleeveless-golf-dress/gwdw26vztq",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.lululemon.com/p/scuba-mr-wide-leg-pant-regular/pn7q0wvton",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Madewell",
+   "origin": "https://www.madewell.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 75,
+   "storedEmpty": 8,
+   "storedCats": {
+    "tops": 34,
+    "sweatshirts": 6,
+    "pants": 9,
+    "shirts": 18,
+    "dresses": 8
+   },
+   "storedCatsInMap": {
+    "tops": [
+     5,
+     34
+    ],
+    "sweatshirts": [
+     0,
+     6
+    ],
+    "pants": [
+     1,
+     9
+    ],
+    "shirts": [
+     0,
+     18
+    ],
+    "dresses": [
+     0,
+     8
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.madewell.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.madewell.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 7,
+      "depth": 0
+     },
+     {
+      "url": "https://www.madewell.com/sitemap_2-folder.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 50,
+      "depth": 1,
+      "lastmod": 50
+     },
+     {
+      "url": "https://www.madewell.com/sitemap_3.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1,
+      "depth": 1,
+      "lastmod": 1
+     },
+     {
+      "url": "https://www.madewell.com/sitemap-adeptmind.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 1,
+      "depth": 1
+     },
+     {
+      "url": "https://www.madewell.com/buy/sitemap_en_us.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 2,
+      "depth": 2
+     },
+     {
+      "url": "https://www.madewell.com/sitemap-custom-sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2601,
+      "depth": 1,
+      "lastmod": 2601
+     },
+     {
+      "url": "https://www.madewell.com/sitemap-custom-sitemap_1-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 77,
+      "depth": 1,
+      "lastmod": 77
+     },
+     {
+      "url": "https://www.madewell.com/sitemap_0-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1077,
+      "depth": 1,
+      "lastmod": 1077
+     }
+    ],
+    "children": {
+     "listed": 8,
+     "fetched": 5,
+     "blockedByRobots": []
+    },
+    "urls": 3806,
+    "productUrls": 2686,
+    "sample": [
+     "https://www.madewell.com/p/womens/clothing/sweaters/cardigans/the-sophia-cardigan-in-100-softwool/OB238/",
+     "https://www.madewell.com/p/womens/featured-shops/picksy-x-madewell-exclusive-sale/tees/the-easy-crop-scoopneck-tank-in-soft-slub/OA315/",
+     "https://www.madewell.com/p/womens/clothing/tops-shirts/tops/shirred-scoopneck-top/OA409/"
+    ],
+    "locale": "kr",
+    "storedInMap": 6,
+    "storedChecked": 75,
+    "guessCats": {
+     "tops": 436,
+     "pants": 742,
+     "dresses": 168,
+     "sweatshirts": 70,
+     "shirts": 10
+    },
+    "newProductUrls": 2686
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/sweaters/pullovers/boatneck-drop-shoulder-top/NY736/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/sweaters/pullovers/boatneck-drop-shoulder-top-in-stripe/NY299/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/sweaters/cardigans/ribbed-crewneck-cardigan/OC103/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/OB685/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tees/relaxed-tee/the-relaxed-tee-in-vintage-jersey/NZ332/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tees/the-easy-crop-crewneck-tee-in-soft-slub/NS568/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tops-shirts/long-sleeve-mockneck-top-in-jacquard-jersey/OC101/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tops-shirts/ribbed-crossover-wrap-top/OC105/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tops-shirts/button-downs/classic-button-up-shirt-in-poplin/OB662/",
+      "cap": false
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/dresses/casual-dresses/long-sleeve-polo-mini-dress-in-cozy-cotton-blend/OB900/",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/sweaters/pullovers/boatneck-drop-shoulder-top/NY736/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/sweaters/pullovers/boatneck-drop-shoulder-top-in-stripe/NY299/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/sweaters/cardigans/ribbed-crewneck-cardigan/OC103/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/OB685/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tees/relaxed-tee/the-relaxed-tee-in-vintage-jersey/NZ332/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tees/the-easy-crop-crewneck-tee-in-soft-slub/NS568/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tops-shirts/long-sleeve-mockneck-top-in-jacquard-jersey/OC101/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tops-shirts/ribbed-crossover-wrap-top/OC105/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/tops-shirts/button-downs/classic-button-up-shirt-in-poplin/OB662/",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.madewell.com/kr/p/womens/clothing/dresses/casual-dresses/long-sleeve-polo-mini-dress-in-cozy-cotton-blend/OB900/",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Mango",
+   "origin": "https://shop.mango.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 88,
+   "storedEmpty": 36,
+   "storedCats": {
+    "tops": 25,
+    "pants": 26,
+    "sweatshirts": 13,
+    "shirts": 11,
+    "dresses": 13
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     25
+    ],
+    "pants": [
+     0,
+     26
+    ],
+    "sweatshirts": [
+     0,
+     13
+    ],
+    "shirts": [
+     0,
+     11
+    ],
+    "dresses": [
+     0,
+     13
+    ]
+   },
+   "sitemap": {
+    "origin": "https://shop.mango.com",
+    "robots": {
+     "status": 429,
+     "challenge": "Vercel Security Checkpoint",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 88,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/100-cotton-round-neck-t-shirt/37091331/01/00",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/striped-short-sleeved-t-shirt/37025853/76/00",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/tops/gilets/lyocell-neck-scarf-top/37014803/06/01",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/tops/jacquard-corset-top/37064466/02/00",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/coats/coats/belted-knit-coat/37095846/99/00",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/dresses-and-jumpsuits/dresses/devore-polka-dot-dress/37017797/99/00",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/jeans/wide-leg/wide-leg-corduroy-trousers/37077804/07/00",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/trousers/casual/faux-leather-flared-trousers/37087788/99/00",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/jeans/flare/flared-corduroy-trousers/37047788/77/00",
+      "cap": false
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/trousers/smart/straight-fit-suit-trousers/37087898/99/00",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/100-cotton-round-neck-t-shirt/37091331/01/00",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/t-shirts/basics/striped-short-sleeved-t-shirt/37025853/76/00",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/tops/gilets/lyocell-neck-scarf-top/37014803/06/01",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/tops/jacquard-corset-top/37064466/02/00",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/coats/coats/belted-knit-coat/37095846/99/00",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/dresses-and-jumpsuits/dresses/devore-polka-dot-dress/37017797/99/00",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/jeans/wide-leg/wide-leg-corduroy-trousers/37077804/07/00",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/trousers/casual/faux-leather-flared-trousers/37087788/99/00",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/jeans/flare/flared-corduroy-trousers/37047788/77/00",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://shop.mango.com/us/en/p/women/trousers/smart/straight-fit-suit-trousers/37087898/99/00",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Massimo Dutti",
+   "origin": "https://www.massimodutti.com",
+   "listing": "home-only",
+   "product": "misread",
+   "stored": 606,
+   "storedEmpty": 602,
+   "storedCats": {
+    "tops": 78,
+    "pants": 398,
+    "shirts": 31,
+    "sweatshirts": 24,
+    "dresses": 75
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     78
+    ],
+    "pants": [
+     0,
+     398
+    ],
+    "shirts": [
+     0,
+     31
+    ],
+    "sweatshirts": [
+     0,
+     24
+    ],
+    "dresses": [
+     0,
+     75
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.massimodutti.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 4,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-index-home-categories-md.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 83,
+      "depth": 0
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-us-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 550,
+      "depth": 1,
+      "lastmod": 550
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-th-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 496,
+      "depth": 1,
+      "lastmod": 496
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-do-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 508,
+      "depth": 1,
+      "lastmod": 508
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-il-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 510,
+      "depth": 1,
+      "lastmod": 510
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-ua-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 540,
+      "depth": 1,
+      "lastmod": 540
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-home-categories-md-kr-0.xml.gz",
+      "status": 200,
+      "kind": "urlset",
+      "n": 550,
+      "depth": 1,
+      "lastmod": 550
+     },
+     {
+      "url": "https://www.massimodutti.com/3/info/sitemaps/sitemap-index-products-md.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 22,
+      "depth": 0
+     },
+     {
+      "url": "https://www.massimodutti.cn/3/info/sitemaps/sitemap-home-categories-md-cn-0.xml.gz",
+      "status": 523,
+      "kind": "",
+      "n": 0,
+      "depth": 0
+     },
+     {
+      "url": "https://www.massimodutti.cn/3/info/sitemaps/sitemap-products-md-cn-0.xml.gz",
+      "status": 523,
+      "kind": "",
+      "n": 0,
+      "depth": 0
+     }
+    ],
+    "children": {
+     "listed": 105,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 3154,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "us",
+    "storedInMap": 0,
+    "storedChecked": 606,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 4,
+    "read": 1,
+    "comp": 1,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106",
+      "cap": false
+     },
+     {
+      "url": "https://www.massimodutti.com/us/100-linen-stand-collar-shirt-l05151730",
+      "cap": false
+     },
+     {
+      "url": "https://www.massimodutti.com/us/nappa-leather-belt-with-metal-detail-l06199660",
+      "cap": true,
+      "ts": "20260828073744",
+      "read": {
+       "ok": true,
+       "comp": "Cow Leather 100%",
+       "src": "parts-json"
+      }
+     },
+     {
+      "url": "https://www.massimodutti.com/us/100-cotton-shirt-with-pocket-detail-l05175775",
+      "cap": false
+     },
+     {
+      "url": "https://www.massimodutti.com/us/straightleg-corduroy-pants-l05057757",
+      "cap": true,
+      "ts": "20261115200521"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/100-ramie-flowing-pocket-shirt-l05184684",
+      "cap": true,
+      "ts": "20261016225658"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/nappa-leather-bomber-jacket-with-elastic-waist-l03456475",
+      "cap": false
+     },
+     {
+      "url": "https://www.massimodutti.com/us/slimfit-wool-blend-pants-l05036671",
+      "cap": true,
+      "ts": "20261102161247"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/pleated-flannel-pants-with-hem-detail-l05042507",
+      "cap": false
+     },
+     {
+      "url": "https://www.massimodutti.com/us/striped-linen-cotton-blend-kaftan-l05118918",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/100-linen-stand-collar-shirt-l05151730",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/nappa-leather-belt-with-metal-detail-l06199660",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/100-cotton-shirt-with-pocket-detail-l05175775",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/straightleg-corduroy-pants-l05057757",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/100-ramie-flowing-pocket-shirt-l05184684",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/nappa-leather-bomber-jacket-with-elastic-waist-l03456475",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/slimfit-wool-blend-pants-l05036671",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/pleated-flannel-pants-with-hem-detail-l05042507",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.massimodutti.com/us/striped-linen-cotton-blend-kaftan-l05118918",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Paige",
+   "origin": "https://paige.com",
+   "listing": "home-only",
+   "product": "home-only",
+   "stored": 61,
+   "storedEmpty": 29,
+   "storedCats": {
+    "tops": 30,
+    "sweatshirts": 11,
+    "shirts": 4,
+    "dresses": 8,
+    "pants": 8
+   },
+   "storedCatsInMap": {
+    "tops": [
+     0,
+     30
+    ],
+    "sweatshirts": [
+     0,
+     11
+    ],
+    "shirts": [
+     0,
+     4
+    ],
+    "dresses": [
+     0,
+     8
+    ],
+    "pants": [
+     0,
+     8
+    ]
+   },
+   "sitemap": {
+    "origin": "https://paige.com",
+    "robots": {
+     "status": 429,
+     "challenge": "Vercel Security Checkpoint",
+     "ok": false,
+     "sitemapsListed": 0,
+     "blocksAllGeneral": false,
+     "ccbot": "",
+     "archiver": ""
+    },
+    "sitemaps": [],
+    "children": {
+     "listed": 0,
+     "fetched": 0,
+     "blockedByRobots": []
+    },
+    "urls": 0,
+    "productUrls": 0,
+    "sample": [],
+    "locale": "en-kr",
+    "storedInMap": 0,
+    "storedChecked": 61,
+    "guessCats": {},
+    "newProductUrls": 0
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://paige.com/en-kr/products/women-rhodes-tee-whisper-pink",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-rhodes-tee-navy",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-adriana-sweater-dark-brown",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-eden-top-heather-grey",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-camelia-top-heather-grey",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-edie-top-black",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-blanche-top-black-silver",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-leita-top-black",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-dempsey-dress-java",
+      "cap": false
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-valentin-pant-black",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://paige.com/en-kr/products/women-rhodes-tee-whisper-pink",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-rhodes-tee-navy",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-adriana-sweater-dark-brown",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-eden-top-heather-grey",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-camelia-top-heather-grey",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-edie-top-black",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-blanche-top-black-silver",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-leita-top-black",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-dempsey-dress-java",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://paige.com/en-kr/products/women-valentin-pant-black",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Patagonia",
+   "origin": "https://www.patagonia.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 168,
+   "storedEmpty": 161,
+   "storedCats": {
+    "tops": 44,
+    "shirts": 28,
+    "sweatshirts": 10,
+    "pants": 83,
+    "dresses": 3
+   },
+   "storedCatsInMap": {
+    "tops": [
+     44,
+     44
+    ],
+    "shirts": [
+     28,
+     28
+    ],
+    "sweatshirts": [
+     10,
+     10
+    ],
+    "pants": [
+     83,
+     83
+    ],
+    "dresses": [
+     3,
+     3
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.patagonia.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 2,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.patagonia.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 4,
+      "depth": 0
+     },
+     {
+      "url": "https://www.patagonia.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 3647,
+      "depth": 1,
+      "lastmod": 3647
+     },
+     {
+      "url": "https://www.patagonia.com/sitemap_3.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 83,
+      "depth": 1,
+      "lastmod": 83
+     },
+     {
+      "url": "https://www.patagonia.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1060,
+      "depth": 1,
+      "lastmod": 1060
+     },
+     {
+      "url": "https://www.patagonia.com/sitemap_2-content.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2821,
+      "depth": 1,
+      "lastmod": 2821
+     },
+     {
+      "url": "https://www.patagonia.com/actionworks/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 16,
+      "depth": 0
+     },
+     {
+      "url": "https://www.patagonia.com/actionworks/attachment-sitemap.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 877,
+      "depth": 1,
+      "lastmod": 877
+     },
+     {
+      "url": "https://www.patagonia.com/actionworks/attachment-sitemap2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 797,
+      "depth": 1,
+      "lastmod": 797
+     }
+    ],
+    "children": {
+     "listed": 20,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 9285,
+    "productUrls": 4180,
+    "sample": [
+     "https://www.patagonia.com/product/lightweight-beach-towel/20031.html",
+     "https://www.patagonia.com/product/mens-re-tool-air-snap-t-pullover/20190.html",
+     "https://www.patagonia.com/product/womens-re-tool-air-snap-t-pullover/20195.html"
+    ],
+    "locale": "",
+    "storedInMap": 168,
+    "storedChecked": 168,
+    "guessCats": {
+     "sweatshirts": 451,
+     "shirts": 309,
+     "tops": 331,
+     "pants": 458,
+     "dresses": 88
+    },
+    "newProductUrls": 4012
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 8,
+    "read": 2,
+    "comp": 0,
+    "err": 0,
+    "why": "상품 여러 개(JSON-LD) 2",
+    "items": [
+     {
+      "url": "https://www.patagonia.com/product/womens-i-voted-sticker-easy-cut-tee/37364.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-long-sleeved-water-people-banner-easy-cut-t-shirt/37861.html",
+      "cap": true,
+      "ts": "20260417215837",
+      "read": {
+       "ok": false,
+       "why": "상품 여러 개(JSON-LD)"
+      }
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-fitz-roy-massif-easy-cut-pocket-tee/37901.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-work-sweatshirt/41585.html",
+      "cap": true,
+      "ts": "20260416073132",
+      "read": {
+       "ok": false,
+       "why": "상품 여러 개(JSON-LD)"
+      }
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-all-seasons-hemp-canvas-bib-work-overalls-regular/56426.html",
+      "cap": true,
+      "ts": "20260423032757"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-wind-shield-windbreaker-pants/24109.html",
+      "cap": true,
+      "ts": "20260423021748"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-outdoor-everyday-cargo-pants/22030.html",
+      "cap": true,
+      "ts": "20260417212031"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-hampi-rock-climbing-pants-regular/82956.html",
+      "cap": true,
+      "ts": "20260711202251"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-terravia-trail-shorts-6-inch/57285.html",
+      "cap": true,
+      "ts": "20260415092850"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-stretch-hydropeak-surf-shorts/76015.html",
+      "cap": true,
+      "ts": "20260722202901"
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.patagonia.com/product/womens-i-voted-sticker-easy-cut-tee/37364.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-long-sleeved-water-people-banner-easy-cut-t-shirt/37861.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-fitz-roy-massif-easy-cut-pocket-tee/37901.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-work-sweatshirt/41585.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-all-seasons-hemp-canvas-bib-work-overalls-regular/56426.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-wind-shield-windbreaker-pants/24109.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-outdoor-everyday-cargo-pants/22030.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-hampi-rock-climbing-pants-regular/82956.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-terravia-trail-shorts-6-inch/57285.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.patagonia.com/product/womens-stretch-hydropeak-surf-shorts/76015.html",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Prana",
+   "origin": "https://www.prana.com",
+   "listing": "blocked",
+   "product": "blocked",
+   "stored": 81,
+   "storedEmpty": 77,
+   "storedCats": {
+    "tops": 12,
+    "sweatshirts": 20,
+    "dresses": 17,
+    "pants": 32
+   },
+   "storedCatsInMap": {
+    "tops": [
+     9,
+     12
+    ],
+    "sweatshirts": [
+     16,
+     20
+    ],
+    "dresses": [
+     15,
+     17
+    ],
+    "pants": [
+     32,
+     32
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.prana.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "막음",
+     "archiver": "막음"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.prana.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 3,
+      "depth": 0
+     },
+     {
+      "url": "https://www.prana.com/sitemap_0-product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 331,
+      "depth": 1,
+      "lastmod": 331
+     },
+     {
+      "url": "https://www.prana.com/sitemap_2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 48,
+      "depth": 1,
+      "lastmod": 48
+     },
+     {
+      "url": "https://www.prana.com/sitemap_1-category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 218,
+      "depth": 1,
+      "lastmod": 218
+     }
+    ],
+    "children": {
+     "listed": 3,
+     "fetched": 3,
+     "blockedByRobots": []
+    },
+    "urls": 597,
+    "productUrls": 331,
+    "sample": [
+     "https://www.prana.com/p/koen-capri/1961601.html",
+     "https://www.prana.com/p/kanab-mid-rise-jogger/1962631.html",
+     "https://www.prana.com/p/organic-headband/1963121.html"
+    ],
+    "locale": "",
+    "storedInMap": 72,
+    "storedChecked": 81,
+    "guessCats": {
+     "pants": 60,
+     "shirts": 19,
+     "tops": 78,
+     "sweatshirts": 19,
+     "dresses": 19
+    },
+    "newProductUrls": 259
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 2,
+    "read": 1,
+    "comp": 1,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.prana.com/p/moonvale-short-sleeve-top/2162831.html?dwvar_2162831_color=Dawn",
+      "cap": false
+     },
+     {
+      "url": "https://www.prana.com/p/everyday-v-neck-tee/2147721.html?dwvar_2147721_color=Nautical",
+      "cap": false
+     },
+     {
+      "url": "https://www.prana.com/p/dreamterry-v-neck-hoodie/2163591.html?dwvar_2163591_color=Beach%20Pebble",
+      "cap": false
+     },
+     {
+      "url": "https://www.prana.com/p/prana-fleece-crew-sweatshirt/2127701.html?dwvar_2127701_color=Black",
+      "cap": true,
+      "ts": "20260320163823",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 62% / Polyester 38%\nCotton 56% / Polyester 44%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.prana.com/p/heavana-long-sleeve-dress/2163071.html?dwvar_2163071_color=Basalt%20Heather",
+      "cap": false
+     },
+     {
+      "url": "https://www.prana.com/p/corrinne-dress/2147761.html?dwvar_2147761_color=Lychee",
+      "cap": false
+     },
+     {
+      "url": "https://www.prana.com/p/koen-mid-rise-wide-leg-pant/2146091.html?dwvar_2146091_color=Newberry",
+      "cap": false
+     },
+     {
+      "url": "https://www.prana.com/p/railay-scallop-pant/2148471.html?dwvar_2148471_color=Bluff%20Blue",
+      "cap": false
+     },
+     {
+      "url": "https://www.prana.com/p/kanab-mid-rise-jogger/1962631.html?dwvar_1962631_color=Charcoal",
+      "cap": false
+     },
+     {
+      "url": "https://www.prana.com/p/koen-capri/1961601.html?dwvar_1961601_color=Grape%20Leaf",
+      "cap": true,
+      "ts": "20251111221312"
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.prana.com/p/moonvale-short-sleeve-top/2162831.html?dwvar_2162831_color=Dawn",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/everyday-v-neck-tee/2147721.html?dwvar_2147721_color=Nautical",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/dreamterry-v-neck-hoodie/2163591.html?dwvar_2163591_color=Beach%20Pebble",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/prana-fleece-crew-sweatshirt/2127701.html?dwvar_2127701_color=Black",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/heavana-long-sleeve-dress/2163071.html?dwvar_2163071_color=Basalt%20Heather",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/corrinne-dress/2147761.html?dwvar_2147761_color=Lychee",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/koen-mid-rise-wide-leg-pant/2146091.html?dwvar_2146091_color=Newberry",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/railay-scallop-pant/2148471.html?dwvar_2148471_color=Bluff%20Blue",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/kanab-mid-rise-jogger/1962631.html?dwvar_1962631_color=Charcoal",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.prana.com/p/koen-capri/1961601.html?dwvar_1961601_color=Grape%20Leaf",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Sezane",
+   "origin": "https://www.sezane.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 203,
+   "storedEmpty": 202,
+   "storedCats": {
+    "tops": 70,
+    "sweatshirts": 8,
+    "shirts": 28,
+    "dresses": 27,
+    "pants": 70
+   },
+   "storedCatsInMap": {
+    "tops": [
+     67,
+     70
+    ],
+    "sweatshirts": [
+     8,
+     8
+    ],
+    "shirts": [
+     28,
+     28
+    ],
+    "dresses": [
+     27,
+     27
+    ],
+    "pants": [
+     69,
+     70
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.sezane.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.sezane.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 19,
+      "depth": 0
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-en.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 11463,
+      "depth": 1,
+      "lastmod": 11463
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-fr.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 12232,
+      "depth": 1,
+      "lastmod": 12232
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-us-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 13162,
+      "depth": 1,
+      "lastmod": 13162
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-us-2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 9621,
+      "depth": 1,
+      "lastmod": 9621
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-eu-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 13174,
+      "depth": 1,
+      "lastmod": 13174
+     },
+     {
+      "url": "https://www.sezane.com/sitemap-eu-2.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 12950,
+      "depth": 1,
+      "lastmod": 12950
+     }
+    ],
+    "children": {
+     "listed": 19,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 72602,
+    "productUrls": 67942,
+    "sample": [
+     "https://www.sezane.com/en-en/product/childrens-t-shirt-demain/white-multicolour",
+     "https://www.sezane.com/en-en/product/paola-ring/gold",
+     "https://www.sezane.com/en-en/product/sara-pendant-9-carat-gold-letters-i-to-p/letter-i"
+    ],
+    "locale": "us-en",
+    "storedInMap": 199,
+    "storedChecked": 203,
+    "guessCats": {
+     "tops": 7991,
+     "pants": 1666,
+     "shirts": 4854,
+     "dresses": 3859,
+     "sweatshirts": 158
+    },
+    "newProductUrls": 67790
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 2,
+    "read": 1,
+    "comp": 1,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.sezane.com/us-en/product/leon-t-shirt/white",
+      "cap": false
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/malcolm-t-shirt/ecru",
+      "cap": true,
+      "ts": "20251122012215",
+      "read": {
+       "ok": true,
+       "comp": "Organic Cotton 100%",
+       "src": "jsonld"
+      }
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/octobre-editions/drenil-oversized-t-shirt/ecru",
+      "cap": false
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/norah-dress/taupe",
+      "cap": false
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/50d-wool-tights/black",
+      "cap": false
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/damon-trousers/black",
+      "cap": true,
+      "ts": "20260108125055"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/marino-trousers/terracotta",
+      "cap": false
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/le-bootcut-trousers/brown",
+      "cap": false
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/le-droit-vintage/raw-blue-tall",
+      "cap": false
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/slim-parfait/dark-blue",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.sezane.com/us-en/product/leon-t-shirt/white",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/malcolm-t-shirt/ecru",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/octobre-editions/drenil-oversized-t-shirt/ecru",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/norah-dress/taupe",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/50d-wool-tights/black",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/damon-trousers/black",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/marino-trousers/terracotta",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/le-bootcut-trousers/brown",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/le-droit-vintage/raw-blue-tall",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.sezane.com/us-en/product/slim-parfait/dark-blue",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "The white company",
+   "origin": "https://www.thewhitecompany.com",
+   "listing": "home-only",
+   "product": "blocked",
+   "stored": 68,
+   "storedEmpty": 68,
+   "storedCats": {
+    "sweatshirts": 27,
+    "pants": 23,
+    "tops": 13,
+    "dresses": 5
+   },
+   "storedCatsInMap": {
+    "sweatshirts": [
+     27,
+     27
+    ],
+    "pants": [
+     23,
+     23
+    ],
+    "tops": [
+     13,
+     13
+    ],
+    "dresses": [
+     5,
+     5
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.thewhitecompany.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.thewhitecompany.com/uk/uk-sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 7,
+      "depth": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_Product.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 4598,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_OurWorld.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 227,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_Homepage.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_CategoryLanding.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 22,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_Category.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 425,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/sitemap_Store.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 93,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 7,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 5366,
+    "productUrls": 4467,
+    "sample": [
+     "https://www.thewhitecompany.com/uk/London-Toy-Bus/p/LBUBA",
+     "https://www.thewhitecompany.com/uk/Vilac-Ride-On-Car-Toy/p/RIUBA",
+     "https://www.thewhitecompany.com/uk/Fragrance-Diffuser-Tray/p/CLDDS"
+    ],
+    "locale": "uk",
+    "storedInMap": 68,
+    "storedChecked": 68,
+    "guessCats": {
+     "tops": 562,
+     "pants": 229,
+     "dresses": 198,
+     "shirts": 72,
+     "sweatshirts": 101
+    },
+    "newProductUrls": 4409
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 4,
+    "read": 2,
+    "comp": 0,
+    "err": 0,
+    "why": "보관본에 혼용률 없음 2",
+    "items": [
+     {
+      "url": "https://www.thewhitecompany.com/uk/Cosy-Rolled-Edge-Lounge-Cardigan/p/A19431",
+      "cap": false
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Ultimate-Leggings/p/LLCNG",
+      "cap": true,
+      "ts": "20260417004248",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Turn-Up-Cuff-Joggers/p/A13445",
+      "cap": true,
+      "ts": "20260713185628",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Cashmere-Hoodie-with-Silk-Trim/p/A16683",
+      "cap": false
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Tie-Roll-Neck-Jumper-with-Alpaca/p/A19475",
+      "cap": false
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Fleeceback-Turn-Up-Cuff-Joggers/p/A04306",
+      "cap": true,
+      "ts": "20260520200518"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Velour-Wide-Leg-Trousers/p/A20833",
+      "cap": false
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Contrast-Detail-Wide-Leg-Joggers-with-Cashmere/p/A19450",
+      "cap": false
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Borg-Jacket/p/A18960",
+      "cap": false
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Ultimate-Gathered-Back-Sweatshirt/p/A19580",
+      "cap": true,
+      "ts": "20260808222426"
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.thewhitecompany.com/uk/Cosy-Rolled-Edge-Lounge-Cardigan/p/A19431",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Ultimate-Leggings/p/LLCNG",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Turn-Up-Cuff-Joggers/p/A13445",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Cashmere-Hoodie-with-Silk-Trim/p/A16683",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Tie-Roll-Neck-Jumper-with-Alpaca/p/A19475",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Fleeceback-Turn-Up-Cuff-Joggers/p/A04306",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Velour-Wide-Leg-Trousers/p/A20833",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Contrast-Detail-Wide-Leg-Joggers-with-Cashmere/p/A19450",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Borg-Jacket/p/A18960",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.thewhitecompany.com/uk/Ultimate-Gathered-Back-Sweatshirt/p/A19580",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Theory",
+   "origin": "https://www.theory.com",
+   "listing": "home-only",
+   "product": "works",
+   "stored": 390,
+   "storedEmpty": 14,
+   "storedCats": {
+    "tops": 63,
+    "shirts": 102,
+    "sweatshirts": 25,
+    "pants": 141,
+    "dresses": 59
+   },
+   "storedCatsInMap": {
+    "tops": [
+     59,
+     63
+    ],
+    "shirts": [
+     100,
+     102
+    ],
+    "sweatshirts": [
+     23,
+     25
+    ],
+    "pants": [
+     135,
+     141
+    ],
+    "dresses": [
+     54,
+     59
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.theory.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.theory.com/sitemap_index.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 3,
+      "depth": 0
+     },
+     {
+      "url": "https://www.theory.com/sitemap_1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1716,
+      "depth": 1,
+      "lastmod": 1716
+     },
+     {
+      "url": "https://www.theory.com/sitemap-PD-sitemap.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 6,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.theory.com/sitemap_0-image.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1109,
+      "depth": 1,
+      "lastmod": 0
+     }
+    ],
+    "children": {
+     "listed": 3,
+     "fetched": 3,
+     "blockedByRobots": []
+    },
+    "urls": 2831,
+    "productUrls": 2219,
+    "sample": [
+     "https://www.theory.com/men/mens-outerwear/morvek-zip-jacket-in-leather/F0170411_001.html",
+     "https://www.theory.com/women/blazers-and-jackets/etiennette-blazer-in-good-wool/H0101113_001.html",
+     "https://www.theory.com/women/blazers-and-jackets/etiennette-blazer-in-good-wool/H0101113_A08.html"
+    ],
+    "locale": "",
+    "storedInMap": 370,
+    "storedChecked": 389,
+    "guessCats": {
+     "pants": 342,
+     "tops": 492,
+     "sweatshirts": 68,
+     "dresses": 108,
+     "shirts": 4
+    },
+    "newProductUrls": 1497
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 8,
+    "read": 3,
+    "comp": 1,
+    "err": 0,
+    "why": "보관본에 혼용률 없음 2",
+    "items": [
+     {
+      "url": "https://www.theory.com/women/tops/tie-front-shirt-in-striped-cotton-blend/Q0604508_G0D.html",
+      "cap": true,
+      "ts": "20260611201209",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.theory.com/women/t-shirts-and-tanks/mock-neck-top-in-soft-rib/P0729507_TV9.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.theory.com/women/t-shirts-and-tanks/tiny-tee-in-organic-cotton/L1024521_WBL.html",
+      "cap": true,
+      "ts": "20260512092526",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 100%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.theory.com/women/pants/fluid-pull-on-pant-in-lounge-jersey/Q0229231_Q5P.html",
+      "cap": true,
+      "ts": "20260512103257",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.theory.com/women/tops/shell-top-in-silk-georgette/M0102539_2O6.html",
+      "cap": true,
+      "ts": "20260414190317"
+     },
+     {
+      "url": "https://www.theory.com/women/tops/cap-sleeve-shirt-in-fluid-linen/Q0403519_G39.html",
+      "cap": true,
+      "ts": "20260509225848"
+     },
+     {
+      "url": "https://www.theory.com/women/dresses/zip-mini-dress-in-good-wool/P0801601_001.html",
+      "cap": true,
+      "ts": "20260516111605"
+     },
+     {
+      "url": "https://www.theory.com/women/dresses/midi-shirt-dress-in-fluid-linen/P0303615_RR4.html",
+      "cap": true,
+      "ts": "20260516115150"
+     },
+     {
+      "url": "https://www.theory.com/women/pants/ribbed-flare-pant-in-crepe-knit/Q1116702_001.html",
+      "cap": false
+     },
+     {
+      "url": "https://www.theory.com/women/pants/fluid-pleat-short-in-good-linen/Q0203214_001.html",
+      "cap": true,
+      "ts": "20260513093042"
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.theory.com/women/tops/tie-front-shirt-in-striped-cotton-blend/Q0604508_G0D.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/t-shirts-and-tanks/mock-neck-top-in-soft-rib/P0729507_TV9.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/t-shirts-and-tanks/tiny-tee-in-organic-cotton/L1024521_WBL.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/pants/fluid-pull-on-pant-in-lounge-jersey/Q0229231_Q5P.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/tops/shell-top-in-silk-georgette/M0102539_2O6.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/tops/cap-sleeve-shirt-in-fluid-linen/Q0403519_G39.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/dresses/zip-mini-dress-in-good-wool/P0801601_001.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/dresses/midi-shirt-dress-in-fluid-linen/P0303615_RR4.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/pants/ribbed-flare-pant-in-crepe-knit/Q1116702_001.html",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.theory.com/women/pants/fluid-pleat-short-in-good-linen/Q0203214_001.html",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "WHBM",
+   "origin": "https://www.whitehouseblackmarket.com",
+   "listing": "partial",
+   "product": "partial",
+   "stored": 219,
+   "storedEmpty": 144,
+   "storedCats": {
+    "tops": 19,
+    "shirts": 38,
+    "dresses": 82,
+    "pants": 80
+   },
+   "storedCatsInMap": {
+    "tops": [
+     17,
+     19
+    ],
+    "shirts": [
+     36,
+     38
+    ],
+    "dresses": [
+     79,
+     82
+    ],
+    "pants": [
+     79,
+     80
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.whitehouseblackmarket.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 5,
+      "depth": 0
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap/products-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 2406,
+      "depth": 1,
+      "lastmod": 2406
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/locations/stat/assets/sitemap-0.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 644,
+      "depth": 1,
+      "lastmod": 644
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap/pages.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 47,
+      "depth": 1,
+      "lastmod": 47
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap/blog.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 92,
+      "depth": 1,
+      "lastmod": 92
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/sitemap/categories-1.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 314,
+      "depth": 1,
+      "lastmod": 314
+     }
+    ],
+    "children": {
+     "listed": 5,
+     "fetched": 5,
+     "blockedByRobots": []
+    },
+    "urls": 3503,
+    "productUrls": 2411,
+    "sample": [
+     "https://www.whitehouseblackmarket.com/store/product/pav-accent-wide-stretch-bracelet/570266522",
+     "https://www.whitehouseblackmarket.com/store/product/slim-ankle-comfort-stretch-pants/570293592",
+     "https://www.whitehouseblackmarket.com/store/product/mid-rise-pret-a-play-shorts/570302694"
+    ],
+    "locale": "",
+    "storedInMap": 211,
+    "storedChecked": 219,
+    "guessCats": {
+     "pants": 423,
+     "tops": 481,
+     "dresses": 581,
+     "shirts": 161,
+     "sweatshirts": 27
+    },
+    "newProductUrls": 2200
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 2,
+    "read": 1,
+    "comp": 1,
+    "err": 0,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643",
+      "cap": false
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/mock-neck-long-sleeve-tee/570421367?inseam=regular&sizeType=regular&color=7819&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761672806",
+      "cap": false
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/y-neck-poplin-shirt/570409655?inseam=regular&sizeType=regular&color=100&catId=cat4769287&collectionId=category&queryId=e0882e62584ea750cb66a30b638265fb&indexName=prod_whbm_products&parentId=196536723084",
+      "cap": true,
+      "ts": "20260515225318",
+      "read": {
+       "ok": true,
+       "comp": "Cotton 78% / Nylon 19% / Elastane 3%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/v-neck-crepe-blouse/570419107?inseam=regular&sizeType=regular&color=7765&catId=cat4769287&collectionId=category&queryId=e0882e62584ea750cb66a30b638265fb&indexName=prod_whbm_products&parentId=199761413287",
+      "cap": false
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/mock-neck-ribbed-sweater-dress/570421211?inseam=regular&sizeType=regular&color=001&catId=cat210002&collectionId=category&parentId=199761525799",
+      "cap": false
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/luxe-stretch-high-rise-elle-slim-ankle-pant/570418714?inseam=regular&sizeType=regular&color=3009&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196535941878",
+      "cap": false
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/elle-velvet-slim-ankle-pant/570420955?inseam=regular&sizeType=regular&color=1815&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196536156578",
+      "cap": false
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/luxe-stretch-mid-rise-piper-flare-pant/570411838?inseam=regular&sizeType=regular&color=001&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196536884235",
+      "cap": true,
+      "ts": "20260811083250"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/luxe-stretch-high-rise-elle-slim-ankle-pant/570413863?inseam=regular&sizeType=regular&color=7639&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196535941878",
+      "cap": false
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/petite-wide-leg-sequin-pants/570419999?inseam=regular&sizeType=petite&color=001&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196534858092",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/satin-front-short-sleeve-tee/570421368?inseam=regular&sizeType=regular&color=190&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761602643",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/mock-neck-long-sleeve-tee/570421367?inseam=regular&sizeType=regular&color=7819&catId=cat4769286&collectionId=category&queryId=d9048cf76c8aa154df879765d8492e70&indexName=prod_whbm_products&parentId=199761672806",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/y-neck-poplin-shirt/570409655?inseam=regular&sizeType=regular&color=100&catId=cat4769287&collectionId=category&queryId=e0882e62584ea750cb66a30b638265fb&indexName=prod_whbm_products&parentId=196536723084",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/v-neck-crepe-blouse/570419107?inseam=regular&sizeType=regular&color=7765&catId=cat4769287&collectionId=category&queryId=e0882e62584ea750cb66a30b638265fb&indexName=prod_whbm_products&parentId=199761413287",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/mock-neck-ribbed-sweater-dress/570421211?inseam=regular&sizeType=regular&color=001&catId=cat210002&collectionId=category&parentId=199761525799",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/luxe-stretch-high-rise-elle-slim-ankle-pant/570418714?inseam=regular&sizeType=regular&color=3009&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196535941878",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/elle-velvet-slim-ankle-pant/570420955?inseam=regular&sizeType=regular&color=1815&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196536156578",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/luxe-stretch-mid-rise-piper-flare-pant/570411838?inseam=regular&sizeType=regular&color=001&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196536884235",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/luxe-stretch-high-rise-elle-slim-ankle-pant/570413863?inseam=regular&sizeType=regular&color=7639&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196535941878",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.whitehouseblackmarket.com/store/product/petite-wide-leg-sequin-pants/570419999?inseam=regular&sizeType=petite&color=001&catId=cat210003&collectionId=category&queryId=93adc25e3402d0250b0e62da447a653c&indexName=prod_whbm_products&parentId=196534858092",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  },
+  {
+   "brand": "Wilson",
+   "origin": "https://www.wilson.com",
+   "listing": "home-only",
+   "product": "partial",
+   "stored": 51,
+   "storedEmpty": 23,
+   "storedCats": {
+    "tops": 34,
+    "sweatshirts": 3,
+    "dresses": 10,
+    "pants": 4
+   },
+   "storedCatsInMap": {
+    "tops": [
+     20,
+     34
+    ],
+    "sweatshirts": [
+     3,
+     3
+    ],
+    "dresses": [
+     10,
+     10
+    ],
+    "pants": [
+     4,
+     4
+    ]
+   },
+   "sitemap": {
+    "origin": "https://www.wilson.com",
+    "robots": {
+     "status": 200,
+     "ok": true,
+     "sitemapsListed": 1,
+     "blocksAllGeneral": false,
+     "ccbot": "허용",
+     "archiver": "허용"
+    },
+    "sitemaps": [
+     {
+      "url": "https://www.wilson.com/sitemap.xml",
+      "status": 200,
+      "kind": "index",
+      "n": 78,
+      "depth": 0
+     },
+     {
+      "url": "https://www.wilson.com/en-us/sitemap_products_1.xml?from=10315295392058&to=10400406831418",
+      "status": 200,
+      "kind": "urlset",
+      "n": 689,
+      "depth": 1,
+      "lastmod": 688
+     },
+     {
+      "url": "https://www.wilson.com/en-us/sitemap_products_2.xml?from=10400406864186&to=10400478003514",
+      "status": 200,
+      "kind": "urlset",
+      "n": 533,
+      "depth": 1,
+      "lastmod": 533
+     },
+     {
+      "url": "https://www.wilson.com/en-us/sitemap_products_3.xml?from=10400478069050&to=15541525053754",
+      "status": 200,
+      "kind": "urlset",
+      "n": 460,
+      "depth": 1,
+      "lastmod": 460
+     },
+     {
+      "url": "https://www.wilson.com/sitemap_agentic_discovery.xml",
+      "status": 200,
+      "kind": "urlset",
+      "n": 1,
+      "depth": 1,
+      "lastmod": 0
+     },
+     {
+      "url": "https://www.wilson.com/sitemap_products_1.xml?from=10315295392058&to=10400406831418",
+      "status": 200,
+      "kind": "urlset",
+      "n": 689,
+      "depth": 1,
+      "lastmod": 688
+     },
+     {
+      "url": "https://www.wilson.com/sitemap_products_2.xml?from=10400406864186&to=10400478003514",
+      "status": 200,
+      "kind": "urlset",
+      "n": 533,
+      "depth": 1,
+      "lastmod": 533
+     }
+    ],
+    "children": {
+     "listed": 78,
+     "fetched": 6,
+     "blockedByRobots": []
+    },
+    "urls": 2905,
+    "productUrls": 2902,
+    "sample": [
+     "https://www.wilson.com/en-us/products/a360-sp13-13-slowpitch-softball-glove-wbw100786",
+     "https://www.wilson.com/en-us/products/2026-a1000-h12-12-infield-fastpitch-glove-wbw102570",
+     "https://www.wilson.com/en-us/products/2026-a1000-t125-125-outfield-fastpitch-glove-wbw102571"
+    ],
+    "locale": "en-us",
+    "storedInMap": 37,
+    "storedChecked": 51,
+    "guessCats": {
+     "tops": 160,
+     "dresses": 51,
+     "sweatshirts": 27,
+     "pants": 40,
+     "shirts": 2
+    },
+    "newProductUrls": 2865
+   },
+   "wayback": {
+    "n": 10,
+    "cap": 4,
+    "read": 2,
+    "comp": 1,
+    "err": 0,
+    "why": "보관본에 혼용률 없음 1",
+    "items": [
+     {
+      "url": "https://www.wilson.com/en-us/products/harper-crop-tee-we00370",
+      "cap": false
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/all-day-half-zip-ww00431",
+      "cap": true,
+      "ts": "20261110011530",
+      "read": {
+       "ok": false,
+       "why": "보관본에 혼용률 없음"
+      }
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/all-day-shrug-ww00429",
+      "cap": true,
+      "ts": "20261012031649",
+      "read": {
+       "ok": true,
+       "comp": "Polyester 94% / Elastane 6%",
+       "src": "page"
+      }
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/classic-half-zip-sweatshirt-we00432",
+      "cap": false
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/pleated-mesh-dress-we00363",
+      "cap": false
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/tiebreaker-convertible-dress-we00199",
+      "cap": true,
+      "ts": "20261110011530"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/match-point-dress-we00195",
+      "cap": false
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/midtown-skirty-tight-ww00491",
+      "cap": true,
+      "ts": "20261110080939"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/montrose-pant-we00271",
+      "cap": false
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/downtown-barrel-pant-we00233",
+      "cap": false
+     }
+    ]
+   },
+   "commoncrawl": {
+    "n": 10,
+    "cap": 0,
+    "read": 0,
+    "comp": 0,
+    "err": 10,
+    "why": "",
+    "items": [
+     {
+      "url": "https://www.wilson.com/en-us/products/harper-crop-tee-we00370",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/all-day-half-zip-ww00431",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/all-day-shrug-ww00429",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/classic-half-zip-sweatshirt-we00432",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/pleated-mesh-dress-we00363",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/tiebreaker-convertible-dress-we00199",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/match-point-dress-we00195",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/midtown-skirty-tight-ww00491",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/montrose-pant-we00271",
+      "cap": false,
+      "err": "fetch failed"
+     },
+     {
+      "url": "https://www.wilson.com/en-us/products/downtown-barrel-pant-we00233",
+      "cap": false,
+      "err": "fetch failed"
+     }
+    ]
+   }
+  }
+ ]
+}
