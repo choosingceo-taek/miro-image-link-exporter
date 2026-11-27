@@ -57,7 +57,7 @@ import { guardRun, flagText } from "./comp-guard.mjs";
 import { detailOf, compFromOwnPartsJson as compFromPartsJson, detailRecord } from "./detail-core.mjs";
 import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
 import { colorFromTitle } from "./title-color.mjs";
-import { WriteCounter } from "./kv-budget.mjs";
+import { WriteCounter, budgetEnv, readLedger, ledgerPuts, remainingToday, writeLedger } from "./kv-budget.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -75,7 +75,14 @@ const PAUSE_MS = Math.max(0, Number(process.env.PAUSE_MS) || 0);
 const DEADLINE = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 65) * 60_000;
 const DRY_TAG = process.env.DRY_TAG || "";
 // KV 쓰기 집계(scripts/kv-budget.mjs) — 저장 요청 1회 = KV put 1(오버레이 comp:<site> · 상세 detail:<site>).
+// 오늘(UTC) 남은 몫 = 한도 − 예약분(서버 프리페치·크롬 확장·손 실행) − 장부(kv-writes/). 모자라면 상세부터 미룬다:
+// 상세는 '남은 브랜드 수'만큼 몫을 남겨 둘 때만 보내고(오버레이 몫을 지킨다), 오버레이는 몫이 남아 있을 때만 보낸다.
+// 저장본과 똑같으면 보내지 않는다. Worker 가 '한도 초과'를 돌려주면 그 뒤로는 보내지 않는다.
 const KV = new WriteCounter();
+const KV_T0 = new Date().toISOString();
+const KV_ENV = budgetEnv();
+const KV_REMAINING = remainingToday({ limit: KV_ENV.limit, reserve: KV_ENV.reserve, used: ledgerPuts(readLedger(KV_ENV.dir)) });
+const sj = (x) => JSON.stringify(x === undefined ? null : x);
 // 저장하지 않는 실행(STORE=0 · DRY=1)은 Worker 에 GET 만 보낸다 — fetch 를 감싸 다른 요청은 보내기 전에 막는다.
 if (!STORE) {
   const realFetch = globalThis.fetch;
@@ -403,11 +410,15 @@ const guardHeld = [];   // 저장 직전 가드가 보류한 값(브랜드 전�
 const shells = [];      // 껍데기로 센 페이지의 예(제목·글 앞부분)
 let grandFilled = 0, grandTried = 0;
 
+let tIdx = 0;
 for (const c of targets) {
-  let cat, overlay = {};
+  tIdx++;
+  let cat, overlay = {}, overlayOk = true;
   try { cat = await api("catalog=" + encodeURIComponent(c.site)); }
   catch (e) { console.log(`  !! ${c.brand} 카탈로그 읽기 실패: ${e.message}`); continue; }
-  try { overlay = await api("comps=" + encodeURIComponent(c.site)); } catch (e) { overlay = {}; }
+  // 저장본을 못 읽으면 이 브랜드의 오버레이는 저장하지 않는다 — 빈 값 위에 이번 결과만 얹어 통째로 덮으면 쌓아 둔 혼용률이
+  // 날아간다(야간 보강에서 실제로 겪은 사고 — Cotton on 98% → 0%).
+  try { overlay = await api("comps=" + encodeURIComponent(c.site)); } catch (e) { overlay = {}; overlayOk = false; }
 
   // 이미 옳은 혼용률이 있는 상품은 건너뛴다.
   // 이미 옳은 혼용률이 있는 상품, 그리고 "사이트가 안 적는다"를 최근에 확인한
@@ -584,7 +595,14 @@ for (const c of targets) {
   }
   if (!STORE && Object.keys(patch).length) KV.wouldSend("overlay");
   if (!STORE && Object.keys(dpatch).length) KV.wouldSend("details");
-  if (STORE && Object.keys(patch).length) {
+  let ovGo = STORE && Object.keys(patch).length > 0;
+  if (ovGo && !overlayOk) { ovGo = false; KV.fail("overlay", c.site, "저장본을 못 읽음 — 저장 안 함"); console.log("    !! 오버레이 저장본을 못 읽어 저장하지 않음(빈 값 위에 덮지 않게)"); }
+  else if (ovGo && sj(merged) === sj(overlay)) { ovGo = false; KV.same++; }
+  else if (ovGo && (KV.limitHit || KV.puts + 1 > KV_REMAINING)) {
+    ovGo = false; KV.deferred.push({ kind: "overlay", site: c.site, prio: 0 });
+    console.log(`    오늘 쓰기 몫이 모자라 오버레이 저장을 미룸(${KV.limitHit ? "한도 초과" : `남은 몫 ${KV_REMAINING - KV.puts}`}) — 다음 실행이 다시 읽는다`);
+  }
+  if (ovGo) {
     // 오버레이는 통째로 저장한다(Worker 는 본문을 그대로 KV 에 넣기만 한다).
     let saved = false;
     for (let a = 0; a < 3 && !saved; a++) {
@@ -596,13 +614,20 @@ for (const c of targets) {
         });
         const j = await r.json().catch(() => null);
         if (j && j.ok) { saved = true; KV.ok("overlay"); }
+        else if (j && /limit exceeded/i.test(String(j.error))) { KV.fail("overlay", c.site, j.error); console.log(`    !! 저장 실패 — ${j.error}`); break; }
         else if (a === 2) { KV.fail("overlay", c.site, (j && j.error) || r.status); console.log(`    !! 저장 실패 HTTP ${r.status}`); }
       } catch (e) { if (a === 2) console.log(`    !! 저장 오류 ${String(e.message || e)}`); }
       if (!saved) await new Promise((r2) => setTimeout(r2, 2000));
     }
   }
   // 상품 상세 저장 — 저장값을 먼저 읽고(못 읽으면 저장하지 않는다), 가드(detail-guard.mjs) 뒤 합쳐 통째로 넘긴다.
-  if (STORE && Object.keys(dpatch).length) {
+  // 상세는 3순위 — 남은 브랜드의 오버레이 몫(브랜드당 1)을 남겨 둘 때만 보낸다.
+  let detGo = STORE && Object.keys(dpatch).length > 0;
+  if (detGo && (KV.limitHit || KV.puts + 1 > KV_REMAINING - (targets.length - tIdx))) {
+    detGo = false; KV.deferred.push({ kind: "details", site: c.site, prio: 3 });
+    console.log("    오늘 쓰기 몫이 모자라 상세 저장을 미룸 — 다음 실행이 다시 읽는다");
+  }
+  if (detGo) {
     let dmap = null;
     try {
       const r = await fetch(`${WORKER}/?details=${encodeURIComponent(c.site)}${tok}`, { signal: AbortSignal.timeout(30000) });
@@ -615,7 +640,8 @@ for (const c of targets) {
       const clean = {};
       for (const [u, d] of Object.entries(dpatch)) clean[u] = detailApply(d, flags).rec;
       const { merged: dm, added } = mergeDetails(dmap, clean, Date.now());
-      try {
+      if (sj(dm) === sj(dmap)) { KV.same++; console.log("    상세 — 저장본과 같아 보내지 않음"); }
+      else try {
         KV.sent("details");
         const r = await fetch(`${WORKER}/?store=details&site=${encodeURIComponent(c.site)}${tok}`, {
           method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dm), signal: AbortSignal.timeout(60000),
@@ -694,10 +720,15 @@ const md = [
 const REPORT_FILE = !STORE && DRY_TAG ? `enrich-browser-dry-${DRY_TAG}.md` : "enrich-browser-report.md";
 const kvw = KV.summary();
 const kvLine = STORE
-  ? `KV 쓰기 집계 — 보낸 저장 요청 ${kvw.requests} · KV put ${kvw.puts} (오버레이 ${(kvw.byKind.overlay || {}).puts || 0} · 상세 ${(kvw.byKind.details || {}).puts || 0}) · 실패 ${kvw.failed}${kvw.limitHit ? " · 한도 걸림" : ""}`
+  ? `KV 쓰기 집계 — 보낸 저장 요청 ${kvw.requests} · KV put ${kvw.puts} (오버레이 ${(kvw.byKind.overlay || {}).puts || 0} · 상세 ${(kvw.byKind.details || {}).puts || 0}) · 같아서 안 보냄 ${kvw.same} · 미룸 ${kvw.deferred} · 실패 ${kvw.failed}${kvw.limitHit ? " · 한도 걸림" : ""} · 이 실행에 허용된 몫 ${KV_REMAINING}`
   : `KV 쓰기 집계 [STORE=0] — 실제로 보낸 저장 요청 ${kvw.requests} · KV put ${kvw.puts} · 저장했다면 요청 ${kvw.would}(put ${kvw.wouldPuts})`;
 writeFileSync(join(ROOT, REPORT_FILE), md + `\n## KV 쓰기 (이번 실행)\n\n- ${kvLine.replace(/^KV 쓰기 집계 ?/, "")}\n`);
 console.log(kvLine);
 // 이력은 저장한 실행에서만 남긴다 — DRY 로 돌려 보다가 후보를 잠그면 곤란하다.
 if (STORE) writeFileSync(STATE_PATH, JSON.stringify(state, null, 1) + "\n");
+// 오늘(UTC) 쓰기 장부 — 저장한 실행만(kv-writes/<날짜>/enrich-browser-<실행>.json).
+if (STORE && KV_ENV.dir) {
+  writeLedger(KV_ENV.dir, { job: "enrich-browser", run: process.env.GITHUB_RUN_ID || "", start: KV_T0, at: new Date().toISOString(),
+    requests: kvw.requests, puts: kvw.puts, deletes: 0, same: kvw.same, deferred: kvw.deferred, failed: kvw.failed });
+}
 console.log(`\n총 ${grandFilled}/${grandTried} 채움 · 리포트: ${REPORT_FILE}`);

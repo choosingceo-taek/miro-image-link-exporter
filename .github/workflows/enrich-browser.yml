@@ -117,6 +117,13 @@ jobs:
           # --no-save 설치는 따로 하면 앞에 받은 것을 지운다 — 둘을 한 번에 받는다.
           timeout 240 npm i --no-save playwright@1.49.1 patchright@1.49.1
           timeout 300 npx patchright install chromium
+      # 오늘 쓰기 장부(kv-writes/)는 지금 브랜치 끝에서 읽는다 — checkout 은 실행이 '생긴' 때의 커밋이라, 앞 실행이 끝나길
+      # 기다렸다 도는 실행은 그 앞 실행이 남긴 장부를 못 본다(그러면 full 이 하루에 두 번 돈다).
+      - name: Fresh write ledger
+        continue-on-error: true
+        run: |
+          git fetch -q --depth=1 origin ${{ github.ref_name }} && git checkout FETCH_HEAD -- kv-writes 2>/dev/null || echo "장부 없음(첫 실행)"
+          ls kv-writes 2>/dev/null | tail -3 || true
       - name: Enrich
         env:
           BRANDS: ${{ github.event.inputs.brands }}
@@ -128,6 +135,8 @@ jobs:
           # 측정 실행(store=0)의 리포트는 enrich-browser-dry-<실행>.md 로 — 운영 리포트를 덮지 않는다.
           DRY_TAG: ${{ github.run_id }}
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          # KV 쓰기 장부(scripts/kv-budget.mjs) — 오늘 남은 쓰기 몫을 읽고, 저장한 실행은 kv-writes/<UTC 날짜>/ 에 남긴다.
+          KV_LEDGER_DIR: kv-writes
         run: node scripts/enrich-comp-browser.mjs
       - name: Upload report
         if: always()
@@ -148,6 +157,8 @@ jobs:
           # 이력 파일도 함께 올려야 다음 실행이 차단 브랜드를 기억한다.
           # 이게 빠지면 매 실행이 백지에서 시작해 같은 벽에 다시 부딪힌다.
           git add -A -- enrich-browser-report.md enrich-browser-state.json 'enrich-browser-dry-*.md' || true
+          # 쓰기 장부는 저장한 실행에만 생긴다 — 없을 때 위 줄이 통째로 실패하지 않게 따로 더한다.
+          [ -d kv-writes ] && git add -A -- kv-writes || true
           git commit -m "enrich-browser: real-chrome composition pass" || echo "no changes"
           # 리포트는 매번 통째로 새로 쓰이므로, 충돌하면 이번 실행 결과를 채택한다.
           for i in 1 2 3; do
@@ -158,6 +169,7 @@ jobs:
               git fetch origin ${{ github.ref_name }}
               git reset --soft origin/${{ github.ref_name }}
               git add -A -- enrich-browser-report.md enrich-browser-state.json 'enrich-browser-dry-*.md'
+              [ -d kv-writes ] && git add -A -- kv-writes || true
               git commit -m "enrich-browser: real-chrome composition pass" || true
             fi
             sleep 5

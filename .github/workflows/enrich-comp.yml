@@ -88,21 +88,37 @@ jobs:
           npm init -y >/dev/null
           timeout 200 npm i --no-save impit@0.14.9
           rm -f package.json package-lock.json
+      # 오늘 쓰기 장부(kv-writes/)는 지금 브랜치 끝에서 읽는다 — checkout 은 실행이 '생긴' 때의 커밋이라, 앞 실행이 끝나길
+      # 기다렸다 도는 실행은 그 앞 실행이 남긴 장부를 못 본다(그러면 full 이 하루에 두 번 돈다).
+      - name: Fresh write ledger
+        continue-on-error: true
+        run: |
+          git fetch -q --depth=1 origin ${{ github.ref_name }} && git checkout FETCH_HEAD -- kv-writes 2>/dev/null || echo "장부 없음(첫 실행)"
+          ls kv-writes 2>/dev/null | tail -3 || true
       - name: Enrich compositions
         env:
           # 상품 상세(설명·디테일·사진 전부) 3차 — 혼용률은 찼는데 상세가 없는 상품을 남은 예산·시간 안에서 연다.
           # 저장소 변수 DETAIL_BACKFILL=0 으로 끈다. TIME_MIN = 3차를 멈추는 시각(리포트·인덱스 쓸 시간을 남긴다).
           DETAIL_BACKFILL: ${{ vars.DETAIL_BACKFILL || '1' }}
-          TIME_MIN: "95"
+          # 저장은 실행 끝에 브랜드마다 한 번이다(KV 쓰기 한도) — 1·2·3차를 90분에 멈춰 저장·인덱스·리포트에 20분을 남긴다.
+          TIME_MIN: "90"
           WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
           PER_BRAND: ${{ github.event.inputs.per_brand }}
           TOTAL: ${{ github.event.inputs.total }}
           NEED_FIELDS: ${{ github.event.inputs.need_fields }}
           RETRY_DAYS: ${{ github.event.inputs.retry_days }}
-          # 새벽 회차(KST 05:30)는 재시도 창을 무시하고 빈 혼용률을 전부 다시 읽는다.
-          # 창에 갇힌 상품이 매일 +0 으로 굳는 것을 막는다 — 실제로 그 상태였다.
-          # 2시간마다 도는 회차는 창을 지킨다(같은 실패를 하루에 열두 번 반복하지 않게).
-          RETRY_ALL: ${{ github.event.inputs.retry_all || (github.event.schedule == '30 20 * * *' && '1' || '') }}
+          # 실행 방식(scripts/enrich-comp.mjs 머리말 'ENRICH_MODE'). KV put 은 하루 1,000회라 전부 도는 실행은 하루(UTC)에 한 번이다.
+          #   손으로 돌린 실행 → full. 예약·이어 돌기 → auto: 오늘 장부(kv-writes/)에 full 보강이 없으면 full, 있으면 new
+          #   (지난 보강 뒤에 카탈로그가 바뀐 브랜드의 신상만). 예약이 6~10시간 늦게 돌아 세 회차가 아침에 몰려도 full 은 하나다.
+          ENRICH_MODE: ${{ github.event_name == 'workflow_dispatch' && 'full' || 'auto' }}
+          # 그날의 full 자동 실행은 재시도 창을 무시하고 빈 혼용률을 전부 다시 읽는다 — 예전 05:30 예약 회차의 몫이다
+          # (창에 갇힌 상품이 매일 +0 으로 굳는 것을 막는다). 손으로 돌릴 때는 retry_all 입력으로.
+          RETRY_ALL: ${{ github.event.inputs.retry_all }}
+          RETRY_ALL_ON_FULL: "1"
+          # KV 쓰기 장부 — 오늘 남은 쓰기 몫과 '오늘 full 보강이 있었나'를 여기서 읽는다(측정 실행도 읽기만 한다).
+          # 예약분(KV_RESERVE, 기본 300)은 이 저장소 밖에서 쓰는 몫이다: 서버 프리페치 약 80 · 크롬 확장 약 110 · 손 실행 여유.
+          KV_LEDGER_DIR: kv-writes
+          KV_RESERVE: ${{ vars.KV_RESERVE || '' }}
           # 브랜드 5개를 동시에, 각 브랜드 안에서 8개씩 = 전체 40개 동시.
           # 한 사이트로 가는 동시 요청은 8개라 예전(10개)보다 오히려 정중하다.
           BRAND_POOL: ${{ github.event.inputs.brand_pool || vars.BRAND_POOL || '5' }}
@@ -134,6 +150,8 @@ jobs:
             git commit -m "enrich-comp: 측정 실행(DRY) 리포트 — 저장 안 함" || echo "no changes"
           else
             git add -A -- enrich-comp-report.md || true
+            # 쓰기 장부(kv-writes/<UTC 날짜>/enrich-comp-<실행>.json) — 다음 실행이 오늘 남은 몫을 센다.
+            [ -d kv-writes ] && git add -A -- kv-writes || true
             git commit -m "enrich-comp: 혼용률·컬러 보강 리포트" || echo "no changes"
           fi
           for i in 1 2 3; do

@@ -97,7 +97,8 @@ const IMPIT_ONLY = {
   eq("① 상세는 오버레이에 섞이지 않는다", Object.keys(ov[`${b}/p/1`] || {}).some((k) => ["desc", "feat", "imgs"].includes(k)), false);
   eq("① 오버레이 혼용률·컬러·가격", [ov[`${b}/p/1`].comp, ov[`${b}/p/1`].color, ov[`${b}/p/1`].price], ["Linen 100%", "Sand", "$88"]);
   eq("⑦ Massimo Dutti 형 parts JSON 혼용률", ov[`${b}/p/8`] && ov[`${b}/p/8`].comp, "Cotton 93% / Cashmere 5% / Wool 2%");
-  eq("상세 저장은 차수마다 한 번(1·2·3차)", f.state.detailStores.length, 3);
+  // 예전엔 차수(1·2·3차)마다 저장해 3번이었다. 이제 실행 끝에 브랜드마다 한 번(KV 쓰기 한도 — DAILY-AUTOMATION.md '쓰기 예산').
+  eq("상세 저장은 실행에 한 번(1·2·3차를 모아서)", f.state.detailStores.length, 1);
   await f.close();
 }
 
