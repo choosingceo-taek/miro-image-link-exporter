@@ -42,6 +42,7 @@ import { dirname, join } from "node:path";
 import { chromium, firefox } from "playwright";
 import { API_READERS } from "./listing-api.mjs";
 import { looksLikeProduct } from "./access-evidence.mjs";
+import { WriteCounter, writeLedger, budgetEnv } from "./kv-budget.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const REPORT_DIR = process.env.REPORT_DIR || ROOT;
@@ -49,6 +50,24 @@ const RENDER = (process.env.RENDER_URL || "https://market-research-uzs2.onrender
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
 const TOKEN = process.env.WORKER_TOKEN || "hsfabriclinker";
 const STORE = process.env.STORE === "1";
+// KV 쓰기 집계(scripts/kv-budget.mjs) — 카탈로그 저장 요청 1회 = KV put 1(+ legacy 옛 키 delete 1).
+// 저장하지 않는 실행(STORE≠1)은 보냈을 요청만 센다. 그리고 Worker 로 가는 GET 이 아닌 요청을 보내기 전에 막는다
+// (목록 JSON 을 POST 로 받는 사이트 — listing-api.mjs — 는 Worker 가 아니라서 그대로 간다).
+const KV = new WriteCounter();
+const KV_T0 = new Date().toISOString();
+let blockedWrites = 0;
+if (!STORE) {
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = (input, init) => {
+    const method = String((init && init.method) || (input && input.method) || "GET").toUpperCase();
+    const url = String((input && input.url) || input);
+    if (method !== "GET" && method !== "HEAD" && url.startsWith(WORKER)) {
+      blockedWrites++;
+      return Promise.reject(new Error(`STORE=0 — Worker 로 가는 ${method} 요청을 막음: ${url.slice(0, 100)}`));
+    }
+    return realFetch(input, init);
+  };
+}
 const MAX_PAGES = Math.max(1, Number(process.env.MAX_PAGES) || 8);
 // 페이지 이동 대기. 늦은 사이트는 이 시간을 넘겨도 차단이 아니라 그냥 느린 것이라,
 // 아래에서 'commit' 으로 한 번 더 시도한 뒤 SLOW_SETTLE_MS 만큼 쉬어 준다.
@@ -612,9 +631,15 @@ for (const g of targets) {
   // 더 엄격하게 본다(아래 extraStoreBlock).
   const extraBlock = STORE && !cut && /^extra/.test(g.source || "") ? await extraStoreBlock(g.site, items.length) : "";
   if (extraBlock) storeErr = extraBlock;
+  // 저장하지 않는 실행: 저장했다면 보냈을 요청만 센다(추가 브랜드는 저장 조건 — 지금 저장본 개수 — 까지 읽어서 본다. 읽기만 한다).
+  if (!STORE && !cut && items.length >= 5) {
+    const wouldBlock = /^extra/.test(g.source || "") ? await extraStoreBlock(g.site, items.length) : "";
+    if (!wouldBlock) KV.wouldSend("catalog");
+  }
   if (STORE && !cut && !extraBlock && items.length >= 5) {
     try {
       const legacy = g.site.slice(0, g.site.lastIndexOf("."));
+      KV.sent("catalog");
       const r = await fetch(
         `${WORKER}/?store=catalog${g.storeMode === "merge" ? "" : "&replace=1"}&legacy=${encodeURIComponent(legacy)}&token=${encodeURIComponent(TOKEN)}`,
         {
@@ -624,7 +649,9 @@ for (const g of targets) {
         },
       );
       const d = await r.json().catch(() => ({}));
-      if (d.ok) stored = d.count; else storeErr = String(d.error || r.status);
+      // Worker 는 legacy 를 주면(사이트 키가 '<legacy>.' 로 시작할 때) 옛 키 delete 를 한 번 한다 — 키가 없어도 센다.
+      if (d.ok) { stored = d.count; KV.ok("catalog", { puts: 1, deletes: legacy && g.site.startsWith(legacy + ".") ? 1 : 0 }); }
+      else { storeErr = String(d.error || r.status); KV.fail("catalog", g.site, storeErr); }
     } catch (e) { storeErr = String((e && e.message) || e).slice(0, 80); }
   }
   const secs = Math.round((Date.now() - t0) / 1000);
@@ -692,6 +719,19 @@ for (const [title, rows] of [["✅ 자동화 가능", auto], ["⛔ 확장 필요
 // 지난 리포트에 없어서, 미루는 순간 다음 대체 실행 목록에서 빠졌다.
 const carry = targets.filter((t) => deferred.some((d) => d.brand === t.brand) && !results.some((r) => r.brand === t.brand));
 const keep = [...results, ...carry.map((t) => ({ brand: t.brand, site: t.site, engine: t.engine, engineSource: t.source || (ENGINE_ENV ? "env" : "default"), ...(t.job ? { job: t.job, fresh: !!t.fresh, storeMode: t.storeMode } : {}), collected: 0, deferred: true, perUrl: t.urls.map((url) => ({ url, count: 0, note: "마감으로 미룸" })) }))];
-writeFileSync(join(REPORT_DIR, REPORT_BASE + ".json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, engine: ENGINE_ENV || "per-brand", engines: enginesUsed, freshContext: FRESH_CONTEXT, configNote, extraNotes, deferred, results: keep }, null, 1));
+// KV 쓰기 집계 — 무료 플랜 put 하루 1,000회(DAILY-AUTOMATION.md '쓰기 예산').
+const kvw = KV.summary();
+const kvLine = STORE
+  ? `KV 쓰기 집계 — 보낸 카탈로그 저장 요청 ${kvw.requests} · KV put ${kvw.puts} · delete ${kvw.deletes} · 실패 ${kvw.failed}${kvw.limitHit ? " · 한도 걸림: " + kvw.limitHit : ""}`
+  : `KV 쓰기 집계 [STORE=0] — 실제로 보낸 저장 요청 ${kvw.requests} · KV put ${kvw.puts} · 보내기 전에 막은 요청 ${blockedWrites} · 저장했다면 요청 ${kvw.would}(put ${kvw.wouldPuts})`;
+md += `## KV 쓰기 (이번 잡)\n\n- ${kvLine.replace(/^KV 쓰기 집계 ?/, "")}\n`;
+writeFileSync(join(REPORT_DIR, REPORT_BASE + ".json"), JSON.stringify({ when: new Date().toISOString(), store: STORE, engine: ENGINE_ENV || "per-brand", engines: enginesUsed, freshContext: FRESH_CONTEXT, configNote, extraNotes, deferred, kvWrites: { ...kvw, blocked: blockedWrites }, results: keep }, null, 1));
 writeFileSync(join(REPORT_DIR, REPORT_BASE + ".md"), md);
+console.log(kvLine);
+// 오늘(UTC) 쓰기 장부 — 저장한 실행만(kv-writes/<날짜>/browser-collect-<실행>-<잡>.json). 야간 보강이 남은 몫을 셀 때 읽는다.
+const kvEnv = budgetEnv();
+if (STORE && kvEnv.dir) {
+  writeLedger(kvEnv.dir, { job: "browser-collect", run: process.env.GITHUB_RUN_ID || "", part: process.env.KV_PART || "",
+    start: KV_T0, at: new Date().toISOString(), requests: kvw.requests, puts: kvw.puts, deletes: kvw.deletes, failed: kvw.failed });
+}
 console.log(`\n자동화 가능 ${auto.length} / 확장 필요 ${blk.length} / 보완 필요 ${fix.length}`);

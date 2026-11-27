@@ -57,6 +57,7 @@ import { guardRun, flagText } from "./comp-guard.mjs";
 import { detailOf, compFromOwnPartsJson as compFromPartsJson, detailRecord } from "./detail-core.mjs";
 import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
 import { colorFromTitle } from "./title-color.mjs";
+import { WriteCounter } from "./kv-budget.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -73,6 +74,8 @@ const PAUSE_MS = Math.max(0, Number(process.env.PAUSE_MS) || 0);
 // 이 시각(시작 뒤 65분)이 지나면 새 상품을 열지 않는다(설치 10~20분 + 워크플로 제한 90분 안에 저장·리포트를 끝내려고). 남은 것은 다음 밤.
 const DEADLINE = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 65) * 60_000;
 const DRY_TAG = process.env.DRY_TAG || "";
+// KV 쓰기 집계(scripts/kv-budget.mjs) — 저장 요청 1회 = KV put 1(오버레이 comp:<site> · 상세 detail:<site>).
+const KV = new WriteCounter();
 // 저장하지 않는 실행(STORE=0 · DRY=1)은 Worker 에 GET 만 보낸다 — fetch 를 감싸 다른 요청은 보내기 전에 막는다.
 if (!STORE) {
   const realFetch = globalThis.fetch;
@@ -579,18 +582,21 @@ for (const c of targets) {
       merged[u] = cur;
     }
   }
+  if (!STORE && Object.keys(patch).length) KV.wouldSend("overlay");
+  if (!STORE && Object.keys(dpatch).length) KV.wouldSend("details");
   if (STORE && Object.keys(patch).length) {
     // 오버레이는 통째로 저장한다(Worker 는 본문을 그대로 KV 에 넣기만 한다).
     let saved = false;
     for (let a = 0; a < 3 && !saved; a++) {
       try {
+        KV.sent("overlay");
         const r = await fetch(`${WORKER}/?store=overlay&site=${encodeURIComponent(c.site)}${tok}`, {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify(merged), signal: AbortSignal.timeout(45000),
         });
         const j = await r.json().catch(() => null);
-        if (j && j.ok) saved = true;
-        else if (a === 2) console.log(`    !! 저장 실패 HTTP ${r.status}`);
+        if (j && j.ok) { saved = true; KV.ok("overlay"); }
+        else if (a === 2) { KV.fail("overlay", c.site, (j && j.error) || r.status); console.log(`    !! 저장 실패 HTTP ${r.status}`); }
       } catch (e) { if (a === 2) console.log(`    !! 저장 오류 ${String(e.message || e)}`); }
       if (!saved) await new Promise((r2) => setTimeout(r2, 2000));
     }
@@ -610,10 +616,12 @@ for (const c of targets) {
       for (const [u, d] of Object.entries(dpatch)) clean[u] = detailApply(d, flags).rec;
       const { merged: dm, added } = mergeDetails(dmap, clean, Date.now());
       try {
+        KV.sent("details");
         const r = await fetch(`${WORKER}/?store=details&site=${encodeURIComponent(c.site)}${tok}`, {
           method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dm), signal: AbortSignal.timeout(60000),
         });
         const j = await r.json().catch(() => null);
+        if (j && j.ok) KV.ok("details"); else KV.fail("details", c.site, (j && j.error) || r.status);
         console.log(`    상세 ${j && j.ok ? "저장" : "저장 실패"} — +${added}`);
       } catch (e) { console.log(`    !! 상세 저장 오류 ${String(e.message || e)}`); }
     } else console.log("    상세 저장값을 못 읽어 상세는 저장하지 않음");
@@ -684,7 +692,12 @@ const md = [
 ].join("\n");
 // 저장하지 않는 측정 실행은 실행 번호를 붙인 파일에 — 운영 리포트(enrich-browser-report.md)를 덮지 않게.
 const REPORT_FILE = !STORE && DRY_TAG ? `enrich-browser-dry-${DRY_TAG}.md` : "enrich-browser-report.md";
-writeFileSync(join(ROOT, REPORT_FILE), md);
+const kvw = KV.summary();
+const kvLine = STORE
+  ? `KV 쓰기 집계 — 보낸 저장 요청 ${kvw.requests} · KV put ${kvw.puts} (오버레이 ${(kvw.byKind.overlay || {}).puts || 0} · 상세 ${(kvw.byKind.details || {}).puts || 0}) · 실패 ${kvw.failed}${kvw.limitHit ? " · 한도 걸림" : ""}`
+  : `KV 쓰기 집계 [STORE=0] — 실제로 보낸 저장 요청 ${kvw.requests} · KV put ${kvw.puts} · 저장했다면 요청 ${kvw.would}(put ${kvw.wouldPuts})`;
+writeFileSync(join(ROOT, REPORT_FILE), md + `\n## KV 쓰기 (이번 실행)\n\n- ${kvLine.replace(/^KV 쓰기 집계 ?/, "")}\n`);
+console.log(kvLine);
 // 이력은 저장한 실행에서만 남긴다 — DRY 로 돌려 보다가 후보를 잠그면 곤란하다.
 if (STORE) writeFileSync(STATE_PATH, JSON.stringify(state, null, 1) + "\n");
 console.log(`\n총 ${grandFilled}/${grandTried} 채움 · 리포트: ${REPORT_FILE}`);
