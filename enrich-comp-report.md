@@ -277,7 +277,6 @@ ALC · Aerie · American Eagle · Apiece Apart · Beyond yoga · Boldest · Buck
 | Ninety Percent | 157 | 157 | 5 | 157 | 157 | +4 | 0·0 | 203KB |
 | Goldie | 148 | 147 | 143 | 147 | 139 | +9 | 0·0 | 252KB |
 | Addison bay | 141 | 141 | 0 | 141 | 139 | +0 | 0·0 | 244KB |
-| Lucky Brand | 141 | 141 | 141 | 141 | 0 | +0 | 0·0 | 132KB |
 | Gerard darel | 138 | 137 | 9 | 137 | 45 | +0 | 0·0 | 147KB |
 | Greyson | 128 | 128 | 0 | 128 | 127 | +35 | 0·0 | 142KB |
 | Outdoorvoices | 126 | 126 | 88 | 126 | 111 | +5 | 0·0 | 143KB |
@@ -645,11 +644,16 @@ ALC · Aerie · American Eagle · Apiece Apart · Beyond yoga · Boldest · Buck
 
 **주소: 카테고리 경로**
 
-- Aritzia — https://www.aritzia.com/intl/en/shop-by/event-dressing/holiday-party-dressing
-- Aritzia — https://www.aritzia.com/intl/en/shop-by/staying-in
-- Aritzia — https://www.aritzia.com/intl/en/shop-by/color-drops/velvet-plum-purple-clothing
-- Aritzia — https://www.aritzia.com/intl/en/shop-by/winter-outfits
-- Aritzia — https://www.aritzia.com/intl/en/shop-by/event-dressing
+- Aritzia — https://www.aritzia.com/intl/en/shop-by/back-to-school
+- Aritzia — https://www.aritzia.com/intl/en/shop-by/womens-basics
+- Aritzia — https://www.aritzia.com/intl/en/shop-by/workwear
+- Gap — https://www.gap.com/browse/new/gap-hoodie-shop
+- Garnet hill — https://www.garnethill.com/clothing/categories/coats-jackets/
+
+**목록 페이지(JSON-LD)**
+
+- FP Movement — https://www.freepeople.com/fpmovement/top-rated-activewear-tops/ — {"rootProducts":0,"listProducts":66,"itemList":66,"og":true,"h1":1,"blocks":1,"prices":66,"carts":0,"sigs":["cotton 100"],"title":"Top Rated Activewear Tops / FP Movement","types":["Corporation","ContactPoint","SiteNavigationElement","WebPageElement","BreadcrumbList","ListItem"]}
+- FP Movement — https://www.freepeople.com/fpmovement/mvmt-logo-curation/ — {"rootProducts":0,"listProducts":72,"itemList":72,"og":true,"h1":1,"blocks":0,"prices":72,"carts":0,"sigs":[],"title":"Logo Activewear / FP Movement","types":["Corporation","ContactPoint","SiteNavigationElement","WebPageElement","BreadcrumbList","ListItem"]}
 
 </details>
 
