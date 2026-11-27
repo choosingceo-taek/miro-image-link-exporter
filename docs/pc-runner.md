@@ -82,7 +82,7 @@
 
 ### 2-2. 내려받기
 
-1. 시작 메뉴에서 "PowerShell" 을 찾아 **마우스 오른쪽 → 관리자 권한으로 실행** 합니다(3절의 '서비스' 방식에 필요합니다. 관리자 권한이 없으면 그냥 실행해도 되고, 3-B 방식을 씁니다).
+1. 시작 메뉴에서 "PowerShell" 을 찾아 **마우스 오른쪽 → 관리자 권한으로 실행** 합니다(2-4 의 '서비스' 방식에 필요합니다. 관리자 권한이 없으면 그냥 실행하고 2-4 의 B 방식을 씁니다).
 2. 아래를 칩니다(경로에 한글·공백이 없는 곳이 좋습니다).
    ```
    mkdir C:\actions-runner
@@ -102,7 +102,7 @@
    | Enter the name of runner | `rack-pc-1` 처럼 아무 이름(기본값은 PC 이름 — 공개 저장소라 PC 이름을 보이고 싶지 않으면 바꾸세요) |
    | **Enter any additional labels** | **`rack-pc`** ← 꼭 이대로. 워크플로가 이 이름표가 붙은 러너만 부릅니다 |
    | Enter name of work folder | 그냥 Enter |
-   | Would you like to run the runner as service? | 다음 3절을 읽고 고릅니다(서비스면 `Y`, 아니면 `N`) |
+   | Would you like to run the runner as service? | 아래 2-4 를 읽고 고릅니다(서비스면 `Y`, 아니면 `N`) |
 
 3. 마지막에 "Settings Saved." 가 나오면 등록 끝입니다.
 
@@ -191,7 +191,7 @@
 |---|---|---|
 | 프로그램 실행 제한(허용 목록·관리자 권한 없음) | `config.cmd` 가 "이 앱은 차단되었습니다"·"액세스 거부" | IT 에 `C:\actions-runner` 폴더 실행 허용을 요청. 관리자 권한만 없으면 2-4 의 **B** 방식(서비스 등록 안 함) |
 | 서비스 등록 금지 | 등록 끝에 서비스 오류 | **B** 방식으로 |
-| 회사 방화벽·프록시 | Runners 목록에서 러너가 회색(Offline) · 설치 중 다운로드 실패 | 브라우저로 `https://github.com` · `https://registry.npmjs.org/playwright` · `https://market-research-uzs2.onrender.com/blocked-brands.json` 가 열리는지 봅니다. 회사가 프록시를 쓰면 `C:\actions-runner\.env`(맥은 `/Users/Shared/actions-runner/.env`) 파일에 `https_proxy=http://프록시주소:포트` 한 줄을 넣고 러너를 다시 켭니다(주소는 IT 에 문의) |
+| 회사 방화벽·프록시 | Runners 목록에서 러너가 회색(Offline) · 설치 중 다운로드 실패 | 브라우저로 `https://github.com` · `https://registry.npmjs.org/playwright` · `https://market-research-uzs2.onrender.com/blocked-brands.json` 가 열리는지 봅니다. 회사가 프록시를 쓰면 `C:\actions-runner\.env`(맥은 `/Users/Shared/actions-runner/.env`) 파일에 `https_proxy=http://프록시주소:포트` 한 줄을 넣고 러너를 다시 켭니다(주소는 IT 에 문의). 단, 수집 스크립트가 Render·Worker 에 묻는 요청(Node.js)은 이 설정을 따르지 않아 프록시만 열린 회사망에서는 실패할 수 있습니다 — 그때는 리포트에 "Render 설정 파일을 못 받아"가 적힙니다. 집 PC 가 낫습니다 |
 | 파이어폭스 다운로드 차단 | 리포트에 "파이어폭스 없음" | 괜찮습니다 — 그 브랜드는 크롬으로 돕니다. 필요하면 IT 에 `playwright.azureedge.net` 등 허용 요청 |
 | 보안 프로그램(백신·EDR)이 자동으로 움직이는 크롬을 막음 | 리포트에 "크롬을 못 띄움" · 크롬 창이 뜨자마자 닫힘 | IT 에 `C:\actions-runner` 와 크롬 자동 실행 예외 요청 |
 | 쇼핑몰 접속 차단(회사가 쇼핑 사이트를 막음) | 리포트의 브랜드마다 "오류: net::ERR…" | 회사망에서는 어렵습니다 — 집 PC 에 설치하세요 |
@@ -202,6 +202,8 @@
 ---
 
 ## 6. 시험 실행 — 처음 한 번
+
+> 이 워크플로가 **main 에 합쳐진 뒤**에야 Actions 목록에 보이고 예약도 돕니다(GitHub 은 기본 브랜치의 워크플로만 예약·수동 실행 버튼을 보여 줍니다).
 
 1. 저장소 위쪽 **Actions** 탭 → 왼쪽 목록 **PC collect (my PC, real browser)** → 오른쪽 **Run workflow**.
 2. **계획만**: `steps` 칸에 `plan`, `store` 칸에 `0` → 초록 **Run workflow**. 2~5분 뒤 저장소의 `pc-collect-report.md` 를 엽니다.
