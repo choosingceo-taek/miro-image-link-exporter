@@ -73,6 +73,11 @@
    "evidence": "서버 하루 6개(tops 만). 2026-11-25 크롬 측정(run 45604834917·45604846574): 207개 — tops 칸 4+2=6(서버와 같음), 셔츠 77·원피스 41·바지 25(서버 0). knitwear 엑셀 주소는 첫 화면으로 튕김 → docs/listing-doors.md URL 표. 합치기 저장"
   },
   {
+   "brand": "L.L bean",
+   "engine": "chromium",
+   "evidence": "확장 담당이었지만 11/26 카테고리 주소를 미국 사이트(llbean.com)로 바꾼 뒤 데이터센터 크롬에서 열림. 2026-11-26 저장 안 함 측정(try-engines run 45783356343·45791824407): tees 49/49 · sweatshirts 55/55 · dresses 31/31 · pants 50/50, 셔츠(502972 womens-shirts-and-button-downs) 48/48(run 45802040997·45802704448). 확인 실행 45803175707: 5개 카테고리 모두 여성 상품·달러. 예전 global.llbean.com 은 크롬 Cloudflare 403"
+  },
+  {
    "brand": "Oysho",
    "engine": "firefox",
    "fresh": true,
