@@ -90,6 +90,8 @@ jobs:
         run: node scripts/test-detail-guard.mjs
       - name: Run enrich product-detail / impit layer test (fake Worker · fake impit)
         run: node scripts/test-enrich-detail.mjs
+      - name: Run KV write-count tests (before/after, 134 brands)
+        run: node scripts/test-kv-writes.mjs
       - name: Syntax check panel/extension/userscript
         run: |
           node --check chrome-extension/background.js
@@ -99,6 +101,8 @@ jobs:
           node --check scripts/listing-api.mjs
           node --check scripts/combine-collect-reports.mjs
           node --check scripts/enrich-comp.mjs
+          node --check scripts/kv-budget.mjs
+          node --check scripts/enrich-comp-browser.mjs
           node --check scripts/wayback-guard.mjs
           node --check scripts/diagnose-page.mjs
           node --check scripts/audit-stored-comp.mjs

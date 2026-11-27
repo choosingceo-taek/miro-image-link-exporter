@@ -748,6 +748,14 @@ if (BRANDS.length) {
     (unmatchedBrands.length ? ` · 못 찾은 이름: ${unmatchedBrands.join(", ")}` : ""));
 }
 if (DRY) console.log("DRY=1 — 읽기만 한다. Worker 에 저장하지 않고 인덱스도 다시 만들지 않는다.");
+// new: 지난 보강 뒤에 카탈로그가 바뀐(=신상이 들어왔을 수 있는) 브랜드만 본다. 카탈로그 갱신 시각은 목록(?catalogs)의 메타데이터다.
+if (MODE === "new" && LAST_ENRICH_START) {
+  const before = list.length;
+  list = list.filter((c) => !c.updated || Number(c.updated) >= LAST_ENRICH_START - 10 * 60_000);
+  console.log(`지난 보강(${new Date(LAST_ENRICH_START).toISOString().slice(0, 16)}Z) 뒤에 카탈로그가 바뀐 브랜드 ${list.length}/${before}개만 본다`);
+}
+console.log(`실행 방식 ${MODE}${MODE_IN === "auto" ? ` (auto — 오늘 full 보강 ${FULL_TODAY ? "있음 #" + (FULL_TODAY.run || "?") : "없음"})` : ""} · ` +
+  `${MODE === "new" ? "1차(신상)만" : "1·2·3차"} · 재시도 창 ${RETRY_ALL ? "무시(RETRY_ALL)" : "지킴"}`);
 if (WAYBACK) {
   // 카테고리 URL 자체가 상품으로 저장된 경우를 아카이브에 묻기 전에 거른다(읽기만).
   try {
@@ -1155,7 +1163,7 @@ async function processBrand(c, phase) {
 // 요청은 BRAND_POOL 배로 는다 — 사이트에는 더 정중하고 전체로는 더 빠르다.
 const BRAND_POOL = Math.max(1, Number(process.env.BRAND_POOL) || 5);
 console.log(`impit ${IMPIT_ON ? "켬" : "없음(평 fetch 만)"} · 상세 3차 ${DETAIL_BACKFILL ? "켬" : "끔"}`);
-for (const phase of DETAIL_BACKFILL ? [PHASE_NEW, PHASE_OLD, PHASE_DETAIL] : [PHASE_NEW, PHASE_OLD]) {
+for (const phase of MODE === "new" ? [PHASE_NEW] : DETAIL_BACKFILL ? [PHASE_NEW, PHASE_OLD, PHASE_DETAIL] : [PHASE_NEW, PHASE_OLD]) {
   console.log(`\n── ${phase === PHASE_NEW ? "1차 신상" : phase === PHASE_OLD ? "2차 재시도" : "3차 상품 상세"} ── 남은 예산 ${budget}`);
   await pool(list, BRAND_POOL, (c) => processBrand(c, phase));
 }
@@ -1536,7 +1544,8 @@ if (errs.length) {
   }
   md += `\n`;
 }
-writeFileSync(join(ROOT, REPORT_FILE), md);
+// REPORT_DIR — 시험이 리포트를 임시 폴더에 쓰게(비우면 저장소 루트).
+writeFileSync(join(process.env.REPORT_DIR || ROOT, REPORT_FILE), md);
 {
   const k = KV.summary();
   console.log(DRY
