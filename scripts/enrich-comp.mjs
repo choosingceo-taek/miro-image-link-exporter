@@ -31,7 +31,7 @@ import { detailOf, compFromOwnPartsJson as compFromPartsJson, detailRecord } fro
 import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
 import { ruleVersion, colorVersion } from "./rule-version.mjs";
 import { colorFromTitle } from "./title-color.mjs";
-import { WriteCounter } from "./kv-budget.mjs";
+import { WriteCounter, budgetEnv, readLedger, ledgerPuts, ledgerLine, remainingToday, writeLedger, planWrites, PRIO, PRIO_NAME, utcDay } from "./kv-budget.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -53,7 +53,26 @@ const COLOR_RETRY_DAYS = Math.max(1, Number(process.env.COLOR_RETRY_DAYS) || 30)
 // 안 적는 값을 매번 다시 읽게 되기 때문이다. 다만 추출 규칙이 좋아졌거나 예전에
 // 일시적으로 실패한 뒤에는, 창에 갇힌 상품이 전부 '시도 안 함' 상태로 굳는다.
 // (진단 표본 112개 중 58개가 "지금 읽으면 나온다"였다 — 그게 이 스위치의 이유다)
-const RETRY_ALL = process.env.RETRY_ALL === "1";
+//
+// ── 실행 방식(ENRICH_MODE) — 하루(UTC)에 전부 도는 실행은 한 번 ─────────────────────
+// 보강은 점검이 끝날 때마다(예약 + 헤드리스가 끝날 때마다 — 측정 실행 뒤에도) 이어서 돌고 예약도 두 개라, 11/26 UTC 하루에
+// 저장하는 실행이 6번 돌았다. 깃허브 예약이 6~10시간 늦어 밤 작업이 모두 다음 날 아침(UTC)에 몰린다. 실행마다 브랜드
+// 130개 안팎을 저장해 KV put 하루 1,000회가 찼다(DAILY-AUTOMATION.md '쓰기 예산').
+//   full — 1차(신상)·2차(재시도)·3차(상세). 손으로 돌린 실행과 그날 첫 자동 실행.
+//   new  — 1차(신상)만, 그것도 지난 보강 뒤에 카탈로그가 바뀐 브랜드만. 그날 두 번째부터의 자동 실행.
+//          (헤드리스가 늦게 끝나 들여온 신상은 이것이 받는다. 바뀐 게 없으면 아무것도 저장하지 않는다)
+//   auto — 오늘(UTC) 장부(kv-writes/)에 full 보강이 있으면 new, 없으면 full. 워크플로의 예약·이어 돌기가 준다.
+//          auto 로 full 이 되면 RETRY_ALL_ON_FULL=1 일 때 재시도 창을 무시한다(예전 05:30 예약 회차의 몫을 그날 한 번에 맡는다).
+const KV_ENV = budgetEnv();
+const LEDGER_TODAY = readLedger(KV_ENV.dir);
+const LEDGER_YDAY = readLedger(KV_ENV.dir, utcDay(Date.now() - 86400000));
+const MODE_IN = String(process.env.ENRICH_MODE || "full").toLowerCase();
+const FULL_TODAY = LEDGER_TODAY.find((e) => e.job === "enrich-comp" && e.mode === "full");
+const MODE = MODE_IN === "new" ? "new" : MODE_IN === "auto" ? (FULL_TODAY ? "new" : "full") : "full";
+// 지난 보강이 시작한 시각 — new 는 그 뒤에 카탈로그가 바뀐 브랜드만 본다.
+const LAST_ENRICH_START = Math.max(0, ...[...LEDGER_TODAY, ...LEDGER_YDAY].filter((e) => e.job === "enrich-comp")
+  .map((e) => Date.parse(e.start || e.at || "") || 0));
+const RETRY_ALL = MODE === "full" && (process.env.RETRY_ALL === "1" || (MODE_IN === "auto" && process.env.RETRY_ALL_ON_FULL === "1"));
 // 성과 없는 브랜드를 한 실행에 몇 개까지만 다시 볼지. 0 이면 제한하지 않는다.
 const BARREN_CAP = Math.max(0, Number(process.env.BARREN_CAP ?? 30));
 const PER_BRAND = Math.max(1, Number(process.env.PER_BRAND) || 800);
@@ -72,6 +91,7 @@ const tok = "&token=" + encodeURIComponent(TOKEN);
 // 전부 읽기다(?catalogs · ?catalog · ?comps · ?comp — ?comp 는 페이지를 읽어 돌려줄 뿐 KV 에
 // 쓰지 않는다). 그래도 나중에 누가 쓰기를 하나 더 붙일 수 있으므로, DRY 에서는 fetch 자체를
 // 감싸 GET/HEAD 가 아닌 요청은 보내기 전에 막는다.
+const RUN_T0 = Date.now();
 const DRY = process.env.DRY === "1";
 // KV 쓰기 집계(scripts/kv-budget.mjs) — 보낸 저장 요청 · 그 요청이 일으킨 KV put. 리포트·로그 끝에 남긴다.
 const KV = new WriteCounter();
@@ -228,10 +248,12 @@ async function getImpit(url) {
 // ── 상품 상세(설명·디테일·사진 전부 …) ───────────────────────────────
 // 페이지를 여는 김에 함께 뽑아 detail:<site> 에 따로 저장한다(Worker README · docs/field-map.md).
 // DETAIL_BACKFILL=1 이면 혼용률이 이미 찬(=예전엔 다시 열 일이 없던) 상품도 상세가 없으면 3차로 연다 — 남은 예산·시간 안에서.
-const DETAIL_BACKFILL = process.env.DETAIL_BACKFILL === "1";
+const DETAIL_BACKFILL = process.env.DETAIL_BACKFILL === "1" && MODE === "full";
 const DETAIL_RETRY_MS = Math.max(1, Number(process.env.DETAIL_RETRY_DAYS) || 30) * 24 * 3600 * 1000;
 // 3차를 멈출 시각 — 워크플로 제한 시간(110분) 전에 리포트·인덱스를 쓸 여유를 남긴다.
 const STOP_AT = Date.now() + Math.max(5, Number(process.env.TIME_MIN) || 95) * 60_000;
+// 상품 상세 추출이 main 에 들어온 시각(d03424d, 2026-11-26 00:14Z). 이보다 뒤에 연 상품은 읽힐 때 상세도 함께 뽑았다.
+const DETAIL_SINCE = Date.UTC(2026, 10, 26, 0, 14);
 
 async function get(url, accept, timeoutMs = 20000) {
   await hostSlot(url);
@@ -807,19 +829,31 @@ const PHASE_NEW = 1, PHASE_OLD = 2, PHASE_DETAIL = 3;
 // 있으면 재시도 창도 안 막아 준다. 이번 실행에서 이미 읽은 것은 여기서 뺀다.
 const triedThisRun = new Set();
 
+// ── 브랜드마다 한 번만 읽고, 한 번만 저장한다 ─────────────────────────────
+// 예전엔 1차·2차·3차가 끝날 때마다 그 브랜드의 오버레이·상세를 따로 저장했다 — 11/27 첫 실행은 브랜드 129개에
+// 오버레이를 243번 썼다(KV put 하루 1,000회를 이틀 연속 다 씀, DAILY-AUTOMATION.md '쓰기 예산').
+// 이제 처음 읽은 카탈로그·오버레이·상세를 여기 두고 다음 차수는 이것을 이어 쓴다. 저장은 모든 차수가 끝난 뒤
+// flushWrites 가 브랜드마다 한 번 한다 — 그것도 저장본과 달라졌을 때만, 오늘 남은 쓰기 몫 안에서.
+// site → { cat, overlay0, overlay, detail0, detailMap, ovTouched, detTouched, have0, haveColor0, legacyOv, legacyDet }
+const brandState = new Map();
+
 async function processBrand(c, phase) {
   if (budget <= 0) return;
   const tStart = Date.now();
+  const bs0 = brandState.get(c.site);
   let cat;
-  try { cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json()); }
-  catch (e) { addRow({ brand: c.brand || c.site, site: c.site, error: String(e.message || e) }); return; }
+  if (bs0) cat = bs0.cat;
+  else {
+    try { cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json()); }
+    catch (e) { addRow({ brand: c.brand || c.site, site: c.site, error: String(e.message || e) }); return; }
+  }
   const items = cat.items || [];
   // 채움 상태는 오버레이(comp:<site>) 기준 — 카탈로그 item 필드는 더 이상 쓰지 않는다.
   //
   // 읽기에 실패하면 이 브랜드는 통째로 건너뛴다. 예전엔 빈 객체로 넘어갔는데,
   // 저장 단계가 그 빈 객체를 기준으로 병합해 통째로 덮어썼다 — 읽기 한 번 실패에
   // 브랜드의 누적 수집분이 전부 날아갔다(Cotton on 98% → 0%).
-  let overlay = null;
+  let overlay = bs0 ? bs0.overlay : null;
   for (let attempt = 0; attempt < 3 && overlay === null; attempt++) {
     try {
       const r = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) });
@@ -836,13 +870,18 @@ async function processBrand(c, phase) {
   const ov = (p) => overlay[p.productUrl] || {};
   // 상품 상세 저장값(detail:<site>). 못 읽으면 이 브랜드는 상세를 저장하지 않는다(빈 값을 기준으로 통째로
   // 덮어쓰면 쌓아 둔 상세가 날아간다 — 오버레이에서 실제로 겪은 사고). 혼용률 보강은 그대로 한다.
-  let detailMap = null;
-  try {
-    const r = await fetch(WORKER + "/?details=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) });
-    if (r.ok) { const j = await r.json(); if (j && typeof j === "object" && !Array.isArray(j) && !j.error) detailMap = j; }
-  } catch (e) {}
-  // DRY(측정)는 아무것도 쓰지 않으므로, 저장값을 못 읽어도(배포 전 Worker 에는 ?details 가 없다) 빈 값으로 세어 본다.
-  if (detailMap === null && DRY) { detailMap = {}; detailNoStore.add(c.site); }
+  let detailMap = bs0 ? bs0.detailMap : null;
+  if (!bs0) {
+    try {
+      const r = await fetch(WORKER + "/?details=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) });
+      if (r.ok) { const j = await r.json(); if (j && typeof j === "object" && !Array.isArray(j) && !j.error) detailMap = j; }
+    } catch (e) {}
+    // DRY(측정)는 아무것도 쓰지 않으므로, 저장값을 못 읽어도(배포 전 Worker 에는 ?details 가 없다) 빈 값으로 세어 본다.
+    if (detailMap === null && DRY) { detailMap = {}; detailNoStore.add(c.site); }
+  }
+  const bs = bs0 || { cat, overlay0: overlay, overlay, detail0: detailMap, detailMap, ovTouched: false, detTouched: false,
+    have0: null, haveColor0: null, legacyOv: 0, legacyDet: 0 };
+  if (!bs0) brandState.set(c.site, bs);
   // 객체·배열이 통째로 String() 돼 들어간 흔적은 값이 아니다.
   // '[object Object]' 하나일 수도, 배열이라 쉼표로 여럿일 수도 있다.
   const valOf = (o, k) => { const t = String((o && o[k]) || "").trim(); return t.includes("[object Object]") ? "" : t; };
@@ -876,7 +915,10 @@ async function processBrand(c, phase) {
     // impit 이 생기기 전에 '못 읽음'으로 끝난 상품은 impit 으로 한 번은 다시 본다 — 재시도 창(5일)에 갇혀
     // Buck Mason·Dickies·Everlane·Whitestuff … 의 빈 혼용률이 평 fetch 차단 한 번으로 계속 비어 있었다.
     // 사이트 미표기(none)로 판정된 상품은 아니다. 한 번 impit 으로 보고 나면 bv 에 impit 이 남아 다시 창을 지킨다.
-    if (IMPIT_ON && FIELDS.includes("comp") && !okOf(o, "comp") && !o.none && o.t && !String(o.bv || "").includes("impit")) return false;
+    // rv(규칙 판)가 찍힌 기록은 impit 이 있던 뒤(11/27~)에 이미 읽은 것이라 여기서 다시 열지 않는다. 예전엔 '읽혔는데 혼용률만
+    // 없는' 상품(컬러·가격은 나옴)이 bv 가 안 남아 실행마다 다시 열렸다 — Alo Yoga 15·18·17개, 세 실행 모두 +0(11/27 로그).
+    // 다시 열면 시도 시각이 바뀌어 그 브랜드를 또 저장한다(KV 쓰기). 창(RETRY_DAYS)이 지나면 평소처럼 impit 까지 다시 본다.
+    if (IMPIT_ON && FIELDS.includes("comp") && !okOf(o, "comp") && !o.none && o.t && !o.rv && !String(o.bv || "").includes("impit")) return false;
     // 추출 규칙이 바뀐 뒤 — 읽었는데 비었던 상품(사이트 미표기 포함)은 창과 무관하게 한 번 더 연다(RULE_V 주석).
     //   rv 가 있으면 그 판과 지금 판을 견준다. rv 가 없는 예전 기록은 '읽었는데 비었던' 흔적(사이트 미표기 none, 또는 컬러·가격·
     //   사이즈는 읽힘)이 있을 때만 — 시도 시각만 있는 기록은 막혔던 것일 수 있어 창을 지킨다(impit 까지 막힘 bv 도 마찬가지).
@@ -888,6 +930,7 @@ async function processBrand(c, phase) {
   // 엑셀에 나가는 두 항목을 따로 센다 — 합쳐 보면 어느 쪽이 비었는지 알 수 없다.
   const have = items.filter((p) => okOf(ov(p), "comp")).length;
   const haveColor = items.filter((p) => okOf(ov(p), "color")).length;
+  if (bs.have0 == null) { bs.have0 = have; bs.haveColor0 = haveColor; }   // 저장이 실패하면 리포트를 이 값으로 되돌린다
   // 1차에는 시도 기록이 없는 상품(=오늘 새로 들어온 것)만, 2차에는 나머지.
   const isNew = (p) => !ov(p).t;
   // 3차(상세): 혼용률이 찼거나 사이트 미표기로 판정된 — 즉 페이지가 읽히는 — 상품 중 상세가 없거나 오래된 것.
@@ -896,6 +939,9 @@ async function processBrand(c, phase) {
     const o = ov(p);
     if (!(okOf(o, "comp") || o.none)) return false;
     const d = detailMap[p.productUrl];
+    // 상세 추출이 생긴 뒤(DETAIL_SINCE) 최근에 열어 봤는데 상세가 하나도 없다 = 그때 페이지가 막혔다. 재시도 창 동안은 다시 열지 않는다.
+    // 예전엔 실행마다 다시 열었다(Chico's 9개 — 11/27 세 실행 모두 막힘). 열 때마다 시도 시각이 바뀌어 그 브랜드를 또 저장했다.
+    if (!(d && d.dt) && o.t && o.t >= DETAIL_SINCE && now - o.t < RETRY_MS) return false;
     return !(d && d.dt && now - d.dt < DETAIL_RETRY_MS);
   };
   if (phase === PHASE_DETAIL && Date.now() > STOP_AT) {
@@ -937,7 +983,8 @@ async function processBrand(c, phase) {
   await pool(todo, PAGE_POOL, async (p) => {
     if (phase === PHASE_DETAIL && Date.now() > STOP_AT) return;   // 3차는 시간이 다 되면 멈춘다(남은 것은 다음 밤)
     // 2차도 시간이 다 되면 새로 열지 않는다 — 워크플로 제한 시간에 걸리면 리포트·검색 인덱스를 못 쓴다. 남은 것은 다음 밤.
-    if (phase === PHASE_OLD && Date.now() > STOP_AT) { stat.late = (stat.late || 0) + 1; return; }
+    // 1차도 같다 — 저장은 실행 끝에 한 번(flushWrites)이라, 그 전에 제한 시간에 걸리면 이번 실행의 결과가 통째로 남지 않는다.
+    if (phase !== PHASE_DETAIL && Date.now() > STOP_AT) { stat.late = (stat.late || 0) + 1; return; }
     const got = await enrichOf(p.productUrl, stat, ov(p), wbCtx, p.name || "");
     // 이 사이트가 429 를 준 뒤 — 시도 기록을 남기지 않는다(다음 실행이 읽는다). 이번 상품이 429 를 받은 경우도 같다.
     if ((got && got.skip429) || (stop429.has(hostOf(p.productUrl)) && !(got && validComp(asComp(got.comp))))) { stat.skip429 = (stat.skip429 || 0) + 1; return; }
@@ -1050,45 +1097,11 @@ async function processBrand(c, phase) {
     const mk = Object.keys(merged);
     if (mk.length > 1000) for (const k of mk.slice(0, mk.length - 1000)) delete merged[k];
 
-    let ok = DRY;   // DRY 는 저장 시도 자체를 하지 않는다
-    if (DRY) KV.wouldSend("overlay");
-    for (let attempt = 0; attempt < 3 && !ok; attempt++) {
-      try {
-        KV.sent("overlay");
-        const resp = await fetch(`${WORKER}/?store=overlay&site=${encodeURIComponent(c.site)}${tok}`, {
-          method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(merged), signal: AbortSignal.timeout(45000),
-        });
-        const text = await resp.text();
-        let r = null;
-        try { r = JSON.parse(text); } catch (e) {}
-        if (r && r.ok) { ok = true; KV.ok("overlay"); break; }
-        if (attempt === 2) { KV.fail("overlay", c.site, text); console.log(`  !! ${c.site} 저장 실패: HTTP ${resp.status} ${text.slice(0, 160)}`); }
-      } catch (e) {
-        if (attempt === 2) console.log(`  !! ${c.site} 저장 오류: ${String(e.message || e)}`);
-      }
-      await new Promise((r2) => setTimeout(r2, 2000));
-    }
-    if (!ok) patched = 0;
+    // 저장은 여기서 하지 않는다 — 다음 차수가 이 오버레이를 이어 쓰고, 실행 끝에 flushWrites 가 브랜드마다 한 번 저장한다.
+    bs.overlay = merged; bs.ovTouched = true;
+    bs.legacyOv++;   // 예전 방식(차수마다 저장)이었다면 여기서 store=overlay 1회
   }
 
-  // 저장 후 실제로 박혔는지 다시 읽어 확인한다 — 응답의 patched 만 믿지 않는다.
-  let verify = null, verifyColor = null;
-  if (keys.length && !DRY) {
-    try {
-      const re = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json());
-      // 지금 카탈로그에 있는 상품만 센다. 오버레이에는 카탈로그에서 빠진 상품의 값도 남아 있어,
-      // 전부 세면 채움률이 100% 를 넘는다(11/24 실행: Bassike 909/320 · 전체 129%).
-      // 예전엔 쓴 브랜드가 적어 드러나지 않았는데, 컬러 재시도로 거의 모든 브랜드가 쓰면서 드러났다.
-      const vs2 = items.map((p) => (re || {})[p.productUrl]).filter(Boolean);
-      verify = vs2.filter((o) => validComp(valOf(o, "comp"))).length;
-      verifyColor = vs2.filter((o) => validColor(valOf(o, "color"))).length;
-      // 쓰기 직후 읽기는 KV 지연으로 0 이 나올 수 있다 — 쓴 것도 없을 때만 문제로 본다.
-      if (patched === 0 && verify === 0) {
-        console.log(`  !! ${c.site}: 저장 후에도 오버레이 비어 있음 — 첫 키 ${keys[0].slice(0, 120)}`);
-      }
-    } catch (e) {}
-  }
   // ── 상품 상세 저장(detail:<site>) ─────────────────────────────────
   // 저장 직전 가드(detail-guard.mjs): 브랜드 상품 대부분에 똑같이 붙는 설명·글머리표(배송 안내·브랜드 소개)는 뺀다.
   // 병합은 여기서 하고 Worker 에는 완성본을 통째로 넘긴다(store=overlay 와 같은 이유 — Worker CPU 한도).
@@ -1109,25 +1122,9 @@ async function processBrand(c, phase) {
     if (flags.dropFeat.size && detailHeld.length < 60) detailHeld.push({ brand: cat.brand || c.site, url: "", what: "글머리표", text: [...flags.dropFeat].slice(0, 4).join(" · ") });
     const { merged: dm, added } = mergeDetails(detailMap, clean, now);
     detAdded = added;
-    if (DRY) KV.wouldSend("details");
-    if (!DRY) {
-      let ok = false;
-      for (let attempt = 0; attempt < 3 && !ok; attempt++) {
-        try {
-          KV.sent("details");
-          const resp = await fetch(`${WORKER}/?store=details&site=${encodeURIComponent(c.site)}${tok}`, {
-            method: "POST", headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(dm), signal: AbortSignal.timeout(60000),
-          });
-          const t = await resp.text();
-          let r = null; try { r = JSON.parse(t); } catch (e) {}
-          if (r && r.ok) { ok = true; KV.ok("details"); }
-          else if (attempt === 2) { KV.fail("details", c.site, t); console.log(`  !! ${c.site} 상세 저장 실패: HTTP ${resp.status} ${t.slice(0, 120)}`); }
-        } catch (e) { if (attempt === 2) console.log(`  !! ${c.site} 상세 저장 오류: ${String(e.message || e)}`); }
-        if (!ok) await new Promise((r2) => setTimeout(r2, 2000));
-      }
-      if (!ok) detAdded = 0;
-    }
+    // 저장은 실행 끝에 한 번(flushWrites). 다음 차수는 이 상세를 이어 쓴다.
+    bs.detailMap = dm; bs.detTouched = true;
+    bs.legacyDet++;   // 예전 방식이었다면 여기서 store=details 1회
     // 저장했다면의 채움(카탈로그 상품 기준) — 리포트용
     detailFill.set(c.site, {
       brand: cat.brand || c.site, total: items.length,
@@ -1143,8 +1140,9 @@ async function processBrand(c, phase) {
   // KV 는 최종 일관성 저장소라 방금 쓴 값이 즉시 읽히지 않을 수 있다(수십 초 지연).
   // 실측: ae.com.americaneagle 은 '+3 검증 3', addisonbay 는 '+3 검증 0' — 같은 코드다.
   // 검증값을 그대로 쓰면 실제로 저장된 것을 안 됐다고 보고하게 되므로 큰 값을 쓴다.
-  const haveNow = Math.max(verify == null ? 0 : verify, have + addComp);
-  const colorNow = Math.max(verifyColor == null ? 0 : verifyColor, haveColor + addColor);
+  // (저장은 실행 끝이라 여기서 다시 읽어 확인하지 않는다 — 저장이 실패하면 flushWrites 가 이 줄을 되돌린다.)
+  const haveNow = have + addComp;
+  const colorNow = haveColor + addColor;
   addRow({ brand: cat.brand || c.site, site: c.site, total: items.length, have: haveNow, haveColor: colorNow, patched, addComp, addColor, stat,
     tried: todo.length, liveComp, arcComp, ms: Date.now() - tStart });
   console.log(`  ${c.site}: 혼용률 +${addComp} 컬러 +${addColor} (읽음 ${todo.length}, 경로 ${JSON.stringify(stat)})`);
@@ -1163,39 +1161,182 @@ for (const phase of DETAIL_BACKFILL ? [PHASE_NEW, PHASE_OLD, PHASE_DETAIL] : [PH
 }
 
 
-// ── 검색 인덱스 재구축 — 전 브랜드 카탈로그에서. comp 가 인덱스로 흘러야
-//    보드 스캐너가 접속 없이 붙일 수 있다. 브랜드당 150개(프리페치와 동일 상한).
-let indexCount = 0;
-if (!DRY) try {
-  const idx = [];
-  for (const c of allList) {
+// ── 저장: 브랜드마다 한 번, 저장본과 달라졌을 때만, 오늘 남은 쓰기 몫 안에서 ───────────────────────
+// KV put 은 하루 1,000회다(scripts/kv-budget.mjs 머리말). 여기서 하는 일:
+//   1) 지금 저장본을 다시 읽어, 이번 실행이 바꾼 상품·칸만 그 위에 얹는다 — 실행 도중 크롬 보강·확장이 같은 브랜드에
+//      쓴 값을 덮지 않게(저장이 실행 끝으로 모였으니 사이가 길다). 다시 못 읽으면 처음 읽은 것 위에 얹는다(예전과 같은 결과).
+//   2) 얹은 결과가 저장본과 글자 하나 다르지 않으면 보내지 않는다.
+//   3) 오늘 남은 몫(한도 − 예약분 − 오늘 장부) 안에서 우선순위대로 보낸다: 오버레이(값이 바뀜) → 오버레이(시도 기록만) →
+//      검색 인덱스 → 상세(내용) → 상세(읽은 시각만). 몫을 넘는 것은 미룬다 — 저장본은 그대로고 다음 실행이 다시 읽는다.
+//   4) Worker 가 '한도 초과'를 돌려주면 그 뒤로는 보내지 않는다(재시도도 안 한다).
+const BOOK_OV = new Set(["t", "ct", "rv", "cv", "wt", "bv"]);   // 오버레이의 시도 기록 칸(값이 아님)
+const BOOK_DT = new Set(["dt"]);                               // 상세의 읽은 시각
+const sj = (x) => JSON.stringify(x === undefined ? null : x);
+function stripBook(o, book) {
+  if (!o || typeof o !== "object") return sj(o);
+  const r = {};
+  for (const k of Object.keys(o).sort()) if (!book.has(k)) r[k] = o[k];
+  return JSON.stringify(r);
+}
+// 이번 실행이 바꾼 것(base → mine)만 fresh 위에 얹는다. 상품 단위가 아니라 칸 단위 — 같은 상품의 다른 칸을 다른 잡이 썼으면 산다.
+function rebase(fresh, base, mine) {
+  const out = { ...(fresh || {}) };
+  for (const u of Object.keys(mine || {})) {
+    const b = (base || {})[u], m = mine[u];
+    if (sj(b) === sj(m)) continue;
+    const cur = { ...(out[u] || {}) };
+    for (const k of new Set([...Object.keys(b || {}), ...Object.keys(m || {})])) {
+      const bv = b ? b[k] : undefined, mv = m ? m[k] : undefined;
+      if (sj(bv) === sj(mv)) continue;
+      if (mv === undefined) delete cur[k]; else cur[k] = mv;
+    }
+    out[u] = cur;
+  }
+  return out;
+}
+function valueChanged(a, b, book) {
+  for (const k of new Set([...Object.keys(a || {}), ...Object.keys(b || {})])) if (stripBook((a || {})[k], book) !== stripBook((b || {})[k], book)) return true;
+  return false;
+}
+async function getMap(url, ms) {
+  for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const cat = await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json());
-      let om = {};
-      try { om = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json()) || {}; } catch (e) {}
-      for (const it of (cat.items || []).slice(0, 150)) {
-        if (!it || !it.imageUrl || !it.productUrl) continue;
-        const o = om[it.productUrl] || {};
-        // 검색·스캔에 필요한 필드만 싣는다(src 를 실었더니 KV 값 상한을 넘겼다).
-        idx.push({
-          name: it.name || "", brand: cat.brand || c.brand || c.site,
-          category: it.category || "", imageUrl: it.imageUrl, productUrl: it.productUrl,
-          price: o.price || it.price || "", priceOrig: o.priceOrig || it.priceOrig || "",
-          comp: o.comp || "", color: o.color || "", sizes: o.sizes || "",
-        });
+      const r = await fetch(url, { signal: AbortSignal.timeout(ms) });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      const j = await r.json();
+      if (j && typeof j === "object" && !Array.isArray(j) && !j.error) return j;
+      throw new Error("형식이 아님");
+    } catch (e) { if (attempt < 2) await new Promise((r2) => setTimeout(r2, 1500)); }
+  }
+  return null;
+}
+// Worker 의 store=index 가 받는 칸 그대로(worker/fabric-extractor.js) — 저장본과 견주려면 같은 모양이어야 한다.
+const indexItemOf = (p) => ({
+  name: String(p.name || "").slice(0, 200), brand: String(p.brand || "").slice(0, 80), category: String(p.category || "tops").slice(0, 20),
+  imageUrl: String(p.imageUrl).slice(0, 1000), productUrl: String(p.productUrl).slice(0, 1000),
+  price: String(p.price || "").slice(0, 40), priceOrig: String(p.priceOrig || "").slice(0, 40),
+  comp: String(p.comp || "").slice(0, 160), color: String(p.color || "").slice(0, 80), sizes: String(p.sizes || "").slice(0, 200),
+});
+const KV_USED_BEFORE = ledgerPuts(LEDGER_TODAY);
+const KV_REMAINING = remainingToday({ limit: KV_ENV.limit, reserve: KV_ENV.reserve, used: KV_USED_BEFORE });
+// 예전 방식(차수마다 저장)이었다면 보냈을 저장 요청 — 같은 읽기 결과로 센다(+ 인덱스 1).
+const legacyWrites = [...brandState.values()].reduce((n, b) => n + b.legacyOv + b.legacyDet, 0) + 1;
+const plannedCut = [];
+let indexCount = 0, indexSame = false;
+{
+  const writes = [];
+  const touched = [...brandState.entries()].filter(([, b]) => b.ovTouched || b.detTouched);
+  await pool(touched, 5, async ([site, b]) => {
+    const enc = encodeURIComponent(site);
+    if (b.ovTouched) {
+      const fresh = await getMap(WORKER + "/?comps=" + enc + tok, 20000);
+      const cur = fresh || b.overlay0;
+      const out = rebase(cur, b.overlay0, b.overlay);
+      // 상품 상한(브랜드 카탈로그 800)보다 넉넉하게 1000개까지만 남긴다.
+      const mk = Object.keys(out);
+      if (mk.length > 1000) for (const k of mk.slice(0, mk.length - 1000)) delete out[k];
+      b.overlayOut = out;
+      if (sj(out) === sj(cur)) KV.same++;
+      else writes.push({ kind: "overlay", site, body: out, prio: valueChanged(cur, out, BOOK_OV) ? PRIO.overlay : PRIO.overlayStamp });
+    }
+    // 상세는 처음에 저장본을 읽은 브랜드만(못 읽었으면 저장하지 않는다 — 쌓아 둔 상세를 빈 값으로 덮지 않게).
+    if (b.detTouched && b.detail0) {
+      const fresh = await getMap(WORKER + "/?details=" + enc + tok, 30000);
+      const cur = fresh || b.detail0;
+      const out = rebase(cur, b.detail0, b.detailMap);
+      const keys = Object.keys(out);
+      if (keys.length > 1000) {
+        keys.sort((a, z) => ((out[a] || {}).dt || 0) - ((out[z] || {}).dt || 0));
+        for (const k of keys.slice(0, keys.length - 1000)) delete out[k];
       }
+      if (sj(out) === sj(cur)) KV.same++;
+      else writes.push({ kind: "details", site, body: out, prio: valueChanged(cur, out, BOOK_DT) ? PRIO.details : PRIO.detailsStamp });
+    }
+  });
+  writes.push({ kind: "index", site: "", prio: PRIO.index });
+  const { send, cut } = planWrites(writes, KV_REMAINING);
+  for (const w of cut) { KV.deferred.push({ kind: w.kind, site: w.site, prio: w.prio }); plannedCut.push(w); }
+  // 리포트를 '실제로 남은 것'으로 되돌린다 — 미룬 오버레이의 +N 은 저장되지 않았다.
+  const undoRow = (w, mark) => {
+    const row = rowBySite.get(w.site), b = brandState.get(w.site);
+    if (w.kind === "overlay" && row && b) Object.assign(row, { have: b.have0 || 0, haveColor: b.haveColor0 || 0, addComp: 0, addColor: 0, patched: 0, ...mark });
+    if (w.kind === "details" && detailFill.has(w.site)) detailFill.get(w.site).added = 0;
+    if (w.kind === "index") indexCount = 0;
+  };
+  for (const w of plannedCut) undoRow(w, { deferred: true });
+  // 검색 인덱스 — 전 브랜드 카탈로그에서. comp 가 인덱스로 흘러야 보드 스캐너가 접속 없이 붙일 수 있다. 브랜드당 150개(프리페치와 동일 상한).
+  // 이번 실행이 읽은 브랜드는 읽어 둔 카탈로그와 '보낼' 오버레이로(미룬 브랜드는 저장본 그대로), 나머지는 Worker 에서 읽어 만든다.
+  const sendOv = new Set(send.filter((w) => w.kind === "overlay").map((w) => w.site));
+  // DRY 는 인덱스를 만들지 않는다(예전과 같다 — BRANDS 로 좁힌 측정이 다른 브랜드 카탈로그까지 읽지 않게). 보냈을 1회로만 센다.
+  const wIdx = DRY ? null : send.find((w) => w.kind === "index");
+  if (wIdx) {
+    const idx = [];
+    for (const c of allList) {
+      try {
+        const b = brandState.get(c.site);
+        const cat = b ? b.cat : await fetch(WORKER + "/?catalog=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(30000) }).then((r) => r.json());
+        let om = b ? (sendOv.has(c.site) ? b.overlayOut : (b.overlayOut && !plannedCut.some((w) => w.site === c.site && w.kind === "overlay") ? b.overlayOut : b.overlay0)) : null;
+        if (!om) { try { om = await fetch(WORKER + "/?comps=" + encodeURIComponent(c.site) + tok, { signal: AbortSignal.timeout(20000) }).then((r) => r.json()) || {}; } catch (e) { om = {}; } }
+        for (const it of (cat.items || []).slice(0, 150)) {
+          if (!it || !it.imageUrl || !it.productUrl) continue;
+          const o = om[it.productUrl] || {};
+          // 검색·스캔에 필요한 필드만 싣는다(src 를 실었더니 KV 값 상한을 넘겼다).
+          idx.push({
+            name: it.name || "", brand: cat.brand || c.brand || c.site,
+            category: it.category || "", imageUrl: it.imageUrl, productUrl: it.productUrl,
+            price: o.price || it.price || "", priceOrig: o.priceOrig || it.priceOrig || "",
+            comp: o.comp || "", color: o.color || "", sizes: o.sizes || "",
+          });
+        }
+      } catch (e) {}
+    }
+    wIdx.body = { items: idx };
+    indexCount = idx.length;
+    // 저장본과 같으면 보내지 않는다(서버 프리페치도 밤마다 인덱스를 쓴다 — 그 뒤 바뀐 게 없으면 한 번 아낀다).
+    try {
+      const cur = await fetch(WORKER + "/?index=1" + tok, { signal: AbortSignal.timeout(60000) }).then((r) => r.json());
+      const norm = idx.filter((p) => /^https?:\/\//i.test(p.imageUrl || "") && /^https?:\/\//i.test(p.productUrl || "")).slice(0, 40000).map(indexItemOf);
+      if (cur && Array.isArray(cur.items) && sj(cur.items) === sj(norm)) { indexSame = true; KV.same++; send.splice(send.indexOf(wIdx), 1); }
     } catch (e) {}
   }
-  KV.sent("index");
-  const resp = await fetch(WORKER + "/?store=index" + tok, {
-    method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items: idx }), signal: AbortSignal.timeout(120000),
-  });
-  const text = await resp.text();
-  try { indexCount = JSON.parse(text).count || 0; if (JSON.parse(text).ok) KV.ok("index"); else KV.fail("index", "", text); }
-  catch (e) { console.log(`index rebuild failed: HTTP ${resp.status} ${text.slice(0, 200)}`); }
-} catch (e) { console.log("index rebuild failed:", String(e.message || e)); }
-if (DRY) KV.wouldSend("index");
+  if (DRY) {
+    // DRY 는 아무것도 보내지 않는다 — 보냈을 요청만 센다.
+    for (const w of send) KV.wouldSend(w.kind);
+  } else {
+    let k = 0;
+    // 우선순위 순으로 줄을 세워 동시에 4개씩 보낸다.
+    await pool(send, 4, async (w) => {
+      if (KV.limitHit) { KV.fail(w.kind, w.site, "한도 초과 뒤라 보내지 않음"); undoRow(w, { saveFailed: "한도 초과" }); return; }
+      const path = w.kind === "index" ? "/?store=index"
+        : w.kind === "overlay" ? `/?store=overlay&site=${encodeURIComponent(w.site)}` : `/?store=details&site=${encodeURIComponent(w.site)}`;
+      let ok = false, why = "";
+      for (let attempt = 0; attempt < 3 && !ok; attempt++) {
+        try {
+          KV.sent(w.kind);
+          const resp = await fetch(WORKER + path + tok, {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(w.body), signal: AbortSignal.timeout(w.kind === "overlay" ? 45000 : w.kind === "details" ? 60000 : 120000),
+          });
+          const text = await resp.text();
+          let r = null; try { r = JSON.parse(text); } catch (e) {}
+          if (r && r.ok) { ok = true; KV.ok(w.kind); if (w.kind === "index") indexCount = r.count || indexCount; break; }
+          why = `HTTP ${resp.status} ${text.slice(0, 160)}`;
+          if (/limit exceeded/i.test(text)) { KV.limitHit = KV.limitHit || text.slice(0, 160); break; }
+        } catch (e) { why = String(e.message || e); }
+        await new Promise((r2) => setTimeout(r2, 2000));
+      }
+      if (!ok) { KV.fail(w.kind, w.site, why); undoRow(w, { saveFailed: why.slice(0, 80) }); console.log(`  !! ${w.site || "검색 인덱스"} ${w.kind} 저장 실패: ${why}`); }
+      if (++k % 50 === 0) console.log(`  저장 ${k}/${send.length}`);
+    });
+  }
+}
+// 오늘(UTC) 장부에 이 실행을 남긴다(저장한 실행만) — 다음 실행이 '오늘 남은 몫'과 '오늘 full 보강이 있었나'를 여기서 본다.
+const KV_SUM = KV.summary();
+if (!DRY && KV_ENV.dir) {
+  writeLedger(KV_ENV.dir, { job: "enrich-comp", run: process.env.GITHUB_RUN_ID || "", start: new Date(RUN_T0).toISOString(), at: new Date().toISOString(),
+    mode: MODE, retryAll: RETRY_ALL, requests: KV_SUM.requests, puts: KV_SUM.puts, deletes: 0, same: KV_SUM.same,
+    deferred: KV_SUM.deferred, failed: KV_SUM.failed, legacy: legacyWrites }, { prune: true });
+}
 
 const done = rows.filter((r) => !r.error);
 const totalItems = done.reduce((s, r) => s + (r.total || 0), 0);
@@ -1369,6 +1510,8 @@ if (errs.length) {
   const k = KV.summary();
   const kinds = ["overlay", "details", "index"].map((x) => `${x} ${DRY ? (k.byKind[x] || {}).would || 0 : (k.byKind[x] || {}).puts || 0}`).join(" · ");
   md += `\n## KV 쓰기 (이번 실행)\n\n`;
+  md += `- 실행 방식 **${MODE}**${MODE_IN === "auto" ? ` (auto — 오늘 full 보강 ${FULL_TODAY ? "있음 #" + (FULL_TODAY.run || "?") : "없음"})` : ""} · ` +
+    `${MODE === "new" ? "1차(신상)만" : "1·2·3차"} · 재시도 창 ${RETRY_ALL ? "무시" : "지킴"}\n`;
   if (DRY) {
     md += `- **DRY — 실제로 보낸 저장 요청 ${k.requests}회 · KV put ${k.puts}** (보내기 전에 막은 요청 ${dryBlocked})\n`;
     md += `- 저장했다면: 요청 ${k.would}회 · KV put ${k.wouldPuts} (${kinds})\n`;
@@ -1376,14 +1519,29 @@ if (errs.length) {
     md += `- 보낸 저장 요청 ${k.requests}회(재시도 포함) · **KV put ${k.puts}** (${kinds}) · 실패 ${k.failed}\n`;
     if (k.limitHit) md += `- ⚠ 하루 쓰기 한도에 걸림: ${k.limitHit}\n`;
   }
+  md += `- 저장본과 같아 보내지 않음 ${k.same} · 오늘 몫이 모자라 미룸 ${k.deferred}\n`;
+  md += `- 예전 방식(1·2·3차마다 저장)이었다면 같은 읽기 결과로 저장 요청 ${legacyWrites}회\n`;
+  md += `- 오늘(UTC ${utcDay()}) 이 저장소 잡이 쓴 put(장부, 이 실행 전): ${KV_USED_BEFORE}${KV_ENV.dir ? "" : " (장부 없음 — KV_LEDGER_DIR 를 주지 않은 실행)"} · ` +
+    `예약분 ${KV_ENV.reserve}(서버 프리페치·크롬 확장·손 실행) · 이 실행에 허용된 몫 ${KV_REMAINING}/${KV_ENV.limit}\n`;
+  for (const e of LEDGER_TODAY) md += `  - ${ledgerLine(e)}\n`;
+  if (k.deferred) {
+    md += `\n<details><summary>미룬 쓰기 ${k.deferred}개 — 저장본은 그대로, 다음 실행이 다시 읽는다</summary>\n\n`;
+    for (const d of KV.deferred.slice(0, 200)) md += `- ${PRIO_NAME[d.prio] || d.kind} · ${d.site || "검색 인덱스"}\n`;
+    md += `\n</details>\n`;
+  }
+  if (k.failed) {
+    md += `\n<details><summary>실패한 쓰기 ${k.failed}개</summary>\n\n`;
+    for (const f of KV.failed.slice(0, 200)) md += `- ${f.kind} · ${f.site || "검색 인덱스"} — ${f.why.replace(/\|/g, "/")}\n`;
+    md += `\n</details>\n`;
+  }
   md += `\n`;
 }
 writeFileSync(join(ROOT, REPORT_FILE), md);
 {
   const k = KV.summary();
   console.log(DRY
-    ? `KV 쓰기 집계 [DRY] — 실제로 보낸 저장 요청 ${k.requests} · KV put ${k.puts} · 보내기 전에 막은 요청 ${dryBlocked} · 저장했다면 요청 ${k.would}(put ${k.wouldPuts})`
-    : `KV 쓰기 집계 — 보낸 저장 요청 ${k.requests} · KV put ${k.puts} · 실패 ${k.failed}${k.limitHit ? " · 한도 걸림" : ""}`);
+    ? `KV 쓰기 집계 [DRY] — 실제로 보낸 저장 요청 ${k.requests} · KV put ${k.puts} · 보내기 전에 막은 요청 ${dryBlocked} · 저장했다면 요청 ${k.would}(put ${k.wouldPuts}) · 같아서 안 보냄 ${k.same} · 미룸 ${k.deferred} · 예전 방식이었다면 ${legacyWrites}`
+    : `KV 쓰기 집계 — 보낸 저장 요청 ${k.requests} · KV put ${k.puts} · 같아서 안 보냄 ${k.same} · 미룸 ${k.deferred} · 실패 ${k.failed}${k.limitHit ? " · 한도 걸림" : ""} · 예전 방식이었다면 ${legacyWrites}`);
 }
 console.log(`\n혼용률 ${totalHave}/${totalItems} (${compPct}%, +${totalComp}) · 컬러 ${totalColor}/${totalItems} (${colorPct}%, +${totalColorAdd}) · 인덱스 ${indexCount}`);
 console.log(`컬러웨이·혼용률이 다 붙는 브랜드 ${ready.length}/${done.filter((r) => r.total).length}개 · 전체 평균 혼용률 ${compPct}% 컬러 ${colorPct}%`);
