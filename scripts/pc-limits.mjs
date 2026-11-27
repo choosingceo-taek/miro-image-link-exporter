@@ -81,3 +81,11 @@ export function writeDecide(w, kind, site, step, now) {
   w.log.push({ step: step || "", kind, site, ok, ...(why ? { why } : {}), at: new Date(now).toISOString() });
   return { ok, why };
 }
+
+// 리포트는 공개 저장소에 올라간다 — 글 속의 내 폴더 경로(사용자 이름)를 ~ 로 지운다.
+//   C:\Users\홍 길동\AppData\… → C:\Users\~\AppData\… · /Users/hong/Library/… → /Users/~/Library/…
+export function scrubPaths(text, home = "") {
+  let x = String(text);
+  if (home && home.length > 3) x = x.split(home).join("~");
+  return x.replace(/([A-Za-z]:[\\/]+Users[\\/]+)[^\\/"']+/gi, "$1~").replace(/(?<![\w.:-])\/(Users|home)\/[^/"'\s]+(?=\/)/g, "/$1/~");
+}

@@ -16,7 +16,7 @@
 //   5. 아침 리포트에 'PC 잡' 절이 붙음
 import { createServer } from "node:http";
 import { spawn } from "node:child_process";
-import { readFileSync, writeFileSync, existsSync, mkdtempSync, rmSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, mkdtempSync, rmSync, mkdirSync, readdirSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
 import { tmpdir } from "node:os";
@@ -154,7 +154,12 @@ try {
   {
     const L = "평소";
     resetWorker();
-    const { code, out, json, md, state, dir } = await pc(L, {});
+    // 하루 쓰기 장부: 오늘 다른 잡이 600번 썼다 → 남은 몫 1000 − 300(예약) − 600 = 100 → 예산 120 이 100 으로 준다.
+    const ledger = join(TMP, "kv-writes");
+    const day = new Date().toISOString().slice(0, 10);
+    mkdirSync(join(ledger, day), { recursive: true });
+    writeFileSync(join(ledger, day, "enrich-comp-1.json"), JSON.stringify({ job: "enrich-comp", run: "1", puts: 600 }));
+    const { code, out, json, md, state, dir } = await pc(L, { KV_LEDGER_DIR: ledger });
     if (code !== 0) console.error(out.slice(-3000));
     ok(code === 0 && json && md, `[${L}] 끝까지 돌고 리포트(json·md)를 썼다`);
     const plan = (json && json.plan) || { collect: [], enrich: [], skipped: [] };
@@ -176,8 +181,13 @@ try {
     ok(Object.values(per).every((n) => n === 1), `[${L}] 저장 요청은 종류·브랜드마다 한 번씩(${JSON.stringify(per)})`);
     const cats = S.posts.filter((p) => p.kind === "catalog").map((p) => p.site).sort().join(",");
     ok(cats === "localhost.alpha,localhost.bravo", `[${L}] 목록 저장 = Alpha·Bravo 한 번씩(Charlie 는 0개·Delta 는 건너뜀): ${cats}`);
-    ok(json && json.writes.used === S.posts.length && S.posts.length <= 120, `[${L}] 리포트의 쓰기 수(${json && json.writes.used})가 실제 저장 요청 수(${S.posts.length})와 같다`);
-    ok(/저장 요청 \d+\/120번/.test(md), `[${L}] 리포트 첫머리에 쓰기 수/예산`);
+    ok(json && json.writes.used === S.posts.length && S.posts.length <= 100, `[${L}] 리포트의 쓰기 수(${json && json.writes.used})가 실제 저장 요청 수(${S.posts.length})와 같다`);
+    ok(json && json.writes.budget === 100 && /남은 몫|쓰기 몫이 100번 남음/.test(md), `[${L}] 오늘 장부(600)를 빼고 예산 120 → ${json && json.writes.budget}`);
+    ok(/저장 요청 \d+\/100번/.test(md), `[${L}] 리포트 첫머리에 쓰기 수/예산`);
+    const mine = readdirSync(join(ledger, day)).filter((f) => f.startsWith("pc-collect"));
+    const entry = mine.length === 1 ? JSON.parse(readFileSync(join(ledger, day, mine[0]), "utf8")) : null;
+    ok(entry && entry.puts === S.posts.length && entry.requests === S.posts.length && json.writes.ledgerFile,
+      `[${L}] 장부에 이번 실행 한 줄(put ${entry && entry.puts} = 서버가 받은 저장 ${S.posts.length}) — 자식 단계는 따로 안 남김(파일 ${readdirSync(join(ledger, day)).length - 1}개)`);
     // 정중한 접속
     const byPath = {};
     for (const h of S.hits) byPath[h.host + h.path] = (byPath[h.host + h.path] || 0) + 1;

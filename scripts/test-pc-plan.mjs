@@ -10,7 +10,7 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { evidenceEngine, choose, buildPlan, updateState, parseEnrichTable, splitBudget, STOP_DAYS, DAY } from "./pc-plan.mjs";
-import { emptyRunState, politeBefore, politeAfter, classifyWorker, writeDecide } from "./pc-limits.mjs";
+import { emptyRunState, politeBefore, politeAfter, classifyWorker, writeDecide, scrubPaths } from "./pc-limits.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 let bad = 0;
@@ -140,6 +140,15 @@ console.log("쓰기 한도");
   ok(writeDecide(w, "overlay", "a", "comp", now).ok && writeDecide(w, "details", "a", "comp", now).ok, "종류가 다르면 따로");
   const over = writeDecide(w, "catalog", "b", "collect", now);
   ok(!over.ok && /예산/.test(over.why) && w.used === 3 && w.log.length === 5, "예산 3을 넘으면 막음 · 막은 것도 기록");
+}
+
+console.log("리포트에서 내 폴더 경로 지우기");
+{
+  ok(scrubPaths("Executable doesn't exist at C:\\Users\\Kim Lee\\AppData\\Local\\ms-playwright\\firefox.exe") === "Executable doesn't exist at C:\\Users\\~\\AppData\\Local\\ms-playwright\\firefox.exe", "윈도우 사용자 폴더(공백 포함)");
+  ok(scrubPaths("at /Users/hong/Library/Caches/ms-playwright/x") === "at /Users/~/Library/Caches/ms-playwright/x", "맥 사용자 폴더");
+  ok(scrubPaths("/opt/me/work/x", "/opt/me") === "~/work/x", "홈 폴더는 어디든 ~");
+  ok(scrubPaths("https://www.whbm.com/store/category/tops/cat210001") === "https://www.whbm.com/store/category/tops/cat210001", "주소는 그대로");
+  ok(scrubPaths("https://www.shop.com/home/decor/x · https://x.com/Users/a/b") === "https://www.shop.com/home/decor/x · https://x.com/Users/a/b", "주소 속 /home/ · /Users/ 는 그대로");
 }
 
 console.log("측정 실행 막기");
