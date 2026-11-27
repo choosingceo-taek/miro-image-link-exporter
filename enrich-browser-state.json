@@ -6,6 +6,13 @@
     "until": 1796874450419,
     "at": "2026-11-26",
     "ratio": 100
+   },
+   "firefox": {
+    "brand": "Lululemon",
+    "until": 1795925255369,
+    "at": "2026-11-27",
+    "ratio": 100,
+    "suspect": 1
    }
   },
   "zara.com.zara": {
@@ -53,6 +60,13 @@
     "until": 1796873098271,
     "at": "2026-11-26",
     "ratio": 100
+   },
+   "firefox": {
+    "brand": "H&M",
+    "until": 1795925236163,
+    "at": "2026-11-27",
+    "ratio": 100,
+    "suspect": 1
    }
   },
   "fatface.com.fatface": {
@@ -61,6 +75,13 @@
     "until": 1796873100157,
     "at": "2026-11-26",
     "ratio": 100
+   },
+   "firefox": {
+    "brand": "Fatface",
+    "until": 1795925277644,
+    "at": "2026-11-27",
+    "ratio": 100,
+    "suspect": 1
    }
   },
   "sezane.com.sezane": {
@@ -69,6 +90,13 @@
     "until": 1796874454646,
     "at": "2026-11-26",
     "ratio": 100
+   },
+   "firefox": {
+    "brand": "Sezane",
+    "until": 1795925262627,
+    "at": "2026-11-27",
+    "ratio": 100,
+    "suspect": 1
    }
   },
   "garnethill.com.garnethill": {
@@ -101,6 +129,13 @@
     "until": 1796874462894,
     "at": "2026-11-26",
     "ratio": 100
+   },
+   "firefox": {
+    "brand": "Anthropologie",
+    "until": 1795925270557,
+    "at": "2026-11-27",
+    "ratio": 100,
+    "suspect": 1
    }
   },
   "freepeople.com.freepeople": {
@@ -197,6 +232,13 @@
     "until": 1795999783062,
     "at": "2026-11-16",
     "ratio": 100
+   },
+   "firefox": {
+    "brand": "Chico's",
+    "until": 1795924630068,
+    "at": "2026-11-27",
+    "ratio": 93,
+    "suspect": 1
    }
   },
   "shop.mango.com.mango": {
@@ -214,6 +256,15 @@
     "until": 1795752033821,
     "at": "2026-11-25",
     "ratio": 95,
+    "suspect": 1
+   }
+  },
+  "whitehouseblackmarket.com.whbm": {
+   "firefox": {
+    "brand": "WHBM",
+    "until": 1795924586195,
+    "at": "2026-11-27",
+    "ratio": 93,
     "suspect": 1
    }
   }
