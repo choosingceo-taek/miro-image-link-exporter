@@ -1,0 +1,12 @@
+{
+ "_설명": "11/27 서버 재측정(try-engines 45962133367·45962446441)에서 열린 확장 담당 브랜드 — 실제 수집기로 저장 없이 2회 확인해, 카테고리마다 지금 저장 수 이상이면 헤드리스 자동 수집으로 옮긴다",
+ "brands": [
+  { "brand": "Ann Taylor", "engine": "impit" },
+  { "brand": "Loft", "engine": "impit" },
+  { "brand": "Arket", "engine": "firefox" },
+  { "brand": "&Other Stories", "engine": "firefox" },
+  { "brand": "Wilson", "engine": "chromium" },
+  { "brand": "Massimo Dutti", "engine": "firefox", "fresh": true },
+  { "brand": "Garnet hill", "engine": "firefox", "fresh": true }
+ ]
+}
