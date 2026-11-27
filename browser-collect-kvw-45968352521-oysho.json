@@ -1,0 +1,262 @@
+{
+ "when": "2026-11-27T09:32:44.868Z",
+ "store": false,
+ "engine": "per-brand",
+ "engines": [
+  "firefox"
+ ],
+ "freshContext": false,
+ "configNote": "",
+ "extraNotes": [
+  "The upside: Render browser 그룹 브랜드 — 엔진 firefox · 새 창으로 바꿔 돎"
+ ],
+ "deferred": [],
+ "kvWrites": {
+  "requests": 0,
+  "puts": 0,
+  "deletes": 0,
+  "byKind": {
+   "catalog": {
+    "requests": 0,
+    "puts": 0,
+    "would": 1
+   }
+  },
+  "same": 0,
+  "deferred": 0,
+  "failed": 0,
+  "would": 1,
+  "wouldPuts": 1,
+  "limitHit": "",
+  "blocked": 0
+ },
+ "results": [
+  {
+   "brand": "Oysho",
+   "site": "oysho.com.oysho",
+   "engine": "firefox",
+   "engineSource": "extra",
+   "fresh": true,
+   "storeMode": "replace",
+   "job": "oysho",
+   "collected": 452,
+   "stored": 0,
+   "storeErr": "",
+   "cats": {
+    "tops": 208,
+    "sweatshirts": 29,
+    "pants": 151,
+    "shirts": 16,
+    "dresses": 48
+   },
+   "perUrl": [
+    {
+     "url": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
+     "count": 144,
+     "productShaped": 144,
+     "note": "",
+     "sample": [
+      {
+       "name": "Extra-fine lyocell-blend T-shirt",
+       "productUrl": "https://www.oysho.com/gb/extrafine-lyocellblend-tshirt-l37581348",
+       "price": ""
+      },
+      {
+       "name": "Regular short sleeve cotton blend T-shirt - Sale",
+       "productUrl": "https://www.oysho.com/gb/regular-short-sleeve-cotton-blend-tshirt-l37141736",
+       "price": ""
+      },
+      {
+       "name": "Comfortlux cross-back T-shirt",
+       "productUrl": "https://www.oysho.com/gb/comfortlux-crossback-tshirt-l32962292",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 541,
+      "noImage": 14,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 268,
+      "nonProduct": 10,
+      "landing": 0,
+      "siteMenu": 104,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://www.oysho.com/gb/womens-sports-tops-n5484",
+     "count": 63,
+     "productShaped": 63,
+     "note": "수집 중 페이지가 다시 떠서 다시 읽음",
+     "sample": [
+      {
+       "name": "Comfortlux raglan short-sleeved striped tank top",
+       "productUrl": "https://www.oysho.com/gb/comfortlux-raglan-shortsleeved-striped-tank-top-l35780086",
+       "price": ""
+      },
+      {
+       "name": "Comfortlux smock gingham tank top",
+       "productUrl": "https://www.oysho.com/gb/comfortlux-smock-gingham-tank-top-l34281064",
+       "price": ""
+      },
+      {
+       "name": "Halter houndstooth print tank top - Sale",
+       "productUrl": "https://www.oysho.com/gb/halter-houndstooth-print-tank-top-l35759816",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 309,
+      "noImage": 14,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 117,
+      "nonProduct": 10,
+      "landing": 0,
+      "siteMenu": 104,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://www.oysho.com/us/womens-sweatshirts-n4922",
+     "count": 55,
+     "productShaped": 55,
+     "note": "",
+     "sample": [
+      {
+       "name": "Half-zip sweatshirt with modal brushed",
+       "productUrl": "https://www.oysho.com/us/halfzip-sweatshirt-with-modal-brushed-l36923158",
+       "price": ""
+      },
+      {
+       "name": "High-neck jacket with modal",
+       "productUrl": "https://www.oysho.com/us/highneck-jacket-with-modal-l36900321",
+       "price": ""
+      },
+      {
+       "name": "Cropped piqué utility jacket with belt - Sale",
+       "productUrl": "https://www.oysho.com/us/cropped-pique-utility-jacket-with-belt-l35506338",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 293,
+      "noImage": 14,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 109,
+      "nonProduct": 12,
+      "landing": 0,
+      "siteMenu": 102,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://www.oysho.com/gb/dresses-jumpsuits-n4954",
+     "count": 50,
+     "productShaped": 50,
+     "note": "",
+     "sample": [
+      {
+       "name": "Long flare Comfortlux fine-strap jumpsuit",
+       "productUrl": "https://www.oysho.com/gb/long-flare-comfortlux-finestrap-jumpsuit-l36282332",
+       "price": ""
+      },
+      {
+       "name": "Comfortlux marl open-back short jumpsuit - Sale",
+       "productUrl": "https://www.oysho.com/gb/comfortlux-marl-openback-short-jumpsuit-l35042965",
+       "price": ""
+      },
+      {
+       "name": "Short strappy 100% linen jumpsuit - Sale",
+       "productUrl": "https://www.oysho.com/gb/short-strappy-100-linen-jumpsuit-l35035119",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 269,
+      "noImage": 51,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 64,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 103,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://www.oysho.com/gb/womens-pants-n4813",
+     "count": 172,
+     "productShaped": 172,
+     "note": "",
+     "sample": [
+      {
+       "name": "Extra warm seamless jogger trousers in a cotton marl blend",
+       "productUrl": "https://www.oysho.com/gb/extra-warm-seamless-jogger-trousers-in-a-cotton-marl-blend-l36631398",
+       "price": ""
+      },
+      {
+       "name": "Mottled wide-leg trousers",
+       "productUrl": "https://www.oysho.com/gb/mottled-wideleg-trousers-l36618947",
+       "price": ""
+      },
+      {
+       "name": "100% linen straight-leg trousers with turn-up waist - Sale",
+       "productUrl": "https://www.oysho.com/gb/100-linen-straightleg-trousers-with-turnup-waist-l35615134",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 663,
+      "noImage": 20,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 350,
+      "nonProduct": 16,
+      "landing": 0,
+      "siteMenu": 104,
+      "offSite": 1
+     }
+    }
+   ],
+   "secs": 2708,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "Extra-fine lyocell-blend T-shirt",
+     "productUrl": "https://www.oysho.com/gb/extrafine-lyocellblend-tshirt-l37581348"
+    },
+    {
+     "name": "Base layers long-sleeved lyocell blend t-shirt",
+     "productUrl": "https://www.oysho.com/gb/base-layers-longsleeved-lyocell-blend-tshirt-l37571632"
+    },
+    {
+     "name": "Relaxed fit t-shirt with baker neckline and long sleeve",
+     "productUrl": "https://www.oysho.com/gb/relaxed-fit-tshirt-with-baker-neckline-and-long-sleeve-l37585350"
+    },
+    {
+     "name": "Striped relaxed long-sleeved 100% cotton T-shirt",
+     "productUrl": "https://www.oysho.com/gb/striped-relaxed-longsleeved-100-cotton-tshirt-l37575172"
+    },
+    {
+     "name": "Brushed relaxed long-sleeved T-shirt",
+     "productUrl": "https://www.oysho.com/gb/brushed-relaxed-longsleeved-tshirt-l37573352"
+    }
+   ],
+   "verdict": "자동화 가능"
+  }
+ ]
+}

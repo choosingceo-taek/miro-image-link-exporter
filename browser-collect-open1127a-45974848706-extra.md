@@ -1,0 +1,166 @@
+# 헤드리스 브라우저 수집 테스트 (2026-11-27T09:58Z)
+
+GitHub Actions(데이터센터 IP)에서 진짜 브라우저로 확장 담당 브랜드를 돌린 결과.
+
+- 엔진: firefox + impit + chromium (브랜드별 기본)
+
+- 대상 7 · ✅ 자동화 가능 5 · ⛔ 확장 필요 0 · 🔧 보완 필요 2
+
+## ✅ 자동화 가능 (5)
+
+- **Arket** [firefox] — 382개 {"tops":168,"sweatshirts":38,"shirts":107,"pants":4,"dresses":65} (178s)
+  - 192개 (상품 주소 모양 192) · https://www.arket.com/en-ww/women/clothing/tops/
+    - Signature Constructed T-Shirt-White-4931 — https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/
+    - Off-Shoulder Top-White-21523 — https://www.arket.com/en-ww/product/off-shoulder-top-off-white-1366755002/
+    - Signature Long-Sleeve T-Shirt-Pink-21249 ($ 35) — https://www.arket.com/en-ww/product/signature-long-sleeve-t-shirt-pink-1252141035/
+  - 64개 (상품 주소 모양 64) · https://www.arket.com/en-ww/women/clothing/tops/t-shirts/
+    - Signature Constructed T-Shirt-White-4931 — https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/
+    - Signature Constructed T-Shirt-Pink-20910 ($ 49) — https://www.arket.com/en-ww/product/signature-constructed-t-shirt-dusty-pink-1135758057/
+    - ARKET CAFÉ Printed T-Shirt-White-12767 ($ 35) — https://www.arket.com/en-ww/product/arket-caf-printed-t-shirt-off-whiteblack-1244346001/
+  - 32개 (상품 주소 모양 32) · https://www.arket.com/en-ww/women/clothing/sweatshirts-and-hoodies/
+    - Terry Sweatshirt-Blue-20460 — https://www.arket.com/en-ww/product/terry-sweatshirt-dark-blue-1283133037/
+    - Cotton terry sweatshirt-Black-21012 ($ 59) — https://www.arket.com/en-ww/product/cotton-terry-sweatshirt-black-1371966002/
+    - Terry Sweatshirt-Brown-17971 ($ 59) — https://www.arket.com/en-ww/product/terry-sweatshirt-brown-1283133018/
+  - 117개 (상품 주소 모양 117) · https://www.arket.com/en-ww/women/clothing/shirts-and-blouses/
+    - Relaxed-Fit Poplin Shirt-Blue-20847 — https://www.arket.com/en-ww/product/relaxed-fit-poplin-shirt-light-blueburgundy-1349067007/
+    - Linen Blend Wrap Blouse-Black-19177 ($ 99) — https://www.arket.com/en-ww/product/linen-blend-wrap-blouse-black-1347554001/
+    - ARKET CAFÉ Cotton Overshirt-Green-17493 ($ 119) — https://www.arket.com/en-ww/product/arket-caf-cotton-overshirt-dark-green-1302389001/
+  - 70개 (상품 주소 모양 70) · https://www.arket.com/en-ww/women/clothing/dresses/
+    - Silk Organza Dress-Black-20289 — https://www.arket.com/en-ww/product/silk-organza-dress-black-1340093001/
+    - Sequin Mini Dress-Black-21363 ($ 129) — https://www.arket.com/en-ww/product/sequin-mini-dress-black-1376664001/
+    - Bow Dress-Black-13536 ($ 139) — https://www.arket.com/en-ww/product/bow-dress-black-1253094001/
+  - 표본: Signature Constructed T-Shirt-White-4931 — https://www.arket.com/en-ww/product/heavyweight-t-shirt-white-1135758001/
+  - 표본: Signature Constructed T-Shirt-Blue-19807 — https://www.arket.com/en-ww/product/signature-constructed-t-shirt-dark-blue-1135758051/
+  - 표본: Wool Rib Top-Black-20580 — https://www.arket.com/en-ww/product/wool-rib-top-black-1357865001/
+  - 표본: Signature Boxy T-Shirt-White-14955 — https://www.arket.com/en-ww/product/alba-heavyweight-t-shirt-white-1283090001/
+  - 표본: Heavy Silk-Blend Tank Top-Black-20631 — https://www.arket.com/en-ww/product/heavy-silk-blend-tank-top-black-1370751001/
+- **Massimo Dutti** [firefox·새 창] — 213개 {"tops":10,"pants":150,"sweatshirts":1,"shirts":10,"dresses":42} (493s)
+  - 60개 (상품 주소 모양 60) · https://www.massimodutti.com/us/women/t-shirts-n1444?celement=2242518
+    - Long-sleeve crewneck t-shirt in a mid-shot with a mock neck and buttons. Features a print of horizontal stripes in navy blue and brown. — https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106
+    - Brown long-sleeve T-shirt set with white stripes and a crew neck, wide-leg brown trousers and a handbag. — https://www.massimodutti.com/us/100-cotton-striped-tshirt-l06246811
+    - long-sleeved, crew-neck t-shirt set, brown pleated trousers, black handbag, and black shoes. — https://www.massimodutti.com/us/100-cotton-interlock-long-sleeve-tshirt-l06820906
+  - 0개 (상품 주소 모양 0) · https://www.massimodutti.com/us/s/w-tops-n2889 ← 상품 0개 · 최종주소 https://www.massimodutti.com/us/s/w-tops-n2889 · 제목 "Massimo Dutti" · 링크 271/이미지 4 · 탈락[total=271 noImage=1 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=268 offSite=2] · "NEW IN WOMAN MAN MD WORLD SEARCH LOG IN BAG PAGE NOT FOUND The page may have been removed, changed, or is temporarily un"
+  - 58개 (상품 주소 모양 58) · https://www.massimodutti.com/us/women/shirts-n1439?celement=1963012
+    - Black long-sleeve shirt set with a classic collar and button-front closure, dark straight-leg pants, and a small top-handle bag. — https://www.massimodutti.com/us/flowing-shirt-with-button-detail-l06839554
+    - Greyish-green long wrap blouse set with scarf collar, tie belt and asymmetric hem, and black skinny pants. — https://www.massimodutti.com/us/long-flowing-cottonblend-blouse-with-belt-l05166567
+    - Mustard yellow wrap shirt set with a high neck and long sleeves, matching long skirt, sunglasses, and black slingback shoes. — https://www.massimodutti.com/us/100-silk-crossover-mock-neck-shirt-l05167543
+  - 36개 (상품 주소 모양 36) · https://www.massimodutti.com/us/women/dresses-n1494?celement=2158374
+    - Set of a midi dress in a vintage gold color with a satin finish, thin straps, and a draped neckline. — https://www.massimodutti.com/us/flowing-satin-finish-midi-dress-l06631510
+    - Brown midi slip dress with wide straps, a square neckline at the back, and a center slit at the hem. — https://www.massimodutti.com/us/cotton-blend-strappy-midi-dress-l06648509
+    - Sleeveless, round-neck, flowy green midi dress outfit with braided bag and sandals. — https://www.massimodutti.com/us/flowing-midi-dress-l06600001
+  - 60개 (상품 주소 모양 60) · https://www.massimodutti.com/us/women/trousers-n1476?celement=2158376
+    - Men’s long-sleeve brown shirt set with front pockets and black straight-leg pants with pleats, belt loops, and a button detail at the hem. — https://www.massimodutti.com/us/100-wool-pants-with-button-detail-l05063685
+    - Beige crewneck knit set, white button-up shirt with a dress shirt collar underneath, and black flowing wide-leg pants with front pleats. — https://www.massimodutti.com/us/flowing-pleated-pants-with-button-detail-l05043505
+    - Long-sleeve gray T-shirt set with a crew neck, dark wide-leg pants with a button closure and side pockets. — https://www.massimodutti.com/us/corduroy-barrel-fit-trousers-l05032732
+  - 표본: Long-sleeve crewneck t-shirt in a mid-shot with a mock neck and buttons. Features a print of horizontal stripes in navy blue and brown. — https://www.massimodutti.com/us/striped-henley-knit-tshirt-l06853106
+  - 표본: Fine-knit jersey set in terracotta with a round neck, and a khaki midi skirt with a cross-over lapel, buttons, and a side pocket. — https://www.massimodutti.com/us/long-sleeve-wool-blend-knit-tshirt-l06832552
+  - 표본: Black tank top set with lace detailing at the neckline and black jeans with a belt. — https://www.massimodutti.com/us/top-with-lace-neckline-detail-l06857575
+  - 표본: Black long-sleeve crewneck T-shirt in a medium shot, with diagonal draped detail on the chest. — https://www.massimodutti.com/us/wool-blend-gathered-detail-tshirt-l06866575
+  - 표본: Black long-sleeve T-shirt set with ribbed detail and a metallic finish, crew neck, black pants, and a belt with a silver buckle. — https://www.massimodutti.com/us/metallic-ribbed-long-sleeve-tshirt-l06828948
+- **&Other Stories** [firefox] — 471개 {"sweatshirts":26,"tops":134,"pants":89,"shirts":86,"dresses":136} (280s)
+  - 184개 (상품 주소 모양 180) · https://www.stories.com/en-us/clothing/tops/
+    - Embroidered Wool Polo Jumper - Grey - Lookbook ($ 96.75) — https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/
+    - Slim T-Shirt - Warm Beige/Striped - Lookbook ($ 44.25) — https://www.stories.com/en-us/product/slim-print-t-shirt-warm-beigestriped-1336247001/
+    - Wool Top - Pink - Lookbook ($ 74.25) — https://www.stories.com/en-us/product/wool-top-pink-1358064003/
+  - 6개 (상품 주소 모양 6) · https://www.stories.com/en-us/clothing/tops/sweatshirts-hoodies/
+    - Half-Zip Cotton Sweatshirt - Dark Brown - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-dark-brown-1358924005/
+    - Half-Zip Cotton Sweatshirt - Red - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/half-zip-cotton-sweatshirt-red-1358924001/
+    - Mock Neck Scuba Sweatshirt - Grey Melange - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/mock-neck-scuba-sweatshirt-grey-melange-1346527002/
+  - 95개 (상품 주소 모양 91) · https://www.stories.com/en-us/clothing/blouses-shirts/
+    - High-Neck Lace Blouse - Black - Lookbook ($ 96.75) — https://www.stories.com/en-us/product/high-neck-lace-blouse-black-1362393001/
+    - Gathered Crepe Blouse - Red/Floral - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/gathered-crepe-blouse-redfloral-1335737004/
+    - Gathered Blouse - Black/White Dots - Lookbook ($ 74.25) — https://www.stories.com/en-us/product/gathered-blouse-blackwhite-dots-1341218003/
+  - 146개 (상품 주소 모양 142) · https://www.stories.com/en-us/clothing/dresses/
+    - Short-Sleeve Long Dress - Dark Red - Lookbook ($ 134.25) — https://www.stories.com/en-us/product/short-sleeve-long-dress-dark-red-1325649008/
+    - Draped Midi Dress - Blue/Checked - Lookbook ($ 134.25) — https://www.stories.com/en-us/product/draped-midi-dress-bluechecked-1343189003/
+    - Linen Mini Dress - Black - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/linen-mini-dress-black-1270022001/
+  - 92개 (상품 주소 모양 88) · https://www.stories.com/en-us/clothing/trousers/
+    - Straight Press-Crease Trousers - Black - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/wide-press-crease-trousers-black-1090941001/
+    - Pleated A-Line Shorts - Black - Lookbook ($ 89.25) — https://www.stories.com/en-us/product/pleated-a-line-shorts-black-1354622002/
+    - Paperbag Pleat Trousers - Beige - Lookbook ($ 96.75) — https://www.stories.com/en-us/product/paperbag-pleat-trousers-beige-1359706001/
+  - 표본: Embroidered Wool Polo Jumper - Grey - Lookbook — https://www.stories.com/en-us/product/embroidered-wool-polo-jumper-grey-1368465001/
+  - 표본: Mock-Neck Lace Top - Dark Red - Lookbook — https://www.stories.com/en-us/product/mock-neck-lace-top-dark-red-1373644002/
+  - 표본: Wool Turtleneck Top - Black - Lookbook — https://www.stories.com/en-us/product/wool-turtleneck-top-black-1341950002/
+  - 표본: Mock-Neck Lace Top - Dark Brown - Lookbook — https://www.stories.com/en-us/product/mock-neck-lace-top-dark-brown-1373644001/
+  - 표본: Merino Wool Henley Top - Dark Red - Lookbook — https://www.stories.com/en-us/product/merino-wool-henley-top-dark-red-1366011001/
+- **Garnet hill** [firefox·새 창] — 42개 {"shirts":12,"sweatshirts":4,"tops":26} (136s)
+  - 36개 (상품 주소 모양 0) · https://www.garnethill.com/clothing/categories/tops-tees/
+    - Blake Organic-Cotton Corduroy Button-Down Shirt ($129.00) — https://www.garnethill.com/blake-organic-cotton-corduroy-button-down-shirt/clothing/categories/tops-tees/710542
+    - EILEEN FISHER Wool Shimmer V-Neck Shell ($288.00) — https://www.garnethill.com/eileen-fisher-wool-shimmer-v-neck-shell/clothing/categories/tops-tees/744400
+    - EILEEN FISHER Organic-Cotton Jersey Ballet-Neck Boxy Top ($118.00) — https://www.garnethill.com/eileen-fisher-organic-cotton-jersey-ballet-neck-boxy-top/clothing/categories/tops-tees/662354
+  - 25개 (상품 주소 모양 0) · https://www.garnethill.com/clothing/categories/tops-tees/facet/f_style_uFilter/Shirts__sp__am__spBlouses?categoryId=191619
+    - Blake Organic-Cotton Corduroy Button-Down Shirt ($129.00) — https://www.garnethill.com/blake-organic-cotton-corduroy-button-down-shirt/clothing/categories/tops-tees/710542
+    - Brixton Organic-Cotton Flannel Popover ($139.00) — https://www.garnethill.com/brixton-organic-cotton-flannel-popover/clothing/categories/tops-tees/710541
+    - Cleo Oversized Cotton Voile Blouse ($149.00) — https://www.garnethill.com/cleo-oversized-cotton-voile-blouse/clothing/categories/tops-tees/735330
+  - 0개 (상품 주소 모양 0) · https://www.garnethill.com/clothing/categories/dresses/ ← 상품 0개 · 최종주소 https://www.garnethill.com/clothing/categories/dresses/ · 제목 "Dresses For Women" · 링크 7/이미지 1 · 탈락[total=7 noImage=7 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=0 offSite=0] · "Skip to content Skip to footer Garnet hill logo submit Search"
+  - 0개 (상품 주소 모양 0) · https://www.garnethill.com/clothing/categories/pants/ ← 상품 0개 · 최종주소 https://www.garnethill.com/clothing/categories/pants/ · 제목 "Women's Pants: Trousers, Corduroys, Leggings, Jeans & More" · 링크 176/이미지 3 · 탈락[total=174 noImage=11 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=163 offSite=0] · "Skip to content Skip to footer Garnet hill logo submit Search About Us Support Sign In 0 ITEMS IN THE CART Bag Holiday &"
+  - 표본: Blake Organic-Cotton Corduroy Button-Down Shirt — https://www.garnethill.com/blake-organic-cotton-corduroy-button-down-shirt/clothing/categories/tops-tees/710542
+  - 표본: Blaire Vintage Knit Sweatshirt — https://www.garnethill.com/blaire-vintage-knit-sweatshirt/clothing/categories/tops-tees/735999
+  - 표본: Essential Elbow-Sleeve Tee — https://www.garnethill.com/essential-elbow-sleeve-tee/clothing/categories/tops-tees/618851
+  - 표본: Delia Embroidered Eyelet Blouse — https://www.garnethill.com/delia-embroidered-eyelet-blouse/clothing/categories/tops-tees/737101
+  - 표본: Essential Long-Sleeve Tee — https://www.garnethill.com/essential-long-sleeve-tee/clothing/categories/tops-tees/468762
+- **Wilson** [chromium] — 94개 {"tops":39,"sweatshirts":14,"dresses":31,"pants":10} · 공용 링크 1개 제외 (158s)
+  - 15개 (상품 주소 모양 14) · https://www.wilson.com/en-us/sportswear/women/tops/tanks
+    - Wilson Sporting Goods Custom Basketballs ($15) — https://custom.wilson.com/en-us/custom/basketballs
+    - WE00329W002001_7_W_SIDNEY_RIB_TANK_W_SANDRIFT — https://www.wilson.com/en-us/products/sidney-rib-tank-we00329
+    - WE00317U089001_7_FIELDHOUSE_TANK_W_POSEIDON — https://www.wilson.com/en-us/products/fieldhouse-tank-we00317
+  - 7개 (상품 주소 모양 6) · https://www.wilson.com/en-us/sportswear/women/tops/short-sleeve-tops
+    - Wilson Sporting Goods Custom Basketballs ($15) — https://custom.wilson.com/en-us/custom/basketballs
+    - WW00367T001001_7_W_HARPER_CROP_TEE_W_SAFARI.png — https://www.wilson.com/en-us/products/harper-crop-tee-ww00367
+    - WW00302411WTA_7_EASY_TEE_BRIGHT_WHITE_W_WTA — https://www.wilson.com/en-us/products/easy-tee-ww00302
+  - 8개 (상품 주소 모양 7) · https://www.wilson.com/en-us/sportswear/women/tops/long-sleeve-tops
+    - Wilson Sporting Goods Custom Basketballs ($15) — https://custom.wilson.com/en-us/custom/basketballs
+    - Pro Seamless Half-Zip — https://www.wilson.com/en-us/products/pro-seamless-halfzip-ww00530
+    - WE00249E079001_7_W_COURT_3_HALF_ZIP_W_CASTOR — https://www.wilson.com/en-us/products/court-3-halfzip-jacket-we00249
+  - 15개 (상품 주소 모양 14) · https://www.wilson.com/en-us/sportswear/women/tops/sweatshirts
+    - Wilson Sporting Goods Custom Basketballs ($15) — https://custom.wilson.com/en-us/custom/basketballs
+    - WE00058W002001_7_COLLARED_HALF_ZIP_SWEATSHIRT_W_SANDRIFT — https://www.wilson.com/en-us/products/collared-halfzip-sweatshirt-we00058
+    - WW00451511GYC_7_MONACO_HALFZIP_SS_SWEATSHIRT_W_GYC — https://www.wilson.com/en-us/products/monaco-halfzip-shortsleeve-sweatshirt-ww00451
+  - 33개 (상품 주소 모양 32) · https://www.wilson.com/en-us/sportswear/women/dresses-jumpsuits
+    - Wilson Sporting Goods Custom Basketballs ($15) — https://custom.wilson.com/en-us/custom/basketballs
+    - WW00592511DBC_7_TIEBREAKER_DRESS_UNLINED_W_DBC — https://www.wilson.com/en-us/products/tiebreaker-dress-unlined-ww00592
+    - WW00565511WTA_7_SPLIT_ROMPER_W_WTA.png — https://www.wilson.com/en-us/products/split-romper-ww00565
+  - 22개 (상품 주소 모양 21) · https://www.wilson.com/en-us/sportswear/women/bottoms/pants-leggings
+    - Wilson Sporting Goods Custom Basketballs ($15) — https://custom.wilson.com/en-us/custom/basketballs
+    - WE00235U001001_7_W_CLUBHOUSE_KNIT_PANT_W_CLASSIC_NAVY.png — https://www.wilson.com/en-us/products/clubhouse-knit-pant-we00235
+    - WW00492531BKA_7_SLICE_SKIRTY_TIGHT_W_BKA — https://www.wilson.com/en-us/products/slice-tight-ww00492
+  - 표본: Everyday Brami — https://www.wilson.com/en-us/products/everyday-brami-ww00015
+  - 표본: On the Daily Brami — https://www.wilson.com/en-us/products/on-the-daily-brami-ww00284
+  - 표본: Pro Seamless Tank — https://www.wilson.com/en-us/products/pro-seamless-tank-ww00024
+  - 표본: Fieldhouse Tank Lite — https://www.wilson.com/en-us/products/fieldhouse-tank-lite-ww00156
+  - 표본: WE00001U001001_7_W_MELROSE_TANK_SEAMSEALED_W_CLASSIC_NAVY — https://www.wilson.com/en-us/products/melrose-tank-we00001
+
+## ⛔ 확장 필요(봇 차단) (0)
+
+
+## 🔧 보완 필요 (2)
+
+- **Loft** [impit] — 0개 {} · 공용 링크 4개 제외 (89s)
+  - 4개 (상품 주소 모양 3) · https://www.loft.com/clothing/tees-tanks/cat2860023/ ← impit 최종주소 https://www.loft.com/on/demandware.store/Sites-Loft-Site/default/PX-Show?url=aHR0cHM6Ly93d3cubG9mdC5jb20vb24vZGVtYW5kd2F
+    - styleRewards ($10) — https://www.loft.com/loftimist/stylerewards-loyalty-program/cat4490013/
+    - newarrivals-meganav-img — https://www.loft.com/gifts/shop-all-gifts/cat3860003/
+    - meganav-img-2 — https://www.loft.com/clothing/sweaters/catl000012/
+  - 4개 (상품 주소 모양 3) · https://www.loft.com/lou-grey/lou-grey-shop-all/cat1880002/ ← impit 최종주소 https://www.loft.com/on/demandware.store/Sites-Loft-Site/default/PX-Show?url=aHR0cHM6Ly93d3cubG9mdC5jb20vb24vZGVtYW5kd2F
+    - styleRewards ($10) — https://www.loft.com/loftimist/stylerewards-loyalty-program/cat4490013/
+    - newarrivals-meganav-img — https://www.loft.com/gifts/shop-all-gifts/cat3860003/
+    - meganav-img-2 — https://www.loft.com/clothing/sweaters/catl000012/
+  - 4개 (상품 주소 모양 3) · https://www.loft.com/clothing/tops/catl000011/ ← impit 최종주소 https://www.loft.com/on/demandware.store/Sites-Loft-Site/default/PX-Show?url=aHR0cHM6Ly93d3cubG9mdC5jb20vb24vZGVtYW5kd2F
+    - styleRewards ($10) — https://www.loft.com/loftimist/stylerewards-loyalty-program/cat4490013/
+    - newarrivals-meganav-img — https://www.loft.com/gifts/shop-all-gifts/cat3860003/
+    - meganav-img-2 — https://www.loft.com/clothing/sweaters/catl000012/
+  - 4개 (상품 주소 모양 3) · https://www.loft.com/clothing/dresses/catl000013/ ← impit 최종주소 https://www.loft.com/on/demandware.store/Sites-Loft-Site/default/PX-Show?url=aHR0cHM6Ly93d3cubG9mdC5jb20vb24vZGVtYW5kd2F
+    - styleRewards ($10) — https://www.loft.com/loftimist/stylerewards-loyalty-program/cat4490013/
+    - newarrivals-meganav-img — https://www.loft.com/gifts/shop-all-gifts/cat3860003/
+    - meganav-img-2 — https://www.loft.com/clothing/sweaters/catl000012/
+  - 4개 (상품 주소 모양 3) · https://www.loft.com/clothing/pants/catl000014/ ← impit 최종주소 https://www.loft.com/on/demandware.store/Sites-Loft-Site/default/PX-Show?url=aHR0cHM6Ly93d3cubG9mdC5jb20vb24vZGVtYW5kd2F
+    - styleRewards ($10) — https://www.loft.com/loftimist/stylerewards-loyalty-program/cat4490013/
+    - newarrivals-meganav-img — https://www.loft.com/gifts/shop-all-gifts/cat3860003/
+    - meganav-img-2 — https://www.loft.com/clothing/sweaters/catl000012/
+- **Ann Taylor** [impit] — 0개 {} (49s)
+  - 0개 (상품 주소 모양 0) · https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/ ← 상품 0개 · 최종주소 https://www.anntaylor.com/clothing/tops-and-blouses/cata000010/ · 제목 "" · 링크 258/이미지 43 · 탈락[total=254 noImage=17 tinyImage=2 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=235 offSite=0] · "50% OFF EVERYTHING > SHOP NOW true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewar" · impit 최종주소 https://www.anntaylor.com/px?url=aHR0cHM6Ly93d3cuYW5udGF5bG9yLmNvbS9vbi9kZW1hbmR3YXJlLnN0b3JlL1NpdGVzLUFublRheWxvci1TaXR
+  - 0개 (상품 주소 모양 0) · https://www.anntaylor.com/clothing/dresses/cata000012/ ← 상품 0개 · 최종주소 https://www.anntaylor.com/clothing/dresses/cata000012/ · 제목 "" · 링크 258/이미지 43 · 탈락[total=254 noImage=17 tinyImage=2 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=235 offSite=0] · "50% OFF EVERYTHING > SHOP NOW true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewar" · impit 최종주소 https://www.anntaylor.com/px?url=aHR0cHM6Ly93d3cuYW5udGF5bG9yLmNvbS9vbi9kZW1hbmR3YXJlLnN0b3JlL1NpdGVzLUFublRheWxvci1TaXR
+  - 0개 (상품 주소 모양 0) · https://www.anntaylor.com/clothing/pants/cata000014/ ← 상품 0개 · 최종주소 https://www.anntaylor.com/clothing/pants/cata000014/ · 제목 "" · 링크 258/이미지 43 · 탈락[total=254 noImage=17 tinyImage=2 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=235 offSite=0] · "50% OFF EVERYTHING > SHOP NOW true Order Status Order Status My Account Sign In Sign Up Wallet Track An Order StyleRewar" · impit 최종주소 https://www.anntaylor.com/px?url=aHR0cHM6Ly93d3cuYW5udGF5bG9yLmNvbS9vbi9kZW1hbmR3YXJlLnN0b3JlL1NpdGVzLUFublRheWxvci1TaXR
+
+## KV 쓰기 (이번 잡)
+
+- [STORE=0] — 실제로 보낸 저장 요청 0 · KV put 0 · 보내기 전에 막은 요청 0 · 저장했다면 요청 3(put 3)
