@@ -67,6 +67,9 @@ jobs:
       PC_HEADED: ${{ vars.PC_HEADED || '1' }}
       PC_FRESH_HOURS: ${{ vars.PC_FRESH_HOURS || '20' }}
       WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+      # 하루(UTC) KV 쓰기 장부(scripts/kv-budget.mjs) — 오늘 다른 잡이 쓴 만큼 빼고 남은 몫 안에서만 쓰고,
+      # 이번 실행이 쓴 put 을 kv-writes/<UTC 날짜>/pc-collect-<실행>.json 으로 남긴다(KV 는 09:00 KST 에 다시 찬다).
+      KV_LEDGER_DIR: kv-writes
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -3,13 +3,14 @@
 //
 //   node scripts/pc-commit.mjs            (워크플로 안에서만 — GITHUB_ACTIONS=true 가 아니면 멈춘다)
 //
-// 올리는 것: pc-collect-report.json/.md(측정 실행이면 pc-collect-<태그>.*) · pc-collect-state.json · pc-enrich-state.json
+// 올리는 것: pc-collect-report.json/.md(측정 실행이면 pc-collect-<태그>.*) · pc-collect-state.json · pc-enrich-state.json ·
+//          하루 쓰기 장부의 이번 실행 줄(kv-writes/<UTC 날짜>/pc-collect-<실행>.json — 야간 보강이 남은 몫을 셀 때 읽는다)
 // 운영 실행이면 아침 리포트(browser-collect-report.md)에 PC 절을 다시 붙여 함께 올린다(combine-collect-reports.mjs).
 //
 // 다른 워크플로가 먼저 올렸으면: 원격을 그대로 받고(reset --hard origin/브랜치) 이번 실행의 파일만 다시 쓴 뒤
 // 아침 리포트를 그 위에서 다시 합쳐 올린다 — 남의 리포트를 덮지 않는다. 세 번 해 보고 안 되면 경고만 남긴다.
 import { execFileSync } from "node:child_process";
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -22,6 +23,11 @@ const TAG = String(process.env.REPORT_TAG || "").replace(/[^\w.-]/g, "");
 const BRANCH = process.env.GITHUB_REF_NAME || "main";
 const base = TAG ? `pc-collect-${TAG}` : "pc-collect-report";
 const files = [`${base}.json`, `${base}.md`, ...(TAG ? [] : ["pc-collect-state.json", "pc-enrich-state.json"])];
+// 하루 쓰기 장부(kv-writes/<UTC 날짜>/pc-collect-<실행>.json) — 리포트에 적힌 이번 실행의 파일만.
+try {
+  const lf = String((JSON.parse(readFileSync(join(ROOT, `${base}.json`), "utf8")).writes || {}).ledgerFile || "");
+  if (/^kv-writes\/[\w./-]+\.json$/.test(lf) && !lf.includes("..")) files.push(lf);
+} catch (e) {}
 const keep = new Map(files.filter((f) => existsSync(join(ROOT, f))).map((f) => [f, readFileSync(join(ROOT, f))]));
 if (!keep.size) { console.log("올릴 PC 리포트가 없음"); process.exit(0); }
 
@@ -33,7 +39,7 @@ git("config", "user.email", "collect-bot@users.noreply.github.com");
 for (let i = 1; i <= 3; i++) {
   if (!tryGit("fetch", "origin", BRANCH)) continue;
   git("reset", "--hard", `origin/${BRANCH}`);
-  for (const [f, buf] of keep) writeFileSync(join(ROOT, f), buf);
+  for (const [f, buf] of keep) { mkdirSync(dirname(join(ROOT, f)), { recursive: true }); writeFileSync(join(ROOT, f), buf); }
   const add = [...keep.keys()];
   if (!TAG) {
     // 아침 리포트에 PC 절을 붙인다(측정 실행은 붙이지 않는다).

@@ -83,6 +83,15 @@ globalThis.fetch = async (input, init) => {
         throw new Error("PC 쓰기 한도: " + d.why);
       }
       console.log(`  [PC] 저장 요청 ${run.writes.used}/${run.writes.budget} — ${c.kind}${c.site ? " " + c.site : ""}`);
+      // Worker 가 받아들였는지(= KV put 1번) 적어 둔다 — 하루 쓰기 장부(kv-writes/)에 put 수로 남긴다.
+      const entry = run.writes.log[run.writes.log.length - 1];
+      const r = await realFetch(input, init);
+      const j = await r.clone().json().catch(() => null);
+      entry.put = !!(j && j.ok);
+      if (entry.put && c.kind === "catalog" && /[?&]legacy=[^&]/.test(url)) entry.del = 1;   // legacy 를 주면 옛 키 delete 1
+      if (!entry.put) entry.err = String((j && j.error) || "HTTP " + r.status).slice(0, 120);
+      save();
+      return r;
     }
     return realFetch(input, init);
   }

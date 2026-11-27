@@ -38,9 +38,10 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, copyFileSyn
 import { spawn } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, join } from "node:path";
-import { platform, arch } from "node:os";
+import { platform, arch, homedir } from "node:os";
 import { buildPlan, updateState, parseEnrichTable, splitBudget, normBrand, WRITES } from "./pc-plan.mjs";
-import { emptyRunState } from "./pc-limits.mjs";
+import { emptyRunState, scrubPaths } from "./pc-limits.mjs";
+import { budgetEnv, readLedger, ledgerPuts, remainingToday, writeLedger } from "./kv-budget.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const E = process.env;
@@ -57,7 +58,13 @@ if (process.argv.includes("--check-only")) { console.log(`확인: STORE=${STORE}
 
 const STEPS = String(E.STEPS || "collect,comp,color").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
 const PLAN_ONLY = STEPS.includes("plan");
-const BUDGET = Math.max(0, Number(E.PC_WRITE_BUDGET ?? 120) || 0);
+const ASKED_BUDGET = Math.max(0, Number(E.PC_WRITE_BUDGET ?? 120) || 0);
+// 하루(UTC) KV 쓰기 장부(scripts/kv-budget.mjs · kv-writes/) — 워크플로가 KV_LEDGER_DIR 을 주면 오늘 다른 잡이 쓴 put 을 빼고
+// 남은 몫 안에서만 쓴다(무료 플랜 하루 1,000 − 예약분). 장부가 없으면(로컬·시험) PC_WRITE_BUDGET 그대로.
+const KV_ENV = budgetEnv();
+const LEDGER = KV_ENV.dir ? readLedger(KV_ENV.dir) : [];
+const KV_LEFT = KV_ENV.dir ? remainingToday({ limit: KV_ENV.limit, reserve: KV_ENV.reserve, used: ledgerPuts(LEDGER) }) : Infinity;
+const BUDGET = Math.min(ASKED_BUDGET, KV_LEFT);
 const FRESH_H = E.PC_FRESH_HOURS === undefined || E.PC_FRESH_HOURS === "" ? 20 : Math.max(0, Number(E.PC_FRESH_HOURS) || 0);
 const ONLY = String(E.BRANDS || "").split(",").map((s) => s.trim()).filter(Boolean);
 const REPORT_DIR = E.REPORT_DIR || ROOT;
@@ -73,6 +80,9 @@ const HOOKS = pathToFileURL(join(ROOT, "scripts", "pc-browser-hooks.mjs")).href;
 const RUN_FILE = join(WORK, "run.json");
 const T0 = Date.now();
 const notes = [];
+if (KV_ENV.dir && KV_LEFT < ASKED_BUDGET) {
+  notes.push(`오늘(UTC) KV 쓰기 몫이 ${KV_LEFT}번 남음(한도 ${KV_ENV.limit} − 예약 ${KV_ENV.reserve} − 오늘 장부 ${ledgerPuts(LEDGER)}) — 이번 실행 쓰기 예산을 ${ASKED_BUDGET} → ${BUDGET} 로 줄임`);
+}
 
 const readJson = (p, d = null) => { try { return JSON.parse(readFileSync(p, "utf8")); } catch (e) { return d; } };
 const readText = (p) => { try { return readFileSync(p, "utf8"); } catch (e) { return null; } };
@@ -101,7 +111,8 @@ function runStep(step, script, env, minutes) {
   return new Promise((resolve) => {
     console.log(`\n── ${step} ── node ${script}`);
     const child = spawn(process.execPath, ["--import", HOOKS, join(ROOT, "scripts", script)], {
-      env: { ...process.env, ...env, PC_RUN_FILE: RUN_FILE, PC_STEP: step, PC_WRITE_BUDGET: String(BUDGET),
+      // 자식은 장부를 따로 쓰지 않는다(KV_LEDGER_DIR 비움) — 이 실행 전체를 끝에서 한 줄로 남긴다.
+      env: { ...process.env, ...env, KV_LEDGER_DIR: "", PC_RUN_FILE: RUN_FILE, PC_STEP: step, PC_WRITE_BUDGET: String(BUDGET),
         RENDER_URL: RENDER, WORKER_URL: WORKER, WORKER_TOKEN: TOKEN },
       stdio: ["ignore", "pipe", "pipe"],
     });
@@ -276,6 +287,13 @@ if (!TAG && !PLAN_ONLY) {
   const next = updateState(prevState, { collectResults, enrichRows: compRows }, Date.now());
   writeFileSync(STATE_FILE, JSON.stringify(next, null, 1) + "\n");
 }
+const puts = run.writes.log.filter((l) => l.put).length, dels = run.writes.log.filter((l) => l.del).length;
+let ledgerFile = "";
+if (KV_ENV.dir && STORE === "1" && !TAG && !PLAN_ONLY) {
+  const f = writeLedger(KV_ENV.dir, { job: "pc-collect", run: E.GITHUB_RUN_ID || "", start: new Date(T0).toISOString(), at: new Date().toISOString(),
+    requests: run.writes.used, puts, deletes: dels, failed: run.writes.log.filter((l) => l.ok && !l.put).length, mode: "pc" });
+  ledgerFile = f ? f.replace(ROOT, "").replace(/^[\\/]+/, "").replace(/\\/g, "/") : "";
+}
 const writesBy = {};
 for (const l of run.writes.log) if (l.ok) writesBy[l.kind] = (writesBy[l.kind] || 0) + 1;
 const refusedW = run.writes.log.filter((l) => !l.ok);
@@ -285,13 +303,17 @@ const report = {
   runner: { platform: platform(), arch: arch(), node: process.version },
   browsers: browsers.info, notes,
   plan: { renderBrands, collect: plan.collect, enrich: plan.enrich, skipped: plan.skipped, freshHours: FRESH_H, only: ONLY },
-  writes: { budget: BUDGET, used: run.writes.used, byKind: writesBy, refused: refusedW, lists: run.writes.lists, log: run.writes.log },
+  writes: { budget: BUDGET, asked: ASKED_BUDGET, kvLeftToday: Number.isFinite(KV_LEFT) ? KV_LEFT : null, used: run.writes.used, puts, deletes: dels, ledgerFile, byKind: writesBy, refused: refusedW, lists: run.writes.lists, log: run.writes.log },
   polite: { navs: run.polite.navs, stopped: run.polite.stopped, refused: run.polite.refused.slice(0, 50) },
   launches: run.launches,
   collect: collectJson,
   comp: compRows, colorBrands, failed,
 };
-writeFileSync(join(REPORT_DIR, BASE + ".json"), JSON.stringify(report, null, 1));
+// 리포트는 공개 저장소에 올라간다 — 오류 글 속의 내 폴더 경로(사용자 이름)를 ~ 로 지운다.
+const scrub = (t) => scrubPaths(t, homedir());
+const scrubDeep = (v) => (typeof v === "string" ? scrub(v) : Array.isArray(v) ? v.map(scrubDeep)
+  : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, y]) => [k, scrubDeep(y)])) : v);
+writeFileSync(join(REPORT_DIR, BASE + ".json"), JSON.stringify(scrubDeep(report), null, 1));
 
 const verdictOf = (r) => (r.collected >= 20 ? "✅" : /차단/.test(r.verdict || "") ? "⛔" : "🔧");
 let md = `# PC 수집 — 내 PC 의 진짜 브라우저 (${report.when.slice(0, 16)}Z)\n\n`;
@@ -300,7 +322,7 @@ md += `owner PC(집·회사 IP)의 GitHub 러너가 설치된 크롬·파이어�
 md += `- 브라우저: 크롬 ${browsers.info.chrome || "-"} · 파이어폭스 ${browsers.info.firefox || "-"}` +
   (run.launches.length ? ` · 띄운 창 ${run.launches.length}번 중 창 띄움 ${headed} · 창 없이 ${run.launches.length - headed}` : "") + `\n`;
 md += `- 저장 요청 ${run.writes.used}/${BUDGET}번` + (Object.keys(writesBy).length ? ` (${Object.entries(writesBy).map(([k, v]) => `${k} ${v}`).join(" · ")})` : "") +
-  (refusedW.length ? ` · 막은 요청 ${refusedW.length}` : "") + ` · 목록 읽기(?catalogs) ${run.writes.lists}번\n`;
+  (refusedW.length ? ` · 막은 요청 ${refusedW.length}` : "") + ` · KV put ${puts}` + (dels ? ` · delete ${dels}` : "") + ` · 목록 읽기(?catalogs) ${run.writes.lists}번\n`;
 md += `- 쇼핑몰 페이지 요청 ${run.polite.navs}번` + (Object.keys(run.polite.stopped).length ? ` · 429 로 멈춘 사이트: ${Object.keys(run.polite.stopped).join(", ")}` : "") +
   (run.polite.refused.length ? ` · 한도로 안 보낸 요청 ${run.polite.refused.length}` : "") + `\n\n`;
 for (const n of notes) md += `> ${n}\n\n`;
@@ -336,7 +358,7 @@ md += `\n<details><summary>계획 — 브랜드별 엔진과 근거 (목록 ${pl
 for (const x of plan.collect) md += `| ${x.brand} | 목록 | ${x.engine}${x.fresh ? " · 새 창" : ""} | ${x.why} |\n`;
 for (const x of plan.enrich) md += `| ${x.brand} | 상품 | ${x.engine}${x.fresh ? " · 새 창" : ""} | ${x.why} |\n`;
 md += `\n</details>\n`;
-writeFileSync(join(REPORT_DIR, BASE + ".md"), md);
+writeFileSync(join(REPORT_DIR, BASE + ".md"), scrub(md));
 console.log(`\n리포트: ${BASE}.md · 저장 요청 ${run.writes.used}/${BUDGET} · 페이지 요청 ${run.polite.navs}`);
 if (!browsers.have.chrome && !browsers.have.firefox) process.exit(1);
 if (failed.includes("collect")) process.exit(1);
