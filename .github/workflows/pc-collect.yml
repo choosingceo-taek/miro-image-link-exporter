@@ -1,0 +1,108 @@
+name: PC collect (my PC, real browser)
+
+# 확장 담당 브랜드(Render blocked-brands.json 의 brands)를 owner 의 PC 에서 진짜 브라우저로 매일 모은다.
+# 데이터센터 IP(GitHub·Render)는 Akamai·DataDome·Cloudflare·Vercel·PerimeterX 가 막지만, 같은 사이트가
+# owner PC 의 크롬에서는 열린다(2026-11-27 WHBM 확인). 크롬 확장은 PC 가 켜져 있고 크롬이 열린 밤에만 돈다 —
+# 이 워크플로는 PC 에 설치한 'GitHub 러너'(라벨 rack-pc)가 사람이 버튼을 누르지 않아도 돌린다.
+# 설치·끄는 법: docs/pc-runner.md(한국어, 윈도우·맥). 하는 일: scripts/pc-collect.mjs 맨 위.
+#
+#  · 목록 수집(browser-collect.mjs) → 혼용률 보강(enrich-comp-browser.mjs) → 컬러 보강(enrich-comp.mjs)
+#  · 브랜드별 엔진·새 창은 access-map.json 과 PC 측정 기록(pc-collect-state.json)으로 고른다(scripts/pc-plan.mjs)
+#  · 위장·우회 도구·유료 서비스 없음. 같은 주소 3번까지 · 같은 사이트 1초 간격 · 429 면 그 사이트 멈춤
+#  · 쓰기 예산: 한 실행 PC_WRITE_BUDGET(저장소 변수, 기본 120)번 — 목록 브랜드당 1 · 혼용률 2 · 컬러 2 + 인덱스 1
+#  · 리포트: pc-collect-report.md/.json — 아침 리포트(browser-collect-report.md) 끝에 'PC 잡' 절로도 붙는다
+#
+# PC 가 꺼져 있으면: 예약된 실행은 러너가 다시 연결될 때까지 줄에서 기다린다(GitHub 은 최대 24시간).
+# 아침 9시에 PC 를 켜면 그때 돈다.
+on:
+  schedule:
+    # 시간 바꾸기: 아래 한 줄만 고친다. GitHub 은 UTC 로 적는다 — 한국 시간(KST)에서 9시간을 뺀다.
+    #   KST 평일 08:30 = UTC 일~목 23:30  →  "30 23 * * 0-4"   (기본)
+    #   KST 평일 12:10 = UTC 월~금 03:10  →  "10 3 * * 1-5"
+    #   KST 매일 08:30 = UTC 매일 23:30  →  "30 23 * * *"
+    # 예약 실행은 GitHub 이 붐비면 몇 분~수십 분 늦게 시작될 수 있다.
+    - cron: "30 23 * * 0-4"
+  workflow_dispatch:
+    inputs:
+      store:
+        description: "1이면 Worker KV에 저장(기본 1) · 0이면 읽기만"
+        required: false
+        default: "1"
+      brands:
+        description: "쉼표로 구분한 브랜드(비우면 계획 전체)"
+        required: false
+        default: ""
+      report_tag:
+        description: "주면 리포트를 pc-collect-<tag>-<실행번호>.* 로 따로 남긴다(측정 실행 — store=0 으로만)"
+        required: false
+        default: ""
+      steps:
+        description: "collect,comp,color(기본) 중 고름 · plan 이면 계획만(브라우저 확인만, 쇼핑몰 접속 없음)"
+        required: false
+        default: "collect,comp,color"
+
+permissions:
+  contents: write
+
+# 한 PC 에서 두 실행이 겹치면 브라우저 창이 두 배로 뜨고 같은 사이트에 두 배로 간다 — 한 번에 하나만.
+# 측정 실행(report_tag)도 같은 PC 를 쓰므로 함께 줄을 선다(데이터센터처럼 러너가 여럿이 아니다).
+concurrency:
+  group: pc-collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: [self-hosted, rack-pc]
+    timeout-minutes: 240
+    env:
+      # schedule 실행에는 inputs 가 없으므로 기본값을 여기서 채운다.
+      STORE: ${{ github.event.inputs.store || '1' }}
+      BRANDS: ${{ github.event.inputs.brands }}
+      STEPS: ${{ github.event.inputs.steps || 'collect,comp,color' }}
+      # 측정 실행인지는 '입력' report_tag 로만 판단한다(browser-collect.yml 과 같은 막기).
+      MEASURE_TAG: ${{ github.event.inputs.report_tag }}
+      REPORT_TAG: ${{ github.event.inputs.report_tag && format('{0}-{1}', github.event.inputs.report_tag, github.run_id) || '' }}
+      # 저장소 Settings → Secrets and variables → Actions → Variables 에서 바꿀 수 있다(비우면 기본).
+      PC_WRITE_BUDGET: ${{ vars.PC_WRITE_BUDGET || '120' }}
+      PC_HEADED: ${{ vars.PC_HEADED || '1' }}
+      PC_FRESH_HOURS: ${{ vars.PC_FRESH_HOURS || '20' }}
+      WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Measure-run guard
+        # 측정 실행(report_tag)이 저장까지 하면 운영 카탈로그를 바꾼다 — 브라우저를 받기 전에 멈춘다.
+        run: node scripts/pc-collect.mjs --check-only
+      - name: Install Playwright
+        # 크롬은 PC 에 설치된 것을 쓴다(따로 받지 않는다).
+        timeout-minutes: 10
+        run: |
+          npm init -y
+          npm i --no-save playwright@1.49.1
+      - name: Install Firefox (Playwright build)
+        # 파이어폭스만 Playwright 판을 받는다 — 한 번 받으면 PC 에 남아 다음부터는 금방 끝난다.
+        # 못 받아도(회사 망이 막는 등) 수집은 크롬으로 이어 간다 — 리포트에 적힌다.
+        timeout-minutes: 15
+        continue-on-error: true
+        run: npx playwright install firefox
+      - name: Collect on this PC
+        timeout-minutes: 215
+        run: node scripts/pc-collect.mjs
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pc-collect-report
+          path: |
+            pc-collect-*.json
+            pc-collect-*.md
+            pc-collect-state.json
+            pc-enrich-state.json
+            .pc-work/
+          if-no-files-found: ignore
+      - name: Commit report
+        # 이번 실행의 PC 리포트·측정 기록만 올리고, 운영 실행이면 아침 리포트에 PC 절을 다시 붙인다.
+        if: always()
+        run: node scripts/pc-commit.mjs

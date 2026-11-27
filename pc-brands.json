@@ -1,0 +1,21 @@
+{
+ "_설명": "PC 자동 수집(.github/workflows/pc-collect.yml · docs/pc-runner.md)의 브랜드별 손 설정. 대상은 Render blocked-brands.json 의 brands(확장 담당 그룹)이고, 엔진·새 창은 scripts/pc-plan.mjs 가 접근 지도(access-map.json)와 PC 측정 기록(pc-collect-state.json)으로 고른다. 여기에는 그 자동 선택을 사람이 바꿀 때만 적는다. overrides: { \"브랜드\": { \"engine\": \"chrome\"|\"firefox\", \"fresh\": true|false, \"productEngine\": …, \"productFresh\": …, \"stop\": \"멈추는 이유\", \"evidence\": \"근거(측정 실행 번호 등)\" } } — stop 을 적으면 그 브랜드는 PC 에서 돌지 않는다(확장 담당). add: Render 확장 그룹 밖이지만 PC 에서도 볼 브랜드 — 서버 담당인데 데이터센터에서 막혀 목록이 며칠째 그대로인 곳. 저장은 합치기(merge)로 해서 서버가 쌓아 온 카탈로그를 줄이지 않는다. 근거 없이 넣지 말 것.",
+ "overrides": {},
+ "add": [
+  {
+   "brand": "WHBM",
+   "store": "merge",
+   "why": "서버 담당 · Akamai 가 데이터센터를 막아 목록이 11/18 이후 그대로(docs/access-map.md). owner 가 2026-11-27 회사 PC 크롬에서 열림을 확인"
+  },
+  {
+   "brand": "Chico's",
+   "store": "merge",
+   "why": "서버 담당 · WHBM 과 같은 회사·같은 Akamai — 목록이 11/22 이후 그대로(docs/access-map.md)"
+  },
+  {
+   "brand": "Prana",
+   "store": "merge",
+   "why": "서버 담당 · Cloudflare 가 데이터센터의 모든 엔진을 막음 — 목록이 9/22 이후 그대로(docs/access-map.md). 집 IP 는 아직 안 재 봄"
+  }
+ ]
+}

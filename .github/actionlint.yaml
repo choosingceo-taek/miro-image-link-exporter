@@ -1,0 +1,4 @@
+# actionlint 설정 — owner PC 에 설치한 GitHub 러너의 라벨(docs/pc-runner.md).
+self-hosted-runner:
+  labels:
+    - rack-pc
