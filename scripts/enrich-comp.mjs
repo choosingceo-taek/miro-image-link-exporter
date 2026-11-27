@@ -31,6 +31,7 @@ import { detailOf, compFromOwnPartsJson as compFromPartsJson, detailRecord } fro
 import { detailFlags, detailApply, mergeDetails } from "./detail-guard.mjs";
 import { ruleVersion, colorVersion } from "./rule-version.mjs";
 import { colorFromTitle } from "./title-color.mjs";
+import { WriteCounter } from "./kv-budget.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WORKER = (process.env.WORKER_URL || "https://fabric-extractor.hs-fabric-linker.workers.dev").replace(/\/+$/, "");
@@ -72,11 +73,15 @@ const tok = "&token=" + encodeURIComponent(TOKEN);
 // 쓰지 않는다). 그래도 나중에 누가 쓰기를 하나 더 붙일 수 있으므로, DRY 에서는 fetch 자체를
 // 감싸 GET/HEAD 가 아닌 요청은 보내기 전에 막는다.
 const DRY = process.env.DRY === "1";
+// KV 쓰기 집계(scripts/kv-budget.mjs) — 보낸 저장 요청 · 그 요청이 일으킨 KV put. 리포트·로그 끝에 남긴다.
+const KV = new WriteCounter();
+let dryBlocked = 0;   // DRY 에서 보내기 전에 막은 요청(0 이어야 한다 — 코드가 애초에 안 보낸다)
 if (DRY) {
   const realFetch = globalThis.fetch;
   globalThis.fetch = (input, init) => {
     const method = String((init && init.method) || (input && input.method) || "GET").toUpperCase();
     if (method !== "GET" && method !== "HEAD") {
+      dryBlocked++;
       return Promise.reject(new Error(`DRY=1 — ${method} 요청을 막음: ${String(input && input.url || input).slice(0, 120)}`));
     }
     return realFetch(input, init);
@@ -1046,8 +1051,10 @@ async function processBrand(c, phase) {
     if (mk.length > 1000) for (const k of mk.slice(0, mk.length - 1000)) delete merged[k];
 
     let ok = DRY;   // DRY 는 저장 시도 자체를 하지 않는다
+    if (DRY) KV.wouldSend("overlay");
     for (let attempt = 0; attempt < 3 && !ok; attempt++) {
       try {
+        KV.sent("overlay");
         const resp = await fetch(`${WORKER}/?store=overlay&site=${encodeURIComponent(c.site)}${tok}`, {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify(merged), signal: AbortSignal.timeout(45000),
@@ -1055,8 +1062,8 @@ async function processBrand(c, phase) {
         const text = await resp.text();
         let r = null;
         try { r = JSON.parse(text); } catch (e) {}
-        if (r && r.ok) { ok = true; break; }
-        if (attempt === 2) console.log(`  !! ${c.site} 저장 실패: HTTP ${resp.status} ${text.slice(0, 160)}`);
+        if (r && r.ok) { ok = true; KV.ok("overlay"); break; }
+        if (attempt === 2) { KV.fail("overlay", c.site, text); console.log(`  !! ${c.site} 저장 실패: HTTP ${resp.status} ${text.slice(0, 160)}`); }
       } catch (e) {
         if (attempt === 2) console.log(`  !! ${c.site} 저장 오류: ${String(e.message || e)}`);
       }
@@ -1102,18 +1109,20 @@ async function processBrand(c, phase) {
     if (flags.dropFeat.size && detailHeld.length < 60) detailHeld.push({ brand: cat.brand || c.site, url: "", what: "글머리표", text: [...flags.dropFeat].slice(0, 4).join(" · ") });
     const { merged: dm, added } = mergeDetails(detailMap, clean, now);
     detAdded = added;
+    if (DRY) KV.wouldSend("details");
     if (!DRY) {
       let ok = false;
       for (let attempt = 0; attempt < 3 && !ok; attempt++) {
         try {
+          KV.sent("details");
           const resp = await fetch(`${WORKER}/?store=details&site=${encodeURIComponent(c.site)}${tok}`, {
             method: "POST", headers: { "Content-Type": "application/json" },
             body: JSON.stringify(dm), signal: AbortSignal.timeout(60000),
           });
           const t = await resp.text();
           let r = null; try { r = JSON.parse(t); } catch (e) {}
-          if (r && r.ok) ok = true;
-          else if (attempt === 2) console.log(`  !! ${c.site} 상세 저장 실패: HTTP ${resp.status} ${t.slice(0, 120)}`);
+          if (r && r.ok) { ok = true; KV.ok("details"); }
+          else if (attempt === 2) { KV.fail("details", c.site, t); console.log(`  !! ${c.site} 상세 저장 실패: HTTP ${resp.status} ${t.slice(0, 120)}`); }
         } catch (e) { if (attempt === 2) console.log(`  !! ${c.site} 상세 저장 오류: ${String(e.message || e)}`); }
         if (!ok) await new Promise((r2) => setTimeout(r2, 2000));
       }
@@ -1177,14 +1186,16 @@ if (!DRY) try {
       }
     } catch (e) {}
   }
+  KV.sent("index");
   const resp = await fetch(WORKER + "/?store=index" + tok, {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ items: idx }), signal: AbortSignal.timeout(120000),
   });
   const text = await resp.text();
-  try { indexCount = JSON.parse(text).count || 0; }
+  try { indexCount = JSON.parse(text).count || 0; if (JSON.parse(text).ok) KV.ok("index"); else KV.fail("index", "", text); }
   catch (e) { console.log(`index rebuild failed: HTTP ${resp.status} ${text.slice(0, 200)}`); }
 } catch (e) { console.log("index rebuild failed:", String(e.message || e)); }
+if (DRY) KV.wouldSend("index");
 
 const done = rows.filter((r) => !r.error);
 const totalItems = done.reduce((s, r) => s + (r.total || 0), 0);
@@ -1353,6 +1364,26 @@ if (errs.length) {
   md += `## 읽기 실패 (${errs.length})\n\n`;
   for (const r of errs) md += `- ${r.brand}: ${r.error}\n`;
 }
+// ── KV 쓰기 집계(scripts/kv-budget.mjs) — 무료 플랜 put 하루 1,000회. DAILY-AUTOMATION.md '쓰기 예산'.
+{
+  const k = KV.summary();
+  const kinds = ["overlay", "details", "index"].map((x) => `${x} ${DRY ? (k.byKind[x] || {}).would || 0 : (k.byKind[x] || {}).puts || 0}`).join(" · ");
+  md += `\n## KV 쓰기 (이번 실행)\n\n`;
+  if (DRY) {
+    md += `- **DRY — 실제로 보낸 저장 요청 ${k.requests}회 · KV put ${k.puts}** (보내기 전에 막은 요청 ${dryBlocked})\n`;
+    md += `- 저장했다면: 요청 ${k.would}회 · KV put ${k.wouldPuts} (${kinds})\n`;
+  } else {
+    md += `- 보낸 저장 요청 ${k.requests}회(재시도 포함) · **KV put ${k.puts}** (${kinds}) · 실패 ${k.failed}\n`;
+    if (k.limitHit) md += `- ⚠ 하루 쓰기 한도에 걸림: ${k.limitHit}\n`;
+  }
+  md += `\n`;
+}
 writeFileSync(join(ROOT, REPORT_FILE), md);
+{
+  const k = KV.summary();
+  console.log(DRY
+    ? `KV 쓰기 집계 [DRY] — 실제로 보낸 저장 요청 ${k.requests} · KV put ${k.puts} · 보내기 전에 막은 요청 ${dryBlocked} · 저장했다면 요청 ${k.would}(put ${k.wouldPuts})`
+    : `KV 쓰기 집계 — 보낸 저장 요청 ${k.requests} · KV put ${k.puts} · 실패 ${k.failed}${k.limitHit ? " · 한도 걸림" : ""}`);
+}
 console.log(`\n혼용률 ${totalHave}/${totalItems} (${compPct}%, +${totalComp}) · 컬러 ${totalColor}/${totalItems} (${colorPct}%, +${totalColorAdd}) · 인덱스 ${indexCount}`);
 console.log(`컬러웨이·혼용률이 다 붙는 브랜드 ${ready.length}/${done.filter((r) => r.total).length}개 · 전체 평균 혼용률 ${compPct}% 컬러 ${colorPct}%`);
