@@ -1,5 +1,5 @@
 {
- "when": "2026-11-27T08:06:00.601Z",
+ "when": "2026-11-28T02:48:18.931Z",
  "store": true,
  "engine": "per-brand",
  "engines": [
@@ -15,232 +15,6 @@
  "deferred": [],
  "results": [
   {
-   "brand": "Bash",
-   "site": "ba-sh.com.bash",
-   "engine": "chromium",
-   "engineSource": "extra",
-   "fresh": false,
-   "storeMode": "merge",
-   "collected": 342,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
-   "cats": {
-    "pants": 69,
-    "dresses": 102,
-    "tops": 78,
-    "shirts": 61,
-    "sweatshirts": 32
-   },
-   "perUrl": [
-    {
-     "url": "https://ba-sh.com/us/t-shirts/",
-     "count": 52,
-     "productShaped": 51,
-     "note": "",
-     "sample": [
-      {
-       "name": "jeans VANA",
-       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
-       "price": "$164.50"
-      },
-      {
-       "name": "T-shirt BLANCA",
-       "productUrl": "https://ba-sh.com/us/p/t-shirt-blanca-kaki-3667436022616.html",
-       "price": "$87.50"
-      },
-      {
-       "name": "bra GISOR",
-       "productUrl": "https://ba-sh.com/us/p/bra-gisor-ebene-3664784950295.html",
-       "price": "$100"
-      }
-     ],
-     "rej": {
-      "total": 524,
-      "noImage": 51,
-      "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 75,
-      "nonProduct": 0,
-      "landing": 0,
-      "siteMenu": 344,
-      "offSite": 1
-     }
-    },
-    {
-     "url": "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.",
-     "count": 37,
-     "productShaped": 37,
-     "note": "",
-     "sample": [
-      {
-       "name": "jumper FLOYD",
-       "productUrl": "https://ba-sh.com/fr/en/p/jumper-floyd-ecrumultico-3667436090813.html",
-       "price": "€ 285"
-      },
-      {
-       "name": "sweatshirt BENJAMIN",
-       "productUrl": "https://ba-sh.com/fr/en/p/sweatshirt-benjamin-fuchsia-3667436111020.html",
-       "price": "€ 145"
-      },
-      {
-       "name": "SWEATSHIRT MAIA",
-       "productUrl": "https://ba-sh.com/fr/en/p/sweatshirt-maia-bleu-3667436042423.html",
-       "price": "€ 155"
-      }
-     ],
-     "rej": {
-      "total": 471,
-      "noImage": 40,
-      "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 61,
-      "nonProduct": 0,
-      "landing": 0,
-      "siteMenu": 332,
-      "offSite": 1
-     }
-    },
-    {
-     "url": "https://ba-sh.com/us/tops-shirts/",
-     "count": 98,
-     "productShaped": 98,
-     "note": "",
-     "sample": [
-      {
-       "name": "jeans VANA",
-       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
-       "price": "$164.50"
-      },
-      {
-       "name": "blouse POEME",
-       "productUrl": "https://ba-sh.com/us/p/blouse-poeme-amande-3667436085826.html",
-       "price": "$171"
-      },
-      {
-       "name": "shirt SISA",
-       "productUrl": "https://ba-sh.com/us/p/shirt-sisa-ecru-3667436108150.html",
-       "price": "$275"
-      }
-     ],
-     "rej": {
-      "total": 546,
-      "noImage": 65,
-      "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 96,
-      "nonProduct": 0,
-      "landing": 0,
-      "siteMenu": 344,
-      "offSite": 1
-     }
-    },
-    {
-     "url": "https://ba-sh.com/us/dresses/",
-     "count": 110,
-     "productShaped": 107,
-     "note": "",
-     "sample": [
-      {
-       "name": "jeans VANA",
-       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
-       "price": "$164.50"
-      },
-      {
-       "name": "dress ZAZA",
-       "productUrl": "https://ba-sh.com/us/p/dress-zaza-noir-3667436084058.html",
-       "price": "$335"
-      },
-      {
-       "name": "dress PACIFICA",
-       "productUrl": "https://ba-sh.com/us/p/dress-pacifica-bleu-3667436025730.html",
-       "price": "$267"
-      }
-     ],
-     "rej": {
-      "total": 596,
-      "noImage": 65,
-      "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 130,
-      "nonProduct": 0,
-      "landing": 0,
-      "siteMenu": 344,
-      "offSite": 1
-     }
-    },
-    {
-     "url": "https://ba-sh.com/us/pants-jeans/",
-     "count": 74,
-     "productShaped": 74,
-     "note": "",
-     "sample": [
-      {
-       "name": "jeans VANA",
-       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
-       "price": "$164.50"
-      },
-      {
-       "name": "pants REMEA",
-       "productUrl": "https://ba-sh.com/us/p/pants-remea-kaki-3667436074042.html",
-       "price": "$375"
-      },
-      {
-       "name": "pants FIMA",
-       "productUrl": "https://ba-sh.com/us/p/pants-fima-kaki-3664784869429.html",
-       "price": "$235"
-      }
-     ],
-     "rej": {
-      "total": 471,
-      "noImage": 54,
-      "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 57,
-      "nonProduct": 0,
-      "landing": 0,
-      "siteMenu": 344,
-      "offSite": 1
-     }
-    }
-   ],
-   "secs": 206,
-   "dropped": 0,
-   "cut": false,
-   "sample": [
-    {
-     "name": "jeans VANA",
-     "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html"
-    },
-    {
-     "name": "dress KACY",
-     "productUrl": "https://ba-sh.com/us/p/dress-kacy-kaki-3667436072253.html"
-    },
-    {
-     "name": "COAT MADIE",
-     "productUrl": "https://ba-sh.com/us/p/coat-madie-noir-3667436043024.html"
-    },
-    {
-     "name": "skirt NOLLY",
-     "productUrl": "https://ba-sh.com/us/p/skirt-nolly-terre-3667436096891.html"
-    },
-    {
-     "name": "shirt CLEO",
-     "productUrl": "https://ba-sh.com/us/p/shirt-cleo-jaune-3667436081989.html"
-    }
-   ],
-   "verdict": "자동화 가능"
-  },
-  {
    "brand": "Vanessa bruno",
    "site": "vanessabruno.com.vanessabruno",
    "engine": "chromium",
@@ -248,8 +22,8 @@
    "fresh": false,
    "storeMode": "merge",
    "collected": 197,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "stored": 257,
+   "storeErr": "",
    "cats": {
     "tops": 29,
     "sweatshirts": 49,
@@ -348,7 +122,7 @@
       }
      ],
      "rej": {
-      "total": 183,
+      "total": 182,
       "noImage": 7,
       "tinyImage": 0,
       "shortPath": 1,
@@ -357,7 +131,7 @@
       "dup": 6,
       "nonProduct": 0,
       "landing": 1,
-      "siteMenu": 160,
+      "siteMenu": 159,
       "offSite": 0
      }
     },
@@ -374,7 +148,7 @@
       },
       {
        "name": "Clothing - VANESSABRUNO",
-       "productUrl": "https://www.vanessabruno.com/p/haldo-embroidered-blouse-54343.html",
+       "productUrl": "https://www.vanessabruno.com/p/bell-blouse-54842.html",
        "price": ""
       },
       {
@@ -384,7 +158,7 @@
       }
      ],
      "rej": {
-      "total": 183,
+      "total": 182,
       "noImage": 7,
       "tinyImage": 0,
       "shortPath": 1,
@@ -393,7 +167,7 @@
       "dup": 6,
       "nonProduct": 0,
       "landing": 1,
-      "siteMenu": 160,
+      "siteMenu": 159,
       "offSite": 0
      }
     },
@@ -420,7 +194,7 @@
       }
      ],
      "rej": {
-      "total": 183,
+      "total": 182,
       "noImage": 7,
       "tinyImage": 0,
       "shortPath": 1,
@@ -429,7 +203,7 @@
       "dup": 6,
       "nonProduct": 0,
       "landing": 1,
-      "siteMenu": 160,
+      "siteMenu": 159,
       "offSite": 0
      }
     },
@@ -446,7 +220,7 @@
       },
       {
        "name": "Clothing All the products - VANESSABRUNO",
-       "productUrl": "https://www.vanessabruno.com/p/dompay-flare-pants-45640.html",
+       "productUrl": "https://www.vanessabruno.com/p/dulce-pants-54807.html",
        "price": ""
       },
       {
@@ -470,7 +244,7 @@
      }
     }
    ],
-   "secs": 207,
+   "secs": 218,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -505,14 +279,14 @@
    "fresh": false,
    "storeMode": "replace",
    "collected": 228,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "stored": 228,
+   "storeErr": "",
    "cats": {
     "tops": 69,
     "pants": 51,
     "sweatshirts": 40,
-    "shirts": 48,
-    "dresses": 20
+    "shirts": 49,
+    "dresses": 19
    },
    "perUrl": [
     {
@@ -529,7 +303,7 @@
       {
        "name": "Women's L.L.Bean Tee, Long-Sleeve Crewneck",
        "productUrl": "https://www.llbean.com/llb/shop/40104",
-       "price": "$19.99"
+       "price": "$29.95"
       },
       {
        "name": "Women's Soft Stretch Supima-Blend Tee, Turtleneck",
@@ -589,8 +363,8 @@
     },
     {
      "url": "https://www.llbean.com/llb/shop/502972?page=womens-shirts-and-button-downs",
-     "count": 48,
-     "productShaped": 45,
+     "count": 49,
+     "productShaped": 46,
      "note": "",
      "sample": [
       {
@@ -616,7 +390,7 @@
       "shortPath": 1,
       "samePage": 21,
       "banner": 0,
-      "dup": 146,
+      "dup": 145,
       "nonProduct": 0,
       "landing": 0,
       "siteMenu": 122,
@@ -625,8 +399,8 @@
     },
     {
      "url": "https://www.llbean.com/llb/shop/506213?page=womens-dresses-and-skirts&nav=gnro",
-     "count": 31,
-     "productShaped": 29,
+     "count": 30,
+     "productShaped": 28,
      "note": "",
      "sample": [
       {
@@ -635,9 +409,9 @@
        "price": "$73.99"
       },
       {
-       "name": "Women's Cloud Gauze Short-Sleeve Shift Dress",
-       "productUrl": "https://www.llbean.com/llb/shop/20010007",
-       "price": "$34.99"
+       "name": "Women's Summer Knit Dress, Short-Sleeve Print",
+       "productUrl": "https://www.llbean.com/llb/shop/122071",
+       "price": "$44.99"
       },
       {
        "name": "Women's Cloud Gauze Cover-Up Shirt, Stripe",
@@ -646,13 +420,13 @@
       }
      ],
      "rej": {
-      "total": 271,
+      "total": 268,
       "noImage": 17,
       "tinyImage": 0,
       "shortPath": 1,
       "samePage": 11,
       "banner": 0,
-      "dup": 81,
+      "dup": 79,
       "nonProduct": 0,
       "landing": 0,
       "siteMenu": 127,
@@ -696,7 +470,7 @@
      }
     }
    ],
-   "secs": 342,
+   "secs": 343,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -705,20 +479,20 @@
      "productUrl": "https://www.llbean.com/llb/shop/5879147"
     },
     {
-     "name": "Women's Signature Premium Essential Pointelle Tee, Long-Sleeve Henley, New",
-     "productUrl": "https://www.llbean.com/llb/shop/5863826"
-    },
-    {
      "name": "Women's Soft Stretch Supima-Blend Tee, Long Dolman-Sleeve Jewelneck, New",
      "productUrl": "https://www.llbean.com/llb/shop/20010773"
+    },
+    {
+     "name": "Women's Waffle-Knit Top, Long-Sleeve Jewelneck, New",
+     "productUrl": "https://www.llbean.com/llb/shop/5872360"
     },
     {
      "name": "Four people gather around a lakeside campfire in winter hats, with the text “The gifts that make the moment.”",
      "productUrl": "https://www.llbean.com/llb/shop/509870"
     },
     {
-     "name": "Women's Waffle-Knit Top, Long-Sleeve Jewelneck, New",
-     "productUrl": "https://www.llbean.com/llb/shop/5872360"
+     "name": "Women's Pima Cotton Tee, Long-Sleeve Crewneck Stripe, New",
+     "productUrl": "https://www.llbean.com/llb/shop/20010639"
     }
    ],
    "verdict": "자동화 가능"
@@ -730,21 +504,21 @@
    "engineSource": "extra",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 367,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "collected": 364,
+   "stored": 364,
+   "storeErr": "",
    "cats": {
-    "tops": 102,
+    "tops": 101,
     "shirts": 67,
     "sweatshirts": 9,
-    "pants": 98,
-    "dresses": 91
+    "pants": 97,
+    "dresses": 90
    },
    "perUrl": [
     {
      "url": "https://veronicabeard.com/collections/tops?filter.style=T-Shirts",
-     "count": 176,
-     "productShaped": 176,
+     "count": 171,
+     "productShaped": 171,
      "note": "",
      "sample": [
       {
@@ -753,8 +527,8 @@
        "price": "$295"
       },
       {
-       "name": "jordyn cropped tank top muted clay",
-       "productUrl": "https://veronicabeard.com/products/jordyn-cropped-tank-top-muted-clay",
+       "name": "uma ribbed vest brown stripe",
+       "productUrl": "https://veronicabeard.com/products/uma-ribbed-vest-brown-stripe",
        "price": ""
       },
       {
@@ -789,13 +563,13 @@
        "price": "$295"
       },
       {
-       "name": "birke merino wool tank top ivory",
-       "productUrl": "https://veronicabeard.com/products/birke-merino-wool-tank-top-ivory",
+       "name": "pascaline lace trimmed top espresso",
+       "productUrl": "https://veronicabeard.com/products/pascaline-lace-trimmed-top-espresso",
        "price": ""
       },
       {
-       "name": "ashlynn silk blouse black multi 2",
-       "productUrl": "https://veronicabeard.com/products/ashlynn-silk-blouse-black-multi-2",
+       "name": "zyris key hole top black",
+       "productUrl": "https://veronicabeard.com/products/zyris-key-hole-top-black",
        "price": ""
       }
      ],
@@ -815,8 +589,8 @@
     },
     {
      "url": "https://veronicabeard.com/collections/dresses",
-     "count": 101,
-     "productShaped": 101,
+     "count": 100,
+     "productShaped": 100,
      "note": "",
      "sample": [
       {
@@ -825,8 +599,8 @@
        "price": "$295"
       },
       {
-       "name": "rye linen silk midi dress ecru multi",
-       "productUrl": "https://veronicabeard.com/products/rye-linen-silk-midi-dress-ecru-multi",
+       "name": "lila ruched midi dress black",
+       "productUrl": "https://veronicabeard.com/products/lila-ruched-midi-dress-black",
        "price": ""
       },
       {
@@ -861,8 +635,8 @@
        "price": "$295"
       },
       {
-       "name": "braddock wide leg pant raisin",
-       "productUrl": "https://veronicabeard.com/products/braddock-wide-leg-pant-raisin",
+       "name": "carson camo kick flare pant camo",
+       "productUrl": "https://veronicabeard.com/products/carson-camo-kick-flare-pant-camo",
        "price": ""
       },
       {
@@ -891,24 +665,24 @@
    "cut": false,
    "sample": [
     {
-     "name": "Wyeth Zebra Turtleneck Top",
-     "productUrl": "https://veronicabeard.com/products/wyeth-zebra-turtleneck-top-ochre-black"
-    },
-    {
      "name": "drexler henley top green shadow",
      "productUrl": "https://veronicabeard.com/products/drexler-henley-top-green-shadow"
-    },
-    {
-     "name": "issa long sleeve polo shirt navy",
-     "productUrl": "https://veronicabeard.com/products/issa-long-sleeve-polo-shirt-navy"
     },
     {
      "name": "pruitt mesh t shirt black limestone",
      "productUrl": "https://veronicabeard.com/products/pruitt-mesh-t-shirt-black-limestone"
     },
     {
-     "name": "sebastian embellished t shirt black",
-     "productUrl": "https://veronicabeard.com/products/sebastian-embellished-t-shirt-black"
+     "name": "issa long sleeve polo shirt navy",
+     "productUrl": "https://veronicabeard.com/products/issa-long-sleeve-polo-shirt-navy"
+    },
+    {
+     "name": "coralee puff sleeve top garnet rose",
+     "productUrl": "https://veronicabeard.com/products/coralee-puff-sleeve-top-garnet-rose"
+    },
+    {
+     "name": "Mylie Mockneck Tank Top",
+     "productUrl": "https://veronicabeard.com/products/mylie-mock-neck-tank-top-gunmetal"
     }
    ],
    "verdict": "자동화 가능"
@@ -921,31 +695,31 @@
    "fresh": false,
    "storeMode": "replace",
    "collected": 744,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "stored": 744,
+   "storeErr": "",
    "cats": {
-    "tops": 181,
-    "sweatshirts": 114,
-    "pants": 151,
-    "shirts": 135,
+    "tops": 183,
+    "sweatshirts": 113,
+    "pants": 152,
+    "shirts": 133,
     "dresses": 163
    },
    "perUrl": [
     {
      "url": "https://www2.hm.com/en_us/women/products/tops.html?sort=newProduct",
-     "count": 172,
-     "productShaped": 170,
+     "count": 175,
+     "productShaped": 173,
      "note": "",
      "sample": [
       {
-       "name": "Draped Wrap Top",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1377404002.html",
-       "price": "$16.99"
+       "name": "Ponte Square-Neck Top",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1377635006.html",
+       "price": "$11.99"
       },
       {
-       "name": "A dark navy blue, slim-fit activewear singlet featuring a scoop neckline and thin white shoulder straps is being worn by the model. The singlet is bei",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1371933002.html",
-       "price": "$22.99"
+       "name": "A beige, semi-sheer waffle-knit body featuring a stand collar and wide 3/4-length cape sleeves is being worn by the model. The loose-fit bodice is bei",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1360391002.html",
+       "price": "$19.99"
       },
       {
        "name": "A blue cotton jersey top with horizontal white stripes is facing front, featuring a round neckline and dropped shoulders. The top is showcasing long, ",
@@ -955,12 +729,12 @@
      ],
      "rej": {
       "total": 228,
-      "noImage": 20,
+      "noImage": 14,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 1,
       "banner": 0,
-      "dup": 27,
+      "dup": 30,
       "nonProduct": 0,
       "landing": 0,
       "siteMenu": 151,
@@ -979,14 +753,14 @@
        "price": "$16.99"
       },
       {
-       "name": "An oversized, long-sleeved sweatshirt featuring a light pink and brown horizontal stripe pattern is being worn by the model. The sweatshirt is designe",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1345017013.html",
-       "price": "$18.99"
+       "name": "Button-Top Sweatshirt",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1367863003.html",
+       "price": "$29.99"
       },
       {
-       "name": "Raglan-Sleeved Sweatshirt",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1329678002.html",
-       "price": "$14.99"
+       "name": "A pink crew neck sweatshirt is presenting a relaxed, oversized fit, viewed from a slight front-left angle. It is featuring long sleeves with ribbed cu",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1327456002.html",
+       "price": "$74.99"
       }
      ],
      "rej": {
@@ -1011,7 +785,7 @@
      "sample": [
       {
        "name": "Tapered-Waist Button-Front Blouse",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1369642002.html",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1369642003.html",
        "price": "$23.99"
       },
       {
@@ -1020,19 +794,19 @@
        "price": "$19.99"
       },
       {
-       "name": "Ruffle-Trimmed Stand-Up Collar Shirt",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1357264004.html",
-       "price": "$18.99"
+       "name": "Knot-Button Shirt",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1370791003.html",
+       "price": "$35.99"
       }
      ],
      "rej": {
       "total": 186,
-      "noImage": 6,
+      "noImage": 4,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 1,
       "banner": 0,
-      "dup": 34,
+      "dup": 35,
       "nonProduct": 0,
       "landing": 0,
       "siteMenu": 109,
@@ -1041,8 +815,8 @@
     },
     {
      "url": "https://www2.hm.com/en_us/women/products/dresses.html?sort=newProduct",
-     "count": 177,
-     "productShaped": 177,
+     "count": 178,
+     "productShaped": 178,
      "note": "",
      "sample": [
       {
@@ -1051,9 +825,9 @@
        "price": "$23.99"
       },
       {
-       "name": "A fitted mini dress in black velour is being worn by the model, featuring a high neck, structured shoulder pads, and long sleeves. The design has gath",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1370437001.html",
-       "price": "$23.99"
+       "name": "A dark maxi dress is being worn by the model, featuring a high boat neck, three-quarter-length batwing sleeves, and a gathered waist that creates a re",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1351936003.html",
+       "price": "$39.99"
       },
       {
        "name": "A long, dark grey fine-knit dress is hanging flat, showcasing a relaxed-fit silhouette with a high neckline and long sleeves. A thin, black coated tie",
@@ -1077,8 +851,8 @@
     },
     {
      "url": "https://www2.hm.com/en_us/women/products/pants.html?sort=newProduct",
-     "count": 164,
-     "productShaped": 164,
+     "count": 166,
+     "productShaped": 166,
      "note": "",
      "sample": [
       {
@@ -1087,18 +861,18 @@
        "price": "$15.99"
       },
       {
-       "name": "Dark wool-weave pants featuring a straight-leg silhouette are being worn by the model, who is standing in profile with one hand tucked into the diagon",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1357328001.html",
-       "price": "$99.99"
+       "name": "Printed Sweatpants",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1375878001.html",
+       "price": "$23.99"
       },
       {
-       "name": "Barrel-Leg Corduroy Pants",
-       "productUrl": "https://www2.hm.com/en_us/productpage.1350291005.html",
-       "price": "$31.99"
+       "name": "Dressy Foldover-Waist Pants",
+       "productUrl": "https://www2.hm.com/en_us/productpage.1365374002.html",
+       "price": "$23.99"
       }
      ],
      "rej": {
-      "total": 216,
+      "total": 218,
       "noImage": 6,
       "tinyImage": 0,
       "shortPath": 0,
@@ -1107,26 +881,22 @@
       "dup": 34,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 139,
+      "siteMenu": 141,
       "offSite": 0
      }
     }
    ],
-   "secs": 273,
+   "secs": 275,
    "dropped": 0,
    "cut": false,
    "sample": [
-    {
-     "name": "Draped Wrap Top",
-     "productUrl": "https://www2.hm.com/en_us/productpage.1377404002.html"
-    },
     {
      "name": "Ponte Square-Neck Top",
      "productUrl": "https://www2.hm.com/en_us/productpage.1377635006.html"
     },
     {
-     "name": "Glittery Knit Top",
-     "productUrl": "https://www2.hm.com/en_us/productpage.1368355003.html"
+     "name": "Draped Wrap Top",
+     "productUrl": "https://www2.hm.com/en_us/productpage.1377404002.html"
     },
     {
      "name": "A long-sleeved top is facing front, showcasing a grey and black horizontal stripe pattern with a crew neckline and dropped shoulders. The top is displ",
@@ -1135,6 +905,10 @@
     {
      "name": "Glittery Knit Top",
      "productUrl": "https://www2.hm.com/en_us/productpage.1368355004.html"
+    },
+    {
+     "name": "Glittery Knit Top",
+     "productUrl": "https://www2.hm.com/en_us/productpage.1368355003.html"
     }
    ],
    "verdict": "자동화 가능"
@@ -1146,20 +920,20 @@
    "engineSource": "extra",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 276,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "collected": 269,
+   "stored": 269,
+   "storeErr": "",
    "cats": {
-    "shirts": 30,
-    "tops": 81,
-    "sweatshirts": 67,
-    "dresses": 65,
-    "pants": 33
+    "shirts": 29,
+    "tops": 80,
+    "sweatshirts": 63,
+    "dresses": 66,
+    "pants": 31
    },
    "perUrl": [
     {
      "url": "https://www.seasaltcornwall.com/clothing/tops",
-     "count": 139,
+     "count": 135,
      "productShaped": 0,
      "note": "",
      "sample": [
@@ -1169,24 +943,24 @@
        "price": ""
       },
       {
-       "name": "Coppice Shirt-Style Cord Tunic",
-       "productUrl": "https://www.seasaltcornwall.com/coppice-shirt-style-cord-tunic",
+       "name": "Isla Semi-Fitted Shirt",
+       "productUrl": "https://www.seasaltcornwall.com/isla-patterned-organic-cotton-shirt",
        "price": ""
       },
       {
-       "name": "Borlowen Organic Cotton Jersey Top",
-       "productUrl": "https://www.seasaltcornwall.com/borlowen-organic-cotton-jersey-top",
+       "name": "Screenprint Jersey A-Line Tunic",
+       "productUrl": "https://www.seasaltcornwall.com/screenprint-a-line-jersey-tunic",
        "price": ""
       }
      ],
      "rej": {
-      "total": 611,
-      "noImage": 427,
-      "tinyImage": 13,
+      "total": 600,
+      "noImage": 428,
+      "tinyImage": 10,
       "shortPath": 4,
-      "samePage": 12,
+      "samePage": 15,
       "banner": 0,
-      "dup": 75,
+      "dup": 67,
       "nonProduct": 6,
       "landing": 0,
       "siteMenu": 38,
@@ -1195,7 +969,7 @@
     },
     {
      "url": "https://www.seasaltcornwall.com/clothing/jumpers-cardigans",
-     "count": 87,
+     "count": 85,
      "productShaped": 0,
      "note": "",
      "sample": [
@@ -1205,24 +979,24 @@
        "price": ""
       },
       {
-       "name": "Yuletide Chenille Jumper",
-       "productUrl": "https://www.seasaltcornwall.com/yuletide-chenille-crew-neck-jumper",
-       "price": ""
+       "name": "media/catalog/product/b/-/b-wm28183-36757_1",
+       "productUrl": "https://www.seasaltcornwall.com/percella-cove-fair-isle-knitted-jumper",
+       "price": "£71.96"
       },
       {
-       "name": "Golden Light Knitted Vest",
-       "productUrl": "https://www.seasaltcornwall.com/golden-light-fair-isle-knitted-vest",
-       "price": ""
+       "name": "Willowing Pointelle Organic Cotton Cardigan",
+       "productUrl": "https://www.seasaltcornwall.com/willowing-organic-cotton-cardigan",
+       "price": "£42.95"
       }
      ],
      "rej": {
-      "total": 667,
-      "noImage": 419,
+      "total": 665,
+      "noImage": 420,
       "tinyImage": 13,
       "shortPath": 4,
       "samePage": 13,
       "banner": 0,
-      "dup": 119,
+      "dup": 117,
       "nonProduct": 5,
       "landing": 0,
       "siteMenu": 38,
@@ -1231,7 +1005,7 @@
     },
     {
      "url": "https://www.seasaltcornwall.com/clothing/shirts-blouses",
-     "count": 55,
+     "count": 54,
      "productShaped": 0,
      "note": "",
      "sample": [
@@ -1246,19 +1020,19 @@
        "price": ""
       },
       {
-       "name": "Thornapple Embroidered Shirt in GOTS-Certified Organic Cotton",
-       "productUrl": "https://www.seasaltcornwall.com/thornapple-organic-cotton-embroidered-shirt",
-       "price": "£59.95"
+       "name": "Hope Cottage Organic Cotton Blouse",
+       "productUrl": "https://www.seasaltcornwall.com/hope-cottage-organic-cotton-floral-blouse",
+       "price": "£55.95"
       }
      ],
      "rej": {
-      "total": 661,
-      "noImage": 405,
+      "total": 659,
+      "noImage": 406,
       "tinyImage": 0,
       "shortPath": 4,
       "samePage": 21,
       "banner": 0,
-      "dup": 127,
+      "dup": 125,
       "nonProduct": 5,
       "landing": 0,
       "siteMenu": 38,
@@ -1267,7 +1041,7 @@
     },
     {
      "url": "https://www.seasaltcornwall.com/clothing/dresses",
-     "count": 86,
+     "count": 87,
      "productShaped": 0,
      "note": "",
      "sample": [
@@ -1277,22 +1051,22 @@
        "price": ""
       },
       {
-       "name": "Golden Hour A-Line Shift Dress Model Image",
-       "productUrl": "https://www.seasaltcornwall.com/golden-hour-a-line-shift-dress",
-       "price": "£95.95"
+       "name": "Oak Cottage Velvet Dress",
+       "productUrl": "https://www.seasaltcornwall.com/oak-cottage-fit-and-flare-velvet-party-dress",
+       "price": ""
       },
       {
-       "name": "Pebble Comb Double Cloth Dress",
-       "productUrl": "https://www.seasaltcornwall.com/pebble-comb-organic-cotton-tiered-dress",
-       "price": ""
+       "name": "Audrey Cord Pinafore Dress Model Image",
+       "productUrl": "https://www.seasaltcornwall.com/audrey-cord-pinafore-dress",
+       "price": "£55.95"
       }
      ],
      "rej": {
-      "total": 675,
-      "noImage": 434,
-      "tinyImage": 10,
+      "total": 677,
+      "noImage": 436,
+      "tinyImage": 0,
       "shortPath": 4,
-      "samePage": 12,
+      "samePage": 22,
       "banner": 0,
       "dup": 116,
       "nonProduct": 6,
@@ -1303,7 +1077,7 @@
     },
     {
      "url": "https://www.seasaltcornwall.com/clothing/trousers-leggings-cropped",
-     "count": 52,
+     "count": 50,
      "productShaped": 0,
      "note": "",
      "sample": [
@@ -1313,8 +1087,8 @@
        "price": ""
       },
       {
-       "name": "Painted Forms Relaxed Tapered Cord Trousers",
-       "productUrl": "https://www.seasaltcornwall.com/painted-forms-relaxed-tapered-cord-trousers",
+       "name": "Mirrose Well Velvet Barrel Leg Trousers Model Image",
+       "productUrl": "https://www.seasaltcornwall.com/mirrose-well-barrel-leg-trousers",
        "price": ""
       },
       {
@@ -1324,21 +1098,21 @@
       }
      ],
      "rej": {
-      "total": 677,
-      "noImage": 426,
-      "tinyImage": 0,
+      "total": 668,
+      "noImage": 424,
+      "tinyImage": 11,
       "shortPath": 4,
-      "samePage": 23,
+      "samePage": 12,
       "banner": 0,
-      "dup": 124,
+      "dup": 120,
       "nonProduct": 5,
       "landing": 0,
-      "siteMenu": 38,
+      "siteMenu": 37,
       "offSite": 2
      }
     }
    ],
-   "secs": 436,
+   "secs": 360,
    "dropped": 18,
    "cut": false,
    "sample": [
@@ -1372,45 +1146,188 @@
    "engineSource": "extra",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 0,
-   "stored": 0,
-   "storeErr": "추가 브랜드 최소 20개 미달(0개) — 저장 안 함(이전 저장본 유지)",
-   "cats": {},
+   "collected": 471,
+   "stored": 471,
+   "storeErr": "",
+   "cats": {
+    "tops": 137,
+    "sweatshirts": 125,
+    "pants": 71,
+    "dresses": 125,
+    "shirts": 13
+   },
    "perUrl": [
     {
      "url": "https://www.gap.com/browse/women/t-shirts-and-tanks?cid=17076&nav=meganav%3AWomen%3ACategories%3AT-Shirts+%26+Tanks#pageId=0&department=136",
-     "count": 0,
+     "count": 198,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Organic Cotton VintageSoft T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=795346062",
+       "price": ""
+      },
+      {
+       "name": "Organic Cotton VintageSoft T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1185083082",
+       "price": ""
+      },
+      {
+       "name": "Organic Cotton VintageSoft Oversized Logo T-Shirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1185080052",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1460,
+      "noImage": 852,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 13,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 1,
+      "landing": 0,
+      "siteMenu": 393,
+      "offSite": 3
+     }
     },
     {
      "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136",
-     "count": 0,
+     "count": 209,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "VintageSoft Terry Oversized Wedge Side-Slit Sweatshirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1180261062",
+       "price": ""
+      },
+      {
+       "name": "Adult VintageSoft Relaxed Hoodie",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=737296042",
+       "price": "$59.95"
+      },
+      {
+       "name": "Gap × Malbon Heavyweight Logo Sweatshirt",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1181388002",
+       "price": "$98.00"
+      }
+     ],
+     "rej": {
+      "total": 1510,
+      "noImage": 894,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 11,
+      "banner": 0,
+      "dup": 1,
+      "nonProduct": 1,
+      "landing": 0,
+      "siteMenu": 391,
+      "offSite": 3
+     }
     },
     {
      "url": "https://www.gap.com/browse/women/dresses?cid=13658&nav=meganav%3AWomen%3ACategories%3ADresses#pageId=0&department=136",
-     "count": 0,
+     "count": 198,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Lightweight CashSoft Rib Sweater Maxi Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1184693002",
+       "price": ""
+      },
+      {
+       "name": "BiStretch Button-Front Mini Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=842626002",
+       "price": ""
+      },
+      {
+       "name": "V-Neck Print Mini Dress",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=910038012",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1455,
+      "noImage": 850,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 2,
+      "landing": 0,
+      "siteMenu": 393,
+      "offSite": 3
+     }
     },
     {
      "url": "https://www.gap.com/browse/women/sweatshirts-and-sweatpants?cid=1041168&nav=meganav%3AWomen%3ACategories%3ASweatshirts+%26+Sweatpants#pageId=0&department=136&style=1144620&mlink=1041168,1,W_SWEATS_MERCH_EBB_SWEATPANTS",
-     "count": 0,
+     "count": 52,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "VintageSoft Terry Slim Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1200203022",
+       "price": ""
+      },
+      {
+       "name": "VintageSoft Terry Slim Joggers",
+       "productUrl": "https://www.gap.com/browse/product.do?pid=1200203032",
+       "price": ""
+      },
+      {
+       "name": "gap hoodie shop",
+       "productUrl": "https://www.gap.com/browse/new/gap-hoodie-shop",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 726,
+      "noImage": 267,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 11,
+      "banner": 0,
+      "dup": 1,
+      "nonProduct": 1,
+      "landing": 0,
+      "siteMenu": 391,
+      "offSite": 3
+     }
     }
    ],
-   "secs": 480,
+   "secs": 119,
    "dropped": 0,
    "cut": false,
-   "sample": [],
-   "verdict": "확장 필요(봇 차단)"
+   "sample": [
+    {
+     "name": "Organic Cotton VintageSoft T-Shirt",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=795346062"
+    },
+    {
+     "name": "Modern Crewneck Cardigan",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=839482052"
+    },
+    {
+     "name": "Modern Turtleneck",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=915375122"
+    },
+    {
+     "name": "Modern Rib T-Shirt",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=874457002"
+    },
+    {
+     "name": "Modern Crew T-Shirt",
+     "productUrl": "https://www.gap.com/browse/product.do?pid=801470192"
+    }
+   ],
+   "verdict": "자동화 가능"
   },
   {
    "brand": "Old Navy",
@@ -1419,65 +1336,224 @@
    "engineSource": "extra",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 0,
-   "stored": 0,
-   "storeErr": "추가 브랜드 최소 20개 미달(0개) — 저장 안 함(이전 저장본 유지)",
-   "cats": {},
+   "collected": 692,
+   "stored": 692,
+   "storeErr": "",
+   "cats": {
+    "tops": 290,
+    "sweatshirts": 108,
+    "shirts": 10,
+    "pants": 178,
+    "dresses": 106
+   },
    "perUrl": [
     {
      "url": "https://oldnavy.gap.com/browse/women/t-shirts?cid=1035712&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AT-shirts+%26+Tanks#department=136",
-     "count": 0,
+     "count": 204,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits",
+       "price": ""
+      },
+      {
+       "name": "Tom Petty™ Oversized Tunic T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184135002",
+       "price": ""
+      },
+      {
+       "name": "Vintage Long-Sleeve Waffle Knit Crew-Neck T-Shirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1186809012",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1461,
+      "noImage": 892,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 330,
+      "nonProduct": 10,
+      "landing": 0,
+      "siteMenu": 12,
+      "offSite": 3
+     }
     },
     {
      "url": "https://oldnavy.gap.com/browse/women/sweatshirts-and-hoodies?cid=3044037&nav=meganav%3AWomen%3AWomen%E2%80%99s%20Tops%3ASweatshirts%20%26%20Hoodies#department=136",
-     "count": 0,
+     "count": 199,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits",
+       "price": ""
+      },
+      {
+       "name": "Dynamic Fleece Half-Zip Tunic Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=903707002",
+       "price": ""
+      },
+      {
+       "name": "Bounce Fleece Crew-Neck Cropped Sweatshirt",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=861644102",
+       "price": "$9.97"
+      }
+     ],
+     "rej": {
+      "total": 1457,
+      "noImage": 887,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 6,
+      "banner": 0,
+      "dup": 304,
+      "nonProduct": 10,
+      "landing": 0,
+      "siteMenu": 47,
+      "offSite": 3
+     }
     },
     {
      "url": "https://oldnavy.gap.com/browse/women/all-tops?cid=72091&nav=meganav%3AWomen%3AWomen%E2%80%99s+Tops%3AAll+Tops&tid=ON_WMNS_TOPS#department=136&style=1166604&banner=vi_tops_w_blouses_click",
-     "count": 0,
+     "count": 134,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits",
+       "price": ""
+      },
+      {
+       "name": "Tiered Ruffle Tie-Front Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=908819002",
+       "price": ""
+      },
+      {
+       "name": "Linen-Blend Short-Sleeve Smocked Top",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=886788002",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 977,
+      "noImage": 693,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 15,
+      "banner": 0,
+      "dup": 104,
+      "nonProduct": 10,
+      "landing": 0,
+      "siteMenu": 47,
+      "offSite": 3
+     }
     },
     {
      "url": "https://oldnavy.gap.com/browse/women/dresses-and-jumpsuits?cid=15292&nav=meganav%3AWomen%3AShop%20Women%27s%20Categories%3ADresses%20%26%20Jumpsuits",
-     "count": 0,
+     "count": 152,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits",
+       "price": ""
+      },
+      {
+       "name": "Seattle Seahawks Oversized Mini Football Dress for Women",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=916614002",
+       "price": "$27.49"
+      },
+      {
+       "name": "Long-Sleeve Crepe Mini Dress",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=894638002",
+       "price": "$13.47"
+      }
+     ],
+     "rej": {
+      "total": 1182,
+      "noImage": 789,
+      "tinyImage": 0,
+      "shortPath": 1,
+      "samePage": 10,
+      "banner": 0,
+      "dup": 170,
+      "nonProduct": 10,
+      "landing": 0,
+      "siteMenu": 47,
+      "offSite": 3
+     }
     },
     {
      "url": "https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136",
-     "count": 0,
+     "count": 156,
      "productShaped": 0,
-     "note": "상품 0개 · 최종주소 https://oldnavy.gap.com/browse/women/sweatpants?cid=3044038&nav=meganav%3AWomen%3AWomen%27s%20Bottoms%3ASweatpants#department=136 · 제목 \"\" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=0 offSite=0] · \"\"",
-     "sample": [],
+     "note": "",
+     "sample": [
+      {
+       "name": "Image of Old Navy Holiday dressy.",
+       "productUrl": "https://oldnavy.gap.com/browse/women/holiday-outfits",
+       "price": ""
+      },
+      {
+       "name": "High-Waisted Fleece Wide-Leg Sweatpants",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=901643002",
+       "price": ""
+      },
+      {
+       "name": "Relaxed Dynamic Fleece Shorts",
+       "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=861780002",
+       "price": ""
+      }
+     ],
      "rej": {
-      "total": 0,
-      "noImage": 0,
+      "total": 1261,
+      "noImage": 800,
       "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
+      "shortPath": 1,
+      "samePage": 5,
       "banner": 0,
-      "dup": 0,
-      "nonProduct": 0,
+      "dup": 236,
+      "nonProduct": 10,
       "landing": 0,
-      "siteMenu": 0,
-      "offSite": 0
+      "siteMenu": 50,
+      "offSite": 3
      }
     }
    ],
-   "secs": 603,
-   "dropped": 0,
+   "secs": 216,
+   "dropped": 5,
    "cut": false,
-   "sample": [],
-   "verdict": "확장 필요(봇 차단)"
+   "sample": [
+    {
+     "name": "EveryWear Long-Sleeve T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=896721052"
+    },
+    {
+     "name": "Long-Sleeve Tie-Neck Top",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=1184155052"
+    },
+    {
+     "name": "Heavyweight Crew-Neck T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909479062"
+    },
+    {
+     "name": "Vintage Crew-Neck T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=537384532"
+    },
+    {
+     "name": "Snug Long-Sleeve Ribbed Henley T-Shirt",
+     "productUrl": "https://oldnavy.gap.com/browse/product.do?pid=909480002"
+    }
+   ],
+   "verdict": "자동화 가능"
   },
   {
    "brand": "Athleta",
@@ -1486,45 +1562,188 @@
    "engineSource": "extra",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 0,
-   "stored": 0,
-   "storeErr": "추가 브랜드 최소 20개 미달(0개) — 저장 안 함(이전 저장본 유지)",
-   "cats": {},
+   "collected": 403,
+   "stored": 403,
+   "storeErr": "",
+   "cats": {
+    "tops": 138,
+    "sweatshirts": 93,
+    "shirts": 3,
+    "dresses": 21,
+    "pants": 148
+   },
    "perUrl": [
     {
      "url": "https://athleta.gap.com/browse/tops/all-tops?cid=1032080&nav=meganav%3ATops%3ACategories%3AAll%20Tops",
-     "count": 0,
+     "count": 206,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Momentum Flex Top",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177318012",
+       "price": ""
+      },
+      {
+       "name": "Flurry Seamless Asym Half Zip",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1178765012",
+       "price": "$119.004"
+      },
+      {
+       "name": "Coaster Luxe Open Cardigan",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177198052",
+       "price": "$89.00"
+      }
+     ],
+     "rej": {
+      "total": 1099,
+      "noImage": 422,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 333,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 126,
+      "offSite": 3
+     }
     },
     {
      "url": "https://athleta.gap.com/browse/tops/sweatshirts-and-wraps?cid=1005761&nav=meganav%3ATops%3ACategories%3ASweatshirts",
-     "count": 0,
+     "count": 117,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Forever Fleece 1/4 Zip Sweatshirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177321022",
+       "price": ""
+      },
+      {
+       "name": "Forever Fleece Classic Full Zip Sweatshirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177320032",
+       "price": ""
+      },
+      {
+       "name": "Seasoft V-Neck Sweatshirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174523072",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 677,
+      "noImage": 244,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 180,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 128,
+      "offSite": 3
+     }
     },
     {
      "url": "https://athleta.gap.com/browse/dresses-and-jumpsuits/all-dresses-and-jumpsuits?cid=89745&mlink=1%2C1%2CMeganav_6&nav=meganav%3ADresses%3A%3A",
-     "count": 0,
+     "count": 36,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Crossroads Dress",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1178636012",
+       "price": ""
+      },
+      {
+       "name": "Featherweight Plissé Midi Skirt",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174505022",
+       "price": ""
+      },
+      {
+       "name": "Moment Hybrid Dress",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=844281022",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 281,
+      "noImage": 76,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 5,
+      "banner": 0,
+      "dup": 39,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 122,
+      "offSite": 3
+     }
     },
     {
      "url": "https://athleta.gap.com/browse/bottoms/all-bottoms?cid=1025878&mlink=1%2C1%2CMeganav_2&nav=meganav%3ABottoms%3A%3A",
-     "count": 0,
+     "count": 200,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Salutation Stash High Rise Legging",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=599749002",
+       "price": ""
+      },
+      {
+       "name": "Journey Wide Leg Pant",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=1189410012",
+       "price": ""
+      },
+      {
+       "name": "Wayfind High Rise 5\" Short",
+       "productUrl": "https://athleta.gap.com/browse/product.do?pid=658552012",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 1028,
+      "noImage": 410,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 9,
+      "banner": 0,
+      "dup": 313,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 93,
+      "offSite": 3
+     }
     }
    ],
-   "secs": 480,
+   "secs": 91,
    "dropped": 0,
    "cut": false,
-   "sample": [],
-   "verdict": "확장 필요(봇 차단)"
+   "sample": [
+    {
+     "name": "Momentum Flex Top",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177318012"
+    },
+    {
+     "name": "Move With Ease Top",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=784678392"
+    },
+    {
+     "name": "Forever Fleece 1/4 Zip Sweatshirt",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177321082"
+    },
+    {
+     "name": "Coaster Luxe V-Neck Sweatshirt",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=1174524072"
+    },
+    {
+     "name": "Coaster Luxe Open Cardigan",
+     "productUrl": "https://athleta.gap.com/browse/product.do?pid=1177198072"
+    }
+   ],
+   "verdict": "자동화 가능"
   },
   {
    "brand": "Banana Republic",
@@ -1533,58 +1752,188 @@
    "engineSource": "extra",
    "fresh": false,
    "storeMode": "replace",
-   "collected": 0,
-   "stored": 0,
-   "storeErr": "추가 브랜드 최소 20개 미달(0개) — 저장 안 함(이전 저장본 유지)",
-   "cats": {},
+   "collected": 498,
+   "stored": 498,
+   "storeErr": "",
+   "cats": {
+    "tops": 166,
+    "sweatshirts": 17,
+    "shirts": 74,
+    "pants": 131,
+    "dresses": 110
+   },
    "perUrl": [
     {
      "url": "https://bananarepublic.gap.com/browse/women/t-shirts?cid=1055063&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3AT-Shirts+%26+Tanks#department=136",
-     "count": 0,
+     "count": 97,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Refined Baby T-Shirt",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=443576032",
+       "price": ""
+      },
+      {
+       "name": "Vintage Cotton Crew-Neck T-Shirt",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=834994362",
+       "price": "$30.00"
+      },
+      {
+       "name": "Ribbed Scoop-Neck Camisole",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=872926032",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 694,
+      "noImage": 423,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 10,
+      "banner": 2,
+      "dup": 115,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 44,
+      "offSite": 3
+     }
     },
     {
      "url": "https://bananarepublic.gap.com/browse/women/tops-and-blouses?cid=5037&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ATops+%26+Shirts#department=136",
-     "count": 0,
+     "count": 170,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "Stretch-Satin Fringe Top",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1203518002",
+       "price": ""
+      },
+      {
+       "name": "Velvet Button-Front Tank",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1186891012",
+       "price": ""
+      },
+      {
+       "name": "The Everyday Shirt in Cotton Poplin",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=709387352",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 996,
+      "noImage": 578,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 5,
+      "banner": 2,
+      "dup": 194,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 44,
+      "offSite": 3
+     }
     },
     {
      "url": "https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136",
-     "count": 0,
+     "count": 124,
      "productShaped": 0,
-     "note": "상품 0개 · 최종주소 https://bananarepublic.gap.com/browse/women/dresses-and-jumpsuits?cid=69883&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3ADresses+%26+Jumpsuits#department=136 · 제목 \"\" · 링크 0/이미지 0 · 탈락[total=0 noImage=0 tinyImage=0 shortPath=0 samePage=0 banner=0 dup=0 nonProduct=0 landing=0 siteMenu=0 offSite=0] · \"\"",
-     "sample": [],
+     "note": "",
+     "sample": [
+      {
+       "name": "Organza Maxi Shirt Dress",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180136002",
+       "price": ""
+      },
+      {
+       "name": "Mesh Long-Sleeve Maxi Dress",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180120052",
+       "price": ""
+      },
+      {
+       "name": "Stretch-Satin Cowl-Neck Maxi Dress",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180149022",
+       "price": ""
+      }
+     ],
      "rej": {
-      "total": 0,
-      "noImage": 0,
+      "total": 794,
+      "noImage": 488,
       "tinyImage": 0,
       "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 0,
+      "samePage": 5,
+      "banner": 2,
+      "dup": 126,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 0,
-      "offSite": 0
+      "siteMenu": 46,
+      "offSite": 3
      }
     },
     {
      "url": "https://bananarepublic.gap.com/browse/women/pants?cid=67595&nav=meganav%3AWOMEN%3AWOMEN%27S+CLOTHING%3APants#department=136",
-     "count": 0,
+     "count": 128,
      "productShaped": 0,
-     "note": "오류: 응답 없음(차단 의심) — 헤더조차 60초 안에 안 옴",
-     "sample": []
+     "note": "",
+     "sample": [
+      {
+       "name": "High-Rise Wide-Leg Everywhere Ponte Pull-On Pant",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=826938012",
+       "price": ""
+      },
+      {
+       "name": "Mid-Rise Relaxed Corduroy Painter Pull-On Pant",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=1180270002",
+       "price": ""
+      },
+      {
+       "name": "Ultra High-Rise Flare Italian Lightweight Wool Pant",
+       "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=826931022",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 892,
+      "noImage": 514,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 10,
+      "banner": 2,
+      "dup": 189,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 46,
+      "offSite": 3
+     }
     }
    ],
-   "secs": 472,
+   "secs": 163,
    "dropped": 0,
    "cut": false,
-   "sample": [],
-   "verdict": "확장 필요(봇 차단)"
+   "sample": [
+    {
+     "name": "Refined Baby T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=443576032"
+    },
+    {
+     "name": "Refined Crew-Neck T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=506573002"
+    },
+    {
+     "name": "Ribbed Crew-Neck T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=851636032"
+    },
+    {
+     "name": "Refined Scoop-Neck T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=579807012"
+    },
+    {
+     "name": "Vintage Cotton Crew-Neck T-Shirt",
+     "productUrl": "https://bananarepublic.gap.com/browse/product.do?pid=834994042"
+    }
+   ],
+   "verdict": "자동화 가능"
   },
   {
    "brand": "Reformation",
@@ -1593,14 +1942,14 @@
    "engineSource": "extra",
    "fresh": false,
    "storeMode": "merge",
-   "collected": 540,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "collected": 541,
+   "stored": 800,
+   "storeErr": "",
    "cats": {
-    "tops": 161,
-    "pants": 149,
+    "tops": 162,
+    "pants": 150,
     "shirts": 53,
-    "sweatshirts": 37,
+    "sweatshirts": 36,
     "dresses": 140
    },
    "perUrl": [
@@ -1616,24 +1965,24 @@
        "price": ""
       },
       {
-       "name": "Max Slim Tee - White",
-       "productUrl": "https://www.thereformation.com/products/max-slim-tee/1316453WHT.html",
+       "name": "Max Slim Tee - Citrine",
+       "productUrl": "https://www.thereformation.com/products/max-slim-tee/1316453CTF.html",
        "price": ""
       },
       {
-       "name": "Brynn Linen Top - Cherry Blossom",
-       "productUrl": "https://www.thereformation.com/products/brynn-linen-top/1319586HRY.html",
+       "name": "Larah Knit Top - Fior Di Latte",
+       "productUrl": "https://www.thereformation.com/products/larah-knit-top/1320794FDL.html",
        "price": ""
       }
      ],
      "rej": {
-      "total": 1878,
-      "noImage": 210,
-      "tinyImage": 1087,
+      "total": 1879,
+      "noImage": 214,
+      "tinyImage": 1088,
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
-      "dup": 80,
+      "dup": 76,
       "nonProduct": 0,
       "landing": 0,
       "siteMenu": 285,
@@ -1642,8 +1991,8 @@
     },
     {
      "url": "https://www.thereformation.com/the-sweater-shop.html",
-     "count": 51,
-     "productShaped": 45,
+     "count": 50,
+     "productShaped": 44,
      "note": "",
      "sample": [
       {
@@ -1669,7 +2018,7 @@
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
-      "dup": 53,
+      "dup": 54,
       "nonProduct": 0,
       "landing": 1,
       "siteMenu": 285,
@@ -1688,8 +2037,8 @@
        "price": ""
       },
       {
-       "name": "Eli Oversized Shirt - Bright White",
-       "productUrl": "https://www.thereformation.com/products/eli-oversized-shirt/1316192BGW.html",
+       "name": "Andy Oversized Linen Shirt - White",
+       "productUrl": "https://www.thereformation.com/products/andy-oversized-linen-shirt/1315096WHT.html",
        "price": ""
       },
       {
@@ -1724,20 +2073,20 @@
        "price": ""
       },
       {
-       "name": "Moya Linen Two Piece - White",
-       "productUrl": "https://www.thereformation.com/products/moya-linen-two-piece/1314481WHT.html",
+       "name": "Ofelia Silk Dress - Black",
+       "productUrl": "https://www.thereformation.com/products/ofelia-silk-dress/1320564BLK.html",
        "price": ""
       },
       {
-       "name": "Flora Knit Two Piece - Black",
-       "productUrl": "https://www.thereformation.com/products/flora-knit-two-piece/1320584BLK.html",
+       "name": "Solas Silk Dress - Romance",
+       "productUrl": "https://www.thereformation.com/products/solas-silk-dress/1321175RMC.html",
        "price": ""
       }
      ],
      "rej": {
-      "total": 1370,
+      "total": 1371,
       "noImage": 167,
-      "tinyImage": 569,
+      "tinyImage": 570,
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
@@ -1785,7 +2134,7 @@
      }
     }
    ],
-   "secs": 654,
+   "secs": 656,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -1820,8 +2169,8 @@
    "fresh": false,
    "storeMode": "merge",
    "collected": 211,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "stored": 243,
+   "storeErr": "",
    "cats": {
     "shirts": 47,
     "sweatshirts": 27,
@@ -2011,7 +2360,7 @@
      }
     }
    ],
-   "secs": 628,
+   "secs": 625,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -2045,21 +2394,21 @@
    "engineSource": "extra",
    "fresh": false,
    "storeMode": "merge",
-   "collected": 675,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "collected": 649,
+   "stored": 650,
+   "storeErr": "",
    "cats": {
-    "tops": 237,
-    "pants": 130,
-    "shirts": 114,
-    "sweatshirts": 73,
-    "dresses": 121
+    "tops": 228,
+    "pants": 127,
+    "shirts": 101,
+    "sweatshirts": 75,
+    "dresses": 118
    },
    "perUrl": [
     {
      "url": "https://www.whitestuff.com/browse/collection/womens-t-shirts",
-     "count": 111,
-     "productShaped": 111,
+     "count": 102,
+     "productShaped": 102,
      "note": "",
      "sample": [
       {
@@ -2068,19 +2417,127 @@
        "price": ""
       },
       {
-       "name": "CLARA LS TEE",
-       "productUrl": "https://www.whitestuff.com/p/8718/447357-clara-ls-tee/GREEN_PR",
+       "name": "NINA NOTCH STRIPE BUTTON TEE",
+       "productUrl": "https://www.whitestuff.com/p/8809/448668-nina-notch-stripe-button-tee/PINK_MLT",
        "price": ""
       },
       {
-       "name": "IRIS LINEN TEE",
-       "productUrl": "https://www.whitestuff.com/p/9491/442987-iris-linen-tee/IVORY_PR",
+       "name": "BLUE PR swatch",
+       "productUrl": "https://www.whitestuff.com/p/8390/447078-clara-ls-tee/BLUE_PR",
+       "price": "£26.25"
+      }
+     ],
+     "rej": {
+      "total": 405,
+      "noImage": 7,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 0,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 398,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/tops-and-tees",
+     "count": 153,
+     "productShaped": 153,
+     "note": "",
+     "sample": [
+      {
+       "name": "KIM BUTTON THROUGH TEE",
+       "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI",
+       "price": ""
+      },
+      {
+       "name": "DARK NAVY swatch",
+       "productUrl": "https://www.whitestuff.com/p/9430/448670-kim-midweight-button-tee/DARK_NAVY",
+       "price": "£36.75"
+      },
+      {
+       "name": "KIM STRIPE TOP",
+       "productUrl": "https://www.whitestuff.com/p/9505/448862-kim-stripe-top/NAVY_MULTI",
        "price": ""
       }
      ],
      "rej": {
-      "total": 404,
-      "noImage": 7,
+      "total": 596,
+      "noImage": 42,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 89,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 401,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/knitwear",
+     "count": 163,
+     "productShaped": 163,
+     "note": "",
+     "sample": [
+      {
+       "name": "SPACEDYE WOOL BLEND V NECK JUMPER",
+       "productUrl": "https://www.whitestuff.com/p/8425/447124-spacedye-v-neck-jumper/PINK_MLT",
+       "price": ""
+      },
+      {
+       "name": "MID CHART swatch",
+       "productUrl": "https://www.whitestuff.com/p/8278/446740-lois-cardi/MID_CHART",
+       "price": "£36.75"
+      },
+      {
+       "name": "LULU CARDI",
+       "productUrl": "https://www.whitestuff.com/p/2178/lulu-cardi/NAT_WHITE",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 632,
+      "noImage": 47,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 114,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 402,
+      "offSite": 0
+     }
+    },
+    {
+     "url": "https://www.whitestuff.com/browse/womens/shirts-and-blouses",
+     "count": 106,
+     "productShaped": 106,
+     "note": "",
+     "sample": [
+      {
+       "name": "LIBBY ORGANIC COTTON SHIRT",
+       "productUrl": "https://www.whitestuff.com/p/9420/448337-libby-organic-cotton-shirt/BRIL_WHITE",
+       "price": ""
+      },
+      {
+       "name": "ANNIE JERSEY SHIRT",
+       "productUrl": "https://www.whitestuff.com/p/8005/445834-annie-jersey-shirt-printed-collared/GREEN_PR",
+       "price": ""
+      },
+      {
+       "name": "SAFFIE EMBROIDERED SHIRT",
+       "productUrl": "https://www.whitestuff.com/p/9589/448345-saffie-embroidered-shirt/IVORY_MLT",
+       "price": ""
+      }
+     ],
+     "rej": {
+      "total": 409,
+      "noImage": 12,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 0,
@@ -2093,127 +2550,19 @@
      }
     },
     {
-     "url": "https://www.whitestuff.com/browse/womens/tops-and-tees",
-     "count": 159,
-     "productShaped": 159,
-     "note": "",
-     "sample": [
-      {
-       "name": "KIM BUTTON THROUGH TEE",
-       "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/NAVY_MULTI",
-       "price": ""
-      },
-      {
-       "name": "WEAVER TEE",
-       "productUrl": "https://www.whitestuff.com/p/9350/447093-weaver-tee/BLUE_PR",
-       "price": ""
-      },
-      {
-       "name": "GREEN MLT swatch",
-       "productUrl": "https://www.whitestuff.com/p/7241/nelly-notch-neck-print-t-shirt/GREEN_MLT",
-       "price": "£17.70"
-      }
-     ],
-     "rej": {
-      "total": 599,
-      "noImage": 42,
-      "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 89,
-      "nonProduct": 0,
-      "landing": 0,
-      "siteMenu": 400,
-      "offSite": 0
-     }
-    },
-    {
-     "url": "https://www.whitestuff.com/browse/womens/knitwear",
-     "count": 176,
-     "productShaped": 176,
-     "note": "",
-     "sample": [
-      {
-       "name": "LUCIE CREW NECK JUMPER",
-       "productUrl": "https://www.whitestuff.com/p/8688/446745-lucie-crew-neck-jumper/BRT_RED",
-       "price": ""
-      },
-      {
-       "name": "MID PINK swatch",
-       "productUrl": "https://www.whitestuff.com/p/8278/446740-lois-cardi/MID_PINK",
-       "price": "£36.75"
-      },
-      {
-       "name": "JODIE CARDIGAN",
-       "productUrl": "https://www.whitestuff.com/p/8810/446719-jodie-cardigan/PINK_MLT",
-       "price": ""
-      }
-     ],
-     "rej": {
-      "total": 627,
-      "noImage": 53,
-      "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 98,
-      "nonProduct": 0,
-      "landing": 0,
-      "siteMenu": 401,
-      "offSite": 0
-     }
-    },
-    {
-     "url": "https://www.whitestuff.com/browse/womens/shirts-and-blouses",
-     "count": 119,
-     "productShaped": 119,
-     "note": "",
-     "sample": [
-      {
-       "name": "LIBBY ORGANIC COTTON SHIRT",
-       "productUrl": "https://www.whitestuff.com/p/9420/448337-libby-organic-cotton-shirt/BRIL_WHITE",
-       "price": ""
-      },
-      {
-       "name": "ANNIE DOUBLE CLOTH",
-       "productUrl": "https://www.whitestuff.com/p/8610/448555-annie-double-cloth/PURE_BLK",
-       "price": ""
-      },
-      {
-       "name": "REGAN PRINT SHIRT",
-       "productUrl": "https://www.whitestuff.com/p/9594/448177-regan-print-shirt/IVORY_PR",
-       "price": ""
-      }
-     ],
-     "rej": {
-      "total": 408,
-      "noImage": 12,
-      "tinyImage": 0,
-      "shortPath": 0,
-      "samePage": 0,
-      "banner": 0,
-      "dup": 0,
-      "nonProduct": 0,
-      "landing": 0,
-      "siteMenu": 396,
-      "offSite": 0
-     }
-    },
-    {
      "url": "https://www.whitestuff.com/browse/womens/dresses",
-     "count": 132,
-     "productShaped": 132,
+     "count": 128,
+     "productShaped": 128,
      "note": "",
      "sample": [
       {
-       "name": "JOJO JERSEY SHIRT DRESS",
-       "productUrl": "https://www.whitestuff.com/p/9360/448930-jojo-jersey-shirt-dress/DARK_NAVY",
+       "name": "MATILDA CORD DRESS",
+       "productUrl": "https://www.whitestuff.com/p/8671/447950-matilda-cord-dress/DK_GREEN",
        "price": ""
       },
       {
-       "name": "RUA JERSEY DRESS",
-       "productUrl": "https://www.whitestuff.com/p/9476/448570-rua-jersey-dress/NAVY_MULTI",
+       "name": "MATILDA DRESS",
+       "productUrl": "https://www.whitestuff.com/p/8530/448504-matilda-dress/GREEN_MLT",
        "price": ""
       },
       {
@@ -2223,7 +2572,7 @@
       }
      ],
      "rej": {
-      "total": 418,
+      "total": 419,
       "noImage": 22,
       "tinyImage": 0,
       "shortPath": 0,
@@ -2232,14 +2581,14 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 396,
+      "siteMenu": 397,
       "offSite": 0
      }
     },
     {
      "url": "https://www.whitestuff.com/browse/womens/trousers-and-leggings",
-     "count": 131,
-     "productShaped": 131,
+     "count": 128,
+     "productShaped": 128,
      "note": "",
      "sample": [
       {
@@ -2248,18 +2597,18 @@
        "price": ""
       },
       {
-       "name": "DK BROWN swatch",
-       "productUrl": "https://www.whitestuff.com/p/9503/449342-ramona-wide-leg-trouser/DK_BROWN",
-       "price": "£59.25"
+       "name": "NAT WHITE swatch",
+       "productUrl": "https://www.whitestuff.com/p/7401/bailey-straight-turn-up-jean/NAT_WHITE",
+       "price": "£41.40"
       },
       {
        "name": "KHAKI GRN swatch",
        "productUrl": "https://www.whitestuff.com/p/7716/gabby-combat-short/KHAKI_GRN",
-       "price": "£36.75"
+       "price": ""
       }
      ],
      "rej": {
-      "total": 413,
+      "total": 414,
       "noImage": 17,
       "tinyImage": 0,
       "shortPath": 0,
@@ -2268,12 +2617,12 @@
       "dup": 0,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 396,
+      "siteMenu": 397,
       "offSite": 0
      }
     }
    ],
-   "secs": 951,
+   "secs": 940,
    "dropped": 0,
    "cut": false,
    "sample": [
@@ -2286,16 +2635,242 @@
      "productUrl": "https://www.whitestuff.com/p/8703/447978-kim-button-through-tee/DK_BROWN"
     },
     {
-     "name": "CLARA TEXTURE CREW NECK TEE",
-     "productUrl": "https://www.whitestuff.com/p/7087/clara-texture-crew-neck-tee/MID_BLUE"
-    },
-    {
      "name": "CLARA TEXTURE STRIPE TEE",
      "productUrl": "https://www.whitestuff.com/p/9478/448158-clara-texture-stripe-tee/BRIL_WHITE"
     },
     {
      "name": "MID PINK swatch",
      "productUrl": "https://www.whitestuff.com/p/9478/448158-clara-texture-stripe-tee/MID_PINK"
+    },
+    {
+     "name": "BLUE MLT swatch",
+     "productUrl": "https://www.whitestuff.com/p/9478/448158-clara-texture-stripe-tee/BLUE_MLT"
+    }
+   ],
+   "verdict": "자동화 가능"
+  },
+  {
+   "brand": "Bash",
+   "site": "ba-sh.com.bash",
+   "engine": "chromium",
+   "engineSource": "extra",
+   "fresh": false,
+   "storeMode": "merge",
+   "collected": 342,
+   "stored": 627,
+   "storeErr": "",
+   "cats": {
+    "tops": 79,
+    "pants": 68,
+    "dresses": 102,
+    "shirts": 61,
+    "sweatshirts": 32
+   },
+   "perUrl": [
+    {
+     "url": "https://ba-sh.com/us/t-shirts/",
+     "count": 53,
+     "productShaped": 52,
+     "note": "",
+     "sample": [
+      {
+       "name": "T-shirt ROSIE",
+       "productUrl": "https://ba-sh.com/us/p/t-shirt-rosie-greige-3667436074097.html",
+       "price": "$77"
+      },
+      {
+       "name": "jeans VANA",
+       "productUrl": "https://ba-sh.com/us/p/jeans-vana-bluejeans-3667436069666.html",
+       "price": "$164.50"
+      },
+      {
+       "name": "bra GISOR",
+       "productUrl": "https://ba-sh.com/us/p/bra-gisor-ebene-3664784950295.html",
+       "price": "$100"
+      }
+     ],
+     "rej": {
+      "total": 526,
+      "noImage": 51,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 76,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 344,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://ba-sh.com/fr/en/sweatshirts/?_gl=1*6lpw8g*_up*MQ..*_ga*MTY2MjMwMDkxNC4xNzgzMzA0MDE0*_ga_V0KDVCDYHF*czE3ODMzMDQwMTQkbzEkZzAkdDE3ODMzMDQ2MjMkajM0JGwwJGg1MzYzNDQ3NzQ.",
+     "count": 37,
+     "productShaped": 37,
+     "note": "",
+     "sample": [
+      {
+       "name": "jumper FLOYD",
+       "productUrl": "https://ba-sh.com/fr/en/p/jumper-floyd-ecrumultico-3667436090813.html",
+       "price": "€ 285"
+      },
+      {
+       "name": "sweatshirt BENJAMIN",
+       "productUrl": "https://ba-sh.com/fr/en/p/sweatshirt-benjamin-fuchsia-3667436111020.html",
+       "price": "€ 145"
+      },
+      {
+       "name": "SWEATSHIRT MAIA",
+       "productUrl": "https://ba-sh.com/fr/en/p/sweatshirt-maia-bleu-3667436042423.html",
+       "price": "€ 155"
+      }
+     ],
+     "rej": {
+      "total": 469,
+      "noImage": 40,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 61,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 330,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://ba-sh.com/us/tops-shirts/",
+     "count": 99,
+     "productShaped": 99,
+     "note": "",
+     "sample": [
+      {
+       "name": "dress DELORA",
+       "productUrl": "https://ba-sh.com/us/p/dress-delora-noir-3667436088711.html",
+       "price": "$445"
+      },
+      {
+       "name": "blouse POEME",
+       "productUrl": "https://ba-sh.com/us/p/blouse-poeme-amande-3667436085826.html",
+       "price": "$171"
+      },
+      {
+       "name": "top CLOVIS",
+       "productUrl": "https://ba-sh.com/us/p/top-clovis-greige-3667436079061.html",
+       "price": "$195"
+      }
+     ],
+     "rej": {
+      "total": 548,
+      "noImage": 65,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 97,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 344,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://ba-sh.com/us/dresses/",
+     "count": 111,
+     "productShaped": 108,
+     "note": "",
+     "sample": [
+      {
+       "name": "dress DELORA",
+       "productUrl": "https://ba-sh.com/us/p/dress-delora-noir-3667436088711.html",
+       "price": "$445"
+      },
+      {
+       "name": "dress ATESS",
+       "productUrl": "https://ba-sh.com/us/p/dress-atess-noir-3667436087141.html",
+       "price": "$325"
+      },
+      {
+       "name": "dress CELEA",
+       "productUrl": "https://ba-sh.com/us/p/dress-celea-encre-3667436079405.html",
+       "price": "$385"
+      }
+     ],
+     "rej": {
+      "total": 598,
+      "noImage": 65,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 131,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 344,
+      "offSite": 1
+     }
+    },
+    {
+     "url": "https://ba-sh.com/us/pants-jeans/",
+     "count": 74,
+     "productShaped": 74,
+     "note": "",
+     "sample": [
+      {
+       "name": "dress DELORA",
+       "productUrl": "https://ba-sh.com/us/p/dress-delora-noir-3667436088711.html",
+       "price": "$445"
+      },
+      {
+       "name": "pants REMEA",
+       "productUrl": "https://ba-sh.com/us/p/pants-remea-kaki-3667436074042.html",
+       "price": "$375"
+      },
+      {
+       "name": "pants FIMA",
+       "productUrl": "https://ba-sh.com/us/p/pants-fima-kaki-3664784869429.html",
+       "price": "$235"
+      }
+     ],
+     "rej": {
+      "total": 473,
+      "noImage": 54,
+      "tinyImage": 0,
+      "shortPath": 0,
+      "samePage": 0,
+      "banner": 0,
+      "dup": 58,
+      "nonProduct": 0,
+      "landing": 0,
+      "siteMenu": 344,
+      "offSite": 1
+     }
+    }
+   ],
+   "secs": 244,
+   "dropped": 0,
+   "cut": false,
+   "sample": [
+    {
+     "name": "T-shirt ROSIE",
+     "productUrl": "https://ba-sh.com/us/p/t-shirt-rosie-greige-3667436074097.html"
+    },
+    {
+     "name": "T-SHIRT BESS",
+     "productUrl": "https://ba-sh.com/us/p/t-shirt-bess-greige-3667436070594.html"
+    },
+    {
+     "name": "t-shirt ROSTA",
+     "productUrl": "https://ba-sh.com/us/p/t-shirt-rosta-vieuxrose-3667436069307.html"
+    },
+    {
+     "name": "T-shirt IONI",
+     "productUrl": "https://ba-sh.com/us/p/t-shirt-ioni-grischine-3667436152573.html"
+    },
+    {
+     "name": "t-shirt CORTOT",
+     "productUrl": "https://ba-sh.com/us/p/t-shirt-cortot-encre-3667436089664.html"
     }
    ],
    "verdict": "자동화 가능"
