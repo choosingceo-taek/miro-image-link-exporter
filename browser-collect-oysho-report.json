@@ -1,5 +1,5 @@
 {
- "when": "2026-11-27T07:18:32.426Z",
+ "when": "2026-11-28T02:18:39.369Z",
  "store": true,
  "engine": "per-brand",
  "engines": [
@@ -21,8 +21,8 @@
    "storeMode": "replace",
    "job": "oysho",
    "collected": 452,
-   "stored": 0,
-   "storeErr": "store=catalog: KV put() limit exceeded for the day.",
+   "stored": 452,
+   "storeErr": "",
    "cats": {
     "tops": 208,
     "sweatshirts": 29,
@@ -35,15 +35,15 @@
      "url": "https://www.oysho.com/gb/womens-sports-t-shirts-n4764",
      "count": 144,
      "productShaped": 144,
-     "note": "수집 중 페이지가 다시 떠서 다시 읽음",
+     "note": "",
      "sample": [
       {
-       "name": "Extra-fine lyocell-blend T-shirt",
-       "productUrl": "https://www.oysho.com/gb/extrafine-lyocellblend-tshirt-l37581348",
+       "name": "Extra-fine regular-fit lyocell-blend t-shirt",
+       "productUrl": "https://www.oysho.com/gb/extrafine-regularfit-lyocellblend-tshirt-l37581348",
        "price": ""
       },
       {
-       "name": "Regular short sleeve cotton blend T-shirt - Sale",
+       "name": "Regular short sleeve cotton blend T-shirt",
        "productUrl": "https://www.oysho.com/gb/regular-short-sleeve-cotton-blend-tshirt-l37141736",
        "price": ""
       },
@@ -54,7 +54,7 @@
       }
      ],
      "rej": {
-      "total": 541,
+      "total": 533,
       "noImage": 14,
       "tinyImage": 0,
       "shortPath": 0,
@@ -63,7 +63,7 @@
       "dup": 268,
       "nonProduct": 10,
       "landing": 0,
-      "siteMenu": 104,
+      "siteMenu": 96,
       "offSite": 1
      }
     },
@@ -84,22 +84,22 @@
        "price": ""
       },
       {
-       "name": "Halter houndstooth print tank top - Sale",
+       "name": "Halter houndstooth print tank top",
        "productUrl": "https://www.oysho.com/gb/halter-houndstooth-print-tank-top-l35759816",
        "price": ""
       }
      ],
      "rej": {
-      "total": 309,
+      "total": 297,
       "noImage": 14,
       "tinyImage": 0,
       "shortPath": 0,
       "samePage": 0,
       "banner": 0,
-      "dup": 117,
-      "nonProduct": 10,
+      "dup": 115,
+      "nonProduct": 8,
       "landing": 0,
-      "siteMenu": 104,
+      "siteMenu": 96,
       "offSite": 1
      }
     },
@@ -143,7 +143,7 @@
      "url": "https://www.oysho.com/gb/dresses-jumpsuits-n4954",
      "count": 50,
      "productShaped": 50,
-     "note": "수집 중 페이지가 다시 떠서 다시 읽음",
+     "note": "",
      "sample": [
       {
        "name": "Long flare Comfortlux fine-strap jumpsuit",
@@ -151,18 +151,18 @@
        "price": ""
       },
       {
-       "name": "Comfortlux marl open-back short jumpsuit - Sale",
+       "name": "Comfortlux marl open-back short jumpsuit",
        "productUrl": "https://www.oysho.com/gb/comfortlux-marl-openback-short-jumpsuit-l35042965",
        "price": ""
       },
       {
-       "name": "Short strappy 100% linen jumpsuit - Sale",
+       "name": "Short strappy 100% linen jumpsuit",
        "productUrl": "https://www.oysho.com/gb/short-strappy-100-linen-jumpsuit-l35035119",
        "price": ""
       }
      ],
      "rej": {
-      "total": 269,
+      "total": 261,
       "noImage": 51,
       "tinyImage": 0,
       "shortPath": 0,
@@ -171,14 +171,14 @@
       "dup": 64,
       "nonProduct": 0,
       "landing": 0,
-      "siteMenu": 103,
+      "siteMenu": 95,
       "offSite": 1
      }
     },
     {
      "url": "https://www.oysho.com/gb/womens-pants-n4813",
-     "count": 172,
-     "productShaped": 172,
+     "count": 170,
+     "productShaped": 170,
      "note": "",
      "sample": [
       {
@@ -192,13 +192,13 @@
        "price": ""
       },
       {
-       "name": "100% linen straight-leg trousers with turn-up waist - Sale",
+       "name": "100% linen straight-leg trousers with turn-up waist",
        "productUrl": "https://www.oysho.com/gb/100-linen-straightleg-trousers-with-turnup-waist-l35615134",
        "price": ""
       }
      ],
      "rej": {
-      "total": 663,
+      "total": 653,
       "noImage": 20,
       "tinyImage": 0,
       "shortPath": 0,
@@ -207,18 +207,18 @@
       "dup": 350,
       "nonProduct": 16,
       "landing": 0,
-      "siteMenu": 104,
+      "siteMenu": 96,
       "offSite": 1
      }
     }
    ],
-   "secs": 3069,
+   "secs": 2655,
    "dropped": 0,
    "cut": false,
    "sample": [
     {
-     "name": "Extra-fine lyocell-blend T-shirt",
-     "productUrl": "https://www.oysho.com/gb/extrafine-lyocellblend-tshirt-l37581348"
+     "name": "Extra-fine regular-fit lyocell-blend t-shirt",
+     "productUrl": "https://www.oysho.com/gb/extrafine-regularfit-lyocellblend-tshirt-l37581348"
     },
     {
      "name": "Base layers long-sleeved lyocell blend t-shirt",
