@@ -26,17 +26,18 @@
   "joules.com.joules": {
    "playwright": {
     "brand": "Joules",
-    "until": 1795568762694,
-    "at": "2026-11-11",
+    "until": 1797046453930,
+    "at": "2026-11-28",
     "ratio": 100
    }
   },
   "patagonia.com.patagonia": {
    "playwright": {
     "brand": "Patagonia",
-    "until": 1790639004829,
-    "at": "2026-09-14",
-    "ratio": 100
+    "until": 1796009649621,
+    "at": "2026-11-28",
+    "ratio": 100,
+    "suspect": 1
    }
   },
   "thewhitecompany.com.thewhitecompany": {
@@ -48,10 +49,9 @@
    },
    "firefox": {
     "brand": "The white company",
-    "until": 1795752018324,
-    "at": "2026-11-25",
-    "ratio": 100,
-    "suspect": 1
+    "until": 1797046226984,
+    "at": "2026-11-28",
+    "ratio": 100
    }
   },
   "www2.hm.com.hm": {
@@ -192,6 +192,13 @@
     "until": 1795999781041,
     "at": "2026-11-16",
     "ratio": 100
+   },
+   "firefox": {
+    "brand": "Addidas",
+    "until": 1796009463045,
+    "at": "2026-11-28",
+    "ratio": 100,
+    "suspect": 1
    }
   },
   "scotchandsoda.com.scothsoda": {
@@ -265,6 +272,15 @@
     "until": 1795924586195,
     "at": "2026-11-27",
     "ratio": 93,
+    "suspect": 1
+   }
+  },
+  "oysho.com.oysho": {
+   "playwright": {
+    "brand": "Oysho",
+    "until": 1796009651876,
+    "at": "2026-11-28",
+    "ratio": 100,
     "suspect": 1
    }
   }
